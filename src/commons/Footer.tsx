@@ -1,15 +1,9 @@
 import Image from "next/image";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-  FaTwitter,
-  FaWhatsapp,
-} from "react-icons/fa";
+import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="bg-primary-100 backdrop-blur-[5.6px] px-20 py-10 text-text-400">
+    <div className="bg-primary-100 backdrop-blur-[5.6px] px-20 pt-10 text-text-400">
       <div className="gap-[6.56rem] grid grid-cols-4">
         <div className="space-y-3 font-manrope text-text-400 typography-paragraph-regular">
           <div className="h-20 aspect-auto">
@@ -50,28 +44,121 @@ const Footer = () => {
             </svg>
           </p>
           <a href={`tel:${"+977 9876543210"}`}>+977 9876543210</a>
-          <div className="flex gap-4">
-            {/* 
-                 TODO: Change this to svgs in public
-             */}
-            <a href="https://www.facebook.com/">
-              <FaFacebook size={24} />
+          <div className="flex gap-4 mt-5">
+            <a
+              className="hover:brightness-80 transition-all duration-300"
+              href="https://www.facebook.com/"
+            >
+              <Image
+                src="/svg/facebook.svg"
+                width={24}
+                height={24}
+                alt="facebook"
+              />
             </a>
-            <a href="https://www.instagram.com/">
-              <FaInstagram size={24} />
+            <a
+              className="hover:brightness-80 transition-all duration-300"
+              href="https://www.instagram.com/"
+            >
+              <Image
+                src="/svg/instagram.svg"
+                width={24}
+                height={24}
+                alt="facebook"
+              />
             </a>
-            <a href="https://www.linked.com/">
-              <FaLinkedin size={24} />
+            <a
+              className="hover:brightness-80 transition-all duration-300"
+              href="https://www.linked.com/"
+            >
+              <Image
+                src="/svg/linkedin.svg"
+                width={24}
+                height={24}
+                alt="facebook"
+              />
             </a>
-            <a href="https://www.twitter.com/">
-              <FaTwitter size={24} />
+            <a
+              className="hover:brightness-80 transition-all duration-300"
+              href="https://www.twitter.com/"
+            >
+              <Image
+                src="/svg/twitter.svg"
+                width={24}
+                height={24}
+                alt="facebook"
+              />
             </a>
-            <a href="https://www.whatsapp.com/">
-              <FaWhatsapp size={24} />
+            <a
+              className="hover:brightness-80 transition-all duration-300"
+              href="https://www.whatsapp.com/"
+            >
+              <Image
+                src="/svg/whatsapp.svg"
+                width={24}
+                height={24}
+                alt="facebook"
+              />
             </a>
           </div>
         </div>
+        <div className="space-y-3 font-manrope text-text-400 typography-paragraph-regular">
+          <h3 className="font-[600] text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.1575rem]">
+            Company
+          </h3>
+          <p>
+            <Link href="/about">About Us </Link>
+          </p>
+          <p>
+            <Link href="/services">Services </Link>
+          </p>
+          <p>
+            <Link href="/stories">Success Stories </Link>
+          </p>
+          <p>
+            <Link href="/contact">Contact </Link>
+          </p>
+        </div>
+        <div className="space-y-3 font-manrope text-text-400 typography-paragraph-regular">
+          <h3 className="font-[600] text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.1575rem]">
+            Help
+          </h3>
+          <p>
+            <Link href="/about">About Us </Link>
+          </p>
+          <p>
+            <Link href="/services">Services </Link>
+          </p>
+          <p>
+            <Link href="/stories">Success Stories </Link>
+          </p>
+          <p>
+            <Link href="/contact">Contact </Link>
+          </p>
+        </div>
+        <div className="space-y-3 font-manrope text-text-400 typography-paragraph-regular">
+          <h3 className="font-[600] text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.1575rem]">
+            Subscribe to Newsletter
+          </h3>
+          <div>
+            <label className="flex bg-white/[0.12] px-4 py-4 border border-[#E4E4E7] rounded-[0.75rem]">
+              <input
+                autoComplete="off"
+                type="text"
+                placeholder="Enter your email"
+                className="outline-0 ring-0 placeholder:text-dark-variant-300 grow"
+              />
+            </label>
+          </div>
+          <button className="bg-secondary-500 p-4 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular">
+            Subscribe
+          </button>
+        </div>
       </div>
+      <hr className="bg-[#FFF1EF] my-5" />
+      <p className="pb-5 font-roboto text-text-400 text-xs text-center typography-paragraph-regular">
+        © {new Date().getFullYear()} Vatsalya. All Rights Reserved.
+      </p>
     </div>
   );
 };

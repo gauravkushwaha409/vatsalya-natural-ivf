@@ -1,5 +1,6 @@
 import { Search } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -37,7 +38,29 @@ const Header = () => {
           </button>
         </div>
       </div>
+      <nav className="mt-5 w-full">
+        <ul className="flex divide-x divide-secondary-500 font-manrope">
+          {[
+            { name: "About Us", link: "/about" },
+            { name: "Services", link: "/services" },
+            { name: "Our Doctors", link: "/contact" },
+            { name: "Success Stories", link: "/contact" },
+            { name: "Blog & News", link: "/contact" },
+            { name: "Request a Call", link: "/contact" },
+            { name: "Contact Us", link: "/contact" },
+          ].map((item, index) => (
+            <li className="px-8 w-max text-left" key={index}>
+              <Link
+                className="w-max font-bold text-secondary-500 typography-paragraph-large"
+                href={item.link}
+              >
+                {item.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </header>
   );
-}
+};
 export default Header
