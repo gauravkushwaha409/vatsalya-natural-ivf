@@ -1,4 +1,5 @@
 import HeroSection from "./partials/HeroSection";
+import Slogan from "./partials/Slogan";
 
 const HomePage = () => {
   return (
@@ -8,7 +9,7 @@ const HomePage = () => {
           background:
             "linear-gradient(90deg, #FFD2CE 0%, #EBC0DB 100%) no-repeat",
         }}
-        className="-z-[1] relative"
+        className="z-[0] relative"
       >
         <div
           style={{
@@ -16,17 +17,20 @@ const HomePage = () => {
               "url('/home/hero-noise.png') #fff4 0% 0% / 100px 70px repeat",
             backgroundBlendMode: "screen",
           }}
-          className="z-[0] relative"
+          className="z-[1] relative"
         >
           <HeroSection />
           <div
             style={{
               background: "url('/home/circle.svg') no-repeat right top",
             }}
-            className="z-[1] absolute inset-0 pointer-events-none"
+            className="z-[2] absolute inset-0 pointer-events-none"
           ></div>
         </div>
       </div>
+
+      {/* Main Slogan */}
+      <Slogan />
     </>
   );
 };
