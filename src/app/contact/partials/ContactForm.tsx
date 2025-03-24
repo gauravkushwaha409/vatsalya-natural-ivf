@@ -1,0 +1,200 @@
+"use client";
+import React from "react";
+import * as Yup from "yup";
+import { useFormik } from "formik";
+import Image from "next/image";
+import pic1 from "./../../../assests/contact/pic1.png";
+import pic2 from "./../../../assests/contact/pic2.png";
+interface IFormValues {
+  name: string;
+  phone: string;
+  address: string;
+  message: string;
+}
+const ContactForm = () => {
+  const formik = useFormik<IFormValues>({
+    initialValues: {
+      name: "",
+      phone: "",
+      address: "",
+      message: "",
+    },
+    validationSchema: Yup.object({
+      name: Yup.string()
+        .required("Name is required")
+        .min(3, "Name must be at least 3 characters"),
+      phone: Yup.string().required("Phone number is required"),
+      address: Yup.string().required("Address is required"),
+      message: Yup.string()
+        .required("Message is required")
+        .min(10, "Message must be at least 10 characters"),
+    }),
+    onSubmit: async (values) => {
+      console.log(values);
+    },
+  });
+  return (
+    <div className=" flex items-center gap-20 py-20">
+      <div className="  w-full md:w-1/2  flex flex-col gap-5">
+        <div className="flex items-center gap-3 ">
+          <span className="text-primary-500 typography-paragraph-regular font-bold uppercase tracking-widest">
+            contact
+          </span>
+          <div className="border border-primary-500/80 border-t-1 w-20"></div>
+        </div>
+        <h1 className="typography-h4 font-semibold text-text-500 ">
+          Get in Touch With Us
+        </h1>
+        <form onSubmit={formik.handleSubmit} className="grid grid-cols-2 gap-4">
+          {/* Name Field */}
+          <div className="flex flex-col gap-2">
+            <label
+              htmlFor="name"
+              className="typography-paragraph-regular font-semibold text-text-500"
+            >
+              Name
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.name}
+              placeholder="Ahmed Al Farsi"
+            />
+            {formik.touched.name && formik.errors.name && (
+              <p className="text-red-500 text-sm">{formik.errors.name}</p>
+            )}
+          </div>
+
+          {/* Phone Field */}
+          <div className="flex flex-col gap-2">
+            <label
+              htmlFor="phone"
+              className="typography-paragraph-regular font-semibold text-text-500"
+            >
+              Phone Number
+            </label>
+            <input
+              id="phone"
+              name="phone"
+              type="number"
+              className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.phone}
+              placeholder="+971 50 123 4567"
+            />
+            {formik.touched.phone && formik.errors.phone && (
+              <p className="text-red-500 text-sm">{formik.errors.phone}</p>
+            )}
+          </div>
+
+          {/* Address Field */}
+          <div className="flex flex-col gap-2">
+            <label
+              htmlFor="address"
+              className="typography-paragraph-regular font-semibold text-text-500"
+            >
+              Address
+            </label>
+            <input
+              id="address"
+              name="address"
+              type="text"
+              className="border border-gray-400 rounded-xl p-2 bg-transparent text-sm font-thinC outline-none"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.address}
+              placeholder="Burj Khalifa, Downtown Dubai"
+            />
+            {formik.touched.address && formik.errors.address && (
+              <p className="text-red-500 text-sm">{formik.errors.address}</p>
+            )}
+          </div>
+          <div className="flex flex-col gap-2">
+            <label
+              htmlFor="address"
+              className="typography-paragraph-regular font-semibold text-text-500"
+            >
+              Address
+            </label>
+            <input
+              id="address"
+              name="address"
+              type="text"
+              className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.address}
+              placeholder="Burj Khalifa, Downtown Dubai"
+            />
+            {formik.touched.address && formik.errors.address && (
+              <p className="text-red-500 text-sm">{formik.errors.address}</p>
+            )}
+          </div>
+
+          {/* Message Field */}
+          <div className="flex flex-col gap-2 col-span-2">
+            <label
+              htmlFor="message"
+              className="typography-paragraph-regular font-semibold text-text-500"
+            >
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              className="border border-gray-400 rounded-xl p-2 bg-transparent text-sm font-thinC outline-none"
+              rows={4}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.message}
+              placeholder="Looking for a luxury apartment in Dubai Marina"
+            />
+            {formik.touched.message && formik.errors.message && (
+              <p className="text-red-500 text-sm">{formik.errors.message}</p>
+            )}
+          </div>
+
+          {/* Submit Button */}
+          <div className="flex justify-end col-span-2">
+            <button
+              type="submit"
+              className="bg-secondary-500 text-white py-2 px-4 rounded-full hover:bg-secondary-600 transition duration-300 ease-in-out min-w-max w-full"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+      <div className="flex w-full md:w-1/2 justify-center items-center">
+        <div className="  aspect-[16/16] relative rounded-lg  w-10/12 -mt-10">
+          <Image
+            src={pic1}
+            alt="approval"
+            width={1920}
+            height={1920}
+            unoptimized
+            className="w-full h-full"
+          />
+          <div className="bg-white   aspect-[271/252] w-[50%] absolute -bottom-10 -right-10 pt-[0.1rem] pl-[0.1rem] rounded-l-3xl rounded-t-none  ">
+            <div className="rounded-xl flex items-center justify-center flex-col  h-full w-full">
+              <Image
+                src={pic2}
+                alt="approval"
+                width={100}
+                height={100}
+                className="w-full h-full"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ContactForm;
