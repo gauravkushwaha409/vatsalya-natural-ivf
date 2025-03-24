@@ -26,6 +26,7 @@ const Specialists = () => {
       <div className="my-10 grid grid-cols-4 gap-y-10 gap-x-10">
         {ivfTeamData?.map((items) => (
           <div
+            key={items?.id}
             className="relative"
             onMouseEnter={() => setHoveredCardId(items.id)}
             onMouseLeave={() => setHoveredCardId(null)}
@@ -70,7 +71,7 @@ const Specialists = () => {
             </div>
             {hoveredCardId === items.id && (
               <div
-                className={`backdrop-blur-sm absolute -bottom-10 h-26 rounded-lg z-50 bg-white/60 p-3 w-[112%] left-2
+                className={`backdrop-blur-sm absolute -bottom-10 h-26 rounded-lg z-50 bg-white/60 p-3 w-full left-2
     transition-opacity duration-700 ease-in-out ${
       hoveredCardId === items.id ? "opacity-100 visible" : "opacity-0 invisible"
     }`}

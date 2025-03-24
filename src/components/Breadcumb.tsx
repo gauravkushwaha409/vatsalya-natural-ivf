@@ -1,4 +1,3 @@
-import { LucideHome } from "lucide-react";
 import Link from "next/link";
 
 const Breadcrumb: React.FC<{
@@ -9,13 +8,13 @@ const Breadcrumb: React.FC<{
   return (
     <>
       {offsetHeading && <div className="h-[4.7rem]" />}
-      <div className="bg-[#f5f6fa] pt-[120px] pb-[120px]">
-        <div className="flex mx-auto w-max font-inter text-[#5d626c]">
-          <Link href="/" className="flex justify-center items-center gap-1">
-            <LucideHome size={20} /> {baseName || "Home"}
+      <div>
+        <div className="flex mx-auto w-max typography-caption text-text-50">
+          <Link href="/" className="flex justify-center items-center ">
+            {baseName || "Home"}
           </Link>
-          <span className="inline-block px-2.5">{">"}</span>
-          <span className="text-activeblue">{name}</span>
+          <span className="inline-block px-1">{">"}</span>
+          <span className="text-primary-300">{name}</span>
         </div>
       </div>
     </>
