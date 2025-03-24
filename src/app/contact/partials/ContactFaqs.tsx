@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import pic1 from "./../../../assests/contact/pic3.png";
 import pic2 from "./../../../assests/contact/pic4.png";
-import Faq from "./Faqs";
+import Faq from "../../../components/Faqs";
 import faqData from "@/data/faqsData";
 const ContactFaqs = () => {
   return (
