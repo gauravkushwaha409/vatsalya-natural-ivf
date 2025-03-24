@@ -165,6 +165,9 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 /* typography */
+@utility typography-h1 {
+  @apply font-normal text-[2.98625rem] leading-[120%];
+}
 @utility typography-h2 {
   @apply font-normal text-[2.48813rem] leading-[120%];
 }
