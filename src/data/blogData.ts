@@ -1,0 +1,88 @@
+import photo from "@/assests/blog/blogImg.png";
+
+export const blogData = [
+  {
+    date: "1 Jan 2023",
+    title: "IVF Step-by-Step",
+    desc: "Confused about the IVF process? This guide breaks down each step, from initial consultation...",
+    blogImg: photo,
+    tags: ["Mental Health", "Fertility"],
+  },
+  {
+    date: "10 Feb 2023",
+    title: "Best Foods for Fertility",
+    desc: "Discover the top fertility-boosting foods to improve your chances of conception naturally.",
+    blogImg: photo,
+    tags: ["Nutrition", "Fertility"],
+  },
+  {
+    date: "5 Mar 2023",
+    title: "Common IVF Myths Debunked",
+    desc: "Separating fact from fiction in IVF treatments to help you make informed decisions.",
+    blogImg: photo,
+    tags: ["Fertility", "Myths"],
+  },
+  {
+    date: "22 Apr 2023",
+    title: "How Stress Affects Fertility",
+    desc: "Learn how stress impacts fertility and ways to manage it for a healthier conception journey.",
+    blogImg: photo,
+    tags: ["Mental Health", "Wellness"],
+  },
+  {
+    date: "15 May 2023",
+    title: "Male Fertility: What You Should Know",
+    desc: "Understanding male fertility factors and ways to improve reproductive health.",
+    blogImg: photo,
+    tags: ["Men's Health", "Fertility"],
+  },
+  {
+    date: "30 Jun 2023",
+    title: "Signs You Should See a Fertility Specialist",
+    desc: "Not sure if you need help? These signs indicate when it’s time to consult an expert.",
+    blogImg: photo,
+    tags: ["Fertility", "Medical Advice"],
+  },
+  {
+    date: "12 Jul 2023",
+    title: "Preparing for Your First IVF Cycle",
+    desc: "Tips and essential steps to help you get ready for your IVF treatment.",
+    blogImg: photo,
+    tags: ["Fertility", "IVF"],
+  },
+  {
+    date: "5 Aug 2023",
+    title: "Exercise & Fertility: What You Need to Know",
+    desc: "Can exercise improve your fertility? We break down the best workout tips.",
+    blogImg: photo,
+    tags: ["Fitness", "Wellness"],
+  },
+  {
+    date: "18 Sep 2023",
+    title: "Endometriosis and Fertility",
+    desc: "How endometriosis affects fertility and treatment options to explore.",
+    blogImg: photo,
+    tags: ["Women's Health", "Fertility"],
+  },
+  {
+    date: "10 Oct 2023",
+    title: "How to Boost Your Egg Quality",
+    desc: "Lifestyle changes and supplements that can improve egg health.",
+    blogImg: photo,
+    tags: ["Women's Health", "Fertility"],
+  },
+  {
+    date: "28 Nov 2023",
+    title: "Understanding PCOS and Pregnancy",
+    desc: "Everything you need to know about PCOS and how it affects conception.",
+    blogImg: photo,
+    tags: ["PCOS", "Women's Health"],
+  },
+  {
+    date: "20 Dec 2023",
+    title: "The Role of Genetics in Fertility",
+    desc: "How your genetic background can influence fertility and reproductive health.",
+    blogImg: photo,
+    tags: ["Genetics", "Fertility"],
+  },
+];
