@@ -1,0 +1,65 @@
+"use client";
+import Link from "next/link";
+import { Fragment, JSX } from "react";
+
+interface BreadcrumbItem {
+  name: string;
+  link?: string;
+  isHome?: boolean;
+}
+
+interface BreadcrumbProps {
+  items: BreadcrumbItem[];
+  separator?: string | JSX.Element;
+  homeIcon?: JSX.Element;
+  className?: string;
+}
+
+function CustomBreadcrumb({
+  items,
+  separator = ">",
+  homeIcon,
+  className = "",
+}: BreadcrumbProps) {
+  return (
+    <nav className={`flex items-center  ${className}`} aria-label="Breadcrumb">
+      <ol className="flex items-center  self-stretch  ">
+        {items?.map((item: BreadcrumbItem, index: number) => {
+          const isLast = index === items.length - 1;
+
+          return (
+            <Fragment key={index}>
+              <li aria-current={isLast ? "page" : undefined} className="">
+                {item.link && !isLast ? (
+                  <Link
+                    href={item.link}
+                    className="typography-caption transition-colors duration-200"
+                  >
+                    {item.isHome && homeIcon ? homeIcon : item.name}
+                  </Link>
+                ) : (
+                  // last item & active
+                  <span className="typography-caption text-primary-300">
+                    {item.name}
+                  </span>
+                )}
+              </li>
+
+              {/* Separator Section  */}
+              {!isLast && (
+                <li
+                  className="mx-0.5 typography-caption mt-1"
+                  aria-hidden="true"
+                >
+                  {separator}
+                </li>
+              )}
+            </Fragment>
+          );
+        })}
+      </ol>
+    </nav>
+  );
+}
+
+export default CustomBreadcrumb;

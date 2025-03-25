@@ -4,12 +4,15 @@ const Breadcrumb: React.FC<{
   name: string;
   offsetHeading?: boolean;
   baseName?: string;
-}> = ({ name, offsetHeading = false, baseName }) => {
+  style?: string;
+}> = ({ name, offsetHeading = false, baseName, style }) => {
   return (
     <>
       {offsetHeading && <div className="h-[4.7rem]" />}
       <div>
-        <div className="flex mx-auto w-max typography-caption text-text-50">
+        <div
+          className={`flex mx-auto w-max typography-caption text-text-50 ${style}`}
+        >
           <Link href="/" className="flex justify-center items-center ">
             {baseName || "Home"}
           </Link>
