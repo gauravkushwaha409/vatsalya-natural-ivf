@@ -1,4 +1,6 @@
+"use client";
 import Image, { StaticImageData } from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { IoArrowForwardOutline } from "react-icons/io5";
 
@@ -13,9 +15,11 @@ interface IBlog {
 }
 
 const BlogCard: React.FC<IBlog> = ({ data }) => {
+  const router = useRouter();
+
   return (
     <div>
-      <div className=" max-w-md rounded-lg bg-white shadow-md">
+      <div className="max-w-md rounded-lg bg-white transition-all duration-300 ease-in-out hover:shadow-lg  cursor-pointer">
         <div className="">
           {/* Image */}
           <Image
@@ -24,6 +28,7 @@ const BlogCard: React.FC<IBlog> = ({ data }) => {
             width={400}
             height={240}
             className="rounded-t-lg w-full object-cover"
+            onClick={() => router.push("/blog/blogDetail")}
           />
         </div>
 
@@ -33,7 +38,7 @@ const BlogCard: React.FC<IBlog> = ({ data }) => {
           </p>
           <div className="flex justify-between items-center">
             <div>
-              <h5 className="typography-h5 font-semibold text-[#1A1A1A] my-4 leading-[150%]">
+              <h5 className="typography-h5 font-semibold text-[#1A1A1A] my-4 leading-[150%] line-clamp-1">
                 {data?.title}
               </h5>
             </div>

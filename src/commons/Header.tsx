@@ -44,8 +44,8 @@ const Header = () => {
             { name: "About Us", link: "/about" },
             { name: "Services", link: "/services" },
             { name: "Our Doctors", link: "/contact" },
-            { name: "Success Stories", link: "/contact" },
-            { name: "Blog & News", link: "/contact" },
+            { name: "Success Stories", link: "/success-story" },
+            { name: "Blog & News", link: "/blog" },
             { name: "Request a Call", link: "/contact" },
             { name: "Contact Us", link: "/contact" },
           ].map((item, index) => (
@@ -63,4 +63,4 @@ const Header = () => {
     </header>
   );
 };
-export default Header
+export default Header;
