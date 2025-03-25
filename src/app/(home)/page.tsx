@@ -1,5 +1,9 @@
 import HeroSection from "./partials/HeroSection";
+import HowWeWork from "./partials/HowWeWork";
 import Slogan from "./partials/Slogan";
+import WhatWeDo from "./partials/WhatWeDo";
+import WhatWeOffer from "./partials/WhatWeOffer";
+import WhoWeAre from "./partials/WhoWeAre";
 
 const HomePage = () => {
   return (
@@ -31,6 +35,11 @@ const HomePage = () => {
 
       {/* Main Slogan */}
       <Slogan />
+
+      <WhoWeAre />
+      <WhatWeDo />
+      <WhatWeOffer />
+      <HowWeWork />
     </>
   );
 };
