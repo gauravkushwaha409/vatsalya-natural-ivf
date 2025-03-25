@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from 'react';
 
 const BASE_DURATION = 1;
+const STARTING_OFFSET = "22%";
 
 const WhatWeDo = () => {
   const [isInViewport, setIsInViewport] = useState(false);
@@ -12,7 +13,7 @@ const WhatWeDo = () => {
       onViewportEnter={() => {
         setIsInViewport(true);
       }}
-      viewport={{ amount: 0.7 }}
+      viewport={{ amount: 0.4 }}
       onViewportLeave={() => setIsInViewport(false)}
       style={{
         backgroundImage: "url(/home/who-we-are-bg.png)",
@@ -22,19 +23,26 @@ const WhatWeDo = () => {
       <div className="relative w-full grow">
         <motion.div
           style={{
-            background: "linear-gradient(90deg, transparent 0%, #FFD2CE 100%)",
+            background:
+              "linear-gradient(90deg, transparent 40%, #FFD2CE 100%),url(/home/who-we-are-bg.png)",
           }}
-          initial={{ left: "-100%" }}
-          animate={{ left: isInViewport ? ["-100%", "0%"] : ["-100%", "-100%"] }}
+          initial={{ left: `-${STARTING_OFFSET}` }}
+          animate={{
+            left: isInViewport
+              ? [`-${STARTING_OFFSET}`, "0%"]
+              : [`-${STARTING_OFFSET}`, `-${STARTING_OFFSET}`],
+          }}
           transition={{
             duration: BASE_DURATION,
           }}
           className="right-0 left-1/2 relative inset-y-0 rounded-r-[20.84425rem] h-full overflow-hidden"
         >
           <motion.div
-            initial={{ left: "100%" }}
+            initial={{ left: `${STARTING_OFFSET}` }}
             animate={{
-              left: isInViewport ? ["100%", "0%"] : ["100%", "100%"],
+              left: isInViewport
+                ? [`${STARTING_OFFSET}`, "0%"]
+                : [`${STARTING_OFFSET}`, `${STARTING_OFFSET}`],
             }}
             transition={{
               duration: BASE_DURATION,
@@ -44,6 +52,9 @@ const WhatWeDo = () => {
             <motion.p
               animate={{
                 opacity: isInViewport ? 1 : 0,
+                transition: {
+                  duration: BASE_DURATION,
+                },
               }}
               className="font-[500] text-text-400 leading-[150%] typography-paragraph-large"
             >

@@ -3,8 +3,9 @@ import { motion } from 'motion/react';
 import Image from "next/image";
 import { useState } from 'react';
 
-const BASE_DURATION = 1;
 
+const BASE_DURATION = 1;
+const STARTING_OFFSET = "22%";
 const WhoWeAre = () => {
   const [isInViewport, setIsInViewport] = useState(false);
   return (
@@ -12,22 +13,25 @@ const WhoWeAre = () => {
       onViewportEnter={() => {
         setIsInViewport(true);
       }}
-      viewport={{amount: 0.7}}
-      onViewportLeave={()=>setIsInViewport(false)}
+      viewport={{ amount: 0.7 }}
+      onViewportLeave={() => setIsInViewport(false)}
       style={{
         backgroundImage: "url(/home/who-we-are-bg.png)",
       }}
       className="flex gap-[2.63rem] bg-cover bg-no-repeat bg-center pl-20 min-h-[25.625rem] overflow-hidden"
     >
-      <motion.div animate={{
-        x: isInViewport?0:"-100%",
-        opacity: isInViewport ? 1 : 0,
-        transition: {
-          x: {
-            duration:BASE_DURATION,
-          }
-        }
-      }} className="flex flex-col justify-center gap-5 w-1/4">
+      <motion.div
+        animate={{
+          x: isInViewport ? 0 : `-${STARTING_OFFSET}`,
+          opacity: isInViewport ? 1 : 0,
+          transition: {
+            x: {
+              duration: BASE_DURATION,
+            },
+          },
+        }}
+        className="flex flex-col justify-center gap-5 w-1/4"
+      >
         <div className="flex justify-center items-center gap-5">
           <span className="font-bold text-primary-500 uppercase leading-[0.18rem] typography-paragraph-regular">
             Who Are we
@@ -41,26 +45,39 @@ const WhoWeAre = () => {
       <div className="relative w-full grow">
         <motion.div
           style={{
-            background: "linear-gradient(90deg, #EBC0DB 0%, transparent 100%)",
+            backgroundImage:
+              "linear-gradient(90deg, #EBC0DB 0%, transparent 40%), url(/home/who-we-are-bg.png)",
+            // backgroundBlendMode: "overlay",
           }}
-          initial={{ left: "100%" }}
-          animate={{ left: isInViewport?["100%", "0%"]:["100%", "100%"] }}
+          initial={{ left: `${STARTING_OFFSET}` }}
+          animate={{
+            left: isInViewport
+              ? [`${STARTING_OFFSET}`, "0%"]
+              : [`${STARTING_OFFSET}`, `${STARTING_OFFSET}`],
+          }}
           transition={{
-            duration:BASE_DURATION
+            duration: BASE_DURATION,
           }}
-          className="right-0 left-1/2 relative rounded-l-[20.84425rem] h-full overflow-hidden inser-y-0"
+          className="right-0 left-1/2 relative inset-y-0 rounded-l-[20.84425rem] h-full overflow-hidden"
         >
           <motion.div
-            initial={{ left: "-100%" }}
-            animate={{ left: isInViewport?["-100%", "0%"]:["-100%", "-100%"] }}
+            initial={{ left: `-${STARTING_OFFSET}` }}
+            animate={{
+              left: isInViewport
+                ? [`-${STARTING_OFFSET}`, "0%"]
+                : [`-${STARTING_OFFSET}`, `-${STARTING_OFFSET}`],
+            }}
             transition={{
-              duration:BASE_DURATION
+              duration: BASE_DURATION,
             }}
             className="right-0 -left-1/2 z-10 relative inset-y-0 flex items-center gap-10 p-11 pr-20"
           >
-            <motion.div animate={{
-              opacity: isInViewport?1:0,
-            }} className="rounded-full w-[19.5rem] aspect-square overflow-hidden shrink-0">
+            <motion.div
+              animate={{
+                opacity: isInViewport ? 1 : 0,
+              }}
+              className="rounded-full w-[19.5rem] aspect-square overflow-hidden shrink-0"
+            >
               <Image
                 src={"/home/priyanka-ayushman.jpeg"}
                 width={340}
@@ -69,9 +86,15 @@ const WhoWeAre = () => {
                 className="w-full h-full object-cover"
               />
             </motion.div>
-            <motion.p animate={{
-              opacity: isInViewport?1:0,
-            }} className="font-[500] text-text-400 leading-[150%] typography-paragraph-large">
+            <motion.p
+              animate={{
+                opacity: isInViewport ? 1 : 0,
+                transition: {
+                  duration: BASE_DURATION,
+                },
+              }}
+              className="font-[500] text-text-400 leading-[150%] typography-paragraph-large"
+            >
               We are more than just a fertility center—we are a beacon of hope
               for families longing to grow. With cutting-edge technology and
               compassionate care, we guide you through every step of your
