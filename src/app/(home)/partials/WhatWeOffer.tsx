@@ -12,7 +12,7 @@ const WhatWeOffer = () => {
     <motion.div
       onViewportEnter={() => setIsInView(true)}
       onViewportLeave={() => setIsInView(false)}
-      viewport={{ amount:0.4 }}
+      viewport={{ amount: 0.4 }}
     >
       <div className="flex justify-center items-center gap-5 py-10">
         <span className="bg-primary-500 w-[8.5rem] h-px" />
@@ -31,13 +31,13 @@ const WhatWeOffer = () => {
             x: "50%",
           }}
           animate={{
-            x: isInView ? "0%":"50%",
-            transition:{
-              default:{
+            x: isInView ? "0%" : "50%",
+            transition: {
+              default: {
                 duration: DURATION,
-                delay: isInView?DELAY:0
-              }
-            }
+                delay: isInView ? DELAY : 0,
+              },
+            },
           }}
           className="gap-5 grid grid-rows-2"
         >
@@ -63,7 +63,7 @@ const WhatWeOffer = () => {
             </button>
           </div>
           {/* left bottom card */}
-          <div className="flex flex-col items-end gap-[0.63rem] bg-primary-50 px-10 pt-9 rounded-full rounded-tr-none h-[21rem] aspect-square text-right">
+          <div className="flex flex-col items-end gap-[0.63rem] bg-primary-50 px-10 pt-9 rounded-[5.625rem] rounded-tr-none rounded-bl-none h-[21rem] aspect-square text-right">
             <div className="w-max">
               <Image
                 src="/home/svg/donor-treatment.svg"
@@ -91,12 +91,12 @@ const WhatWeOffer = () => {
           }}
           animate={{
             opacity: isInView ? 1 : 0,
-            transition:{
-              default:{
-                duration: DURATION+DELAY,
-                delay: isInView?DELAY:0
-              }
-            }
+            transition: {
+              default: {
+                duration: DURATION + DELAY,
+                delay: isInView ? DELAY : 0,
+              },
+            },
           }}
           className="flex justify-center items-center"
         >
@@ -143,12 +143,12 @@ const WhatWeOffer = () => {
           }}
           animate={{
             x: isInView ? 0 : "-50%",
-            transition:{
-              default:{
+            transition: {
+              default: {
                 duration: DURATION,
-                delay: isInView?DELAY:0
-              }
-            }
+                delay: isInView ? DELAY : 0,
+              },
+            },
           }}
           className="gap-5 grid grid-rows-2"
         >
@@ -174,7 +174,7 @@ const WhatWeOffer = () => {
             </button>
           </div>
           {/* Right bottom card */}
-          <div className="flex flex-col items-start gap-[0.63rem] bg-secondary-50 px-10 pt-9 rounded-full rounded-tl-none h-[21rem] aspect-square text-left">
+          <div className="flex flex-col items-start gap-[0.63rem] bg-secondary-50 px-10 pt-9 rounded-[5.625rem] rounded-tl-none rounded-br-none h-[21rem] aspect-square text-left">
             <div className="w-max">
               <Image
                 src="/home/svg/antenatal.svg"
