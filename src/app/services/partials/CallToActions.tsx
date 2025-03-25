@@ -1,0 +1,41 @@
+import Image from "next/image";
+import React from "react";
+import calltoAction from "@/assests/services/cta.png";
+import Link from "next/link";
+const CallToActions = () => {
+  return (
+    <section>
+      <div>
+        <div className="relative w-full h-[70vh] overflow-hidden flex justify-center items-center">
+          {/* Background Image with Overlay */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src={calltoAction}
+              alt="Happy couple with newborn baby"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+
+          {/* Content */}
+          <div className="relative  z-10 flex flex-col items-center justify-center  p-16 rounded-2xl text-white px-20 text-center backdrop-blur-sm bg-white/70 w-[940px] ">
+            <h3 className="typography-h3  mb-5 font-bold text-secondary-500">
+              Struggling with Infertility? We’re Here to Help, Every Step of the
+              Way.
+            </h3>
+            {/* CTA Button */}
+            <Link
+              href="/appointment"
+              className="typography-h5 font-semibold border-[0.4px] border-secondary-100 bg-secondary-500 py-4 px-11 rounded-full text-lg transition-colors duration-300 shadow-[0px 8px 18px 0px rgba(101,53,83,0.62)] "
+            >
+              Book an Appointment
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default CallToActions;
