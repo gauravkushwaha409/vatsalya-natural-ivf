@@ -4,7 +4,7 @@ import FAQHero from "./partials/FAQHero";
 
 const FAQ = () => {
   return (
-    <div>
+    <div className="bg-gradient-to-b from-primary-50 to-background-100 py-10">
       <FAQHero />
       <FAQAccordion />
     </div>

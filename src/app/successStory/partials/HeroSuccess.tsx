@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import hero from "@/assests/success-story/heroSuccess.jpg";
+import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 
 const HeroSuccess = () => {
   return (
@@ -21,15 +22,10 @@ const HeroSuccess = () => {
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-4 text-center">
           {/* Breadcrumb need to be redo again*/}
-          <nav className="self-center mb-12 text-sm">
-            <div className="flex items-center space-x-2">
-              <Link href="/" className="hover:underline">
-                Home
-              </Link>
-              <span>&gt;</span>
-              <span>Success Stories</span>
-            </div>
-          </nav>
+          <CustomBreadcrumb
+            items={[{ name: "Home", link: "/" }, { name: "Success Stories" }]}
+            className="absolute top-4 "
+          />
           {/* Heading */}
           <h1 className="typography-h3 font-bold mb-4">Success Stories</h1>
           {/* Subheading */}

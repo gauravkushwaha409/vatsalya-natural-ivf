@@ -4,7 +4,7 @@ import CallSection from "./partials/CallSection";
 
 const RequestCall = () => {
   return (
-    <div>
+    <div className="bg-gradient-to-b from-primary-50 to-background-100">
       <HeroRequest />
       <CallSection />
     </div>

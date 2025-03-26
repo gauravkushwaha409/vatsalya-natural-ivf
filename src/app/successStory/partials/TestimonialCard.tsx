@@ -16,19 +16,19 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   data,
 }: TestimonialCardProps) => {
   return (
-    <div className=" max-w-md rounded-lg  bg-white shadow-md">
-      <div className="relative">
+    <div className="max-w-md rounded-lg bg-white shadow-md">
+      <div className="relative h-[240px] ">
         {/* Video Thumbnail */}
         <Image
           src={data?.videoThumbnail}
           alt={`Video testimonial by ${data?.name}`}
           width={400}
           height={240}
-          className="rounded-t-lg w-full object-cover"
+          className="rounded-t-lg w-full  object-cover"
         />
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.20)] to-[rgba(0,0,0,0.20)]"></div>
+        <div className="absolute rounded-t-lg inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.20)] to-[rgba(0,0,0,0.20)]"></div>
 
         {/* Play Button */}
         <button

@@ -4,7 +4,7 @@ import React from "react";
 const FAQHero = () => {
   return (
     <div>
-      <div className="bg-primary-50 backdrop-blur-[0.6px] py-10">
+      <div className=" py-10">
         <div className="flex flex-col justify-center items-center text-center ">
           {/* breadcrumb  */}
           <CustomBreadcrumb

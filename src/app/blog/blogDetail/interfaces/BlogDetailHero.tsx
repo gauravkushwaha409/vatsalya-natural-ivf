@@ -6,7 +6,7 @@ import blogDetailHero from "@/assests/blogDetail/blogDetailHero.png";
 
 const BlogDetailHero = () => {
   return (
-    <div className="bg-primary-50/15 py-10 mx-12.5 lg:mx-24.5 ">
+    <div className="bg-gradient-to-b from-primary-50 to-background-100 py-10  ">
       <div className="flex flex-col justify-center items-center text-center ">
         {/* breadcrumb  */}
         <CustomBreadcrumb
@@ -42,26 +42,28 @@ const BlogDetailHero = () => {
         </div>
       </div>
 
-      <div className="py-10">
-        <Image
-          src={blogDetailHero}
-          alt="hero blog detail"
-          width={400}
-          height={400}
-          className="w-full h-full object-cover"
-        />
-      </div>
+      <div className="mx-auto max-w-[1090px] container">
+        <div className="py-10">
+          <Image
+            src={blogDetailHero}
+            alt="hero blog detail"
+            width={400}
+            height={400}
+            className="w-full h-full object-cover"
+          />
+        </div>
 
-      <p className="typography-paragraph-large leading-[150%] text-text-500 text-justify">
-        Endometriosis is a condition in which tissue similar to the lining of
-        the uterus grows outside the uterus, often causing pain, irregular
-        periods, and, for many, challenges with fertility. For individuals with
-        endometriosis who are trying to conceive, in-vitro fertilization (IVF)
-        can offer a promising solution. However, this condition presents unique
-        challenges that require special consideration to maximize the chances of
-        IVF success. Here’s what to know about the intersection of endometriosis
-        and IVF.
-      </p>
+        <p className="typography-paragraph-large leading-[150%] text-text-500 text-justify">
+          Endometriosis is a condition in which tissue similar to the lining of
+          the uterus grows outside the uterus, often causing pain, irregular
+          periods, and, for many, challenges with fertility. For individuals
+          with endometriosis who are trying to conceive, in-vitro fertilization
+          (IVF) can offer a promising solution. However, this condition presents
+          unique challenges that require special consideration to maximize the
+          chances of IVF success. Here’s what to know about the intersection of
+          endometriosis and IVF.
+        </p>
+      </div>
     </div>
   );
 };

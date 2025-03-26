@@ -32,7 +32,7 @@ function FAQItem({ item }: { item: FAQItem }) {
       >
         <div className="flex items-center ">
           {isOpen ? (
-            <div className="w-1 h-12 bg-secondary-500 border-secondary-500 mr-4 transition-all duration-300 rounded-t-none rounded-r-[4px] rounded-b-[4px] rounded-l-none "></div>
+            <div className="w-1 h-12 bg-secondary-500 border-secondary-500 mr-4 transition-all duration-300 rounded-t-none rounded-r-[4px] rounded-l-none "></div>
           ) : (
             <div className="w-1 h-8 bg-secondary-50 mr-4 transition-all duration-300"></div>
           )}
