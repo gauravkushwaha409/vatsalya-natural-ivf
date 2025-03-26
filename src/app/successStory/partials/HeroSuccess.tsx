@@ -26,15 +26,6 @@ const HeroSuccess = () => {
             items={[{ name: "Home", link: "/" }, { name: "Success Stories" }]}
             className="absolute top-4 "
           />
-          <nav className="self-center mb-12 text-sm">
-            <div className="flex items-center space-x-2">
-              <Link href="/" className="hover:underline">
-                Home
-              </Link>
-              <span>&gt;</span>
-              <span>Success Stories</span>
-            </div>
-          </nav>
           {/* Heading */}
           <h1 className="typography-h3 font-bold mb-4">Success Stories</h1>
           {/* Subheading */}
