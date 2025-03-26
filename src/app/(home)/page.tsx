@@ -1,8 +1,10 @@
+import BrandsSlider from "./partials/BrandsSlider";
 import HeroSection from "./partials/HeroSection";
 import HowWeWork from "./partials/HowWeWork";
 import Slogan from "./partials/Slogan";
 import WhatWeDo from "./partials/WhatWeDo";
 import WhatWeOffer from "./partials/WhatWeOffer";
+import WhenToVisit from "./partials/WhenToVisit";
 import WhoWeAre from "./partials/WhoWeAre";
 
 const HomePage = () => {
@@ -40,6 +42,8 @@ const HomePage = () => {
       <WhatWeDo />
       <WhatWeOffer />
       <HowWeWork />
+      <WhenToVisit />
+      {/* <BrandsSlider /> */}
     </>
   );
 };
