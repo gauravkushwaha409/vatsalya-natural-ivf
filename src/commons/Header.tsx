@@ -41,7 +41,7 @@ const Header = () => {
       <nav className="mt-5 w-full">
         <ul className="flex divide-x divide-secondary-500 font-manrope">
           {[
-            { name: "About Us", link: "/about" },
+            { name: "About Us", link: "/aboutUs" },
             { name: "Services", link: "/services" },
             { name: "Our Doctors", link: "/contact" },
             { name: "Success Stories", link: "/successStory" },
