@@ -8,7 +8,7 @@ import { motion } from "motion/react";
 const ServiceDetails = () => {
   return (
     <section className="bg-background-100 overflow-hidden">
-      <div className="flex gap-10 px-20">
+      <div className="flex gap-10 px-20 relative">
         <motion.div
           initial={{ x: "20%" }}
           animate={{ x: "0%" }}
@@ -23,7 +23,7 @@ const ServiceDetails = () => {
           initial={{ opacity: 0, x: "50%" }}
           animate={{ opacity: 1, x: "0%" }}
           transition={{ duration: 1.5, delay: 2 }}
-          className="w-1/3 "
+          className="w-1/3  sticky top-0"
         >
           <ServiceForm />
         </motion.div>

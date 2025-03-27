@@ -11,6 +11,7 @@ interface IFormValues {
   address: string;
   center: string;
   message: string;
+  doctor: string;
 }
 
 interface ApiResponse {
@@ -33,6 +34,7 @@ const ServiceForm = () => {
       phone: "",
       address: "",
       center: "",
+      doctor: "",
       message: "",
     },
     validationSchema: Yup.object({
@@ -42,6 +44,7 @@ const ServiceForm = () => {
       phone: Yup.string().required("Phone number is required"),
       address: Yup.string().required("Address is required"),
       center: Yup.string().required("Center selection is required"),
+      doctor: Yup.string().required("Doctor selection is required"),
       message: Yup.string()
         .required("Message is required")
         .min(10, "Message must be at least 10 characters"),
@@ -52,18 +55,18 @@ const ServiceForm = () => {
   });
 
   return (
-    <section>
-      <div className="  w-full   text-black pb-7 ">
+    <section className="relative">
+      <div className="  w-full   text-black pb-7  sticky top-0 ">
         <div
-          className="  w-full bg-secondary-50 px-5 py-7 rounded-lg  "
+          className="  w-full bg-secondary-50/30 px-5 py-7 rounded-lg  "
           style={{ boxShadow: "0px 4px 22.6px 7px rgba(0, 0, 0, 0.06)" }}
         >
-          <h1 className="typography-paragraph-large font-medium mb-4 text-center ">
+          <h1 className="typography-paragraph-large font-medium border-b-2 border-primary-100 pb-2.5 text-center ">
             Request a Call
           </h1>
           <form
             onSubmit={formik.handleSubmit}
-            className="grid grid-cols-1 gap-4 text-text-500 typography-paragraph-regular font-semibold"
+            className="grid grid-cols-1 gap-4 text-text-500 typography-paragraph-regular font-semibold py-2.5"
           >
             {/* Name Field */}
             <div className="flex flex-col gap-2">
@@ -74,7 +77,7 @@ const ServiceForm = () => {
                 id="name"
                 name="name"
                 type="text"
-                className="border border-gray-400 rounded-xl p-2 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
+                className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.name}
@@ -94,7 +97,7 @@ const ServiceForm = () => {
                 id="phone"
                 name="phone"
                 type="number"
-                className="border border-gray-400 rounded-xl p-2 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
+                className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.phone}
@@ -114,7 +117,7 @@ const ServiceForm = () => {
                 id="address"
                 name="address"
                 type="text"
-                className="border border-gray-400 rounded-xl p-2 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
+                className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.address}
@@ -124,16 +127,15 @@ const ServiceForm = () => {
                 <p className="text-red-500 text-sm">{formik.errors.address}</p>
               )}
             </div>
-
             {/* Center Field */}
             <div className="flex flex-col gap-2">
               <label htmlFor="center" className="text-base font-regular">
-                Select Center
+                Center
               </label>
               <select
                 id="center"
                 name="center"
-                className="border border-gray-400 rounded-xl p-2 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
+                className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.center}
@@ -147,6 +149,28 @@ const ServiceForm = () => {
                 <p className="text-red-500 text-sm">{formik.errors.center}</p>
               )}
             </div>
+            {/* Doctor Field */}
+            <div className="flex flex-col gap-2">
+              <label htmlFor="center" className="text-base font-regular">
+                Doctor
+              </label>
+              <select
+                id="doctor"
+                name="doctor"
+                className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.doctor}
+              >
+                <option value="">Select a Doctor</option>
+                <option value="Dubai Marina">Dubai Marina</option>
+                <option value="Jumeirah Beach">Jumeirah Beach</option>
+                <option value="Downtown Dubai">Downtown Dubai</option>
+              </select>
+              {formik.touched.doctor && formik.errors.doctor && (
+                <p className="text-red-500 text-sm">{formik.errors.doctor}</p>
+              )}
+            </div>
 
             {/* Message Field */}
             <div className="flex flex-col gap-2">
@@ -156,7 +180,7 @@ const ServiceForm = () => {
               <textarea
                 id="message"
                 name="message"
-                className="border border-gray-400 rounded-xl p-2 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
+                className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
                 rows={4}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}

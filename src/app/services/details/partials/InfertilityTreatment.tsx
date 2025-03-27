@@ -8,7 +8,7 @@ const InfertilityTreatment = () => {
         className="  w-full bg-secondary-50 p-5 rounded-lg  "
         style={{ boxShadow: "0px 4px 22.6px 7px rgba(0, 0, 0, 0.06)" }}
       >
-        <div className="border-b-2 border-primary-100 py-5">
+        <div className="border-b-2 border-primary-100 py-2.5">
           <p className="typography-paragraph-large font-medium text-center ">
             Infertility Treatment
           </p>
@@ -17,7 +17,7 @@ const InfertilityTreatment = () => {
           {Array.from({ length: 5 }).map((_, index) => (
             <div
               key={index}
-              className="bg-secondary-100/50 w-80 py-2  rounded-full flex items-center px-5 gap-2 "
+              className="bg-secondary-100/50 w-full py-2  rounded-full flex items-center px-5 gap-2 "
             >
               <div className="w-10 h-10">
                 {" "}
