@@ -1,7 +1,7 @@
 import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 import Image from "next/image";
 import React from "react";
-import hero from "@/assests/success-story/heroSuccess.jpg";
+import hero from "@/assests/career/career.png";
 import Link from "next/link";
 
 const HeroCareer = () => {
