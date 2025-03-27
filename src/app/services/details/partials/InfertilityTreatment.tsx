@@ -5,7 +5,7 @@ const InfertilityTreatment = () => {
   return (
     <section>
       <div
-        className="  w-full bg-secondary-50 p-5 rounded-lg  "
+        className="  w-full bg-secondary-50/30 p-5 rounded-lg  "
         style={{ boxShadow: "0px 4px 22.6px 7px rgba(0, 0, 0, 0.06)" }}
       >
         <div className="border-b-2 border-primary-100 py-2.5">
