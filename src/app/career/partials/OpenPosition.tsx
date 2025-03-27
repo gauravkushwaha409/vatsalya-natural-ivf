@@ -1,3 +1,5 @@
+"use client";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { IoArrowForwardOutline, IoTimeOutline } from "react-icons/io5";
 import { SlLocationPin } from "react-icons/sl";
@@ -37,6 +39,7 @@ const jobListings = [
   },
 ];
 const OpenPosition = () => {
+  const router = useRouter();
   return (
     <div className="">
       <div className="w-full py-16 md:py-24 bg-gradient-to-r from-[#EBC0DB] to-primary-100">
@@ -64,7 +67,8 @@ const OpenPosition = () => {
                 key={job.id}
                 className="rounded-[20px] p-[30px] bg-white hover:bg-primary-50 
               shadow-[0px_3px_20.8px_1px_rgba(0,0,0,0.04)] 
-              transition-all duration-300"
+              transition-all duration-300 cursor-pointer"
+                onClick={() => router.push("/career/careerDetail")}
               >
                 {/* Header */}
                 <div className="flex justify-between items-center">
