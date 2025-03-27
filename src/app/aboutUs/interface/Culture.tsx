@@ -30,7 +30,7 @@ const Culture = () => {
 
           <div className=" grid grid-cols-1 md:grid-cols-5 gap-5 ">
             {/* Box 1 */}
-            <div className="mt-42 w-52 h-50 rounded-[24px] ">
+            <div className="lg:mt-42 w-52 h-50 rounded-[24px] ">
               <Image
                 src={family}
                 alt="image"
@@ -41,7 +41,7 @@ const Culture = () => {
             </div>
 
             {/* Box 2 */}
-            <div className="w-[484px] h-[240px] col-span-2 rounded-[24px] ">
+            <div className="lg:w-[484px] h-[240px]  col-span-2 rounded-[24px] ">
               <Image
                 src={family}
                 alt="image"
@@ -52,7 +52,7 @@ const Culture = () => {
             </div>
 
             {/* Box 3 */}
-            <div className="ml-5 mt-15 w-[191px] h-[180px] rounded-[24px] ">
+            <div className="ml-60 lg:ml-5 -mt-120 lg:mt-15  w-52 h-50 lg:w-[191px] lg:h-[180px] rounded-[24px] ">
               <Image
                 src={family}
                 alt="image"
@@ -63,7 +63,7 @@ const Culture = () => {
             </div>
 
             {/* Box 4 */}
-            <div className="mt-42 rounded-[24px] ">
+            <div className="mt-0 lg:mt-42   w-52 h-50 lg:h-[180px] lg:w-full rounded-[24px] ">
               <Image
                 src={family}
                 alt="image"
@@ -73,7 +73,7 @@ const Culture = () => {
               />
             </div>
             {/* Box 5 */}
-            <div className="ml-65 -mt-28  w-[191px] h-[180px] rounded-[24px] ">
+            <div className="lg:ml-65 lg:-mt-28 -mt-55 lg:w-[191px] w-52 h-50 lg:h-[180px] rounded-[24px] ">
               <Image
                 src={family}
                 alt="image"
@@ -83,7 +83,7 @@ const Culture = () => {
               />
             </div>
             {/* Box 6 */}
-            <div className="ml-60 -mt-28  w-[484px] h-[240px] col-span-2 rounded-[24px] ">
+            <div className="lg:ml-60 lg:-mt-28 w-full lg:w-[484px] h-[240px] col-span-2 rounded-[24px] ">
               <Image
                 src={family}
                 alt="image"
