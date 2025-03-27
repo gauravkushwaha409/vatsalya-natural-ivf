@@ -1,51 +1,121 @@
-// "use client";
+"use client";
+import TestimonialCard from "@/app/success-story/partials/TestimonialCard";
+import { testimonialData } from "@/data/testimonialData";
+import { motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
+import { GrNext, GrPrevious } from "react-icons/gr";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import {
+  A11y,
+  Autoplay,
+  Navigation,
+  Pagination,
+  Scrollbar,
+} from "swiper/modules";
+import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 
-// import React, { useRef } from "react";
-// // Import Swiper React components
-// import { Swiper, SwiperSlide } from "swiper/react";
+const Carousel = ({}) => {
+  const swiperRef = useRef<SwiperRef>(null);
+  const [noofSlides, setNoofSlides] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(0);
 
-// // Import Swiper styles
-// import "swiper/css";
-// import "swiper/css/pagination";
+  useEffect(() => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      setNoofSlides(swiperRef.current.swiper.slides.length || 0);
+      setActiveSlide(swiperRef.current.swiper.activeIndex || 0);
+    }
+  }, []);
 
-// // import required modules
-// import { Pagination } from "swiper/modules";
-// import { testimonialData } from "@/data/testimonialData";
-// import TestimonialCard from "@/app/success-story/partials/TestimonialCard";
-// import { GrNext, GrPrevious } from "react-icons/gr";
+  return (
+    <div className="">
+      <div className="flex md:flex-row flex-col justify-center container">
+        <div className="w-full h-[30.5rem]">
+          {testimonialData && testimonialData?.length > 0 && (
+            <Swiper
+              ref={swiperRef}
+              modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+              autoplay={{
+                delay: 4000,
+                disableOnInteraction: false,
+              }}
+              onInit={(swiper) => {
+                setNoofSlides(swiper.slides.length);
+                setActiveSlide(swiper.activeIndex);
+              }}
+              speed={1200}
+              spaceBetween={50}
+              slidesPerView={2}
+              onSlideChange={(swiper) => {
+                setActiveSlide(swiper.activeIndex);
+              }}
+            >
+              {testimonialData?.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <TestimonialCard data={item} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          )}
+        </div>
+      </div>
 
-// const TestimonialSwiper = () => {
-//   const swiperRef = useRef<Swiper | null>(null);
-//   return (
-//     <>
-//       <Swiper
-//         slidesPerView={2}
-//         loop={true}
-//         pagination={{
-//           clickable: true,
-//         }}
-//         modules={[Pagination]}
-//         className="mySwiper"
-//         onBeforeInit={(swiper) => {
-//           swiperRef.current = swiper;
-//         }}
-//       >
-//         {testimonialData.map((testimonial, index) => (
-//           <SwiperSlide key={index}>
-//             <TestimonialCard key={index} data={testimonial} />
-//           </SwiperSlide>
-//         ))}
-//       </Swiper>
-//       <div>
-//         <button onClick={() => swiperRef.current?.slidePrev()}>
-//           <GrPrevious />
-//         </button>
-//         <button onClick={() => swiperRef.current?.slideNext()}>
-//           <GrNext />
-//         </button>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default TestimonialSwiper;
+      {/* Carousel Navigation */}
+      <div className="flex justify-center items-center  w-full">
+        {/* Left Arrow  */}
+        <button
+          disabled={activeSlide === 0}
+          className="px-6 text-white cursor-pointer "
+          onClick={() => {
+            if (swiperRef.current && swiperRef.current.swiper) {
+              swiperRef.current.swiper.slidePrev();
+            }
+          }}
+        >
+          <GrPrevious />
+        </button>
+        {/* Pagination Dots  */}
+        <div className="flex gap-2">
+          {Array.from({ length: noofSlides }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                console.log(`Navigating to slide: ${index}`);
+              }}
+              className="relative bg-text-200/50 hover:bg-[#888888]/80 rounded-full size-3 cursor-pointer"
+            >
+              {index === activeSlide && (
+                <motion.div
+                  key={activeSlide}
+                  layoutId="press-hero-carousel-active-dot"
+                  transition={{
+                    duration: 0.6,
+                    type: "spring",
+                    damping: 20,
+                    stiffness: 200,
+                  }}
+                  className="absolute inset-0 bg-white rounded-full"
+                />
+              )}
+            </button>
+          ))}
+        </div>
+        {/* Right arrow  */}
+        <button
+          disabled={activeSlide === noofSlides - 1}
+          className="px-6 text-white cursor-pointer"
+          onClick={() => {
+            if (swiperRef.current && swiperRef.current.swiper) {
+              swiperRef.current.swiper.slideNext();
+            }
+          }}
+        >
+          <GrNext />
+        </button>
+      </div>
+    </div>
+  );
+};
+export default Carousel;
