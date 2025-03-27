@@ -6,13 +6,15 @@ import Stats from "./interfaces/Stats";
 
 const BlogDetail = () => {
   return (
-    <div className="mx-auto container">
+    <div>
       <BlogDetailHero />
-      <div className="flex gap-4 mx-8 lg:mx-0 lg:gap-20">
-        <Stats />
-        <BlogDescription />
+      <div className="mx-auto container">
+        <div className="flex gap-4 mx-8 lg:mx-0 lg:gap-20">
+          <Stats />
+          <BlogDescription />
+        </div>
+        <CommentForm />
       </div>
-      <CommentForm />
     </div>
   );
 };

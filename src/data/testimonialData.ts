@@ -1,4 +1,4 @@
-import photo from "@/assests/success-story/testimonial.png";
+import photo from "@/assests/success-story/successVideo.png";
 
 export const testimonialData = [
   {

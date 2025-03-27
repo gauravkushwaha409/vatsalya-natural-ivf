@@ -4,7 +4,7 @@ import React from "react";
 const PrivacyHero = () => {
   return (
     <div>
-      <div className="bg-primary-50 backdrop-blur-[0.6px] py-10">
+      <div className="bg-gradient-to-b from-primary-50 to-background-100 py-10">
         <div className="flex flex-col justify-center items-center text-center ">
           {/* breadcrumb  */}
           <CustomBreadcrumb

@@ -44,9 +44,9 @@ const Header = () => {
             { name: "About Us", link: "/about" },
             { name: "Services", link: "/services" },
             { name: "Our Doctors", link: "/contact" },
-            { name: "Success Stories", link: "/success-story" },
+            { name: "Success Stories", link: "/successStory" },
             { name: "Blog & News", link: "/blog" },
-            { name: "Request a Call", link: "/request-call" },
+            { name: "Request a Call", link: "/requestCall" },
             { name: "Contact Us", link: "/contact" },
           ].map((item, index) => (
             <li className="px-8 w-max text-left" key={index}>

@@ -6,7 +6,7 @@ import Image from "next/image";
 const HeroBlog = () => {
   return (
     <>
-      <div className="bg-primary-50 backdrop-blur-[0.6px] py-10">
+      <div className="py-10 bg-gradient-to-b from-primary-50 to-background-100">
         <div className="flex flex-col justify-center items-center text-center ">
           {/* breadcrumb  */}
           <Breadcrumb name="Blog" baseName="home" style="text-text-400" />
@@ -18,8 +18,8 @@ const HeroBlog = () => {
       </div>
 
       {/* Background Image */}
-      <div className="relative w-full h-[500px] overflow-hidden mb-20">
-        <div className="absolute inset-0 z-0  border-primary-500">
+      <div className="relative w-full h-[500px] overflow-hidden mb-12 md:mb-20">
+        <div className="absolute inset-0 z-0 border-primary-500">
           <Image
             src={blogHero}
             alt="Happy couple with newborn baby"
@@ -33,12 +33,12 @@ const HeroBlog = () => {
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(250,185,227,0.5)_0%,rgba(234,186,181,0)_100%)]"></div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-2xl flex flex-col items-start justify-center h-full text-white pl-20">
+        <div className="relative z-10 max-w-4xl flex flex-col items-center md:items-start justify-center h-full text-white px-6 md:px-12 lg:px-20 text-center md:text-left">
           <p className="typography-paragraph-regular text-text-400">Feature</p>
 
           {/* Heading */}
-          <h1 className="typography-h3 font-bold my-3.5 leading-[150%] text-secondary-500 max-w-md">
-            A New Beginning: <br /> Your Journey to Parenthood
+          <h1 className="typography-h3 font-bold my-3.5 leading-[1.5] text-secondary-500 max-w-lg">
+            A New Beginning: Your Journey to Parenthood
           </h1>
 
           {/* Subheading */}

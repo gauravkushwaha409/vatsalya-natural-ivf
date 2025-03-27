@@ -4,7 +4,7 @@ import TermsHero from "./partials/TermsHero";
 
 const Terms = () => {
   return (
-    <div>
+    <div className="">
       <TermsHero />
       <TermSection />
     </div>
