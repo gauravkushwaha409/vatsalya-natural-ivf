@@ -8,11 +8,13 @@ const OurStory = () => {
     <div>
       <section className="max-w-7xl mx-auto px-4 py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="space-y-6 max-w-2xl">
-            <h2 className="text-primary-500 uppercase tracking-wider text-base leading-[150%] font-bold">
-              OUR STORY
-            </h2>
-
+          <div className="space-y-6 ">
+            <div className="flex items-center w-full  gap-4 ">
+              <h2 className="text-primary-500 uppercase tracking-wider text-base leading-[150%] font-bold">
+                OUR STORY
+              </h2>
+              <div className="h-px bg-primary-500 flex-1 max-w-[230px]"></div>
+            </div>
             <h3 className="typography-h4 font-semibold text-text-500 ">
               A Journey Rooted in Hope and Expertise
             </h3>
