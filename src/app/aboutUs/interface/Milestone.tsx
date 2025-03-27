@@ -53,11 +53,11 @@ const Milestone = () => {
           </div>
 
           {/* Right Section: Stats */}
-          <div className="w-full md:w-1/2 flex flex-col md:flex-row justify-between gap- ">
+          <div className="w-full md:w-1/2 flex flex-col md:flex-row justify-between gap-10 lg:gap-0 ">
             {stats.map((stat) => (
               <div
                 key={stat.id}
-                className="flex flex-col items-center text-center  border-r border-primary-100 px-20"
+                className="flex flex-col items-center text-center border-b lg:border-r border-primary-100 px-20"
               >
                 {/* Icon */}
                 <div className="w-24 h-24 flex items-center justify-center border-[7px] border-[rgba(255,189,182,0.54)] rounded-full p-4">
@@ -76,7 +76,7 @@ const Milestone = () => {
                   </span>
                 </h1>
                 {/* Label */}
-                <p className="text-text-400 typography-paragraph-large font-medium pt-1">
+                <p className="text-text-400 typography-paragraph-large font-medium pt-1 pb-10 lg:pb-0">
                   {stat.label}
                 </p>
               </div>

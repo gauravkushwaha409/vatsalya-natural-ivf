@@ -49,12 +49,12 @@ const WhyChooseUs = () => {
           A Team United by Care and Compassion
         </h1>
 
-        <div className="flex justify-between gap-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="flex flex-col lg:flex-row justify-between gap-6">
+          <div className="grid grid-cols-2 gap-6">
             {whyChooseUsData.map((data) => (
               <div
                 key={data.id}
-                className="flex gap-4 border border-secondary-50 px-4 py-5 rounded-[14px]"
+                className="flex flex-col lg:flex-row items-center lg:items-start gap-4 border border-secondary-50 px-4 py-5 rounded-[14px]"
               >
                 <div className="w-[80px] h-[80px]">
                   <Image
