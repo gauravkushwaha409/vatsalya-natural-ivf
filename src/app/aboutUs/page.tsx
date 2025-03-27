@@ -6,6 +6,7 @@ import Family from "./interface/Family";
 import Milestone from "./interface/Milestone";
 import Culture from "./interface/Culture";
 import WhyChooseUs from "./interface/WhyChooseUs";
+import Testimonial from "./interface/Testimonial";
 
 const AboutUs = () => {
   return (
@@ -17,6 +18,7 @@ const AboutUs = () => {
       <Milestone />
       <Culture />
       <WhyChooseUs />
+      <Testimonial />
     </div>
   );
 };
