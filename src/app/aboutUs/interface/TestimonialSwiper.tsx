@@ -1,5 +1,5 @@
 "use client";
-import TestimonialCard from "@/app/success-story/partials/TestimonialCard";
+import TestimonialCard from "@/app/successStory/partials/TestimonialCard";
 import { testimonialData } from "@/data/testimonialData";
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
