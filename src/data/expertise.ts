@@ -5,8 +5,6 @@ import UpamaGhosh from "@/assests/expertise/upama-removebg-preview.png";
 import AkritiVerma from "@/assests/expertise/Akriti-removebg-preview.png";
 import SureshKumar from "@/assests/expertise/suresh-removebg-preview.png";
 import LataMishra from "@/assests/expertise/lata-removebg-preview.png";
-import AsmitaPandey from "@/assests/expertise/asmita-pandey-removebg-preview.png";
-import DiptiSharma from "@/assests/expertise/dipti-removebg-preview.png";
 
 export const ivfTeamData = [
   {

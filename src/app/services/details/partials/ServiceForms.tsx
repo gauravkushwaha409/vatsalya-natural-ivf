@@ -14,19 +14,6 @@ interface IFormValues {
   doctor: string;
 }
 
-interface ApiResponse {
-  data?: {
-    status: string;
-    message: string;
-  };
-  error?: {
-    status: number;
-    data?: {
-      errors?: { path: string; msg: string }[];
-      message?: string;
-    };
-  };
-}
 const ServiceForm = () => {
   const formik = useFormik<IFormValues>({
     initialValues: {
