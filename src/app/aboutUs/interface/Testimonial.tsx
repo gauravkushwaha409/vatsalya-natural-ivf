@@ -20,6 +20,7 @@ const Testimonial = () => {
         </div>
         <div className="flex flex-col lg:flex-row justify-between ">
           {/* Text Section  */}
+          <div className="py-16 w-[30%] space-y-4 ">
           <div className="pt-24 lg:pt-0 pb-10 lg:pb-0 lg:py-24 lg:w-[30%] space-y-4 ">
             <div className="flex items-center w-full gap-4 ">
               <h2 className="text-primary-500 uppercase tracking-wider text-base leading-[150%] font-bold">

@@ -1,10 +1,10 @@
 import Image from "next/image";
 import React from "react";
-
+import photo from "@/assests/about/ourstory1.png";
 const MissionVision = () => {
   return (
     <div>
-      <section className="w-full py-16 md:py-24 bg-gradient-to-r from-[#FFD2CE] to-[#EBC0DB]">
+      <section className="w-full py-16 md:py-24 bg-gradient-to-r from-[#EBC0DB] to-[#FFD2CE]">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col lg:flex-row justify-between gap-10 lg:gap-40 lg:items-center">
             {/* Image Grid */}
@@ -18,10 +18,11 @@ const MissionVision = () => {
                 {/* Inner border */}
                 <div className="absolute inset-4 rounded-[50%] rounded-br-none border-[0.8px] border-white m-6">
                   <Image
-                    src="/home/svg/infertality.svg"
+                    src={photo}
                     layout="fill"
                     objectFit="cover"
                     alt="Mother holding baby"
+                    className="rounded-[50%] rounded-br-none border-[0.8px] border-white"
                   />
                 </div>
               </div>
@@ -35,10 +36,11 @@ const MissionVision = () => {
                 {/* Inner border */}
                 <div className="absolute inset-4 rounded-[50%] rounded-bl-none border-[0.8px] border-white m-6">
                   <Image
-                    src="/home/svg/infertality.svg"
+                    src={photo}
                     layout="fill"
                     objectFit="cover"
                     alt="Mother holding baby"
+                    className="rounded-[50%] rounded-bl-none border-[0.8px] border-white"
                   />
                 </div>
               </div>
@@ -52,10 +54,11 @@ const MissionVision = () => {
                 {/* Inner border */}
                 <div className="absolute inset-4 rounded-[50%] rounded-tr-none border-[0.8px] border-white m-6">
                   <Image
-                    src="/home/svg/infertality.svg"
+                    src={photo}
                     layout="fill"
                     objectFit="cover"
                     alt="Mother holding baby"
+                    className="rounded-[50%] rounded-tr-none border-[0.8px] border-white"
                   />
                 </div>
               </div>
@@ -69,10 +72,11 @@ const MissionVision = () => {
                 {/* Inner border */}
                 <div className="absolute inset-4 rounded-[50%] rounded-tl-none border-[0.8px] border-white m-6">
                   <Image
-                    src="/home/svg/infertality.svg"
+                    src={photo}
                     layout="fill"
                     objectFit="cover"
                     alt="Mother holding baby"
+                    className="rounded-[50%] rounded-tl-none border-[0.8px] border-white"
                   />
                 </div>
               </div>
