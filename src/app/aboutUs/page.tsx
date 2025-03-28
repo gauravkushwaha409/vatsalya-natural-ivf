@@ -1,12 +1,11 @@
-import React from "react";
-import AboutHero from "./interface/AboutHero";
-import OurStory from "./interface/OurStory";
-import MissionVision from "./interface/MissionVision";
-import Family from "./interface/Family";
-import Milestone from "./interface/Milestone";
-import Culture from "./interface/Culture";
-import WhyChooseUs from "./interface/WhyChooseUs";
-import Testimonial from "./interface/Testimonial";
+import AboutHero from "./partials/AboutHero";
+import Culture from "./partials/Culture";
+import Family from "./partials/Family";
+import Milestone from "./partials/Milestone";
+import MissionVision from "./partials/MissionVision";
+import OurStory from "./partials/OurStory";
+import Testimonial from "./partials/Testimonial";
+import WhyChooseUs from "./partials/WhyChooseUs";
 
 const AboutUs = () => {
   return (
