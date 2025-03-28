@@ -11,7 +11,7 @@ import { useFormik } from "formik";
 import { useRef, useState } from "react";
 import * as Yup from "yup";
 
-const DialogDemo = () => {
+const ApplyFormModal = () => {
   //   const [createData, { isLoading }] = useCreateDataMutation();
   const [resume, setResume] = useState<File | null>(null);
   const [formErrors, setFormErrors] = useState<{ resume?: string }>({});
@@ -142,7 +142,7 @@ const DialogDemo = () => {
                 type="number"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                value={formik.values.name}
+                value={formik.values.phone_no}
                 placeholder="e.g. 9876543210"
                 className="bg-transparent p-3 pl-6 border-[0.3px] border-[#72796F] rounded-[12px] outline-none w-full h-[54px] mt-2.5 text-sm"
               />
@@ -299,4 +299,4 @@ const DialogDemo = () => {
   );
 };
 
-export default DialogDemo;
+export default ApplyFormModal;

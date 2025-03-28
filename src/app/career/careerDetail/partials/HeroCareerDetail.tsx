@@ -4,7 +4,7 @@ import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
 import { IoTimeOutline } from "react-icons/io5";
 import { MdOutlineWorkOutline } from "react-icons/md";
 import { SlLocationPin } from "react-icons/sl";
-import DialogDemo from "./ApplyModal";
+import ApplyFormModal from "./ApplyFormModal";
 
 const HeroCareerDetail = () => {
   return (
@@ -44,7 +44,7 @@ const HeroCareerDetail = () => {
             </p>
           </div>
 
-          <DialogDemo />
+          <ApplyFormModal />
         </div>
       </div>
     </div>

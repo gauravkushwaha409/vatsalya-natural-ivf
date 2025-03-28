@@ -118,22 +118,26 @@ const Footer = () => {
           <p>
             <Link href="/contact">Contact </Link>
           </p>
+          <p>
+            <Link href="/career">Career </Link>
+          </p>
         </div>
         <div className="space-y-3 font-manrope text-text-400 typography-paragraph-regular">
           <h3 className="font-[600] text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.1575rem]">
             Help
           </h3>
+
           <p>
-            <Link href="/about">About Us </Link>
+            <Link href="/faq">FAQs</Link>
           </p>
           <p>
-            <Link href="/services">Services </Link>
+            <Link href="/booking">Consultation Booking</Link>
           </p>
           <p>
-            <Link href="/stories">Success Stories </Link>
+            <Link href="/terms">Terms & Conditions </Link>
           </p>
           <p>
-            <Link href="/contact">Contact </Link>
+            <Link href="/privacy">Privacy Policy </Link>
           </p>
         </div>
         <div className="space-y-3 font-manrope text-text-400 typography-paragraph-regular">
