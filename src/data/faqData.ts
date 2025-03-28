@@ -13,7 +13,7 @@ export const faqItems = [
   {
     question: "Is IVF the only option for infertility treatment?",
     answer:
-      "No, IVF is not the only option. Depending on your specific situation, we offer various treatments including medication, intrauterine insemination (IUI), surgery, and lifestyle modifications. Our specialists will recommend the most appropriate treatment plan after a thorough evaluation.",
+      "No, IVF is not the only option. Depending on your specific situation, we offer various treatments including medication, intrauterine insemination (IUI), surgery, and lifestyle modifications. ",
   },
   {
     question: "What services does Vatsalya provide?",
@@ -28,6 +28,6 @@ export const faqItems = [
   {
     question: "Is IVF the only option for infertility treatment?",
     answer:
-      "No, IVF is not the only option. Depending on your specific situation, we offer various treatments including medication, intrauterine insemination (IUI), surgery, and lifestyle modifications. Our specialists will recommend the most appropriate treatment plan after a thorough evaluation.",
+      "No, IVF is not the only option. Depending on your specific situation, we offer various treatments including medication, intrauterine insemination (IUI), surgery, and lifestyle modifications.",
   },
 ];
