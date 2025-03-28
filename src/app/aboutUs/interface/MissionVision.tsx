@@ -4,7 +4,7 @@ import React from "react";
 const MissionVision = () => {
   return (
     <div>
-      <section className="w-full py-16 md:py-24 bg-gradient-to-r from-[#FFD2CE] to-[#EBC0DB]">
+      <section className="w-full py-16 md:py-24 bg-gradient-to-r from-[#EBC0DB] to-[#FFD2CE]">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex justify-between gap-40 items-center">
             {/* Image Grid */}
