@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-
+import photo from "@/assests/about/ourstory1.png";
 const MissionVision = () => {
   return (
     <div>
@@ -18,10 +18,11 @@ const MissionVision = () => {
                 {/* Inner border */}
                 <div className="absolute inset-4 rounded-[50%] rounded-br-none border-[0.8px] border-white m-6">
                   <Image
-                    src="/home/svg/infertality.svg"
+                    src={photo}
                     layout="fill"
                     objectFit="cover"
                     alt="Mother holding baby"
+                    className="rounded-[50%] rounded-br-none border-[0.8px] border-white"
                   />
                 </div>
               </div>
@@ -35,10 +36,11 @@ const MissionVision = () => {
                 {/* Inner border */}
                 <div className="absolute inset-4 rounded-[50%] rounded-bl-none border-[0.8px] border-white m-6">
                   <Image
-                    src="/home/svg/infertality.svg"
+                    src={photo}
                     layout="fill"
                     objectFit="cover"
                     alt="Mother holding baby"
+                    className="rounded-[50%] rounded-bl-none border-[0.8px] border-white"
                   />
                 </div>
               </div>
@@ -52,10 +54,11 @@ const MissionVision = () => {
                 {/* Inner border */}
                 <div className="absolute inset-4 rounded-[50%] rounded-tr-none border-[0.8px] border-white m-6">
                   <Image
-                    src="/home/svg/infertality.svg"
+                    src={photo}
                     layout="fill"
                     objectFit="cover"
                     alt="Mother holding baby"
+                    className="rounded-[50%] rounded-tr-none border-[0.8px] border-white"
                   />
                 </div>
               </div>
@@ -69,10 +72,11 @@ const MissionVision = () => {
                 {/* Inner border */}
                 <div className="absolute inset-4 rounded-[50%] rounded-tl-none border-[0.8px] border-white m-6">
                   <Image
-                    src="/home/svg/infertality.svg"
+                    src={photo}
                     layout="fill"
                     objectFit="cover"
                     alt="Mother holding baby"
+                    className="rounded-[50%] rounded-tl-none border-[0.8px] border-white"
                   />
                 </div>
               </div>
