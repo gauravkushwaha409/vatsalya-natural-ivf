@@ -6,9 +6,9 @@ const MissionVision = () => {
     <div>
       <section className="w-full py-16 md:py-24 bg-gradient-to-r from-[#EBC0DB] to-[#FFD2CE]">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex justify-between gap-40 items-center">
+          <div className="flex flex-col lg:flex-row justify-between gap-10 lg:gap-40 lg:items-center">
             {/* Image Grid */}
-            <div className="grid grid-cols-2 w-[40%] gap-y-4 md:gap-x-12">
+            <div className="grid grid-cols-2  w-[40%] gap-y-4 gap-x-40 md:gap-x-12">
               <div className="relative w-38 h-38 ">
                 {/* Outer most border */}
                 <div className="absolute inset-0 rounded-[50%] rounded-br-none border-[0.8px] border-white bg-gradient-to-br from-white/5 via-white/50 to-transparent"></div>

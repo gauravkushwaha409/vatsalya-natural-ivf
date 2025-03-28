@@ -1,8 +1,15 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import icon1 from "@/assests/icons/services/infertility.svg";
+import { useRouter } from "next/navigation";
+import { IoIosArrowForward } from "react-icons/io";
 
 const ServiceCards = () => {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push("/services/details");
+  };
   return (
     <section className=" px-20">
       <div className="flex flex-col items-center ">
@@ -18,25 +25,28 @@ const ServiceCards = () => {
           {` Services We’re Providing`}
         </p>
       </div>
-      <div className="py-10 pb-20 grid grid-cols-3 gap-10">
+      <div className="py-10 pb-20 grid lg:grid-cols-3 xl:grid-col-4  gap-10">
         {Array.from({ length: 10 }, (_, index) => (
           <div
-            className=" aspect-[400/340]  relative rounded-tl-[50px] rounded-br-[50px] overflow-hidden  bg-primary-50 hover:bg-primary-100 justify-center flex flex-col p-10 duration-300 transition-colors group"
+            className="aspect-[400/340] relative rounded-tl-[50px] rounded-br-[50px] overflow-hidden bg-primary-50 hover:bg-primary-100 justify-center flex flex-col p-10 duration-300 transition-colors group"
             key={index}
           >
             <div className="h-28 w-28">
               <Image src={icon1} alt="icons1" className="w-full h-full" />
             </div>
-            <div className=" flex flex-col gap-2 pt-4">
+            <div className="flex flex-col gap-2 pt-4">
               <h5 className="typography-h5 font-bold">Infertility Diagnosis</h5>
               <span className="typography-paragraph-regular font-medium text-text-400 pt-1.5">
                 Identify the causes of infertility with expert diagnostics for a
                 personalized treatment plan.
               </span>
-              <button className="text-primary-500 flex items-center gap-2 font-medium">
+              <button
+                className="text-primary-500 flex items-center gap-2 font-medium cursor-pointer min-w-max "
+                onClick={() => handleClick()}
+              >
                 Learn more
-                <span className="inline-block px-1 group-hover:translate-x-48  ease-in-out duration-700 delay-100 ">
-                  {">"}
+                <span className="px-1 group-hover:translate-x-40 ease-in-out duration-700 delay-100 ">
+                  <IoIosArrowForward className="text-primary-500" size={20} />
                 </span>
               </button>
             </div>

@@ -32,7 +32,7 @@ const Carousel = ({}) => {
   return (
     <div className="">
       <div className="flex md:flex-row flex-col justify-center container">
-        <div className="w-full h-[30.5rem]">
+        <div className=" w-full lg:h-[30.5rem] ">
           {testimonialData && testimonialData?.length > 0 && (
             <Swiper
               ref={swiperRef}
@@ -48,6 +48,16 @@ const Carousel = ({}) => {
               speed={1200}
               spaceBetween={50}
               slidesPerView={2}
+              breakpoints={{
+                "@0.00": {
+                  slidesPerView: 1,
+                  spaceBetween: 10,
+                },
+                "@0.75": {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+              }}
               onSlideChange={(swiper) => {
                 setActiveSlide(swiper.activeIndex);
               }}
@@ -63,7 +73,7 @@ const Carousel = ({}) => {
       </div>
 
       {/* Carousel Navigation */}
-      <div className="flex justify-center items-center  w-full">
+      <div className="mt-1 lg:mt-0 flex justify-center items-center w-full">
         {/* Left Arrow  */}
         <button
           disabled={activeSlide === 0}
