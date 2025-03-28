@@ -35,7 +35,7 @@ const HeroCareer = () => {
           </p>
           {/* CTA Button */}
           <Link
-            href="/appointment"
+            href="/career/careerDetail"
             className="typography-h5 font-semibold border-[0.4px] border-secondary-100 hover:bg-secondary py-4 px-11 rounded-full text-lg transition-colors duration-300 shadow-[0px 8px 18px 0px rgba(101,53,83,0.62)] bg-gradient-to-r from-[#A0385A] to-[#3A142C]"
           >
             Join Us
