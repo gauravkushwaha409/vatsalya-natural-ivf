@@ -2,6 +2,7 @@ import BrandsSlider from "./partials/BrandsSlider";
 import HeroSection from "./partials/HeroSection";
 import HowWeWork from "./partials/HowWeWork";
 import MeetExperts from "./partials/MeetExperts";
+import Miracles from "./partials/Miracles";
 import Showcase from "./partials/Showcase";
 import Slogan from "./partials/Slogan";
 import WhatWeDo from "./partials/WhatWeDo";
@@ -48,6 +49,7 @@ const HomePage = () => {
       <BrandsSlider />
       <MeetExperts />
       <Showcase />
+      <Miracles />
     </>
   );
 };
