@@ -15,7 +15,7 @@ const Showcase = () => {
         height={800}
         className="w-min h-[22.625rem] object-contain aspect-auto"
       />
-      <div>ds</div>
+      <div></div>
     </div>
   );
 }
