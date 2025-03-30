@@ -1,111 +1,71 @@
-"use client";
-// const HeroAnimationCarousel = () => {
-//   return (
-//     <div className="relative flex flex-col border border-white w-full h-full">
-//       <div className="z-[9] relative border h-full imageSection"></div>
-//       <div className="z-[11] relative border border-primary-500 h-1/3 imagecarouselSection">
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
-//       </div>
-//     </div>
-//   )
-// }
-// export default HeroAnimationCarousel
-
-import { motion } from 'motion/react';
-import React, { useEffect, useRef, useState } from "react";
-
-type StackedCarouselProps = {
-  images: string[];
-};
-
-const StackedCarousel: React.FC<StackedCarouselProps> = ({ images }) => {
-  const [activeIndex, setActiveIndex] = useState(images.length-1);
-  const containerRef = useRef<HTMLDivElement>(null);
+const HeroAnimationCarousel: React.FC<{ images: string[] }> = ({ images }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    const interval = () => {
-      setActiveIndex((current) => (current + 1) % images?.length);
-    }
-    window.addEventListener("click", interval);
+    const next = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(next);
+  }, [images.length]);
 
-    // return () => clearInterval(interval);
-  }, [images?.length]);
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setActiveIndex((current) => (current + 1) % images?.length);
-  //   }, 4000);
-
-  //   return () => clearInterval(interval);
-  // }, [images?.length]);
-  const getindices = () => {
-    const totalItems = images?.length;
-    const indices = [];
-    // when 1 is active 4,3,2,1 when 2 is active 1,4,3 when 3 is active 2,1,4 when 4 is active 3,2,1
-    for (let i = 0; i < totalItems; i++) {
-      if (i < activeIndex) {
-        indices.push(i);
-      }
-      else {
-        indices.unshift(i);
-      }
-    }
-    
-
-
-    return indices;
-  }
-
-  const getXPositionForIndex = (index: number) => {
-    const indices = getindices();
-    const position = indices.indexOf(index);
-
-    switch (position) {
-      case 0:
-        return "0%";
-      case activeIndex:
-        return "-100%";
-      default:
-        return `${position * 100}%`;
-    }
-  }
+  const thumbnailWidth = 100;
+  const gap = 10;
+  const inactiveCount = images.length - 1;
+  const totalWidth = inactiveCount * thumbnailWidth + (inactiveCount - 1) * gap;
 
   return (
-    <div className="flex flex-col w-full h-full">
-      <div className="grow"></div>
-      <div className="h-1/5">
-        <div className="z-[11] relative w-full">
-          <div
-            ref={containerRef}
-            className="relative flex justify-center items-center border border-amber-800 w-full h-full perspective-midrange"
-          >
-            {images?.map((image, index) => (
-              <motion.div
-                animate={{
-                  x: getXPositionForIndex(index),
-                }}
-                key={index}
-                className="left-0 absolute inset-y-0 border border-yellow-500 w-max aspect-square transition-all duration-[1500ms] ease-in-out cursor-pointer"
-                // className="left-0 absolute inset-y-0 border border-yellow-500 size-20 aspect-square transition-all duration-[1500ms] ease-in-out cursor-pointer"
-              >
-                {`imageindex: ${index}`}
-                <br/>
-                {`index${getindices().indexOf(index)}`}
-                
-                {/* <Image
-                  src={image}
-                  alt="carousel image"
-                  width={100}
-                  height={100}
-                  className="w-full h-full object-cover"
-                  objectFit="cover"
-                /> */}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
+    <div className="flex flex-col justify-center items-center w-full h-full">
+      <ul className="relative w-full h-full">
+        {images.map((image, i) => {
+          const indexOffset = (i + currentIndex) % images.length;
+          const isActive = indexOffset === 0;
+
+          let leftPosition;
+          if (isActive) {
+            leftPosition = 0;
+          } else {
+            const position = indexOffset - 1;
+            leftPosition = `calc(50% - ${totalWidth / 2}px + ${
+              position * (thumbnailWidth + gap)
+            }px)`;
+          }
+
+          return (
+            <li
+              key={i}
+              style={{
+                left: isActive ? "0" : leftPosition,
+                width: isActive ? "100%" : `${thumbnailWidth}px`,
+                backgroundColor: isActive ? "transparent" : "white",
+                borderRadius: isActive ? "0" : "1.25rem",
+                zIndex: isActive ? 9 : 11,
+                transition: isActive
+                  ? "all 2500ms ease-in-out, z-index 0s"
+                  : "all 2500ms ease-in-out",
+                // transition: "z-index 0s",
+              }}
+              className={`absolute transition-all border 
+                ${
+                  isActive
+                    ? "top-0 h-[calc(100%-120px-1.5rem)] border-transparent "
+                    : "top-[calc(100%-180px-0.5rem)] h-[110px] aspect-square  border-secondary-200"
+                } `}
+            >
+              <Image
+                width={1800}
+                height={2000}
+                alt={`Image ${i}`}
+                src={image}
+                className="block rounded-lg w-auto h-full object-cover"
+              />
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };
-
-export default StackedCarousel;
+export default HeroAnimationCarousel;

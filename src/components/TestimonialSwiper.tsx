@@ -1,5 +1,4 @@
 "use client";
-import TestimonialCard from "@/app/successStory/partials/TestimonialCard";
 import { testimonialData } from "@/data/testimonialData";
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
@@ -16,8 +15,9 @@ import {
   Scrollbar,
 } from "swiper/modules";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
+import TestimonialCard from "./TestimonialCard";
 
-const Carousel = ({}) => {
+const TestimonialSwiper = ({}) => {
   const swiperRef = useRef<SwiperRef>(null);
   const [noofSlides, setNoofSlides] = useState(0);
   const [activeSlide, setActiveSlide] = useState(0);
@@ -32,7 +32,7 @@ const Carousel = ({}) => {
   return (
     <div className="">
       <div className="flex md:flex-row flex-col justify-center container">
-        <div className=" w-full lg:h-[30.5rem] ">
+        <div className="w-full lg:h-[30.5rem]">
           {testimonialData && testimonialData?.length > 0 && (
             <Swiper
               ref={swiperRef}
@@ -73,11 +73,11 @@ const Carousel = ({}) => {
       </div>
 
       {/* Carousel Navigation */}
-      <div className="mt-1 lg:mt-0 flex justify-center items-center w-full">
+      <div className="flex justify-center items-center mt-1 lg:mt-0 w-full">
         {/* Left Arrow  */}
         <button
           disabled={activeSlide === 0}
-          className="px-6 text-white cursor-pointer "
+          className="px-6 text-white cursor-pointer"
           onClick={() => {
             if (swiperRef.current && swiperRef.current.swiper) {
               swiperRef.current.swiper.slidePrev();
@@ -94,7 +94,7 @@ const Carousel = ({}) => {
               onClick={() => {
                 console.log(`Navigating to slide: ${index}`);
               }}
-              className="relative bg-text-200/50 hover:bg-[#888888]/80 rounded-full size-3 cursor-pointer"
+              className="relative hover:bg-[#888888]/80 rounded-full size-3 bg-text-200/50 cursor-pointer"
             >
               {index === activeSlide && (
                 <motion.div
@@ -128,4 +128,4 @@ const Carousel = ({}) => {
     </div>
   );
 };
-export default Carousel;
+export default TestimonialSwiper;
