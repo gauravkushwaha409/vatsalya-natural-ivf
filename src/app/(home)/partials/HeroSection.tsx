@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
-import { Play } from "lucide-react";
+import HeroAnimationCarousel from "./HeroAnimationCarousel";
 import HeroTextAnimation from "./HeroTextAnimation";
 
 const HeroSection = () => {
@@ -76,8 +76,14 @@ const HeroSection = () => {
           >
             Book an Appointment
           </button>
-          <button className="p-1.5 border border-secondary-800 rounded-full cursor-pointer shrink-0 grow-0">
-            <Play size={24} className="text-secondary-900" />
+          <button className="flex justify-center items-center p-[0.69rem] border border-secondary-800 rounded-full cursor-pointer shrink-0 grow-0">
+            <Image
+              src={"/svg/play-icon.svg"}
+              height={24}
+              width={24}
+              alt="Play icon"
+              className="size-[1.11rem] text-secondary-900"
+            />
           </button>
         </div>
       </div>
@@ -106,15 +112,14 @@ const HeroSection = () => {
         /> */}
       </div>
       <div className="right-0 left-1/2 absolute inset-y-0">
-        {/* <HeroAnimationCarousel
+        <HeroAnimationCarousel
           images={[
             "/home/hero-img-1.png",
             "/home/hero-img-2.png",
             "/home/hero-img-1.png",
             "/home/hero-img-2.png",
-            "/home/hero-img-1.png",
           ]}
-        /> */}
+        />
       </div>
     </div>
   );

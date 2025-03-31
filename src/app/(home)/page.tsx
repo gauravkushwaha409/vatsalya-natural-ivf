@@ -1,7 +1,10 @@
+import Testimonial from "@/components/Testimonial";
 import BrandsSlider from "./partials/BrandsSlider";
+import HomeFaq from "./partials/Faq";
 import HeroSection from "./partials/HeroSection";
 import HowWeWork from "./partials/HowWeWork";
 import MeetExperts from "./partials/MeetExperts";
+import Miracles from "./partials/Miracles";
 import Showcase from "./partials/Showcase";
 import Slogan from "./partials/Slogan";
 import WhatWeDo from "./partials/WhatWeDo";
@@ -48,6 +51,11 @@ const HomePage = () => {
       <BrandsSlider />
       <MeetExperts />
       <Showcase />
+      <Miracles />
+      <div className="mt-60 w-full">
+        <Testimonial />
+      </div>
+      <HomeFaq />
     </>
   );
 };
