@@ -1,6 +1,6 @@
 import Breadcrumb from "@/components/Breadcumb";
 import React from "react";
-import heropic from "@/assests/expertise/hersection.png";
+import heropic from "@/assests/about/family.png";
 import Image from "next/image";
 
 const Herosection = () => {
@@ -15,7 +15,7 @@ const Herosection = () => {
           className="w-full h-full absolute top-0 object-cover z-10 brightness-50"
         />
         <div className="absolute top-5 z-30  transform left-1/2 -translate-x-1/2">
-          <Breadcrumb name="OurExperts" baseName="home" />
+          <Breadcrumb name="OurExperts" baseName="Home" />
         </div>
         <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2  text-center z-10 text-white">
           <h1 className="typography-h3 pb-5 font-bold">Our Experts</h1>

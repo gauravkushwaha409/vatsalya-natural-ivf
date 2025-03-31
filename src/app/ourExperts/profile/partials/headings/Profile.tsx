@@ -92,7 +92,7 @@ const Profile = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {ivfTeamData[0]?.servicesOffered?.map((items) => (
             <>
-              <div className="bg-primary-50/20 rounded-lg p-5 border border-text-50 flex items-center gap-5 shadow-md">
+              <div className="bg-primary-50/20 rounded-lg p-5 border border-text-50 flex items-center gap-5 shadow-sm backdrop-blur-2xl">
                 <div className="h-8 w-8">
                   <Image
                     src={icon}

@@ -8,12 +8,12 @@ import { motion } from "motion/react";
 const ServiceDetails = () => {
   return (
     <section className="bg-background-100 overflow-hidden relative">
-      <div className="flex gap-10 px-20 ">
+      <div className="flex flex-col lg:flex-row gap-10 px-5 lg:px-20 ">
         <motion.div
           initial={{ x: "20%" }}
           animate={{ x: "0%" }}
           transition={{ duration: 1.3, delay: 2 }}
-          className="w-2/3"
+          className="w-full lg:w-2/3"
         >
           {" "}
           <YoutubeEmbed />
@@ -23,7 +23,7 @@ const ServiceDetails = () => {
           initial={{ opacity: 0, x: "50%" }}
           animate={{ opacity: 1, x: "0%" }}
           transition={{ duration: 1.5, delay: 2 }}
-          className="w-1/3  sticky top-0"
+          className="w-full lg:w-1/3  sticky top-0"
         >
           <ServiceForm />
         </motion.div>

@@ -48,7 +48,7 @@ const ServiceForm = () => {
           className="  w-full bg-secondary-50/30 px-5 py-7 rounded-lg  "
           style={{ boxShadow: "0px 4px 22.6px 7px rgba(0, 0, 0, 0.06)" }}
         >
-          <h1 className="typography-paragraph-large font-medium border-b-2 border-primary-100 pb-2.5 text-center ">
+          <h1 className="typography-paragraph-large font-medium border-b-2 border-secondary-100 pb-2.5 text-center ">
             Request a Call
           </h1>
           <form

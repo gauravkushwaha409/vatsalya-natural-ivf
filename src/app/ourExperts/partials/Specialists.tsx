@@ -27,7 +27,7 @@ const Specialists = () => {
           A team of experts dedicated to your parenthood journey
         </p>
       </div>
-      <div className="my-10 grid grid-cols-4 gap-y-10 gap-x-10">
+      <div className="my-10 grid  grid-cols-2  sm:grid-cols-3  lg:grid-cols-4 gap-y-10 gap-x-10">
         {ivfTeamData?.map((items) => (
           <div
             key={items?.id}
@@ -92,9 +92,9 @@ const Specialists = () => {
                   <div className="flex items-center  text-nowrap">
                     <button
                       onClick={() => handleViewMore()}
-                      className="typography-caption px-5 py-2 font-medium text-text-400 border rounded-full border-text-400"
+                      className="typography-caption px-5 py-2 cursor-pointer font-medium text-text-400 border rounded-full border-text-400"
                     >
-                      view details
+                      View Details
                     </button>
                   </div>
                 </div>
