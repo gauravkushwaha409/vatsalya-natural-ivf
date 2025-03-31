@@ -1,7 +1,7 @@
 import React from "react";
-import TestimonialCard from "./TestimonialCard";
 import { testimonialData } from "@/data/testimonialData";
 import CustomPagination from "../../../components/CustomPagination";
+import TestimonialCard from "@/components/TestimonialCard";
 
 const StoriesSection = () => {
   return (
@@ -11,7 +11,7 @@ const StoriesSection = () => {
           {/* line  */}
           <div className="h-px bg-primary-400 flex-1 max-w-[200px]"></div>
 
-          <h2 className="text-primary-500 text-sm md:text-base font-bold tracking-wide uppercase leading-[24px]">
+          <h2 className="text-primary-500 text-sm md:text-base font-bold tracking-widest uppercase leading-[24px]">
             Stories of Hope and Joy
           </h2>
           {/* line  */}
