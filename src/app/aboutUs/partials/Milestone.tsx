@@ -39,7 +39,7 @@ const Milestone = () => {
                   <h2 className="text-primary-500 uppercase tracking-widest text-base leading-[150%] font-bold">
                     Our Milestones
                   </h2>
-                  <div className="h-px bg-primary-500 flex-1 max-w-[230px]"></div>
+                  <div className="h-px bg-primary-500 flex-1 max-w-[148px]"></div>
                 </div>
                 <h3 className="typography-h4 font-semibold text-text-500 ">
                   A legacy of care and success
@@ -57,7 +57,7 @@ const Milestone = () => {
             {stats.map((stat) => (
               <div
                 key={stat.id}
-                className="flex flex-col items-center text-center border-b lg:border-r border-primary-100 px-20"
+                className="flex flex-col items-center text-center border-b lg:border-b-0 lg:border-r border-primary-100 px-20"
               >
                 {/* Icon */}
                 <div className="w-24 h-24 flex items-center justify-center border-[7px] border-[rgba(255,189,182,0.54)] rounded-full p-4">

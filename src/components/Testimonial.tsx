@@ -24,7 +24,7 @@ const Testimonial = () => {
               <h2 className="font-bold text-primary-500 text-base uppercase  leading-[150%] tracking-widest">
                 Testimonial
               </h2>
-              <div className="flex-1 bg-primary-500 max-w-[180px] h-px"></div>
+              <div className="flex-1 bg-primary-500 max-w-[148px] h-px"></div>
             </div>
 
             <h3 className="font-semibold text-text-500 typography-h3">

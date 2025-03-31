@@ -13,7 +13,7 @@ const OurStory = () => {
               <h2 className="text-primary-500 uppercase tracking-widest text-base leading-[150%] font-bold">
                 OUR STORY
               </h2>
-              <div className="h-px bg-primary-500 flex-1 max-w-[230px]"></div>
+              <div className="h-px bg-primary-500 flex-1 max-w-[148px]"></div>
             </div>
             <h3 className="typography-h4 font-semibold text-text-500 ">
               A Journey Rooted in Hope and Expertise

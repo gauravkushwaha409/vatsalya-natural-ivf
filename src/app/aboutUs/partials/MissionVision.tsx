@@ -6,78 +6,100 @@ const MissionVision = () => {
     <div>
       <section className="w-full py-16 md:py-24 bg-gradient-to-r from-[#EBC0DB] to-[#FFD2CE]">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col lg:flex-row justify-between gap-10 lg:gap-40 lg:items-center">
+          <div className="flex flex-col lg:flex-row justify-between gap-10 lg:gap-60 lg:items-center">
             {/* Image Grid */}
-            <div className="grid grid-cols-2  w-[40%] gap-y-4 gap-x-40 md:gap-x-12">
-              <div className="relative w-38 h-38 ">
-                {/* Outer most border */}
-                <div className="absolute inset-0 rounded-[50%] rounded-br-none border-[0.8px] border-white bg-gradient-to-br from-white/5 via-white/50 to-transparent"></div>
-
-                {/* Middle border */}
-                <div className="absolute inset-2 rounded-[50%] rounded-br-none border-[0.8px] border-white m-4"></div>
-                {/* Inner border */}
-                <div className="absolute inset-4 rounded-[50%] rounded-br-none border-[0.8px] border-white m-6">
-                  <Image
-                    src={photo}
-                    layout="fill"
-                    objectFit="cover"
-                    alt="Mother holding baby"
-                    className="rounded-[50%] rounded-br-none border-[0.8px] border-white"
-                  />
+            <div className="grid grid-cols-2 w-[40%] gap-x-30 gap-y-2">
+              {/* 1st  */}
+              {/* Outer most border */}
+              <div
+                className="w-[191.18px] h-[191.18px] pt-[20px] pl-[20px] pr-[7.18px] pb-[20.18px] rounded-full rounded-br-none border-[0.8px] border-white
+              shadow-[0px_-6px_130.2px_33px_rgba(160,56,121,0.20)]
+              bg-[rgba(255,255,255,0.56)]
+              opacity-[0.85]
+               backdrop-blur-[114.14590454101562px]
+              "
+              >
+                {/* Second  border */}
+                <div className="w-[164px] h-[164px] pt-[19px] pl-[19px] pr-[9px] pb-[20px] rounded-full rounded-br-none border-[0.8px] border-white ">
+                  {/* Inner most border */}
+                  <div className=" w-[138px] h-[138px] rounded-full rounded-br-none border-[0.8px] ">
+                    <Image
+                      src={photo}
+                      alt="Mother holding baby"
+                      className="rounded-full rounded-br-none border-[0.8px] border-white w-full h-full object-cover
+                      "
+                    />
+                  </div>
                 </div>
               </div>
 
-              <div className="relative w-38 h-38 ">
-                {/* Outer most border */}
-                <div className="absolute bg-gradient-to-br from-white/5 via-white/50 to-transparent inset-0 rounded-[50%] rounded-bl-none border-[0.8px] border-white "></div>
-
-                {/* Middle border */}
-                <div className="absolute inset-2 rounded-[50%] rounded-bl-none border-[0.8px] border-white m-4"></div>
-                {/* Inner border */}
-                <div className="absolute inset-4 rounded-[50%] rounded-bl-none border-[0.8px] border-white m-6">
-                  <Image
-                    src={photo}
-                    layout="fill"
-                    objectFit="cover"
-                    alt="Mother holding baby"
-                    className="rounded-[50%] rounded-bl-none border-[0.8px] border-white"
-                  />
+              {/* 2nd  */}
+              {/* Outer most border */}
+              <div
+                className="w-[191.18px] h-[191.18px] pt-[20px] pr-[20px] pl-[7.18px] pb-[20.18px] rounded-full rounded-bl-none border-[0.8px] border-white
+              shadow-[0px_-6px_130.2px_33px_rgba(160,56,121,0.20)]
+              bg-[rgba(255,255,255,0.56)]
+              opacity-[0.85]
+               backdrop-blur-[114.14590454101562px]
+              "
+              >
+                {/* Second  border */}
+                <div className="w-[164px] h-[164px] pt-[19px] pr-[19px] pl-[9px] pb-[20px] rounded-full rounded-bl-none border-[0.8px] border-white ">
+                  {/* Inner most border */}
+                  <div className=" w-[138px] h-[138px] rounded-full rounded-bl-none border-[0.8px] ">
+                    <Image
+                      src={photo}
+                      alt="Mother holding baby"
+                      className="rounded-full rounded-bl-none border-[0.8px] border-white w-full h-full object-cover
+                      "
+                    />
+                  </div>
                 </div>
               </div>
 
-              <div className="relative w-38 h-38 ">
-                {/* Outer most border */}
-                <div className="absolute bg-gradient-to-br from-white/5 via-white/50 to-transparent inset-0 rounded-[50%] rounded-tr-none border-[0.8px] border-white "></div>
-
-                {/* Middle border */}
-                <div className="absolute inset-2 rounded-[50%] rounded-tr-none border-[0.8px] border-white m-4"></div>
-                {/* Inner border */}
-                <div className="absolute inset-4 rounded-[50%] rounded-tr-none border-[0.8px] border-white m-6">
-                  <Image
-                    src={photo}
-                    layout="fill"
-                    objectFit="cover"
-                    alt="Mother holding baby"
-                    className="rounded-[50%] rounded-tr-none border-[0.8px] border-white"
-                  />
+              {/* 3rd */}
+              <div
+                className="w-[191.18px] h-[191.18px] pl-[20px] pr-[20px] pt-[7.18px] pb-[20.18px] rounded-full rounded-tr-none border-[0.8px] border-white
+              shadow-[0px_-6px_130.2px_33px_rgba(160,56,121,0.20)]
+              bg-[rgba(255,255,255,0.56)]
+              opacity-[0.85]
+               backdrop-blur-[114.14590454101562px]
+              "
+              >
+                {/* Second  border */}
+                <div className="w-[164px] h-[164px] pl-[19px] pr-[19px] pt-[9px] pb-[20px] rounded-full rounded-tr-none border-[0.8px] border-white ">
+                  {/* Inner most border */}
+                  <div className=" w-[138px] h-[138px] rounded-full rounded-tr-none border-[0.8px] ">
+                    <Image
+                      src={photo}
+                      alt="Mother holding baby"
+                      className="rounded-full rounded-tr-none border-[0.8px] border-white w-full h-full object-cover
+                      "
+                    />
+                  </div>
                 </div>
               </div>
 
-              <div className="relative w-38 h-38 ">
-                {/* Outer most border */}
-                <div className="absolute bg-gradient-to-br from-white/5 via-white/50 to-transparent inset-0 rounded-[50%] rounded-tl-none border-[0.8px] border-white "></div>
-
-                {/* Middle border */}
-                <div className="absolute inset-2 rounded-[50%] rounded-tl-none border-[0.8px] border-white m-4"></div>
-                {/* Inner border */}
-                <div className="absolute inset-4 rounded-[50%] rounded-tl-none border-[0.8px] border-white m-6">
-                  <Image
-                    src={photo}
-                    layout="fill"
-                    objectFit="cover"
-                    alt="Mother holding baby"
-                    className="rounded-[50%] rounded-tl-none border-[0.8px] border-white"
-                  />
+              {/* 4th */}
+              <div
+                className="w-[191.18px] h-[191.18px] pr-[20px] pl-[7.18px] pt-[7.18px] pb-[20.18px] rounded-full rounded-tl-none border-[0.8px] border-white
+              shadow-[0px_-6px_130.2px_33px_rgba(160,56,121,0.20)]
+              bg-[rgba(255,255,255,0.56)]
+              opacity-[0.85]
+               backdrop-blur-[114.14590454101562px]
+              "
+              >
+                {/* Second  border */}
+                <div className="w-[164px] h-[164px] pt-[9px] pl-[9px] pb-[19px] pr-[19px] rounded-full rounded-tl-none border-[0.8px] border-white ">
+                  {/* Inner most border */}
+                  <div className=" w-[138px] h-[138px] rounded-full rounded-tl-none border-[0.8px] ">
+                    <Image
+                      src={photo}
+                      alt="Mother holding baby"
+                      className="rounded-full rounded-tl-none border-[0.8px] border-white w-full h-full object-cover
+                      "
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -88,7 +110,7 @@ const MissionVision = () => {
                 <h2 className="text-primary-500 uppercase tracking-widest text-base leading-[150%] font-bold">
                   OUR MISSION & VISION
                 </h2>
-                <div className="h-px bg-primary-500 flex-1 max-w-[230px]"></div>
+                <div className="h-px bg-primary-500 flex-1 max-w-[148px]"></div>
               </div>
               <h3 className="typography-h4 font-semibold text-text-500 ">
                 Transforming Lives Through Compassionate Fertility Care

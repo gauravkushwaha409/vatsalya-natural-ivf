@@ -9,13 +9,13 @@ const StoriesSection = () => {
       <div className="flex flex-col items-center text-center space-y-4">
         <div className="flex items-center w-full justify-center gap-4 max-w-3xl">
           {/* line  */}
-          <div className="h-px bg-primary-400 flex-1 max-w-[200px]"></div>
+          <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
 
           <h2 className="text-primary-500 text-sm md:text-base font-bold tracking-widest uppercase leading-[24px]">
             Stories of Hope and Joy
           </h2>
           {/* line  */}
-          <div className="h-px bg-primary-400 flex-1 max-w-[200px]"></div>
+          <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
         </div>
 
         <h1 className="typography-h4 font-semibold tracking-tight ">

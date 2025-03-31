@@ -29,7 +29,7 @@ const BlogDetailHero = () => {
             1 Jan 2023
           </p>
 
-          <div className="bg-primary-50 rounded-2xl">
+          <div className="bg-primary-100/50 rounded-2xl">
             <p className="text-primary-400 typography-paragraph-small font-medium px-2.5 py-0.5">
               Mental Health
             </p>
