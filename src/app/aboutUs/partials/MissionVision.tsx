@@ -4,7 +4,7 @@ import photo from "@/assests/about/ourstory1.png";
 const MissionVision = () => {
   return (
     <div>
-      <section className="w-full py-16 md:py-24 bg-gradient-to-r from-[#EBC0DB] to-[#FFD2CE]">
+      <section className="w-full py-16 md:py-24 bg-gradient-to-r from-[#EBC0DB] to-primary-100">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col lg:flex-row justify-between gap-10 lg:gap-60 lg:items-center">
             {/* Image Grid */}
@@ -12,12 +12,13 @@ const MissionVision = () => {
               {/* 1st  */}
               {/* Outer most border */}
               <div
-                className="w-[191.18px] h-[191.18px] pt-[20px] pl-[20px] pr-[7.18px] pb-[20.18px] rounded-full rounded-br-none border-[0.8px] border-white
-              shadow-[0px_-6px_130.2px_33px_rgba(160,56,121,0.20)]
-              bg-[rgba(255,255,255,0.56)]
-              opacity-[0.85]
-               backdrop-blur-[114.14590454101562px]
-              "
+                className="w-[191.18px] h-[191.18px] pt-[20px] pl-[20px] pr-[7.18px] pb-[20.18px] rounded-full rounded-br-none border-[0.8px] border-white"
+                style={{
+                  boxShadow: "0px -6px 130.2px 33px rgba(160, 56, 121, 0.20)",
+                  backdropFilter: "blur(114.14590454101562px)",
+                  background: "rgba(255, 255, 255, 0.56)",
+                  opacity: " 0.85",
+                }}
               >
                 {/* Second  border */}
                 <div className="w-[164px] h-[164px] pt-[19px] pl-[19px] pr-[9px] pb-[20px] rounded-full rounded-br-none border-[0.8px] border-white ">
@@ -37,11 +38,15 @@ const MissionVision = () => {
               {/* Outer most border */}
               <div
                 className="w-[191.18px] h-[191.18px] pt-[20px] pr-[20px] pl-[7.18px] pb-[20.18px] rounded-full rounded-bl-none border-[0.8px] border-white
-              shadow-[0px_-6px_130.2px_33px_rgba(160,56,121,0.20)]
-              bg-[rgba(255,255,255,0.56)]
-              opacity-[0.85]
-               backdrop-blur-[114.14590454101562px]
+          
               "
+                style={{
+                  opacity: "0.85",
+                  background: "rgba(255, 255, 255, 0.56)",
+                  boxShadow:
+                    "-187px 162px 130.2px 33px rgba(160, 56, 121, 0.20)",
+                  backdropFilter: "blur(114.14590454101562px)",
+                }}
               >
                 {/* Second  border */}
                 <div className="w-[164px] h-[164px] pt-[19px] pr-[19px] pl-[9px] pb-[20px] rounded-full rounded-bl-none border-[0.8px] border-white ">
@@ -60,11 +65,14 @@ const MissionVision = () => {
               {/* 3rd */}
               <div
                 className="w-[191.18px] h-[191.18px] pl-[20px] pr-[20px] pt-[7.18px] pb-[20.18px] rounded-full rounded-tr-none border-[0.8px] border-white
-              shadow-[0px_-6px_130.2px_33px_rgba(160,56,121,0.20)]
-              bg-[rgba(255,255,255,0.56)]
-              opacity-[0.85]
-               backdrop-blur-[114.14590454101562px]
+           
               "
+                style={{
+                  opacity: " 0.85",
+                  background: "rgba(255, 255, 255, 0.56)",
+                  boxShadow: "58px -11px 130.2px 33px rgba(160, 56, 121, 0.20)",
+                  backdropFilter: "blur(114.14590454101562px)",
+                }}
               >
                 {/* Second  border */}
                 <div className="w-[164px] h-[164px] pl-[19px] pr-[19px] pt-[9px] pb-[20px] rounded-full rounded-tr-none border-[0.8px] border-white ">
@@ -83,11 +91,15 @@ const MissionVision = () => {
               {/* 4th */}
               <div
                 className="w-[191.18px] h-[191.18px] pr-[20px] pl-[7.18px] pt-[7.18px] pb-[20.18px] rounded-full rounded-tl-none border-[0.8px] border-white
-              shadow-[0px_-6px_130.2px_33px_rgba(160,56,121,0.20)]
-              bg-[rgba(255,255,255,0.56)]
-              opacity-[0.85]
-               backdrop-blur-[114.14590454101562px]
+            
               "
+                style={{
+                  opacity: "0.85",
+                  background:
+                    "linear-gradient(333deg, rgba(255, 255, 255, 0.03) 0.09%, rgba(255, 255, 255, 0.56) 83.34%)",
+                  boxShadow: "0px -74px 130.2px 33px rgba(160, 56, 121, 0.20)",
+                  backdropFilter: " blur(114.14590454101562px)",
+                }}
               >
                 {/* Second  border */}
                 <div className="w-[164px] h-[164px] pt-[9px] pl-[9px] pb-[19px] pr-[19px] rounded-full rounded-tl-none border-[0.8px] border-white ">

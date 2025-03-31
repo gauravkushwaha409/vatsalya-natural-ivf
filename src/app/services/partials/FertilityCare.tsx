@@ -5,7 +5,7 @@ import troubleConceiving from "@/assests/icons/services/Trouble Conceiving.svg";
 const FertilityCare = () => {
   return (
     <section>
-      <div className=" bg-gradient-to-r from-[#EBC0DB] to-[#FFD2CE] px-10">
+      <div className=" bg-gradient-to-r from-[#EBC0DB] to-primary-100 px-10">
         <div className="flex flex-col items-center justify-center">
           <div className="flex items-center justify-center gap-3 pt-20 py-10 ">
             <div className="border border-primary-500/80 border-t-1 w-20"></div>

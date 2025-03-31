@@ -41,7 +41,7 @@ const Culture = () => {
             </div>
 
             {/* Box 2 */}
-            <div className="lg:w-[484px] h-[240px]  col-span-2 rounded-[24px] ">
+            <div className="-ml-4 lg:w-[484px] h-[240px] col-span-2 rounded-[24px] ">
               <Image
                 src={family}
                 alt="image"
@@ -52,7 +52,7 @@ const Culture = () => {
             </div>
 
             {/* Box 3 */}
-            <div className="ml-60 lg:ml-5 -mt-120 lg:mt-15  w-52 h-50 lg:w-[191px] lg:h-[180px] rounded-[24px] ">
+            <div className="ml-60 lg:-ml-2 -mt-120 lg:mt-15  w-52 h-50 lg:w-[191px] lg:h-[180px] rounded-[24px] ">
               <Image
                 src={family}
                 alt="image"
@@ -61,9 +61,9 @@ const Culture = () => {
                 className="w-full h-full object-cover rounded-[24px]"
               />
             </div>
-
+            {/* lastt */}
             {/* Box 4 */}
-            <div className="mt-0 lg:mt-42   w-52 h-50 lg:h-[180px] lg:w-full rounded-[24px] ">
+            <div className="mt-0 lg:mt-42 lg:-ml-10 w-52 h-50 lg:h-[180px] lg:w-full rounded-[24px] ">
               <Image
                 src={family}
                 alt="image"
@@ -73,7 +73,7 @@ const Culture = () => {
               />
             </div>
             {/* Box 5 */}
-            <div className="lg:ml-65 lg:-mt-28 -mt-55 lg:w-[191px] w-52 h-50 lg:h-[180px] rounded-[24px] ">
+            <div className="lg:ml-58 lg:-mt-32 -mt-55 lg:w-[191px] w-52 h-50 lg:h-[180px] rounded-[24px] ">
               <Image
                 src={family}
                 alt="image"
@@ -83,7 +83,7 @@ const Culture = () => {
               />
             </div>
             {/* Box 6 */}
-            <div className="lg:ml-60 lg:-mt-28 w-full lg:w-[484px] h-[240px] col-span-2 rounded-[24px] ">
+            <div className="lg:ml-50 lg:-mt-32 w-full lg:w-[484px] h-[240px] col-span-2 rounded-[24px] ">
               <Image
                 src={family}
                 alt="image"

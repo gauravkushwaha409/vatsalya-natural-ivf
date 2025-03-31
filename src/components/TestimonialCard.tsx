@@ -40,7 +40,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       </div>
 
       <div className="relative p-6">
-        <div className="-top-6 left-6 absolute flex justify-center items-center bg-gradient-to-b from-[#FFD2CE] to-[#EBC0DB] rounded-full w-16 h-16">
+        <div className="-top-6 left-6 absolute flex justify-center items-center bg-gradient-to-b from-primary-100 to-[#EBC0DB] rounded-full w-16 h-16">
           <ImQuotesLeft className="text-white" size={30} />
         </div>
 

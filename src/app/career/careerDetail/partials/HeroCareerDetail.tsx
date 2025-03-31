@@ -9,7 +9,7 @@ import ApplyFormModal from "./ApplyFormModal";
 const HeroCareerDetail = () => {
   return (
     <div>
-      <div className="bg-gradient-to-b from-primary-50 to-background-100  py-10">
+      <div className="bg-gradient-to-b from-primary-50 to-background-100  pt-10 pb-4">
         <div className="flex flex-col justify-center items-center text-center ">
           {/* breadcrumb  */}
           <CustomBreadcrumb

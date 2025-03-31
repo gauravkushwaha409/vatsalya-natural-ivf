@@ -45,7 +45,7 @@ export default function RootLayout({
         className={`${manRope.variable} ${inter.variable} ${plusJakarta.variable} ${roboto.variable} antialiased font-manrope `}
       >
         <Header />
-        <div className="bg-background-100 min-h-screen">
+        <div className="bg-background-100 ">
           <Providers>{children}</Providers>
         </div>
         <Footer />
