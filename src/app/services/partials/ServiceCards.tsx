@@ -4,6 +4,7 @@ import React from "react";
 import icon1 from "@/assests/icons/services/infertility.svg";
 import { useRouter } from "next/navigation";
 import { IoIosArrowForward } from "react-icons/io";
+import { IoArrowForwardOutline } from "react-icons/io5";
 
 const ServiceCards = () => {
   const router = useRouter();
@@ -35,20 +36,21 @@ const ServiceCards = () => {
               <Image src={icon1} alt="icons1" className="w-full h-full" />
             </div>
             <div className="flex flex-col gap-2 pt-4">
-              <h5 className="typography-h5 font-bold">Infertility Diagnosis</h5>
+              <div className="flex items-center justify-between">
+                <h5 className="typography-h5 font-bold">
+                  Infertility Diagnosis
+                </h5>{" "}
+                <button onClick={handleClick} className="cursor-pointer">
+                  <IoArrowForwardOutline
+                    size={24}
+                    className="-rotate-40 text-primary-500"
+                  />
+                </button>
+              </div>
               <span className="typography-paragraph-regular font-medium text-text-400 pt-1.5">
                 Identify the causes of infertility with expert diagnostics for a
                 personalized treatment plan.
               </span>
-              <button
-                className="text-primary-500 flex items-center gap-2 font-medium cursor-pointer min-w-max "
-                onClick={() => handleClick()}
-              >
-                Learn more
-                <span className="px-1 group-hover:translate-x-40 ease-in-out duration-700 delay-100 ">
-                  <IoIosArrowForward className="text-primary-500" size={20} />
-                </span>
-              </button>
             </div>
           </div>
         ))}

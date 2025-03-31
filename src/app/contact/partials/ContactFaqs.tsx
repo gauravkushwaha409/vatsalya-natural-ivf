@@ -6,7 +6,7 @@ import Faq from "../../../components/Faqs";
 import faqData from "@/data/faqsData";
 const ContactFaqs = () => {
   return (
-    <section className="flex gap-10 py-20">
+    <section className="flex lg:flex-row flex-col gap-10 py-20">
       <div className="flex w-full md:w-1/2 justify-start items-center">
         <div className="  aspect-[16/16] relative rounded-lg  w-10/12 ">
           <Image

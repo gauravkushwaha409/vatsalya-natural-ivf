@@ -5,9 +5,9 @@ import troubleConceiving from "@/assests/icons/services/Trouble Conceiving.svg";
 const FertilityCare = () => {
   return (
     <section>
-      <div className=" bg-gradient-to-r from-[#EBC0DB] to-[#FFD2CE] px-10">
-        <div className="flex flex-col items-center justify-center">
-          <div className="flex items-center justify-center gap-3 pt-20 py-10 ">
+      <div className=" bg-gradient-to-r from-[#EBC0DB] to-[#FFD2CE] px-10 py-20">
+        <div className="flex flex-col items-center justify-center pb-8 ">
+          <div className="flex items-center justify-center gap-3  pb-5 ">
             <div className="border border-primary-500/80 border-t-1 w-20"></div>
 
             <span className="text-primary-500 typography-paragraph-regular font-bold uppercase tracking-widest">
@@ -20,7 +20,7 @@ const FertilityCare = () => {
           </p>
         </div>
 
-        <div className="p-10 flex gap-10  ">
+        <div className="p-10 flex flex-col lg:flex-row gap-10  ">
           <div className="flex flex-col gap-5 w-1/2">
             {Array.from({ length: 5 }, (_, index) => (
               <div className="flex items-center gap-5" key={index}>
