@@ -85,7 +85,7 @@ const MissionVision = () => {
             {/* Text Content */}
             <div className="space-y-6 w-full">
               <div className="flex items-center w-full  gap-4 ">
-                <h2 className="text-primary-500 uppercase tracking-wider text-base leading-[150%] font-bold">
+                <h2 className="text-primary-500 uppercase tracking-widest text-base leading-[150%] font-bold">
                   OUR MISSION & VISION
                 </h2>
                 <div className="h-px bg-primary-500 flex-1 max-w-[230px]"></div>

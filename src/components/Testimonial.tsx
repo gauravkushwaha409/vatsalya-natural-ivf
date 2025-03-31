@@ -21,7 +21,7 @@ const Testimonial = () => {
           {/* Text Section  */}
           <div className="space-y-4 py-16 md:py-24 w-[30%]">
             <div className="flex items-center gap-4 w-full">
-              <h2 className="font-bold text-primary-500 text-base uppercase leading-[150%] tracking-wider">
+              <h2 className="font-bold text-primary-500 text-base uppercase  leading-[150%] tracking-widest">
                 Testimonial
               </h2>
               <div className="flex-1 bg-primary-500 max-w-[180px] h-px"></div>

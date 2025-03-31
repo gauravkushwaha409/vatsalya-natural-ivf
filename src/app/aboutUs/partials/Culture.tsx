@@ -11,7 +11,7 @@ const Culture = () => {
             {/* line  */}
             <div className="h-px bg-primary-400 flex-1 max-w-[200px]"></div>
 
-            <h2 className="text-primary-500 text-sm md:text-base font-bold tracking-wide uppercase leading-[24px]">
+            <h2 className="text-primary-500 text-sm md:text-base font-bold tracking-widest uppercase leading-[24px]">
               Our Culture
             </h2>
             {/* line  */}
