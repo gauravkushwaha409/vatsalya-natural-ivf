@@ -1,5 +1,5 @@
 import CustomBreadcrumb from "@/components/CustomBreadcrumb";
-import Link from "next/link";
+
 import React from "react";
 
 const Headings = () => {

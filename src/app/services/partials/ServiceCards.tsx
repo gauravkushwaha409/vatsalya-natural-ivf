@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import icon1 from "@/assests/icons/services/infertility.svg";
 import { useRouter } from "next/navigation";
-import { IoIosArrowForward } from "react-icons/io";
+
 import { IoArrowForwardOutline } from "react-icons/io5";
 
 const ServiceCards = () => {

@@ -26,8 +26,6 @@ interface IFormValues {
 const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
   isOpen,
   onClose,
-  selectService,
-  selectedDate,
 }) => {
   const modalRef = useClickOutside(onClose);
 

@@ -37,7 +37,6 @@ const RenderCells: React.FC<CalendarProps> = ({
   while (tempDay <= endDate) {
     for (let i = 0; i < 7; i++) {
       const currentDay = tempDay;
-      const isToday = isSameDay(currentDay, new Date());
       const isInCurrentMonth = isSameMonth(currentDay, monthStart);
       const isSelected = selectedDate && isSameDay(currentDay, selectedDate);
       const isAviable = dummyAvailableDates?.some((date) => {
