@@ -6,14 +6,14 @@ const Header = () => {
   return (
     <header className="bg-primary-50 backdrop-blur-[5.6px] px-20 py-[0.63rem] text-white">
       <div className="flex justify-between items-center">
-        <div>
+        <Link href="/">
           <Image
             src={"/horizontal-logo.png"}
             width={200}
             height={50}
             alt="logo"
           />
-        </div>
+        </Link>
         <div>
           <label className="relative flex bg-light-variant-50 px-5 py-4 border-2 border-dark-variant-50 rounded-[1.75rem] min-w-[22.5rem] font-roboto text-dark-variant-300 typography-paragraph-regular">
             <input
@@ -43,7 +43,7 @@ const Header = () => {
           {[
             { name: "About Us", link: "/aboutUs" },
             { name: "Services", link: "/services" },
-            { name: "Our Doctors", link: "/contact" },
+            { name: "Our Experts", link: "/ourExperts" },
             { name: "Success Stories", link: "/successStory" },
             { name: "Blog & News", link: "/blog" },
             { name: "Request a Call", link: "/requestCall" },
