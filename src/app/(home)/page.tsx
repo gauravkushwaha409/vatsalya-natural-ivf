@@ -42,8 +42,10 @@ const HomePage = () => {
 
       {/* Main Slogan */}
       <Slogan />
-      <WhoWeAre />
-      <WhatWeDo />
+      <div>
+        <WhoWeAre />
+        <WhatWeDo />
+      </div>
       <WhatWeOffer />
       <HowWeWork />
       <WhenToVisit />
