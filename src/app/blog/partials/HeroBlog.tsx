@@ -1,25 +1,24 @@
-import Breadcrumb from "@/components/Breadcumb";
-import React from "react";
 import blogHero from "@/assests/blog/blogHero.png";
+import Breadcrumb from "@/components/Breadcumb";
 import Image from "next/image";
 
 const HeroBlog = () => {
   return (
     <>
-      <div className="py-10 bg-gradient-to-b from-primary-50 to-background-100">
-        <div className="flex flex-col justify-center items-center text-center ">
+      <div className="bg-gradient-to-b from-primary-50 to-background-100 py-10">
+        <div className="flex flex-col justify-center items-center text-center">
           {/* breadcrumb  */}
-          <Breadcrumb name="Blog" baseName="home" style="text-text-400" />
+          <Breadcrumb name="Blog" baseName="Home" style="text-text-400" />
 
-          <h1 className="text-secondary-500 font-bold leading-[150%] typography-h3 pt-3 ">
+          <h1 className="pt-3 font-bold text-secondary-500 leading-[150%] typography-h3">
             Blog & News
           </h1>
         </div>
       </div>
 
       {/* Background Image */}
-      <div className="relative w-full h-[500px] overflow-hidden mb-12 md:mb-20">
-        <div className="absolute inset-0 z-0 border-primary-500">
+      <div className="relative mb-12 md:mb-20 w-full h-[500px] overflow-hidden">
+        <div className="z-0 absolute inset-0 border-primary-500">
           <Image
             src={blogHero}
             alt="Happy couple with newborn baby"
@@ -33,16 +32,16 @@ const HeroBlog = () => {
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(250,185,227,0.5)_0%,rgba(234,186,181,0)_100%)]"></div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-4xl flex flex-col items-center md:items-start justify-center h-full text-white px-6 md:px-12 lg:px-20 text-center md:text-left">
-          <p className="typography-paragraph-regular text-text-400">Feature</p>
+        <div className="z-10 relative flex flex-col justify-center items-center md:items-start px-6 md:px-12 lg:px-20 max-w-4xl h-full text-white md:text-left text-center">
+          <p className="text-text-400 typography-paragraph-regular">Feature</p>
 
           {/* Heading */}
-          <h1 className="typography-h3 font-bold my-3.5 leading-[1.5] text-secondary-500 max-w-lg">
+          <h1 className="my-3.5 max-w-lg font-bold text-secondary-500 leading-[1.5] typography-h3">
             A New Beginning: Your Journey to Parenthood
           </h1>
 
           {/* Subheading */}
-          <p className="typography-paragraph-large text-text-400 mb-10">
+          <p className="mb-10 text-text-400 typography-paragraph-large">
             We understand that the journey to parenthood is unique for every
             individual and couple. Whether you are considering fertility
             treatments, exploring IVF options, or simply looking for guidance on
@@ -51,7 +50,7 @@ const HeroBlog = () => {
           </p>
 
           {/* CTA Button */}
-          <button className="text-secondary-500 border-[0.4px] border-secondary-500 px-8 py-3 rounded-[6.25rem] font-manrope font-bold typography-paragraph-regular cursor-pointer">
+          <button className="px-8 py-3 border-[0.4px] border-secondary-500 rounded-[6.25rem] font-manrope font-bold text-secondary-500 cursor-pointer typography-paragraph-regular">
             Read More
           </button>
         </div>
