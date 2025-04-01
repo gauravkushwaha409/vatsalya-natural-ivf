@@ -16,11 +16,14 @@ import {
 } from "swiper/modules";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import TestimonialCard from "./TestimonialCard";
+import VideoModal from "@/app/(home)/modals/VideoModal";
 
 const TestimonialSwiper = ({}) => {
   const swiperRef = useRef<SwiperRef>(null);
   const [noofSlides, setNoofSlides] = useState(0);
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+  const [videoUrl, setVideoUrl] = useState<string>("");
 
   useEffect(() => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -64,7 +67,11 @@ const TestimonialSwiper = ({}) => {
             >
               {testimonialData?.map((item, index) => (
                 <SwiperSlide key={index}>
-                  <TestimonialCard data={item} />
+                  <TestimonialCard
+                    data={item}
+                    setIsOpenModal={setIsOpenModal}
+                    setVideoUrl={setVideoUrl}
+                  />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -125,6 +132,11 @@ const TestimonialSwiper = ({}) => {
           <GrNext />
         </button>
       </div>
+      <VideoModal
+        isOpen={isOpenModal}
+        onClose={() => setIsOpenModal(false)}
+        videoUrl="https://www.youtube.com/embed/vLyP1aOmENc?si=aPCpD2JOABihWFx_"
+      />
     </div>
   );
 };

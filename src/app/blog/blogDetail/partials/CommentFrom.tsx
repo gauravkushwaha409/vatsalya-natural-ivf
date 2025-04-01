@@ -66,7 +66,7 @@ const CommentForm = () => {
   }, [isChecked, formik]);
 
   return (
-    <section className="mx-24.5 mt-10 mb-20">
+    <section className="mx-5 lg:mx-24.5 mt-10 mb-20">
       <h1 className="typography-h5 font-medium text-[#333] pb-5">
         Leave a Comment
       </h1>
@@ -100,7 +100,7 @@ const CommentForm = () => {
 
         <div className="flex flex-col lg:flex-row gap-8 items-center">
           {/*  Name */}
-          <div className="lg:w-1/2">
+          <div className="w-full lg:w-1/2">
             <label
               className="typography-paragraph-regular font-semibold text-text-500"
               htmlFor="name"
@@ -125,7 +125,7 @@ const CommentForm = () => {
           </div>
 
           {/* Email */}
-          <div className="lg:w-1/2">
+          <div className="w-full lg:w-1/2">
             <label
               className="typography-paragraph-regular font-semibold text-text-500"
               htmlFor="email"
@@ -152,7 +152,7 @@ const CommentForm = () => {
 
         {/* save in my requirement */}
         <div className="flex items-center gap-3 ml-2">
-          <div className="inline-block relative w-14 h-4 sm:w-4">
+          <div className="inline-block relative w-5 h-4 sm:w-4">
             <input
               type="checkbox"
               id="custom-checkbox"

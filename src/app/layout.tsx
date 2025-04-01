@@ -42,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${manRope.variable} ${inter.variable} ${plusJakarta.variable} ${roboto.variable} antialiased font-manrope `}
+        className={`${manRope.variable} ${inter.variable} ${plusJakarta.variable} ${roboto.variable} antialiased font-manrope  bg-background-100`}
       >
         <Header />
         <div className="bg-background-100 ">

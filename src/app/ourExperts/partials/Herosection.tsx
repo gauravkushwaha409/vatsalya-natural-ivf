@@ -6,7 +6,7 @@ import Image from "next/image";
 const Herosection = () => {
   return (
     <header>
-      <div className="relative h-[60vh] w-full">
+      <div className="relative h-[40vh] lg:h-[60vh] w-full">
         <Image
           src={heropic}
           alt="heropic"
@@ -17,7 +17,7 @@ const Herosection = () => {
         <div className="absolute top-5 z-30  transform left-1/2 -translate-x-1/2">
           <Breadcrumb name="OurExperts" baseName="Home" />
         </div>
-        <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2  text-center z-10 text-white">
+        <div className="absolute top-1/3 left-0 lg:left-1/2 transform  translate-x-0 lg-translate-x-1/2  text-center z-10 text-white px-5">
           <h1 className="typography-h3 pb-5 font-bold">Our Experts</h1>
           <p className="typography-paragraph-regular font-normal !text-text-50">
             Our team of experts is dedicated to providing advanced fertility
