@@ -3,17 +3,19 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="bg-primary-100 backdrop-blur-[5.6px] px-20 pt-10 text-text-400">
-      <div className="gap-[6.56rem] grid grid-cols-4">
+    <div className="bg-primary-100 backdrop-blur-[5.6px] px-5 lg:px-20 pt-10 text-text-400">
+      <div className="gap-[6.56rem] grid grid-cols-2 lg:grid-cols-4">
         <div className="space-y-3 font-manrope text-text-400 typography-paragraph-regular">
-          <div className="h-20 aspect-auto">
-            <Image
-              src={"/horizontal-logo.png"}
-              width={100}
-              height={100}
-              alt="logo"
-              className="w-full h-full"
-            />
+          <div className="h-20 aspect-auto -ml-5">
+            <Link href="/">
+              <Image
+                src={"/horizontal-logo.png"}
+                width={100}
+                height={100}
+                alt="logo"
+                className="w-full h-full"
+              />
+            </Link>
           </div>
           <p className="">
             Natural IVF: Embracing Your Body’s Natural Rhythm for Parenthood.

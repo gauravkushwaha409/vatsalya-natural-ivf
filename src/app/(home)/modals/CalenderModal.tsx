@@ -1,9 +1,11 @@
+"use client";
 import React, { useState } from "react";
 import { format, add } from "date-fns";
 import useClickOutside from "@/hooks/useClickOutside";
 import RequestAppoimentModal from "./RequestAppoimentModal";
 import { motion } from "framer-motion";
 import RenderCells from "./components/RenderCells";
+import { createPortal } from "react-dom";
 
 interface CalendarProps {
   modalOpen: boolean;
@@ -72,10 +74,10 @@ const CalendarModal: React.FC<CalendarProps> = ({
     setModalOpen(false);
   };
 
-  return (
+  return createPortal(
     <>
       {modalOpen && (
-        <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-50 text-black ">
+        <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-[100]   text-black  h-screen">
           <motion.div
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -135,7 +137,8 @@ const CalendarModal: React.FC<CalendarProps> = ({
         onClose={() => setRequestAppoimentModal(false)}
         setIsOpen={setRequestAppoimentModal}
       />
-    </>
+    </>,
+    document.body
   );
 };
 
