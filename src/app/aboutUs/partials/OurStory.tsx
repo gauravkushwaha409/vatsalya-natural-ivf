@@ -7,7 +7,7 @@ const OurStory = () => {
   return (
     <div>
       <section className="max-w-7xl mx-auto px-4 py-16 md:py-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-18 items-center">
           <div className="space-y-6 ">
             <div className="flex items-center w-full  gap-4 ">
               <h2 className="text-primary-500 uppercase tracking-widest text-base leading-[150%] font-bold">

@@ -8,7 +8,7 @@ const MissionVision = () => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col lg:flex-row justify-between gap-10 lg:gap-60 lg:items-center">
             {/* Image Grid */}
-            <div className="grid grid-cols-2 w-[40%] gap-x-30 gap-y-2">
+            <div className="grid grid-cols-2 w-[40%] md:gap-x-30 lg:gap-x-10 gap-y-2">
               {/* 1st  */}
               {/* Outer most border */}
               <div
