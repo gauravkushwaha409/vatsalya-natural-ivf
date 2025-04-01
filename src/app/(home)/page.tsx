@@ -14,7 +14,7 @@ import WhoWeAre from "./partials/WhoWeAre";
 
 const HomePage = () => {
   return (
-    <>
+    <div className="space-y-20">
       <div
         style={{
           background:
@@ -42,7 +42,6 @@ const HomePage = () => {
 
       {/* Main Slogan */}
       <Slogan />
-
       <WhoWeAre />
       <WhatWeDo />
       <WhatWeOffer />
@@ -56,7 +55,7 @@ const HomePage = () => {
         <Testimonial />
       </div>
       <HomeFaq />
-    </>
+    </div>
   );
 };
 export default HomePage;
