@@ -29,7 +29,7 @@ const socialMedia = [
 const BlogDescription = () => {
   return (
     <div className="max-w-[1090px]">
-      <div className="my-10">
+      <div className="mb-10">
         <h1 className="typography-h4 font-semibold text-text-500 mb-5">
           Understanding the Journey to Parenthood
         </h1>

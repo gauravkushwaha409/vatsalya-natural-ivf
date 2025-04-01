@@ -8,7 +8,7 @@ const Testimonial = () => {
     <div className="pb-16 md:pb-24 pl-4 md:pl-26">
       <div className="relative bg-gradient-to-l from-primary-100 to-[#EBC0DB] p-4 md:p-10 rounded-tl-[20px] rounded-bl-[20px] w-full max-h-[564px]">
         {/* quoteIcon */}
-        <div className="-top-15 -left-10 z-10 absolute flex justify-center items-center bg-white rounded-full w-36 h-36">
+        <div className="-top-15 -left-10 z-10 absolute flex justify-center items-center bg-background-100 rounded-full w-36 h-36">
           <Image
             src={quoteIcon}
             alt="quoteIcon"
@@ -24,7 +24,7 @@ const Testimonial = () => {
               <h2 className="font-bold text-primary-500 text-base uppercase  leading-[150%] tracking-widest">
                 Testimonial
               </h2>
-              <div className="flex-1 bg-primary-500 max-w-[180px] h-px"></div>
+              <div className="flex-1 bg-primary-500 max-w-[148px] h-px"></div>
             </div>
 
             <h3 className="font-semibold text-text-500 typography-h3">
