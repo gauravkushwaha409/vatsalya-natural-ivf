@@ -10,6 +10,7 @@ interface IFormValues {
   phone: string;
   address: string;
   message: string;
+  center: string;
 }
 const ContactForm = () => {
   const formik = useFormik<IFormValues>({
@@ -17,6 +18,7 @@ const ContactForm = () => {
       name: "",
       phone: "",
       address: "",
+      center: "",
       message: "",
     },
     validationSchema: Yup.object({
@@ -25,6 +27,8 @@ const ContactForm = () => {
         .min(3, "Name must be at least 3 characters"),
       phone: Yup.string().required("Phone number is required"),
       address: Yup.string().required("Address is required"),
+      center: Yup.string().required("Center selection is required"),
+
       message: Yup.string()
         .required("Message is required")
         .min(10, "Message must be at least 10 characters"),
@@ -34,7 +38,7 @@ const ContactForm = () => {
     },
   });
   return (
-    <div className=" flex items-center gap-20 py-20">
+    <div className=" flex lg:flex-row flex-col justify-center items-center gap-20 py-20">
       <div className="  w-full md:w-1/2  flex flex-col gap-5">
         <div className="flex items-center gap-3 ">
           <span className="text-primary-500 typography-paragraph-regular font-bold uppercase tracking-widest">
@@ -62,7 +66,7 @@ const ContactForm = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.name}
-              placeholder="Ahmed Al Farsi"
+              placeholder="John Doe"
             />
             {formik.touched.name && formik.errors.name && (
               <p className="text-red-500 text-sm">{formik.errors.name}</p>
@@ -85,7 +89,7 @@ const ContactForm = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.phone}
-              placeholder="+971 50 123 4567"
+              placeholder="e.g. 9876543210"
             />
             {formik.touched.phone && formik.errors.phone && (
               <p className="text-red-500 text-sm">{formik.errors.phone}</p>
@@ -104,35 +108,35 @@ const ContactForm = () => {
               id="address"
               name="address"
               type="text"
-              className="border border-gray-400 rounded-xl p-2 bg-transparent text-sm font-thinC outline-none"
+              className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.address}
-              placeholder="Burj Khalifa, Downtown Dubai"
+              placeholder="baneshwor, kathmandu"
             />
             {formik.touched.address && formik.errors.address && (
               <p className="text-red-500 text-sm">{formik.errors.address}</p>
             )}
           </div>
-          <div className="flex flex-col gap-2">
-            <label
-              htmlFor="address"
-              className="typography-paragraph-regular font-semibold text-text-500"
-            >
-              Address
+          <div className="flex flex-col gap-1">
+            <label htmlFor="center" className="text-base font-regular">
+              Center
             </label>
-            <input
-              id="address"
-              name="address"
-              type="text"
-              className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none"
+            <select
+              id="center"
+              name="center"
+              className="border border-gray-400 rounded-xl p-2.5   bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              value={formik.values.address}
-              placeholder="Burj Khalifa, Downtown Dubai"
-            />
-            {formik.touched.address && formik.errors.address && (
-              <p className="text-red-500 text-sm">{formik.errors.address}</p>
+              value={formik.values.center}
+            >
+              <option value="">Select a center</option>
+              <option value="Dubai Marina">Dubai Marina</option>
+              <option value="Jumeirah Beach">Jumeirah Beach</option>
+              <option value="Downtown Dubai">Downtown Dubai</option>
+            </select>
+            {formik.touched.center && formik.errors.center && (
+              <p className="text-red-500 text-sm">{formik.errors.center}</p>
             )}
           </div>
 
@@ -152,7 +156,7 @@ const ContactForm = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.message}
-              placeholder="Looking for a luxury apartment in Dubai Marina"
+              placeholder="Best time to contact you?"
             />
             {formik.touched.message && formik.errors.message && (
               <p className="text-red-500 text-sm">{formik.errors.message}</p>

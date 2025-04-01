@@ -22,7 +22,7 @@ const Locations = () => {
             className="bg-white rounded-lg p-5 flex gap-5 shadow-md hover:bg-primary-50 transition-colors duration-300 delay-75  cursor-pointer "
             key={index}
           >
-            <div className="w-16">
+            <div className="w-10">
               <Image src={icon1} alt="icon" className="w-full h-full" />
             </div>
             <div className="flex flex-col gap-2">

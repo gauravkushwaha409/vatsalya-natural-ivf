@@ -20,7 +20,7 @@ const FertilityCare = () => {
           </p>
         </div>
 
-        <div className="p-10 flex gap-10  ">
+        <div className="p-10 flex flex-col lg:flex-row gap-10  ">
           <div className="flex flex-col gap-5 w-1/2">
             {Array.from({ length: 5 }, (_, index) => (
               <div className="flex items-center gap-5" key={index}>

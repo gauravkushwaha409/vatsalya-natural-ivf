@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import calltoAction from "@/assests/services/cta.png";
+import calltoAction from "@/assests/services/appoiment.jpg";
 import Link from "next/link";
 const CallToActions = () => {
   return (
@@ -13,13 +13,13 @@ const CallToActions = () => {
               src={calltoAction}
               alt="Happy couple with newborn baby"
               fill
-              className="object-cover"
+              className="object-cover brightness-75"
               priority
             />
           </div>
 
           {/* Content */}
-          <div className="relative  z-10 flex flex-col items-center justify-center  p-16 rounded-2xl text-white px-20 text-center backdrop-blur-sm bg-white/70 w-[940px] ">
+          <div className="relative  z-10 flex flex-col items-center justify-center  p-16 rounded-2xl text-white px-20 text-center backdrop-blur-sm bg-white/30 w-[940px] ">
             <h3 className="typography-h3  mb-5 font-bold text-secondary-500">
               Struggling with Infertility? We’re Here to Help, Every Step of the
               Way.
