@@ -36,7 +36,7 @@ const HomeFaq = () => {
           </span>
           <div className="border border-primary-500/80 border-t-1 w-20"></div>
         </div>
-        <h1 className="font-semibold typography-h3">
+        <h1 className="pb-4 font-semibold typography-h3">
           Answers to Your Fertility Questions
         </h1>
         <Faq faq={faqData} />

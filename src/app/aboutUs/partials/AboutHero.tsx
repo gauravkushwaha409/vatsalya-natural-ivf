@@ -1,26 +1,24 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
 import hero from "@/assests/about/aboutHero.png";
 import CustomBreadcrumb from "@/components/CustomBreadcrumb";
+import Image from "next/image";
 
 const AboutHero = () => {
   return (
     <div>
       <div className="relative w-full h-[500px] overflow-hidden">
         {/* Background Image with Overlay */}
-        <div className="absolute inset-0 z-0">
+        <div className="z-0 absolute inset-0">
           <Image
             src={hero}
             alt="Happy couple with newborn baby"
             fill
-            className="object-cover brightness-[0.35]"
+            className="brightness-[0.35] object-cover"
             priority
           />
         </div>
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-4 text-center">
+        <div className="z-10 relative flex flex-col justify-center items-center px-4 h-full text-white text-center">
           <CustomBreadcrumb
             items={[
               {
@@ -31,23 +29,23 @@ const AboutHero = () => {
                 name: "About Us",
               },
             ]}
-            className="absolute top-4"
+            className="top-4 absolute"
           />
 
           {/* Heading */}
-          <h1 className="typography-h3 font-bold mb-4">About Us</h1>
+          <h1 className="mb-4 font-bold typography-h3">About Us</h1>
           {/* Subheading */}
-          <p className="typography-paragraph-large font-medium mb-10">
+          <p className="mb-10 font-medium typography-paragraph-large">
             We are dedicated to turning dreams of parenthood into reality
             through personalized care and innovative fertility treatments.
           </p>
           {/* CTA Button */}
-          <Link
-            href="/appointment"
-            className="typography-h5 font-semibold border-[0.4px] border-secondary-100 hover:bg-secondary py-4 px-11 rounded-full text-lg transition-colors duration-300 shadow-[0px 8px 18px 0px rgba(101,53,83,0.62)] bg-gradient-to-r from-[#A0385A] to-[#3A142C]"
+          <div
+            // href="/appointment"
+            className="hover:bg-secondary bg-gradient-to-r from-[#A0385A] to-[#3A142C] shadow-[0px px-11 py-4 border-[0.4px] border-secondary-100 rounded-full font-semibold text-lg transition-colors duration-300 typography-h5 8px 18px 0px rgba(101,53,83,0.62)]"
           >
             Book an Appointment
-          </Link>
+          </div>
         </div>
       </div>
     </div>
