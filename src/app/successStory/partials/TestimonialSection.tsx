@@ -7,8 +7,8 @@ import { IoIosQuote } from "react-icons/io";
 const TestimonialSection = () => {
   return (
     <div className="my-20 container mx-auto">
-      <div className="flex flex-col items-center text-center space-y-4">
-        <div className="flex items-center w-full justify-center gap-4 max-w-3xl">
+      <div className=" flex flex-col items-center text-center space-y-4">
+        <div className="relative flex items-center w-full justify-center gap-4 max-w-3xl">
           {/* line  */}
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
 
@@ -17,6 +17,16 @@ const TestimonialSection = () => {
           </h2>
           {/* line  */}
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
+        </div>
+
+        <div className="w-[368] h-[370] absolute z-10 -bottom-40 right-0">
+          <Image
+            src="/butterfly-gif.gif"
+            alt="butterfly-git"
+            width={800}
+            height={800}
+            className="w-full h-full object-cover opacity-30"
+          />
         </div>
 
         <h1 className="typography-h4 font-semibold tracking-tight ">

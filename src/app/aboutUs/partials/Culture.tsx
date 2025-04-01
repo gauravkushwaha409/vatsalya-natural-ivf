@@ -73,7 +73,7 @@ const Culture = () => {
               />
             </div>
             {/* Box 5 */}
-            <div className="lg:ml-58 lg:-mt-32 -mt-55 lg:w-[191px] w-52 h-50 lg:h-[180px] rounded-[24px] ">
+            <div className="lg:ml-58 lg:-mt-30.5 -mt-55 lg:w-[191px] w-52 h-50 lg:h-[180px] rounded-[24px] ">
               <Image
                 src={family}
                 alt="image"
@@ -83,7 +83,7 @@ const Culture = () => {
               />
             </div>
             {/* Box 6 */}
-            <div className="lg:ml-50 lg:-mt-32 w-full lg:w-[484px] h-[240px] col-span-2 rounded-[24px] ">
+            <div className="lg:ml-50 lg:-mt-30.5 w-full lg:w-[484px] h-[240px] col-span-2 rounded-[24px] ">
               <Image
                 src={family}
                 alt="image"

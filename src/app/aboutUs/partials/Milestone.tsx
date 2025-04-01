@@ -44,7 +44,7 @@ const Milestone = () => {
                 <h3 className="typography-h4 font-semibold text-text-500 ">
                   A legacy of care and success
                 </h3>
-                <p className="text-lg text-[#666] leading-relaxed">
+                <p className="text-text-400 typography-paragraph-large leading-[150%] font-medium">
                   Our experience and dedication continue to bring hope and joy
                   to those who trust us with their dreams.
                 </p>

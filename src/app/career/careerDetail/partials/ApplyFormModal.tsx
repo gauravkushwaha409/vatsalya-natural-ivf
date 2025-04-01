@@ -11,7 +11,11 @@ import { useFormik } from "formik";
 import { useRef, useState } from "react";
 import * as Yup from "yup";
 
-const ApplyFormModal = () => {
+interface IcustomClass {
+  customClass?: string;
+  title: string;
+}
+const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
   //   const [createData, { isLoading }] = useCreateDataMutation();
   const [resume, setResume] = useState<File | null>(null);
   const [formErrors, setFormErrors] = useState<{ resume?: string }>({});
@@ -91,8 +95,10 @@ const ApplyFormModal = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button className="my-5 bg-secondary-500 px-8 py-4 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular cursor-pointer">
-          Apply Now
+        <button
+          className={`my-5 bg-secondary-500 px-8 py-4 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular cursor-pointer ${customClass}`}
+        >
+          {title}
         </button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[600px]">
