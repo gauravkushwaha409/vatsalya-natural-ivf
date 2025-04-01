@@ -33,7 +33,6 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.20)] to-[rgba(0,0,0,0.20)] rounded-t-lg"></div>
-
           {/* Play Button */}
           <button
             className="absolute inset-0 flex justify-center items-center cursor-pointer"

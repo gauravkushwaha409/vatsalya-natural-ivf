@@ -39,14 +39,6 @@ const AnimatingText: React.FC<{
                 charIndex;
               return (
                 <motion.span
-                  // animate={{
-                  //   y: isInViewport ? 0 : 10,
-                  //   opacity: isInViewport ? 1 : 0,
-                  // }}
-                  // transition={{
-                  //   delay: isInViewport ? index * 0.05 : 0,
-                  //   duration: 0.01,
-                  // }}
                   key={index}
                   className="inline"
                 >

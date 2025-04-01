@@ -98,7 +98,7 @@ const CommentForm = () => {
           )}
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-10 items-center">
+        <div className="flex flex-col lg:flex-row gap-8 items-center">
           {/*  Name */}
           <div className="w-full lg:w-1/2">
             <label
