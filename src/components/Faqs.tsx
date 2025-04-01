@@ -27,17 +27,9 @@ const Faq: React.FC<{
           <div
             key={index}
             onClick={() => toggleFaq(index)}
-            className="border-b border-gray-300 transition-all cursor-pointer overflow-hidden select-none pb-1"
+            className="pb-1 border-gray-300 border-b overflow-hidden transition-all cursor-pointer select-none"
           >
-            <div
-              className="flex justify-between items-center p-3 relative"
-              // style={{
-              //   borderLeft: openfaq.includes(index)
-              //     ? `4px solid #a03879`
-              //     : "4px solid #e6c2d8", // Adjust to your secondary color
-              //   paddingLeft: "15px",
-              // }}
-            >
+            <div className="relative flex justify-between items-center p-3">
               <h1
                 className={`font-bold text-base ${
                   openfaq.includes(index) ? "text-secondary-500" : ""
@@ -45,7 +37,7 @@ const Faq: React.FC<{
               >
                 {faqItem?.question}
               </h1>
-              <span className="transition-transform text-2xl">
+              <span className="text-2xl transition-transform">
                 {openfaq.includes(index) ? "−" : "+"}
               </span>
             </div>
@@ -55,7 +47,7 @@ const Faq: React.FC<{
               }`}
             >
               {faqItem?.description ? (
-                <p className="mt-2 pb-2 pl-3 border-l-2 border-secondary-500 text-text-400 rounded-l-xl">
+                <p className="mt-2 pb-2 pl-3 border-secondary-500 border-l-2 rounded-l-xl text-text-400">
                   {faqItem?.description}
                 </p>
               ) : null}
