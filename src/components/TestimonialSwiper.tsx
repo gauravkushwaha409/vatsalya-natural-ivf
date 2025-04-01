@@ -1,4 +1,5 @@
 "use client";
+import VideoModal from "@/app/(home)/modals/VideoModal";
 import { testimonialData } from "@/data/testimonialData";
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
@@ -16,14 +17,13 @@ import {
 } from "swiper/modules";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import TestimonialCard from "./TestimonialCard";
-import VideoModal from "@/app/(home)/modals/VideoModal";
 
 const TestimonialSwiper = ({}) => {
   const swiperRef = useRef<SwiperRef>(null);
   const [noofSlides, setNoofSlides] = useState(0);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
-  const [videoUrl, setVideoUrl] = useState<string>("");
+  // const [setVideoUrl] = useState<string>("");
 
   useEffect(() => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -70,7 +70,7 @@ const TestimonialSwiper = ({}) => {
                   <TestimonialCard
                     data={item}
                     setIsOpenModal={setIsOpenModal}
-                    setVideoUrl={setVideoUrl}
+                    // setVideoUrl={setVideoUrl}
                   />
                 </SwiperSlide>
               ))}

@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from "react";
-import { format, add } from "date-fns";
 import useClickOutside from "@/hooks/useClickOutside";
-import RequestAppoimentModal from "./RequestAppoimentModal";
+import { add, format } from "date-fns";
 import { motion } from "framer-motion";
-import RenderCells from "./components/RenderCells";
+import React, { useState } from "react";
 import { createPortal } from "react-dom";
+import RenderCells from "./components/RenderCells";
+import RequestAppoimentModal from "./RequestAppoimentModal";
 
 interface CalendarProps {
   modalOpen: boolean;
@@ -38,14 +38,14 @@ const CalendarModal: React.FC<CalendarProps> = ({
     const monthYear = format(currentDate, "MMMM yyyy");
 
     return (
-      <div className="header flex justify-between items-center p-4">
+      <div className="flex justify-between items-center p-4 header">
         <button
           className="text-[#9B51E0] text-sm"
           onClick={() => setCurrentDate(add(currentDate, { months: -1 }))}
         >
           ❮
         </button>
-        <h2 className="text-base font-medium text-primary ">{monthYear}</h2>
+        <h2 className="font-medium text-primary text-base">{monthYear}</h2>
         <button
           className="text-[#9B51E0] text-sm"
           onClick={() => setCurrentDate(add(currentDate, { months: 1 }))}
@@ -59,7 +59,7 @@ const CalendarModal: React.FC<CalendarProps> = ({
   const renderDays = () => {
     const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     return (
-      <div className="  grid grid-cols-7 text-center text-gray-500 text-[12px] uppercase  ">
+      <div className="grid grid-cols-7 text-[12px] text-gray-500 text-center uppercase">
         {daysOfWeek.map((day) => (
           <div key={day} className="p-2 font-bold">
             {day}
@@ -73,73 +73,73 @@ const CalendarModal: React.FC<CalendarProps> = ({
     setRequestAppoimentModal(!requestAppoimentModal);
     setModalOpen(false);
   };
-
-  return createPortal(
-    <>
-      {modalOpen && (
-        <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-[100]   text-black  h-screen">
-          <motion.div
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.3 }}
-            className="bg-white p-5 md:p-10 lg:px-10 rounded-lg  relative  w-7/12"
-            ref={modalRef1}
-          >
-            <h1 className="typography-h4 font-medium text-start">
-              Select Date & Time
-            </h1>
-            <button
-              onClick={() => onCloseModal()}
-              className="text-2xl text-text-400 absolute top-5 right-10 cursor-pointer *:"
+  if (typeof document !== "undefined")
+    return createPortal(
+      <>
+        {modalOpen && (
+          <div className="z-[100] fixed inset-0 flex justify-center items-center bg-black/40 h-screen text-black">
+            <motion.div
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.3 }}
+              className="relative bg-white p-5 md:p-10 lg:px-10 rounded-lg w-7/12"
+              ref={modalRef1}
             >
-              x
-            </button>
-            <div className="flex gap-10 justify-center mt-5 ">
-              <motion.div className="w-[50%] aspect-square">
-                <div>{renderHeader()}</div>
-                <div>{renderDays()}</div>
-                <div>
-                  <RenderCells
-                    currentDate={currentDate}
-                    selectedDate={selectedDate}
-                    dummyAvailableDates={dummyAvailableDates}
-                    setSelectedDate={setSelectedDate}
-                    setShwowTime={setShwowTime}
-                  />
-                </div>
-              </motion.div>
-              {showTime && (
-                <motion.div
-                  initial={{ width: "0", opacity: 0 }}
-                  animate={{ width: "40%", opacity: 1 }}
-                  transition={{ duration: 1.2 }}
-                  className="bg-white mt-10   space-y-3"
-                >
-                  {Array.from({ length: 3 }).map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => handleReqModal()}
-                      className="text-secondary-500 border border-secondary-300 rounded-full px-4 py-2 w-full inline-block bg-white hover:bg-secondary-500 hover:text-white transition-colors duration-700 hover:duration-200 ease-in-out"
-                    >
-                      9:10
-                    </button>
-                  ))}
+              <h1 className="font-medium text-start typography-h4">
+                Select Date & Time
+              </h1>
+              <button
+                onClick={() => onCloseModal()}
+                className="top-5 right-10 absolute text-text-400 text-2xl cursor-pointer *:"
+              >
+                x
+              </button>
+              <div className="flex justify-center gap-10 mt-5">
+                <motion.div className="w-[50%] aspect-square">
+                  <div>{renderHeader()}</div>
+                  <div>{renderDays()}</div>
+                  <div>
+                    <RenderCells
+                      currentDate={currentDate}
+                      selectedDate={selectedDate}
+                      dummyAvailableDates={dummyAvailableDates}
+                      setSelectedDate={setSelectedDate}
+                      setShwowTime={setShwowTime}
+                    />
+                  </div>
                 </motion.div>
-              )}
-            </div>
-          </motion.div>
-        </div>
-      )}
-      <RequestAppoimentModal
-        selectService={selectService}
-        selectedDate={selectedDate || new Date() || ""}
-        isOpen={requestAppoimentModal}
-        onClose={() => setRequestAppoimentModal(false)}
-        setIsOpen={setRequestAppoimentModal}
-      />
-    </>,
-    document.body
-  );
+                {showTime && (
+                  <motion.div
+                    initial={{ width: "0", opacity: 0 }}
+                    animate={{ width: "40%", opacity: 1 }}
+                    transition={{ duration: 1.2 }}
+                    className="space-y-3 bg-white mt-10"
+                  >
+                    {Array.from({ length: 3 }).map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => handleReqModal()}
+                        className="inline-block bg-white hover:bg-secondary-500 px-4 py-2 border border-secondary-300 rounded-full w-full text-secondary-500 hover:text-white transition-colors duration-700 hover:duration-200 ease-in-out"
+                      >
+                        9:10
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </div>
+            </motion.div>
+          </div>
+        )}
+        <RequestAppoimentModal
+          selectService={selectService}
+          selectedDate={selectedDate || new Date() || ""}
+          isOpen={requestAppoimentModal}
+          onClose={() => setRequestAppoimentModal(false)}
+          setIsOpen={setRequestAppoimentModal}
+        />
+      </>,
+      document.body
+    );
 };
 
 export default CalendarModal;

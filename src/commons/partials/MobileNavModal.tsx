@@ -1,16 +1,15 @@
 "use client";
-import { X } from "lucide-react";
-import Link from "next/link";
-import React, { useState } from "react";
-import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import React from "react";
+import { createPortal } from "react-dom";
 type props = {
   navlinks: { name: string; link: string }[];
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   isOpen: boolean;
 };
-const MobileNavModal: React.FC<props> = ({ navlinks, setIsOpen, isOpen }) => {
-  if (typeof window !== "undefined")
+const MobileNavModal: React.FC<props> = ({ navlinks, isOpen }) => {
+  if (typeof document !== "undefined")
     return createPortal(
       <>
         {isOpen && (
@@ -21,7 +20,7 @@ const MobileNavModal: React.FC<props> = ({ navlinks, setIsOpen, isOpen }) => {
             style={{
               background: "linear-gradient(to right, #EBC0DB 0%, #FFD2CE 100%)",
             }}
-            className="fixed  top-0 flex justify-center items-center z-40 overflow-hidden text-black  h-screen w-screen"
+            className="top-0 z-40 fixed flex justify-center items-center w-screen h-screen overflow-hidden text-black"
           >
             <div className="flex flex-col gap-5">
               {navlinks.map((item, index) => (

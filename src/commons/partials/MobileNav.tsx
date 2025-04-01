@@ -1,9 +1,8 @@
 "use client";
-import Link from "next/link";
-import React, { useState } from "react";
-import MobileNavModal from "./MobileNavModal";
 import { X } from "lucide-react";
+import React, { useState } from "react";
 import { TfiLayoutLineSolid } from "react-icons/tfi";
+import MobileNavModal from "./MobileNavModal";
 
 type props = {
   navlinks: { name: string; link: string }[];
@@ -15,7 +14,7 @@ const MobileNav: React.FC<props> = ({ navlinks }) => {
       {!isOpen ? (
         <button
           onClick={() => setIsOpen(true)}
-          className="text-black flex flex-col gap-0"
+          className="flex flex-col gap-0 text-black"
         >
           <TfiLayoutLineSolid />
           <TfiLayoutLineSolid />
@@ -25,9 +24,9 @@ const MobileNav: React.FC<props> = ({ navlinks }) => {
         <>
           <button
             onClick={() => setIsOpen?.(false)}
-            className="absolute top-5 right-5 z-10 w-10 h-10 flex justify-center items-center rounded-full border border-white p-2 cursor-pointer"
+            className="top-5 right-5 z-10 absolute flex justify-center items-center p-2 border border-white rounded-full w-10 h-10 cursor-pointer"
           >
-            <X size={24} className="text-black font-bold" />
+            <X size={24} className="font-bold text-black" />
           </button>
           <MobileNavModal
             navlinks={navlinks}

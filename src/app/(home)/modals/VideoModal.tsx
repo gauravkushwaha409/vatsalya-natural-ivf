@@ -1,6 +1,4 @@
 "use client";
-import { Dialog, DialogContent, DialogOverlay } from "@/components/ui/dialog";
-import React, { useState } from "react";
 import { X } from "lucide-react";
 
 interface VideoModalProps {
@@ -9,28 +7,24 @@ interface VideoModalProps {
   videoUrl: string;
 }
 
-export default function VideoModal({
-  isOpen,
-  onClose,
-  videoUrl,
-}: VideoModalProps) {
-  const [isVideoLoading, setIsVideoLoading] = useState(true);
+export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
+  // const [isVideoLoading, setIsVideoLoading] = useState(true);
 
-  const handleVideoLoad = () => {
-    setIsVideoLoading(false);
-  };
+  // const handleVideoLoad = () => {
+  //   setIsVideoLoading(false);
+  // };
 
   return (
     <>
       {isOpen && (
-        <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-50 text-black h-screen  w-full ">
+        <div className="z-50 fixed inset-0 flex justify-center items-center bg-black/40 w-full h-screen text-black">
           <button
             onClick={onClose}
-            className="absolute top-5 right-5 z-10 w-10 h-10 flex justify-center items-center rounded-full border border-white p-2 cursor-pointer"
+            className="top-5 right-5 z-10 absolute flex justify-center items-center p-2 border border-white rounded-full w-10 h-10 cursor-pointer"
           >
-            <X size={24} className="text-white font-bold" />
+            <X size={24} className="font-bold text-white" />
           </button>
-          <div className="aspect-video w-8/12 h-full flex items-center">
+          <div className="flex items-center w-8/12 h-full aspect-video">
             <iframe
               width="100%"
               height="500"
