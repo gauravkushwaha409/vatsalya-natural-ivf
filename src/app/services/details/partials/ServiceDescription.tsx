@@ -1,7 +1,10 @@
-import Link from "next/link";
-import React from "react";
+"use client";
+import CalendarModal from "@/app/(home)/modals/CalenderModal";
+import React, { useState } from "react";
 
 const ServiceDescription = () => {
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
   return (
     <article className="py-10 flex  flex-col gap-5 text-text-400 text-justify">
       <p>
@@ -56,12 +59,17 @@ const ServiceDescription = () => {
         Here, we shall discuss the causes of infertility in women, and men
         followed by their fertility treatments. 
       </p>
-      <Link
-        href="/appointment"
-        className="typography-h5 font-semibold border-[0.4px] border-secondary-100 bg-secondary-500 py-4 px-11 rounded-full text-lg transition-colors duration-300 shadow-[0px 8px 18px 0px rgba(101,53,83,0.62)] text-white w-fit"
+      <button
+        onClick={() => setOpenModal(true)}
+        className="typography-h5 font-semibold border-[0.4px] border-secondary-100 bg-secondary-500 py-4 px-11 rounded-full text-lg transition-colors duration-300 shadow-[0px 8px 18px 0px rgba(101,53,83,0.62)] cursor-pointer "
       >
         Book an Appointment
-      </Link>
+      </button>
+      <CalendarModal
+        modalOpen={openModal}
+        setModalOpen={setOpenModal}
+        onCloseModal={() => setOpenModal(false)}
+      />
     </article>
   );
 };

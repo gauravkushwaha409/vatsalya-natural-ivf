@@ -1,0 +1,116 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - qa
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send email on pipeline start
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.GMAIL_USERNAME }}
+          password: ${{ secrets.GMAIL_PASSWORD }}
+          subject: ${{ github.repository }} Pipeline Started
+          to: poesximah.hari1@gmail.com,sajanacharya1111@gmail.com
+          from: Dome Infosys Pvt. Ltd.
+          body: The pipeline for repository ${{ github.repository }} has started.
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: SSH into server and pull and deploy latest changes
+        id: ssh_deploy
+        run: |
+          ssh -T -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }} << 'EOF'
+            set -e
+            cd /home/user/vatsalya/Vatsalya-Web-FE
+
+            # Pull latest code from the repository
+            echo "Pulling latest changes..."
+            git pull 2>&1 | tee git_pull.log
+            echo "Git pull complete."
+
+            # Build and run containers
+            echo "Building and starting containers..."
+            docker compose up --build -d 2>&1 | tee build_run.log
+            echo "Containers started."
+
+            # Prune unused Docker images
+            echo "Pruning unused Docker images..."
+            docker system prune -f 2>&1 | tee cleanup.log
+            echo "Unused Docker images pruned."
+
+            echo "Deployment Successful"
+          EOF
+
+          scp ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }}:/home/user/vatsalya/Vatsalya-Web-FE/git_pull.log ./git_pull.log
+          scp ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }}:/home/user/vatsalya/Vatsalya-Web-FE/build_run.log ./build_run.log
+          scp ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }}:/home/user/vatsalya/Vatsalya-Web-FE/cleanup.log ./cleanup.log
+
+      - name: Check logs for errors
+        run: |
+          ERROR_LOGS=""
+          
+          # Check each log file for critical errors only (exact match of 'error' without trailing/leading characters)
+          if grep -i -E "^(failed|ERROR|Error:|\[error\])" git_pull.log; then
+            ERROR_LOGS="${ERROR_LOGS}**Git Pull Log Errors:**\n\`\`\`\n$(cat git_pull.log)\n\`\`\`\n\n"
+          fi
+          if grep -i -E "^(failed|ERROR|Error:|\[error\])" build_run.log; then
+            ERROR_LOGS="${ERROR_LOGS}**Build Run Log Errors:**\n\`\`\`\n$(cat build_run.log)\n\`\`\`\n\n"
+          fi
+          if grep -i -E "^(failed|ERROR|Error:|\[error\])" cleanup.log; then
+            ERROR_LOGS="${ERROR_LOGS}**Cleanup Log Errors:**\n\`\`\`\n$(cat cleanup.log)\n\`\`\`\n\n"
+          fi
+  
+          
+          # Save the error logs to an environment variable
+          {
+            echo "ERROR_LOGS<<EOF"
+            echo -e "$ERROR_LOGS"
+            echo "EOF"
+          } >> $GITHUB_ENV
+
+      - name: Send email on failure
+        if: ${{ env.ERROR_LOGS != '' }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.GMAIL_USERNAME }}
+          password: ${{ secrets.GMAIL_PASSWORD }}
+          subject: ${{ github.repository }} Pipeline FAILED
+          to: poesximah.hari1@gmail.com,sajanacharya1111@gmail.com
+          from: Dome Infosys Pvt. Ltd.
+          body: |
+            The pipeline for repository ${{ github.repository }} has FAILED.
+
+            **Error Logs:**
+            ${{ env.ERROR_LOGS }}
+
+      - name: Send email on success
+        if: ${{ env.ERROR_LOGS == '' }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.GMAIL_USERNAME }}
+          password: ${{ secrets.GMAIL_PASSWORD }}
+          subject: ${{ github.repository }} Pipeline SUCCEEDED
+          to: poesximah.hari1@gmail.com,sajanacharya1111@gmail.com
+          from: Dome Infosys Pvt. Ltd.
+          body: The pipeline for repository ${{ github.repository }} has succeeded.

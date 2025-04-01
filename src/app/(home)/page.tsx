@@ -14,13 +14,13 @@ import WhoWeAre from "./partials/WhoWeAre";
 
 const HomePage = () => {
   return (
-    <>
+    <div className="space-y-20">
       <div
         style={{
           background:
             "linear-gradient(90deg, #FFD2CE 0%, #EBC0DB 100%) no-repeat",
         }}
-        className="z-[0] relative"
+        className="z-[0] relative overflow-hidden"
       >
         <div
           style={{
@@ -42,9 +42,10 @@ const HomePage = () => {
 
       {/* Main Slogan */}
       <Slogan />
-
-      <WhoWeAre />
-      <WhatWeDo />
+      <div>
+        <WhoWeAre />
+        <WhatWeDo />
+      </div>
       <WhatWeOffer />
       <HowWeWork />
       <WhenToVisit />
@@ -56,7 +57,7 @@ const HomePage = () => {
         <Testimonial />
       </div>
       <HomeFaq />
-    </>
+    </div>
   );
 };
 export default HomePage;

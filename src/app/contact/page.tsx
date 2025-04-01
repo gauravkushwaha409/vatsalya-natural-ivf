@@ -8,7 +8,7 @@ import ContactFaqs from "./partials/ContactFaqs";
 
 const page = () => {
   return (
-    <section className="container mx-auto  lg:px-20 bg-background-100 ">
+    <section className="container mx-auto px-5 lg:px-20 bg-background-100 ">
       <Headings />
       <Contacts />
       <ContactForm />

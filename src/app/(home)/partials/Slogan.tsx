@@ -8,9 +8,9 @@ const Slogan = () => {
         backgroundRepeat: "no-repeat",
         backgroundPosition: "10% center",
       }}
-      className="flex justify-center items-center min-h-64 font-semibold text-center leading-[150%] typography-h5"
+      className="flex justify-center items-center min-h-64 font-semibold text-center leading-[150%]"
     >
-      <AnimatingText className="justify-center mx-auto my-4 mb-56 max-w-7xl">
+      <AnimatingText className="justify-center mx-auto my-4 mb-56 max-w-[62.375rem] font-semibold text-text-300 typography-h5">
         &quot;Our mission is to turn dreams into families through compassionate,
         science-backed fertility care. With over 15 years of expertise, we have
         helped thousands of couples embrace the joy of parenthood. We are
