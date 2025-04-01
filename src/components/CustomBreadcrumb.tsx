@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Fragment, JSX } from "react";
+import { JSX } from "react";
 
 interface BreadcrumbItem {
   name: string;
@@ -28,7 +28,7 @@ function CustomBreadcrumb({
           const isLast = index === items.length - 1;
 
           return (
-            <Fragment key={index}>
+            <div className="flex items-center" key={index}>
               <li aria-current={isLast ? "page" : undefined} className="">
                 {item.link && !isLast ? (
                   <Link
@@ -47,14 +47,11 @@ function CustomBreadcrumb({
 
               {/* Separator Section  */}
               {!isLast && (
-                <li
-                  className="mx-0.5 typography-caption mt-1"
-                  aria-hidden="true"
-                >
+                <li className="mx-0.5 typography-caption " aria-hidden="true">
                   {separator}
                 </li>
               )}
-            </Fragment>
+            </div>
           );
         })}
       </ol>

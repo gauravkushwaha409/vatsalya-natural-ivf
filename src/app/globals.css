@@ -208,6 +208,12 @@
 @utility typography-caption {
   @apply font-normal text-[0.69438rem] leading-[120%];
 }
+@utility hide-for-mobile {
+  @apply hidden lg:block;
+}
+@utility hide-for-desktop {
+  @apply block lg:hidden;
+}
 /* 
 .dark {
   --background: oklch(0.145 0 0);

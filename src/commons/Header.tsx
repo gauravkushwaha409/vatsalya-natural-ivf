@@ -1,10 +1,21 @@
 import { Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import Schedule from "./partials/Schedule";
+import MobileNav from "./partials/MobileNav";
 
 const Header = () => {
+  const navLinks = [
+    { name: "About Us", link: "/aboutUs" },
+    { name: "Services", link: "/services" },
+    { name: "Our Experts", link: "/ourExperts" },
+    { name: "Success Stories", link: "/successStory" },
+    { name: "Blog & News", link: "/blog" },
+    { name: "Request a Call", link: "/requestCall" },
+    { name: "Contact Us", link: "/contact" },
+  ];
   return (
-    <header className="bg-primary-50 backdrop-blur-[5.6px] px-20 py-[0.63rem] text-white">
+    <header className="bg-transparent z-50 relative backdrop-blur-[5.6px] px-5 lg:px-20 py-[0.63rem] text-white">
       <div className="flex justify-between items-center">
         <Link href="/">
           <Image
@@ -14,7 +25,7 @@ const Header = () => {
             alt="logo"
           />
         </Link>
-        <div>
+        <div className="hide-for-mobile">
           <label className="relative flex bg-light-variant-50 px-5 py-4 border-2 border-dark-variant-50 rounded-[1.75rem] min-w-[22.5rem] font-roboto text-dark-variant-300 typography-paragraph-regular">
             <input
               autoComplete="off"
@@ -27,28 +38,13 @@ const Header = () => {
             </button>
           </label>
         </div>
-        <div>
-          <button
-            style={{
-              boxShadow: "0px 5.486px 12.343px 0px rgba(215, 101, 120, 0.33)",
-            }}
-            className="bg-secondary-500 px-8 py-4 border border-secondary-200 rounded-full font-manrope font-extrabold text-white typography-paragraph-regular"
-          >
-            Login
-          </button>
-        </div>
+
+        <Schedule />
+        <MobileNav navlinks={navLinks} />
       </div>
-      <nav className="mt-5 w-full">
+      <nav className="mt-5 w-full hide-for-mobile">
         <ul className="flex divide-x divide-secondary-500 font-manrope">
-          {[
-            { name: "About Us", link: "/aboutUs" },
-            { name: "Services", link: "/services" },
-            { name: "Our Experts", link: "/ourExperts" },
-            { name: "Success Stories", link: "/successStory" },
-            { name: "Blog & News", link: "/blog" },
-            { name: "Request a Call", link: "/requestCall" },
-            { name: "Contact Us", link: "/contact" },
-          ].map((item, index) => (
+          {navLinks.map((item, index) => (
             <li className="px-8 w-max text-left" key={index}>
               <Link
                 className="w-max font-bold text-secondary-500 typography-paragraph-large"

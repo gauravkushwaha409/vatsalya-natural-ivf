@@ -42,7 +42,7 @@ const BlogDetailHero = () => {
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1090px] container">
+      <div className="px-5 lg:px-20 container">
         <div className="py-10">
           <Image
             src={blogDetailHero}
