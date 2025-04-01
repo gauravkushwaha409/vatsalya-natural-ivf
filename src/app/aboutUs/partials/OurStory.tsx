@@ -7,7 +7,7 @@ const OurStory = () => {
   return (
     <div>
       <section className="max-w-7xl mx-auto px-4 py-16 md:py-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-18 items-center">
           <div className="space-y-6 ">
             <div className="flex items-center w-full  gap-4 ">
               <h2 className="text-primary-500 uppercase tracking-widest text-base leading-[150%] font-bold">
@@ -41,7 +41,7 @@ const OurStory = () => {
 
           <div className="relative h-[400px] md:h-[500px]">
             {/* Main image (top right) */}
-            <div className="absolute right-0 top-0 w-3/4 h-3/4 rounded-lg overflow-hidden shadow-lg">
+            <div className="absolute right-0 top-0 w-3/4 h-3/4 rounded-lg overflow-hidden ">
               <Image
                 src={photo1}
                 alt="Happy family with healthcare providers"
@@ -52,7 +52,7 @@ const OurStory = () => {
             </div>
 
             {/* Secondary image (bottom left) */}
-            <div className="absolute left-0 -bottom-10 w-3/4 h-3/4 rounded-lg overflow-hidden shadow-lg">
+            <div className="absolute left-0 -bottom-10 w-3/4 h-3/4 rounded-lg overflow-hidden ">
               <Image
                 src={photo2}
                 alt="Patients with their baby"

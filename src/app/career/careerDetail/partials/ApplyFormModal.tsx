@@ -11,7 +11,11 @@ import { useFormik } from "formik";
 import { useRef, useState } from "react";
 import * as Yup from "yup";
 
-const ApplyFormModal = () => {
+interface IcustomClass {
+  customClass?: string;
+  title: string;
+}
+const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
   //   const [createData, { isLoading }] = useCreateDataMutation();
   const [resume, setResume] = useState<File | null>(null);
   const [formErrors, setFormErrors] = useState<{ resume?: string }>({});
@@ -91,8 +95,10 @@ const ApplyFormModal = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button className="my-5 bg-secondary-500 px-8 py-4 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular cursor-pointer">
-          Apply Now
+        <button
+          className={`my-5 bg-secondary-500 px-8 py-4 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular cursor-pointer ${customClass}`}
+        >
+          {title}
         </button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[600px]">
@@ -105,10 +111,7 @@ const ApplyFormModal = () => {
           <div className="grid grid-cols-1 md:grid-cols-2  gap-4">
             {/* Name Field */}
             <div className="flex flex-col gap-2">
-              <label
-                className="typography-paragraph-regular font-semibold text-text-500"
-                htmlFor="name"
-              >
+              <label className="text-base font-regular" htmlFor="name">
                 Name
               </label>
               <input
@@ -119,7 +122,7 @@ const ApplyFormModal = () => {
                 onBlur={formik.handleBlur}
                 value={formik.values.name}
                 placeholder="e.g. Sujata Khatri "
-                className="bg-transparent p-3 pl-6 border-[0.3px] border-[#72796F] rounded-[12px] outline-none w-full h-[54px] mt-2.5 text-sm"
+                className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
               />
               {formik.touched.name && formik.errors.name && (
                 <p className=" pl-4 text-red-500 text-sm">
@@ -130,10 +133,7 @@ const ApplyFormModal = () => {
 
             {/* Phone Field */}
             <div className="flex flex-col gap-2">
-              <label
-                className="typography-paragraph-regular font-semibold text-text-500"
-                htmlFor="phone_no"
-              >
+              <label className="text-base font-regular" htmlFor="phone_no">
                 Phone
               </label>
               <input
@@ -144,7 +144,7 @@ const ApplyFormModal = () => {
                 onBlur={formik.handleBlur}
                 value={formik.values.phone_no}
                 placeholder="e.g. 9876543210"
-                className="bg-transparent p-3 pl-6 border-[0.3px] border-[#72796F] rounded-[12px] outline-none w-full h-[54px] mt-2.5 text-sm"
+                className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
               />
               {formik.touched.phone_no && formik.errors.phone_no && (
                 <p className="pl-4 text-red-500 text-sm">
@@ -155,10 +155,7 @@ const ApplyFormModal = () => {
 
             {/* Email */}
             <div className="flex flex-col gap-2">
-              <label
-                className="typography-paragraph-regular font-semibold text-text-500"
-                htmlFor="email"
-              >
+              <label className="text-base font-regular" htmlFor="email">
                 Email
               </label>
               <input
@@ -169,7 +166,7 @@ const ApplyFormModal = () => {
                 onBlur={formik.handleBlur}
                 value={formik.values.email}
                 placeholder="e.g. sujata@gmail.com"
-                className="bg-transparent p-3 pl-6 border-[0.3px] border-[#72796F] rounded-[12px] outline-none w-full h-[54px] mt-2.5 text-sm"
+                className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
               />
               {formik.touched.email && formik.errors.email && (
                 <p className="pl-4 text-red-500 text-sm">
@@ -180,17 +177,14 @@ const ApplyFormModal = () => {
 
             {/* Address Field */}
             <div className="flex flex-col gap-2">
-              <label
-                htmlFor="address"
-                className="typography-paragraph-regular font-semibold text-text-500"
-              >
+              <label htmlFor="address" className="text-base font-regular">
                 Address
               </label>
               <input
                 id="address"
                 name="address"
                 type="text"
-                className="bg-transparent p-3 pl-6 border-[0.3px] border-[#72796F] rounded-[12px] outline-none w-full h-[54px] mt-2.5 text-sm"
+                className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.address}
@@ -204,10 +198,7 @@ const ApplyFormModal = () => {
 
           {/* CV Upload Field */}
           <div>
-            <label
-              htmlFor="resume"
-              className="typography-paragraph-regular font-semibold text-text-500 mb-2.5"
-            >
+            <label htmlFor="resume" className="text-base font-regular">
               Resume{" "}
               <span className="text-text-300 typography-caption">
                 *(Below 5MB - pdf/docx)
@@ -219,16 +210,12 @@ const ApplyFormModal = () => {
               name="resume"
               type="file"
               accept=".pdf,.docx"
-              className="hidden
-             "
+              className="hidden  "
               onChange={handleFileChange}
             />
-            <div
-              className="bg-transparent text-sm flex overflow-hidden mt-2.5 border-[0.3px] border-[#72796F] rounded-[12px] outline-none w-full h-[54px]
-            "
-            >
+            <div className="border border-gray-400 rounded-xl  bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium flex mt-2">
               <span
-                className="cursor-pointer bg-[#d6d7d6] px-5 py-4"
+                className="cursor-pointer bg-[#d6d7d6] px-5 py-3.5 rounded-l-xl"
                 onClick={() => inputRef.current?.click()}
               >
                 Choose File
@@ -244,10 +231,7 @@ const ApplyFormModal = () => {
 
           {/* Message Field */}
           <div className="flex flex-col gap-2">
-            <label
-              className="typography-paragraph-regular font-semibold text-text-500"
-              htmlFor="message"
-            >
+            <label className="text-base font-regular" htmlFor="message">
               Message
             </label>
             <textarea
@@ -257,7 +241,7 @@ const ApplyFormModal = () => {
               onBlur={formik.handleBlur}
               value={formik.values.message}
               placeholder="|"
-              className="bg-transparent p-3 pl-6 border-[0.3px] border-[#72796F] rounded-[12px] outline-none w-full h-[54px] mt-2.5 text-sm"
+              className="border border-gray-400 rounded-xl pl-3 pt-4 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
             />
             {formik.touched.message && formik.errors.message && (
               <p className="pl-4 text-red-500 text-sm">

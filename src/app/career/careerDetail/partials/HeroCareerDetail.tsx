@@ -44,7 +44,7 @@ const HeroCareerDetail = () => {
             </p>
           </div>
 
-          <ApplyFormModal />
+          <ApplyFormModal title="Join Us" />
         </div>
       </div>
     </div>

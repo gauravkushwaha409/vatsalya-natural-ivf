@@ -1,6 +1,8 @@
+
+import React from "react";
 import blogHero from "@/assests/blog/blogHero.png";
-import Breadcrumb from "@/components/Breadcumb";
 import Image from "next/image";
+import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 
 const HeroBlog = () => {
   return (
@@ -8,8 +10,9 @@ const HeroBlog = () => {
       <div className="bg-gradient-to-b from-primary-50 to-background-100 py-10">
         <div className="flex flex-col justify-center items-center text-center">
           {/* breadcrumb  */}
-          <Breadcrumb name="Blog" baseName="Home" style="text-text-400" />
-
+          <CustomBreadcrumb
+            items={[{ name: "Home", link: "/" }, { name: "Blog" }]}
+          />
           <h1 className="pt-3 font-bold text-secondary-500 leading-[150%] typography-h3">
             Blog & News
           </h1>

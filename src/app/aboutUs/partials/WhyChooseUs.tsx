@@ -39,7 +39,7 @@ const WhyChooseUs = () => {
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
 
           <h2 className="text-primary-500 text-sm md:text-base font-bold tracking-widest uppercase leading-[24px]">
-            Our Vatsalya whyUsIcon
+            Why choose us
           </h2>
           {/* line  */}
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
@@ -49,7 +49,7 @@ const WhyChooseUs = () => {
           A Team United by Care and Compassion
         </h1>
 
-        <div className="flex flex-col lg:flex-row justify-between gap-6">
+        <div className="flex flex-col lg:flex-row justify-between gap-6 mt-4">
           <div className="grid grid-cols-2 gap-6">
             {whyChooseUsData.map((data) => (
               <div

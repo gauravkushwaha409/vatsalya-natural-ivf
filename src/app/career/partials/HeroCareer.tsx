@@ -2,7 +2,7 @@ import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 import Image from "next/image";
 import React from "react";
 import hero from "@/assests/career/career.png";
-import Link from "next/link";
+import ApplyFormModal from "../careerDetail/partials/ApplyFormModal";
 
 const HeroCareer = () => {
   return (
@@ -34,12 +34,10 @@ const HeroCareer = () => {
             health and patient care
           </p>
           {/* CTA Button */}
-          <Link
-            href="/career/careerDetail"
-            className="typography-h5 font-semibold border-[0.4px] border-secondary-100 hover:bg-secondary py-4 px-11 rounded-full text-lg transition-colors duration-300 shadow-[0px 8px 18px 0px rgba(101,53,83,0.62)] bg-gradient-to-r from-[#A0385A] to-[#3A142C]"
-          >
-            Join Us
-          </Link>
+          <ApplyFormModal
+            title="Join Us"
+            customClass="typography-h5 font-semibold border-[0.4px] border-secondary-100 hover:bg-secondary py-4 px-11 rounded-full text-lg transition-colors duration-300 shadow-[0px 8px 18px 0px rgba(101,53,83,0.62)] bg-gradient-to-r from-[#A0385A] to-[#3A142C]"
+          />
         </div>
       </div>
     </div>
