@@ -18,7 +18,7 @@ const WhoWeAre = () => {
       style={{
         backgroundImage: "url(/home/who-we-are-bg.png)",
       }}
-      className="flex gap-[2.63rem] bg-cover bg-no-repeat bg-center pl-20 min-h-[25.625rem] overflow-hidden"
+      className="flex md:flex-row flex-col gap-[2.63rem] bg-cover bg-no-repeat bg-center md:pl-20 min-h-[25.625rem] overflow-hidden"
     >
       <motion.div
         animate={{
@@ -30,10 +30,10 @@ const WhoWeAre = () => {
             },
           },
         }}
-        className="flex flex-col justify-center gap-5 w-1/4"
+        className="flex flex-col justify-center gap-5 pl-3 md:w-1/4"
       >
-        <div className="flex justify-center items-center gap-5">
-          <span className="font-bold text-primary-500 uppercase leading-[0.18rem] typography-paragraph-regular">
+        <div className="flex justify-center items-center gap-5 mt-4">
+          <span className="font-bold text-primary-500 uppercase md:leading-[0.18rem] typography-paragraph-regular">
             Who Are we
           </span>
           <div className="bg-primary-500 h-[0.0625rem] grow"></div>
@@ -47,7 +47,6 @@ const WhoWeAre = () => {
           style={{
             backgroundImage:
               "linear-gradient(90deg, #EBC0DB 0%, transparent 40%), url(/home/who-we-are-bg.png)",
-            // backgroundBlendMode: "overlay",
           }}
           initial={{ left: `${STARTING_OFFSET}` }}
           animate={{
@@ -58,7 +57,7 @@ const WhoWeAre = () => {
           transition={{
             duration: BASE_DURATION,
           }}
-          className="right-0 left-1/2 relative inset-y-0 rounded-l-[20.84425rem] h-full overflow-hidden"
+          className="right-0 left-1/2 relative inset-y-0 md:rounded-l-[20.84425rem] h-full overflow-hidden"
         >
           <motion.div
             initial={{ left: `-${STARTING_OFFSET}` }}
@@ -70,13 +69,13 @@ const WhoWeAre = () => {
             transition={{
               duration: BASE_DURATION,
             }}
-            className="right-0 -left-1/2 z-10 relative inset-y-0 flex items-center gap-10 p-11 pr-20"
+            className="right-0 -left-1/2 z-10 relative inset-y-0 flex md:flex-row flex-col items-center gap-10 p-11 pr-20"
           >
             <motion.div
               animate={{
                 opacity: isInViewport ? 1 : 0,
               }}
-              className="rounded-full w-[19.5rem] aspect-square overflow-hidden shrink-0"
+              className="rounded-md md:rounded-full w-[19.5rem] aspect-square overflow-hidden shrink-0"
             >
               <Image
                 src={"/home/priyanka-ayushman.jpeg"}

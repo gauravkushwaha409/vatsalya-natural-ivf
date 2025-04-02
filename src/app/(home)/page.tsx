@@ -42,7 +42,7 @@ const HomePage = () => {
 
       {/* Main Slogan */}
       <Slogan />
-      <div>
+      <div className="w-full overflow-hidden">
         <WhoWeAre />
         <WhatWeDo />
       </div>
