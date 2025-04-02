@@ -15,8 +15,8 @@ const MeetExperts = () => {
       <h1 className="pb-[3.75rem] font-bold text-center typography-h3">
         World-Class Doctors, Dedicated to Your Care
       </h1>
-      
-        <TeamSlider data={teamMembers} />
+
+      <TeamSlider data={[...teamMembers, ...teamMembers]} />
     </div>
   );
 }
