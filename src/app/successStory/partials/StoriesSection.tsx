@@ -6,8 +6,10 @@ import TestimonialCard from "@/components/TestimonialCard";
 import VideoModal from "@/components/VideoModal";
 
 const StoriesSection = () => {
-  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
   return (
     <div className="padding">
       <div className="flex flex-col items-center text-center space-y-4">
@@ -44,7 +46,13 @@ const StoriesSection = () => {
       />
 
       {/* pagination  */}
-      <CustomPagination />
+      <CustomPagination
+        currentPage={1}
+        onPageChange={handlePageChange}
+        pageCount={5}
+        perPage={5}
+        totalItems={10}
+      />
     </div>
   );
 };

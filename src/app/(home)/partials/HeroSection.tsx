@@ -6,6 +6,7 @@ import HeroAnimationCarousel from "./HeroAnimationCarousel";
 import HeroTextAnimation from "./HeroTextAnimation";
 import { useState } from "react";
 import CalendarModal from "../modals/CalenderModal";
+import RequestAppoimentModal from "../modals/RequestAppoimentModal";
 
 const HeroSection = () => {
   const text = "Journey to <parenthood,> /b Naturally and Compassionately";
@@ -128,10 +129,9 @@ const HeroSection = () => {
           ]}
         />
       </div>
-      <CalendarModal
-        modalOpen={openModal}
-        setModalOpen={setOpenModal}
-        onCloseModal={() => setOpenModal(false)}
+      <RequestAppoimentModal
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
       />
     </div>
   );

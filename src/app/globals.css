@@ -214,6 +214,14 @@
 @utility hide-for-desktop {
   @apply block lg:hidden;
 }
+.link-gradient-hover {
+  @apply font-bold text-secondary-500 typography-paragraph-large transition duration-500;
+}
+
+.link-gradient-hover span {
+  @apply group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r 
+    group-hover:from-[#FF6F61] group-hover:to-[#A03879];
+}
 @utility padding {
   @apply px-5 lg:px-20;
 }
