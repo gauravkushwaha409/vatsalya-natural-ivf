@@ -54,7 +54,6 @@ const HeroSection = () => {
             }}
             transition={{
               duration: 2,
-              // repeat: Infinity,
               ease: "linear",
             }}
             className="absolute flex"
@@ -79,7 +78,7 @@ const HeroSection = () => {
               background: "linear-gradient(90deg, #A0385A 0%, #3A142C 100%)",
               boxShadow: "0px 8px 18px 0px rgba(211, 163, 193, 0.77)",
             }}
-            className="px-[2.75rem] py-[0.94rem] border-2  border-secondary-100 rounded-full w-max font-bold text-white cursor-pointer typography-h5"
+            className="px-[2.75rem] py-[0.94rem] border-2 border-secondary-100 rounded-full w-max font-bold text-white cursor-pointer typography-h5"
           >
             Book an Appointment
           </button>
