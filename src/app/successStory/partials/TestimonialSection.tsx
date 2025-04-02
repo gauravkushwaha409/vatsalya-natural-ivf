@@ -10,7 +10,7 @@ const TestimonialSection = () => {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
   return (
-    <div className="my-20 container mx-auto">
+    <div className="my-20 px-5 lg:px-20">
       <div className=" flex flex-col items-center text-center space-y-4">
         <div className="relative flex items-center w-full justify-center gap-4 max-w-3xl">
           {/* line  */}

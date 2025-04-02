@@ -6,7 +6,7 @@ import photo2 from "@/assests/about/ourstory2.png";
 const OurStory = () => {
   return (
     <div>
-      <section className="max-w-7xl mx-auto px-4 py-16 md:py-24">
+      <section className="px-5 lg:px-20 py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-18 items-center">
           <div className="space-y-6 ">
             <div className="flex items-center w-full  gap-4 ">

@@ -5,7 +5,7 @@ const MissionVision = () => {
   return (
     <div>
       <section className="w-full py-16 md:py-24 bg-gradient-to-r from-[#EBC0DB] to-primary-100">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="px-5 lg:px-20">
           <div className="flex flex-col lg:flex-row justify-between gap-10 lg:gap-60 lg:items-center">
             {/* Image Grid */}
             <div className="grid grid-cols-2 w-[40%] md:gap-x-30 lg:gap-x-10 gap-y-2">

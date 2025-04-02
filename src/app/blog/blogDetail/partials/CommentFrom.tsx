@@ -66,7 +66,7 @@ const CommentForm = () => {
   }, [isChecked, formik]);
 
   return (
-    <section className="mx-5 lg:mx-24.5 mt-10 mb-20">
+    <section className="px-5 lg:px-20 mt-10 mb-20">
       <h1 className="typography-h5 font-medium text-[#333] pb-5">
         Leave a Comment
       </h1>
@@ -174,6 +174,7 @@ const CommentForm = () => {
             comment.
           </p>
         </div>
+
         {/* Submit */}
         <button
           type="submit"

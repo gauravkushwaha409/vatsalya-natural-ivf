@@ -1,4 +1,3 @@
-
 import React from "react";
 import blogHero from "@/assests/blog/blogHero.png";
 import Image from "next/image";
@@ -35,7 +34,7 @@ const HeroBlog = () => {
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(250,185,227,0.5)_0%,rgba(234,186,181,0)_100%)]"></div>
 
         {/* Content */}
-        <div className="z-10 relative flex flex-col justify-center items-center md:items-start px-6 md:px-12 lg:px-20 max-w-4xl h-full text-white md:text-left text-center">
+        <div className="z-10 relative flex flex-col justify-center items-center md:items-start px-5 md:px-12 lg:px-20 max-w-4xl h-full text-white md:text-left text-center">
           <p className="text-text-400 typography-paragraph-regular">Feature</p>
 
           {/* Heading */}

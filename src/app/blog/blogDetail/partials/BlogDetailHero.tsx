@@ -42,7 +42,7 @@ const BlogDetailHero = () => {
         </div>
       </div>
 
-      <div className="px-5 lg:px-20 container">
+      <div className="px-5 lg:px-44">
         <div className="py-10">
           <Image
             src={blogDetailHero}
