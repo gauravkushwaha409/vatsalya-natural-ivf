@@ -15,7 +15,7 @@ const MobileNav: React.FC<props> = ({ navlinks }) => {
       <>
         <button
           onClick={() => setIsOpen((prev) => !prev)}
-          className="flex flex-col items-center justify-center gap-2 p-2"
+          className="flex flex-col items-center justify-center gap-2 p-2 hover:cursor-pointer"
         >
           <motion.div
             initial={{ rotate: 0, y: 0 }}

@@ -14,10 +14,10 @@ const HeroSection = () => {
     setOpenModal(true);
   };
   return (
-    <div className="relative flex justify-center pl-20 h-full min-h-screen overflow-y-hidden">
-      <div className="flex flex-col justify-center mt-[8.72rem] w-full h-full text-left">
+    <div className="relative flex justify-center padding h-full min-h-screen overflow-y-hidden">
+      <div className="flex flex-col justify-center mt-16 lg:mt-[8.72rem] w-full h-full text-left">
         <h2 className="font-bold text-primary-500 uppercase tracking-wide typography-paragraph-large">
-          Natural IVF
+          Vatsalya Natural IVF
         </h2>
         <div className="relative pt-5">
           <HeroTextAnimation text={text} />
@@ -118,7 +118,7 @@ const HeroSection = () => {
           className="-bottom-20 left-1/2 absolute -translate-x-1/2 transform"
         /> */}
       </div>
-      <div className="right-0 left-1/2 absolute inset-y-0">
+      <div className="right-0 left-0 lg:left-1/2 absolute inset-y-0">
         <HeroAnimationCarousel
           images={[
             "/home/hero-img-1.png",

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 const HeroAnimationCarousel: React.FC<{ images: string[] }> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const isSmall = useIsSmall;
 
   useEffect(() => {
     const next = setInterval(() => {
@@ -50,8 +51,8 @@ const HeroAnimationCarousel: React.FC<{ images: string[] }> = ({ images }) => {
               className={`absolute transition-all border 
                 ${
                   isActive
-                    ? "top-0 h-[calc(100%-120px-1.5rem)] border-transparent "
-                    : "top-[calc(100%-180px-0.5rem)] h-[110px] aspect-square  border-secondary-200"
+                    ? "top-1/2 lg:top-0  h-[calc(100%-200px-5.5rem)] lg:h-[calc(100%-120px-1.5rem)] border-transparent "
+                    : "bottom-0 lg:top-[calc(100%-180px-0.5rem)] h-[50px] lg:h-[110px] aspect-square  border-secondary-200"
                 } `}
             >
               <Image
