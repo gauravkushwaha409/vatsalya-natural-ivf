@@ -2,8 +2,13 @@ import CustomPagination from "@/components/CustomPagination";
 import { blogData } from "@/data/blogData";
 import BlogCard from "./partials/BlogCard";
 import HeroBlog from "./partials/HeroBlog";
+import { useState } from "react";
 
 const Blog = () => {
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
   return (
     <div className="">
       <HeroBlog />
@@ -18,7 +23,13 @@ const Blog = () => {
           ))}
         </div>
         {/* pagination  */}
-        <CustomPagination />
+        <CustomPagination
+          currentPage={1}
+          onPageChange={handlePageChange}
+          pageCount={5}
+          perPage={5}
+          totalItems={10}
+        />
       </div>
     </div>
   );

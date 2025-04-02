@@ -12,6 +12,7 @@ const Header = () => {
     { name: "Success Stories", link: "/successStory" },
     { name: "Blog & News", link: "/blog" },
     { name: "Request a Call", link: "/requestCall" },
+    { name: "Career", link: "/career" },
     { name: "Contact Us", link: "/contact" },
   ];
   return (
@@ -42,15 +43,18 @@ const Header = () => {
         <Schedule />
         <MobileNav navlinks={navLinks} />
       </div>
-      <nav className="mt-5 w-full hide-for-mobile">
-        <ul className="flex divide-x divide-secondary-500 font-manrope">
+      <nav className="mt-5 w-auto hide-for-mobile">
+        <ul className="flex  justify-between  font-manrope">
           {navLinks.map((item, index) => (
-            <li className="px-8 w-max text-left" key={index}>
+            <li
+              className="border-r border-secondary-500 pr-5  w-max text-left"
+              key={index}
+            >
               <Link
-                className="w-max font-bold text-secondary-500 typography-paragraph-large"
+                className="w-max group link-gradient-hover"
                 href={item.link}
               >
-                {item.name}
+                <span>{item.name}</span>
               </Link>
             </li>
           ))}

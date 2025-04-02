@@ -1,5 +1,5 @@
 "use client";
-import CalendarModal from "@/app/(home)/modals/CalenderModal";
+import RequestAppoimentModal from "@/app/(home)/modals/RequestAppoimentModal";
 import React, { useState } from "react";
 
 const Schedule = () => {
@@ -15,10 +15,9 @@ const Schedule = () => {
       >
         Schedule a Consultation
       </button>
-      <CalendarModal
-        modalOpen={modalOpen}
-        setModalOpen={setModalOpen}
-        onCloseModal={() => setModalOpen?.(false)}
+      <RequestAppoimentModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen?.(false)}
       />
     </div>
   );

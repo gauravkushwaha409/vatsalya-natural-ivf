@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "@/app/globals.css";
@@ -6,12 +7,14 @@ import "@/app/globals.css";
 import useClickOutside from "@/hooks/useClickOutside";
 
 import { motion } from "framer-motion";
+import CalendarModal from "./CalenderModal";
+import { createPortal } from "react-dom";
 
 interface RequestAppoimentModalProps {
   isOpen: boolean;
   onClose: () => void;
   setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>;
-  selectService?: string | undefined;
+  selectDoctor?: string | undefined;
   selectedDate?: Date | null | string;
 }
 interface IFormValues {
@@ -27,6 +30,8 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
   isOpen,
   onClose,
 }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectDoctor, setSelectDoctor] = useState<string | undefined>();
   const modalRef = useClickOutside(onClose);
 
   const formik = useFormik<IFormValues>({
@@ -52,13 +57,21 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
     }),
     onSubmit: async (values) => {
       console.log(values);
+      setSelectDoctor(values.doctor);
+      handleRequestAppoiment();
     },
   });
-
-  return (
+  const onCloseModal = () => {
+    setModalOpen(true);
+  };
+  const handleRequestAppoiment = () => {
+    setModalOpen(true);
+    onClose();
+  };
+  return createPortal(
     <>
       {isOpen && (
-        <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-50 text-black">
+        <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-[100] text-black">
           <motion.div
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -88,7 +101,7 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
                   id="name"
                   name="name"
                   type="text"
-                  className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
+                  className="border border-gray-400 rounded-lg p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.name}
@@ -108,7 +121,7 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
                   id="phone"
                   name="phone"
                   type="number"
-                  className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
+                  className="border border-gray-400 rounded-lg p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.phone}
@@ -128,7 +141,7 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
                   id="address"
                   name="address"
                   type="text"
-                  className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
+                  className="border border-gray-400 rounded-lg p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.address}
@@ -148,7 +161,7 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
                 <select
                   id="center"
                   name="center"
-                  className="border border-gray-400 rounded-xl p-2.5 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
+                  className="border border-gray-400 rounded-lg p-2.5 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.center}
@@ -170,7 +183,7 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
                 <select
                   id="doctor"
                   name="doctor"
-                  className="border border-gray-400 rounded-xl p-2.5 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
+                  className="border border-gray-400 rounded-lg p-2.5 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.doctor}
@@ -186,14 +199,14 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
               </div>
 
               {/* Message Field */}
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 col-span-2">
                 <label htmlFor="message" className="text-base font-regular">
                   Message
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
+                  className="border border-gray-400 rounded-lg p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
                   rows={4}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
@@ -209,15 +222,25 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
 
               {/* Submit Button */}
               <div className="flex justify-end col-span-2">
-                <button className="bg-secondary-500 hover:bg-secondary-600 text-white py-4 px-10 rounded-full typography-paragraph-regular">
-                  Request Appointment
+                <button
+                  type="submit"
+                  className="bg-secondary-500 hover:bg-secondary-600 text-white py-4 px-10 rounded-full typography-paragraph-regular"
+                >
+                  Next
                 </button>
               </div>
             </form>
           </motion.div>
         </div>
       )}
-    </>
+      <CalendarModal
+        modalOpen={modalOpen}
+        onCloseModal={onCloseModal}
+        setModalOpen={setModalOpen}
+        selectDoctor={selectDoctor}
+      />
+    </>,
+    document.body
   );
 };
 
