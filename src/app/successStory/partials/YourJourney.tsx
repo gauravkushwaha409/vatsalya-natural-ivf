@@ -17,7 +17,7 @@ const avatars: StaticImageData[] = [
 
 const YourJourney = () => {
   return (
-    <div className="container mx-auto mt-10 mb-20">
+    <div className="padding mt-10 mb-20">
       <div className="rounded-[24px] bg-gradient-to-r from-[#EBC0DB] to-primary-100">
         <div className="p-10 grid grid-cols-1 lg:grid-cols-2 items-center  gap-40">
           {/* Text Section */}

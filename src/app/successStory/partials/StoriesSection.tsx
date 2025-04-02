@@ -1,11 +1,15 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { testimonialData } from "@/data/testimonialData";
 import CustomPagination from "../../../components/CustomPagination";
 import TestimonialCard from "@/components/TestimonialCard";
+import VideoModal from "@/components/VideoModal";
 
 const StoriesSection = () => {
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+
   return (
-    <div className="container mx-auto">
+    <div className="padding">
       <div className="flex flex-col items-center text-center space-y-4">
         <div className="flex items-center w-full justify-center gap-4 max-w-3xl">
           {/* line  */}
@@ -26,9 +30,18 @@ const StoriesSection = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10 rounded-lg ">
         {testimonialData.map((testimonial, index) => (
-          <TestimonialCard key={index} data={testimonial} />
+          <TestimonialCard
+            key={index}
+            data={testimonial}
+            setIsOpenModal={setIsOpenModal}
+          />
         ))}
       </div>
+      <VideoModal
+        isOpen={isOpenModal}
+        onClose={() => setIsOpenModal(false)}
+        videoUrl="https://www.youtube.com/embed/vLyP1aOmENc?si=aPCpD2JOABihWFx_"
+      />
 
       {/* pagination  */}
       <CustomPagination />

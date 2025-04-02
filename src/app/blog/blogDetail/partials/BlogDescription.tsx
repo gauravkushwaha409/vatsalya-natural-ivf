@@ -70,8 +70,8 @@ const BlogDescription = () => {
         </p>
       </div>
 
-      <div className="flex  gap-5">
-        <span className="relative mt-2">
+      <div className="flex ">
+        <span className="relative mt-2 mr-4">
           <svg
             width="44"
             height="38"
@@ -104,6 +104,7 @@ const BlogDescription = () => {
           including age, health, and lifestyle.
         </h3>
       </div>
+
       <p className="typography-paragraph-large leading-[150%] text-text-500 text-justify py-10">
         The process begins with an initial consultation, where fertility
         specialists assess medical history, conduct necessary tests, and create
@@ -139,6 +140,7 @@ const BlogDescription = () => {
         healthy progression.
       </p>
 
+      {/* share button  */}
       <div>
         <div className="flex items-center justify-between mb-10">
           <div className="flex gap-5 items-center">

@@ -9,7 +9,7 @@ import icon from "@/assests/icons/experts/ivf.svg";
 
 const Profile = () => {
   return (
-    <section className="py-5 bg-background-100 px-5 lg:px-20">
+    <section className="py-5 bg-background-100 padding">
       <div className="flex flex-col lg:flex-row gap-10">
         <div className="w-full lg:w-1/3 flex justify-center">
           <div

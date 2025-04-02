@@ -5,7 +5,7 @@ import family from "@/assests/about/family.png";
 const Culture = () => {
   return (
     <div>
-      <div className="pb-16 md:pb-24 container mx-auto px-4 md:px-6">
+      <div className="pb-16 md:pb-24 padding">
         <div className="flex flex-col items-center text-center space-y-4">
           <div className="flex items-center w-full justify-center gap-4 max-w-3xl">
             {/* line  */}
@@ -30,7 +30,7 @@ const Culture = () => {
 
           <div className=" grid grid-cols-1 md:grid-cols-5 gap-5 ">
             {/* Box 1 */}
-            <div className="lg:mt-42 w-52 h-50 rounded-[24px] ">
+            <div className="lg:mt-[10.5rem] w-52 h-50 rounded-[24px] ">
               <Image
                 src={family}
                 alt="image"
@@ -63,7 +63,7 @@ const Culture = () => {
             </div>
             {/* lastt */}
             {/* Box 4 */}
-            <div className="mt-0 lg:mt-42 lg:-ml-10 w-52 h-50 lg:h-[180px] lg:w-full rounded-[24px] ">
+            <div className="mt-0 lg:mt-[10.5rem]  w-52 h-50 lg:h-[180px] lg:w-full rounded-[24px] ">
               <Image
                 src={family}
                 alt="image"
@@ -73,7 +73,7 @@ const Culture = () => {
               />
             </div>
             {/* Box 5 */}
-            <div className="lg:ml-58 lg:-mt-30.5 -mt-55 lg:w-[191px] w-52 h-50 lg:h-[180px] rounded-[24px] ">
+            <div className="lg:ml-[14.5rem] lg:-mt-30.5 -mt-55 lg:w-[191px] w-52 h-50 lg:h-[180px] rounded-[24px] ">
               <Image
                 src={family}
                 alt="image"
@@ -83,7 +83,7 @@ const Culture = () => {
               />
             </div>
             {/* Box 6 */}
-            <div className="lg:ml-50 lg:-mt-30.5 w-full lg:w-[484px] h-[240px] col-span-2 rounded-[24px] ">
+            <div className="lg:ml-[12.5rem] lg:-mt-[7.625rem] w-full lg:w-[484px] h-[240px] col-span-2 rounded-[24px] ">
               <Image
                 src={family}
                 alt="image"

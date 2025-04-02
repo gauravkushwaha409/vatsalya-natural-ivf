@@ -11,7 +11,6 @@ export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
   // const [isVideoLoading, setIsVideoLoading] = useState(true);
 
   // const handleVideoLoad = () => {
-  //   setIsVideoLoading(false);
   // };
 
   return (

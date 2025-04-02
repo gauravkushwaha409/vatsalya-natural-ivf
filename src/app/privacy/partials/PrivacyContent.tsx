@@ -4,54 +4,54 @@ import React from "react";
 const PrivacyContent = () => {
   return (
     <div>
-      <div className=" py-12 px-4 ">
-        <div className="max-w-5xl mx-auto">
-          {/* Introduction */}
-          <p className="text-text-400 typography-paragraph-large font-medium leading-[150%] text-justify">
-            {termsData.introduction}
-          </p>
+      <div className="padding pb-10">
+        {/* here goes rich text  */}
 
-          {/* Dynamic Sections */}
-          {termsData.sections.map((section) => (
-            <section key={section.id} className="mt-8">
-              <h2 className="typography-h4 text-text-500 font-semibold leading-[150%]">
-                {section.title}
-              </h2>
-              <p className="text-text-400 typography-paragraph-large font-medium leading-[150%] text-justify">
-                {section.content}
-              </p>
+        {/* Introduction */}
+        <p className="text-text-400 typography-paragraph-large font-medium leading-[150%] text-justify">
+          {termsData.introduction}
+        </p>
 
-              {/* Render List If Present */}
-              {section.listItems && (
-                <ul className="list-disc pl-6 mt-2 space-y-2">
-                  {section.listItems.map((item, index) => (
-                    <li
-                      key={index}
-                      className="text-text-400 typography-paragraph-large font-medium leading-[150%] text-justify"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </section>
-          ))}
-
-          {/* Contact Information */}
-          <section className="mt-8">
+        {/* Dynamic Sections */}
+        {termsData.sections.map((section) => (
+          <section key={section.id} className="mt-8">
             <h2 className="typography-h4 text-text-500 font-semibold leading-[150%]">
-              8. Contact Information
+              {section.title}
             </h2>
             <p className="text-text-400 typography-paragraph-large font-medium leading-[150%] text-justify">
-              If you have any questions about these Terms, please contact us at:
+              {section.content}
             </p>
-            <address className="not-italic mt-2">
-              <p className="text-text-400 typography-paragraph-large font-medium leading-[150%] text-justify">
-                Phone: {termsData.contactInfo.phone}
-              </p>
-            </address>
+
+            {/* Render List If Present */}
+            {section.listItems && (
+              <ul className="list-disc pl-6 mt-2 space-y-2">
+                {section.listItems.map((item, index) => (
+                  <li
+                    key={index}
+                    className="text-text-400 typography-paragraph-large font-medium leading-[150%] text-justify"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            )}
           </section>
-        </div>
+        ))}
+
+        {/* Contact Information */}
+        <section className="mt-8">
+          <h2 className="typography-h4 text-text-500 font-semibold leading-[150%]">
+            8. Contact Information
+          </h2>
+          <p className="text-text-400 typography-paragraph-large font-medium leading-[150%] text-justify">
+            If you have any questions about these Terms, please contact us at:
+          </p>
+          <address className="not-italic mt-2">
+            <p className="text-text-400 typography-paragraph-large font-medium leading-[150%] text-justify">
+              Phone: {termsData.contactInfo.phone}
+            </p>
+          </address>
+        </section>
       </div>
     </div>
   );

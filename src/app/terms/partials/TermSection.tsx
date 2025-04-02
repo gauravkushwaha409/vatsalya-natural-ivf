@@ -3,8 +3,10 @@ import React from "react";
 
 const TermSection = () => {
   return (
-    <div className=" py-12 px-4 ">
-      <div className="max-w-5xl mx-auto">
+    <div className="pb-10">
+      <div className="padding">
+        {/* here goes rich text  */}
+
         {/* Introduction */}
         <p className="text-text-400 typography-paragraph-large font-medium leading-[150%] text-justify">
           {termsData.introduction}

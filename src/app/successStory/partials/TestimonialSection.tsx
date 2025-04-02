@@ -1,12 +1,16 @@
+"use client";
 import { Play } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import photo from "@/assests/success-story/testimonial.png";
 import { IoIosQuote } from "react-icons/io";
+import VideoModal from "@/components/VideoModal";
 
 const TestimonialSection = () => {
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+
   return (
-    <div className="my-20 container mx-auto">
+    <div className="my-20 padding">
       <div className=" flex flex-col items-center text-center space-y-4">
         <div className="relative flex items-center w-full justify-center gap-4 max-w-3xl">
           {/* line  */}
@@ -81,7 +85,10 @@ const TestimonialSection = () => {
             </p>
           </div>
 
-          <button className="rounded-full mt-4 flex items-center gap-2 cursor-pointer">
+          <button
+            className="rounded-full mt-4 flex items-center gap-2 cursor-pointer"
+            onClick={() => setIsOpenModal(true)}
+          >
             <div className="rounded-full p-2 border-[0.56px] border-secondary-800">
               <Play className="h-4 w-4  fill-secondary-900" />
             </div>
@@ -91,6 +98,11 @@ const TestimonialSection = () => {
           </button>
         </div>
       </div>
+      <VideoModal
+        isOpen={isOpenModal}
+        onClose={() => setIsOpenModal(false)}
+        videoUrl="https://www.youtube.com/embed/vLyP1aOmENc?si=aPCpD2JOABihWFx_"
+      />
     </div>
   );
 };

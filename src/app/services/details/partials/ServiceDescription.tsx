@@ -61,7 +61,7 @@ const ServiceDescription = () => {
       </p>
       <button
         onClick={() => setOpenModal(true)}
-        className="typography-h5 font-semibold border-[0.4px] border-secondary-100 bg-secondary-500 py-4 px-11 rounded-full text-lg transition-colors duration-300 shadow-[0px 8px 18px 0px rgba(101,53,83,0.62)] cursor-pointer "
+        className="typography-h5 font-semibold border-[0.4px] border-secondary-100 bg-secondary-500 py-4 px-11 rounded-full text-lg transition-colors duration-300 shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] cursor-pointer "
       >
         Book an Appointment
       </button>

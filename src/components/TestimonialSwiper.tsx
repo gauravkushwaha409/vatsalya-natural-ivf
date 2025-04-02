@@ -1,5 +1,5 @@
 "use client";
-import VideoModal from "@/app/(home)/modals/VideoModal";
+import VideoModal from "@/components/VideoModal";
 import { testimonialData } from "@/data/testimonialData";
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
