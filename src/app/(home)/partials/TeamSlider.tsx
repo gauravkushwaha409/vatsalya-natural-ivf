@@ -1,6 +1,5 @@
 "use client"
 
-import { useIsSmall } from "@/hooks/useMediaQuery";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,18 +12,17 @@ interface TeamSliderProps {
 }
 
 const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
-  const isMobile = useIsSmall();
   /**
    *
    * constants for the slider
    *
    */
-  const ACTIVE_EL_WIDTH = isMobile ? 13 : 30;
-  const ACTIVE_EL_HEIGHT = isMobile ? 20 : 38.3331;
-  const INACTIVE_EL_WIDTH = isMobile ? 5 : 11.25;
-  const INACTIVE_EL_HEIGHT = isMobile ? 6 : 14.375;
+  const ACTIVE_EL_WIDTH = 30;
+  const ACTIVE_EL_HEIGHT = 38.3331;
+  const INACTIVE_EL_WIDTH = 11.25;
+  const INACTIVE_EL_HEIGHT = 14.375;
   const GAP = 1.25;
-  const ACTIVE_INDEX = isMobile ? 0 : 1;
+  const ACTIVE_INDEX = 1;
 
   const previousActiveIndex = useRef(0);
   const shouldAnimate = useRef(true);
@@ -116,7 +114,7 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
               <button className="px-8 py-3 border border-secondary-500 rounded-full font-medium text-secondary-500 typography-paragraph-regular">
                 Consult Now
               </button>
-              <button className="px-5 px-8ml-3 py-3 font-medium text-secondary-500 typography-paragraph-regular">
+              <button className="px-5 py-3 font-medium text-secondary-500 typography-paragraph-regular">
                 Call Back Request
               </button>
               <Link
