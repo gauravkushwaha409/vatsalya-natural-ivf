@@ -5,20 +5,20 @@ import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import RenderCells from "./components/RenderCells";
-import RequestAppoimentModal from "./RequestAppoimentModal";
+import ConfirmationModal from "./ConfirmationModal";
 
 interface CalendarProps {
   modalOpen: boolean;
   onCloseModal: () => void;
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  selectService?: string;
+  selectDoctor?: string;
 }
 
 const CalendarModal: React.FC<CalendarProps> = ({
   modalOpen,
   onCloseModal,
   setModalOpen,
-  selectService,
+  selectDoctor,
 }) => {
   const dummyAvailableDates = [
     "2025-03-01",
@@ -28,10 +28,9 @@ const CalendarModal: React.FC<CalendarProps> = ({
   ];
 
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [requestAppoimentModal, setRequestAppoimentModal] = useState(false);
   const [showTime, setShwowTime] = useState<boolean>(false);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-
+  const [openModal, setOpenModal] = useState<boolean>(false);
   const modalRef1 = useClickOutside(onCloseModal);
 
   const renderHeader = () => {
@@ -68,10 +67,10 @@ const CalendarModal: React.FC<CalendarProps> = ({
       </div>
     );
   };
-
-  const handleReqModal = () => {
-    setRequestAppoimentModal(!requestAppoimentModal);
+  const handleSelectTime = () => {
+    console.log(selectDoctor);
     setModalOpen(false);
+    setOpenModal(true);
   };
   if (typeof document !== "undefined")
     return createPortal(
@@ -89,7 +88,7 @@ const CalendarModal: React.FC<CalendarProps> = ({
                 Select Date & Time
               </h1>
               <button
-                onClick={() => onCloseModal()}
+                onClick={() => setModalOpen(false)}
                 className="top-5 right-10 absolute text-text-400 text-2xl cursor-pointer *:"
               >
                 x
@@ -118,7 +117,7 @@ const CalendarModal: React.FC<CalendarProps> = ({
                     {Array.from({ length: 3 }).map((_, index) => (
                       <button
                         key={index}
-                        onClick={() => handleReqModal()}
+                        onClick={() => handleSelectTime()}
                         className="inline-block bg-white hover:bg-secondary-500 px-4 py-2 border border-secondary-300 rounded-full w-full text-secondary-500 hover:text-white transition-colors duration-700 hover:duration-200 ease-in-out"
                       >
                         9:10
@@ -130,12 +129,9 @@ const CalendarModal: React.FC<CalendarProps> = ({
             </motion.div>
           </div>
         )}
-        <RequestAppoimentModal
-          selectService={selectService}
-          selectedDate={selectedDate || new Date() || ""}
-          isOpen={requestAppoimentModal}
-          onClose={() => setRequestAppoimentModal(false)}
-          setIsOpen={setRequestAppoimentModal}
+        <ConfirmationModal
+          isOpen={openModal}
+          onClose={() => setOpenModal(false)}
         />
       </>,
       document.body

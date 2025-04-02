@@ -1,5 +1,5 @@
 "use client";
-import CalendarModal from "@/app/(home)/modals/CalenderModal";
+import RequestAppoimentModal from "@/app/(home)/modals/RequestAppoimentModal";
 import hero from "@/assests/services/herosection.png";
 import Breadcrumb from "@/components/Breadcumb";
 import Image from "next/image";
@@ -47,10 +47,9 @@ const Herosection = () => {
           </div>
         </div>
       </div>
-      <CalendarModal
-        modalOpen={openModal}
-        setModalOpen={setOpenModal}
-        onCloseModal={() => setOpenModal(false)}
+      <RequestAppoimentModal
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
       />
     </header>
   );

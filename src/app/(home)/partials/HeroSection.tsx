@@ -3,9 +3,9 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
-import CalendarModal from "../modals/CalenderModal";
 import HeroAnimationCarousel from "./HeroAnimationCarousel";
 import HeroTextAnimation from "./HeroTextAnimation";
+import RequestAppoimentModal from "../modals/RequestAppoimentModal";
 
 const HeroSection = () => {
   const text = "Journey to <parenthood,> /b Naturally and Compassionately";
@@ -126,10 +126,9 @@ const HeroSection = () => {
           ]}
         />
       </div>
-      <CalendarModal
-        modalOpen={openModal}
-        setModalOpen={setOpenModal}
-        onCloseModal={() => setOpenModal(false)}
+      <RequestAppoimentModal
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
       />
     </div>
   );

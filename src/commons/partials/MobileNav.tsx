@@ -1,8 +1,9 @@
 "use client";
-import { X } from "lucide-react";
 import React, { useState } from "react";
-import { TfiLayoutLineSolid } from "react-icons/tfi";
+import lineicon from "@/assests/icons/Lineicon.svg";
 import MobileNavModal from "./MobileNavModal";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 type props = {
   navlinks: { name: string; link: string }[];
@@ -11,30 +12,44 @@ const MobileNav: React.FC<props> = ({ navlinks }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="hide-for-desktop">
-      {!isOpen ? (
+      <>
         <button
-          onClick={() => setIsOpen(true)}
-          className="flex flex-col gap-0 text-black"
+          onClick={() => setIsOpen((prev) => !prev)}
+          className="flex flex-col items-center justify-center gap-2 p-2"
         >
-          <TfiLayoutLineSolid />
-          <TfiLayoutLineSolid />
-          <TfiLayoutLineSolid />
-        </button>
-      ) : (
-        <>
-          <button
-            onClick={() => setIsOpen?.(false)}
-            className="top-5 right-5 z-10 absolute flex justify-center items-center p-2 border border-white rounded-full w-10 h-10 cursor-pointer"
+          <motion.div
+            initial={{ rotate: 0, y: 0 }}
+            animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? 12 : 0 }}
+            transition={{ duration: 0.3 }}
+            className="w-8"
           >
-            <X size={24} className="font-bold text-black" />
-          </button>
-          <MobileNavModal
-            navlinks={navlinks}
-            setIsOpen={setIsOpen}
-            isOpen={isOpen}
-          />
-        </>
-      )}
+            <Image src={lineicon} alt="lineicon" className="w-full h-full" />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 1 }}
+            animate={{ opacity: isOpen ? 0 : 1 }}
+            transition={{ duration: 0.3 }}
+            className="w-8"
+          >
+            <Image src={lineicon} alt="lineicon" className="w-full h-full" />
+          </motion.div>
+
+          <motion.div
+            initial={{ rotate: 0, y: 0 }}
+            animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? -12 : 0 }}
+            transition={{ duration: 0.3 }}
+            className="w-8"
+          >
+            <Image src={lineicon} alt="lineicon" className="w-full h-full" />
+          </motion.div>
+        </button>
+        <MobileNavModal
+          navlinks={navlinks}
+          setIsOpen={setIsOpen}
+          isOpen={isOpen}
+        />
+      </>
     </div>
   );
 };
