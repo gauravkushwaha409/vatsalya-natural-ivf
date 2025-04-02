@@ -19,13 +19,13 @@ const YourJourney = () => {
   return (
     <div className="padding mt-10 mb-20">
       <div className="rounded-[24px] bg-gradient-to-r from-[#EBC0DB] to-primary-100">
-        <div className="p-10 grid grid-cols-1 lg:grid-cols-2 items-center  gap-40">
+        <div className="p-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-4 lg:gap-40">
           {/* Text Section */}
           <div>
-            <h1 className="typography-h3 font-bold leading-[150%] text-secondary-500 max-w-[525px]">
+            <h1 className="typography-h5 lg:typography-h3 font-bold leading-[150%] text-secondary-500 max-w-[525px]">
               Your Journey to Parenthood Begins Here
             </h1>
-            <p className="typography-paragraph-large text-text-400 font-medium max-w-[613px] py-4">
+            <p className="typography-paragraph-regular lg:typography-paragraph-large text-text-400 font-medium max-w-[613px] py-4">
               At Vatsalya, we combine expertise with compassion to help create
               families. Trust our experienced team to guide you through your
               fertility journey.
@@ -36,7 +36,7 @@ const YourJourney = () => {
           </div>
 
           {/* Trusted By Section */}
-          <div className="">
+          <div>
             <div className="relative rounded-[24px] opacity-80 bg-[rgba(255,240,244,0.39)] backdrop-blur-[7.35px] p-10 flex flex-col items-center justify-center text-center space-y-2">
               <p className="typography-paragraph-regular font-semibold text-black">
                 Trusted by
@@ -87,7 +87,7 @@ const YourJourney = () => {
               </div>
 
               {/* butterfly  */}
-              <div className=" absolute top-0 right-0   w-32 h-32  overflow-hidden">
+              <div className=" absolute top-0 right-0 w-20 h-20 lg:w-32 lg:h-32  overflow-hidden">
                 <Image
                   src={butterfly}
                   alt={`butterfly`}

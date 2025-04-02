@@ -6,41 +6,42 @@ const images = [
   {
     id: 1,
     src: family,
-    className: "lg:mt-[10.5rem] w-[13.03988rem] h-[12.5rem] m-4",
+    className:
+      "lg:mt-[10.5rem] w-[10rem] lg:w-[13.03988rem] h-[10.5rem] lg:h-[12.5rem] lg:m-4",
     colSpan: "col-span-1",
   },
   {
     id: 2,
     src: family,
-    className: "-ml-4 lg:w-[36.51163rem] h-[15rem] m-4",
+    className: "lg:-ml-4 lg:w-[36.51163rem] h-[15rem] lg:m-4",
     colSpan: "col-span-2",
   },
   {
     id: 3,
     src: family,
     className:
-      "ml-60 lg:ml-10 -mt-120 lg:mt-18.5 w-[13.03988rem] h-[12.5rem] lg:w-[191px] lg:h-[180px] m-4",
+      "ml-49 lg:ml-10 -mt-112 lg:mt-18.5 w-[10rem] lg:w-[13.03988rem] h-[10.5rem] lg:h-[12.5rem] lg:w-[191px] lg:h-[180px] lg:m-4",
     colSpan: "col-span-1",
   },
   {
     id: 4,
     src: family,
     className:
-      "mt-0 lg:-ml-[0.4rem] lg:mt-[10.5rem] w-[13.03988rem] h-[12.5rem] m-4",
+      "mt-0 lg:-ml-[0.4rem] lg:mt-[10.5rem] w-[10rem] lg:w-[13.03988rem] h-[10.5rem] lg:m-4",
     colSpan: "col-span-1",
   },
   {
     id: 5,
     src: family,
     className:
-      "lg:ml-[16.8rem] lg:-mt-[6.8rem] -mt-55 lg:w-[191px] w-[13.03988rem] h-[12.5rem] lg:h-[180px] m-4",
+      "lg:ml-[16.8rem]  lg:-mt-[6.8rem] -mt-47 w-[11rem]  lg:w-[191px]  h-[10.5rem] lg:h-[180px] lg:m-4",
     colSpan: "col-span-1",
   },
   {
     id: 6,
     src: family,
     className:
-      "lg:ml-[14rem] lg:-mt-[6.8rem] w-full lg:w-[36.51163rem] h-[15rem] m-4",
+      "lg:ml-[14rem] lg:-mt-[6.8rem] -mt-[0.9rem] w-full lg:w-[36.51163rem] h-[15rem] lg:m-4",
     colSpan: "col-span-2",
   },
 ];
