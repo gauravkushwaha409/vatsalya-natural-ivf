@@ -6,6 +6,7 @@ import TestimonialCard from "@/components/TestimonialCard";
 import VideoModal from "@/components/VideoModal";
 
 const StoriesSection = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -35,19 +36,19 @@ const StoriesSection = () => {
           <TestimonialCard
             key={index}
             data={testimonial}
-            setIsOpenModal={setIsOpenModal}
+            setIsOpenModal={setIsOpen}
           />
         ))}
       </div>
       <VideoModal
-        isOpen={isOpenModal}
-        onClose={() => setIsOpenModal(false)}
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
         videoUrl="https://www.youtube.com/embed/vLyP1aOmENc?si=aPCpD2JOABihWFx_"
       />
 
       {/* pagination  */}
       <CustomPagination
-        currentPage={1}
+        currentPage={currentPage}
         onPageChange={handlePageChange}
         pageCount={5}
         perPage={5}

@@ -5,7 +5,6 @@ import Image from "next/image";
 import HeroAnimationCarousel from "./HeroAnimationCarousel";
 import HeroTextAnimation from "./HeroTextAnimation";
 import { useState } from "react";
-import CalendarModal from "../modals/CalenderModal";
 import RequestAppoimentModal from "../modals/RequestAppoimentModal";
 
 const HeroSection = () => {

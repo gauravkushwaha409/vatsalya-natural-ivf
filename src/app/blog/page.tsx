@@ -1,3 +1,4 @@
+"use client";
 import CustomPagination from "@/components/CustomPagination";
 import { blogData } from "@/data/blogData";
 import BlogCard from "./partials/BlogCard";
@@ -24,7 +25,7 @@ const Blog = () => {
         </div>
         {/* pagination  */}
         <CustomPagination
-          currentPage={1}
+          currentPage={currentPage}
           onPageChange={handlePageChange}
           pageCount={5}
           perPage={5}

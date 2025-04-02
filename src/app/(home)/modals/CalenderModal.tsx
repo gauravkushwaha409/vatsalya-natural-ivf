@@ -68,6 +68,7 @@ const CalendarModal: React.FC<CalendarProps> = ({
     );
   };
   const handleSelectTime = () => {
+    console.log(selectDoctor);
     setModalOpen(false);
     setOpenModal(true);
   };
