@@ -23,7 +23,8 @@ const TestimonialSection = () => {
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
         </div>
 
-        <div className="w-[368] h-[370] absolute z-10 -bottom-40 right-0">
+        {/* butterfluy gif  */}
+        <div className="lg:w-[368] lg:h-[370] absolute z-10 -bottom-[32rem] md:-bottom-[18rem] lg:-bottom-40 right-0">
           <Image
             src="/butterfly-gif.gif"
             alt="butterfly-git"

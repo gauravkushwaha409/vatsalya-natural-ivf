@@ -2,6 +2,49 @@ import Image from "next/image";
 import React from "react";
 import family from "@/assests/about/family.png";
 
+const images = [
+  {
+    id: 1,
+    src: family,
+    className: "lg:mt-[10.5rem] w-[13.03988rem] h-[12.5rem] m-4",
+    colSpan: "col-span-1",
+  },
+  {
+    id: 2,
+    src: family,
+    className: "-ml-4 lg:w-[36.51163rem] h-[15rem] m-4",
+    colSpan: "col-span-2",
+  },
+  {
+    id: 3,
+    src: family,
+    className:
+      "ml-60 lg:ml-10 -mt-120 lg:mt-18.5 w-[13.03988rem] h-[12.5rem] lg:w-[191px] lg:h-[180px] m-4",
+    colSpan: "col-span-1",
+  },
+  {
+    id: 4,
+    src: family,
+    className:
+      "mt-0 lg:-ml-[0.4rem] lg:mt-[10.5rem] w-[13.03988rem] h-[12.5rem] m-4",
+    colSpan: "col-span-1",
+  },
+  {
+    id: 5,
+    src: family,
+    className:
+      "lg:ml-[16.8rem] lg:-mt-[6.8rem] -mt-55 lg:w-[191px] w-[13.03988rem] h-[12.5rem] lg:h-[180px] m-4",
+    colSpan: "col-span-1",
+  },
+  {
+    id: 6,
+    src: family,
+    className:
+      "lg:ml-[14rem] lg:-mt-[6.8rem] w-full lg:w-[36.51163rem] h-[15rem] m-4",
+    colSpan: "col-span-2",
+  },
+];
+
 const Culture = () => {
   return (
     <div>
@@ -28,70 +71,21 @@ const Culture = () => {
             families on their journey to parenthood.
           </p>
 
-          <div className=" grid grid-cols-1 md:grid-cols-5 gap-5 ">
-            {/* Box 1 */}
-            <div className="lg:mt-[10.5rem] w-52 h-50 rounded-[24px] ">
-              <Image
-                src={family}
-                alt="image"
-                width={400}
-                height={400}
-                className="w-full h-full object-cover rounded-[24px]"
-              />
-            </div>
-
-            {/* Box 2 */}
-            <div className="-ml-4 lg:w-[484px] h-[240px] col-span-2 rounded-[24px] ">
-              <Image
-                src={family}
-                alt="image"
-                width={400}
-                height={400}
-                className="w-full h-full object-cover rounded-[24px]"
-              />
-            </div>
-
-            {/* Box 3 */}
-            <div className="ml-60 lg:-ml-2 -mt-120 lg:mt-15  w-52 h-50 lg:w-[191px] lg:h-[180px] rounded-[24px] ">
-              <Image
-                src={family}
-                alt="image"
-                width={400}
-                height={400}
-                className="w-full h-full object-cover rounded-[24px]"
-              />
-            </div>
-            {/* lastt */}
-            {/* Box 4 */}
-            <div className="mt-0 lg:mt-[10.5rem]  w-52 h-50 lg:h-[180px] lg:w-full rounded-[24px] ">
-              <Image
-                src={family}
-                alt="image"
-                width={400}
-                height={400}
-                className="w-full h-full object-cover rounded-[24px]"
-              />
-            </div>
-            {/* Box 5 */}
-            <div className="lg:ml-[14.5rem] lg:-mt-30.5 -mt-55 lg:w-[191px] w-52 h-50 lg:h-[180px] rounded-[24px] ">
-              <Image
-                src={family}
-                alt="image"
-                width={400}
-                height={400}
-                className="w-full h-full object-cover rounded-[24px]"
-              />
-            </div>
-            {/* Box 6 */}
-            <div className="lg:ml-[12.5rem] lg:-mt-[7.625rem] w-full lg:w-[484px] h-[240px] col-span-2 rounded-[24px] ">
-              <Image
-                src={family}
-                alt="image"
-                width={400}
-                height={400}
-                className="w-full h-full object-cover rounded-[24px]"
-              />
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-[1.23rem]">
+            {images.map((img) => (
+              <div
+                key={img.id}
+                className={`${img.className} rounded-[24px] ${img.colSpan}`}
+              >
+                <Image
+                  src={img?.src}
+                  alt="Family Image"
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover rounded-[24px]"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
