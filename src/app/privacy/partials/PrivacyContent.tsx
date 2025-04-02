@@ -4,7 +4,7 @@ import React from "react";
 const PrivacyContent = () => {
   return (
     <div>
-      <div className="px-5 lg:px-20 pb-10">
+      <div className="padding pb-10">
         {/* here goes rich text  */}
 
         {/* Introduction */}

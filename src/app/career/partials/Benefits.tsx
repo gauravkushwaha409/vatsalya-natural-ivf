@@ -44,7 +44,7 @@ const whyChooseUsData = [
 
 const Benefits = () => {
   return (
-    <div className="py-16 md:py-24 px-5 lg:px-20">
+    <div className="py-16 md:py-24 padding">
       <div className="flex flex-col items-center text-center space-y-4">
         <div className="flex items-center w-full justify-center gap-4 max-w-3xl">
           {/* line  */}

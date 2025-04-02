@@ -5,7 +5,7 @@ import family from "@/assests/about/family.png";
 const Culture = () => {
   return (
     <div>
-      <div className="pb-16 md:pb-24 px-5 lg:px-20">
+      <div className="pb-16 md:pb-24 padding">
         <div className="flex flex-col items-center text-center space-y-4">
           <div className="flex items-center w-full justify-center gap-4 max-w-3xl">
             {/* line  */}

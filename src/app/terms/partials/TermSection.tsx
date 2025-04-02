@@ -4,7 +4,7 @@ import React from "react";
 const TermSection = () => {
   return (
     <div className="pb-10">
-      <div className="px-5 lg:px-20">
+      <div className="padding">
         {/* here goes rich text  */}
 
         {/* Introduction */}

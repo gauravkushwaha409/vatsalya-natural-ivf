@@ -15,7 +15,7 @@ const Header = () => {
     { name: "Contact Us", link: "/contact" },
   ];
   return (
-    <header className="bg-transparent z-50 relative backdrop-blur-[5.6px] px-5 lg:px-20 py-[0.63rem] text-white">
+    <header className="bg-transparent z-50 relative backdrop-blur-[5.6px] padding py-[0.63rem] text-white">
       <div className="flex justify-between items-center">
         <Link href="/">
           <Image

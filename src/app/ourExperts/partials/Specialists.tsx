@@ -13,7 +13,7 @@ const Specialists = () => {
     router.push("/ourExperts/profile");
   };
   return (
-    <section className="py-20 px-5 lg:px-20  ">
+    <section className="py-20 padding  ">
       <div className="flex flex-col items-center">
         <div className="flex items-center gap-3 pb-5 ">
           <div className="border border-primary-500/80 border-t-1 w-20"></div>

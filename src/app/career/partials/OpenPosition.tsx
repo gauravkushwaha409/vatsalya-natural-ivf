@@ -43,7 +43,7 @@ const OpenPosition = () => {
   return (
     <div>
       <div className="w-full py-16 md:py-24 bg-gradient-to-r from-[#EBC0DB] to-primary-100">
-        <div className="px-5 lg:px-20">
+        <div className="padding">
           <div className="flex flex-col items-center text-center space-y-4 ">
             <div className="flex items-center w-full justify-center gap-4 max-w-3xl">
               {/* line  */}

@@ -214,6 +214,9 @@
 @utility hide-for-desktop {
   @apply block lg:hidden;
 }
+@utility padding {
+  @apply px-5 lg:px-20;
+}
 /* 
 .dark {
   --background: oklch(0.145 0 0);

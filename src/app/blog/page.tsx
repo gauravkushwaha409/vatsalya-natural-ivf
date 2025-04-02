@@ -8,7 +8,7 @@ const Blog = () => {
     <div className="">
       <HeroBlog />
 
-      <div className="px-5 lg:px-20">
+      <div className="padding">
         <h1 className="font-semibold text-text-500 typography-h4">
           Latest Blogs
         </h1>

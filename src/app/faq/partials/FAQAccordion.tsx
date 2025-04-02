@@ -12,7 +12,7 @@ interface FAQItem {
 
 export default function FAQAccordion() {
   return (
-    <div className="px-5 lg:px-20">
+    <div className="padding">
       {faqItems.map((item, index) => (
         <FAQItem key={index} item={item} />
       ))}

@@ -9,7 +9,7 @@ const StoriesSection = () => {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
   return (
-    <div className="px-5 lg:px-20">
+    <div className="padding">
       <div className="flex flex-col items-center text-center space-y-4">
         <div className="flex items-center w-full justify-center gap-4 max-w-3xl">
           {/* line  */}

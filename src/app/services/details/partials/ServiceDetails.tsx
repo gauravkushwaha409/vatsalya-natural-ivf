@@ -8,7 +8,7 @@ import { motion } from "motion/react";
 const ServiceDetails = () => {
   return (
     <section className="bg-background-100 overflow-hidden relative">
-      <div className="flex flex-col lg:flex-row gap-10 px-5 lg:px-20 ">
+      <div className="flex flex-col lg:flex-row gap-10 padding ">
         <motion.div
           initial={{ x: "20%" }}
           animate={{ x: "0%" }}

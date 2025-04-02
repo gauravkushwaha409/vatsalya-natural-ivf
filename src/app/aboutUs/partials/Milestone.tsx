@@ -29,7 +29,7 @@ const Milestone = () => {
 
   return (
     <div className="pb-16 md:pb-24 ">
-      <div className="w-full bg-primary-50 py-16 px-5 lg:px-20 ">
+      <div className="w-full bg-primary-50 py-16 padding ">
         <div className=" flex flex-col md:flex-row items-center gap-20">
           {/* Left Section */}
           <div className="w-sm space-y-5">
@@ -88,4 +88,4 @@ const Milestone = () => {
   );
 };
 
-export default Milestone;
+export default Milestone;s

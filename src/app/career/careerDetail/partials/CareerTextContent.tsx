@@ -4,7 +4,7 @@ import React from "react";
 const CareerTextContent = () => {
   return (
     <div>
-      <div className="px-5 lg:px-20 pb-10">
+      <div className="padding pb-10">
         <div className="border-t border-t-secondary-200 py-4"></div>
         {/* Introduction */}
         <h2 className="text-[#282828]  pb-2.5 font-inter text-[20px] leading-[32px] font-medium ">
