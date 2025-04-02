@@ -1,5 +1,4 @@
 "use client";
-import { X } from "lucide-react";
 import React, { useState } from "react";
 import lineicon from "@/assests/icons/Lineicon.svg";
 import MobileNavModal from "./MobileNavModal";

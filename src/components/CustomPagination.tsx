@@ -6,30 +6,27 @@ type PaginationProps = {
   pageCount: number;
   perPage: number;
   onPageChange: (page: number) => void;
-  recordPerPage?: any;
 };
 
 const CustomPagination = ({
   currentPage,
-  totalItems,
+
   pageCount,
   onPageChange,
-  perPage,
-  recordPerPage,
 }: PaginationProps) => {
   const generatePageNumbers = () => {
     const pages = [];
     const maxVisible = 5;
-    let start = Math.max(1, currentPage - Math.floor(maxVisible / 2));
-    let end = Math.min(pageCount, start + maxVisible - 1);
+    const start = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+    const end = Math.min(pageCount, start + maxVisible - 1);
 
-    if (end - start + 1 < maxVisible) {
-      start = Math.max(1, end - maxVisible + 1);
-    }
+    const adjustedStart =
+      end - start + 1 < maxVisible ? Math.max(1, end - maxVisible + 1) : start;
 
-    for (let i = start; i <= end; i++) {
+    for (let i = adjustedStart; i <= end; i++) {
       pages.push(i);
     }
+
     return pages;
   };
 
@@ -37,7 +34,6 @@ const CustomPagination = ({
     <div className="w-full">
       <div className="flex flex-col md:flex-row justify-center items-center gap-4 mt-4">
         <div className="flex items-center gap-1">
-          <div className=" flex items-center">{recordPerPage}</div>
           <button
             onClick={() => onPageChange(currentPage - 1)}
             disabled={currentPage === 1}
