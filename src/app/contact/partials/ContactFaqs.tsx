@@ -37,7 +37,7 @@ const ContactFaqs = () => {
           </span>
           <div className="border border-primary-500/80 border-t-1 w-20"></div>
         </div>
-        <h1 className="typography-h3 font-semibold">
+        <h1 className="typography-h5 lg:typography-h3 font-semibold pb-4">
           Answers to Your Fertility Questions
         </h1>
         <Faq faq={faqData} />

@@ -72,9 +72,9 @@ const MissionVision = () => {
                   }}
                 >
                   {/* Second  border */}
-                  <div className="pr-[0.45rem] pt-[0.45rem] pb-[1.25rem] pl-[1.25rem] rounded-full rounded-tr-none border-[0.8px] border-white ">
+                  <div className="pr-[0.45rem] pt-[0.45rem] pb-[1.25rem] pl-[1.25rem] rounded-full rounded-tr-none border-[0.8px] border-white">
                     {/* Inner most border */}
-                    <div className=" w-[8.625rem] h-[8.625rem] rounded-full rounded-tr-none border-[0.8px] ">
+                    <div className=" w-[8.625rem] h-[8.625rem] pr-[0.85rem] lg:pr-0 rounded-full rounded-tr-none border-[0.8px] ">
                       <Image
                         src={photo}
                         alt="Mother holding baby"

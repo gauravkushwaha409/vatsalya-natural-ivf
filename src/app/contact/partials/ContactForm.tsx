@@ -125,7 +125,7 @@ const ContactForm = () => {
             <select
               id="center"
               name="center"
-              className="border border-gray-400 rounded-xl p-2.5   bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
+              className="border border-gray-400 rounded-xl p-2.5  bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.center}
