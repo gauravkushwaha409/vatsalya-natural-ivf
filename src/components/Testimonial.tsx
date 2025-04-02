@@ -6,7 +6,7 @@ import TestimonialSwiper from "./TestimonialSwiper";
 const Testimonial = () => {
   return (
     <div className="pb-16 md:pb-24 pl-5 md:pl-20">
-      <div className="relative bg-gradient-to-l from-primary-100 to-[#EBC0DB] p-4 md:p-10 rounded-tl-[20px] rounded-bl-[20px] w-full max-h-[564px]">
+      <div className="relative bg-gradient-to-l from-primary-100 to-[#EBC0DB] p-4 md:p-10 rounded-tl-[20px] rounded-bl-[20px] w-full max-h-[774px]">
         {/* quoteIcon */}
         <div className="-top-15 -left-10 z-10 absolute flex justify-center items-center bg-background-100 rounded-full w-36 h-36">
           <Image
@@ -17,9 +17,9 @@ const Testimonial = () => {
             className="w-[100px] h-[100px] object-contain"
           />
         </div>
-        <div className="flex justify-between">
+        <div className="flex flex-col lg:flex-row lg:justify-between">
           {/* Text Section  */}
-          <div className="space-y-4 py-16 md:py-24 w-[30%]">
+          <div className="space-y-4 pt-20 lg:pt-16 pb-10 lg:pb-0 lg:w-[30%]">
             <div className="flex items-center gap-4 w-full">
               <h2 className="font-bold text-primary-500 text-base uppercase  leading-[150%] tracking-widest">
                 Testimonial
@@ -32,7 +32,7 @@ const Testimonial = () => {
             </h3>
           </div>
           {/* Carousel Section  */}
-          <div className="w-[70%]">
+          <div className="lg:w-[70%]">
             <TestimonialSwiper />
           </div>
         </div>

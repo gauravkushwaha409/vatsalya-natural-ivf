@@ -65,7 +65,7 @@ const WhyChooseUs = () => {
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <div className="text-left">
+                <div className="lg:text-left">
                   <h5 className="text-secondary-500 typography-h5 mb-2">
                     {data.title}
                   </h5>

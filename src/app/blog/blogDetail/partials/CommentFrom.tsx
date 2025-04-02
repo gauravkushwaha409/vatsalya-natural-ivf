@@ -66,7 +66,7 @@ const CommentForm = () => {
   }, [isChecked, formik]);
 
   return (
-    <section className="padding mt-10 mb-20">
+    <section className=" mt-10 mb-20">
       <h1 className="typography-h5 font-medium text-[#333] pb-5">
         Leave a Comment
       </h1>
