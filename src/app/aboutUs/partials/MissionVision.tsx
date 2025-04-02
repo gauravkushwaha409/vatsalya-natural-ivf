@@ -8,109 +8,108 @@ const MissionVision = () => {
         <div className="padding">
           <div className="flex flex-col lg:flex-row justify-between gap-10 lg:gap-60 lg:items-center">
             {/* Image Grid */}
-            <div className="grid grid-cols-2 w-[40%] md:gap-x-30 lg:gap-x-10 gap-y-2">
-              {/* 1st  */}
-              {/* Outer most border */}
-              <div
-                className="w-[191.18px] h-[191.18px] pt-[20px] pl-[20px] pr-[7.18px] pb-[20.18px] rounded-full rounded-br-none border-[0.8px] border-white"
-                style={{
-                  boxShadow: "0px -6px 130.2px 33px rgba(160, 56, 121, 0.20)",
-                  backdropFilter: "blur(114.14590454101562px)",
-                  background: "rgba(255, 255, 255, 0.56)",
-                  opacity: " 0.85",
-                }}
-              >
-                {/* Second  border */}
-                <div className="w-[164px] h-[164px] pt-[19px] pl-[19px] pr-[9px] pb-[20px] rounded-full rounded-br-none border-[0.8px] border-white ">
-                  {/* Inner most border */}
-                  <div className=" w-[138px] h-[138px] rounded-full rounded-br-none border-[0.8px] ">
-                    <Image
-                      src={photo}
-                      alt="Mother holding baby"
-                      className="rounded-full rounded-br-none border-[0.8px] border-white w-full h-full object-cover
-                      "
-                    />
+            <div className="shrink-0">
+              <div className="grid grid-cols-2 grid-rows-2 ">
+                {/* 1st  */}
+                {/* Outer most border */}
+                <div
+                  className="pt-[1.25rem] pl-[1.25rem] pr-[0.45rem] pb-[0.45rem] rounded-full rounded-br-none border-[0.8px] border-white"
+                  style={{
+                    boxShadow: "0px -6px 130.2px 33px rgba(160, 56, 121, 0.20)",
+                    backdropFilter: "blur(114.14590454101562px)",
+                    background: "rgba(255, 255, 255, 0.56)",
+                    opacity: "0.85",
+                  }}
+                >
+                  {/* Second border */}
+                  <div className=" pt-[1.06rem] pl-[1.06rem] pr-[0.56rem] pb-[0.56rem] rounded-full rounded-br-none border-[0.8px] border-white flex items-center justify-center">
+                    {/* Inner most border (with fixed width and height) */}
+                    <div className="w-[8.625rem] h-[8.625rem]  rounded-full rounded-br-none border-[0.8px] border-white flex items-center justify-center">
+                      <Image
+                        src={photo}
+                        alt="Mother holding baby"
+                        className="rounded-full rounded-br-none border-[0.8px] border-white w-full h-full object-cover"
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* 2nd  */}
-              {/* Outer most border */}
-              <div
-                className="w-[191.18px] h-[191.18px] pt-[20px] pr-[20px] pl-[7.18px] pb-[20.18px] rounded-full rounded-bl-none border-[0.8px] border-white
-          
-              "
-                style={{
-                  opacity: "0.85",
-                  background: "rgba(255, 255, 255, 0.56)",
-                  boxShadow:
-                    "-187px 162px 130.2px 33px rgba(160, 56, 121, 0.20)",
-                  backdropFilter: "blur(114.14590454101562px)",
-                }}
-              >
-                {/* Second  border */}
-                <div className="w-[164px] h-[164px] pt-[19px] pr-[19px] pl-[9px] pb-[20px] rounded-full rounded-bl-none border-[0.8px] border-white ">
-                  {/* Inner most border */}
-                  <div className=" w-[138px] h-[138px] rounded-full rounded-bl-none border-[0.8px] ">
-                    <Image
-                      src={photo}
-                      alt="Mother holding baby"
-                      className="rounded-full rounded-bl-none border-[0.8px] border-white w-full h-full object-cover
+                {/* 2nd  */}
+                {/* Outer most border */}
+                <div
+                  className="pt-[1.25rem] pr-[1.25rem] pl-[0.45rem] pb-[0.45rem] rounded-full rounded-bl-none border-[0.8px] border-white"
+                  style={{
+                    opacity: "0.85",
+                    background: "rgba(255, 255, 255, 0.56)",
+                    boxShadow:
+                      "-187px 162px 130.2px 33px rgba(160, 56, 121, 0.20)",
+                    backdropFilter: "blur(114.14590454101562px)",
+                  }}
+                >
+                  {/* Second  border */}
+                  <div className="pt-[1.06rem] pr-[1.06rem] pl-[0.56rem] pb-[0.56rem] rounded-full rounded-bl-none border-[0.8px] border-white ">
+                    {/* Inner most border */}
+                    <div className=" w-[8.625rem] h-[8.625rem] rounded-full rounded-bl-none border-[0.8px] ">
+                      <Image
+                        src={photo}
+                        alt="Mother holding baby"
+                        className="rounded-full rounded-bl-none border-[0.8px] border-white w-full h-full object-cover
                       "
-                    />
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* 3rd */}
-              <div
-                className="w-[191.18px] h-[191.18px] pl-[20px] pr-[20px] pt-[7.18px] pb-[20.18px] rounded-full rounded-tr-none border-[0.8px] border-white
+                {/* 3rd */}
+                <div
+                  className="pb-[1.25rem] pl-[1.25rem] pr-[0.45rem] pt-[0.45rem] rounded-full rounded-tr-none border-[0.8px] border-white
            
               "
-                style={{
-                  opacity: " 0.85",
-                  background: "rgba(255, 255, 255, 0.56)",
-                  boxShadow: "58px -11px 130.2px 33px rgba(160, 56, 121, 0.20)",
-                  backdropFilter: "blur(114.14590454101562px)",
-                }}
-              >
-                {/* Second  border */}
-                <div className="w-[164px] h-[164px] pl-[19px] pr-[19px] pt-[9px] pb-[20px] rounded-full rounded-tr-none border-[0.8px] border-white ">
-                  {/* Inner most border */}
-                  <div className=" w-[138px] h-[138px] rounded-full rounded-tr-none border-[0.8px] ">
-                    <Image
-                      src={photo}
-                      alt="Mother holding baby"
-                      className="rounded-full rounded-tr-none border-[0.8px] border-white w-full h-full object-cover
+                  style={{
+                    opacity: " 0.85",
+                    background: "rgba(255, 255, 255, 0.56)",
+                    boxShadow:
+                      "58px -11px 130.2px 33px rgba(160, 56, 121, 0.20)",
+                    backdropFilter: "blur(114.14590454101562px)",
+                  }}
+                >
+                  {/* Second  border */}
+                  <div className="pt-[1.06rem] pr-[1.06rem] pl-[0.56rem] pb-[0.56rem] rounded-full rounded-tr-none border-[0.8px] border-white ">
+                    {/* Inner most border */}
+                    <div className=" w-[8.625rem] h-[8.625rem] rounded-full rounded-tr-none border-[0.8px] ">
+                      <Image
+                        src={photo}
+                        alt="Mother holding baby"
+                        className="rounded-full rounded-tr-none border-[0.8px] border-white w-full h-full object-cover
                       "
-                    />
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* 4th */}
-              <div
-                className="w-[191.18px] h-[191.18px] pr-[20px] pl-[7.18px] pt-[7.18px] pb-[20.18px] rounded-full rounded-tl-none border-[0.8px] border-white
-            
-              "
-                style={{
-                  opacity: "0.85",
-                  background:
-                    "linear-gradient(333deg, rgba(255, 255, 255, 0.03) 0.09%, rgba(255, 255, 255, 0.56) 83.34%)",
-                  boxShadow: "0px -74px 130.2px 33px rgba(160, 56, 121, 0.20)",
-                  backdropFilter: " blur(114.14590454101562px)",
-                }}
-              >
-                {/* Second  border */}
-                <div className="w-[164px] h-[164px] pt-[9px] pl-[9px] pb-[19px] pr-[19px] rounded-full rounded-tl-none border-[0.8px] border-white ">
-                  {/* Inner most border */}
-                  <div className=" w-[138px] h-[138px] rounded-full rounded-tl-none border-[0.8px] ">
-                    <Image
-                      src={photo}
-                      alt="Mother holding baby"
-                      className="rounded-full rounded-tl-none border-[0.8px] border-white w-full h-full object-cover
+                {/* 4th */}
+                <div
+                  className="pt-[1.25rem] pr-[1.25rem] pl-[0.45rem] pb-[0.45rem] rounded-full rounded-tl-none border-[0.8px] border-white"
+                  style={{
+                    opacity: "0.85",
+                    background:
+                      "linear-gradient(333deg, rgba(255, 255, 255, 0.03) 0.09%, rgba(255, 255, 255, 0.56) 83.34%)",
+                    boxShadow:
+                      "0px -74px 130.2px 33px rgba(160, 56, 121, 0.20)",
+                    backdropFilter: " blur(114.14590454101562px)",
+                  }}
+                >
+                  {/* Second  border */}
+                  <div className="pb-[1.06rem] pr-[1.06rem] pl-[0.56rem] pt-[0.56rem] rounded-full rounded-tl-none border-[0.8px] border-white ">
+                    {/* Inner most border */}
+                    <div className="w-[8.625rem] h-[8.625rem] rounded-full rounded-tl-none border-[0.8px] ">
+                      <Image
+                        src={photo}
+                        alt="Mother holding baby"
+                        className="rounded-full rounded-tl-none border-[0.8px] border-white w-full h-full object-cover
                       "
-                    />
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

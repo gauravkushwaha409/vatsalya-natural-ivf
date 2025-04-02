@@ -5,13 +5,13 @@ import Stats from "./partials/Stats";
 
 const BlogDetail = () => {
   return (
-    <div>
+    <div className="relative">
       <BlogDetailHero />
-      <div className="mx-auto container">
-        <div className="flex gap-4 lg:gap-20 mx-8 lg:mx-0">
+      <div className="px-5 lg:px-[11.25rem] ">
+        <div className="absolute top-[23.5rem] md:top-[33.5rem] lg:top-1/2 left-5 lg:left-20">
           <Stats />
-          <BlogDescription />
         </div>
+        <BlogDescription />
         <CommentForm />
       </div>
     </div>

@@ -47,7 +47,10 @@ function CustomBreadcrumb({
 
               {/* Separator Section  */}
               {!isLast && (
-                <li className="mx-0.5 typography-caption " aria-hidden="true">
+                <li
+                  className="mx-0.5 typography-caption mt-1 "
+                  aria-hidden="true"
+                >
                   {separator}
                 </li>
               )}

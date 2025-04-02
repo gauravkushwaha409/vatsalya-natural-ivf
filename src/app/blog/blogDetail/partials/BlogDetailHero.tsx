@@ -12,7 +12,7 @@ const BlogDetailHero = () => {
         <CustomBreadcrumb
           items={[
             { name: "Home", link: "/" },
-            { name: "Blog", link: "#" },
+            { name: "Blog", link: "/blog" },
             { name: "IVF Insights" },
           ]}
         />
@@ -42,7 +42,7 @@ const BlogDetailHero = () => {
         </div>
       </div>
 
-      <div className="px-5 lg:px-44">
+      <div className="px-5 lg:px-[11.25rem] ">
         <div className="py-10">
           <Image
             src={blogDetailHero}
@@ -53,7 +53,7 @@ const BlogDetailHero = () => {
           />
         </div>
 
-        <p className="typography-paragraph-large leading-[150%] text-text-500 text-justify">
+        <p className="typography-paragraph-large leading-[150%] text-text-500 text-justify pt-15 lg:pt-0">
           Endometriosis is a condition in which tissue similar to the lining of
           the uterus grows outside the uterus, often causing pain, irregular
           periods, and, for many, challenges with fertility. For individuals

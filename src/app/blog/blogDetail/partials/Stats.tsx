@@ -5,7 +5,7 @@ import views from "@/assests/blogDetail/viewsBlogDetail.png";
 const Stats = () => {
   return (
     <>
-      <div className="flex flex-col items-center justify-center gap-10 w-4">
+      <div className="flex lg:flex-col lg:items-center lg:justify-center gap-10 w-4 ">
         <div className="flex flex-col gap-2 items-center text-center">
           <div className="w-3 h-3  ">
             <Image

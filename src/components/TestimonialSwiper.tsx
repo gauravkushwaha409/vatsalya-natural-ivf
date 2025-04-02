@@ -34,7 +34,7 @@ const TestimonialSwiper = ({}) => {
 
   return (
     <div className="">
-      <div className="flex md:flex-row flex-col justify-center container">
+      <div className="flex md:flex-row flex-col justify-center pr-10">
         <div className="w-full lg:h-[30.5rem]">
           {testimonialData && testimonialData?.length > 0 && (
             <Swiper
@@ -80,7 +80,7 @@ const TestimonialSwiper = ({}) => {
       </div>
 
       {/* Carousel Navigation */}
-      <div className="flex justify-center items-center mt-1 lg:mt-0 w-full">
+      <div className="flex justify-center items-center mt-2 lg:-mt-10 w-full">
         {/* Left Arrow  */}
         <button
           disabled={activeSlide === 0}
@@ -132,6 +132,7 @@ const TestimonialSwiper = ({}) => {
           <GrNext />
         </button>
       </div>
+
       <VideoModal
         isOpen={isOpenModal}
         onClose={() => setIsOpenModal(false)}
