@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import HeroAnimationCarousel from "./HeroAnimationCarousel";
 import HeroTextAnimation from "./HeroTextAnimation";
-import RequestAppoimentModal from "../modals/RequestAppoimentModal";
+import RequestAppoimentModal from "../../../components/modals/RequestAppoimentModal";
 
 const HeroSection = () => {
   const text = "Journey to <parenthood,> /b Naturally and Compassionately";

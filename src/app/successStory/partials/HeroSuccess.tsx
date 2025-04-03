@@ -1,5 +1,5 @@
 "use client";
-import RequestAppoimentModal from "@/app/(home)/modals/RequestAppoimentModal";
+import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import hero from "@/assests/success-story/heroSuccess.jpg";
 import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 import Image from "next/image";

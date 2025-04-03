@@ -5,7 +5,7 @@ import userAvatar from "@/assests/success-story/user.png";
 import butterfly from "@/assests/success-story/butterflyVector.png";
 
 import { IoStar } from "react-icons/io5";
-import RequestAppoimentModal from "@/app/(home)/modals/RequestAppoimentModal";
+import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 
 // Define an array of avatars
 const avatars: StaticImageData[] = [

@@ -4,7 +4,7 @@ import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
 import { IoTimeOutline } from "react-icons/io5";
 import { MdOutlineWorkOutline } from "react-icons/md";
 import { SlLocationPin } from "react-icons/sl";
-import ApplyFormModal from "./ApplyFormModal";
+import ApplyFormModal from "../../../../components/modals/ApplyFormModal";
 
 const HeroCareerDetail = () => {
   return (

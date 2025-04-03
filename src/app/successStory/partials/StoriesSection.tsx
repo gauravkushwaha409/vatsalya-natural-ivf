@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { testimonialData } from "@/data/testimonialData";
 import CustomPagination from "../../../components/CustomPagination";
 import TestimonialCard from "@/components/TestimonialCard";
-import VideoModal from "@/components/VideoModal";
+import VideoModal from "@/components/modals/VideoModal";
 
 const StoriesSection = () => {
   const [isOpen, setIsOpen] = useState(false);

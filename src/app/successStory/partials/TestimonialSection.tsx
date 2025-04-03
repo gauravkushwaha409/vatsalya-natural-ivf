@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import photo from "@/assests/success-story/testimonial.png";
 import { IoIosQuote } from "react-icons/io";
-import VideoModal from "@/components/VideoModal";
+import VideoModal from "@/components/modals/VideoModal";
 
 const TestimonialSection = () => {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import calltoAction from "@/assests/services/appoiment.jpg";
-import CalendarModal from "@/app/(home)/modals/CalenderModal";
+import CalendarModal from "@/components/modals/CalenderModal";
 const CallToActions = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   return (
