@@ -1,9 +1,9 @@
 "use client";
 import CustomPagination from "@/components/CustomPagination";
 import { blogData } from "@/data/blogData";
-import BlogCard from "./partials/BlogCard";
-import HeroBlog from "./partials/HeroBlog";
 import { useState } from "react";
+import BlogCard from "../../components/cards/BlogCard";
+import HeroBlog from "./partials/HeroBlog";
 
 const Blog = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);

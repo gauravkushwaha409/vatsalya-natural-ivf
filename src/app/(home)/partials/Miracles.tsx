@@ -1,6 +1,53 @@
+"use client";
+import { useIsSmall } from "@/hooks/useMediaQuery";
 import Image from "next/image";
 
 const Miracles = () => {
+  const isMobile = useIsSmall();
+  // Mobile view component
+  if (isMobile) {
+    return (
+      <div className="flex flex-col items-center mt-10 md:mt-20 px-4">
+        <div className="gap-2 grid grid-cols-2">
+          <ImageContainer src="/team/member-1.jpeg" alt="Miracle 1" />
+          <ImageContainer src="/team/member-1.jpeg" alt="Miracle 2" />
+          <ImageContainer src="/team/member-1.jpeg" alt="Miracle 3" />
+          <ImageContainer src="/team/member-1.jpeg" alt="Miracle 4" />
+          <ImageContainer src="/team/member-1.jpeg" alt="Miracle 5" />
+          <ImageContainer src="/team/member-1.jpeg" alt="Miracle 6" />
+        </div>
+
+        <div className="px-4 py-8 w-full text-center">
+          <h1
+            style={{
+              background: "linear-gradient(0deg, #A03879 0%, #FF6F61 100%)",
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+            className="bg-clip-text font-extrabold text-2xl typography-h3"
+          >
+            50,000+ Miracles
+          </h1>
+          <p className="mt-2 text-text-500 typography-paragraph-small">
+            Bringing hope, joy, and new beginnings—Vatsalya has helped 50,000+
+            families with successful natural IVF. Your journey to parenthood
+            starts here
+          </p>
+          <button
+            style={{
+              boxShadow: "0px 5.486px 12.343px 0px rgba(215, 101, 120, 0.33)",
+            }}
+            className="mt-3 px-6 py-3 border rounded-full font-extrabold text-secondary-400 text-sm typography-paragraph-regular"
+          >
+            Your Miracle Awaits
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Original desktop view (unchanged)
   return (
     <div className="flex justify-center mt-20">
       <div className="relative flex">
@@ -66,11 +113,11 @@ const Miracles = () => {
           <ImageContainer src="/team/member-1.jpeg" alt="Miracle 12" />
           <ImageContainer src="/team/member-1.jpeg" alt="Miracle 13" />
         </div>
-        {/* <div className="absolute border"></div> */}
       </div>
     </div>
   );
 };
+
 export default Miracles;
 
 const ImageContainer: React.FC<{ src: string; alt: string }> = ({

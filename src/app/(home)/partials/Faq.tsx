@@ -5,15 +5,14 @@ import pic1 from "./../../../assests/contact/pic3.png";
 import pic2 from "./../../../assests/contact/pic4.png";
 const HomeFaq = () => {
   return (
-    <section className="flex gap-10 px-20 py-20">
-      <div className="flex justify-start items-center w-full md:w-1/2">
+    <section className="flex gap-10 px-5 md:px-20 py-20">
+      <div className="hidden md:flex justify-start items-center w-full md:w-1/2">
         <div className="relative rounded-lg w-10/12 aspect-[16/16]">
           <Image
             src={pic1}
             alt="approval"
             width={1920}
             height={1920}
-            unoptimized
             className="w-full h-full"
           />
           <div className="-right-10 -bottom-10 absolute bg-white pt-[0.1rem] pl-[0.1rem] rounded-t-none rounded-l-3xl w-[50%] aspect-[271/252]">

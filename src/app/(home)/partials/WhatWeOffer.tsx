@@ -1,7 +1,8 @@
 "use client";
+import { useIsSmall } from "@/hooks/useMediaQuery";
 import { motion } from "motion/react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 // Animation constants
 const DURATION = 0.9;
@@ -315,23 +316,7 @@ const MobileLayout: React.FC = () => {
 // Main component
 const WhatWeOffer: React.FC = () => {
   const [isInView, setIsInView] = useState<boolean>(false);
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-
-  // Responsive breakpoint detection
-  useEffect(() => {
-    const checkScreenSize = (): void => {
-      setIsMobile(window.innerWidth < 1024);
-    };
-
-    // Initial check
-    checkScreenSize();
-
-    // Add event listener for window resize
-    window.addEventListener("resize", checkScreenSize);
-
-    // Cleanup
-    return () => window.removeEventListener("resize", checkScreenSize);
-  }, []);
+  const isMobile = useIsSmall();
 
   return (
     <motion.div

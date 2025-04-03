@@ -7,7 +7,18 @@ const BrandsSlider = () => {
     <div className="py-10">
       <Swiper
         className="h-[4.375rem] pointer-events-none"
-        slidesPerView={4}
+        slidesPerView={2}
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          1024: {
+            slidesPerView: 4,
+          },
+        }}
         spaceBetween={120}
         loop={true}
         autoplay={{
