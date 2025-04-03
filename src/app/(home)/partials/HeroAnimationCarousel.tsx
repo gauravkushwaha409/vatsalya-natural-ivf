@@ -19,7 +19,7 @@ const HeroAnimationCarousel: React.FC<{ images: string[] }> = ({ images }) => {
   const totalWidth = inactiveCount * thumbnailWidth + (inactiveCount - 1) * gap;
 
   return (
-    <div className="flex flex-col justify-center items-center w-full h-full">
+    <div className="flex flex-col justify-center items-center w-full h-full pt-20 lg:pt-0">
       <ul className="relative w-full h-full">
         {images.map((image, i) => {
           const indexOffset = (i + currentIndex) % images.length;
@@ -30,20 +30,28 @@ const HeroAnimationCarousel: React.FC<{ images: string[] }> = ({ images }) => {
             leftPosition = 0;
           } else {
             const position = indexOffset - 1;
-            leftPosition = `calc(50% - ${totalWidth / 2}px + ${
-              position * (thumbnailWidth + gap)
-            }px)`;
+            leftPosition = isSmall
+              ? `calc(60% - ${totalWidth / 2}px + ${
+                  position * (thumbnailWidth + gap)
+                }px)`
+              : `calc(50% - ${totalWidth / 2}px + ${
+                  position * (thumbnailWidth + gap)
+                }px)`;
           }
 
           return (
             <li
               key={i}
               style={{
-                left: isActive ? (isSmall ? undefined : "0") : leftPosition,
-                right: isActive ? (isSmall ? "0" : "auto") : undefined,
+                left: isActive ? (isSmall ? "100%" : "0") : leftPosition,
+                transform: isActive
+                  ? isSmall
+                    ? "translateX(-100%)"
+                    : "translateX(0)"
+                  : "translateX(0%)",
                 width: isActive
                   ? isSmall
-                    ? "50%"
+                    ? "100%"
                     : "100%"
                   : `${thumbnailWidth}px`,
                 backgroundColor: isActive ? "transparent" : "white",
@@ -54,11 +62,11 @@ const HeroAnimationCarousel: React.FC<{ images: string[] }> = ({ images }) => {
                   : "all 2500ms ease-in-out",
                 // transition: "z-index 0s",
               }}
-              className={`absolute transition-all border 
+              className={`absolute transition-all border  
                 ${
                   isActive
-                    ? "top-1/2 lg:top-0  h-[calc(100%-250px-5.5rem)] lg:h-[calc(100%-120px-1.5rem)] border-transparent w-90 lg:w-auto "
-                    : "bottom-0 lg:top-[calc(100%-180px-0.5rem)] h-auto lg:h-[110px] aspect-square  border-secondary-200"
+                    ? "bottom-5 lg:top-0  h-[calc(100%-200px-5.5rem)] lg:h-[calc(100%-120px-1.5rem)] border-transparent  "
+                    : "bottom-0 lg:top-[calc(100%-180px-0.5rem)] h-[90px] lg:h-[110px] aspect-square  border-secondary-200"
                 } `}
             >
               <Image
