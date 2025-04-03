@@ -2,7 +2,7 @@ import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 import Image from "next/image";
 import React from "react";
 import hero from "@/assests/career/career.png";
-import ApplyFormModal from "../careerDetail/partials/ApplyFormModal";
+import ApplyFormModal from "../../../components/modals/ApplyFormModal";
 
 const HeroCareer = () => {
   return (

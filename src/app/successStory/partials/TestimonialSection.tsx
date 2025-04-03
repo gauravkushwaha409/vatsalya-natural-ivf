@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import photo from "@/assests/success-story/testimonial.png";
 import { IoIosQuote } from "react-icons/io";
-import VideoModal from "@/components/VideoModal";
+import VideoModal from "@/components/modals/VideoModal";
 
 const TestimonialSection = () => {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
@@ -24,7 +24,7 @@ const TestimonialSection = () => {
         </div>
 
         {/* butterfluy gif  */}
-        <div className="lg:w-[368] lg:h-[370] absolute z-10 -top-30 right-0">
+        <div className="lg:w-[368] lg:h-[370] absolute z-10 -top-40 right-0">
           <Image
             src="/butterfly-gif.gif"
             alt="butterfly-git"

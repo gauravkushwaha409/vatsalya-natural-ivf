@@ -2,19 +2,14 @@
 import Image from "next/image";
 import React from "react";
 import icon1 from "@/assests/icons/services/infertility.svg";
-import { useRouter } from "next/navigation";
-
 import { IoArrowForwardOutline } from "react-icons/io5";
+import Link from "next/link";
 
 const ServiceCards = () => {
-  const router = useRouter();
-  const handleClick = () => {
-    router.push("/services/details");
-  };
   return (
     <section className=" padding">
       <div className="flex flex-col items-center ">
-        <div className="flex items-center w-full justify-center gap-4 space-y-4">
+        <div className="flex items-center w-full justify-center gap-4 ">
           {/* line  */}
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
 
@@ -24,7 +19,7 @@ const ServiceCards = () => {
           {/* line  */}
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
         </div>
-        <p className="typography-h4 font-semibold text-text-500">
+        <p className="typography-h4 font-semibold text-text-500 pt-4">
           {` Services We’re Providing`}
         </p>
       </div>
@@ -38,17 +33,20 @@ const ServiceCards = () => {
               <Image src={icon1} alt="icons1" className="w-full h-full" />
             </div>
             <div className="flex flex-col gap-2 pt-4">
-              <div className="flex items-center justify-between">
+              <Link
+                href="/services/details"
+                className="flex items-center justify-between"
+              >
                 <h5 className="typography-h5 font-bold">
                   Infertility Diagnosis
                 </h5>{" "}
-                <button onClick={handleClick} className="cursor-pointer">
+                <button className="cursor-pointer">
                   <IoArrowForwardOutline
                     size={24}
                     className="-rotate-40 text-primary-500"
                   />
                 </button>
-              </div>
+              </Link>
               <span className="typography-paragraph-regular font-medium text-text-400 pt-1.5">
                 Identify the causes of infertility with expert diagnostics for a
                 personalized treatment plan.

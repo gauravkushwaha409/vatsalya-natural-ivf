@@ -4,7 +4,7 @@ import { add, format } from "date-fns";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
-import RenderCells from "./components/RenderCells";
+import RenderCells from "../RenderCells";
 import ConfirmationModal from "./ConfirmationModal";
 
 interface CalendarProps {

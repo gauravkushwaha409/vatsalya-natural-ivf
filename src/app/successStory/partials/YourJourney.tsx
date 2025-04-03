@@ -1,9 +1,11 @@
+"use client";
 import Image, { StaticImageData } from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import userAvatar from "@/assests/success-story/user.png";
 import butterfly from "@/assests/success-story/butterflyVector.png";
 
 import { IoStar } from "react-icons/io5";
+import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 
 // Define an array of avatars
 const avatars: StaticImageData[] = [
@@ -16,6 +18,8 @@ const avatars: StaticImageData[] = [
 ];
 
 const YourJourney = () => {
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
   return (
     <div className="padding mt-10 mb-20">
       <div className="rounded-[24px] bg-gradient-to-r from-[#EBC0DB] to-primary-100">
@@ -30,7 +34,10 @@ const YourJourney = () => {
               families. Trust our experienced team to guide you through your
               fertility journey.
             </p>
-            <button className="bg-secondary-500 py-4 px-6 mt-2 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular">
+            <button
+              onClick={() => setOpenModal(true)}
+              className="bg-secondary-500 py-4 px-6 mt-2 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular"
+            >
               Book an Appointment
             </button>
           </div>
@@ -100,6 +107,10 @@ const YourJourney = () => {
           </div>
         </div>
       </div>
+      <RequestAppoimentModal
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
+      />
     </div>
   );
 };

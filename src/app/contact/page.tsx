@@ -8,7 +8,7 @@ import ContactFaqs from "./partials/ContactFaqs";
 
 const page = () => {
   return (
-    <section className="container mx-auto padding bg-background-100 ">
+    <section className="padding bg-background-100 ">
       <Headings />
       <Contacts />
       <ContactForm />

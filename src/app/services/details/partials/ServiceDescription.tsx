@@ -1,5 +1,5 @@
 "use client";
-import RequestAppoimentModal from "@/app/(home)/modals/RequestAppoimentModal";
+import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import React, { useState } from "react";
 
 const ServiceDescription = () => {

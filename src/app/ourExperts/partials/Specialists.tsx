@@ -15,7 +15,7 @@ const Specialists = () => {
   return (
     <section className="py-20 padding  ">
       <div className="flex flex-col items-center">
-        <div className="flex items-center w-full justify-center gap-4 space-y-4">
+        <div className="flex items-center w-full justify-center gap-4 ">
           {/* line  */}
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
 
@@ -25,7 +25,7 @@ const Specialists = () => {
           {/* line  */}
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
         </div>
-        <p className="typography-h4 font-semibold text-text-500 text-center">
+        <p className="typography-h4 font-semibold text-text-500 text-center pt-4">
           A team of experts dedicated to your parenthood journey
         </p>
       </div>
