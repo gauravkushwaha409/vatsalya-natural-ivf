@@ -67,7 +67,7 @@ const HeroSection = () => {
             />
           </motion.div>
         </div>
-        <p className="mt-[0.88rem] max-w-2xl font-[500] text-text-400 typography-paragraph-large">
+        <p className="mt-[0.88rem] max-w-2xl font-normal lg:font-[500] text-text-400 typography-paragraph-small lg:typography-paragraph-large">
           Nepal’s top IVF centers, offering advanced infertility treatments with
           15+ years of expertise to support your path to parenthood.
         </p>
@@ -77,7 +77,7 @@ const HeroSection = () => {
             style={{
               background: "linear-gradient(90deg, #A0385A 0%, #3A142C 100%)",
             }}
-            className="shadow-box px-[2.75rem] py-[0.94rem] border-2 border-secondary-100 rounded-full w-max font-bold text-white cursor-pointer typography-h5"
+            className="shadow-box px-[2.75rem] py-[0.94rem] border-2 border-secondary-100 rounded-full w-max font-bold text-white cursor-pointer typography-paragraph-regular lg:typography-h5"
           >
             Book an Appointment
           </button>
@@ -92,7 +92,7 @@ const HeroSection = () => {
           </button>
         </div>
       </div>
-      <div className="-bottom-36 z-10 absolute inset-x-0">
+      <div className="-bottom-10 lg:-bottom-36 z-10 absolute inset-x-0">
         <Image
           className="absolute"
           src="/home/hero-bottom-lines.png"
