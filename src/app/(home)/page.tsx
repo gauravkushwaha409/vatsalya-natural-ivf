@@ -11,6 +11,7 @@ import WhatWeDo from "./partials/WhatWeDo";
 import WhatWeOffer from "./partials/WhatWeOffer";
 import WhenToVisit from "./partials/WhenToVisit";
 import WhoWeAre from "./partials/WhoWeAre";
+import Blogsection from "./partials/Blogsection";
 
 const HomePage = () => {
   return (
@@ -57,6 +58,7 @@ const HomePage = () => {
         <Testimonial />
       </div>
       <HomeFaq />
+      <Blogsection />
     </div>
   );
 };

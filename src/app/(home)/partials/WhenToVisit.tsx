@@ -30,7 +30,7 @@ const WhenToVisit = () => {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
-        className="flex -my-px px-20 py-8"
+        className="flex md:flex-row flex-col-reverse gap-y-4 -my-px px-20 py-8"
       >
         <motion.div
           initial={{
