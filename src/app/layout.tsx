@@ -42,10 +42,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${manRope.variable} ${inter.variable} ${plusJakarta.variable} ${roboto.variable} antialiased font-manrope  bg-background-100 `}
+        className={`${manRope.variable} ${inter.variable} ${plusJakarta.variable} ${roboto.variable} antialiased font-manrope bg-background-100 `}
       >
         <Header />
-        <div className="bg-red-100 overflow-hidden ">
+        <div className="overflow-hidden ">
           <Providers>{children}</Providers>
         </div>
         <Footer />

@@ -8,12 +8,12 @@ const FertilityCare = () => {
       <div className=" bg-gradient-to-r from-[#EBC0DB] to-[#FFD2CE] px-5 lg:px-10 py-20">
         <div className="flex flex-col items-center justify-center pb-8 text-center">
           <div className="flex items-center justify-center gap-3  pb-5 ">
-            <div className="border border-primary-500/80 border-t-1 w-20"></div>
+            <div className="border border-primary-400 border-t w-[184px]"></div>
 
             <span className="text-primary-500 typography-paragraph-regular font-bold uppercase tracking-widest">
               When to Seek Fertility Care{" "}
             </span>
-            <div className="border border-primary-500/80 border-t-1 w-20"></div>
+            <div className="border border-primary-400 border-t w-[184px]"></div>
           </div>
           <p className="typography-h4 font-semibold text-text-500 text-center text-wrap w-full lg:w-1/2">
             Recognizing the Signs That Its Time to See a Fertility Specialist

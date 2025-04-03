@@ -34,7 +34,7 @@ const HomeFaq = () => {
           <span className="font-bold text-primary-500 uppercase tracking-widest typography-paragraph-regular">
             FAQs
           </span>
-          <div className="border border-primary-500/80 border-t-1 w-20"></div>
+          <div className="border border-primary-400 border-t w-21"></div>
         </div>
         <h1 className="pb-4 font-semibold typography-h3">
           Answers to Your Fertility Questions

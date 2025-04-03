@@ -44,7 +44,7 @@ const ContactForm = () => {
           <span className="text-primary-500 typography-paragraph-regular font-bold uppercase tracking-widest">
             contact
           </span>
-          <div className="border border-primary-500/80 border-t-1 w-20"></div>
+          <div className="border border-primary-400 border-t w-21"></div>
         </div>
         <h1 className="typography-h4 font-semibold text-text-500 ">
           Get in Touch With Us

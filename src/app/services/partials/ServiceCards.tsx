@@ -14,15 +14,13 @@ const ServiceCards = () => {
   return (
     <section className=" padding">
       <div className="flex flex-col items-center ">
-        <div className="flex items-center w-full justify-center gap-4 space-y-4">
-          {/* line  */}
-          <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
+        <div className="flex items-center justify-center gap-3  pb-5 ">
+          <div className="border border-primary-400 border-t w-[184px]"></div>
 
-          <h2 className="text-primary-500 text-sm md:text-base font-bold tracking-widest uppercase leading-[24px]">
+          <span className="text-primary-500 typography-paragraph-regular font-bold uppercase tracking-widest">
             Our Vatsalya Family
-          </h2>
-          {/* line  */}
-          <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
+          </span>
+          <div className="border border-primary-400 border-t w-[184px]"></div>
         </div>
         <p className="typography-h4 font-semibold text-text-500">
           {` Services We’re Providing`}

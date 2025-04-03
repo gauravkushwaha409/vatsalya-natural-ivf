@@ -16,14 +16,14 @@ export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
   return (
     <>
       {isOpen && (
-        <div className="z-50 fixed inset-0 flex justify-center items-center bg-black/40 w-full h-screen text-black">
+        <div className="padding z-50 fixed inset-0 flex justify-center items-center bg-black/40 w-full h-screen text-black">
           <button
             onClick={onClose}
             className="top-5 right-5 z-10 absolute flex justify-center items-center p-2 border border-white rounded-full w-10 h-10 cursor-pointer"
           >
             <X size={24} className="font-bold text-white" />
           </button>
-          <div className="flex items-center w-8/12 h-full aspect-video">
+          <div className="flex items-center w-full lg:w-8/12 h-full aspect-video">
             <iframe
               width="100%"
               height="500"
