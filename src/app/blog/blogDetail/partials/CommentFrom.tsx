@@ -151,8 +151,11 @@ const CommentForm = () => {
         </div>
 
         {/* save in my requirement */}
-        <div className="flex items-center gap-3 ml-2">
-          <div className="inline-block relative w-5 h-4 sm:w-4">
+        <label
+          htmlFor="custom-checkbox"
+          className="flex items-center gap-3 ml-2 cursor-pointer"
+        >
+          <div className="inline-block relative w-6 h-4 sm:w-4">
             <input
               type="checkbox"
               id="custom-checkbox"
@@ -160,20 +163,16 @@ const CommentForm = () => {
               checked={isChecked}
               onChange={handleToggle}
             />
-            <label
-              htmlFor="custom-checkbox"
-              className="absolute inset-0 flex justify-center items-center peer-checked:bg-text-300 border-2 border-text-300 peer-checked:border-text-300 rounded-[4px] cursor-pointer"
-            >
-              {/* Checkmark Vector */}
-              {isChecked && <FaCheck className="text-white" size={24} />}
-            </label>
+            <div className="absolute inset-0 flex justify-center items-center peer-checked:bg-primary-500 border-2 border-text-300 peer-checked:border-primary-500 rounded-[4px]">
+              {isChecked && <FaCheck className="text-white lg:w-20 0" />}
+            </div>
           </div>
 
           <p className="typography-paragraph-regular text-text-500">
             Save my name, email, and website in this browser for the next time I
             comment.
           </p>
-        </div>
+        </label>
 
         {/* Submit */}
         <button
