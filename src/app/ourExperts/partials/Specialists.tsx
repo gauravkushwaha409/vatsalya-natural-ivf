@@ -15,15 +15,17 @@ const Specialists = () => {
   return (
     <section className="py-20 padding  ">
       <div className="flex flex-col items-center">
-        <div className="flex items-center gap-3 pb-5 ">
-          <div className="border border-primary-500/80 border-t-1 w-20"></div>
+        <div className="flex items-center w-full justify-center gap-4 space-y-4">
+          {/* line  */}
+          <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
 
-          <span className="text-primary-500 typography-paragraph-regular font-bold uppercase tracking-widest">
-            Meet Our Specialists
-          </span>
-          <div className="border border-primary-500/80 border-t-1 w-20"></div>
+          <h2 className="text-primary-500 text-sm md:text-base font-bold tracking-widest uppercase leading-[24px]">
+            Our Vatsalya Family
+          </h2>
+          {/* line  */}
+          <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
         </div>
-        <p className="typography-h4 font-semibold text-text-500">
+        <p className="typography-h4 font-semibold text-text-500 text-center">
           A team of experts dedicated to your parenthood journey
         </p>
       </div>

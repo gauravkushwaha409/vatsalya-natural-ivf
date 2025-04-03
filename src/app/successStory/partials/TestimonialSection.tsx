@@ -10,9 +10,9 @@ const TestimonialSection = () => {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
   return (
-    <div className="my-20 padding">
-      <div className=" flex flex-col items-center text-center space-y-4">
-        <div className="relative flex items-center w-full justify-center gap-4 max-w-3xl">
+    <div className="my-20 padding relative">
+      <div className=" flex flex-col items-center text-center space-y-4 ">
+        <div className=" flex items-center w-full justify-center gap-4 max-w-3xl">
           {/* line  */}
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
 
@@ -23,7 +23,8 @@ const TestimonialSection = () => {
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
         </div>
 
-        <div className="w-[368] h-[370] absolute z-10 -bottom-40 right-0">
+        {/* butterfluy gif  */}
+        <div className="lg:w-[368] lg:h-[370] absolute z-10 -top-30 right-0">
           <Image
             src="/butterfly-gif.gif"
             alt="butterfly-git"

@@ -116,11 +116,11 @@ const Profile = () => {
         </div>
       </div>
       <div className="flex  items-center gap-5">
-        <button className="bg-secondary-500 hover:bg-secondary-600 text-white py-4 px-10 rounded-full typography-paragraph-regular">
-          Consult Now{" "}
+        <button className="bg-secondary-500 hover:bg-secondary-600 text-white py-2 lg:py-4 px-6 lg:px-10  rounded-full typography-paragraph-regular">
+          Consult Now
         </button>
-        <button className=" typography-paragraph-regular font-semibold  text-secondary-500 border border-secondary-100 rounded-full p-4 px-5">
-          Call Back Request{" "}
+        <button className=" typography-paragraph-regular font-semibold  text-secondary-500 border border-secondary-100 rounded-full p-2 lg:p-4 px-5">
+          Call Back Request
         </button>
       </div>
     </section>

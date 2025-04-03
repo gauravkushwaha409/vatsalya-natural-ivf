@@ -6,10 +6,10 @@ const MissionVision = () => {
     <div>
       <section className="w-full py-16 md:py-24 bg-gradient-to-r from-[#EBC0DB] to-primary-100">
         <div className="padding">
-          <div className="flex flex-col lg:flex-row justify-between gap-10 lg:gap-60 lg:items-center">
+          <div className="flex flex-col lg:flex-row justify-between gap-10 lg:gap-[10.25rem] lg:items-center">
             {/* Image Grid */}
             <div className="shrink-0">
-              <div className="grid grid-cols-2 grid-rows-2 ">
+              <div className="grid grid-cols-2 grid-rows-2 gap-[0.6rem]">
                 {/* 1st  */}
                 {/* Outer most border */}
                 <div
@@ -62,9 +62,7 @@ const MissionVision = () => {
 
                 {/* 3rd */}
                 <div
-                  className="pb-[1.25rem] pl-[1.25rem] pr-[0.45rem] pt-[0.45rem] rounded-full rounded-tr-none border-[0.8px] border-white
-           
-              "
+                  className="pr-[0.56rem] pt-[0.56rem] pb-[1.06rem] pl-[1.06rem] rounded-full rounded-tr-none border-[0.8px] border-white"
                   style={{
                     opacity: " 0.85",
                     background: "rgba(255, 255, 255, 0.56)",
@@ -74,14 +72,13 @@ const MissionVision = () => {
                   }}
                 >
                   {/* Second  border */}
-                  <div className="pt-[1.06rem] pr-[1.06rem] pl-[0.56rem] pb-[0.56rem] rounded-full rounded-tr-none border-[0.8px] border-white ">
+                  <div className="pr-[0.45rem] pt-[0.45rem] pb-[1.25rem] pl-[1.25rem] rounded-full rounded-tr-none border-[0.8px] border-white">
                     {/* Inner most border */}
-                    <div className=" w-[8.625rem] h-[8.625rem] rounded-full rounded-tr-none border-[0.8px] ">
+                    <div className=" w-[8.625rem] h-[8.625rem] pr-[0.85rem] lg:pr-0 rounded-full rounded-tr-none border-[0.8px] ">
                       <Image
                         src={photo}
                         alt="Mother holding baby"
-                        className="rounded-full rounded-tr-none border-[0.8px] border-white w-full h-full object-cover
-                      "
+                        className="rounded-full rounded-tr-none border-[0.8px] border-white w-full h-full object-cover"
                       />
                     </div>
                   </div>
@@ -89,7 +86,7 @@ const MissionVision = () => {
 
                 {/* 4th */}
                 <div
-                  className="pt-[1.25rem] pr-[1.25rem] pl-[0.45rem] pb-[0.45rem] rounded-full rounded-tl-none border-[0.8px] border-white"
+                  className="pl-[0.45rem] pt-[0.45rem] pb-[1.25rem] pr-[1.25rem]  rounded-full rounded-tl-none border-[0.8px] border-white"
                   style={{
                     opacity: "0.85",
                     background:
@@ -100,7 +97,7 @@ const MissionVision = () => {
                   }}
                 >
                   {/* Second  border */}
-                  <div className="pb-[1.06rem] pr-[1.06rem] pl-[0.56rem] pt-[0.56rem] rounded-full rounded-tl-none border-[0.8px] border-white ">
+                  <div className="pl-[0.56rem] pt-[0.56rem] pb-[1.06rem] pr-[1.06rem]  rounded-full rounded-tl-none border-[0.8px] border-white ">
                     {/* Inner most border */}
                     <div className="w-[8.625rem] h-[8.625rem] rounded-full rounded-tl-none border-[0.8px] ">
                       <Image

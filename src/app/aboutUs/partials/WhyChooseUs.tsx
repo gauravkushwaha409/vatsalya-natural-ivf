@@ -32,13 +32,13 @@ const whyChooseUsData = [
 
 const WhyChooseUs = () => {
   return (
-    <div className="pb-16 md:pb-24 padding">
+    <div className="pb-16 lg:pb-24 padding">
       <div className="flex flex-col items-center text-center space-y-4">
         <div className="flex items-center w-full justify-center gap-4 max-w-3xl">
           {/* line  */}
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
 
-          <h2 className="text-primary-500 text-sm md:text-base font-bold tracking-widest uppercase leading-[24px]">
+          <h2 className="text-primary-500 text-sm lg:text-base font-bold tracking-widest uppercase leading-[24px]">
             Why choose us
           </h2>
           {/* line  */}
@@ -78,18 +78,15 @@ const WhyChooseUs = () => {
           </div>
 
           {/* Video Section */}
-          <div className=" rounded-[8.44px] w-full md:w-1/2 h-auto md:h-[320px]">
+          <div className="rounded-[8.44px] w-full lg:w-1/2 h-auto lg:h-[320px]">
             <iframe
               width="560"
               height="315"
               src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&rel=0"
-              // src={`https://www.youtube.com/embed/${extractVideoId(
-              //   productVideo?.url
-              // )}?autoplay=1&rel=0`}
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              className="w-full h-[250px] sm:h-[350px] md:h-full rounded-[8.44px] object-cover"
+              className="w-full h-[250px] sm:h-[350px] lg:h-full rounded-[8.44px] object-cover"
             ></iframe>
           </div>
         </div>

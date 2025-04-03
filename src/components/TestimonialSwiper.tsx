@@ -34,7 +34,7 @@ const TestimonialSwiper = ({}) => {
 
   return (
     <div className="">
-      <div className="flex md:flex-row flex-col justify-center pr-10">
+      <div className="flex md:flex-row flex-col justify-center lg:pr-10">
         <div className="w-full lg:h-[30.5rem]">
           {testimonialData && testimonialData?.length > 0 && (
             <Swiper

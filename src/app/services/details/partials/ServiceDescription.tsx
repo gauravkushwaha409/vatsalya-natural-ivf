@@ -23,7 +23,7 @@ const ServiceDescription = () => {
         IVF with ICSI are few common fertility treatments provided to infertile
         couples.
       </p>
-      <h1 className="font-bold text-text-500 typography-h4">
+      <h1 className="font-bold text-text-500 typography-h5 lg:typography-h4">
         Infertility Causes & Treatment
       </h1>
       <p>
@@ -35,7 +35,7 @@ const ServiceDescription = () => {
         Here, we shall discuss the causes of infertility in women, and men
         followed by their fertility treatments. 
       </p>
-      <h1 className="font-bold text-text-500 typography-h4">
+      <h1 className="font-bold text-text-500 typography-h5 lg:typography-h4">
         Infertility Causes & Treatment
       </h1>
       <p>
@@ -47,7 +47,7 @@ const ServiceDescription = () => {
         Here, we shall discuss the causes of infertility in women, and men
         followed by their fertility treatments. 
       </p>
-      <h1 className="font-bold text-text-500 typography-h4">
+      <h1 className="font-bold text-text-500 typography-h5 lg:typography-h4">
         Infertility Causes & Treatment
       </h1>
       <p>
