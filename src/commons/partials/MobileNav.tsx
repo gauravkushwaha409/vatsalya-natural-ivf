@@ -15,13 +15,13 @@ const MobileNav: React.FC<props> = ({ navlinks }) => {
       <>
         <button
           onClick={() => setIsOpen((prev) => !prev)}
-          className="flex flex-col items-center justify-center gap-2 p-2"
+          className="flex flex-col items-center justify-center gap-1.5 p-2 hover:cursor-pointer"
         >
           <motion.div
             initial={{ rotate: 0, y: 0 }}
-            animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? 12 : 0 }}
+            animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? 11 : 0 }}
             transition={{ duration: 0.3 }}
-            className="w-8"
+            className="w-6"
           >
             <Image src={lineicon} alt="lineicon" className="w-full h-full" />
           </motion.div>
@@ -30,16 +30,16 @@ const MobileNav: React.FC<props> = ({ navlinks }) => {
             initial={{ opacity: 1 }}
             animate={{ opacity: isOpen ? 0 : 1 }}
             transition={{ duration: 0.3 }}
-            className="w-8"
+            className="w-6"
           >
             <Image src={lineicon} alt="lineicon" className="w-full h-full" />
           </motion.div>
 
           <motion.div
             initial={{ rotate: 0, y: 0 }}
-            animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? -12 : 0 }}
+            animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? -5 : 0 }}
             transition={{ duration: 0.3 }}
-            className="w-8"
+            className="w-6"
           >
             <Image src={lineicon} alt="lineicon" className="w-full h-full" />
           </motion.div>

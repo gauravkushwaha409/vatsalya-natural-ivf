@@ -1,9 +1,8 @@
 import { motion } from "motion/react";
 
 const HeroTextAnimation: React.FC<{ text: string }> = ({ text }) => {
-  
   return (
-    <h1 className="relative max-w-1/2 font-extrabold text-secondary-500 typography-h2">
+    <h1 className="relative w-full lg:max-w-1/2 font-extrabold text-secondary-500 typography-h5  lg:typography-h2">
       {text.split(" ").map((word, index) => {
         if (word.startsWith("<") && word.endsWith(">")) {
           const cleanWord = word.slice(1, -1); // Remove the angle brackets
@@ -36,9 +35,8 @@ const HeroTextAnimation: React.FC<{ text: string }> = ({ text }) => {
       })}
     </h1>
   );
-}
-export default HeroTextAnimation
-
+};
+export default HeroTextAnimation;
 
 const WordAnimation: React.FC<{
   text: string;

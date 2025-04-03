@@ -14,10 +14,10 @@ const HeroSection = () => {
     setOpenModal(true);
   };
   return (
-    <div className="relative flex justify-center pl-20 h-full min-h-screen overflow-y-hidden">
-      <div className="flex flex-col justify-center mt-[8.72rem] w-full h-full text-left">
+    <div className="relative flex justify-center padding h-full min-h-screen overflow-y-hidden">
+      <div className="flex flex-col justify-center mt-16 lg:mt-[8.72rem] w-full h-full text-left">
         <h2 className="font-bold text-primary-500 uppercase tracking-wide typography-paragraph-large">
-          Natural IVF
+          Vatsalya Natural IVF
         </h2>
         <div className="relative pt-5">
           <HeroTextAnimation text={text} />
@@ -67,7 +67,7 @@ const HeroSection = () => {
             />
           </motion.div>
         </div>
-        <p className="mt-[0.88rem] max-w-2xl font-[500] text-text-400 typography-paragraph-large">
+        <p className="mt-[0.88rem] max-w-2xl font-normal lg:font-[500] text-text-400 typography-paragraph-small lg:typography-paragraph-large">
           Nepal’s top IVF centers, offering advanced infertility treatments with
           15+ years of expertise to support your path to parenthood.
         </p>
@@ -77,7 +77,7 @@ const HeroSection = () => {
             style={{
               background: "linear-gradient(90deg, #A0385A 0%, #3A142C 100%)",
             }}
-            className="shadow-box px-[2.75rem] py-[0.94rem] border-2 border-secondary-100 rounded-full w-max font-bold text-white cursor-pointer typography-h5"
+            className="shadow-box px-[2.75rem] py-[0.94rem] border-2 border-secondary-100 rounded-full w-max font-bold text-white cursor-pointer typography-paragraph-regular lg:typography-h5"
           >
             Book an Appointment
           </button>
@@ -92,7 +92,7 @@ const HeroSection = () => {
           </button>
         </div>
       </div>
-      <div className="-bottom-36 z-10 absolute inset-x-0">
+      <div className="-bottom-10 lg:-bottom-36 z-10 absolute inset-x-0">
         <Image
           className="absolute"
           src="/home/hero-bottom-lines.png"
@@ -116,7 +116,7 @@ const HeroSection = () => {
           className="-bottom-20 left-1/2 absolute -translate-x-1/2 transform"
         /> */}
       </div>
-      <div className="right-0 left-1/2 absolute inset-y-0">
+      <div className="right-0 left-0 lg:left-1/2 absolute inset-y-0">
         <HeroAnimationCarousel
           images={[
             "/home/hero-img-1.png",

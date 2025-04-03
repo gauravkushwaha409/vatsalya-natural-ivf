@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="bg-primary-100 backdrop-blur-[5.6px] padding pt-10 text-text-400">
+    <div className="bg-primary-100 backdrop-blur-[5.6px] padding pt-10 text-text-400 overflow-hidden">
       <div className="gap-[6.56rem] grid grid-cols-2 lg:grid-cols-4">
         <div className="space-y-3 font-manrope text-text-400 typography-paragraph-regular">
           <div className="h-20 aspect-auto -ml-5">

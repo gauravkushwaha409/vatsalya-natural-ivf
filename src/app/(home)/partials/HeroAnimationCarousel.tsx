@@ -1,8 +1,10 @@
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const HeroAnimationCarousel: React.FC<{ images: string[] }> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const isSmall = useMediaQuery("(width <= 40rem)");
 
   useEffect(() => {
     const next = setInterval(() => {
@@ -37,8 +39,13 @@ const HeroAnimationCarousel: React.FC<{ images: string[] }> = ({ images }) => {
             <li
               key={i}
               style={{
-                left: isActive ? "0" : leftPosition,
-                width: isActive ? "100%" : `${thumbnailWidth}px`,
+                left: isActive ? (isSmall ? undefined : "0") : leftPosition,
+                right: isActive ? (isSmall ? "0" : "auto") : undefined,
+                width: isActive
+                  ? isSmall
+                    ? "50%"
+                    : "100%"
+                  : `${thumbnailWidth}px`,
                 backgroundColor: isActive ? "transparent" : "white",
                 borderRadius: isActive ? "0" : "1.25rem",
                 zIndex: isActive ? 9 : 11,
@@ -50,8 +57,8 @@ const HeroAnimationCarousel: React.FC<{ images: string[] }> = ({ images }) => {
               className={`absolute transition-all border 
                 ${
                   isActive
-                    ? "top-0 h-[calc(100%-120px-1.5rem)] border-transparent "
-                    : "top-[calc(100%-180px-0.5rem)] h-[110px] aspect-square  border-secondary-200"
+                    ? "top-1/2 lg:top-0  h-[calc(100%-250px-5.5rem)] lg:h-[calc(100%-120px-1.5rem)] border-transparent w-90 lg:w-auto "
+                    : "bottom-0 lg:top-[calc(100%-180px-0.5rem)] h-auto lg:h-[110px] aspect-square  border-secondary-200"
                 } `}
             >
               <Image
@@ -59,7 +66,7 @@ const HeroAnimationCarousel: React.FC<{ images: string[] }> = ({ images }) => {
                 height={2000}
                 alt={`Image ${i}`}
                 src={image}
-                className="block rounded-lg w-auto h-full object-cover"
+                className="block rounded-lg w-full h-full object-cover"
               />
             </li>
           );
