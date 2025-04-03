@@ -92,22 +92,24 @@ const HeroSection = () => {
           </button>
         </div>
       </div>
-      <div className="-bottom-10 lg:-bottom-36 z-10 absolute inset-x-0">
-        <Image
-          className="absolute"
-          src="/home/hero-bottom-lines.png"
-          alt="Illustration of circle"
-          layout="responsive"
-          width={1000}
-          height={1000}
-        />
-        <Image
-          src="/home/hero-bottom-background.png"
-          alt="Illustration of circle"
-          layout="responsive"
-          width={1000}
-          height={1000}
-        />
+      <div className="-bottom-10 lg:-bottom-36 z-10 absolute inset-x-0 ">
+        <div>
+          <Image
+            className="absolute"
+            src="/home/hero-bottom-lines.png"
+            alt="Illustration of circle"
+            layout="responsive"
+            width={1000}
+            height={1000}
+          />
+          <Image
+            src="/home/hero-bottom-background.png"
+            alt="Illustration of circle"
+            layout="responsive"
+            width={1000}
+            height={1000}
+          />
+        </div>
         {/* <Image
           src="/vatsalya-butterfly.svg"
           alt="Illustration of circle"
