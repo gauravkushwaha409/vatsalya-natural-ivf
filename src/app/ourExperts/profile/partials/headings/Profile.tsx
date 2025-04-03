@@ -42,7 +42,7 @@ const Profile = () => {
             <span className="text-primary-500 typography-paragraph-regular font-bold uppercase tracking-widest">
               Doctor Profile
             </span>
-            <div className="border border-primary-300 border-t-1 w-20"></div>
+            <div className="h-px bg-primary-400 w-21"></div>
           </div>
           <h1 className="typography-h4 font-bold text-secondary-500">
             {ivfTeamData[0]?.name}
