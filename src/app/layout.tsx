@@ -45,7 +45,7 @@ export default function RootLayout({
         className={`${manRope.variable} ${inter.variable} ${plusJakarta.variable} ${roboto.variable} antialiased font-manrope bg-background-100 `}
       >
         <Header />
-        <div className="overflow-hidden ">
+        <div className="overflow-hidden">
           <Providers>{children}</Providers>
         </div>
         <Footer />

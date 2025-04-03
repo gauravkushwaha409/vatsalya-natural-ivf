@@ -14,7 +14,7 @@ const WhoWeAre = () => {
         setIsInViewport(true);
       }}
       viewport={{ amount: 0.7 }}
-      onViewportLeave={() => setIsInViewport(false)}
+      // onViewportLeave={() => setIsInViewport(false)}
       style={{
         backgroundImage: "url(/home/who-we-are-bg.png)",
       }}
