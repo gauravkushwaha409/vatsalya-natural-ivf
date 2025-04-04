@@ -1,9 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // import { logoutUser } from "@/store/features/authSlice";
-import {
-  createApi,
-  fetchBaseQuery
-} from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { BASE_API_URL } from "./endpoints";
 
 interface IGetDataArgs {
@@ -37,7 +34,6 @@ const baseQuery = fetchBaseQuery({
     return headers;
   },
 });
-
 
 export const apiSlice = createApi({
   baseQuery: baseQuery,
