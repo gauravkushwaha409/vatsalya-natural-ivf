@@ -12,6 +12,7 @@ const Headings = () => {
             { name: "Fertility Treatment", link: "/services/details" }, //need to changes according to the slug name
           ]}
           separator={">"}
+          className=""
         />
       </div>
       <h1 className="typography-h3 font-bold text-secondary-500 mt-[10px]">

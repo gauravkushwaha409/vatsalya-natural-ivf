@@ -12,7 +12,6 @@ const Headings = () => {
             { name: "Our Experts", link: "/ourExperts" },
             { name: "Profile", link: "ourExperts/profile" },
           ]}
-          separator={">"}
         />
       </div>
       <h1 className="typography-h3 font-bold text-secondary-500 mt-[10px]">

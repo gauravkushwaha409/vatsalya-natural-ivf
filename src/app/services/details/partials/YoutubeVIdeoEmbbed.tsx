@@ -20,6 +20,7 @@ const YoutubeEmbed = () => {
       frameBorder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowFullScreen={true}
+      className="h-52 lg:h-96 aspect-video"
     ></iframe>
   );
 };

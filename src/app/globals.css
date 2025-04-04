@@ -181,33 +181,35 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 /* typography */
+
 @utility typography-h1 {
-  @apply font-normal text-[2.98625rem] leading-[120%];
+  @apply font-normal text-[1.5rem] lg:text-[2.98625rem] leading-[120%];
 }
 @utility typography-h2 {
-  @apply font-normal text-[2.48813rem] leading-[120%];
+  @apply font-normal text-[1.25rem] lg:text-[2.48813rem] leading-[120%];
 }
 @utility typography-h3 {
-  @apply font-normal text-[2.07375rem] leading-[120%];
+  @apply font-normal text-[1.125rem] lg:text-[2.07375rem] leading-[120%];
 }
 @utility typography-h4 {
-  @apply font-normal text-[1.72813rem] leading-[120%];
+  @apply font-normal  text-[1.72813rem] leading-[120%];
 }
 @utility typography-h5 {
   @apply font-normal text-[1.44rem] leading-[120%];
 }
 @utility typography-paragraph-large {
-  @apply font-normal text-[1.2rem] leading-[120%];
+  @apply font-normal text-[0.875rem] lg:text-[1.2rem] leading-[120%];
 }
 @utility typography-paragraph-regular {
-  @apply font-normal text-[1rem] leading-[120%];
+  @apply font-normal  text-[0.75rem] lg:text-[1rem] leading-[120%];
 }
 @utility typography-paragraph-small {
-  @apply font-normal text-[0.83313rem] leading-[120%];
+  @apply font-normal text-[0.625rem] lg:text-[0.83313rem] leading-[120%];
 }
 @utility typography-caption {
   @apply font-normal text-[0.69438rem] leading-[120%];
 }
+
 @utility hide-for-mobile {
   @apply hidden lg:block;
 }

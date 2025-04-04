@@ -32,7 +32,7 @@ export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen={true}
-              className="w-full h-full aspect-videos"
+              className="w-full h-52 lg:h-96 aspect-videos"
             ></iframe>
           </div>
         </div>

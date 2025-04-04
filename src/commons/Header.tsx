@@ -47,7 +47,7 @@ const Header = () => {
         <ul className="flex  justify-between  font-manrope">
           {navLinks.map((item, index) => (
             <li
-              className="border-r border-secondary-500 pr-5  w-max text-left"
+              className="border-r border-secondary-500 pr-6  w-max text-left"
               key={index}
             >
               <Link

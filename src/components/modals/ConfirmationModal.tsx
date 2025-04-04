@@ -32,7 +32,7 @@ const ConfirmationModal: React.FC<RequestAppoimentModalProps> = ({
               x
             </button>
             <Image src={checkgif} alt="checkgif" className="w-20 " />
-            <span className="typography-h4 text-secondary-600 font-bold">
+            <span className="typography-h4 text-secondary-600 font-bold text-center">
               Appointment Request Sent
             </span>
             <p className="text-text-400 typography-paragraph-regular font-medium w-full md:w-3/4 text-center">
