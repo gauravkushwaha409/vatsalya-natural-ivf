@@ -2,6 +2,7 @@ import BlogDescription from "./partials/BlogDescription";
 import BlogDetailHero from "./partials/BlogDetailHero";
 import CommentForm from "./partials/CommentFrom";
 import Stats from "./partials/Stats";
+import SimilarBlogs from "./partials/SimilarBlogs";
 
 const BlogDetail = () => {
   return (
@@ -13,6 +14,7 @@ const BlogDetail = () => {
         </div>
         <BlogDescription />
         <CommentForm />
+        <SimilarBlogs />
       </div>
     </div>
   );

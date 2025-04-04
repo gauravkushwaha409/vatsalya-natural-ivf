@@ -45,9 +45,9 @@ const WhyChooseUs = () => {
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
         </div>
 
-        <h1 className="typography-h4 font-semibold tracking-tight ">
+        <h2 className="typography-h2 font-semibold tracking-tight ">
           A Team United by Care and Compassion
-        </h1>
+        </h2>
 
         <div className="flex flex-col lg:flex-row justify-between gap-6 mt-4">
           <div className="grid grid-cols-2 gap-6">
@@ -66,7 +66,7 @@ const WhyChooseUs = () => {
                   />
                 </div>
                 <div className="lg:text-left">
-                  <h5 className="text-secondary-500 typography-h5 mb-2">
+                  <h5 className="text-secondary-500 typography-h4 mb-2">
                     {data.title}
                   </h5>
                   <p className="text-text-400 typography-paragraph-large font-medium leading-[150%]">

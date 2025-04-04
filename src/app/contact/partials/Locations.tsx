@@ -17,7 +17,7 @@ const Locations = () => {
         </span>
         <div className="border border-primary-500/50 border-t-1 w-20"></div>
       </div>
-      <h1 className="typography-h4 font-semibold text-text-500 text-center mt-5">
+      <h1 className="typography-h3 font-semibold text-text-500 text-center mt-5">
         We are located across the country
       </h1>
       <div className="my-5 grid grid-cols-1 md:grid-cols-4 gap-5">

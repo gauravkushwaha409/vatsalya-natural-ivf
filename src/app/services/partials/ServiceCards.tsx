@@ -19,7 +19,7 @@ const ServiceCards = () => {
           {/* line  */}
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
         </div>
-        <p className="typography-h4 font-semibold text-text-500 pt-4">
+        <p className="typography-h3 font-semibold text-text-500 pt-4">
           {` Services We’re Providing`}
         </p>
       </div>
@@ -40,9 +40,9 @@ const ServiceCards = () => {
               <div className="flex flex-col gap-2 pt-4">
                 <div className="flex w-full justify-between">
                   {" "}
-                  <h5 className="typography-h5 font-bold">
+                  <h2 className="typography-h3 font-bold">
                     Infertility Diagnosis
-                  </h5>{" "}
+                  </h2>{" "}
                   <button className="cursor-pointer">
                     <IoArrowForwardOutline
                       size={24}

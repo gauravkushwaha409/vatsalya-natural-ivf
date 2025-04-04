@@ -9,7 +9,9 @@ export interface FAQOptions {
 }
 
 const Faq: React.FC<{ faq: FAQOptions[] }> = ({ faq }) => {
-  const [openFaq, setOpenFaq] = useState<number[]>([0]);
+  const [openFaq, setOpenFaq] = useState<number[]>(
+    faq.map((_, index) => index)
+  );
 
   const toggleFaq = (index: number) => {
     if (openFaq.includes(index)) {

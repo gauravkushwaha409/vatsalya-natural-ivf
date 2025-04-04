@@ -120,9 +120,9 @@ const MissionVision = () => {
                 </h2>
                 <div className="h-px bg-primary-500 flex-1 max-w-[148px]"></div>
               </div>
-              <h3 className="typography-h4 font-semibold text-text-500 ">
+              <h2 className="typography-h2 font-semibold text-text-500 ">
                 Transforming Lives Through Compassionate Fertility Care
-              </h3>
+              </h2>
               <p className="text-text-400 text-justify typography-paragraph-large font-medium leading-relaxed">
                 Our mission is to provide personalized, ethical, and innovative
                 fertility solutions that cater to each couples unique needs. We

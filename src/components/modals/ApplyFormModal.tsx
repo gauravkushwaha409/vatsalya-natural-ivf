@@ -104,7 +104,7 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
         </DialogTrigger>
         <DialogContent className="sm:max-w-[600px]">
           <DialogHeader>
-            <DialogTitle className="hide-for-mobile typography-h4 text-text-500 font-semibold lg:mb-2.5">
+            <DialogTitle className="hide-for-mobile typography-h3 text-text-500 font-semibold lg:mb-2.5">
               Submit your CV & details about you
             </DialogTitle>
           </DialogHeader>

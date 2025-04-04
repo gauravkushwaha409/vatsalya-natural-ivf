@@ -11,7 +11,7 @@ const PrivacyHero = () => {
             items={[{ name: "Home", link: "/" }, { name: "Privacy Policy" }]}
           />
 
-          <h1 className="text-secondary-500 font-bold leading-[150%] typography-h3 pt-3 ">
+          <h1 className="text-secondary-500 font-bold leading-[150%] typography-h2 pt-3 ">
             Privacy Policy
           </h1>
         </div>

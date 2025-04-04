@@ -171,7 +171,7 @@ const OfferCard: React.FC<OfferCardProps> = ({
       </div>
       <h1
         className={`font-bold ${textColor} ${
-          isMobile ? "typography-h6" : "typography-h5"
+          isMobile ? "typography-h6" : "typography-h4"
         }`}
         style={titleStyle}
       >
@@ -203,7 +203,7 @@ const SectionTitle: React.FC = () => (
       </h2>
       <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
     </div>
-    <h1 className="px-4 pb-6 sm:pb-[3.75rem] font-bold text-center typography-h4 sm:typography-h3">
+    <h1 className="px-4 pb-6 sm:pb-[3.75rem] font-bold text-center typography-h3 sm:typography-h2">
       Comprehensive Fertility Care, Tailored for You
     </h1>
   </>

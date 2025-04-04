@@ -41,7 +41,7 @@ const ContactFaqs = () => {
           </span>
           <div className="border border-primary-400 border-t w-21"></div>
         </div>
-        <h1 className="typography-h5 lg:typography-h3 font-semibold pb-4">
+        <h1 className="typography-h4 lg:typography-h2 font-semibold pb-4">
           Answers to Your Fertility Questions
         </h1>
         <Faq faq={setting?.Faq} />

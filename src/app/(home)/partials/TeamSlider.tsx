@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
@@ -101,7 +101,7 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
             }}
             className={`top-0 left-full absolute space-y-3 starting:opacity-0 ml-10 w-[32.4rem] transition-all duration-700 ease-in-out `}
           >
-            <h1 className="font-semibold typography-h4">
+            <h1 className="font-semibold typography-h3">
               {data[activeIndex].name}
             </h1>
             <h2 className="font-semibold text-text-500 typography-paragraph-large">
@@ -191,7 +191,7 @@ const MobileTeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
             className="w-full h-full object-cover grow"
           />
           <div className="space-y-3 mt-4">
-            <h1 className="flex items-center font-semibold text-primary-400 typography-h4">
+            <h1 className="flex items-center font-semibold text-primary-400 typography-h3">
               {member.name}
               {/* <ExternalLink className="inline-block ml-2 text-sm" /> */}
             </h1>

@@ -17,9 +17,9 @@ const Family = () => {
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
         </div>
 
-        <h1 className="typography-h4 font-semibold tracking-tight ">
+        <h2 className="typography-h2 font-semibold tracking-tight ">
           A Team United by Care and Compassion
-        </h1>
+        </h2>
 
         <p className="text-text-400 typography-paragraph-large leading-[150%] font-medium max-w-7xl">
           Our team is more than just medical professionals; we are your support

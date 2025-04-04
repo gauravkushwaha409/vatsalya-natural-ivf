@@ -27,7 +27,7 @@ const HeroCareer = () => {
             className="absolute top-4 "
           />
           {/* Heading */}
-          <h1 className="typography-h3 font-bold mb-4">Career</h1>
+          <h1 className="typography-h2 font-bold mb-4">Career</h1>
           {/* Subheading */}
           <p className="typography-paragraph-large font-medium mb-10">
             Be a part of a team that is making a difference in reproductive
@@ -36,7 +36,7 @@ const HeroCareer = () => {
           {/* CTA Button */}
           <ApplyFormModal
             title="Join Us"
-            customClass="typography-h5 font-semibold border-[0.4px] border-secondary-100 hover:bg-secondary py-4 px-11 rounded-full text-lg transition-colors duration-300 shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] bg-gradient-to-r from-[#A0385A] to-[#3A142C]"
+            customClass="typography-h4 font-semibold border-[0.4px] border-secondary-100 hover:bg-secondary py-4 px-11 rounded-full text-lg transition-colors duration-300 shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] bg-gradient-to-r from-[#A0385A] to-[#3A142C]"
           />
         </div>
       </div>

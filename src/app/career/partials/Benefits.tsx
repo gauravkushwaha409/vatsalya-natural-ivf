@@ -57,7 +57,7 @@ const Benefits = () => {
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
         </div>
 
-        <h1 className="typography-h4 font-semibold tracking-tight ">
+        <h1 className="typography-h3 font-semibold tracking-tight ">
           Why Work at Vatsalya?
         </h1>
       </div>

@@ -1,10 +1,10 @@
-import faqData from "@/data/faqsData";
+import Faq from "@/components/Faqs";
 import Image from "next/image";
-import Faq from "../../../components/Faqs";
-import pic1 from "./../../../assests/contact/pic3.png";
-import pic2 from "./../../../assests/contact/pic4.png";
-
-const HomeFaq = () => {
+import React from "react";
+import pic1 from "@/assests/contact/pic3.png";
+import pic2 from "@/assests/contact/pic4.png";
+import faqData from "@/data/faqsData";
+const ServiceFaq = () => {
   return (
     <section className="flex gap-10 px-5 md:px-20 py-20">
       <div className="hidden md:flex justify-start items-center w-full md:w-1/2">
@@ -45,4 +45,4 @@ const HomeFaq = () => {
   );
 };
 
-export default HomeFaq;
+export default ServiceFaq;

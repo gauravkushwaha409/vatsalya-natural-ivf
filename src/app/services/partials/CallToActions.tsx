@@ -22,14 +22,14 @@ const CallToActions = () => {
 
           {/* Content */}
           <div className="relative  z-10 flex flex-col items-center justify-center  p-16 rounded-2xl text-white px-20 text-center backdrop-blur-sm bg-white/30 w-[940px] ">
-            <h3 className="typography-h5 lg:typography-h3  mb-5 font-bold text-secondary-500">
+            <h3 className="typography-h4 lg:typography-h2  mb-5 font-bold text-secondary-500">
               Struggling with Infertility? We’re Here to Help, Every Step of the
               Way.
             </h3>
             {/* CTA Button */}
             <button
               onClick={() => setOpenModal(true)}
-              className="typography-h5 font-semibold border-[0.4px] border-secondary-100 bg-secondary-500 py-4 px-11 rounded-full text-lg transition-colors duration-300 shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] cursor-pointer "
+              className="typography-h4 font-semibold border-[0.4px] border-secondary-100 bg-secondary-500 py-4 px-11 rounded-full text-lg transition-colors duration-300 shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] cursor-pointer "
             >
               Book an Appointment
             </button>

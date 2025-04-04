@@ -1,4 +1,3 @@
-
 import { teamMembers } from "@/data/team-data";
 import TeamSlider from "./TeamSlider";
 
@@ -12,12 +11,12 @@ const MeetExperts = () => {
         </h2>
         <span className="bg-primary-500 w-[8.5rem] h-px" />
       </div>
-      <h1 className="pb-[3.75rem] font-bold text-center typography-h3">
+      <h2 className="pb-[3.75rem] font-bold text-center typography-h2">
         World-Class Doctors, Dedicated to Your Care
-      </h1>
+      </h2>
 
       <TeamSlider data={[...teamMembers, ...teamMembers]} />
     </div>
   );
-}
-export default MeetExperts
+};
+export default MeetExperts;

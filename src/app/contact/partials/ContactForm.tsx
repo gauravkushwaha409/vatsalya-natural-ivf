@@ -18,7 +18,7 @@ const ContactForm = () => {
           </span>
           <div className="border border-primary-400 border-t w-21"></div>
         </div>
-        <h1 className="typography-h4 font-semibold text-text-500 ">
+        <h1 className="typography-h3 font-semibold text-text-500 ">
           Get in Touch With Us
         </h1>
         <form onSubmit={formik.handleSubmit} className="grid grid-cols-2 gap-4">

@@ -1,8 +1,7 @@
-"use client"
-import { motion } from 'motion/react';
+"use client";
+import { motion } from "motion/react";
 import Image from "next/image";
-import { useState } from 'react';
-
+import { useState } from "react";
 
 const BASE_DURATION = 1;
 const STARTING_OFFSET = "22%";
@@ -38,7 +37,7 @@ const WhoWeAre = () => {
           </span>
           <div className="bg-primary-500 h-[0.0625rem] grow"></div>
         </div>
-        <p className="font-bold text-text-500 typography-h3">
+        <p className="font-bold text-text-500 typography-h2">
           Turning Hope into <br /> Happiness
         </p>
       </motion.div>

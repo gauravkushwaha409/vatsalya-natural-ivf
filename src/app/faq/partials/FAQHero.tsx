@@ -11,7 +11,7 @@ const FAQHero = () => {
             items={[{ name: "Home", link: "/" }, { name: "FAQs" }]}
           />
 
-          <h1 className="text-secondary-500 font-bold leading-[150%] typography-h3 pt-3 ">
+          <h1 className="text-secondary-500 font-bold leading-[150%] typography-h1 pt-3 ">
             FAQs
           </h1>
         </div>

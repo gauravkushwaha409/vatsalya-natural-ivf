@@ -27,9 +27,9 @@ const Testimonial = () => {
               <div className="flex-1 bg-primary-500 max-w-[148px] h-px"></div>
             </div>
 
-            <h3 className="font-semibold text-text-500 typography-h3">
+            <h2 className="font-semibold text-text-500 typography-h2">
               What Our Patient Says About Us
-            </h3>
+            </h2>
           </div>
           {/* Carousel Section  */}
           <div className="lg:w-[70%]">

@@ -15,12 +15,12 @@ const Headings = () => {
           className=""
         />
       </div>
-      <h1 className="typography-h3 font-bold text-secondary-500 mt-[10px]">
+      <h1 className="typography-h1 font-bold text-secondary-500 mt-[10px]">
         Fertility Treatment
       </h1>
-      <p className="typography-paragraph-large text-primary-500 mt-5 text-center">
+      <h2 className="typography-paragraph-large text-primary-500 mt-5 text-center">
         “Infertility treatment that puts an end to infertility”
-      </p>
+      </h2>
     </header>
   );
 };

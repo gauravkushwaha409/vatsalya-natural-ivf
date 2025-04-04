@@ -64,7 +64,7 @@ const ShowCaseItem: React.FC<{
         />
       </div>
       <div className="text-center">
-        <h3 className="font-bold text-primary-500 text-xl sm:text-2xl md:text-3xl lg:text-3xl leading-[150%] typography-h3">
+        <h3 className="font-bold text-primary-500 text-xl sm:text-2xl md:text-3xl lg:text-3xl leading-[150%] typography-h2">
           {title}
         </h3>
         <p className="font-medium text-text-400 text-sm sm:text-base lg:text-lg typography-paragraph-large">
