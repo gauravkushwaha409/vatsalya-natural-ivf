@@ -182,19 +182,19 @@
 }
 /* typography */
 
-@utility typography-h1 {
+/* @utility typography-h1 {
   @apply font-normal text-[1.5rem] lg:text-[2.98625rem] leading-[120%];
-}
-@utility typography-h2 {
+} */
+@utility typography-h1 {
   @apply font-normal text-[1.25rem] lg:text-[2.48813rem] leading-[120%];
 }
-@utility typography-h3 {
+@utility typography-h2 {
   @apply font-normal text-[1.125rem] lg:text-[2.07375rem] leading-[120%];
 }
-@utility typography-h4 {
+@utility typography-h3 {
   @apply font-normal  text-[1.72813rem] leading-[120%];
 }
-@utility typography-h5 {
+@utility typography-h4 {
   @apply font-normal text-[1.44rem] leading-[120%];
 }
 @utility typography-paragraph-large {

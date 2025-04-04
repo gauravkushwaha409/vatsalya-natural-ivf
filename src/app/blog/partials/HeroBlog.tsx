@@ -12,7 +12,7 @@ const HeroBlog = () => {
           <CustomBreadcrumb
             items={[{ name: "Home", link: "/" }, { name: "Blog" }]}
           />
-          <h1 className="pt-3 font-bold text-secondary-500 leading-[150%] typography-h3">
+          <h1 className="pt-3 font-bold text-secondary-500 leading-[150%] typography-h2">
             Blog & News
           </h1>
         </div>
@@ -38,7 +38,7 @@ const HeroBlog = () => {
           <p className="text-text-400 typography-paragraph-regular">Feature</p>
 
           {/* Heading */}
-          <h1 className="my-3.5 max-w-lg font-bold text-secondary-500 leading-[1.5] typography-h3">
+          <h1 className="my-3.5 max-w-lg font-bold text-secondary-500 leading-[1.5] typography-h2">
             A New Beginning: Your Journey to Parenthood
           </h1>
 

@@ -8,7 +8,7 @@ const Headings = () => {
       <CustomBreadcrumb
         items={[{ name: "Home", link: "/" }, { name: "Contact Us" }]}
       />
-      <h1 className="typography-h3 font-bold text-secondary-500 pt-2.5">
+      <h1 className="typography-h2 font-bold text-secondary-500 pt-2.5">
         Contact Us
       </h1>
       <p className="typography-paragraph-large py-3 font-medium text-text-400">

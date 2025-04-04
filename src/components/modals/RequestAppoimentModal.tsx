@@ -80,7 +80,7 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
               className="w-[90%] md:w-[60%] px-10 py-7 shadow-md rounded-lg bg-white relative"
               ref={modalRef}
             >
-              <h1 className="typography-h4 mb-5 font-medium">
+              <h1 className="typography-h3 mb-5 font-medium">
                 Request an Appointment
               </h1>
               <button

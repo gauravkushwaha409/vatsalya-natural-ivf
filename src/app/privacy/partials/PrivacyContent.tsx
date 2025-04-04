@@ -15,7 +15,7 @@ const PrivacyContent = () => {
         {/* Dynamic Sections */}
         {termsData.sections.map((section) => (
           <section key={section.id} className="mt-8">
-            <h2 className="typography-h4 text-text-500 font-semibold leading-[150%]">
+            <h2 className="typography-h3 text-text-500 font-semibold leading-[150%]">
               {section.title}
             </h2>
             <p className="text-text-400 typography-paragraph-large font-medium leading-[150%] text-justify">
@@ -40,7 +40,7 @@ const PrivacyContent = () => {
 
         {/* Contact Information */}
         <section className="mt-8">
-          <h2 className="typography-h4 text-text-500 font-semibold leading-[150%]">
+          <h2 className="typography-h3 text-text-500 font-semibold leading-[150%]">
             8. Contact Information
           </h2>
           <p className="text-text-400 typography-paragraph-large font-medium leading-[150%] text-justify">

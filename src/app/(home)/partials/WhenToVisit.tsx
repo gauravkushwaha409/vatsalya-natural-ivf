@@ -52,7 +52,7 @@ const WhenToVisit = () => {
             </h2>
             <div className="bg-secondary-200 w-[16.25rem] h-px" />
           </div>
-          <h1 className="my-5 font-semibold text-text-500 typography-h3">
+          <h1 className="my-5 font-semibold text-text-500 typography-h2">
             Signs You Should See a Fertility Specialist
           </h1>
           <ul className="*:marker:pr-1 font-[500] text-text-500 *:marker:text-secondary-500 *:marker:content-['➤'] leading-[150%] typography-paragraph-large">

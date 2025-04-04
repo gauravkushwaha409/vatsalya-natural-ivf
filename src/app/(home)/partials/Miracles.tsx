@@ -25,7 +25,7 @@ const Miracles = () => {
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
-            className="bg-clip-text font-extrabold text-2xl typography-h3"
+            className="bg-clip-text font-extrabold text-2xl typography-h2"
           >
             50,000+ Miracles
           </h1>
@@ -86,7 +86,7 @@ const Miracles = () => {
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}
-              className="bg-clip-text font-extrabold typography-h3"
+              className="bg-clip-text font-extrabold typography-h2"
             >
               50,000+ Miracles
             </h1>

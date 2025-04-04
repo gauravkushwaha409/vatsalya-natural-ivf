@@ -52,7 +52,7 @@ const RequestCallModal: React.FC<RequestCallModalProps> = ({
       {isOpen && (
         <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-[100] text-black">
           <section className="bg-white p-10 relative">
-            <h1 className="typography-h4 mb-5 font-medium">
+            <h1 className="typography-h3 mb-5 font-medium">
               Request an Appointment
             </h1>
             <button

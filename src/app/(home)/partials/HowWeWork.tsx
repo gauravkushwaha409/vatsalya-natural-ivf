@@ -43,9 +43,9 @@ const HowWeWork = () => {
         </h2>
         <span className="bg-primary-500 w-[4rem] md:w-[8.5rem] h-px" />
       </div>
-      <h1 className="px-4 pb-8 md:pb-16 font-bold text-center typography-h4 md:typography-h3">
+      <h2 className="px-4 pb-8 md:pb-16 font-bold text-center typography-h2">
         Guiding You Through Every Step with Compassion & Care
-      </h1>
+      </h2>
 
       {/*  */}
       <div className="relative flex flex-col gap-16 md:gap-32 px-6 sm:px-10 md:px-20 lg:px-40">
@@ -83,7 +83,7 @@ const HowWeWork = () => {
               <span className="flex justify-center items-center bg-primary-50 rounded-full size-[2.5rem] md:size-[3.375rem] font-roboto font-medium text-primary-500 text-xl md:text-2xl">
                 {index + 1}
               </span>
-              <h2 className="font-semibold md:text-left text-center typography-h6 md:typography-h5">
+              <h2 className="font-semibold md:text-left text-center typography-h6 md:typography-h4">
                 {step.title}
               </h2>
               <p className="font-medium text-text-400 md:text-left text-center typography-paragraph-small md:typography-paragraph-regular">

@@ -26,7 +26,7 @@ const YourJourney = () => {
         <div className="p-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-4 lg:gap-40">
           {/* Text Section */}
           <div>
-            <h1 className="typography-h5 lg:typography-h3 font-bold leading-[150%] text-secondary-500 max-w-[525px]">
+            <h1 className="typography-h4 lg:typography-h2 font-bold leading-[150%] text-secondary-500 max-w-[525px]">
               Your Journey to Parenthood Begins Here
             </h1>
             <p className="typography-paragraph-regular lg:typography-paragraph-large text-text-400 font-medium max-w-[613px] py-4">
@@ -48,7 +48,7 @@ const YourJourney = () => {
               <p className="typography-paragraph-regular font-semibold text-black">
                 Trusted by
               </p>
-              <h1 className="typography-h3 font-bold text-black leading-[150%]">
+              <h1 className="typography-h2 font-bold text-black leading-[150%]">
                 10,000+
               </h1>
               <p className="typography-paragraph-regular font-semibold text-black">

@@ -15,7 +15,7 @@ const Blog = () => {
       <HeroBlog />
 
       <div className="padding">
-        <h1 className="font-semibold text-text-500 typography-h4">
+        <h1 className="font-semibold text-text-500 typography-h3">
           Latest Blogs
         </h1>
         <div className="gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-10">

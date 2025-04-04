@@ -85,7 +85,7 @@ const CalendarModal: React.FC<CalendarProps> = ({
               className="relative bg-white p-5 md:p-10 lg:px-10 rounded-lg w-11/12 lg:w-7/12"
               ref={modalRef1}
             >
-              <h1 className="font-medium text-start typography-h4">
+              <h1 className="font-medium text-start typography-h3">
                 Select Date & Time
               </h1>
               <button

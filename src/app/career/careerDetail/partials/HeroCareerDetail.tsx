@@ -20,7 +20,7 @@ const HeroCareerDetail = () => {
             ]}
           />
 
-          <h1 className="text-secondary-500 font-bold leading-[150%] typography-h3 pt-3 ">
+          <h1 className="text-secondary-500 font-bold leading-[150%] typography-h2 pt-3 ">
             Fertility Specialist
           </h1>
 

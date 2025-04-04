@@ -22,7 +22,7 @@ const BlogDescription = () => {
   return (
     <div>
       <div className="mb-10">
-        <h1 className="typography-h4 font-semibold text-text-500 mb-5">
+        <h1 className="typography-h3 font-semibold text-text-500 mb-5">
           Understanding the Journey to Parenthood
         </h1>
         <p className="typography-paragraph-large  text-text-500 text-justify leading-[150%]">
@@ -91,7 +91,7 @@ const BlogDescription = () => {
             />
           </svg>
         </span>
-        <h3 className="typography-h5 lg:typography-h3 font-medium text-text-500 leading-[150%]">
+        <h3 className="typography-h4 lg:typography-h2 font-medium text-text-500 leading-[150%]">
           Each IVF journey is unique, and success depends on various factors,
           including age, health, and lifestyle.
         </h3>

@@ -15,7 +15,7 @@ const FertilityCare = () => {
             </span>
             <div className=" bg-primary-400 h-px w-[148px]"></div>
           </div>
-          <p className="typography-h4 font-semibold text-text-500 text-center text-wrap w-full lg:w-1/2">
+          <p className="typography-h3 font-semibold text-text-500 text-center text-wrap w-full lg:w-1/2">
             Recognizing the Signs That Its Time to See a Fertility Specialist
           </p>
         </div>
@@ -32,7 +32,7 @@ const FertilityCare = () => {
                   />
                 </div>
                 <div className="flex flex-col w-10/12">
-                  <span className="typography-h5 text-primary-500 font-medium ">
+                  <span className="typography-h4 text-primary-500 font-medium ">
                     Trouble Conceiving
                   </span>
                   <span className="typography-paragraph-regular font-medium text-text-400 pt-1.5">

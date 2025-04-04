@@ -120,7 +120,7 @@ const MissionVision = () => {
                 </h2>
                 <div className="h-px bg-primary-500 flex-1 max-w-[148px]"></div>
               </div>
-              <h3 className="typography-h4 font-semibold text-text-500 ">
+              <h3 className="typography-h3 font-semibold text-text-500 ">
                 Transforming Lives Through Compassionate Fertility Care
               </h3>
               <p className="text-text-400 text-justify typography-paragraph-large font-medium leading-relaxed">

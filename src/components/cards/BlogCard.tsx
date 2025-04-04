@@ -38,7 +38,7 @@ const BlogCard: React.FC<IBlog> = ({ data }) => {
           </p>
           <div className="flex justify-between items-center">
             <div>
-              <h5 className="typography-h5 font-semibold text-[#1A1A1A] my-4 leading-[150%] line-clamp-1">
+              <h5 className="typography-h4 font-semibold text-[#1A1A1A] my-4 leading-[150%] line-clamp-1">
                 {data?.title}
               </h5>
             </div>

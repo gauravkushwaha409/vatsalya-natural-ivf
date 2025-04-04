@@ -67,7 +67,7 @@ const CommentForm = () => {
 
   return (
     <section className=" mt-10 mb-20">
-      <h1 className="typography-h5 font-medium text-[#333] pb-5">
+      <h1 className="typography-h4 font-medium text-[#333] pb-5">
         Leave a Comment
       </h1>
       <form

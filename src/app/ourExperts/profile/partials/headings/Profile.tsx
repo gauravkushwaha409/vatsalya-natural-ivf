@@ -49,7 +49,7 @@ const Profile = () => {
             </span>
             <div className="h-px bg-primary-400 w-21"></div>
           </div>
-          <h1 className="typography-h4 font-bold text-secondary-500">
+          <h1 className="typography-h3 font-bold text-secondary-500">
             {ivfTeamData[0]?.name}
           </h1>
           <span className="typography-paragraph-large text-text-500 font-semibold ">
@@ -91,7 +91,7 @@ const Profile = () => {
         </div>
       </div>
       <div className="py-5">
-        <h5 className="typography-h5 font-semibold text-text-500 py-5">
+        <h5 className="typography-h4 font-semibold text-text-500 py-5">
           Services Offered
         </h5>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

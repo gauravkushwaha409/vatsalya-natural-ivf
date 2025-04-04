@@ -16,9 +16,9 @@ const HeroSection = () => {
   return (
     <div className="relative flex justify-center padding h-full min-h-screen overflow-y-hidden">
       <div className="flex flex-col justify-center mt-16 lg:mt-[8.72rem] w-full h-full text-left">
-        <h2 className="font-bold text-primary-500 uppercase tracking-wide typography-paragraph-large">
+        <h1 className="font-bold text-primary-500 uppercase tracking-wide typography-h1">
           Vatsalya Natural IVF
-        </h2>
+        </h1>
         <div className="relative pt-5">
           <HeroTextAnimation text={text} />
           <motion.div
@@ -77,7 +77,7 @@ const HeroSection = () => {
             style={{
               background: "linear-gradient(90deg, #A0385A 0%, #3A142C 100%)",
             }}
-            className="shadow-box px-[2.75rem] py-[0.94rem] border-2 border-secondary-100 rounded-full w-max font-bold text-white cursor-pointer typography-paragraph-regular lg:typography-h5 z-[100]"
+            className="shadow-box px-[2.75rem] py-[0.94rem] border-2 border-secondary-100 rounded-full w-max font-bold text-white cursor-pointer typography-paragraph-regular lg:typography-h4 z-[100]"
           >
             Book an Appointment
           </button>

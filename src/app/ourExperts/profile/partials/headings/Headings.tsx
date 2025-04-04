@@ -14,7 +14,7 @@ const Headings = () => {
           ]}
         />
       </div>
-      <h1 className="typography-h3 font-bold text-secondary-500 mt-[10px]">
+      <h1 className="typography-h2 font-bold text-secondary-500 mt-[10px]">
         Profile
       </h1>
     </header>

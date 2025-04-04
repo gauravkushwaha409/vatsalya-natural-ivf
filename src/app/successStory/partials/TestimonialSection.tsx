@@ -34,7 +34,7 @@ const TestimonialSection = () => {
           />
         </div>
 
-        <h1 className="typography-h4 font-semibold tracking-tight ">
+        <h1 className="typography-h3 font-semibold tracking-tight ">
           Turning Dreams into Reality with Vatsalya&apos;s Care
         </h1>
       </div>
