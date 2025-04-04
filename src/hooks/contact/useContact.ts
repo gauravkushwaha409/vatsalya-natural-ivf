@@ -14,8 +14,12 @@ interface IContactFormValues {
 }
 
 export const useContactForm = () => {
-  const { data } = useGetDataQuery({
+  const { data: centerData } = useGetDataQuery({
     url: `${endpoints.center}`,
+  });
+
+  const { data: settingData } = useGetDataQuery({
+    url: `${endpoints.setting}`,
   });
   const [postContact, { isLoading }] = usePostDataMutation();
 
@@ -63,7 +67,8 @@ export const useContactForm = () => {
 
   return {
     formik,
-    data,
+    centerData,
     isLoading,
+    settingData,
   };
 };

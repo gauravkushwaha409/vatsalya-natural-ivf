@@ -1,10 +1,14 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import pic1 from "./../../../assests/contact/pic3.png";
 import pic2 from "./../../../assests/contact/pic4.png";
 import Faq from "../../../components/Faqs";
-import faqData from "@/data/faqsData";
+// import faqData from "@/data/faqsData";
+import { useContactForm } from "@/hooks/contact/useContact";
 const ContactFaqs = () => {
+  const { settingData } = useContactForm();
+  const setting = settingData?.data;
   return (
     <section className="flex lg:flex-row flex-col gap-10 py-20">
       <div className="flex w-full md:w-1/2 justify-start items-center">
@@ -40,7 +44,7 @@ const ContactFaqs = () => {
         <h1 className="typography-h5 lg:typography-h3 font-semibold pb-4">
           Answers to Your Fertility Questions
         </h1>
-        <Faq faq={faqData} />
+        <Faq faq={setting?.Faq} />
       </div>
     </section>
   );

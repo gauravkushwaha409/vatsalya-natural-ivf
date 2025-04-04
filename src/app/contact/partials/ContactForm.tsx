@@ -6,7 +6,7 @@ import pic2 from "./../../../assests/contact/pic2.png";
 import { useContactForm } from "@/hooks/contact/useContact";
 
 const ContactForm = () => {
-  const { formik, isLoading, data } = useContactForm();
+  const { formik, isLoading, centerData } = useContactForm();
 
   return (
     <div className=" flex lg:flex-row flex-col justify-center items-center gap-20 py-20">
@@ -102,7 +102,7 @@ const ContactForm = () => {
               value={formik.values.center}
             >
               <option value="">Select a center</option>
-              {data?.data?.records.map((center: any) => (
+              {centerData?.data?.records.map((center: any) => (
                 <option key={center.id} value={center.id}>
                   {center.name}
                 </option>

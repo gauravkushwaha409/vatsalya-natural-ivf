@@ -1,9 +1,12 @@
+"use client";
 import React from "react";
-import icon1 from "@/assests/icons/contactLocationIcon.svg";
 import Image from "next/image";
-import { locationData } from "@/data/locationData";
+import { useContactForm } from "@/hooks/contact/useContact";
 
 const Locations = () => {
+  const { centerData } = useContactForm();
+  const centers = centerData?.data;
+
   return (
     <section className="py-20">
       <div className="flex items-center gap-3 justify-center ">
@@ -17,23 +20,29 @@ const Locations = () => {
         We are located across the country
       </h1>
       <div className="my-5 grid grid-cols-1 md:grid-cols-4 gap-5">
-        {locationData?.map(({ phone, location, branch }, index) => (
+        {centers?.records.map((center: any, index: number) => (
           <div
-            className="bg-white rounded-lg p-5 flex gap-5 shadow-md hover:bg-primary-50 transition-colors duration-300 delay-75  cursor-pointer "
+            className="bg-white rounded-lg p-5 flex gap-5 shadow-md hover:bg-primary-50 transition-colors duration-300 delay-75  cursor-pointer"
             key={index}
           >
             <div className="w-10">
-              <Image src={icon1} alt="icon" className="w-full h-full" />
+              <Image
+                src={center.icon}
+                alt="icon"
+                width={40}
+                height={40}
+                className="w-full h-full"
+              />
             </div>
             <div className="flex flex-col gap-2">
               <p className="text-text-500 font-semibold typography-paragraph-regular">
-                {branch}
+                {center?.branch}
               </p>
               <p className="text-text-400 typography-paragraph-small">
-                {location}
+                {center?.location}
               </p>
               <p className="text-text-400 typography-paragraph-small">
-                {phone}
+                {center?.phone.join(", ")}
               </p>
             </div>
           </div>
