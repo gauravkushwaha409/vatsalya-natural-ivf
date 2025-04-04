@@ -15,9 +15,9 @@ const FertilityCare = () => {
             </span>
             <div className=" bg-primary-400 h-px w-[148px]"></div>
           </div>
-          <p className="typography-h3 font-semibold text-text-500 text-center text-wrap w-full lg:w-1/2">
+          <h2 className="typography-h2 font-semibold text-text-500 text-center text-wrap w-full lg:w-1/2">
             Recognizing the Signs That Its Time to See a Fertility Specialist
-          </p>
+          </h2>
         </div>
 
         <div className="p-2 lg:p-10 flex flex-col lg:flex-row gap-10  ">

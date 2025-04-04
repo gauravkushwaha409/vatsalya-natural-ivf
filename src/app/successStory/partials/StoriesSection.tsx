@@ -25,7 +25,7 @@ const StoriesSection = () => {
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
         </div>
 
-        <h1 className="typography-h3 font-semibold tracking-tight ">
+        <h1 className="typography-h2 font-semibold tracking-tight ">
           Real journeys of couples who overcame fertility challenges with
           Vatsalya’s expert care
         </h1>

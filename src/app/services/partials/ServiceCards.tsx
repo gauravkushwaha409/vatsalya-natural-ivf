@@ -40,9 +40,9 @@ const ServiceCards = () => {
               <div className="flex flex-col gap-2 pt-4">
                 <div className="flex w-full justify-between">
                   {" "}
-                  <h5 className="typography-h4 font-bold">
+                  <h2 className="typography-h3 font-bold">
                     Infertility Diagnosis
-                  </h5>{" "}
+                  </h2>{" "}
                   <button className="cursor-pointer">
                     <IoArrowForwardOutline
                       size={24}

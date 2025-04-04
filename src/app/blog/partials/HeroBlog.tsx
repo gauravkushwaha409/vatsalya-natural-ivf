@@ -38,9 +38,9 @@ const HeroBlog = () => {
           <p className="text-text-400 typography-paragraph-regular">Feature</p>
 
           {/* Heading */}
-          <h1 className="my-3.5 max-w-lg font-bold text-secondary-500 leading-[1.5] typography-h2">
+          <h2 className="my-3.5 max-w-lg font-bold text-secondary-500 leading-[1.5] typography-h2">
             A New Beginning: Your Journey to Parenthood
-          </h1>
+          </h2>
 
           {/* Subheading */}
           <p className="mb-10 text-text-400 typography-paragraph-large">

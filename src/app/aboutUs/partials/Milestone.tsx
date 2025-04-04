@@ -40,9 +40,9 @@ const Milestone = () => {
                 </h2>
                 <div className="h-px bg-primary-500 flex-1 max-w-[148px]"></div>
               </div>
-              <h3 className="typography-h3 font-semibold text-text-500 ">
+              <h2 className="typography-h2 font-semibold text-text-500 ">
                 A legacy of care and success
-              </h3>
+              </h2>
               <p className="text-text-400 typography-paragraph-large leading-[150%] font-medium">
                 Our experience and dedication continue to bring hope and joy to
                 those who trust us with their dreams.

@@ -38,7 +38,7 @@ const AboutHero = () => {
           />
 
           {/* Heading */}
-          <h1 className="mb-4 font-bold typography-h2">About Us</h1>
+          <h1 className="mb-4 font-bold typography-h1">About Us</h1>
           {/* Subheading */}
           <p className="mb-10 font-medium typography-paragraph-large">
             We are dedicated to turning dreams of parenthood into reality

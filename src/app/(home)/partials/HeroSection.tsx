@@ -16,7 +16,7 @@ const HeroSection = () => {
   return (
     <div className="relative flex justify-center padding h-full min-h-screen overflow-y-hidden">
       <div className="flex flex-col justify-center mt-16 lg:mt-[8.72rem] w-full h-full text-left">
-        <h1 className="font-bold text-primary-500 uppercase tracking-wide typography-h1">
+        <h1 className="font-bold text-primary-500 uppercase tracking-wide typography-paragraph-large">
           Vatsalya Natural IVF
         </h1>
         <div className="relative pt-5">

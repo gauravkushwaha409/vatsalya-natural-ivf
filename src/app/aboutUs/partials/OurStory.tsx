@@ -15,9 +15,9 @@ const OurStory = () => {
               </h2>
               <div className="h-px bg-primary-500 flex-1 max-w-[148px]"></div>
             </div>
-            <h3 className="typography-h3 font-semibold text-text-500 ">
+            <h2 className="typography-h2 font-semibold text-text-500 ">
               A Journey Rooted in Hope and Expertise
-            </h3>
+            </h2>
 
             <div className="space-y-4 text-text-400 text-justify typography-paragraph-large font-medium">
               <p className="leading-relaxed ">

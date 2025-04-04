@@ -62,9 +62,9 @@ const Culture = () => {
             <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
           </div>
 
-          <h1 className="typography-h3 font-semibold tracking-tight ">
+          <h2 className="typography-h2 font-semibold tracking-tight ">
             Building a Supportive Environment for Parenthood
-          </h1>
+          </h2>
 
           <p className="text-text-400 typography-paragraph-large leading-[150%] font-medium max-w-7xl">
             At Vatsalya Natural IVF, we foster a culture of care, prioritizing

@@ -19,7 +19,7 @@ const BlogCard: React.FC<IBlog> = ({ data }) => {
 
   return (
     <div>
-      <div className="max-w-md rounded-lg bg-white transition-all duration-300 ease-in-out hover:shadow-lg  cursor-pointer">
+      <div className="max-w-md rounded-lg bg-white transition-all duration-300 ease-in-out hover:shadow-lg  ">
         <div className="">
           {/* Image */}
           <Image
@@ -36,16 +36,16 @@ const BlogCard: React.FC<IBlog> = ({ data }) => {
           <p className="typography-paragraph-regular text-secondary-500 font-bold">
             {data?.date}
           </p>
-          <div className="flex justify-between items-center">
-            <div>
-              <h5 className="typography-h4 font-semibold text-[#1A1A1A] my-4 leading-[150%] line-clamp-1">
-                {data?.title}
-              </h5>
-            </div>
-            <div>
-              <IoArrowForwardOutline size={24} className="-rotate-40" />
-            </div>
-          </div>
+          <button
+            className="flex justify-between items-center w-full cursor-pointer"
+            onClick={() => router.push("/blog/blogDetail")}
+          >
+            <h5 className="typography-h3 font-semibold text-[#1A1A1A] my-4 leading-[150%] line-clamp-1">
+              {data?.title}
+            </h5>
+
+            <IoArrowForwardOutline size={24} className="-rotate-40" />
+          </button>
           <p className="typography-paragraph-regular font-medium text-[#667085] line-clamp-2 ">
             {data?.desc}
           </p>

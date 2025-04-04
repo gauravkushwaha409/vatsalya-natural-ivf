@@ -52,9 +52,9 @@ const Profile = () => {
           <h1 className="typography-h3 font-bold text-secondary-500">
             {ivfTeamData[0]?.name}
           </h1>
-          <span className="typography-paragraph-large text-text-500 font-semibold ">
+          <h2 className="typography-paragraph-large text-text-500 font-semibold ">
             Senior Fertility Specialist{" "}
-          </span>
+          </h2>
 
           <div className="flex items-center gap-2 ">
             <div>
@@ -108,9 +108,9 @@ const Profile = () => {
                   />
                 </div>
                 <div>
-                  <p className="typography-paragraph-large font-semibold text-text-500">
+                  <h2 className="typography-paragraph-large font-semibold text-text-500">
                     {items?.title}
-                  </p>
+                  </h2>
                   <span className="typography-paragraph-regular text-text-400 font-normal pt-2">
                     {items?.description}
                   </span>
