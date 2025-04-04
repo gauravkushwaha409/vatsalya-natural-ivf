@@ -1,32 +1,24 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { IoIosQuote } from "react-icons/io";
-import fb from "@/assests/blogDetail/fb.png";
-import twitter from "@/assests/blogDetail/twitter.png";
-import evelope from "@/assests/blogDetail/Envelope.png";
-import share from "@/assests/blogDetail/share.png";
-import Image from "next/image";
-import Link from "next/link";
-import { CiHeart } from "react-icons/ci";
 
-const socialMedia = [
-  {
-    image: fb,
-    link: "#",
-  },
-  {
-    image: twitter,
-    link: "#",
-  },
-  {
-    image: evelope,
-    link: "#",
-  },
-  {
-    image: share,
-    link: "#",
-  },
-];
+import { CiHeart } from "react-icons/ci";
+import SocialMediaShareModal from "@/components/modals/SocialMediaShareModal";
+import { FaFacebook, FaTwitter } from "react-icons/fa6";
+import { BsEnvelope } from "react-icons/bs";
+import { IoShareSocial } from "react-icons/io5";
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  TwitterShareButton,
+} from "react-share";
+
 const BlogDescription = () => {
+  const [openModal, setOpenModal] = useState(false);
+  const [shareLink, setShareLink] = useState("");
+
+  const currentUrl = typeof window !== "undefined" ? window.location.href : "";
+
   return (
     <div>
       <div className="mb-10">
@@ -157,24 +149,35 @@ const BlogDescription = () => {
               </span>
             </div>
           </div>
+
           {/* social media icons  */}
           <div className="flex gap-4">
-            {socialMedia.map((item, index) => {
-              return (
-                <Link href={item.link} key={index}>
-                  <Image
-                    src={item.image}
-                    alt="icon"
-                    width={22}
-                    height={22}
-                    className="w-[22px] h-[22px] object-cover shrink-0"
-                  />
-                </Link>
-              );
-            })}
+            <FacebookShareButton url={currentUrl}>
+              <FaFacebook className="cursor-pointer" size={22} />
+            </FacebookShareButton>
+            <TwitterShareButton url={currentUrl}>
+              <FaTwitter className="cursor-pointer" size={22} />
+            </TwitterShareButton>
+            <EmailShareButton url={currentUrl}>
+              <BsEnvelope className="cursor-pointer" size={22} />
+            </EmailShareButton>
+            <IoShareSocial
+              className="cursor-pointer"
+              size={22}
+              onClick={() => {
+                setOpenModal(true);
+                setShareLink(currentUrl);
+              }}
+            />
           </div>
         </div>
       </div>
+
+      <SocialMediaShareModal
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
+        shareLink={shareLink}
+      />
     </div>
   );
 };

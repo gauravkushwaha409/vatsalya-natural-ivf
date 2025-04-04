@@ -22,7 +22,7 @@ const CallToActions = () => {
 
           {/* Content */}
           <div className="relative  z-10 flex flex-col items-center justify-center  p-16 rounded-2xl text-white px-20 text-center backdrop-blur-sm bg-white/30 w-[940px] ">
-            <h3 className="typography-h3  mb-5 font-bold text-secondary-500">
+            <h3 className="typography-h5 lg:typography-h3  mb-5 font-bold text-secondary-500">
               Struggling with Infertility? We’re Here to Help, Every Step of the
               Way.
             </h3>
