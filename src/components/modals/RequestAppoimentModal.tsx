@@ -7,7 +7,7 @@ import "@/app/globals.css";
 import useClickOutside from "@/hooks/useClickOutside";
 
 import { motion } from "framer-motion";
-import CalendarModal from "./CalenderModal";
+// import CalendarModal from "./CalenderModal";
 import { createPortal } from "react-dom";
 
 interface RequestAppoimentModalProps {
@@ -240,12 +240,12 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
             </motion.div>
           </div>
         )}
-        <CalendarModal
+        {/* <CalendarModal
           modalOpen={modalOpen}
           onCloseModal={onCloseModal}
           setModalOpen={setModalOpen}
           selectDoctor={selectDoctor}
-        />
+        /> */}
       </>,
       document.body
     );

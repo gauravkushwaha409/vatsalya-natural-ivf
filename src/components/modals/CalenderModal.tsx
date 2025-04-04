@@ -7,19 +7,20 @@ import { createPortal } from "react-dom";
 import RenderCells from "../RenderCells";
 import ConfirmationModal from "./ConfirmationModal";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { IFormValues } from "@/app/(home)/modals/RequestAppoimentModal";
 
 interface CalendarProps {
   modalOpen: boolean;
   onCloseModal: () => void;
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  selectDoctor?: string;
+  data?: IFormValues;
 }
 
 const CalendarModal: React.FC<CalendarProps> = ({
   modalOpen,
   onCloseModal,
   setModalOpen,
-  selectDoctor,
+  data,
 }) => {
   const dummyAvailableDates = [
     "2025-03-01",
@@ -69,7 +70,6 @@ const CalendarModal: React.FC<CalendarProps> = ({
     );
   };
   const handleSelectTime = () => {
-    console.log(selectDoctor);
     setModalOpen(false);
     setOpenModal(true);
   };
