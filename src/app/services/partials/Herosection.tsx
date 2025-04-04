@@ -30,7 +30,7 @@ const Herosection = () => {
             {/* Breadcrumb need to be redo again*/}
 
             {/* Heading */}
-            <h1 className="mb-4 font-bold typography-h2">Services</h1>
+            <h1 className="mb-4 font-bold typography-h1">Services</h1>
             {/* Subheading */}
             <p className="mb-10 font-medium typography-paragraph-large">
               Bringing hope to families with expert fertility care and

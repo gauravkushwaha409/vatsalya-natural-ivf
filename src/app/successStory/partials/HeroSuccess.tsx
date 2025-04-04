@@ -37,7 +37,7 @@ const HeroSuccess = () => {
             className="top-4 absolute"
           />{" "}
           {/* Heading */}
-          <h1 className="mb-4 font-bold typography-h2">Success Stories</h1>
+          <h1 className="mb-4 font-bold typography-h1">Success Stories</h1>
           {/* Subheading */}
           <p className="mb-10 font-medium typography-paragraph-large">
             Real journeys of couples who overcame fertility challenges with
