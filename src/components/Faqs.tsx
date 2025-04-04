@@ -3,7 +3,8 @@ import { useState } from "react";
 
 export interface FAQOptions {
   question: string;
-  answer: string;
+  answer?: string;
+  description?: string;
   keywords?: string[];
 }
 

@@ -5,7 +5,6 @@ import ContactForm from "./partials/ContactForm";
 import Locations from "./partials/Locations";
 import ContactMap from "./partials/ContactMap";
 import ContactFaqs from "./partials/ContactFaqs";
-import { useContactForm } from "@/hooks/contact/useContact";
 
 const page = () => {
   return (

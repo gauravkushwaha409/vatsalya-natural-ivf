@@ -4,6 +4,7 @@ import Image from "next/image";
 import pic1 from "./../../../assests/contact/pic1.png";
 import pic2 from "./../../../assests/contact/pic2.png";
 import { useContactForm } from "@/hooks/contact/useContact";
+import { ICenter } from "@/interface/center";
 
 const ContactForm = () => {
   const { formik, isLoading, centerData } = useContactForm();
@@ -102,7 +103,7 @@ const ContactForm = () => {
               value={formik.values.center}
             >
               <option value="">Select a center</option>
-              {centerData?.data?.records.map((center: any) => (
+              {centerData?.data?.records.map((center: ICenter) => (
                 <option key={center.id} value={center.id}>
                   {center.name}
                 </option>

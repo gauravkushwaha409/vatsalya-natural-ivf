@@ -1,8 +1,8 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useGetDataQuery, usePostDataMutation } from "@/api/api";
-import { showErrorMessage, showSuccessMessage } from "@/utils/toast";
-import { handleErrors } from "@/helper/error-helper";
+import { showSuccessMessage } from "@/utils/toast";
+import { ApiResponse, handleErrors } from "@/helper/error-helper";
 import { endpoints } from "@/api/endpoints";
 
 interface IContactFormValues {
@@ -44,14 +44,13 @@ export const useContactForm = () => {
     }),
     onSubmit: async (values) => {
       try {
-        const response = (await postContact({
+        const response = await postContact({
           url: `${endpoints.contactus}`,
           data: values,
-        })) as any;
+        });
 
         if (response.error) {
-          handleErrors(response, formik.setErrors);
-          showErrorMessage(response.error.data.message);
+          handleErrors(response as ApiResponse, formik.setErrors);
           return;
         }
 

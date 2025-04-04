@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { useContactForm } from "@/hooks/contact/useContact";
+import { ICenter } from "@/interface/center";
 
 const Locations = () => {
   const { centerData } = useContactForm();
@@ -20,7 +21,7 @@ const Locations = () => {
         We are located across the country
       </h1>
       <div className="my-5 grid grid-cols-1 md:grid-cols-4 gap-5">
-        {centers?.records.map((center: any, index: number) => (
+        {centers?.records.map((center: ICenter, index: number) => (
           <div
             className="bg-white rounded-lg p-5 flex gap-5 shadow-md hover:bg-primary-50 transition-colors duration-300 delay-75  cursor-pointer"
             key={index}
@@ -35,9 +36,6 @@ const Locations = () => {
               />
             </div>
             <div className="flex flex-col gap-2">
-              <p className="text-text-500 font-semibold typography-paragraph-regular">
-                {center?.branch}
-              </p>
               <p className="text-text-400 typography-paragraph-small">
                 {center?.location}
               </p>

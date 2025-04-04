@@ -2,8 +2,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { usePostDataMutation } from "@/api/api";
 import { endpoints } from "@/api/endpoints";
-import { handleErrors } from "@/helper/error-helper";
-import { showErrorMessage, showSuccessMessage } from "@/utils/toast";
+import { ApiResponse, handleErrors } from "@/helper/error-helper";
+import { showSuccessMessage } from "@/utils/toast";
 
 interface IRequestCallValues {
   name: string;
@@ -33,14 +33,13 @@ export const useRequestCall = () => {
     }),
     onSubmit: async (values) => {
       try {
-        const response = (await postRequestCall({
+        const response = await postRequestCall({
           url: `${endpoints.request_call}`,
           data: values,
-        })) as any;
+        });
 
         if (response.error) {
-          handleErrors(response, formik.setErrors);
-          showErrorMessage(response.error.data.message);
+          handleErrors(response as ApiResponse, formik.setErrors);
           return;
         }
 
