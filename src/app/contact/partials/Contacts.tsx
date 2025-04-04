@@ -39,7 +39,7 @@ const contactData = [
 
 const Contacts = () => {
   return (
-    <section className="grid grid-cols-2 lg:grid-cols-4 justify-center items-center gap-10 lg:gap-20 pb-10">
+    <section className="grid grid-cols-2 lg:grid-cols-4 justify-start  gap-10 lg:gap-2 pb-10   border border-red-500">
       {contactData?.map(({ id, icon, label, value }) => (
         <div
           key={id}

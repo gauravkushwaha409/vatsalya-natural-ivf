@@ -45,9 +45,9 @@ const RenderCells: React.FC<CalendarProps> = ({
       const getDayClasses = () => {
         switch (true) {
           case isSelected:
-            return "bg-secondary-500 rounded-full shadow-box text-white";
+            return "bg-secondary-500 rounded-full shadow-box text-white w-10";
           case isAviable:
-            return "bg-secondary-50   rounded-full shadow-lg text-secondary-500 border border-secondary-100";
+            return "bg-secondary-50 w-10  rounded-full shadow-lg text-secondary-500 border border-secondary-100";
           case isInCurrentMonth:
             return "!pointer-events-none";
           default:

@@ -73,11 +73,11 @@ const HeroSection = () => {
         </p>
         <div className="flex items-center gap-6 mt-[2.44rem] h-full">
           <button
-            onClick={handleAppointmentClick}
+            onClick={() => handleAppointmentClick()}
             style={{
               background: "linear-gradient(90deg, #A0385A 0%, #3A142C 100%)",
             }}
-            className="shadow-box px-[2.75rem] py-[0.94rem] border-2 border-secondary-100 rounded-full w-max font-bold text-white cursor-pointer typography-paragraph-regular lg:typography-h5"
+            className="shadow-box px-[2.75rem] py-[0.94rem] border-2 border-secondary-100 rounded-full w-max font-bold text-white cursor-pointer typography-paragraph-regular lg:typography-h5 z-[100]"
           >
             Book an Appointment
           </button>

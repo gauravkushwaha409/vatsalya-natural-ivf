@@ -68,7 +68,7 @@ const ServiceForm = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.name}
-                placeholder="Ahmed Al Farsi"
+                placeholder="e.g. Sujata Khatri "
               />
               {formik.touched.name && formik.errors.name && (
                 <p className="text-red-500 text-sm">{formik.errors.name}</p>
@@ -88,7 +88,7 @@ const ServiceForm = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.phone}
-                placeholder="+971 50 123 4567"
+                placeholder="e.g. 9876543210"
               />
               {formik.touched.phone && formik.errors.phone && (
                 <p className="text-red-500 text-sm">{formik.errors.phone}</p>
@@ -108,7 +108,7 @@ const ServiceForm = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.address}
-                placeholder="Burj Khalifa, Downtown Dubai"
+                placeholder="e.g. Gaushala, Kathmandu "
               />
               {formik.touched.address && formik.errors.address && (
                 <p className="text-red-500 text-sm">{formik.errors.address}</p>
@@ -172,7 +172,7 @@ const ServiceForm = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.message}
-                placeholder="Looking for a luxury apartment in Dubai Marina"
+                placeholder=" message"
               />
               {formik.touched.message && formik.errors.message && (
                 <p className="text-red-500 text-sm">{formik.errors.message}</p>

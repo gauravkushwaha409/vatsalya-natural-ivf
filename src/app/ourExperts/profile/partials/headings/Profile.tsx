@@ -1,13 +1,18 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { ivfTeamData } from "@/data/expertise";
 import buterflysvg from "@/assests/icons/butterflyExpertise.svg";
 import { MdLocationPin } from "react-icons/md";
 import { IoMdBriefcase } from "react-icons/io";
 import { FaGraduationCap } from "react-icons/fa";
 import icon from "@/assests/icons/experts/ivf.svg";
+import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
+import RequestCallModal from "@/components/modals/RequestCallModal";
 
 const Profile = () => {
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [openCallModal, setOpenCallModal] = useState<boolean>(false);
   return (
     <section className="py-5 bg-background-100 padding">
       <div className="flex flex-col lg:flex-row gap-10">
@@ -116,13 +121,28 @@ const Profile = () => {
         </div>
       </div>
       <div className="flex  items-center gap-5">
-        <button className="bg-secondary-500 hover:bg-secondary-600 text-white py-2 lg:py-4 px-6 lg:px-10  rounded-full typography-paragraph-regular">
+        <button
+          onClick={() => setOpenModal(true)}
+          className="bg-secondary-500 cursor-pointer hover:bg-secondary-600 text-white py-2 lg:py-4 px-6 lg:px-10  rounded-full typography-paragraph-regular"
+        >
           Consult Now
         </button>
-        <button className=" typography-paragraph-regular font-semibold  text-secondary-500 border border-secondary-100 rounded-full p-2 lg:p-4 px-5">
+        <button
+          onClick={() => setOpenCallModal(true)}
+          className=" typography-paragraph-regular cursor-pointer font-semibold  text-secondary-500 border border-secondary-100 rounded-full p-2 lg:p-4 px-5"
+        >
           Call Back Request
         </button>
       </div>
+      <RequestAppoimentModal
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
+      />
+      <RequestCallModal
+        isOpen={openCallModal}
+        onClose={() => setOpenCallModal(false)}
+        setIsOpen={setOpenCallModal}
+      />
     </section>
   );
 };

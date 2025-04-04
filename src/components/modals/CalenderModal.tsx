@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import RenderCells from "../RenderCells";
 import ConfirmationModal from "./ConfirmationModal";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 interface CalendarProps {
   modalOpen: boolean;
@@ -32,7 +33,7 @@ const CalendarModal: React.FC<CalendarProps> = ({
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [openModal, setOpenModal] = useState<boolean>(false);
   const modalRef1 = useClickOutside(onCloseModal);
-
+  const isSmall = useMediaQuery("(width <= 40rem)");
   const renderHeader = () => {
     const monthYear = format(currentDate, "MMMM yyyy");
 
@@ -81,7 +82,7 @@ const CalendarModal: React.FC<CalendarProps> = ({
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.3 }}
-              className="relative bg-white p-5 md:p-10 lg:px-10 rounded-lg w-7/12"
+              className="relative bg-white p-5 md:p-10 lg:px-10 rounded-lg w-11/12 lg:w-7/12"
               ref={modalRef1}
             >
               <h1 className="font-medium text-start typography-h4">
@@ -93,8 +94,8 @@ const CalendarModal: React.FC<CalendarProps> = ({
               >
                 x
               </button>
-              <div className="flex justify-center gap-10 mt-5">
-                <motion.div className="w-[50%] aspect-square">
+              <div className="flex flex-col lg:flex-row justify-center gap-10 mt-5">
+                <motion.div className="w-[100%] lg:w-[50%] aspect-square">
                   <div>{renderHeader()}</div>
                   <div>{renderDays()}</div>
                   <div>
@@ -109,10 +110,10 @@ const CalendarModal: React.FC<CalendarProps> = ({
                 </motion.div>
                 {showTime && (
                   <motion.div
-                    initial={{ width: "0", opacity: 0 }}
-                    animate={{ width: "40%", opacity: 1 }}
+                    initial={{ width: isSmall ? "100%" : "0", opacity: 0 }}
+                    animate={{ width: isSmall ? "100%" : "40%", opacity: 1 }}
                     transition={{ duration: 1.2 }}
-                    className="space-y-3 bg-white mt-10"
+                    className=" bg-white mt-0 lg:mt-10 flex flex-row lg:flex-col justify-center items-center gap-5"
                   >
                     {Array.from({ length: 3 }).map((_, index) => (
                       <button

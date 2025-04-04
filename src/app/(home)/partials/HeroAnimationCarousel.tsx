@@ -13,7 +13,7 @@ const HeroAnimationCarousel: React.FC<{ images: string[] }> = ({ images }) => {
     return () => clearInterval(next);
   }, [images.length]);
 
-  const thumbnailWidth = 100;
+  const thumbnailWidth = isSmall ? 70 : 100;
   const gap = 10;
   const inactiveCount = images.length - 1;
   const totalWidth = inactiveCount * thumbnailWidth + (inactiveCount - 1) * gap;
@@ -31,7 +31,7 @@ const HeroAnimationCarousel: React.FC<{ images: string[] }> = ({ images }) => {
           } else {
             const position = indexOffset - 1;
             leftPosition = isSmall
-              ? `calc(60% - ${totalWidth / 2}px + ${
+              ? `calc(65% - ${totalWidth / 2}px + ${
                   position * (thumbnailWidth + gap)
                 }px)`
               : `calc(50% - ${totalWidth / 2}px + ${
@@ -43,12 +43,8 @@ const HeroAnimationCarousel: React.FC<{ images: string[] }> = ({ images }) => {
             <li
               key={i}
               style={{
-                left: isActive ? (isSmall ? "100%" : "0") : leftPosition,
-                transform: isActive
-                  ? isSmall
-                    ? "translateX(-100%)"
-                    : "translateX(0)"
-                  : "translateX(0%)",
+                left: isActive ? (isSmall ? "0%" : "0") : leftPosition,
+
                 width: isActive
                   ? isSmall
                     ? "100%"
@@ -62,11 +58,11 @@ const HeroAnimationCarousel: React.FC<{ images: string[] }> = ({ images }) => {
                   : "all 2500ms ease-in-out",
                 // transition: "z-index 0s",
               }}
-              className={`absolute transition-all border  
+              className={`absolute transition-all border  overflow-hidden
                 ${
                   isActive
                     ? "bottom-5 lg:top-0  h-[calc(100%-200px-5.5rem)] lg:h-[calc(100%-120px-1.5rem)] border-transparent  "
-                    : "bottom-0 lg:top-[calc(100%-180px-0.5rem)] h-[90px] lg:h-[110px] aspect-square  border-secondary-200"
+                    : "bottom-0 lg:top-[calc(100%-180px-0.5rem)] h-[70px] lg:h-[110px] aspect-square  border-secondary-200"
                 } `}
             >
               <Image

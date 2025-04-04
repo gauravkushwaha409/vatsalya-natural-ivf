@@ -25,34 +25,39 @@ const ServiceCards = () => {
       </div>
       <div className="py-10 pb-20 grid lg:grid-cols-3 xl:grid-col-4  gap-10">
         {Array.from({ length: 10 }, (_, index) => (
-          <div
-            className="aspect-[400/340] relative rounded-tl-[50px] rounded-br-[50px] overflow-hidden bg-primary-50 hover:bg-primary-100 justify-center flex flex-col p-10 duration-300 transition-colors group"
+          <Link
             key={index}
+            href="/services/details"
+            className="flex items-center justify-between"
           >
-            <div className="h-28 w-28">
-              <Image src={icon1} alt="icons1" className="w-full h-full" />
+            <div
+              className="aspect-[400/340] relative rounded-tl-[50px] rounded-br-[50px] overflow-hidden bg-primary-50 hover:bg-primary-100 justify-center flex flex-col p-7 lg:p-10 duration-300 transition-colors group"
+              key={index}
+            >
+              <div className="h-28 w-28">
+                <Image src={icon1} alt="icons1" className="w-full h-full" />
+              </div>
+              <div className="flex flex-col gap-2 pt-4">
+                <div className="flex w-full justify-between">
+                  {" "}
+                  <h5 className="typography-h5 font-bold">
+                    Infertility Diagnosis
+                  </h5>{" "}
+                  <button className="cursor-pointer">
+                    <IoArrowForwardOutline
+                      size={24}
+                      className="-rotate-40 text-primary-500"
+                    />
+                  </button>
+                </div>
+                <span className="typography-paragraph-regular font-medium text-text-400 pt-1.5">
+                  Expand your family possibilities with our confidential,
+                  compassionate, and expertly guided donor treatment services,
+                  designed to support you.
+                </span>
+              </div>
             </div>
-            <div className="flex flex-col gap-2 pt-4">
-              <Link
-                href="/services/details"
-                className="flex items-center justify-between"
-              >
-                <h5 className="typography-h5 font-bold">
-                  Infertility Diagnosis
-                </h5>{" "}
-                <button className="cursor-pointer">
-                  <IoArrowForwardOutline
-                    size={24}
-                    className="-rotate-40 text-primary-500"
-                  />
-                </button>
-              </Link>
-              <span className="typography-paragraph-regular font-medium text-text-400 pt-1.5">
-                Identify the causes of infertility with expert diagnostics for a
-                personalized treatment plan.
-              </span>
-            </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
