@@ -1,44 +1,9 @@
 "use client";
 import React from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-
-interface IFormValues {
-  name: string;
-  phone: string;
-  message: string;
-}
+import { useRequestCall } from "@/hooks/requestcall/useRequestCall";
 
 const RequestCallForm = () => {
-  const formik = useFormik<IFormValues>({
-    initialValues: {
-      name: "",
-      phone: "",
-      message: "",
-    },
-    validationSchema: Yup.object({
-      name: Yup.string()
-        .required("Name is required")
-        .min(2, "Name must be at least 2 characters"),
-
-      phone: Yup.string()
-        .required("Phone is required")
-        .matches(/^[0-9]{10}$/, "Invalid phone format"),
-
-      message: Yup.string()
-        .required("Message is required")
-        .min(10, "Message must be at least 10 characters"),
-    }),
-    onSubmit: async (values, { resetForm }) => {
-      try {
-        resetForm();
-        alert("Form submitted successfully!");
-      } catch (error) {
-        console.error("Submission error:", error);
-        alert("Error submitting form");
-      }
-    },
-  });
+  const { formik, isLoading } = useRequestCall();
 
   return (
     <section className="lg:w-3xl">
@@ -125,7 +90,7 @@ const RequestCallForm = () => {
           type="submit"
           className="flex self-end col-span-2 w-fit items-center bg-secondary-500 py-3 px-6 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular cursor-pointer"
         >
-          Request a Call
+          {isLoading ? "Submitting..." : "Request a Call"}
         </button>
       </form>
     </section>

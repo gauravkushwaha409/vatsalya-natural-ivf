@@ -3,8 +3,9 @@ import { useState } from "react";
 
 export interface FAQOptions {
   question: string;
-  description: string;
-  keywords: string[];
+  answer?: string;
+  description?: string;
+  keywords?: string[];
 }
 
 const Faq: React.FC<{ faq: FAQOptions[] }> = ({ faq }) => {
@@ -53,9 +54,9 @@ const Faq: React.FC<{ faq: FAQOptions[] }> = ({ faq }) => {
                     opacity: isOpen ? 1 : 0,
                   }}
                 >
-                  {faqItem?.description && (
+                  {faqItem?.answer && (
                     <p className="mt-2 pb-2 pl-3 text-text-400 transition-all duration-300">
-                      {faqItem?.description}
+                      {faqItem?.answer}
                     </p>
                   )}
                 </div>

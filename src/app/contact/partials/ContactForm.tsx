@@ -1,42 +1,14 @@
 "use client";
 import React from "react";
-import * as Yup from "yup";
-import { useFormik } from "formik";
 import Image from "next/image";
 import pic1 from "./../../../assests/contact/pic1.png";
 import pic2 from "./../../../assests/contact/pic2.png";
-interface IFormValues {
-  name: string;
-  phone: string;
-  address: string;
-  message: string;
-  center: string;
-}
-const ContactForm = () => {
-  const formik = useFormik<IFormValues>({
-    initialValues: {
-      name: "",
-      phone: "",
-      address: "",
-      center: "",
-      message: "",
-    },
-    validationSchema: Yup.object({
-      name: Yup.string()
-        .required("Name is required")
-        .min(3, "Name must be at least 3 characters"),
-      phone: Yup.string().required("Phone number is required"),
-      address: Yup.string().required("Address is required"),
-      center: Yup.string().required("Center selection is required"),
+import { useContactForm } from "@/hooks/contact/useContact";
+import { ICenter } from "@/interface/center";
 
-      message: Yup.string()
-        .required("Message is required")
-        .min(10, "Message must be at least 10 characters"),
-    }),
-    onSubmit: async (values) => {
-      console.log(values);
-    },
-  });
+const ContactForm = () => {
+  const { formik, isLoading, centerData } = useContactForm();
+
   return (
     <div className=" flex lg:flex-row flex-col justify-center items-center gap-20 py-20">
       <div className="  w-full md:w-1/2  flex flex-col gap-5">
@@ -131,9 +103,11 @@ const ContactForm = () => {
               value={formik.values.center}
             >
               <option value="">Select a center</option>
-              <option value="Dubai Marina">Dubai Marina</option>
-              <option value="Jumeirah Beach">Jumeirah Beach</option>
-              <option value="Downtown Dubai">Downtown Dubai</option>
+              {centerData?.data?.records.map((center: ICenter) => (
+                <option key={center.id} value={center.id}>
+                  {center.name}
+                </option>
+              ))}
             </select>
             {formik.touched.center && formik.errors.center && (
               <p className="text-red-500 text-sm">{formik.errors.center}</p>
@@ -169,7 +143,7 @@ const ContactForm = () => {
               type="submit"
               className="bg-secondary-500 text-white py-2 px-4 rounded-full hover:bg-secondary-600 transition duration-300 ease-in-out min-w-max w-full"
             >
-              Submit
+              {isLoading ? "Submitting..." : "Submit"}
             </button>
           </div>
         </form>

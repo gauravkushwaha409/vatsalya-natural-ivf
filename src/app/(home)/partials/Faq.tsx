@@ -3,6 +3,7 @@ import Image from "next/image";
 import Faq from "../../../components/Faqs";
 import pic1 from "./../../../assests/contact/pic3.png";
 import pic2 from "./../../../assests/contact/pic4.png";
+
 const HomeFaq = () => {
   return (
     <section className="flex gap-10 px-5 md:px-20 py-20">
