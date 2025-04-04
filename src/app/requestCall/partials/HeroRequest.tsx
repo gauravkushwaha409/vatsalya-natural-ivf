@@ -11,7 +11,7 @@ const HeroRequest = () => {
             items={[{ name: "Home", link: "/" }, { name: "Request a Call" }]}
           />
 
-          <h1 className="text-secondary-500 font-bold leading-[150%] typography-h2 pt-3 ">
+          <h1 className="text-secondary-500 font-bold leading-[150%] typography-h1 pt-3 ">
             Request a Call
           </h1>
         </div>

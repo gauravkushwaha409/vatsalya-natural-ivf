@@ -1,4 +1,3 @@
-import Blogsection from "@/app/(home)/partials/Blogsection";
 import BlogDescription from "./partials/BlogDescription";
 import BlogDetailHero from "./partials/BlogDetailHero";
 import CommentForm from "./partials/CommentFrom";
