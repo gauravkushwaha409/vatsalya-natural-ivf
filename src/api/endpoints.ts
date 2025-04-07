@@ -4,8 +4,9 @@ interface Endpoints {
   center: string;
   setting: string;
   request_call: string;
-  available_dates:string;
-  appointment:string;
+  doctor: string;
+  available_dates: string;
+  appointment: string;
   blog: string;
   faq: string;
 }
