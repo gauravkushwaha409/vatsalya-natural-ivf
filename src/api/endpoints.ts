@@ -9,6 +9,7 @@ interface Endpoints {
   appointment: string;
   blog: string;
   faq: string;
+  experts: string;
   subscription: string;
 }
 
@@ -24,6 +25,7 @@ export const endpoints: Endpoints = {
   subscription: "/subscription",
   blog: "/blog",
   faq: "/faq",
+  experts: "/expert",
 };
 
 export const BASE_API_URL = "http://192.168.1.100:5000/api/v1";
