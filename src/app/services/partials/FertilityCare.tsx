@@ -2,7 +2,15 @@ import Image from "next/image";
 import React from "react";
 import fertility from "@/assests/icons/services/fertilityCare.svg";
 import troubleConceiving from "@/assests/icons/services/Trouble Conceiving.svg";
-const FertilityCare = () => {
+import {
+  IFertilityCareRoot,
+  IFertilityCareWhenToSeeListItemService,
+} from "../interfaces/fertilitycare.interface";
+
+interface IFertilityCare {
+  data: any;
+}
+const FertilityCare: React.FC<IFertilityCare> = ({ data }) => {
   return (
     <section>
       <div className=" bg-gradient-to-r from-[#EBC0DB] to-[#FFD2CE] px-5 lg:px-10 py-20">
@@ -22,26 +30,29 @@ const FertilityCare = () => {
 
         <div className="p-2 lg:p-10 flex flex-col lg:flex-row gap-10  ">
           <div className="flex flex-col gap-5 w-full lg:w-1/2">
-            {Array.from({ length: 5 }, (_, index) => (
-              <div className="flex items-center gap-5" key={index}>
-                <div className="h-16 w-16 bg-[#FFD2EE] rounded-full p-4 lg:p-3">
-                  <Image
-                    src={troubleConceiving}
-                    alt={`troubleConceiving`}
-                    className="w-full h-full"
-                  />
+            {data?.whenToSeeListItemService?.map(
+              (item: IFertilityCareWhenToSeeListItemService, index: number) => (
+                <div className="flex items-center gap-5" key={index}>
+                  <div className="h-16 w-16 bg-[#FFD2EE] rounded-full p-4 lg:p-3">
+                    <Image
+                      src={item?.icon}
+                      alt={`troubleConceiving`}
+                      className="w-full h-full"
+                      width={400}
+                      height={400}
+                    />
+                  </div>
+                  <div className="flex flex-col w-10/12">
+                    <span className="typography-h4 text-primary-500 font-medium ">
+                      {item?.title}
+                    </span>
+                    <span className="typography-paragraph-regular font-medium text-text-400 pt-1.5">
+                      {item?.whenToSeeService}
+                    </span>
+                  </div>
                 </div>
-                <div className="flex flex-col w-10/12">
-                  <span className="typography-h4 text-primary-500 font-medium ">
-                    Trouble Conceiving
-                  </span>
-                  <span className="typography-paragraph-regular font-medium text-text-400 pt-1.5">
-                    If youve been trying for over a year (or 6 months if over
-                    35) without success.
-                  </span>
-                </div>
-              </div>
-            ))}
+              )
+            )}
           </div>
           <div className="flex justify-end   w-full lg:w-1/2 ">
             <div className=" h-auto w-auto">

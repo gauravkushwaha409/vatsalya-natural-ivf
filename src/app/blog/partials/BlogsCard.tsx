@@ -4,23 +4,16 @@ import CustomPagination from "@/components/CustomPagination";
 import React, { useState } from "react";
 import { IBlogData, IBlogRecord } from "../interface/blog.interface";
 import { useRouter } from "next/navigation";
+import usePaginationChange from "@/hooks/usePaginationChange";
 
 interface BlogsCardProps {
   data: IBlogData;
   page: number;
 }
 
-const BlogsCard: React.FC<BlogsCardProps> = ({ data, page }) => {
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  page = currentPage;
-  console.info(page, "page"); // need to remove this line after ensuring the page is working fine
-  const router = useRouter();
-  const handlePageChange = (page: number) => {
-    const params = new URLSearchParams(window.location.search);
-    params.set("page", page.toString());
-    router.push(`?${params.toString()}`);
-    setCurrentPage(page);
-  };
+const BlogsCard: React.FC<BlogsCardProps> = ({ data }) => {
+  const { handlePageChange, currentPage } = usePaginationChange();
+
   return (
     <div>
       <div className="padding">

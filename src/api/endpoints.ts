@@ -6,6 +6,8 @@ interface Endpoints {
   request_call: string;
   blog: string;
   faq: string;
+  service: string;
+  whenToSee: string;
 }
 
 export const endpoints: Endpoints = {
@@ -16,6 +18,8 @@ export const endpoints: Endpoints = {
   request_call: "/request-call",
   blog: "/blog",
   faq: "/faq",
+  service: "/service",
+  whenToSee: "/when-to-see-service",
 };
 
 export const BASE_API_URL = "http://192.168.1.100:5000/api/v1";

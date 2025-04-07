@@ -1,11 +1,18 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import icon1 from "@/assests/icons/services/infertility.svg";
 import { IoArrowForwardOutline } from "react-icons/io5";
 import Link from "next/link";
+import { IserviceData, IserviceRecord } from "../interfaces/services.interface";
+import CustomPagination from "@/components/CustomPagination";
+import usePaginationChange from "@/hooks/usePaginationChange";
 
-const ServiceCards = () => {
+interface IServiceCards {
+  data: IserviceData;
+}
+const ServiceCards: React.FC<IServiceCards> = ({ data }) => {
+  const { handlePageChange, currentPage } = usePaginationChange();
+
   return (
     <section className=" padding">
       <div className="flex flex-col items-center ">
@@ -24,10 +31,10 @@ const ServiceCards = () => {
         </p>
       </div>
       <div className="py-10 pb-20 grid lg:grid-cols-3 xl:grid-col-4  gap-10">
-        {Array.from({ length: 10 }, (_, index) => (
+        {data?.records?.map((item: IserviceRecord, index: number) => (
           <Link
             key={index}
-            href="/services/details"
+            href={`/services/${item?.slug}`}
             className="flex items-center justify-between"
           >
             <div
@@ -35,13 +42,19 @@ const ServiceCards = () => {
               key={index}
             >
               <div className="h-28 w-28">
-                <Image src={icon1} alt="icons1" className="w-full h-full" />
+                <Image
+                  src={item?.icon}
+                  alt="icons1"
+                  width={400}
+                  height={400}
+                  className="w-full h-full"
+                />
               </div>
               <div className="flex flex-col gap-2 pt-4">
                 <div className="flex w-full justify-between">
                   {" "}
                   <h2 className="typography-h3 font-bold">
-                    Infertility Diagnosis
+                    {item?.name}{" "}
                   </h2>{" "}
                   <button className="cursor-pointer">
                     <IoArrowForwardOutline
@@ -50,16 +63,24 @@ const ServiceCards = () => {
                     />
                   </button>
                 </div>
-                <span className="typography-paragraph-regular font-medium text-text-400 pt-1.5">
-                  Expand your family possibilities with our confidential,
-                  compassionate, and expertly guided donor treatment services,
-                  designed to support you.
-                </span>
+                <p
+                  className="typography-paragraph-regular font-medium text-text-400 pt-1.5 line-clamp-4"
+                  dangerouslySetInnerHTML={{ __html: item?.description }}
+                />
               </div>
             </div>
           </Link>
         ))}
       </div>
+      {data?.totalPages > 1 && (
+        <CustomPagination
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+          pageCount={data?.totalPages}
+          perPage={5}
+          totalItems={10}
+        />
+      )}
     </section>
   );
 };
