@@ -49,7 +49,7 @@ const CustomPagination = ({
               className={`w-7 h-7 rounded-full text-sm ${
                 currentPage === pageNum
                   ? "bg-primary-200 text-white"
-                  : "hover:bg-primary/80 text-gray-700 hover:text-white"
+                  : "hover:bg-primary-200/80 text-gray-700 hover:text-white cursor-pointer"
               }`}
             >
               {pageNum}

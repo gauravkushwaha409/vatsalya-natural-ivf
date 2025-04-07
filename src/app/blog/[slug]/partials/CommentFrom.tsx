@@ -1,69 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
+import React from "react";
+
 import { FaCheck } from "react-icons/fa";
+import { useBlog } from "@/hooks/blog/useBlog";
 
-interface IFormValues {
-  name: string;
-  email: string;
-  comment: string;
-}
-
-const CommentForm = () => {
-  const [isChecked, setIsChecked] = useState(false);
-
-  const handleToggle = () => {
-    setIsChecked(!isChecked);
-  };
-
-  const formik = useFormik<IFormValues>({
-    initialValues: {
-      name: "",
-      email: "",
-      comment: "",
-    },
-    validationSchema: Yup.object({
-      name: Yup.string()
-        .required("Name is required")
-        .min(2, "Name must be at least 2 characters"),
-
-      email: Yup.string()
-        .required("Email is required")
-        .email("Invalid email format"),
-
-      comment: Yup.string()
-        .required("Comment is required")
-        .min(10, "Comment must be at least 10 characters"),
-    }),
-    onSubmit: async (values, { resetForm }) => {
-      try {
-        resetForm();
-        alert("Form submitted successfully!");
-      } catch (error) {
-        console.error("Submission error:", error);
-        alert("Error submitting form");
-      }
-    },
-  });
-
-  useEffect(() => {
-    try {
-      const storage = localStorage.getItem("commentForm");
-      if (!isChecked) {
-        localStorage.removeItem("commentForm");
-      }
-      if (storage) {
-        const commentStorage: { name: string; email: string } =
-          JSON.parse(storage);
-        formik.setFieldValue("name", commentStorage.name);
-        formik.setFieldValue("email", commentStorage.email);
-        setIsChecked(true);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }, [isChecked, formik]);
+const CommentForm = ({ slug }: { slug: string }) => {
+  const { formik, handleToggle, isChecked, isLoading } = useBlog({ slug });
 
   return (
     <section className=" mt-10 mb-20">
@@ -179,7 +121,7 @@ const CommentForm = () => {
           type="submit"
           className="flex self-start bg-secondary-500 py-3 px-6 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular cursor-pointer"
         >
-          Subscribe
+          {isLoading ? "Submitting..." : "Submit"}
         </button>
       </form>
     </section>
