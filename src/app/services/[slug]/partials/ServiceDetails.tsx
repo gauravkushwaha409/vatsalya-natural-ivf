@@ -5,8 +5,12 @@ import ServiceDescription from "./ServiceDescription";
 import ServiceForm from "./ServiceForms";
 import { motion } from "motion/react";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { IServiceDetailsData } from "../../interfaces/serviceDetails.interface";
 
-const ServiceDetails = () => {
+interface IServiceDetails {
+  data: IServiceDetailsData;
+}
+const ServiceDetails: React.FC<IServiceDetails> = ({ data }) => {
   const isSmall = useMediaQuery("(width <= 40rem)");
   return (
     <section className="bg-background-100 overflow-hidden relative">
@@ -19,7 +23,7 @@ const ServiceDetails = () => {
         >
           {" "}
           <YoutubeEmbed />
-          <ServiceDescription />
+          <ServiceDescription data={data?.data?.service?.description} />
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: "50%" }}

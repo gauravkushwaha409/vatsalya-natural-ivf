@@ -9,6 +9,8 @@ interface Endpoints {
   appointment: string;
   blog: string;
   faq: string;
+  service: string;
+  whenToSee: string;
   experts: string;
   subscription: string;
 }
@@ -25,6 +27,8 @@ export const endpoints: Endpoints = {
   subscription: "/subscription",
   blog: "/blog",
   faq: "/faq",
+  service: "/service",
+  whenToSee: "/when-to-see-service",
   experts: "/expert",
 };
 

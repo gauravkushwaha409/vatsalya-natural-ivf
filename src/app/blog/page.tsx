@@ -7,13 +7,13 @@ interface BlogProps {
   params: Promise<{ slug: string }>;
 
   searchParams?: Promise<{
-    page?: string | string[]; // can be string or array, since query params can be an array
+    page?: string | string[];
   }>;
 }
 
 const Blog = async ({ searchParams }: BlogProps) => {
   try {
-    const page = (await Number((await searchParams)?.page)) || 1; // Convert to number, default to 1 if not present
+    const page = (await Number((await searchParams)?.page)) || 1;
     const perPage = 12;
     const data = await getData(
       endpoints.blog + `?page=${page}&perPage=${perPage}`
