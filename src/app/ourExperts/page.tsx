@@ -7,7 +7,6 @@ import { endpoints } from "@/api/endpoints";
 const page = async () => {
   try {
     const { data } = await getData(endpoints.experts);
-    console.log(data, "data from our experts page");
     return (
       <section>
         <Herosection />
