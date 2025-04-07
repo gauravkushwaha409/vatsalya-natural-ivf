@@ -2,7 +2,7 @@
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import React, { useState } from "react";
 
-interface IServiceDescription {
+export interface IServiceDescription {
   description: string;
 }
 const ServiceDescription: React.FC<IServiceDescription> = ({ description }) => {

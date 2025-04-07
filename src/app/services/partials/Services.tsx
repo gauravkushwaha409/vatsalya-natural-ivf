@@ -4,7 +4,6 @@ import ServiceCards from "./ServiceCards";
 import FertilityCare from "./FertilityCare";
 import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
-import { IServiceResponse } from "../interfaces/services.interface";
 
 const Services = async () => {
   const page = 1;

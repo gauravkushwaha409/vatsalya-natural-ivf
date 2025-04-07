@@ -23,7 +23,7 @@ const ServiceDetails: React.FC<IServiceDetails> = ({ data }) => {
         >
           {" "}
           <YoutubeEmbed />
-          <ServiceDescription data={data?.data?.service?.description} />
+          <ServiceDescription description={data?.service?.description} />
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: "50%" }}

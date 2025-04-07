@@ -9,7 +9,6 @@ export interface IserviceData {
   pagingCounter: number;
   hasPrevious: boolean;
   hasNext: boolean;
-  prev: any;
   next: number;
   recordShown: number;
 }

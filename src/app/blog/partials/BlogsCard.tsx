@@ -1,9 +1,8 @@
 "use client";
 import BlogCard from "@/components/cards/BlogCard";
 import CustomPagination from "@/components/CustomPagination";
-import React, { useState } from "react";
+import React from "react";
 import { IBlogData, IBlogRecord } from "../interface/blog.interface";
-import { useRouter } from "next/navigation";
 import usePaginationChange from "@/hooks/usePaginationChange";
 
 interface BlogsCardProps {

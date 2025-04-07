@@ -1,14 +1,13 @@
 import Image from "next/image";
 import React from "react";
 import fertility from "@/assests/icons/services/fertilityCare.svg";
-import troubleConceiving from "@/assests/icons/services/Trouble Conceiving.svg";
 import {
-  IFertilityCareRoot,
+  IFertilityCareData,
   IFertilityCareWhenToSeeListItemService,
 } from "../interfaces/fertilitycare.interface";
 
 interface IFertilityCare {
-  data: any;
+  data: IFertilityCareData;
 }
 const FertilityCare: React.FC<IFertilityCare> = ({ data }) => {
   return (
