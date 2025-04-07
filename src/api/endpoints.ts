@@ -1,4 +1,14 @@
-export const endpoints = {
+interface Endpoints {
+  getData: string;
+  contactus: string;
+  center: string;
+  setting: string;
+  request_call: string;
+  blog: string;
+  faq: string;
+}
+
+export const endpoints: Endpoints = {
   getData: "/getData",
   contactus: "/contact-us",
   center: "/center",
