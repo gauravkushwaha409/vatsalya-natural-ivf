@@ -1,7 +1,10 @@
+"use client";
+import { useNewsletter } from "@/hooks/subscription/useNewsletter";
 import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
+  const { formik, isLoading } = useNewsletter();
   return (
     <div className="bg-primary-100 backdrop-blur-[5.6px] padding pt-10 text-text-400 overflow-hidden">
       <div className="gap-[6.56rem] grid grid-cols-2 lg:grid-cols-4">
@@ -146,19 +149,30 @@ const Footer = () => {
           <h3 className="font-[600] text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.1575rem]">
             Subscribe to Newsletter
           </h3>
-          <div>
+          <form onSubmit={formik.handleSubmit} className="space-y-3">
             <label className="flex bg-white/[0.12] px-4 py-4 border border-[#E4E4E7] rounded-[0.75rem]">
               <input
-                autoComplete="off"
-                type="text"
+                name="email"
+                type="email"
                 placeholder="Enter your email"
-                className="outline-0 ring-0 placeholder:text-dark-variant-300 grow"
+                className="outline-0 ring-0 placeholder:text-dark-variant-300 grow bg-transparent text-black"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.email}
               />
             </label>
-          </div>
-          <button className="bg-secondary-500 p-4 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular">
-            Subscribe
-          </button>
+            {formik.touched.email && formik.errors.email && (
+              <p className="text-red-500 text-sm">{formik.errors.email}</p>
+            )}
+
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="bg-secondary-500 p-4 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular disabled:opacity-50 cursor-pointer"
+            >
+              {isLoading ? "Subscribing..." : "Subscribe"}
+            </button>
+          </form>
         </div>
       </div>
       <hr className="bg-[#FFF1EF] my-5" />
