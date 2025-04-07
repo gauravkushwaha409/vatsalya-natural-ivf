@@ -15,7 +15,7 @@ import {
 import { IBlogDetailsBlog } from "../../interface/blogdetails.interface";
 
 interface BlogDescriptionProps {
-  data: IBlogDetailsBlog; // Replace 'any' with the actual type of 'data' if available
+  data: IBlogDetailsBlog;
 }
 const BlogDescription: React.FC<BlogDescriptionProps> = ({ data }) => {
   const [openModal, setOpenModal] = useState(false);
@@ -23,6 +23,7 @@ const BlogDescription: React.FC<BlogDescriptionProps> = ({ data }) => {
 
   const currentUrl = typeof window !== "undefined" ? window.location.href : "";
 
+  console.log(data, "data blog");
   return (
     <div>
       <div className="mb-10">
