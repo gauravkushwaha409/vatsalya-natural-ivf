@@ -4,6 +4,8 @@ interface Endpoints {
   center: string;
   setting: string;
   request_call: string;
+  available_dates:string;
+  appointment:string;
   blog: string;
   faq: string;
 }
@@ -14,6 +16,9 @@ export const endpoints: Endpoints = {
   center: "/center",
   setting: "/setting",
   request_call: "/request-call",
+  doctor: "/expert",
+  available_dates: "/request-appointment/available-slots",
+  appointment: "/request-appointment",
   blog: "/blog",
   faq: "/faq",
 };
