@@ -5,6 +5,8 @@ export const endpoints = {
   setting: "/setting",
   request_call: "/request-call",
   doctor: "/expert",
+  available_dates: "/request-appointment/available-slots",
+  appointment: "/request-appointment",
 };
 
-export const BASE_API_URL = "http://localhost:8000/api/v1";
+export const BASE_API_URL = "http://192.168.1.100:5000/api/v1";
