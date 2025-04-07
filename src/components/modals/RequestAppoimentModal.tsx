@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "@/app/globals.css";
@@ -7,7 +7,7 @@ import "@/app/globals.css";
 import useClickOutside from "@/hooks/useClickOutside";
 
 import { motion } from "framer-motion";
-import CalendarModal from "./CalenderModal";
+// import CalendarModal from "./CalenderModal";
 import { createPortal } from "react-dom";
 
 interface RequestAppoimentModalProps {
@@ -30,8 +30,8 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
   isOpen,
   onClose,
 }) => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectDoctor, setSelectDoctor] = useState<string | undefined>();
+  // const [modalOpen, setModalOpen] = useState(false);
+  // const [selectDoctor, setSelectDoctor] = useState<string | undefined>();
   const modalRef = useClickOutside(onClose);
 
   const formik = useFormik<IFormValues>({
@@ -56,18 +56,18 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
         .min(10, "Message must be at least 10 characters"),
     }),
     onSubmit: async (values) => {
-      console.log(values);
-      setSelectDoctor(values.doctor);
-      handleRequestAppoiment();
+      console.log("Form submitted with values:", values);
+      // setSelectDoctor(values.doctor);
+      // handleRequestAppoiment();
     },
   });
-  const onCloseModal = () => {
-    setModalOpen(true);
-  };
-  const handleRequestAppoiment = () => {
-    setModalOpen(true);
-    onClose();
-  };
+  // const onCloseModal = () => {
+  //   setModalOpen(true);
+  // };
+  // const handleRequestAppoiment = () => {
+  //   setModalOpen(true);
+  //   onClose();
+  // };
   if (typeof window !== "undefined")
     return createPortal(
       <>
@@ -240,12 +240,12 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
             </motion.div>
           </div>
         )}
-        <CalendarModal
+        {/* <CalendarModal
           modalOpen={modalOpen}
           onCloseModal={onCloseModal}
           setModalOpen={setModalOpen}
           selectDoctor={selectDoctor}
-        />
+        /> */}
       </>,
       document.body
     );

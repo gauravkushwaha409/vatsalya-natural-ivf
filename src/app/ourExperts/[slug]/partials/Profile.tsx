@@ -1,16 +1,21 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import { ivfTeamData } from "@/data/expertise";
 import buterflysvg from "@/assests/icons/butterflyExpertise.svg";
 import { MdLocationPin } from "react-icons/md";
 import { IoMdBriefcase } from "react-icons/io";
 import { FaGraduationCap } from "react-icons/fa";
-import icon from "@/assests/icons/experts/ivf.svg";
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import RequestCallModal from "@/components/modals/RequestCallModal";
+import {
+  IProfileData,
+  IProfileService,
+} from "../../interface/profile.interface";
 
-const Profile = () => {
+interface ProfileProps {
+  data: IProfileData;
+}
+const Profile: React.FC<ProfileProps> = ({ data }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [openCallModal, setOpenCallModal] = useState<boolean>(false);
   return (
@@ -24,7 +29,7 @@ const Profile = () => {
             }}
           >
             <Image
-              src={ivfTeamData[3]?.image}
+              src={data?.image}
               alt="heropic"
               width={1920}
               height={1080}
@@ -50,10 +55,10 @@ const Profile = () => {
             <div className="h-px bg-primary-400 w-21"></div>
           </div>
           <h1 className="typography-h3 font-bold text-secondary-500">
-            {ivfTeamData[0]?.name}
+            {data?.name}
           </h1>
           <h2 className="typography-paragraph-large text-text-500 font-semibold ">
-            Senior Fertility Specialist{" "}
+            {data?.position}
           </h2>
 
           <div className="flex items-center gap-2 ">
@@ -61,7 +66,7 @@ const Profile = () => {
               <MdLocationPin size={20} className="text-secondary-500" />
             </div>
             <span className="typography-paragraph-regular text-text-500 ">
-              Vatsalya Fertility Center, Kathmandu
+              {data?.center?.location}
             </span>
           </div>
 
@@ -70,7 +75,7 @@ const Profile = () => {
               <IoMdBriefcase size={20} className="text-secondary-500" />
             </div>
             <span className="typography-paragraph-regular text-text-500 ">
-              {ivfTeamData[0]?.experience}
+              {data?.experience}+ years
             </span>
           </div>
           <div className="flex items-center gap-2 ">
@@ -78,15 +83,11 @@ const Profile = () => {
               <FaGraduationCap size={20} className="text-secondary-500" />
             </div>
             <span className="typography-paragraph-regular text-text-500 ">
-              MD in Obstetrics & Gynecology, IVF Specialist
+              {data?.education}
             </span>
           </div>
           <p className="text-text-500 typography-paragraph-regular ">
-            Dr. Pratikshya Pandey is a leading fertility specialist with over 15
-            years of experience in treating infertility and reproductive health
-            conditions. She specializes in IVF, IUI, egg freezing, and advanced
-            fertility treatments, helping countless couples achieve their dream
-            of parenthood.
+            {data?.description}
           </p>
         </div>
       </div>
@@ -95,13 +96,16 @@ const Profile = () => {
           Services Offered
         </h5>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {ivfTeamData[0]?.servicesOffered?.map((items) => (
+          {data?.service?.map((items: IProfileService, index: number) => (
             <>
-              <div className="bg-primary-50/20 rounded-lg p-5 border border-text-50 flex items-center gap-5 shadow-sm backdrop-blur-2xl">
+              <div
+                key={index}
+                className="bg-primary-50/20 rounded-lg p-5 border border-text-50 flex items-center gap-5 shadow-sm backdrop-blur-2xl"
+              >
                 <div className="h-8 w-8">
                   <Image
-                    src={icon}
-                    alt="icon1"
+                    src={items?.icon}
+                    alt={items?.name}
                     width={1920}
                     height={1080}
                     className="w-full h-full contain  "
@@ -109,11 +113,12 @@ const Profile = () => {
                 </div>
                 <div>
                   <h2 className="typography-paragraph-large font-semibold text-text-500">
-                    {items?.title}
+                    {items?.name}
                   </h2>
-                  <span className="typography-paragraph-regular text-text-400 font-normal pt-2">
-                    {items?.description}
-                  </span>
+                  <p
+                    className="typography-paragraph-regular text-wrap line-clamp-3  overline-clamp-4 text-text-400 font-normal pt-2"
+                    dangerouslySetInnerHTML={{ __html: items?.description }}
+                  />
                 </div>
               </div>
             </>

@@ -7,36 +7,38 @@ import { createPortal } from "react-dom";
 import RenderCells from "../RenderCells";
 import ConfirmationModal from "./ConfirmationModal";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { usePostDataMutation } from "@/api/api";
+import { IFormValues } from "@/app/(home)/modals/RequestAppoimentModal";
+import { endpoints } from "@/api/endpoints";
+import { showErrorMessage, showSuccessMessage } from "@/utils/toast";
+import { ISlot, ISlotResponse } from "@/interface/slot";
 
 interface CalendarProps {
   modalOpen: boolean;
   onCloseModal: () => void;
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  selectDoctor?: string;
+  data?: IFormValues;
 }
 
 const CalendarModal: React.FC<CalendarProps> = ({
   modalOpen,
   onCloseModal,
   setModalOpen,
-  selectDoctor,
+  data,
 }) => {
-  const dummyAvailableDates = [
-    "2025-03-01",
-    "2025-03-02",
-    "2025-03-03",
-    "2025-03-04",
-  ];
-
+  const [postAppointment] = usePostDataMutation();
+  const [availableSlots, setAvailableSlots] = useState<ISlotResponse | null>(
+    null
+  );
   const [currentDate, setCurrentDate] = useState(new Date());
   const [showTime, setShwowTime] = useState<boolean>(false);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [openModal, setOpenModal] = useState<boolean>(false);
   const modalRef1 = useClickOutside(onCloseModal);
   const isSmall = useMediaQuery("(width <= 40rem)");
+
   const renderHeader = () => {
     const monthYear = format(currentDate, "MMMM yyyy");
-
     return (
       <div className="flex justify-between items-center p-4 header">
         <button
@@ -68,11 +70,78 @@ const CalendarModal: React.FC<CalendarProps> = ({
       </div>
     );
   };
-  const handleSelectTime = () => {
-    console.log(selectDoctor);
-    setModalOpen(false);
-    setOpenModal(true);
+
+  const handleSelectTime = async (slotId: string) => {
+    if (!selectedDate || !data) return;
+
+    const payload = {
+      name: data.name,
+      phone: data.phone,
+      address: data.address,
+      center: data.center,
+      expert: data.doctor,
+      message: data.message,
+      date: format(selectedDate, "yyyy-MM-dd"),
+      time: slotId,
+    };
+
+    try {
+      const response = await postAppointment({
+        url: endpoints.appointment,
+        data: payload,
+      });
+
+      if (response?.error) {
+        showErrorMessage("Failed to book appointment");
+        return;
+      }
+
+      if (response?.data?.status === "success") {
+        showSuccessMessage(response.data.message);
+        setModalOpen(false);
+        setOpenModal(true);
+      }
+    } catch (error) {
+      console.error("Appointment booking failed:", error);
+      showErrorMessage("Something went wrong");
+    }
   };
+
+  const fetchAvailableSlots = async (date: Date) => {
+    if (!data?.center || !data?.doctor) return;
+
+    const payload = {
+      date: format(date, "yyyy-MM-dd"),
+      center: data.center,
+      expert: data.doctor,
+    };
+
+    try {
+      const response = await postAppointment({
+        url: `${endpoints.available_dates}`,
+        data: payload,
+      });
+      if (response?.error) {
+        setAvailableSlots(null);
+        showErrorMessage("Failed to fetch available slots");
+        return;
+      }
+
+      if (response?.data?.status === "success") {
+        setAvailableSlots(response?.data);
+        showSuccessMessage(response?.data?.message);
+      }
+    } catch (error) {
+      console.error("Failed to fetch slots:", error);
+    }
+  };
+
+  const handleDateSelect = (date: Date) => {
+    setSelectedDate(date);
+    setShwowTime(true);
+    fetchAvailableSlots(date);
+  };
+
   if (typeof document !== "undefined")
     return createPortal(
       <>
@@ -90,10 +159,11 @@ const CalendarModal: React.FC<CalendarProps> = ({
               </h1>
               <button
                 onClick={() => setModalOpen(false)}
-                className="top-5 right-10 absolute text-text-400 text-2xl cursor-pointer *:"
+                className="top-5 right-10 absolute text-text-400 text-2xl cursor-pointer"
               >
                 x
               </button>
+
               <div className="flex flex-col lg:flex-row justify-center gap-10 mt-5">
                 <motion.div className="w-[100%] lg:w-[50%] aspect-square">
                   <div>{renderHeader()}</div>
@@ -102,26 +172,27 @@ const CalendarModal: React.FC<CalendarProps> = ({
                     <RenderCells
                       currentDate={currentDate}
                       selectedDate={selectedDate}
-                      dummyAvailableDates={dummyAvailableDates}
                       setSelectedDate={setSelectedDate}
                       setShwowTime={setShwowTime}
+                      onDateSelect={handleDateSelect}
                     />
                   </div>
                 </motion.div>
+
                 {showTime && (
                   <motion.div
                     initial={{ width: isSmall ? "100%" : "0", opacity: 0 }}
                     animate={{ width: isSmall ? "100%" : "40%", opacity: 1 }}
                     transition={{ duration: 1.2 }}
-                    className=" bg-white mt-0 lg:mt-10 flex flex-row lg:flex-col justify-center items-center gap-5"
+                    className="bg-white mt-0 lg:mt-10 flex flex-row lg:flex-col justify-center items-center gap-5"
                   >
-                    {Array.from({ length: 3 }).map((_, index) => (
+                    {availableSlots?.data?.map((slot: ISlot) => (
                       <button
-                        key={index}
-                        onClick={() => handleSelectTime()}
-                        className="inline-block bg-white hover:bg-secondary-500 px-4 py-2 border border-secondary-300 rounded-full w-full text-secondary-500 hover:text-white transition-colors duration-700 hover:duration-200 ease-in-out"
+                        key={slot.id}
+                        onClick={() => handleSelectTime(slot.id)}
+                        className="bg-white hover:bg-secondary-500 px-4 py-2 border border-secondary-300 rounded-full w-full text-secondary-500 hover:text-white transition-colors duration-700 hover:duration-200 ease-in-out"
                       >
-                        9:10
+                        {slot.startTime} - {slot.endTime}
                       </button>
                     ))}
                   </motion.div>

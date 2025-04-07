@@ -1,16 +1,21 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-
 import buterflysvg from "./../../../assests/icons/butterflyExpertise.svg";
-import { ivfTeamData } from "@/data/expertise";
 import { useRouter } from "next/navigation";
+import {
+  IOurExpertsData,
+  IOurExpertsRecord,
+} from "../interface/ourExperts.interface";
 
-const Specialists = () => {
+interface SpecialistsProps {
+  data: IOurExpertsData;
+}
+const Specialists: React.FC<SpecialistsProps> = ({ data }) => {
   const [hoveredCardId, setHoveredCardId] = useState<number | null>(null);
   const router = useRouter();
-  const handleViewMore = () => {
-    router.push("/ourExperts/profile");
+  const handleViewMore = (slug: string) => {
+    router.push("/ourExperts/" + slug);
   };
   return (
     <section className="py-20 padding  ">
@@ -30,11 +35,11 @@ const Specialists = () => {
         </p>
       </div>
       <div className="my-10 grid  grid-cols-2  sm:grid-cols-3  lg:grid-cols-4 gap-y-10 gap-x-10">
-        {ivfTeamData?.map((items) => (
+        {data?.records?.map((items: IOurExpertsRecord, index: number) => (
           <div
             key={items?.id}
             className="relative aspect-[290/336] "
-            onMouseEnter={() => setHoveredCardId(items.id)}
+            onMouseEnter={() => setHoveredCardId(index)}
             onMouseLeave={() => setHoveredCardId(null)}
           >
             <div
@@ -72,28 +77,26 @@ const Specialists = () => {
               <div
                 className={`absolute -bottom-10 w-full bg-gradient-to-t from-black/40 to-transparent h-full left-0 z-20 
     transition-opacity duration-300 ease-in-out 
-    ${hoveredCardId === items.id ? "opacity-0" : "opacity-100"}`}
+    ${hoveredCardId === index ? "opacity-0" : "opacity-100"}`}
               ></div>{" "}
             </div>
-            {hoveredCardId === items.id && (
+            {hoveredCardId === index && (
               <div className="absolute -bottom-8 z-50 w-full  ">
                 <div
                   className={`backdrop-blur-sm  rounded-lg  bg-white/60 p-3  shadow-sm  mx-3 
     transition-opacity duration-700 ease-in-out ${
-      hoveredCardId === items.id ? "opacity-100 visible" : "opacity-0 invisible"
+      hoveredCardId === index ? "opacity-100 visible" : "opacity-0 invisible"
     }`}
                 >
                   <p className="typography-paragraph-large font-bold text-secondary-500">
-                    {" "}
                     {items?.name}
                   </p>
                   <p className="typography-paragraph-small font-medium text-secondary-500 mt-1 mb-2">
-                    {" "}
                     {items?.position}
                   </p>
                   <div className="flex items-center  text-nowrap">
                     <button
-                      onClick={() => handleViewMore()}
+                      onClick={() => handleViewMore(items?.slug)}
                       className="typography-caption px-5 py-2 cursor-pointer font-medium text-text-400 border rounded-full border-text-400"
                     >
                       View Details

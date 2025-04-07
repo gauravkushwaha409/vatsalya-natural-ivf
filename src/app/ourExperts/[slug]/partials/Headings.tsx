@@ -5,7 +5,7 @@ import React from "react";
 const Headings = () => {
   return (
     <header className="flex items-center flex-col pt-5  bg-gradient-to-b from-[#FFF1EF] to-[#FDFCFB]">
-      <div className="flex mx-auto w-max typography-caption text-text-400">
+      <div className="flex mx-auto w-max typography-caption text-text-400 item">
         <CustomBreadcrumb
           items={[
             { name: "Home", link: "/" },

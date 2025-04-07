@@ -9,13 +9,11 @@ export interface FAQOptions {
 }
 
 const Faq: React.FC<{ faq: FAQOptions[] }> = ({ faq }) => {
-  const [openFaq, setOpenFaq] = useState<number[]>(
-    faq.map((_, index) => index)
-  );
+  const [openFaq, setOpenFaq] = useState<number[]>([0]);
 
   const toggleFaq = (index: number) => {
-    if (openFaq.includes(index)) {
-      setOpenFaq([]); // Close all
+    if (openFaq?.includes(index)) {
+      setOpenFaq([]);
     } else {
       setOpenFaq([index]);
     }
@@ -24,7 +22,7 @@ const Faq: React.FC<{ faq: FAQOptions[] }> = ({ faq }) => {
   return (
     <div className="space-y-2">
       {faq?.length > 0 &&
-        faq.map((faqItem, index) => {
+        faq?.map((faqItem, index) => {
           const isOpen = openFaq.includes(index);
 
           return (
