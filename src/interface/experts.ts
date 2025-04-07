@@ -14,8 +14,6 @@ export interface Data {
   pagingCounter: number;
   hasPrevious: boolean;
   hasNext: boolean;
-  prev: any;
-  next: any;
   recordShown: number;
 }
 
@@ -30,7 +28,7 @@ export interface IExperts {
   education: string;
   description: string;
   center: Center;
-  service: any[];
+  // service: any[];
   seo: Seo;
   created_date: string;
   updated_date: string;

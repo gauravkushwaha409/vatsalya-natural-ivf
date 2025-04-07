@@ -28,7 +28,7 @@ export const useNewsletter = () => {
           data: values,
         });
 
-        if (response.error) {
+        if (response?.error) {
           handleErrors(response as ApiResponse, formik.setErrors);
           return;
         }
@@ -37,6 +37,7 @@ export const useNewsletter = () => {
           resetForm();
         }
       } catch (error) {
+        console.log("Subscription error:", error);
         showErrorMessage("Failed to subscribe. Please try again.");
       }
     },

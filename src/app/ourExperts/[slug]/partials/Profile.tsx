@@ -1,12 +1,10 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import { ivfTeamData } from "@/data/expertise";
 import buterflysvg from "@/assests/icons/butterflyExpertise.svg";
 import { MdLocationPin } from "react-icons/md";
 import { IoMdBriefcase } from "react-icons/io";
 import { FaGraduationCap } from "react-icons/fa";
-import icon from "@/assests/icons/experts/ivf.svg";
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import RequestCallModal from "@/components/modals/RequestCallModal";
 import {

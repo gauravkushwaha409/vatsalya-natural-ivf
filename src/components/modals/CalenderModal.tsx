@@ -1,6 +1,6 @@
 "use client";
 import useClickOutside from "@/hooks/useClickOutside";
-import { add, format, set } from "date-fns";
+import { add, format } from "date-fns";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
@@ -26,7 +26,7 @@ const CalendarModal: React.FC<CalendarProps> = ({
   setModalOpen,
   data,
 }) => {
-  const [postContact, { isLoading }] = usePostDataMutation();
+  const [postAppointment] = usePostDataMutation();
   const [availableSlots, setAvailableSlots] = useState<ISlotResponse | null>(
     null
   );
@@ -86,7 +86,7 @@ const CalendarModal: React.FC<CalendarProps> = ({
     };
 
     try {
-      const response = await postContact({
+      const response = await postAppointment({
         url: endpoints.appointment,
         data: payload,
       });
@@ -117,7 +117,7 @@ const CalendarModal: React.FC<CalendarProps> = ({
     };
 
     try {
-      const response = await postContact({
+      const response = await postAppointment({
         url: `${endpoints.available_dates}`,
         data: payload,
       });
