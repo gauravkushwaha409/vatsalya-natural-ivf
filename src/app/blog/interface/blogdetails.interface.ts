@@ -28,7 +28,7 @@ export interface IBlogDetailsBlog {
   seo: IBlogDetailsSeo;
   created_date: string;
   updated_date: string;
-  tags: string[];
+  tags: [];
 }
 
 export interface IBlogDetailsSeo {
