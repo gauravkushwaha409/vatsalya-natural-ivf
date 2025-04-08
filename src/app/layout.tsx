@@ -1,5 +1,6 @@
 import Footer from "@/commons/Footer";
 import Header from "@/commons/Header";
+import BotPopup from "@/features/chatbot/BotPopup";
 import type { Metadata } from "next";
 import { Inter, Manrope, Plus_Jakarta_Sans, Roboto } from "next/font/google";
 import "swiper/css";
@@ -48,6 +49,7 @@ export default function RootLayout({
           <Header />
           <div className="">{children}</div>
           <Footer />
+          <BotPopup />
         </body>
       </Providers>
     </html>

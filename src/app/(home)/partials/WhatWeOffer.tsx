@@ -27,6 +27,7 @@ interface OfferCard {
   textColor: string;
   shape: string;
   gradient?: boolean;
+  marginTop?: string;
 }
 
 interface OfferCardProps {
@@ -47,6 +48,7 @@ const OFFER_CARDS: OfferCard[] = [
     bgColor: "bg-secondary-50",
     textColor: "text-secondary-500",
     shape: "rounded-full rounded-br-none",
+    marginTop: "2.5rem",
   },
   {
     id: "donor-treatment",
@@ -81,6 +83,7 @@ const OFFER_CARDS: OfferCard[] = [
     bgColor: "bg-primary-50",
     textColor: "text-primary-500",
     shape: "rounded-full rounded-bl-none",
+    marginTop: "2.5rem",
   },
   {
     id: "antenatal-checkup",
@@ -101,8 +104,16 @@ const OfferCard: React.FC<OfferCardProps> = ({
   isMobile,
   align = "center",
 }) => {
-  const { title, description, imageSrc, bgColor, textColor, shape, gradient } =
-    card;
+  const {
+    title,
+    description,
+    imageSrc,
+    bgColor,
+    textColor,
+    shape,
+    gradient,
+    marginTop,
+  } = card;
 
   // Dynamic styles based on alignment and mobile state
   const getContainerClassName = (): string => {
@@ -161,7 +172,12 @@ const OfferCard: React.FC<OfferCardProps> = ({
 
   return (
     <div className={getContainerClassName()} style={gradientStyle}>
-      <div className="w-max">
+      <div
+        style={{
+          marginTop: marginTop,
+        }}
+        className="w-max"
+      >
         <Image
           src={imageSrc}
           width={isMobile ? 80 : 100}
