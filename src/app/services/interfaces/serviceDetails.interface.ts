@@ -20,6 +20,9 @@ export interface IServiceDetailsService {
   description: string;
   icon: string;
   seo: IServiceDetailsSeo;
+  faq: IServiceDetailsFaq[];
+  diagonosisList: IServiceDetailsDiagonosisList[];
+  serviceDetailsListSection: IServiceDetailsServiceDetailsListSection[];
   created_date: string;
   updated_date: string;
 }
@@ -30,6 +33,32 @@ export interface IServiceDetailsSeo {
   ogTitle: string;
   ogDescription: string;
   canonicalUrl: string;
+}
+
+export interface IServiceDetailsDiagonosisList {
+  object: string;
+  id: string;
+  name: string;
+  icon: string;
+  service: string;
+  created_date: string;
+  updated_date: string;
+}
+
+export interface IServiceDetailsServiceDetailsListSection {
+  object: string;
+  id: string;
+  title: string;
+  description: string;
+  listItems: ListItem[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface ListItem {
+  listItemTitle: string;
+  listItemDescription: string;
+  _id: string;
 }
 
 export interface IServiceDetailsOtherService {
@@ -53,4 +82,14 @@ export interface IServiceDetailsSeo2 {
   ogTitle: string;
   ogDescription: string;
   canonicalUrl: string;
+}
+
+export interface IServiceDetailsFaq {
+  object: string;
+  id: string;
+  question: string;
+  answer: string;
+  service: string;
+  created_data: string;
+  updated_data: string;
 }

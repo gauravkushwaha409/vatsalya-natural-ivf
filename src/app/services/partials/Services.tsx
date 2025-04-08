@@ -1,5 +1,4 @@
 import React from "react";
-
 import ServiceCards from "./ServiceCards";
 import FertilityCare from "./FertilityCare";
 import { getData } from "@/api/axios";

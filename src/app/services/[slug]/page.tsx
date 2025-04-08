@@ -17,7 +17,7 @@ const page = async ({ params }: ServiceDetailPageProps) => {
       <section>
         <Headings data={data?.data} />
         <ServiceDetails data={data?.data} />
-        <ServiceFaq />
+        <ServiceFaq data={data?.data} />
       </section>
     );
   } catch (error) {

@@ -3,7 +3,11 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "@/app/globals.css";
-import InfertilityTreatment from "./InfertilityTreatment";
+import { useGetDataQuery, usePostDataMutation } from "@/api/api";
+import { endpoints } from "@/api/endpoints";
+import { ICenter } from "@/interface/center";
+import { IExperts } from "@/interface/experts";
+import { showSuccessMessage } from "@/utils/toast";
 
 interface IFormValues {
   name: string;
@@ -15,6 +19,8 @@ interface IFormValues {
 }
 
 const ServiceForm = () => {
+  const [postAppointment] = usePostDataMutation();
+
   const formik = useFormik<IFormValues>({
     initialValues: {
       name: "",
@@ -37,9 +43,34 @@ const ServiceForm = () => {
         .min(10, "Message must be at least 10 characters"),
     }),
     onSubmit: async (values) => {
-      console.log(values);
+      try {
+        const response = await postAppointment({
+          url: endpoints.appointment,
+          data: values,
+        });
+        if (response?.data?.status === "success") {
+          showSuccessMessage(response.data.message);
+          formik.resetForm();
+        }
+      } catch (error) {
+        console.error("Submission error:", error);
+      }
     },
   });
+  const { data: centerData } = useGetDataQuery({
+    url: `${endpoints.center}`,
+  });
+  const { data: doctorData } = useGetDataQuery(
+    {
+      url: `${endpoints.doctor}`,
+      params: {
+        center: formik.values.center,
+      },
+    },
+    {
+      skip: !formik.values.center,
+    }
+  );
 
   return (
     <section className="relative">
@@ -128,9 +159,11 @@ const ServiceForm = () => {
                 value={formik.values.center}
               >
                 <option value="">Select a center</option>
-                <option value="Dubai Marina">Dubai Marina</option>
-                <option value="Jumeirah Beach">Jumeirah Beach</option>
-                <option value="Downtown Dubai">Downtown Dubai</option>
+                {centerData?.data?.records.map((center: ICenter) => (
+                  <option key={center.id} value={center.id}>
+                    {center.name}
+                  </option>
+                ))}
               </select>
               {formik.touched.center && formik.errors.center && (
                 <p className="text-red-500 text-sm">{formik.errors.center}</p>
@@ -150,9 +183,11 @@ const ServiceForm = () => {
                 value={formik.values.doctor}
               >
                 <option value="">Select a Doctor</option>
-                <option value="Dubai Marina">Dubai Marina</option>
-                <option value="Jumeirah Beach">Jumeirah Beach</option>
-                <option value="Downtown Dubai">Downtown Dubai</option>
+                {doctorData?.data?.records.map((docter: IExperts) => (
+                  <option key={docter.id} value={docter.id}>
+                    {docter.name}
+                  </option>
+                ))}
               </select>
               {formik.touched.doctor && formik.errors.doctor && (
                 <p className="text-red-500 text-sm">{formik.errors.doctor}</p>
@@ -181,14 +216,13 @@ const ServiceForm = () => {
 
             {/* Submit Button */}
             <div className="flex ">
-              <button className="bg-secondary-500 hover:bg-secondary-600 text-white py-4 px-10 rounded-full typography-paragraph-regular">
+              <button className=" cursor-pointer bg-secondary-500 hover:bg-secondary-600 text-white py-4 px-10 rounded-full typography-paragraph-regular">
                 Request a Call
               </button>
             </div>
           </form>
         </div>
       </div>
-      <InfertilityTreatment />
     </section>
   );
 };

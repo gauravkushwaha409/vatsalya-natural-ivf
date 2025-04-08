@@ -1,7 +1,17 @@
 import React from "react";
-import surgical from "@/assests/icons/services/surgical.svg";
 import Image from "next/image";
-const InfertilityTreatment = () => {
+import {
+  IServiceDetailsDiagonosisList,
+  IServiceDetailsService,
+} from "../../interfaces/serviceDetails.interface";
+
+interface InfertilityTreatmentProps {
+  data: IServiceDetailsService;
+}
+
+const InfertilityTreatment: React.FC<InfertilityTreatmentProps> = ({
+  data,
+}) => {
   return (
     <section>
       <div
@@ -14,24 +24,28 @@ const InfertilityTreatment = () => {
           </p>
         </div>
         <div className="flex flex-col gap-5 my-5">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <div
-              key={index}
-              className="bg-secondary-100/50 w-full py-2  rounded-full flex items-center px-5 gap-2 "
-            >
-              <div className="w-10 h-10">
-                {" "}
-                <Image
-                  src={surgical}
-                  alt="surgical"
-                  className="w-full h-full"
-                />
+          {data?.diagonosisList?.map(
+            (items: IServiceDetailsDiagonosisList, index: number) => (
+              <div
+                key={index}
+                className="bg-secondary-100/50 w-full py-2  rounded-full flex items-center px-5 gap-2 "
+              >
+                <div className="w-10 h-10">
+                  {" "}
+                  <Image
+                    src={items?.icon}
+                    alt={items?.name}
+                    width={900}
+                    height={900}
+                    className="w-full h-full"
+                  />
+                </div>
+                <span className="typography-paragraph-regular font-medium text-secondary-500">
+                  {items?.name}
+                </span>
               </div>
-              <span className="typography-paragraph-regular font-medium text-secondary-500">
-                Surgical Sperm Retrieval
-              </span>
-            </div>
-          ))}
+            )
+          )}
         </div>
       </div>
     </section>
