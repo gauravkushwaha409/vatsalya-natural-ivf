@@ -14,7 +14,7 @@ const BlogDetail = async ({ params }: BlogDetailPageProps) => {
   try {
     const slug = await params;
     const data = await getData(endpoints.blog + `/${slug?.slug}`);
-    console.log(data?.data?.blog, "data blog service");
+
     return (
       <div className="relative">
         <BlogDetailHero data={data?.data?.blog} />
@@ -22,7 +22,7 @@ const BlogDetail = async ({ params }: BlogDetailPageProps) => {
           <div className="absolute top-[23.5rem] md:top-[33.5rem] lg:top-1/2 left-5 lg:left-20">
             <Stats />
           </div>
-          <BlogDescription data={data?.data?.blog?.service} />
+          <BlogDescription data={data?.data?.blog} />
           <CommentForm slug={slug?.slug} />
           <SimilarBlogs data={data?.data?.relatedBlogs} />
         </div>

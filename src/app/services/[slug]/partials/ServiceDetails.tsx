@@ -6,6 +6,7 @@ import ServiceForm from "./ServiceForms";
 import { motion } from "motion/react";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { IServiceDetailsData } from "../../interfaces/serviceDetails.interface";
+import InfertilityTreatment from "./InfertilityTreatment";
 
 interface IServiceDetails {
   data: IServiceDetailsData;
@@ -22,16 +23,17 @@ const ServiceDetails: React.FC<IServiceDetails> = ({ data }) => {
           className="w-full lg:w-2/3"
         >
           {" "}
-          <YoutubeEmbed />
-          <ServiceDescription data={data?.data?.service?.description} />
+          <YoutubeEmbed url={data?.service?.videoUrl} />
+          <ServiceDescription data={data?.service} />
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, x: "50%" }}
+          initial={{ opacity: 0, x: isSmall ? "0%" : "50%" }}
           animate={{ opacity: 1, x: "0%" }}
           transition={{ duration: 1.5, delay: 2 }}
           className="w-full lg:w-1/3  sticky top-0"
         >
           <ServiceForm />
+          <InfertilityTreatment data={data?.service} />
         </motion.div>
       </div>
     </section>

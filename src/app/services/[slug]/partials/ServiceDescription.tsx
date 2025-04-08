@@ -1,16 +1,44 @@
 "use client";
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import React, { useState } from "react";
+import {
+  IServiceDetailsService,
+  IServiceDetailsServiceDetailsListSection,
+} from "../../interfaces/serviceDetails.interface";
+import { IoMdCheckmark } from "react-icons/io";
 
 interface IServiceDescription {
-  description: string;
+  data: IServiceDetailsService;
 }
-const ServiceDescription: React.FC<IServiceDescription> = ({ description }) => {
+const ServiceDescription: React.FC<IServiceDescription> = ({ data }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
 
   return (
     <article className="py-10 flex  flex-col gap-5 text-text-400 text-justify">
-      <p dangerouslySetInnerHTML={{ __html: description }} />
+      <p dangerouslySetInnerHTML={{ __html: data?.description }} />
+      {data?.serviceDetailsListSection?.map(
+        (items: IServiceDetailsServiceDetailsListSection, index: number) => (
+          <div key={index} className="flex gap-2">
+            <div className="bg-secondary-500 rounded-full h-5 w-5  flex justify-center items-center mt-1.5 ">
+              <IoMdCheckmark size={18} className="text-white" />
+            </div>
+            <div key={index}>
+              <h4 className="typography-h4 font-medium">{items?.title}</h4>
+              <p dangerouslySetInnerHTML={{ __html: items?.description }} />
+              {items?.listItems?.map((item, index) => (
+                <div key={index}>
+                  <p>{item?.listItemTitle}</p>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: item?.listItemDescription,
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )
+      )}
       <button
         onClick={() => setOpenModal(true)}
         className="typography-h4 font-semibold border-[0.4px] border-secondary-100 bg-secondary-500 py-4 px-11 rounded-full text-lg transition-colors duration-300 shadow-[0px 8px 18px 0px rgba(101,53,83,0.62)] cursor-pointer text-white w-fit "
