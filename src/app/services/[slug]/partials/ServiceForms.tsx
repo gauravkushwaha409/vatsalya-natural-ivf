@@ -52,7 +52,9 @@ const ServiceForm = () => {
           showSuccessMessage(response.data.message);
           formik.resetForm();
         }
-      } catch (error) {}
+      } catch (error) {
+        console.error("Submission error:", error);
+      }
     },
   });
   const { data: centerData } = useGetDataQuery({
