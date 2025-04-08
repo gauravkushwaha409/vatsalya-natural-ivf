@@ -7,6 +7,7 @@ import {
 } from "../../interfaces/serviceDetails.interface";
 import { IoMdCheckmark } from "react-icons/io";
 
+
 interface IServiceDescription {
   data: IServiceDetailsService;
 }

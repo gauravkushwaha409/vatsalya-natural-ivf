@@ -22,9 +22,10 @@ const ServiceDetails: React.FC<IServiceDetails> = ({ data }) => {
           transition={{ duration: 1.3, delay: 2 }}
           className="w-full lg:w-2/3"
         >
-          {" "}
+    
           <YoutubeEmbed url={data?.service?.videoUrl} />
           <ServiceDescription data={data?.service} />
+
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: isSmall ? "0%" : "50%" }}
