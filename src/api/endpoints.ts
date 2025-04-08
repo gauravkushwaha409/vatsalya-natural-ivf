@@ -13,6 +13,9 @@ interface Endpoints {
   whenToSee: string;
   experts: string;
   subscription: string;
+  carrer: string;
+  joinUs: string;
+  openPosition: string;
 }
 
 export const endpoints: Endpoints = {
@@ -30,6 +33,9 @@ export const endpoints: Endpoints = {
   service: "/service",
   whenToSee: "/when-to-see-service",
   experts: "/expert",
+  carrer: "/career",
+  joinUs: "/join-us",
+  openPosition: "/vacancy",
 };
 
 export const BASE_API_URL = "http://192.168.1.100:5000/api/v1";
