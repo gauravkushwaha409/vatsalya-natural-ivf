@@ -4,11 +4,11 @@ WORKDIR /app
 
 # Build arguments for environment variables
 ARG NEXT_PUBLIC_API_URL
-ARG NODE_ENV=production
+
 
 # Set environment variables
-ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL \
-    NODE_ENV=$NODE_ENV 
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+
 
 # Install necessary build dependencies
 # RUN apk add --no-cache python3 make g++ libc6-compat
