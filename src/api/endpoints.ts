@@ -38,4 +38,4 @@ export const endpoints: Endpoints = {
   openPosition: "/vacancy",
 };
 
-export const BASE_API_URL = process.env.NEXT_PUBLIC_API_URL;
+export const BASE_API_URL = "https://api.vatsalya.com.np/api/v1";
