@@ -10,7 +10,7 @@ const MessageUI: React.FC<{ isOpen: boolean; closePopup: () => void }> = ({
   const token =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0MTk3MTY3LCJpYXQiOjE3NDQxMTA3NjcsImp0aSI6ImZlYTIzMjM3MDQyNDQyNGI4NTk1YjFjZjAzNGVkNjM3IiwidXNlcl9pZCI6Ijg3OTdmOGNjLWQ2YTUtNDM4Yi04ZDIzLTYwNGE2MjY2YTdlMCJ9.i3cLXb1qVwcoG1iJvW02o_97oquZSAArpwcObubZZVg";
   const { isConnected } = useChat(token);
-  console.log(isConnected, "socket connected");
+  // console.log(isConnected, "socket connected");
 
   return (
     <div
