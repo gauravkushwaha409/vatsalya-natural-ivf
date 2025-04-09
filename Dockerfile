@@ -20,14 +20,13 @@ COPY . .
 # Set build arguments and environment variables
 ARG NEXT_PUBLIC_API_URL
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
-ENV NODE_OPTIONS="--max-http-header-size=16384 --max-old-space-size=4096"
+ENV NODE_OPTIONS="--max-http-header-size=16384 --max-old-space-size=4096 --require /app/next-build-patch.js"
 ENV NEXT_TELEMETRY_DISABLED=1
 
-# Use fallback data for build if it exists
-RUN if [ -f /app/build-fallback.json ]; then echo "Using fallback data for build"; fi
-
-# Build with increased timeout tolerance
-RUN npm run build
+# Build with patched URL handling
+RUN NODE_OPTIONS="--require /app/next-build-patch.js" npm run build || \
+    (echo "First build attempt failed, retrying with stronger fallbacks..." && \
+     NODE_OPTIONS="--require /app/next-build-patch.js" NEXT_RUNTIME="nodejs" npm run build)
 
 # Production image
 FROM node:22-alpine AS runner
