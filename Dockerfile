@@ -3,12 +3,13 @@ FROM node:22-alpine
 WORKDIR /app
 
 # Build arguments for environment variables
-ARG NEXT_PUBLIC_API_URL
+ARG NEXT_PUBLIC_API_URL=https://api.vatsalya.com.np/api/v1
+ARG NODE_ENV=production
 
 
 # Set environment variables
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
-
+ENV NODE_ENV=$NODE_ENV
 
 # Install necessary build dependencies
 # RUN apk add --no-cache python3 make g++ libc6-compat

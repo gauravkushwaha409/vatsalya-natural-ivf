@@ -3,7 +3,8 @@ services:
     build:
       context: .
       args:
-        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+        NEXT_PUBLIC_API_URL: https://api.vatsalya.com.np/api/v1
+        NODE_ENV: ${NODE_ENV}
     container_name: vatsalya-fe
     ports:
       - "8001:3000"
@@ -16,6 +17,7 @@ services:
       retries: 3
     environment:
       - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+      - NODE_ENV=${NODE_ENV}
     networks:
       - vatsalya-network
     restart: always
