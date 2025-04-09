@@ -1,11 +1,11 @@
-import React from "react";
-import HeroCareer from "./partials/HeroCareer";
-import Benefits from "./partials/Benefits";
-import OpenPosition from "./partials/OpenPosition";
-import { endpoints } from "@/api/endpoints";
 import { getData } from "@/api/axios";
-import { ICarreerResponse } from "./interfaces/carrer.interface";
+import { endpoints } from "@/api/endpoints";
 import ErrorMessage from "@/components/ErrorMessage";
+import { AxiosError } from "axios";
+import { ICarreerResponse } from "./interfaces/carrer.interface";
+import Benefits from "./partials/Benefits";
+import HeroCareer from "./partials/HeroCareer";
+import OpenPosition from "./partials/OpenPosition";
 
 const Career = async () => {
   try {
@@ -18,8 +18,15 @@ const Career = async () => {
         <OpenPosition data={openPositionData?.data} />
       </div>
     );
-  } catch (error) {
-    console.error("Error fetching blog data:", error);
+  } catch (e) {
+    const error = e as AxiosError;
+    console.log("Error fetching blog data:", error);
+    if (error.status == 404)
+      return (
+        <div className="flex justify-center items-center h-screen">
+          No Oppertunities Found
+        </div>
+      );
     return <ErrorMessage />;
   }
 };
