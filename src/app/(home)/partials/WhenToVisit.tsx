@@ -96,7 +96,7 @@ const WhenToVisit = () => {
             {/* Left side card */}
             <div className="gap-5 grid grid-rows-2">
               {/* left top card */}
-              <div className="rounded-full rounded-br-none h-[12.69rem] aspect-square overflow-hidden">
+              <div className="rounded-full rounded-br-none h-[7.5rem] md:h-[12.69rem] aspect-square overflow-hidden">
                 <Image
                   className="w-full h-full object-cover"
                   src="/home/when-to-visit/card-image-1.jpeg"
@@ -106,7 +106,7 @@ const WhenToVisit = () => {
                 />
               </div>
               {/* left bottom card */}
-              <div className="rounded-[5.625rem] rounded-tr-none rounded-bl-none h-[12.69rem] aspect-square overflow-hidden">
+              <div className="rounded-[5.625rem] rounded-tr-none rounded-bl-none h-[7.5rem] md:h-[12.69rem] aspect-square overflow-hidden">
                 <video
                   className="w-full h-full object-cover"
                   autoPlay
@@ -124,7 +124,7 @@ const WhenToVisit = () => {
             {/* Right side cards */}
             <div className="gap-5 grid grid-rows-2">
               {/* Right top card */}
-              <div className="rounded-full rounded-bl-none h-[12.69rem] aspect-square overflow-hidden">
+              <div className="rounded-full rounded-bl-none h-[7.5rem] md:h-[12.69rem] aspect-square overflow-hidden">
                 {/* <div className="w-max"> */}
                 <Image
                   src="/home/when-to-visit/card-image-2.jpeg"
@@ -136,7 +136,7 @@ const WhenToVisit = () => {
                 {/* </div> */}
               </div>
               {/* Right bottom card */}
-              <div className="rounded-[5.625rem] rounded-tl-none rounded-br-none h-[12.69rem] aspect-square overflow-hidden">
+              <div className="rounded-[5.625rem] rounded-tl-none rounded-br-none h-[7.5rem] md:h-[12.69rem] aspect-square overflow-hidden">
                 <Image
                   src="/home/when-to-visit/card-image-4.jpeg"
                   width={500}
