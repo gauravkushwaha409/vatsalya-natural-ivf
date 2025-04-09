@@ -31,7 +31,7 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: SSH into server and pull and deploy latest changes
+      - name: SSH into server and deploy with improved Docker setup
         id: ssh_deploy
         run: |
           ssh -T -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }} << 'EOF'
@@ -43,39 +43,63 @@ jobs:
             git pull 2>&1 | tee git_pull.log
             echo "Git pull complete."
 
-            # Build and run containers
-            echo "Building and starting containers..."
-            docker compose up --build -d 2>&1 | tee build_run.log
+            # Create fallback JSON data to handle timeouts during build
+            echo "Setting up fallback data for API timeouts..."
+            echo '{"code":200,"message":"API Data Placeholder","data":{"records":[],"data":{"records":[]},"service":{"faq":[]}}}' > build-fallback.json
+
+            # Set environment variables in .env file
+            echo "Setting environment variables..."
+            cat > .env << EOF_ENV
+            NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}
+            EOF_ENV
+
+            # Enable BuildKit for better Docker building
+            export DOCKER_BUILDKIT=1
+
+            # Build the Docker image with network optimizations
+            echo "Building Docker image with optimized settings..."
+            DOCKER_BUILDKIT=1 docker build \
+              --network=host \
+              --build-arg NEXT_PUBLIC_API_URL="${{ secrets.NEXT_PUBLIC_API_URL }}" \
+              --progress=plain \
+              -t vatsalya-fe:latest . 2>&1 | tee build.log
+            
+            echo "Build complete."
+
+            # Start the container
+            echo "Starting containers..."
+            docker compose up -d 2>&1 | tee run.log
             echo "Containers started."
 
-            # Prune unused Docker images
-            echo "Pruning unused Docker images..."
+            # Clean up
+            echo "Cleaning up..."
             docker system prune -f 2>&1 | tee cleanup.log
-            echo "Unused Docker images pruned."
-
-            echo "Deployment Successful"
+            echo "Cleanup complete."
           EOF
 
           scp ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }}:/home/user/vatsalya/Vatsalya-Web-FE/git_pull.log ./git_pull.log
-          scp ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }}:/home/user/vatsalya/Vatsalya-Web-FE/build_run.log ./build_run.log
+          scp ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }}:/home/user/vatsalya/Vatsalya-Web-FE/build.log ./build.log
+          scp ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }}:/home/user/vatsalya/Vatsalya-Web-FE/run.log ./run.log
           scp ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }}:/home/user/vatsalya/Vatsalya-Web-FE/cleanup.log ./cleanup.log
 
       - name: Check logs for errors
         run: |
           ERROR_LOGS=""
           
-          # Check each log file for critical errors only (exact match of 'error' without trailing/leading characters)
+          # Check each log file for critical errors only
           if grep -i -E "^(failed|ERROR|Error:|\[error\])" git_pull.log; then
             ERROR_LOGS="${ERROR_LOGS}**Git Pull Log Errors:**\n\`\`\`\n$(cat git_pull.log)\n\`\`\`\n\n"
           fi
-          if grep -i -E "^(failed|ERROR|Error:|\[error\])" build_run.log; then
-            ERROR_LOGS="${ERROR_LOGS}**Build Run Log Errors:**\n\`\`\`\n$(cat build_run.log)\n\`\`\`\n\n"
+          if grep -i -E "^(failed|ERROR|Error:|\[error\])" build.log; then
+            ERROR_LOGS="${ERROR_LOGS}**Build Log Errors:**\n\`\`\`\n$(cat build.log)\n\`\`\`\n\n"
+          fi
+          if grep -i -E "^(failed|ERROR|Error:|\[error\])" run.log; then
+            ERROR_LOGS="${ERROR_LOGS}**Run Log Errors:**\n\`\`\`\n$(cat run.log)\n\`\`\`\n\n"
           fi
           if grep -i -E "^(failed|ERROR|Error:|\[error\])" cleanup.log; then
             ERROR_LOGS="${ERROR_LOGS}**Cleanup Log Errors:**\n\`\`\`\n$(cat cleanup.log)\n\`\`\`\n\n"
           fi
   
-          
           # Save the error logs to an environment variable
           {
             echo "ERROR_LOGS<<EOF"
