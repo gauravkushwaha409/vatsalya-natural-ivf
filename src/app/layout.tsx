@@ -1,3 +1,4 @@
+import { BASE_API_URL } from "@/api/endpoints";
 import Footer from "@/commons/Footer";
 import Header from "@/commons/Header";
 import BotPopup from "@/features/chatbot/BotPopup";
@@ -40,6 +41,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log("api base url is",BASE_API_URL)
   return (
     <html lang="en">
       <Providers>
