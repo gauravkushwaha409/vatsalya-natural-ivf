@@ -1,24 +1,29 @@
 "use client";
+import { usePostDataMutation } from "@/api/api";
+import { endpoints } from "@/api/endpoints";
 import {
   Dialog,
   DialogContent,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { showErrorMessage, showSuccessMessage } from "@/utils/toast";
 import { useFormik } from "formik";
 import { useRef, useState } from "react";
 import * as Yup from "yup";
+import { DialogClose } from "@/components/ui/dialog";
 
 interface IcustomClass {
   customClass?: string;
   title: string;
 }
 const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
-  //   const [createData, { isLoading }] = useCreateDataMutation();
+  const [createData, { isLoading }] = usePostDataMutation();
   const [resume, setResume] = useState<File | null>(null);
   const [formErrors, setFormErrors] = useState<{ resume?: string }>({});
+  const dialogCloseRef = useRef<HTMLButtonElement>(null);
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.currentTarget.files) {
       const file = e.currentTarget.files[0];
@@ -47,7 +52,6 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
       address: "",
       email: "",
       message: "",
-
       terms: false,
     },
     validationSchema: Yup.object({
@@ -68,11 +72,11 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
         "You must agree to the storage and handling of your data to submit the form."
       ),
     }),
-    onSubmit: async (values) => {
+    onSubmit: async (values, { resetForm }) => {
       try {
         // Create a new FormData object
         const formData = new FormData();
-
+        console.log(formik.errors);
         // Append the form values
         formData.append("name", values.name);
         formData.append("phone_no", values.phone_no);
@@ -86,9 +90,20 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
         if (resume) {
           formData.append("resume", resume); // Append the resume file
         }
+        const response = await createData({
+          url: endpoints.joinUs,
+          data: formData,
+        });
+        if (response.data.status === "success") {
+          showSuccessMessage(response.data.message);
+          resetForm();
+          setResume(null);
+          dialogCloseRef.current?.click();
+        } else {
+          showErrorMessage(response.data?.message || "An error occurred.");
+        }
       } catch (error) {
         console.error("Submission error:", error);
-        // showErrorToast("An unexpected error occurred. Please try again.");
       }
     },
   });
@@ -278,12 +293,19 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
             {formik.touched.terms && formik.errors.terms && (
               <p className="text-red-500 text-sm">{formik.errors.terms}</p>
             )}
-          </form>
-          <DialogFooter>
-            <button className="my-5 bg-secondary-500 px-8 py-3 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular cursor-pointer">
-              Submit
+            <button
+              type="submit"
+              className="my-5 bg-secondary-500 px-8 py-3 rounded-full font-bold text-white"
+              disabled={isLoading}
+            >
+              {isLoading ? "Submitting..." : "Submit"}
             </button>
-          </DialogFooter>
+
+            {/* Hidden Dialog Close Button */}
+            <DialogClose asChild>
+              <button ref={dialogCloseRef} type="button" className="hidden" />
+            </DialogClose>
+          </form>
         </DialogContent>
       </Dialog>
     </div>

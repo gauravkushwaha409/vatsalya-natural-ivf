@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import { BASE_API_URL } from "./endpoints";
 const axiosInstance = axios.create({
   baseURL: BASE_API_URL,
@@ -11,7 +11,7 @@ const axiosInstance = axios.create({
 export const getData = async <T = any>(
   url: string,
   params?: any
-): Promise<AxiosResponse<T>> => {
+): Promise<T> => {
   const data = await axiosInstance.get(url, {
     params,
     headers: {

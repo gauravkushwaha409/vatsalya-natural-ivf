@@ -3,42 +3,16 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { IoArrowForwardOutline, IoTimeOutline } from "react-icons/io5";
 import { SlLocationPin } from "react-icons/sl";
+import {
+  IOpenPositionData,
+  IOpenPositionRecord,
+} from "../interfaces/openposition.interface";
 
-const jobListings = [
-  {
-    id: 1,
-    title: "Fertility Specialist",
-    location: "Kathmandu, Nepal",
-    jobType: "Full-time",
-    description:
-      "Experienced fertility specialist needed to diagnose and treat reproductive health issues, including IVF and assisted reproductive technologies.",
-  },
-  {
-    id: 2,
-    title: "Cardiologist",
-    location: "New York, USA",
-    jobType: "Part-time",
-    description:
-      "Seeking an experienced cardiologist to provide comprehensive cardiovascular care to patients in a hospital setting.",
-  },
-  {
-    id: 3,
-    title: "Dermatologist",
-    location: "London, UK",
-    jobType: "Full-time",
-    description:
-      "Board-certified dermatologist required to diagnose and treat skin-related diseases and conditions.",
-  },
-  {
-    id: 4,
-    title: "Dermatologist",
-    location: "London, UK",
-    jobType: "Full-time",
-    description:
-      "Board-certified dermatologist required to diagnose and treat skin-related diseases and conditions.",
-  },
-];
-const OpenPosition = () => {
+interface IOpenPositionProps {
+  data: IOpenPositionData;
+}
+
+const OpenPosition: React.FC<IOpenPositionProps> = ({ data }) => {
   const router = useRouter();
   return (
     <div>
@@ -62,13 +36,13 @@ const OpenPosition = () => {
           </div>
 
           <div className="my-10 grid grid-cols-1 md:grid-cols-2 gap-10">
-            {jobListings.map((job) => (
+            {data?.records?.map((job: IOpenPositionRecord) => (
               <div
                 key={job.id}
                 className="rounded-[20px] p-[30px] bg-white hover:bg-primary-50 
               shadow-[0px_3px_20.8px_1px_rgba(0,0,0,0.04)] 
               transition-all duration-300 cursor-pointer"
-                onClick={() => router.push("/career/careerDetail")}
+                onClick={() => router.push("/career/" + job.slug)}
               >
                 {/* Header */}
                 <div className="flex justify-between items-center">
@@ -90,7 +64,7 @@ const OpenPosition = () => {
                   </div>
                   <div className="bg-secondary-50 rounded-2xl">
                     <p className="flex gap-1 items-center text-secondary-500 typography-paragraph-small font-medium px-3.5 py-2">
-                      <IoTimeOutline /> {job.jobType}
+                      <IoTimeOutline /> {job.employment_type}
                     </p>
                   </div>
                 </div>
