@@ -32,4 +32,4 @@ export const endpoints: Endpoints = {
   experts: "/expert",
 };
 
-export const BASE_API_URL = "http://192.168.1.100:5000/api/v1";
+export const BASE_API_URL = process.env.NEXT_PUBLIC_API_URL;
