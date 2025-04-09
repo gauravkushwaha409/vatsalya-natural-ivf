@@ -6,23 +6,35 @@ const axiosInstance = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
+  timeout: 30000,
 });
 
 export const getData = async <T = any>(
   url: string,
-  params?: any
+  params?: any,
+  options?: {
+    timeout?: number;
+  }
 ): Promise<T> => {
   try {
-    const data = await axiosInstance.get(url, {
+    const response = await axiosInstance.get<T>(url, {
       params,
+      timeout: options?.timeout,
       headers: {
         "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
         Pragma: "no-cache",
         Expires: "0",
       },
     });
-    return data?.data;
+    return response.data;
   } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.error(`Request failed to ${url}:`, {
+        message: error.message,
+        code: error.code,
+        status: error.response?.status,
+      });
+    }
     throw error;
   }
 };
