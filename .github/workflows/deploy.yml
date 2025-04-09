@@ -34,7 +34,7 @@ jobs:
       - name: SSH into server and deploy with improved Docker setup
         id: ssh_deploy
         run: |
-          ssh -T -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }} << 'EOF'
+          ssh -T -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }} << 'EOSSH'
             set -e
             cd /home/user/vatsalya/Vatsalya-Web-FE
 
@@ -47,11 +47,9 @@ jobs:
             echo "Setting up fallback data for API timeouts..."
             echo '{"code":200,"message":"API Data Placeholder","data":{"records":[],"data":{"records":[]},"service":{"faq":[]}}}' > build-fallback.json
 
-            # Set environment variables in .env file
+            # Set environment variables in .env file - using a simpler approach
             echo "Setting environment variables..."
-            cat > .env << EOF_ENV
-            NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}
-            EOF_ENV
+            echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" > .env
 
             # Enable BuildKit for better Docker building
             export DOCKER_BUILDKIT=1
@@ -75,28 +73,29 @@ jobs:
             echo "Cleaning up..."
             docker system prune -f 2>&1 | tee cleanup.log
             echo "Cleanup complete."
-          EOF
+          EOSSH
 
-          scp ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }}:/home/user/vatsalya/Vatsalya-Web-FE/git_pull.log ./git_pull.log
-          scp ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }}:/home/user/vatsalya/Vatsalya-Web-FE/build.log ./build.log
-          scp ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }}:/home/user/vatsalya/Vatsalya-Web-FE/run.log ./run.log
-          scp ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }}:/home/user/vatsalya/Vatsalya-Web-FE/cleanup.log ./cleanup.log
+          # Copy logs from server with error handling
+          scp ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }}:/home/user/vatsalya/Vatsalya-Web-FE/git_pull.log ./git_pull.log || echo "Warning: Could not copy git_pull.log"
+          scp ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }}:/home/user/vatsalya/Vatsalya-Web-FE/build.log ./build.log || echo "Warning: Could not copy build.log"
+          scp ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }}:/home/user/vatsalya/Vatsalya-Web-FE/run.log ./run.log || echo "Warning: Could not copy run.log"
+          scp ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }}:/home/user/vatsalya/Vatsalya-Web-FE/cleanup.log ./cleanup.log || echo "Warning: Could not copy cleanup.log"
 
       - name: Check logs for errors
         run: |
           ERROR_LOGS=""
           
-          # Check each log file for critical errors only
-          if grep -i -E "^(failed|ERROR|Error:|\[error\])" git_pull.log; then
+          # Check each log file for critical errors only if the file exists
+          if [ -f git_pull.log ] && grep -i -E "^(failed|ERROR|Error:|\[error\])" git_pull.log; then
             ERROR_LOGS="${ERROR_LOGS}**Git Pull Log Errors:**\n\`\`\`\n$(cat git_pull.log)\n\`\`\`\n\n"
           fi
-          if grep -i -E "^(failed|ERROR|Error:|\[error\])" build.log; then
+          if [ -f build.log ] && grep -i -E "^(failed|ERROR|Error:|\[error\])" build.log; then
             ERROR_LOGS="${ERROR_LOGS}**Build Log Errors:**\n\`\`\`\n$(cat build.log)\n\`\`\`\n\n"
           fi
-          if grep -i -E "^(failed|ERROR|Error:|\[error\])" run.log; then
+          if [ -f run.log ] && grep -i -E "^(failed|ERROR|Error:|\[error\])" run.log; then
             ERROR_LOGS="${ERROR_LOGS}**Run Log Errors:**\n\`\`\`\n$(cat run.log)\n\`\`\`\n\n"
           fi
-          if grep -i -E "^(failed|ERROR|Error:|\[error\])" cleanup.log; then
+          if [ -f cleanup.log ] && grep -i -E "^(failed|ERROR|Error:|\[error\])" cleanup.log; then
             ERROR_LOGS="${ERROR_LOGS}**Cleanup Log Errors:**\n\`\`\`\n$(cat cleanup.log)\n\`\`\`\n\n"
           fi
   
