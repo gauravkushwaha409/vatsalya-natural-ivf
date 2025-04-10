@@ -1,4 +1,4 @@
-import { ApiResponse } from "@/interface/api.interface";
+import { ApiResponseWithPagination } from "@/interface/api.interface";
 
 export interface IsuccessStoriesRoot {
   status: string;
@@ -16,26 +16,23 @@ export interface IsuccessStoriesData {
   pagingCounter: number;
   hasPrevious: boolean;
   hasNext: boolean;
-
+  prev: number;
+  next: number;
   recordShown: number;
 }
 
 export interface IsuccessStoriesRecord {
   object: string;
   id: string;
-  title: string;
-  readTime?: string;
-  slug: string;
-  category: string;
-  author?: IsuccessStoriesAuthor;
+  quoteContent: string;
+  storyContent: string;
+  videoUrl: string;
   image: string;
-  description: string;
-  favorites: number;
-  comments: any[];
-  tags: any[];
-  seo: IsuccessStoriesSeo;
-  created_date: string;
-  updated_date: string;
+  isMain: boolean;
+  characterName: string;
+  successStoryMetaInfo: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface IsuccessStoriesAuthor {
@@ -56,4 +53,5 @@ export interface IsuccessStoriesSeo {
   canonicalUrl?: string;
 }
 
-export type ISuccessStoriesResponse = ApiResponse<IsuccessStoriesData>;
+export type ISuccessStoriesResponse =
+  ApiResponseWithPagination<IsuccessStoriesData>;

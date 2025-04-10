@@ -17,11 +17,7 @@ const avatars: StaticImageData[] = [
   userAvatar,
 ];
 
-type YourJourneyProps = {
-  data: any;
-};
-
-const YourJourney: React.FC<YourJourneyProps> = ({ data }) => {
+const YourJourney = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
 
   return (
@@ -40,7 +36,7 @@ const YourJourney: React.FC<YourJourneyProps> = ({ data }) => {
             </p>
             <button
               onClick={() => setOpenModal(true)}
-              className="bg-secondary-500 py-4 px-6 mt-2 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular"
+              className="bg-secondary-500 cursor-pointer py-4 px-6 mt-2 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular"
             >
               Book an Appointment
             </button>

@@ -15,8 +15,8 @@ import {
   Pagination,
   Scrollbar,
 } from "swiper/modules";
-import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
-import TestimonialCard from "./TestimonialCard";
+import { Swiper, SwiperRef } from "swiper/react";
+// import TestimonialCard from "./TestimonialCard";
 
 const TestimonialSwiper = ({}) => {
   const swiperRef = useRef<SwiperRef>(null);
@@ -65,7 +65,7 @@ const TestimonialSwiper = ({}) => {
                 setActiveSlide(swiper.activeIndex);
               }}
             >
-              {testimonialData?.map((item, index) => (
+              {/* {testimonialData?.map((item, index) => (
                 <SwiperSlide key={index}>
                   <TestimonialCard
                     data={item}
@@ -73,7 +73,7 @@ const TestimonialSwiper = ({}) => {
                     // setVideoUrl={setVideoUrl}
                   />
                 </SwiperSlide>
-              ))}
+              ))} */}
             </Swiper>
           )}
         </div>

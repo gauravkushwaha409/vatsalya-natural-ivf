@@ -3,9 +3,8 @@ import TestimonialSection from "./partials/TestimonialSection";
 import StoriesSection from "./partials/StoriesSection";
 import YourJourney from "./partials/YourJourney";
 import HeroSuccess from "./partials/HeroSuccess";
-import { getData } from "@/api/axios";
-import { endpoints } from "@/api/endpoints";
-import { ISuccessStoriesResponse } from "./interface/successStories.interface";
+import { fetchSuccessStories } from "./hooks/fetchSuccessStoriesData";
+import ErrorMessage from "@/components/ErrorMessage";
 
 type Props = {
   searchParams?: Promise<{
@@ -13,20 +12,21 @@ type Props = {
   }>;
 };
 const SuccessStory = async ({ searchParams }: Props) => {
-  const page = Number((await searchParams)?.page) || 1;
-  const perPage = 12;
-  const data = await getData<ISuccessStoriesResponse>(
-    endpoints.sucessStory + `?page=${page}&perPage=${perPage}`
-  );
-
-  return (
-    <div>
-      <HeroSuccess />
-      <TestimonialSection data={data?.data} />
-      <StoriesSection data={data?.data} />
-      <YourJourney data={data?.data} />
-    </div>
-  );
+  try {
+    const page = Number((await searchParams)?.page) || 1;
+    const { stories, metadata } = await fetchSuccessStories(page, 12);
+    return (
+      <div>
+        <HeroSuccess />
+        <TestimonialSection data={metadata?.data} />
+        <StoriesSection data={stories?.data} metaData={metadata?.data} />
+        <YourJourney />
+      </div>
+    );
+  } catch (error) {
+    console.error("Error fetching blog data:", error);
+    <ErrorMessage />;
+  }
 };
 
 export default SuccessStory;

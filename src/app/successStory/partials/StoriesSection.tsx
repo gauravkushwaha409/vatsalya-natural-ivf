@@ -1,15 +1,20 @@
 "use client";
 import React, { useState } from "react";
-import { testimonialData } from "@/data/testimonialData";
 import CustomPagination from "../../../components/CustomPagination";
 import TestimonialCard from "@/components/TestimonialCard";
 import VideoModal from "@/components/modals/VideoModal";
 import usePaginationChange from "@/hooks/usePaginationChange";
+import { ISucessStoriesMetaData } from "../interface/sucessStoriesMeta.interface";
+import {
+  IsuccessStoriesData,
+  IsuccessStoriesRecord,
+} from "../interface/successStories.interface";
 
 type Props = {
-  data: any;
+  data: IsuccessStoriesData;
+  metaData: ISucessStoriesMetaData;
 };
-const StoriesSection: React.FC<Props> = ({ data }) => {
+const StoriesSection: React.FC<Props> = ({ data, metaData }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { currentPage, handlePageChange } = usePaginationChange();
   return (
@@ -20,26 +25,27 @@ const StoriesSection: React.FC<Props> = ({ data }) => {
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
 
           <h2 className="text-primary-500 text-sm md:text-base font-bold tracking-widest uppercase leading-[24px]">
-            Stories of Hope and Joy
+            {metaData?.successStoryExamplesTitle}
           </h2>
           {/* line  */}
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
         </div>
 
         <h1 className="typography-h2 font-semibold tracking-tight ">
-          Real journeys of couples who overcame fertility challenges with
-          Vatsalya’s expert care
+          {metaData?.successStoryExamplesTitle}
         </h1>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10 rounded-lg ">
-        {testimonialData.map((testimonial, index) => (
-          <TestimonialCard
-            key={index}
-            data={testimonial}
-            setIsOpenModal={setIsOpen}
-          />
-        ))}
+        {data?.records?.map(
+          (testimonial: IsuccessStoriesRecord, index: number) => (
+            <TestimonialCard
+              key={index}
+              data={testimonial}
+              setIsOpenModal={setIsOpen}
+            />
+          )
+        )}
       </div>
       <VideoModal
         isOpen={isOpen}
@@ -51,9 +57,9 @@ const StoriesSection: React.FC<Props> = ({ data }) => {
       <CustomPagination
         currentPage={currentPage}
         onPageChange={handlePageChange}
-        pageCount={5}
+        pageCount={data?.totalPages}
         perPage={5}
-        totalItems={10}
+        totalItems={data?.totalRecords}
       />
     </div>
   );
