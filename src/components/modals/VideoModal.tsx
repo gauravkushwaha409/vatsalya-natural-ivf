@@ -31,7 +31,10 @@ export default function VideoModal({
             <iframe
               width="100%"
               height="500"
-              src={`${videoUrl} || https://www.youtube.com/embed/vLyP1aOmENc?si=aPCpD2JOABihWFx_`}
+              src={
+                videoUrl ||
+                `https://www.youtube.com/embed/vLyP1aOmENc?si=aPCpD2JOABihWFx_`
+              }
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

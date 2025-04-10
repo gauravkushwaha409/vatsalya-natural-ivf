@@ -6,15 +6,13 @@ import Milestone from "./partials/Milestone";
 import MissionVision from "./partials/MissionVision";
 import OurStory from "./partials/OurStory";
 import WhyChooseUs from "./partials/WhyChooseUs";
-import { getData } from "@/api/axios";
-import { endpoints } from "@/api/endpoints";
+
+import { fetchAboutPageData } from "./hooks/fetchAboutUsData";
 
 const AboutUs = async () => {
-  const aboutUsData = await getData(endpoints.aboutUs.aboutUs);
-  const statsData = await getData(endpoints.stats);
-  const whyUsData = await getData(endpoints.aboutUs.whyUs);
-  const testimonialData = await getData(endpoints.sucessStory);
-  console.log(aboutUsData.data?.Gallery, "gallery");
+  const { aboutUsData, statsData, whyUsData, testimonialData } =
+    await fetchAboutPageData();
+
   return (
     <div>
       <AboutHero />
