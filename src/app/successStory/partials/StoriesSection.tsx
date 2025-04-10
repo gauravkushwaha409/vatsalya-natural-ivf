@@ -16,6 +16,7 @@ type Props = {
 };
 const StoriesSection: React.FC<Props> = ({ data, metaData }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [videoUrl, setVideoUrl] = useState<string>("");
   const { currentPage, handlePageChange } = usePaginationChange();
   return (
     <div className="padding">
@@ -43,6 +44,7 @@ const StoriesSection: React.FC<Props> = ({ data, metaData }) => {
               key={index}
               data={testimonial}
               setIsOpenModal={setIsOpen}
+              setVideoUrl={setVideoUrl}
             />
           )
         )}
@@ -50,7 +52,7 @@ const StoriesSection: React.FC<Props> = ({ data, metaData }) => {
       <VideoModal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        videoUrl="https://www.youtube.com/embed/vLyP1aOmENc?si=aPCpD2JOABihWFx_"
+        videoUrl={videoUrl}
       />
 
       {/* pagination  */}

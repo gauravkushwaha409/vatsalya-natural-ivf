@@ -1,8 +1,11 @@
 import Image from "next/image";
 import React from "react";
-import family from "@/assests/about/family.png";
+import { IAboutUsFamily } from "../interface/about.interface";
 
-const Family = () => {
+type Props = {
+  data: IAboutUsFamily;
+};
+const Family: React.FC<Props> = ({ data }) => {
   return (
     <div className="py-16 md:py-24 padding">
       <div className="flex flex-col items-center text-center space-y-4">
@@ -11,25 +14,24 @@ const Family = () => {
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
 
           <h2 className="text-primary-500 text-sm md:text-base font-bold tracking-widest uppercase leading-[24px]">
-            Our Vatsalya Family
+            {data?.title}
           </h2>
           {/* line  */}
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
         </div>
 
         <h2 className="typography-h2 font-semibold tracking-tight ">
-          A Team United by Care and Compassion
+          {data?.subtitle}
         </h2>
 
-        <p className="text-text-400 typography-paragraph-large leading-[150%] font-medium max-w-7xl">
-          Our team is more than just medical professionals; we are your support
-          system. With collective expertise and a shared passion for helping
-          families grow, we are here to walk with you every step of the way.
-        </p>
+        <p
+          className="text-text-400 typography-paragraph-large leading-[150%] font-medium max-w-7xl"
+          dangerouslySetInnerHTML={{ __html: data?.description }}
+        />
 
         <div className="w-full h-96 mt-4">
           <Image
-            src={family}
+            src={data?.image}
             alt="Family Photo"
             width={1280}
             height={384}

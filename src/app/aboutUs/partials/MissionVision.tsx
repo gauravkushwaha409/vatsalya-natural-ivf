@@ -1,7 +1,10 @@
 import Image from "next/image";
 import React from "react";
-import photo from "@/assests/about/ourstory1.png";
-const MissionVision = () => {
+import { IAboutUsAboutusMission } from "../interface/about.interface";
+type Props = {
+  data: IAboutUsAboutusMission;
+};
+const MissionVision: React.FC<Props> = ({ data }) => {
   return (
     <div>
       <section className="w-full py-16 md:py-24 bg-gradient-to-r from-[#EBC0DB] to-primary-100">
@@ -26,7 +29,9 @@ const MissionVision = () => {
                     {/* Inner most border (with fixed width and height) */}
                     <div className="w-[8.625rem] h-[8.625rem]  rounded-full rounded-br-none border-[0.8px] border-white flex items-center justify-center">
                       <Image
-                        src={photo}
+                        src={data?.images[0]}
+                        width={400}
+                        height={400}
                         alt="Mother holding baby"
                         className="rounded-full rounded-br-none border-[0.8px] border-white w-full h-full object-cover"
                       />
@@ -51,7 +56,9 @@ const MissionVision = () => {
                     {/* Inner most border */}
                     <div className=" w-[8.625rem] h-[8.625rem] rounded-full rounded-bl-none border-[0.8px] ">
                       <Image
-                        src={photo}
+                        src={data?.images[1]}
+                        width={400}
+                        height={400}
                         alt="Mother holding baby"
                         className="rounded-full rounded-bl-none border-[0.8px] border-white w-full h-full object-cover
                       "
@@ -76,8 +83,10 @@ const MissionVision = () => {
                     {/* Inner most border */}
                     <div className=" w-[8.625rem] h-[8.625rem] pr-[0.85rem] lg:pr-0 rounded-full rounded-tr-none border-[0.8px] ">
                       <Image
-                        src={photo}
+                        src={data?.images[2]}
                         alt="Mother holding baby"
+                        width={400}
+                        height={400}
                         className="rounded-full rounded-tr-none border-[0.8px] border-white w-full h-full object-cover"
                       />
                     </div>
@@ -101,7 +110,9 @@ const MissionVision = () => {
                     {/* Inner most border */}
                     <div className="w-[8.625rem] h-[8.625rem] rounded-full rounded-tl-none border-[0.8px] ">
                       <Image
-                        src={photo}
+                        src={data?.images[3]}
+                        width={400}
+                        height={400}
                         alt="Mother holding baby"
                         className="rounded-full rounded-tl-none border-[0.8px] border-white w-full h-full object-cover
                       "
@@ -116,21 +127,17 @@ const MissionVision = () => {
             <div className="space-y-6 w-full">
               <div className="flex items-center w-full  gap-4 ">
                 <h2 className="text-primary-500 uppercase tracking-widest text-base leading-[150%] font-bold">
-                  OUR MISSION & VISION
+                  {data?.title}
                 </h2>
                 <div className="h-px bg-primary-500 flex-1 max-w-[148px]"></div>
               </div>
               <h2 className="typography-h2 font-semibold text-text-500 ">
-                Transforming Lives Through Compassionate Fertility Care
+                {data?.subtitle}{" "}
               </h2>
-              <p className="text-text-400 text-justify typography-paragraph-large font-medium leading-relaxed">
-                Our mission is to provide personalized, ethical, and innovative
-                fertility solutions that cater to each couples unique needs. We
-                aim to be a center of excellence in fertility care, not just
-                through advanced technology but by building trust, offering
-                emotional support, and walking alongside our patients throughout
-                their journey.
-              </p>
+              <p
+                className="text-text-400 text-justify typography-paragraph-large font-medium leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: data?.description }}
+              />
             </div>
           </div>
         </div>

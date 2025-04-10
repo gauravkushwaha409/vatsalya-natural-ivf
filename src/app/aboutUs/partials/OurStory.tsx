@@ -1,9 +1,12 @@
 import Image from "next/image";
 import React from "react";
-import photo1 from "@/assests/about/ourstory1.png";
-import photo2 from "@/assests/about/ourstory2.png";
+import { IAboutUsData } from "../interface/about.interface";
 
-const OurStory = () => {
+type Props = {
+  data: IAboutUsData;
+};
+
+const OurStory: React.FC<Props> = ({ data }) => {
   return (
     <div>
       <section className="padding py-16 md:py-24">
@@ -11,31 +14,19 @@ const OurStory = () => {
           <div className="space-y-6 ">
             <div className="flex items-center w-full  gap-4 ">
               <h2 className="text-primary-500 uppercase tracking-widest text-base leading-[150%] font-bold">
-                OUR STORY
+                {data?.title}
               </h2>
               <div className="h-px bg-primary-500 flex-1 max-w-[148px]"></div>
             </div>
             <h2 className="typography-h2 font-semibold text-text-500 ">
-              A Journey Rooted in Hope and Expertise
+              {data?.subtitle}{" "}
             </h2>
 
             <div className="space-y-4 text-text-400 text-justify typography-paragraph-large font-medium">
-              <p className="leading-relaxed ">
-                Vatsalya was born from a deep passion to support couples on
-                their path to parenthood. With over 15 years of experience in
-                fertility care, we have combined advanced treatments with a
-                compassionate approach to help countless families realize their
-                dreams.
-              </p>
-
-              <p className="leading-relaxed">
-                Our journey is driven by innovation, empathy, and trust —
-                ensuring that every couple receives personalized care and
-                emotional support throughout their fertility journey. At
-                Vatsalya, we believe that the joy of parenthood should be within
-                reach for everyone, and we are dedicated to making that
-                possible, one family at a time.
-              </p>
+              <p
+                className="leading-relaxed "
+                dangerouslySetInnerHTML={{ __html: data?.description }}
+              />
             </div>
           </div>
 
@@ -43,7 +34,7 @@ const OurStory = () => {
             {/* Main image (top right) */}
             <div className="absolute right-0 top-0 w-3/4 h-3/4 rounded-lg overflow-hidden ">
               <Image
-                src={photo1}
+                src={data?.images[0]}
                 alt="Happy family with healthcare providers"
                 width={500}
                 height={400}
@@ -54,7 +45,7 @@ const OurStory = () => {
             {/* Secondary image (bottom left) */}
             <div className="absolute left-0 -bottom-10 w-3/4 h-3/4 rounded-lg overflow-hidden ">
               <Image
-                src={photo2}
+                src={data?.images[1]}
                 alt="Patients with their baby"
                 width={500}
                 height={400}

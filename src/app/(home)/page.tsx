@@ -1,4 +1,4 @@
-import Testimonial from "@/components/Testimonial";
+// import Testimonial from "@/components/Testimonial";
 import BrandsSlider from "./partials/BrandsSlider";
 import HomeFaq from "./partials/Faq";
 import HeroSection from "./partials/HeroSection";
@@ -54,9 +54,9 @@ const HomePage = () => {
       <MeetExperts />
       <Showcase />
       <Miracles />
-      <div className="mt-60 w-full">
+      {/* <div className="mt-60 w-full">
         <Testimonial />
-      </div>
+      </div> */}
       <HomeFaq />
       <Blogsection />
     </div>

@@ -1,4 +1,8 @@
 "use client";
+import {
+  IsuccessStoriesData,
+  IsuccessStoriesRecord,
+} from "@/app/successStory/interface/successStories.interface";
 import VideoModal from "@/components/modals/VideoModal";
 import { testimonialData } from "@/data/testimonialData";
 import { motion } from "motion/react";
@@ -15,14 +19,19 @@ import {
   Pagination,
   Scrollbar,
 } from "swiper/modules";
-import { Swiper, SwiperRef } from "swiper/react";
+import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
+import TestimonialCard from "./TestimonialCard";
 // import TestimonialCard from "./TestimonialCard";
 
-const TestimonialSwiper = ({}) => {
+interface ITestimonialSwiper {
+  data: IsuccessStoriesData;
+}
+const TestimonialSwiper: React.FC<ITestimonialSwiper> = ({ data }) => {
   const swiperRef = useRef<SwiperRef>(null);
   const [noofSlides, setNoofSlides] = useState(0);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+  const [videoUrl, setVideoUrl] = useState<string>("");
   // const [setVideoUrl] = useState<string>("");
 
   useEffect(() => {
@@ -65,15 +74,18 @@ const TestimonialSwiper = ({}) => {
                 setActiveSlide(swiper.activeIndex);
               }}
             >
-              {/* {testimonialData?.map((item, index) => (
-                <SwiperSlide key={index}>
-                  <TestimonialCard
-                    data={item}
-                    setIsOpenModal={setIsOpenModal}
-                    // setVideoUrl={setVideoUrl}
-                  />
-                </SwiperSlide>
-              ))} */}
+              {data?.records?.map(
+                (testimonial: IsuccessStoriesRecord, index: number) => (
+                  <SwiperSlide key={index}>
+                    <TestimonialCard
+                      key={index}
+                      data={testimonial}
+                      setIsOpenModal={setIsOpenModal}
+                      setVideoUrl={setVideoUrl}
+                    />
+                  </SwiperSlide>
+                )
+              )}
             </Swiper>
           )}
         </div>
@@ -136,7 +148,7 @@ const TestimonialSwiper = ({}) => {
       <VideoModal
         isOpen={isOpenModal}
         onClose={() => setIsOpenModal(false)}
-        videoUrl="https://www.youtube.com/embed/vLyP1aOmENc?si=aPCpD2JOABihWFx_"
+        videoUrl={videoUrl}
       />
     </div>
   );

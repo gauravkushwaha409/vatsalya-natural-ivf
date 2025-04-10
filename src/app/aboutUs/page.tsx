@@ -7,17 +7,22 @@ import MissionVision from "./partials/MissionVision";
 import OurStory from "./partials/OurStory";
 import WhyChooseUs from "./partials/WhyChooseUs";
 
-const AboutUs = () => {
+import { fetchAboutPageData } from "./hooks/fetchAboutUsData";
+
+const AboutUs = async () => {
+  const { aboutUsData, statsData, whyUsData, testimonialData } =
+    await fetchAboutPageData();
+
   return (
     <div>
       <AboutHero />
-      <OurStory />
-      <MissionVision />
-      <Family />
-      <Milestone />
-      <Culture />
-      <WhyChooseUs />
-      <Testimonial />
+      <OurStory data={aboutUsData.data} />
+      <MissionVision data={aboutUsData.data?.AboutusMission[0]} />
+      <Family data={aboutUsData?.data?.Family[0]} />
+      <Milestone data={statsData.data} />
+      <Culture data={aboutUsData.data?.Gallery[0]} />
+      <WhyChooseUs data={whyUsData.data} />
+      <Testimonial data={testimonialData.data} />
     </div>
   );
 };
