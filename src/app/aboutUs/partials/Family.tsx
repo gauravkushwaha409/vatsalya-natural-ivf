@@ -2,7 +2,10 @@ import Image from "next/image";
 import React from "react";
 import family from "@/assests/about/family.png";
 
-const Family = () => {
+type Props = {
+  data: any;
+};
+const Family: React.FC<Props> = ({ data }) => {
   return (
     <div className="py-16 md:py-24 padding">
       <div className="flex flex-col items-center text-center space-y-4">

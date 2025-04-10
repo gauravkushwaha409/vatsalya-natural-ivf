@@ -2,7 +2,10 @@ import React from "react";
 import Image from "next/image";
 import stat1 from "@/assests/about/stat.png"; // Replace with actual icons
 
-const Milestone = () => {
+type Props = {
+  data: any;
+};
+const Milestone: React.FC<Props> = ({ data }) => {
   const stats = [
     {
       id: 1,

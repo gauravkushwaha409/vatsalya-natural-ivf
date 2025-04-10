@@ -16,6 +16,7 @@ interface Endpoints {
   carrer: string;
   joinUs: string;
   openPosition: string;
+  aboutUs: string;
 }
 
 export const endpoints: Endpoints = {
@@ -36,6 +37,7 @@ export const endpoints: Endpoints = {
   carrer: "/career",
   joinUs: "/join-us",
   openPosition: "/vacancy",
+  aboutUs: "/about-us",
 };
 
 export const BASE_API_URL = process.env.NEXT_PUBLIC_API_URL;
