@@ -10,16 +10,19 @@ import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
 
 const AboutUs = async () => {
-  const data = await getData(endpoints.aboutUs);
+  const aboutUsData = await getData(endpoints.aboutUs.aboutUs);
+  const statsData = await getData(endpoints.stats);
+  const whyUsData = await getData(endpoints.aboutUs.whyUs);
+  const testimonialData = await getData(endpoints.);
   return (
     <div>
       <AboutHero data={data.data} />
-      <OurStory data={data.data} />
-      <MissionVision data={data.data} />
-      <Family data={data.data} />
-      <Milestone data={data.data} />
-      <Culture data={data.data} />
-      <WhyChooseUs data={data.data} />
+      <OurStory data={aboutUsData.data} />
+      <MissionVision data={aboutUsData.data} />
+      <Family data={aboutUsData.data} />
+      <Milestone data={statsData.data} />
+      <Culture data={aboutUsData.data} />
+      <WhyChooseUs data={whyUsData.data} />
       <Testimonial data={data.data} />
     </div>
   );
