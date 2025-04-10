@@ -36,7 +36,7 @@ const YourJourney = () => {
             </p>
             <button
               onClick={() => setOpenModal(true)}
-              className="bg-secondary-500 py-4 px-6 mt-2 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular"
+              className="bg-secondary-500 cursor-pointer py-4 px-6 mt-2 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular"
             >
               Book an Appointment
             </button>
@@ -57,7 +57,7 @@ const YourJourney = () => {
 
               {/* Avatar Images */}
               <div className="flex items-center">
-                {avatars.map((user, index) => (
+                {avatars?.map((user, index) => (
                   <div
                     key={index}
                     className={`w-14 h-14 rounded-full border-2 border-white overflow-hidden ${

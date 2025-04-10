@@ -2,11 +2,15 @@
 import { Play } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
-import photo from "@/assests/success-story/testimonial.png";
 import { IoIosQuote } from "react-icons/io";
 import VideoModal from "@/components/modals/VideoModal";
+import { ISucessStoriesMetaData } from "../interface/sucessStoriesMeta.interface";
 
-const TestimonialSection = () => {
+type testimonialData = {
+  data: ISucessStoriesMetaData;
+};
+
+const TestimonialSection: React.FC<testimonialData> = ({ data }) => {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
   return (
@@ -17,7 +21,7 @@ const TestimonialSection = () => {
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
 
           <h2 className="text-primary-500 text-sm md:text-base font-bold tracking-widest uppercase leading-[24px]">
-            A Journey of Hope
+            {data?.successStoryMainTitle}
           </h2>
           {/* line  */}
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
@@ -35,7 +39,7 @@ const TestimonialSection = () => {
         </div>
 
         <h1 className="typography-h2 font-semibold tracking-tight ">
-          Turning Dreams into Reality with Vatsalya&apos;s Care
+          {data?.successStoryMainSubtitle}
         </h1>
       </div>
 
@@ -43,7 +47,7 @@ const TestimonialSection = () => {
       <div className="grid md:grid-cols-2 mt-10 gap-10 items-center">
         <div className="rounded-lg overflow-hidden">
           <Image
-            src={photo}
+            src={data?.SuccessStory?.image}
             alt="A family standing in front of Vatsalya sign"
             width={600}
             height={450}
@@ -76,14 +80,11 @@ const TestimonialSection = () => {
                 <IoIosQuote fill="url(#quoteGradient)" />
               </svg>
             </span>
-            After years of uncertainty, Vatsalya gave us hope—and now we hold
-            our little miracle in our arms.
+            {data?.SuccessStory?.quoteContent}
           </div>
 
           <div className="typography-paragraph-large font-medium text-text-400 text-justify space-y-4">
-            <p>
-              {`"${"For five years, we faced heartbreak after heartbreak, trying everypossible treatment without success. The emotional and physicaltoll was overwhelming, and we were close to giving up. Then we found Vatsalya. From the very first consultation, we felt a renewed sense of hope. The doctors were not only experts in fertility care but also compassionate guides who truly understood our pain. Every step of the journey was personalized, and the unwavering support we received made all the difference. Today, as we hold our little one in our arms, we know that choosing Vatsalya was the best decision we ever made."}"`}
-            </p>
+            <p>{`"${data?.SuccessStory?.storyContent}"`}</p>
           </div>
 
           <button
@@ -102,7 +103,7 @@ const TestimonialSection = () => {
       <VideoModal
         isOpen={isOpenModal}
         onClose={() => setIsOpenModal(false)}
-        videoUrl="https://www.youtube.com/embed/vLyP1aOmENc?si=aPCpD2JOABihWFx_"
+        videoUrl={data?.SuccessStory?.videoUrl}
       />
     </div>
   );

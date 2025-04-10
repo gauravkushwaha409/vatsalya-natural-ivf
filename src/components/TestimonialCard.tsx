@@ -1,14 +1,11 @@
 "use client";
+import { IsuccessStoriesRecord } from "@/app/successStory/interface/successStories.interface";
 import { Play } from "lucide-react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { ImQuotesLeft } from "react-icons/im";
 
 interface TestimonialCardProps {
-  data: {
-    name: string;
-    testimonial: string;
-    videoThumbnail: string | StaticImageData;
-  };
+  data: IsuccessStoriesRecord;
   setIsOpenModal?: React.Dispatch<React.SetStateAction<boolean>>;
   setVideoUrl?: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -24,8 +21,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         <div className="relative h-[240px]">
           {/* Video Thumbnail */}
           <Image
-            src={data?.videoThumbnail}
-            alt={`Video testimonial by ${data?.name}`}
+            src={data?.image}
+            alt={`Video testimonial by ${data?.quoteContent}`}
             width={400}
             height={240}
             className="rounded-t-lg w-full h-full object-cover"
@@ -39,7 +36,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
             aria-label="Play video"
             onClick={() => {
               setIsOpenModal?.(true);
-              setVideoUrl?.(data?.name); // send the video url
+              setVideoUrl?.(data?.videoUrl); // send the video url
             }}
           >
             <Play className="fill-[#FFF1EF] w-14 h-14 text-[#FFF1EF]" />
@@ -53,10 +50,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 
           <div className="pt-6">
             <p className="mb-4 text-text-400 line-clamp-3 typography-paragraph-large">
-              {data?.testimonial}
+              {data?.storyContent}
             </p>
             <p className="font-semibold text-text-500 typography-paragraph-large">
-              {data?.name}
+              {data?.characterName}
             </p>
           </div>
         </div>
