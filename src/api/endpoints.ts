@@ -16,14 +16,7 @@ interface Endpoints {
   carrer: string;
   joinUs: string;
   openPosition: string;
-  aboutUs: IAboutUS;
-  stats: string;
-}
-export interface IAboutUS {
   aboutUs: string;
-  mission: string;
-  family: string;
-  whyUs: string;
 }
 
 export const endpoints: Endpoints = {
