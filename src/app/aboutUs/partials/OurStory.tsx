@@ -3,7 +3,11 @@ import React from "react";
 import photo1 from "@/assests/about/ourstory1.png";
 import photo2 from "@/assests/about/ourstory2.png";
 
-const OurStory = () => {
+type Props = {
+  data: any;
+};
+
+const OurStory: React.FC<Props> = ({ data }) => {
   return (
     <div>
       <section className="padding py-16 md:py-24">

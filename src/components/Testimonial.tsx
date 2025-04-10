@@ -3,7 +3,10 @@ import Image from "next/image";
 import TestimonialSwiper from "./TestimonialSwiper";
 // import CustomCarousel from "./Carousel";
 
-const Testimonial = () => {
+type Props = {
+  data: any;
+};
+const Testimonial: React.FC<Props> = ({ data }) => {
   return (
     <div className="pb-16 md:pb-24 pl-5 md:pl-20">
       <div className="relative bg-gradient-to-l from-primary-100 to-[#EBC0DB] p-4 md:p-10 rounded-tl-[20px] rounded-bl-[20px] w-full max-h-[774px]">

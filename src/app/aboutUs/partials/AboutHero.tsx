@@ -5,7 +5,10 @@ import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 import Image from "next/image";
 import { useState } from "react";
 
-const AboutHero = () => {
+type Props = {
+  data: any;
+};
+const AboutHero: React.FC<Props> = ({ data }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
 
   return (

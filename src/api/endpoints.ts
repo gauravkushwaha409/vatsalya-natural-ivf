@@ -18,6 +18,15 @@ interface Endpoints {
   openPosition: string;
   sucessStory: string;
   sucessStoryMeta: string;
+  aboutUs: IAboutUS;
+  stats: string;
+}
+
+export interface IAboutUS {
+  aboutUs: string;
+  mission: string;
+  family: string;
+  whyUs: string;
 }
 
 export const endpoints: Endpoints = {
@@ -40,6 +49,13 @@ export const endpoints: Endpoints = {
   openPosition: "/vacancy",
   sucessStory: "/success-story",
   sucessStoryMeta: "/success-story-meta-info",
+  aboutUs: {
+    aboutUs: "/about-us",
+    mission: "/mission",
+    family: "/family",
+    whyUs: "/why-us",
+  },
+  stats: "/stats",
 };
 
 export const BASE_API_URL = process.env.NEXT_PUBLIC_API_URL;

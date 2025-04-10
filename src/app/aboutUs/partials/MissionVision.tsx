@@ -1,7 +1,10 @@
 import Image from "next/image";
 import React from "react";
 import photo from "@/assests/about/ourstory1.png";
-const MissionVision = () => {
+type Props = {
+  data: string;
+};
+const MissionVision: React.FC<Props> = ({ data }) => {
   return (
     <div>
       <section className="w-full py-16 md:py-24 bg-gradient-to-r from-[#EBC0DB] to-primary-100">

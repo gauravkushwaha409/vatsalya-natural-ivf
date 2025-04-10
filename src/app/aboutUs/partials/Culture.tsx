@@ -45,8 +45,11 @@ const images = [
     colSpan: "col-span-2",
   },
 ];
+type Props = {
+  data: any;
+};
 
-const Culture = () => {
+const Culture: React.FC<Props> = ({ data }) => {
   return (
     <div>
       <div className="pb-16 md:pb-24 padding">

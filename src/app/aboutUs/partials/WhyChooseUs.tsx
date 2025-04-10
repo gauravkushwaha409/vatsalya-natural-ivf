@@ -29,8 +29,10 @@ const whyChooseUsData = [
     image: whyUsIcon,
   },
 ];
-
-const WhyChooseUs = () => {
+type data = {
+  data: any;
+};
+const WhyChooseUs: React.FC<data> = ({ data }) => {
   return (
     <div className="pb-16 lg:pb-24 padding">
       <div className="flex flex-col items-center text-center space-y-4">
