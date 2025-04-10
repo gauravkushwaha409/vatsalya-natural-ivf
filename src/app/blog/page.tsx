@@ -1,5 +1,5 @@
 import { getData } from "@/api/axios";
-import { BASE_API_URL, endpoints } from "@/api/endpoints";
+import { endpoints } from "@/api/endpoints";
 import BlogsCard from "./partials/BlogsCard";
 import HeroBlog from "./partials/HeroBlog";
 
@@ -13,8 +13,7 @@ interface BlogProps {
 
 export const dynamic = "force-dynamic";
 
-const Blog = async ({ searchParams }: BlogProps) => {
-  console.log(BASE_API_URL, "api url");
+const BlogPage = async ({ searchParams }: BlogProps) => {
   try {
     const page = (await Number((await searchParams)?.page)) || 1;
     const perPage = 12;
@@ -38,4 +37,4 @@ const Blog = async ({ searchParams }: BlogProps) => {
   }
 };
 
-export default Blog;
+export default BlogPage;

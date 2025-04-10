@@ -6,7 +6,11 @@ import photo from "@/assests/success-story/testimonial.png";
 import { IoIosQuote } from "react-icons/io";
 import VideoModal from "@/components/modals/VideoModal";
 
-const TestimonialSection = () => {
+type testimonialData = {
+  data: any;
+};
+
+const TestimonialSection: React.FC<testimonialData> = ({ data }) => {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
   return (

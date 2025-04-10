@@ -4,13 +4,14 @@ import { testimonialData } from "@/data/testimonialData";
 import CustomPagination from "../../../components/CustomPagination";
 import TestimonialCard from "@/components/TestimonialCard";
 import VideoModal from "@/components/modals/VideoModal";
+import usePaginationChange from "@/hooks/usePaginationChange";
 
-const StoriesSection = () => {
+type Props = {
+  data: any;
+};
+const StoriesSection: React.FC<Props> = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
+  const { currentPage, handlePageChange } = usePaginationChange();
   return (
     <div className="padding">
       <div className="flex flex-col items-center text-center space-y-4">

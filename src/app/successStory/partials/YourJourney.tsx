@@ -17,7 +17,11 @@ const avatars: StaticImageData[] = [
   userAvatar,
 ];
 
-const YourJourney = () => {
+type YourJourneyProps = {
+  data: any;
+};
+
+const YourJourney: React.FC<YourJourneyProps> = ({ data }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
 
   return (
@@ -57,7 +61,7 @@ const YourJourney = () => {
 
               {/* Avatar Images */}
               <div className="flex items-center">
-                {avatars.map((user, index) => (
+                {avatars?.map((user, index) => (
                   <div
                     key={index}
                     className={`w-14 h-14 rounded-full border-2 border-white overflow-hidden ${
