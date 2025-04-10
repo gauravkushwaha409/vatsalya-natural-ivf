@@ -1,36 +1,9 @@
 import Image from "next/image";
 import React from "react";
-import whyUsIcon from "@/assests/about/WhyUsIcon.png";
+import { IWhyUsData } from "../interface/whyus.interface";
 
-const whyChooseUsData = [
-  {
-    id: 1,
-    title: "Compassionate Care",
-    description:
-      "We listen, support, and care for you at every step of your journey.",
-    image: whyUsIcon,
-  },
-  {
-    id: 2,
-    title: "Expert Doctors",
-    description: "Our experienced professionals provide world-class treatment.",
-    image: whyUsIcon,
-  },
-  {
-    id: 3,
-    title: "Advanced Technology",
-    description: "We use cutting-edge technology to deliver the best outcomes.",
-    image: whyUsIcon,
-  },
-  {
-    id: 4,
-    title: "Personalized Plans",
-    description: "Tailored healthcare solutions for your unique needs.",
-    image: whyUsIcon,
-  },
-];
 type data = {
-  data: any;
+  data: IWhyUsData;
 };
 const WhyChooseUs: React.FC<data> = ({ data }) => {
   return (
@@ -41,27 +14,27 @@ const WhyChooseUs: React.FC<data> = ({ data }) => {
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
 
           <h2 className="text-primary-500 text-sm lg:text-base font-bold tracking-widest uppercase leading-[24px]">
-            Why choose us
+            {data?.title}
           </h2>
           {/* line  */}
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
         </div>
 
         <h2 className="typography-h2 font-semibold tracking-tight ">
-          A Team United by Care and Compassion
+          {data?.subtitle}
         </h2>
 
         <div className="flex flex-col lg:flex-row justify-between gap-6 mt-4">
           <div className="grid grid-cols-2 gap-6">
-            {whyChooseUsData.map((data) => (
+            {data?.WhyusDetail.map((data) => (
               <div
                 key={data.id}
                 className="flex flex-col lg:flex-row items-center lg:items-start gap-4 border border-secondary-50 px-4 py-5 rounded-[14px]"
               >
                 <div className="w-[80px] h-[80px]">
                   <Image
-                    src={data.image}
-                    alt={data.title}
+                    src={data.icon}
+                    alt={data.question}
                     width={80}
                     height={80}
                     className="w-full h-full object-contain"
@@ -69,10 +42,10 @@ const WhyChooseUs: React.FC<data> = ({ data }) => {
                 </div>
                 <div className="lg:text-left">
                   <h5 className="text-secondary-500 typography-h4 mb-2">
-                    {data.title}
+                    {data.question}
                   </h5>
                   <p className="text-text-400 typography-paragraph-large font-medium leading-[150%]">
-                    {data.description}
+                    {data.answer}
                   </p>
                 </div>
               </div>
@@ -84,7 +57,7 @@ const WhyChooseUs: React.FC<data> = ({ data }) => {
             <iframe
               width="560"
               height="315"
-              src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&rel=0"
+              src={data?.youtubeLink}
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

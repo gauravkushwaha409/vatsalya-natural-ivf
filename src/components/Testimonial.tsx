@@ -1,10 +1,11 @@
 import quoteIcon from "@/assests/about/quoteIcon.png";
 import Image from "next/image";
 import TestimonialSwiper from "./TestimonialSwiper";
+import { IsuccessStoriesData } from "@/app/successStory/interface/successStories.interface";
 // import CustomCarousel from "./Carousel";
 
 type Props = {
-  data: any;
+  data: IsuccessStoriesData;
 };
 const Testimonial: React.FC<Props> = ({ data }) => {
   return (
@@ -36,7 +37,7 @@ const Testimonial: React.FC<Props> = ({ data }) => {
           </div>
           {/* Carousel Section  */}
           <div className="lg:w-[70%]">
-            <TestimonialSwiper />
+            <TestimonialSwiper data={data} />
           </div>
         </div>
       </div>

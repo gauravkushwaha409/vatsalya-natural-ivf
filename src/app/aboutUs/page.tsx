@@ -13,17 +13,18 @@ const AboutUs = async () => {
   const aboutUsData = await getData(endpoints.aboutUs.aboutUs);
   const statsData = await getData(endpoints.stats);
   const whyUsData = await getData(endpoints.aboutUs.whyUs);
-  const testimonialData = await getData(endpoints.);
+  const testimonialData = await getData(endpoints.sucessStory);
+  console.log(aboutUsData.data?.Gallery, "gallery");
   return (
     <div>
-      <AboutHero data={data.data} />
+      <AboutHero />
       <OurStory data={aboutUsData.data} />
-      <MissionVision data={aboutUsData.data} />
-      <Family data={aboutUsData.data} />
+      <MissionVision data={aboutUsData.data?.AboutusMission[0]} />
+      <Family data={aboutUsData?.data?.Family[0]} />
       <Milestone data={statsData.data} />
-      <Culture data={aboutUsData.data} />
+      <Culture data={aboutUsData.data?.Gallery[0]} />
       <WhyChooseUs data={whyUsData.data} />
-      <Testimonial data={data.data} />
+      <Testimonial data={testimonialData.data} />
     </div>
   );
 };

@@ -1,29 +1,30 @@
 import React from "react";
 import Image from "next/image";
 import stat1 from "@/assests/about/stat.png"; // Replace with actual icons
+import { IStatsData } from "@/interface/stats.interface";
 
 type Props = {
-  data: any;
+  data: IStatsData;
 };
 const Milestone: React.FC<Props> = ({ data }) => {
   const stats = [
     {
       id: 1,
-      value: "15",
+      value: data?.caringforFamilies,
       label: "Caring for Families",
       subtext: "Years",
       img: stat1,
     },
     {
       id: 2,
-      value: "15,000+",
+      value: `${data?.successfulIVFTreatments}+`,
       label: "Successful IVF Treatments",
       subtext: "",
       img: stat1,
     },
     {
       id: 3,
-      value: "100+",
+      value: `${data?.expertSpecialists}+`,
       label: "Expert Specialists",
       subtext: "",
       img: stat1,
@@ -44,11 +45,10 @@ const Milestone: React.FC<Props> = ({ data }) => {
                 <div className="h-px bg-primary-500 flex-1 max-w-[148px]"></div>
               </div>
               <h2 className="typography-h2 font-semibold text-text-500 ">
-                A legacy of care and success
+                {data?.title}
               </h2>
               <p className="text-text-400 typography-paragraph-large leading-[150%] font-medium">
-                Our experience and dedication continue to bring hope and joy to
-                those who trust us with their dreams.
+                {data?.subtitle}
               </p>
             </div>
           </div>
