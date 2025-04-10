@@ -16,7 +16,17 @@ interface Endpoints {
   carrer: string;
   joinUs: string;
   openPosition: string;
+  aboutUs: IAboutUS;
+  stats: string;
+  sucessStory: string;
+  sucessStoryMeta: string;
+}
+
+export interface IAboutUS {
   aboutUs: string;
+  mission: string;
+  family: string;
+  whyUs: string;
 }
 
 export const endpoints: Endpoints = {
@@ -37,6 +47,8 @@ export const endpoints: Endpoints = {
   carrer: "/career",
   joinUs: "/join-us",
   openPosition: "/vacancy",
+  sucessStory: "/success-story",
+  sucessStoryMeta: "/success-story-meta-info",
   aboutUs: {
     aboutUs: "/about-us",
     mission: "/mission",
