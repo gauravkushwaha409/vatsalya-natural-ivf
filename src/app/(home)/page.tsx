@@ -12,17 +12,18 @@ import WhatWeOffer from "./partials/WhatWeOffer";
 import WhenToVisit from "./partials/WhenToVisit";
 import WhoWeAre from "./partials/WhoWeAre";
 import Blogsection from "./partials/Blogsection";
-import { getData } from "@/api/axios";
-import { endpoints } from "@/api/endpoints";
+import { getHomePageData } from "./hook/hook.hook";
 
 const HomePage = async () => {
-  const homedata = await getData(endpoints.home);
-  const whatweOfferData = await getData(endpoints.service);
-  const howWeWorkData = await getData(endpoints.howWorks);
-  const expertsData = await getData(endpoints.experts);
-  const blogData = await getData(endpoints.blog);
-  const showcaseData = await getData(endpoints.stats);
-  const testimonialData = await getData(endpoints.sucessStory);
+  const {
+    homedata,
+    whatweOfferData,
+    howWeWorkData,
+    expertsData,
+    blogData,
+    showcaseData,
+    testimonialData,
+  } = await getHomePageData();
   return (
     <div className="space-y-20">
       <div

@@ -1,4 +1,3 @@
-import { teamMembers } from "@/data/team-data";
 import TeamSlider from "./TeamSlider";
 import { IOurExpertsData } from "@/app/ourExperts/interface/ourExperts.interface";
 

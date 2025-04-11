@@ -1,4 +1,3 @@
-import faqData from "@/data/faqsData";
 import Image from "next/image";
 import Faq from "../../../components/Faqs";
 import pic1 from "./../../../assests/contact/pic3.png";
