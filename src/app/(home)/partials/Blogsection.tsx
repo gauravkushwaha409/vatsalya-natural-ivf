@@ -1,4 +1,10 @@
-const Blogsection = () => {
+import { IBlogData } from "@/app/blog/interface/blog.interface";
+import BlogCard from "@/components/cards/BlogCard";
+
+type BlogCardProps = {
+  data: IBlogData;
+};
+const Blogsection: React.FC<BlogCardProps> = ({ data }) => {
   return (
     <div className="my-10 padding">
       <div className="flex items-center gap-3 pb-2">
@@ -11,9 +17,9 @@ const Blogsection = () => {
         Latest News & Articles{" "}
       </h2>
       <div className="gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
-        {/* {blogData.slice(0, 3).map((blog, index) => (
+        {data?.records?.slice(0, 3).map((blog, index) => (
           <BlogCard key={index} data={blog} />
-        ))} */}
+        ))}
       </div>
     </div>
   );

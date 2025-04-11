@@ -1,7 +1,11 @@
 import { teamMembers } from "@/data/team-data";
 import TeamSlider from "./TeamSlider";
+import { IOurExpertsData } from "@/app/ourExperts/interface/ourExperts.interface";
 
-const MeetExperts = () => {
+interface MeetExpertsProps {
+  data: IOurExpertsData;
+}
+const MeetExperts: React.FC<MeetExpertsProps> = ({ data }) => {
   return (
     <div className="my-[12.5rem]">
       <div className="flex justify-center items-center gap-5 py-10">
@@ -15,7 +19,7 @@ const MeetExperts = () => {
         World-Class Doctors, Dedicated to Your Care
       </h2>
 
-      <TeamSlider data={[...teamMembers, ...teamMembers]} />
+      <TeamSlider data={data?.records} />
     </div>
   );
 };

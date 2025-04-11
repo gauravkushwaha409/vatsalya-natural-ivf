@@ -1,6 +1,10 @@
+import { IStatsData } from "@/interface/stats.interface";
 import Image from "next/image";
 
-const Showcase = () => {
+type ShowCaseItemProps = {
+  data: IStatsData;
+};
+const Showcase: React.FC<ShowCaseItemProps> = ({ data }) => {
   return (
     <div
       style={{
@@ -10,7 +14,7 @@ const Showcase = () => {
     >
       <div className="mx-auto lg:mx-0">
         <Image
-          src="/home/showcase-image.png"
+          src={data?.statsImage}
           alt="Showcase"
           width={1200}
           height={800}
@@ -22,7 +26,7 @@ const Showcase = () => {
           svg="/svg/award.svg"
           title={
             <>
-              15&nbsp;
+              {data?.caringforFamilies}
               <span className="font-normal typography-paragraph-regular">
                 Years
               </span>
@@ -31,13 +35,13 @@ const Showcase = () => {
           subtitle="Caring for Families"
         />
         <ShowCaseItem
-          svg="/svg/trophy.svg"
-          title="15000+"
+          svg={"/svg/heart.svg"}
+          title={`${data?.successfulIVFTreatments}+`}
           subtitle="Successful IVF Treatments"
         />
         <ShowCaseItem
           svg="/svg/star.svg"
-          title="100+"
+          title={`${data?.expertSpecialists}+`}
           subtitle="Expert Specialists"
         />
       </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { IOurExpertsRecord } from "@/app/ourExperts/interface/ourExperts.interface";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,7 +9,7 @@ import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 interface TeamSliderProps {
-  data: { name: string; title: string; image: string; description: string }[];
+  data: IOurExpertsRecord[];
 }
 
 const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
@@ -105,7 +106,7 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
               {data[activeIndex].name}
             </h1>
             <h2 className="font-semibold text-text-500 typography-paragraph-large">
-              {data[activeIndex].title}
+              {data[activeIndex].position}
             </h2>
             <p className="font-medium text-text-300 typography-paragraph-regular">
               {data[activeIndex].description}
@@ -196,7 +197,7 @@ const MobileTeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
               {/* <ExternalLink className="inline-block ml-2 text-sm" /> */}
             </h1>
             <h2 className="font-semibold text-text-500 typography-paragraph-large">
-              {member.title}
+              {member.position}
             </h2>
             <p className="font-medium text-text-300 typography-paragraph-regular">
               {member.description}

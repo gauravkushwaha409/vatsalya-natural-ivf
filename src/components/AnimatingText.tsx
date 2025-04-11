@@ -14,7 +14,7 @@ const AnimatingText: React.FC<{
       }}
       className={`flex flex-wrap ${className}`}
     >
-      {text.split(" ").map((word, wordIndex) => {
+      {text?.split(" ")?.map((word, wordIndex) => {
         return (
           <motion.span
             initial={{
@@ -32,16 +32,13 @@ const AnimatingText: React.FC<{
             key={wordIndex}
             className="inline-block"
           >
-            {word.split("").map((letter, charIndex) => {
+            {word?.split("")?.map((letter, charIndex) => {
               const index =
-                text.split(" ").slice(0, wordIndex).join(" ").length +
+                text?.split(" ").slice(0, wordIndex).join(" ").length +
                 (wordIndex > 0 ? 1 : 0) +
                 charIndex;
               return (
-                <motion.span
-                  key={index}
-                  className="inline"
-                >
+                <motion.span key={index} className="inline">
                   {letter}
                 </motion.span>
               );

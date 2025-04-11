@@ -2,10 +2,14 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
+import { IHomeWhatWeDo } from "../interface/home.interface";
 
 const BASE_DURATION = 1;
 const STARTING_OFFSET = "22%";
-const WhoWeAre = () => {
+type WhoWeAreProps = {
+  data: IHomeWhatWeDo;
+};
+const WhoWeAre: React.FC<WhoWeAreProps> = ({ data }) => {
   const [isInViewport, setIsInViewport] = useState(false);
   return (
     <motion.div
@@ -33,12 +37,12 @@ const WhoWeAre = () => {
       >
         <div className="flex justify-center items-center gap-5 mt-4">
           <span className="font-bold text-primary-500 uppercase lg:leading-[0.18rem] typography-paragraph-regular">
-            Who Are we
+            {data?.title}
           </span>
           <div className="bg-primary-500 h-[0.0625rem] grow"></div>
         </div>
         <p className="font-bold text-text-500 typography-h2">
-          Turning Hope into <br /> Happiness
+          {data?.subtitle}
         </p>
       </motion.div>
       <div className="relative w-full grow">
@@ -77,7 +81,7 @@ const WhoWeAre = () => {
               className="rounded-md lg:rounded-full w-[19.5rem] aspect-square overflow-hidden shrink-0"
             >
               <Image
-                src={"/home/priyanka-ayushman.jpeg"}
+                src={data?.image}
                 width={340}
                 height={340}
                 alt="priyanka-ayushman.jpeg"
@@ -92,13 +96,8 @@ const WhoWeAre = () => {
                 },
               }}
               className="font-[500] text-text-400 leading-[150%] typography-paragraph-large"
-            >
-              We are more than just a fertility center—we are a beacon of hope
-              for families longing to grow. With cutting-edge technology and
-              compassionate care, we guide you through every step of your
-              fertility journey, ensuring unwavering support and expert medical
-              attention.
-            </motion.p>
+              dangerouslySetInnerHTML={{ __html: data?.description }}
+            />
           </motion.div>
         </motion.div>
       </div>
