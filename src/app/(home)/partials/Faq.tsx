@@ -1,10 +1,13 @@
-import faqData from "@/data/faqsData";
 import Image from "next/image";
 import Faq from "../../../components/Faqs";
 import pic1 from "./../../../assests/contact/pic3.png";
 import pic2 from "./../../../assests/contact/pic4.png";
+import { IHomeFaq } from "../interface/home.interface";
 
-const HomeFaq = () => {
+type HomeFaqProps = {
+  data: IHomeFaq[];
+};
+const HomeFaq: React.FC<HomeFaqProps> = ({ data }) => {
   return (
     <section className="flex gap-10 px-5 md:px-20 py-20">
       <div className="hidden md:flex justify-start items-center w-full md:w-1/2">
@@ -39,7 +42,7 @@ const HomeFaq = () => {
         <h2 className="pb-4 font-semibold typography-h2">
           Answers to Your Fertility Questions
         </h2>
-        <Faq faq={faqData} />
+        <Faq faq={data} />
       </div>
     </section>
   );

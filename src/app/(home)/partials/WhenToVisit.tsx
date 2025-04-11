@@ -1,10 +1,14 @@
 "use client";
 import { motion } from "motion/react";
 import Image from "next/image";
+import { IHomeWhenVisit } from "../interface/home.interface";
 
 const ANIMATION_DURATION = 1;
 
-const WhenToVisit = () => {
+type WhenToVisitProps = {
+  data: IHomeWhenVisit;
+};
+const WhenToVisit: React.FC<WhenToVisitProps> = ({ data }) => {
   return (
     <div className="flex flex-col justify-between py-16 min-h-screen overflow-x-hidden">
       <div
@@ -55,21 +59,11 @@ const WhenToVisit = () => {
           <h1 className="my-5 font-semibold text-text-500 typography-h2">
             Signs You Should See a Fertility Specialist
           </h1>
-          <ul className="*:marker:pr-1 font-[500] text-text-500 *:marker:text-secondary-500 *:marker:content-['➤'] leading-[150%] typography-paragraph-large">
-            {[
-              " Couples struggling to conceive naturally after a year of trying",
-              " Couples facing multiple pregnancy losses",
-              " Individuals with a family history of genetic disorders",
-              " Men experiencing fertility issues like low sperm count or poor motility",
-              " Women with irregular periods, PCOS, or other ovulation concerns",
-              " Couples dealing with STDs that may impact fertility",
-              " Cancer patients who wish to preserve their fertility before treatment",
-            ].map((item, index) => (
-              <li key={index} className="pl-2">
-                {item}
-              </li>
-            ))}
-          </ul>
+          <div
+            className=" pl-5 font-[500] text-text-500 *:marker:text-secondary-500 *:marker:content-['➤\00a0'] leading-[150%] typography-paragraph-large"
+            dangerouslySetInnerHTML={{ __html: data.description }}
+          />
+
           <button
             className="mt-5 px-8 py-4 border border-secondary-500 rounded-full font-extrabold text-secondary-500 cursor-pointer typography-paragraph-regular"
             style={{
@@ -99,7 +93,7 @@ const WhenToVisit = () => {
               <div className="rounded-full rounded-br-none h-[7.5rem] md:h-[12.69rem] aspect-square overflow-hidden">
                 <Image
                   className="w-full h-full object-cover"
-                  src="/home/when-to-visit/card-image-1.jpeg"
+                  src={data?.images[0]}
                   width={500}
                   height={500}
                   alt="What we offer 1"
@@ -127,7 +121,7 @@ const WhenToVisit = () => {
               <div className="rounded-full rounded-bl-none h-[7.5rem] md:h-[12.69rem] aspect-square overflow-hidden">
                 {/* <div className="w-max"> */}
                 <Image
-                  src="/home/when-to-visit/card-image-2.jpeg"
+                  src={data?.images[1]}
                   width={500}
                   height={500}
                   className="w-full h-full object-cover"
@@ -138,7 +132,7 @@ const WhenToVisit = () => {
               {/* Right bottom card */}
               <div className="rounded-[5.625rem] rounded-tl-none rounded-br-none h-[7.5rem] md:h-[12.69rem] aspect-square overflow-hidden">
                 <Image
-                  src="/home/when-to-visit/card-image-4.jpeg"
+                  src={data?.images[2]}
                   width={500}
                   height={500}
                   className="w-full h-full object-cover"

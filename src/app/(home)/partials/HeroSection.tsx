@@ -6,8 +6,12 @@ import { useState } from "react";
 import HeroAnimationCarousel from "./HeroAnimationCarousel";
 import HeroTextAnimation from "./HeroTextAnimation";
 import RequestAppoimentModal from "../modals/RequestAppoimentModal";
+import { IHomeData } from "../interface/home.interface";
 
-const HeroSection = () => {
+type HomeProps = {
+  data: IHomeData;
+};
+const HeroSection: React.FC<HomeProps> = ({ data }) => {
   const text = "Journey to <parenthood,> /b Naturally and Compassionately";
   const [openModal, setOpenModal] = useState<boolean>(false);
   const handleAppointmentClick = () => {
@@ -17,7 +21,7 @@ const HeroSection = () => {
     <div className="relative flex justify-center padding h-full min-h-screen overflow-y-hidden">
       <div className="flex flex-col justify-center mt-16 lg:mt-[8.72rem] w-full h-full text-left">
         <h1 className="font-bold text-primary-500 uppercase tracking-wide typography-paragraph-large">
-          Vatsalya Natural IVF
+          {data?.title}{" "}
         </h1>
         <div className="relative pt-5">
           <HeroTextAnimation text={text} />
@@ -68,8 +72,7 @@ const HeroSection = () => {
           </motion.div>
         </div>
         <p className="mt-[0.88rem] max-w-2xl font-normal lg:font-[500] text-text-400 typography-paragraph-small lg:typography-paragraph-large">
-          Nepal’s top IVF centers, offering advanced infertility treatments with
-          15+ years of expertise to support your path to parenthood.
+          {data?.subtitle}
         </p>
         <div className="flex items-center gap-6 mt-[2.44rem] h-full">
           <button
@@ -119,14 +122,7 @@ const HeroSection = () => {
         /> */}
       </div>
       <div className="right-0 left-0 lg:left-1/2 absolute inset-y-0">
-        <HeroAnimationCarousel
-          images={[
-            "/home/hero-img-1.png",
-            "/home/hero-img-2.png",
-            "/home/hero-img-1.png",
-            "/home/hero-img-2.png",
-          ]}
-        />
+        <HeroAnimationCarousel images={data?.caroselImages} />
       </div>
       <RequestAppoimentModal
         isOpen={openModal}

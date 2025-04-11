@@ -1,4 +1,4 @@
-// import Testimonial from "@/components/Testimonial";
+import Testimonial from "@/components/Testimonial";
 import BrandsSlider from "./partials/BrandsSlider";
 import HomeFaq from "./partials/Faq";
 import HeroSection from "./partials/HeroSection";
@@ -12,8 +12,18 @@ import WhatWeOffer from "./partials/WhatWeOffer";
 import WhenToVisit from "./partials/WhenToVisit";
 import WhoWeAre from "./partials/WhoWeAre";
 import Blogsection from "./partials/Blogsection";
+import { getHomePageData } from "./hook/hook.hook";
 
-const HomePage = () => {
+const HomePage = async () => {
+  const {
+    homedata,
+    whatweOfferData,
+    howWeWorkData,
+    expertsData,
+    blogData,
+    showcaseData,
+    testimonialData,
+  } = await getHomePageData();
   return (
     <div className="space-y-20">
       <div
@@ -31,7 +41,7 @@ const HomePage = () => {
           }}
           className="z-[1] relative"
         >
-          <HeroSection />
+          <HeroSection data={homedata.data} />
           <div
             style={{
               background: "url('/home/circle.svg') no-repeat right top",
@@ -42,23 +52,23 @@ const HomePage = () => {
       </div>
 
       {/* Main Slogan */}
-      <Slogan />
+      <Slogan data={homedata?.data?.mission[0]} />
       <div className="w-full overflow-hidden">
-        <WhoWeAre />
-        <WhatWeDo />
+        <WhoWeAre data={homedata?.data?.WhatWeDo[0]} />
+        <WhatWeDo data={homedata?.data?.WhatWeDo[1]} />
       </div>
-      <WhatWeOffer />
-      <HowWeWork />
-      <WhenToVisit />
+      <WhatWeOffer data={whatweOfferData?.data?.records} />
+      <HowWeWork data={howWeWorkData?.data} />
+      <WhenToVisit data={homedata?.data?.WhenVisit[0]} />
       <BrandsSlider />
-      <MeetExperts />
-      <Showcase />
+      <MeetExperts data={expertsData?.data} />
+      <Showcase data={showcaseData?.data} />
       <Miracles />
-      {/* <div className="mt-60 w-full">
-        <Testimonial />
-      </div> */}
-      <HomeFaq />
-      <Blogsection />
+      <div className="mt-60 w-full">
+        <Testimonial data={testimonialData?.data} />
+      </div>
+      <HomeFaq data={homedata?.data?.Faq} />
+      <Blogsection data={blogData?.data} />
     </div>
   );
 };

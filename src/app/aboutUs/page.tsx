@@ -8,23 +8,29 @@ import OurStory from "./partials/OurStory";
 import WhyChooseUs from "./partials/WhyChooseUs";
 
 import { fetchAboutPageData } from "./hooks/fetchAboutUsData";
+import ErrorMessage from "@/components/ErrorMessage";
 
 const AboutUs = async () => {
-  const { aboutUsData, statsData, whyUsData, testimonialData } =
-    await fetchAboutPageData();
+  try {
+    const { aboutUsData, statsData, whyUsData, testimonialData } =
+      await fetchAboutPageData();
 
-  return (
-    <div>
-      <AboutHero />
-      <OurStory data={aboutUsData.data} />
-      <MissionVision data={aboutUsData.data?.AboutusMission[0]} />
-      <Family data={aboutUsData?.data?.Family[0]} />
-      <Milestone data={statsData.data} />
-      <Culture data={aboutUsData.data?.Gallery[0]} />
-      <WhyChooseUs data={whyUsData.data} />
-      <Testimonial data={testimonialData.data} />
-    </div>
-  );
+    return (
+      <div>
+        <AboutHero />
+        <OurStory data={aboutUsData.data} />
+        <MissionVision data={aboutUsData.data?.AboutusMission[0]} />
+        <Family data={aboutUsData?.data?.Family[0]} />
+        <Milestone data={statsData.data} />
+        <Culture data={aboutUsData.data?.Gallery[0]} />
+        <WhyChooseUs data={whyUsData.data} />
+        <Testimonial data={testimonialData.data} />
+      </div>
+    );
+  } catch (error) {
+    console.error(error);
+    return <ErrorMessage />;
+  }
 };
 
 export default AboutUs;

@@ -1,6 +1,5 @@
 import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
-import { ISuccessStoriesResponse } from "@/app/successStory/interface/successStories.interface";
 
 export const fetchAboutPageData = async () => {
   const [aboutUsData, statsData, whyUsData, testimonialData] =

@@ -20,6 +20,8 @@ interface Endpoints {
   stats: string;
   sucessStory: string;
   sucessStoryMeta: string;
+  home: string;
+  howWorks: string;
 }
 
 export interface IAboutUS {
@@ -56,6 +58,8 @@ export const endpoints: Endpoints = {
     whyUs: "/why-us",
   },
   stats: "/stats",
+  home: "/home",
+  howWorks: "/how-works",
 };
 
 export const BASE_API_URL = process.env.NEXT_PUBLIC_API_URL;
