@@ -1,6 +1,4 @@
 import Image from "next/image";
-import { useChat } from "../hooks/useChat";
-import { useEffect } from "react";
 
 type MessageProps = { text: string; sender: "bot" | "user"; name?: string };
 
