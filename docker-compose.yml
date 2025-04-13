@@ -18,8 +18,6 @@ services:
     environment:
       - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
       - NODE_ENV=${NODE_ENV}
-    extra_hosts:
-      - "api.vatsalya.com.np:172.17.0.1"
     networks:
       - vatsalya-network
     restart: always
