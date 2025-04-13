@@ -1,7 +1,10 @@
+"use client";
 import { BASE_API_URL } from "@/api/endpoints";
 import { Send } from "lucide-react";
 import Image from "next/image";
 import Message from "./Message";
+import { useChat } from "../hooks/useChat";
+import { useEffect, useState } from "react";
 
 const MessageUI: React.FC<{ isOpen: boolean; closePopup: () => void }> = ({
   closePopup,
@@ -77,6 +80,7 @@ const MessagesContainer = () => {
       <Message text="Hello, how can I help you?" sender="bot" />
       <Message text="Hello, how can I help you?" sender="user" name="saugat" />
       <Message text="Hello, how can I help you?" sender="bot" />
+      <
       {/*
       <Message text="Hello, how can I help you?" sender="user" name="saugat"/>
       <Message text="Hello, how can I help you?" sender="bot" />
@@ -98,15 +102,35 @@ const MessagesContainer = () => {
 };
 
 const MessageInput = () => {
+  const token = process.env.NEXT_PUBLIC_WEBSOCKET_TOKEN || "";
+  const { sendMessage } = useChat(token);
+  const [messageInput, setMessageInput] = useState("");
+
+  const handleSendMessage = () => {
+    if (messageInput.trim() !== "") {
+      sendMessage(messageInput);
+      setMessageInput(""); // clear input
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSendMessage();
+    }
+  };
+
   return (
     <div className="px-5 py-6">
       <label className="flex items-center gap-2 bg-light-variant-100 pr-5 border-dark-variant-50 rounded-[1.75rem]">
         <input
           type="text"
           placeholder="Type your message..."
+          value={messageInput}
+          onChange={(e) => setMessageInput(e.target.value)}
+          onKeyDown={handleKeyDown}
           className="flex-1 py-4 pl-5 rounded-full outline-0 focus:outline-none h-max"
         />
-        <button className="">
+        <button type="button" onClick={handleSendMessage}>
           <Send className="text-primary-900" />
         </button>
       </label>

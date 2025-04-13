@@ -4,14 +4,19 @@ import { useState } from "react";
 import MessageUI from "./partials/MessageUI";
 
 const BotPopup = () => {
-  const [isOpen,setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div
-      className={`right-4 bottom-4 z-50 fixed ${
+      className={`right-4 bottom-4 z-50 fixed  ${
         isOpen ? "pointer-events-auto" : "pointer-events-none"
       }`}
     >
-      <div className="relative">
+      <div
+        className="relative"
+        style={{
+          scrollbarWidth: "none",
+        }}
+      >
         <button
           onClick={() => setIsOpen(!isOpen)}
           style={{
@@ -27,11 +32,16 @@ const BotPopup = () => {
             className="size-[2.5rem]"
           />
         </button>
-        <div className="right-0 bottom-full z-50 absolute mb-3">
+        <div
+          className="right-0 bottom-full z-50 absolute mb-3"
+          style={{
+            scrollbarWidth: "none",
+          }}
+        >
           <MessageUI isOpen={isOpen} closePopup={() => setIsOpen(false)} />
         </div>
       </div>
     </div>
   );
-}
-export default BotPopup
+};
+export default BotPopup;

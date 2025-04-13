@@ -1,12 +1,18 @@
 import Image from "next/image";
 import { useChat } from "../hooks/useChat";
+import { useEffect } from "react";
 
 type MessageProps = { text: string; sender: "bot" | "user"; name?: string };
 
 const Message: React.FC<MessageProps> = ({ sender, text, name }) => {
-  const token = process.env.NEXT_PUBLIC_WEBSOCKET_TOKEN || "";
-  const { message } = useChat(token);
-  console.log(message);
+  // const token = process.env.NEXT_PUBLIC_WEBSOCKET_TOKEN || "";
+  // const { message, sendMessage } = useChat(token);
+  // console.log(message);
+  // useEffect(() => {
+  //   sendMessage("hello prasanna");
+  // }, []);
+
+  // console.log("📩 All messages:");
   return (
     <div
       className={`w-full flex justify-start gap-[0.88rem] items-end ${
