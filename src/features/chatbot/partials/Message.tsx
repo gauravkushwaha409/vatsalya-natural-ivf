@@ -13,14 +13,14 @@ const Message: React.FC<MessageProps> = ({ sender, text, name }) => {
   // console.log("📩 All messages:");
   return (
     <div
-      className={`w-full flex justify-start gap-[0.88rem] items-end ${
-        sender == "user" ? " flex-row-reverse" : " flex-row"
+      className={`w-full flex justify-start gap-[0.88rem]  items-end ${
+        sender == "Darshann Thapa" ? " flex-row-reverse" : " flex-row"
       } mb-2`}
     >
       <div>
-        {sender == "user" ? (
+        {sender == "Darshann Thapa" ? (
           <div className="flex justify-center items-center bg-primary-400 rounded-full size-[1.75rem] font-semibold text-white text-sm">
-            {name ? name[0].toUpperCase() : ""}
+            {sender ? sender[0].toUpperCase() : ""}
           </div>
         ) : (
           <Image
@@ -34,7 +34,7 @@ const Message: React.FC<MessageProps> = ({ sender, text, name }) => {
       </div>
       <div
         className={`max-w-[70%] p-2  rounded-4xl ${
-          sender == "user"
+          sender == "Darshann Thapa"
             ? "bg-primary-50 text-text-400 rounded-br-xs"
             : "bg-secondary-50 text-text-400 rounded-bl-xs"
         }`}

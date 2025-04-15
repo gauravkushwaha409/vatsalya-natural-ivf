@@ -8,9 +8,22 @@ export type ChatMessage = {
 };
 
 export const useChat = (token: string, room: string = "testroom") => {
+  const chatContainerRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [receivedMessage, setReceivedMessage] = useState<ChatMessage[]>([]);
   const [isConnected, setIsConnected] = useState(false);
   const socketRef = useRef<WebSocket | null>(null);
+
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      setTimeout(() => {
+        chatContainerRef.current?.scrollTo(
+          0,
+          chatContainerRef.current.scrollHeight
+        );
+      }, 1);
+    }
+  }, [messages]);
 
   useEffect(() => {
     const url = `wss://api.nipali.com/ws/${room}/?token=${token}`;
@@ -70,5 +83,5 @@ export const useChat = (token: string, room: string = "testroom") => {
     }
   };
 
-  return { isConnected, messages, sendMessage };
+  return { isConnected, messages, sendMessage, chatContainerRef };
 };
