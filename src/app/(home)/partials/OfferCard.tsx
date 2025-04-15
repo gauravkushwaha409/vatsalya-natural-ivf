@@ -76,18 +76,22 @@ const OfferCard: React.FC<OfferCardProps> = ({
     : {};
 
   return (
-    <div className={getContainerClassName()} style={gradientStyle}>
+    <div
+      className={getContainerClassName() + " overflow-hidden"}
+      style={gradientStyle}
+    >
       <div
         style={{
           marginTop: marginTop,
         }}
-        className="w-max"
+        className="w-max overflow-hidden"
       >
         <Image
           src={imageSrc}
           width={isMobile ? 80 : 100}
           height={isMobile ? 80 : 100}
           alt={title}
+          className=" p-3.5 "
         />
       </div>
       <h1
@@ -106,7 +110,7 @@ const OfferCard: React.FC<OfferCardProps> = ({
             ? "typography-paragraph-small"
             : "typography-paragraph-regular"
         }`}
-        dangerouslySetInnerHTML={{ __html: description }}
+        dangerouslySetInnerHTML={{ __html: description || "" }}
       />
 
       <button

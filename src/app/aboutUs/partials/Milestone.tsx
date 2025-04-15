@@ -17,14 +17,14 @@ const Milestone: React.FC<Props> = ({ data }) => {
     },
     {
       id: 2,
-      value: `${data?.successfulIVFTreatments}+`,
+      value: `${data?.successfulIVFTreatments || 500}+`,
       label: "Successful IVF Treatments",
       subtext: "",
       img: stat1,
     },
     {
       id: 3,
-      value: `${data?.expertSpecialists}+`,
+      value: `${data?.expertSpecialists || 20}+`,
       label: "Expert Specialists",
       subtext: "",
       img: stat1,

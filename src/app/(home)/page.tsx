@@ -43,7 +43,7 @@ const HomePage = async () => {
             }}
             className="z-[1] relative"
           >
-            <HeroSection data={homedata.data} />
+            <HeroSection data={homedata?.data} />
             <div
               style={{
                 background: "url('/home/circle.svg') no-repeat right top",
@@ -59,9 +59,9 @@ const HomePage = async () => {
           <WhoWeAre data={homedata?.data?.WhatWeDo[0]} />
           <WhatWeDo data={homedata?.data?.WhatWeDo[1]} />
         </div>
-        <WhatWeOffer data={whatweOfferData?.data?.records} />
+        <WhatWeOffer data={whatweOfferData?.data?.records ?? {}} />
         <HowWeWork data={howWeWorkData?.data} />
-        <WhenToVisit data={homedata?.data?.WhenVisit[0]} />
+        <WhenToVisit data={homedata?.data?.WhenVisit[0] ?? {}} />
         <BrandsSlider />
         <MeetExperts data={expertsData?.data} />
         <Showcase data={showcaseData?.data} />

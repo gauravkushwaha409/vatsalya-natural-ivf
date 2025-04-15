@@ -61,7 +61,7 @@ const WhenToVisit: React.FC<WhenToVisitProps> = ({ data }) => {
           </h1>
           <div
             className=" pl-5 font-[500] text-text-500 *:marker:text-secondary-500 *:marker:content-['➤\00a0'] leading-[150%] typography-paragraph-large"
-            dangerouslySetInnerHTML={{ __html: data.description }}
+            dangerouslySetInnerHTML={{ __html: data?.description }}
           />
 
           <button

@@ -76,7 +76,7 @@ const Culture: React.FC<Props> = ({ data }) => {
 
           <p
             className="text-text-400 typography-paragraph-large leading-[150%] font-medium max-w-7xl"
-            dangerouslySetInnerHTML={{ __html: data?.description }}
+            dangerouslySetInnerHTML={{ __html: data?.description || "" }}
           />
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-[1.23rem]">
