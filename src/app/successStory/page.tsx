@@ -5,6 +5,7 @@ import YourJourney from "./partials/YourJourney";
 import HeroSuccess from "./partials/HeroSuccess";
 import { fetchSuccessStories } from "./hooks/fetchSuccessStoriesData";
 import ErrorMessage from "@/components/ErrorMessage";
+export const dynamic = "force-dynamic";
 
 type Props = {
   searchParams?: Promise<{

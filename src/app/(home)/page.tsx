@@ -13,63 +13,69 @@ import WhenToVisit from "./partials/WhenToVisit";
 import WhoWeAre from "./partials/WhoWeAre";
 import Blogsection from "./partials/Blogsection";
 import { getHomePageData } from "./hook/hook.hook";
+import ErrorMessage from "@/components/ErrorMessage";
 
 const HomePage = async () => {
-  const {
-    homedata,
-    whatweOfferData,
-    howWeWorkData,
-    expertsData,
-    blogData,
-    showcaseData,
-    testimonialData,
-  } = await getHomePageData();
-  return (
-    <div className="space-y-20">
-      <div
-        style={{
-          background:
-            "linear-gradient(90deg, #FFD2CE 0%, #EBC0DB 100%) no-repeat",
-        }}
-        className="z-[0] relative overflow-hidden"
-      >
+  try {
+    const {
+      homedata,
+      whatweOfferData,
+      howWeWorkData,
+      expertsData,
+      blogData,
+      showcaseData,
+      testimonialData,
+    } = await getHomePageData();
+    return (
+      <div className="space-y-20">
         <div
           style={{
             background:
-              "url('/home/hero-noise.png') #fff4 0% 0% / 100px 70px repeat",
-            backgroundBlendMode: "screen",
+              "linear-gradient(90deg, #FFD2CE 0%, #EBC0DB 100%) no-repeat",
           }}
-          className="z-[1] relative"
+          className="z-[0] relative overflow-hidden"
         >
-          <HeroSection data={homedata.data} />
           <div
             style={{
-              background: "url('/home/circle.svg') no-repeat right top",
+              background:
+                "url('/home/hero-noise.png') #fff4 0% 0% / 100px 70px repeat",
+              backgroundBlendMode: "screen",
             }}
-            className="z-[2] absolute inset-0 pointer-events-none"
-          ></div>
+            className="z-[1] relative"
+          >
+            <HeroSection data={homedata.data} />
+            <div
+              style={{
+                background: "url('/home/circle.svg') no-repeat right top",
+              }}
+              className="z-[2] absolute inset-0 pointer-events-none"
+            ></div>
+          </div>
         </div>
-      </div>
 
-      {/* Main Slogan */}
-      <Slogan data={homedata?.data?.mission[0]} />
-      <div className="w-full overflow-hidden">
-        <WhoWeAre data={homedata?.data?.WhatWeDo[0]} />
-        <WhatWeDo data={homedata?.data?.WhatWeDo[1]} />
+        {/* Main Slogan */}
+        <Slogan data={homedata?.data?.mission[0]} />
+        <div className="w-full overflow-hidden">
+          <WhoWeAre data={homedata?.data?.WhatWeDo[0]} />
+          <WhatWeDo data={homedata?.data?.WhatWeDo[1]} />
+        </div>
+        <WhatWeOffer data={whatweOfferData?.data?.records} />
+        <HowWeWork data={howWeWorkData?.data} />
+        <WhenToVisit data={homedata?.data?.WhenVisit[0]} />
+        <BrandsSlider />
+        <MeetExperts data={expertsData?.data} />
+        <Showcase data={showcaseData?.data} />
+        <Miracles />
+        <div className="mt-60 w-full">
+          <Testimonial data={testimonialData?.data} />
+        </div>
+        <HomeFaq data={homedata?.data?.Faq} />
+        <Blogsection data={blogData?.data} />
       </div>
-      <WhatWeOffer data={whatweOfferData?.data?.records} />
-      <HowWeWork data={howWeWorkData?.data} />
-      <WhenToVisit data={homedata?.data?.WhenVisit[0]} />
-      <BrandsSlider />
-      <MeetExperts data={expertsData?.data} />
-      <Showcase data={showcaseData?.data} />
-      <Miracles />
-      <div className="mt-60 w-full">
-        <Testimonial data={testimonialData?.data} />
-      </div>
-      <HomeFaq data={homedata?.data?.Faq} />
-      <Blogsection data={blogData?.data} />
-    </div>
-  );
+    );
+  } catch (error) {
+    console.error("Error fetching blog data:", error);
+    return <ErrorMessage />;
+  }
 };
 export default HomePage;
