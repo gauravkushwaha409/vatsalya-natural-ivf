@@ -26,10 +26,10 @@ const WhyChooseUs: React.FC<data> = ({ data }) => {
 
         <div className="flex flex-col lg:flex-row justify-between gap-6 mt-4">
           <div className="grid grid-cols-2 gap-6">
-            {data?.WhyusDetail.map((data) => (
+            {data?.WhyusDetail?.map((data) => (
               <div
                 key={data.id}
-                className="flex flex-col lg:flex-row items-center lg:items-start gap-4 border border-secondary-50 px-4 py-5 rounded-[14px]"
+                className="flex flex-col lg:flex-row items-center lg:items-start gap-4 border border-secondary-50 px-4 py-5 rounded-[14px] h-fit"
               >
                 <div className="w-[80px] h-[80px]">
                   <Image
@@ -44,9 +44,10 @@ const WhyChooseUs: React.FC<data> = ({ data }) => {
                   <h5 className="text-secondary-500 typography-h4 mb-2">
                     {data.question}
                   </h5>
-                  <p className="text-text-400 typography-paragraph-large font-medium leading-[150%]">
-                    {data.answer}
-                  </p>
+                  <p
+                    className="text-text-400 typography-paragraph-large font-medium leading-[150%]"
+                    dangerouslySetInnerHTML={{ __html: data.answer || "" }}
+                  />
                 </div>
               </div>
             ))}

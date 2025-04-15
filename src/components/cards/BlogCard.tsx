@@ -38,15 +38,16 @@ const BlogCard: React.FC<IBlog> = ({ data }) => {
             <h5 className="typography-h3 font-semibold text-[#1A1A1A] my-4 leading-[150%] line-clamp-1">
               {data?.title}
             </h5>
-
-            <IoArrowForwardOutline size={24} className="-rotate-40" />
+            <div>
+              <IoArrowForwardOutline size={24} className="-rotate-40" />
+            </div>
           </Link>
           <p
             className="typography-paragraph-regular font-medium text-[#667085] line-clamp-2 "
             dangerouslySetInnerHTML={{ __html: data?.description }}
           />
 
-          <div className="flex gap-2 pt-4">
+          <div className="flex gap-2 pt-4 flex-wrap">
             {data?.tags?.map((tag, index) => (
               <>
                 <div className="bg-primary-50 rounded-2xl" key={index}>

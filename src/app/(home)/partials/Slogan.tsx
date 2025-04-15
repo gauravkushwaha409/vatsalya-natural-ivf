@@ -1,5 +1,6 @@
 import AnimatingText from "@/components/AnimatingText";
 import { IHomeMission } from "../interface/home.interface";
+import Image from "next/image";
 
 type SloganProps = {
   data: IHomeMission;
@@ -19,14 +20,14 @@ const Slogan: React.FC<SloganProps> = ({ data }) => {
   const cleanText = stripHtml(data?.ourMission || "");
 
   return (
-    <div
-      style={{
-        backgroundImage: "url(/svg/vatsalya-butterfly.svg)",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "10% center",
-      }}
-      className="flex justify-center items-center min-h-64 font-semibold text-center leading-[150%]"
-    >
+    <div className=" relative flex justify-center items-center min-h-64 font-semibold text-center leading-[150%]">
+      <Image
+        src="/svg/vatsalya-butterfly.svg"
+        alt="Vatsalya Logo"
+        width={200}
+        height={200}
+        className="absolute top-1/12 left-20 rotate-180  "
+      />
       <AnimatingText className="justify-center mx-auto my-4 mb-56 max-w-[62.375rem] font-semibold text-text-300 typography-h4">
         {cleanText}
       </AnimatingText>
