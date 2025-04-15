@@ -9,7 +9,7 @@ import WhyChooseUs from "./partials/WhyChooseUs";
 
 import { fetchAboutPageData } from "./hooks/fetchAboutUsData";
 import ErrorMessage from "@/components/ErrorMessage";
-
+export const dynamic = "force-dynamic";
 const AboutUs = async () => {
   try {
     const { aboutUsData, statsData, whyUsData, testimonialData } =
