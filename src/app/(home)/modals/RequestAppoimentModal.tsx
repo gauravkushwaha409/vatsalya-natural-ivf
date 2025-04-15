@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import "@/app/globals.css";
 import { motion } from "framer-motion";
 import { createPortal } from "react-dom";
 import CalendarModal from "@/components/modals/CalenderModal";

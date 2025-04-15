@@ -2,7 +2,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import "@/app/globals.css";
+
 import { useGetDataQuery, usePostDataMutation } from "@/api/api";
 import { endpoints } from "@/api/endpoints";
 import { ICenter } from "@/interface/center";

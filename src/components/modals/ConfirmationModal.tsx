@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import "@/app/globals.css";
+
 
 import useClickOutside from "@/hooks/useClickOutside";
 import checkgif from "@/assests/gif/confirmed.png";

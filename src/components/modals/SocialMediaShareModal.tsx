@@ -12,7 +12,7 @@ import {
   WhatsappShareButton,
   InstapaperShareButton,
 } from "react-share";
-import "@/app/globals.css";
+
 import { motion } from "framer-motion";
 import { FaXTwitter } from "react-icons/fa6";
 import useClickOutside from "@/hooks/useClickOutside";
