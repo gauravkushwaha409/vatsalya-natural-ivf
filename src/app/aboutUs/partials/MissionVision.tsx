@@ -136,7 +136,7 @@ const MissionVision: React.FC<Props> = ({ data }) => {
               </h2>
               <p
                 className="text-text-400 text-justify typography-paragraph-large font-medium leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: data?.description }}
+                dangerouslySetInnerHTML={{ __html: data?.description || "" }}
               />
             </div>
           </div>

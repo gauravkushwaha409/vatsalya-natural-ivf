@@ -23,9 +23,12 @@ const Career = async () => {
     console.log("Error fetching blog data:", error);
     if (error.status == 404)
       return (
-        <div className="flex justify-center items-center h-screen">
-          No Oppertunities Found
-        </div>
+        <>
+          <HeroCareer />
+          <div className="flex justify-center items-center h-screen">
+            No Oppertunities Found
+          </div>
+        </>
       );
     return <ErrorMessage />;
   }

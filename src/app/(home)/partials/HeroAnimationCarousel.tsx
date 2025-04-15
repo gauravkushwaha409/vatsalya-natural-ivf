@@ -8,21 +8,21 @@ const HeroAnimationCarousel: React.FC<{ images: string[] }> = ({ images }) => {
 
   useEffect(() => {
     const next = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images?.length);
     }, 5000);
     return () => clearInterval(next);
-  }, [images.length]);
+  }, [images?.length]);
 
   const thumbnailWidth = isSmall ? 70 : 100;
   const gap = 10;
-  const inactiveCount = images.length - 1;
+  const inactiveCount = images?.length - 1;
   const totalWidth = inactiveCount * thumbnailWidth + (inactiveCount - 1) * gap;
 
   return (
     <div className="flex flex-col justify-center items-center w-full h-full pt-20 lg:pt-0">
       <ul className="relative w-full h-full">
-        {images.map((image, i) => {
-          const indexOffset = (i + currentIndex) % images.length;
+        {images?.map((image, i) => {
+          const indexOffset = (i + currentIndex) % images?.length;
           const isActive = indexOffset === 0;
 
           let leftPosition;

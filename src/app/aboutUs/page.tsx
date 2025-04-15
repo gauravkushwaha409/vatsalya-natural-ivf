@@ -18,18 +18,24 @@ const AboutUs = async () => {
     return (
       <div>
         <AboutHero />
-        <OurStory data={aboutUsData.data} />
-        <MissionVision data={aboutUsData.data?.AboutusMission[0]} />
+        <OurStory data={aboutUsData?.data} />
+        <MissionVision data={aboutUsData?.data?.AboutusMission[0]} />
         <Family data={aboutUsData?.data?.Family[0]} />
-        <Milestone data={statsData.data} />
-        <Culture data={aboutUsData.data?.Gallery[0]} />
-        <WhyChooseUs data={whyUsData.data} />
-        <Testimonial data={testimonialData.data} />
+        <Milestone data={statsData?.data} />
+        <Culture data={aboutUsData?.data?.Gallery[0]} />
+        <WhyChooseUs data={whyUsData?.data} />
+        <Testimonial data={testimonialData?.data} />
       </div>
     );
   } catch (error) {
     console.error(error);
-    return <ErrorMessage />;
+    return (
+      <>
+        <AboutHero />
+
+        <ErrorMessage />
+      </>
+    );
   }
 };
 

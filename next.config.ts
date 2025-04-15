@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "leelaak.s3.ap-south-1.amazonaws.com",
+        hostname: "api.vatsalya.com.np",
         pathname: "/**",
       },
       {

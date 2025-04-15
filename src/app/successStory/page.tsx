@@ -26,7 +26,12 @@ const SuccessStory = async ({ searchParams }: Props) => {
     );
   } catch (error) {
     console.error("Error fetching blog data:", error);
-    <ErrorMessage />;
+    return (
+      <>
+        <HeroSuccess />
+        <ErrorMessage />
+      </>
+    );
   }
 };
 

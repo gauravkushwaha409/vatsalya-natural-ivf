@@ -33,7 +33,7 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
       setActiveIndex((prev) => {
         if (!shouldAnimate.current) return prev;
         previousActiveIndex.current = prev;
-        return (prev + 1) % data.length;
+        return (prev + 1) % data?.length;
       });
     }, 3000);
 
@@ -49,7 +49,7 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
           }}
           className="relative flex items-end gap-[1.25rem] mx-6 lg:mx-20 overflow-hidden"
         >
-          {data.map((member, index) => {
+          {data?.map((member, index) => {
             const i =
               (index -
                 ((activeIndex - ACTIVE_INDEX) % data.length) +
@@ -83,8 +83,8 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
                 } ease-in-out `}
               >
                 <Image
-                  src={member.image}
-                  alt={member.name}
+                  src={member?.image}
+                  alt={member?.name}
                   height={2000}
                   width={1000}
                   className="w-full h-full object-cover grow"
@@ -103,13 +103,13 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
             className={`top-0 left-full absolute space-y-3 starting:opacity-0 ml-10 w-[32.4rem] transition-all duration-700 ease-in-out `}
           >
             <h1 className="font-semibold typography-h3">
-              {data[activeIndex].name}
+              {data[activeIndex]?.name}
             </h1>
             <h2 className="font-semibold text-text-500 typography-paragraph-large">
-              {data[activeIndex].position}
+              {data[activeIndex]?.position}
             </h2>
             <p className="font-medium text-text-300 typography-paragraph-regular">
-              {data[activeIndex].description}
+              {data[activeIndex]?.description}
             </p>
             <div>
               <button className="px-8 py-3 border border-secondary-500 rounded-full font-medium text-secondary-500 typography-paragraph-regular">
@@ -135,14 +135,16 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
           <button
             onClick={() => {
               previousActiveIndex.current = activeIndex;
-              setActiveIndex((prev) => (prev - 1 + data.length) % data.length);
+              setActiveIndex(
+                (prev) => (prev - 1 + data?.length) % data?.length
+              );
             }}
             className="flex justify-center items-center rounded-full w-10 h-10 text-primary-500 cursor-pointer"
           >
             {" "}
             <ArrowLeft size={20} />
           </button>
-          {Array.from({ length: data.length }, (_, i) => (
+          {Array.from({ length: data?.length }, (_, i) => (
             <div
               key={i}
               className={`w-2 h-2 rounded-full bg-primary-500 inline-block mx-1 ${

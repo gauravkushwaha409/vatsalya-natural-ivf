@@ -19,7 +19,7 @@ const BlogDetail = async ({ params }: BlogDetailPageProps) => {
       <div className="relative">
         <BlogDetailHero data={data?.data?.blog} />
         <div className="px-5 lg:px-[11.25rem]">
-          <div className="absolute top-[23.5rem] md:top-[33.5rem] lg:top-1/2 left-5 lg:left-20">
+          <div className="block lg:absolute top-[23.5rem] md:top-[33.5rem] lg:top-1/2 left-5 lg:left-20">
             <Stats />
           </div>
           <BlogDescription data={data?.data?.blog} />

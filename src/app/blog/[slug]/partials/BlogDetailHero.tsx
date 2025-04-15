@@ -11,7 +11,7 @@ interface BlogDetailHeroProps {
 }
 const BlogDetailHero: React.FC<BlogDetailHeroProps> = ({ data }) => {
   return (
-    <div className="bg-gradient-to-b from-primary-50 to-background-100 py-10  ">
+    <div className="bg-gradient-to-b from-primary-50 to-background-100 py-5 lg:py-10  ">
       <div className="flex flex-col justify-center items-center text-center ">
         {/* breadcrumb  */}
         <CustomBreadcrumb
@@ -53,7 +53,7 @@ const BlogDetailHero: React.FC<BlogDetailHeroProps> = ({ data }) => {
       </div>
 
       <div className="px-5 lg:px-[11.25rem] ">
-        <div className="py-10 aspect-[1071/428]">
+        <div className="pt-5 lg:py-10 aspect-[1071/428]">
           <Image
             src={data?.image}
             alt="hero blog detail"
