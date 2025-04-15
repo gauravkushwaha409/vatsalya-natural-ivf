@@ -55,9 +55,10 @@ const Faq: React.FC<{ faq: FAQOptions[] }> = ({ faq }) => {
                   }}
                 >
                   {faqItem?.answer && (
-                    <p className="mt-2 pb-2 pl-3 text-text-400 transition-all duration-300">
-                      {faqItem?.answer}
-                    </p>
+                    <p
+                      className="mt-2 pb-2 pl-3 text-text-400 transition-all duration-300"
+                      dangerouslySetInnerHTML={{ __html: faqItem?.answer }}
+                    />
                   )}
                 </div>
               </div>
