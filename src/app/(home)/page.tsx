@@ -15,6 +15,7 @@ import Blogsection from "./partials/Blogsection";
 import { getHomePageData } from "./hook/hook.hook";
 import ErrorMessage from "@/components/ErrorMessage";
 
+export const dynamic = "force-dynamic";
 const HomePage = async () => {
   try {
     const {
