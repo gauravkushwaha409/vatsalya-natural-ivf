@@ -1,10 +1,13 @@
+"use client";
 import { Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Schedule from "./partials/Schedule";
 import MobileNav from "./partials/MobileNav";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
+  const pathame = usePathname();
   const navLinks = [
     { name: "About Us", link: "/aboutUs" },
     { name: "Services", link: "/services" },
@@ -45,19 +48,25 @@ const Header = () => {
       </div>
       <nav className="mt-5 w-auto hide-for-mobile">
         <ul className="flex  justify-between  font-manrope">
-          {navLinks.map((item, index) => (
-            <li
-              className="border-r border-secondary-500 pr-6  w-max text-left"
-              key={index}
-            >
-              <Link
-                className="w-max group link-gradient-hover"
-                href={item.link}
+          {navLinks.map((item, index) => {
+            const isActive = pathame === item.link;
+            console.log(isActive);
+            return (
+              <li
+                className="border-r border-secondary-500 pr-6  w-max text-left"
+                key={index}
               >
-                <span>{item.name}</span>
-              </Link>
-            </li>
-          ))}
+                <Link
+                  className={`w-max group link-gradient-hover ${
+                    isActive ? "text-orange-500" : ""
+                  }`}
+                  href={item.link}
+                >
+                  <span>{item.name}</span>
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </nav>
     </header>
