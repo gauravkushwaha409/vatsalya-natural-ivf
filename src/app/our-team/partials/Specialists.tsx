@@ -2,7 +2,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import buterflysvg from "./../../../assests/icons/butterflyExpertise.svg";
-import { useRouter } from "next/navigation";
 import {
   IOurExpertsData,
   IOurExpertsRecord,
@@ -15,7 +14,6 @@ interface SpecialistsProps {
 }
 const Specialists: React.FC<SpecialistsProps> = ({ data }) => {
   const [hoveredCardId, setHoveredCardId] = useState<number | null>(null);
-  const router = useRouter();
 
   return (
     <section className="py-20 padding  ">
