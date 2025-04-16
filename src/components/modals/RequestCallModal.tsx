@@ -2,6 +2,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import useClickOutside from "@/hooks/useClickOutside";
 
 interface IFormValues {
   name: string;
@@ -46,12 +47,13 @@ const RequestCallModal: React.FC<RequestCallModalProps> = ({
       }
     },
   });
+  const modalRef = useClickOutside(onClose);
 
   return (
     <>
       {isOpen && (
-        <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-[100] text-black">
-          <section className="bg-white p-10 relative">
+        <div className="z-[100] fixed inset-0 flex justify-center items-center bg-black/40 text-black">
+          <section className="bg-white p-10 relative" ref={modalRef}>
             <h1 className="typography-h3 mb-5 font-medium">
               Request an Appointment
             </h1>

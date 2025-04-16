@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 
 const Header = () => {
   const pathame = usePathname();
+
   const navLinks = [
     { name: "About Us", link: "/about-us" },
     { name: "Services", link: "/services" },
