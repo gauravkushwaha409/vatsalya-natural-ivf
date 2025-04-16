@@ -25,7 +25,7 @@ const OurStory: React.FC<Props> = ({ data }) => {
             <div className="space-y-4 text-text-400 text-justify typography-paragraph-large font-medium">
               <p
                 className="leading-relaxed "
-                dangerouslySetInnerHTML={{ __html: data?.description }}
+                dangerouslySetInnerHTML={{ __html: data?.description || "" }}
               />
             </div>
           </div>
