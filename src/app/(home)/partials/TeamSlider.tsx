@@ -36,6 +36,12 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
     useState<boolean>(false);
   const [selectDoctor, setSelectDoctor] = useState<string | undefined>();
   const [selectedCenter, setSelectedCenter] = useState<string | undefined>();
+  const [isOpenAppointmentModal, setIsOpenAppointmentModal] =
+    useState<boolean>(false);
+  const [isOpenRequestCallModal, setIsOpenRequestCallModal] =
+    useState<boolean>(false);
+  const [selectDoctor, setSelectDoctor] = useState<string | undefined>();
+  const [selectedCenter, setSelectedCenter] = useState<string | undefined>();
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => {
@@ -123,7 +129,22 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
               }}
             />
 
+            <p
+              className="font-medium text-text-300 typography-paragraph-regular"
+              dangerouslySetInnerHTML={{
+                __html: data[activeIndex]?.description,
+              }}
+            />
+
             <div>
+              <button
+                onClick={() => {
+                  setIsOpenAppointmentModal(true);
+                  setSelectDoctor(data[activeIndex]?.id);
+                  setSelectedCenter(data[activeIndex]?.center?.id);
+                }}
+                className="px-8 py-3 border border-secondary-500 rounded-full font-medium text-secondary-500 typography-paragraph-regular cursor-pointer"
+              >
               <button
                 onClick={() => {
                   setIsOpenAppointmentModal(true);
@@ -134,6 +155,10 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
               >
                 Consult Now
               </button>
+              <button
+                onClick={() => setIsOpenRequestCallModal(true)}
+                className="px-5 py-3 font-medium text-secondary-500 typography-paragraph-regular cursor-pointer"
+              >
               <button
                 onClick={() => setIsOpenRequestCallModal(true)}
                 className="px-5 py-3 font-medium text-secondary-500 typography-paragraph-regular cursor-pointer"
@@ -201,6 +226,18 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
         setIsOpen={setIsOpenRequestCallModal}
         onClose={() => setIsOpenRequestCallModal(false)}
       />
+      <RequestAppoimentModal
+        isOpen={isOpenAppointmentModal}
+        setIsOpen={setIsOpenAppointmentModal}
+        onClose={() => setIsOpenAppointmentModal(false)}
+        selectDoctor={selectDoctor}
+        selectedCenter={selectedCenter}
+      />
+      <RequestCallModal
+        isOpen={isOpenRequestCallModal}
+        setIsOpen={setIsOpenRequestCallModal}
+        onClose={() => setIsOpenRequestCallModal(false)}
+      />
     </>
   );
 };
@@ -213,7 +250,82 @@ const MobileTeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
     useState<boolean>(false);
   const [selectDoctor, setSelectDoctor] = useState<string | undefined>();
   const [selectedCenter, setSelectedCenter] = useState<string | undefined>();
+  const [isOpenAppointmentModal, setIsOpenAppointmentModal] =
+    useState<boolean>(false);
+  const [isOpenRequestCallModal, setIsOpenRequestCallModal] =
+    useState<boolean>(false);
+  const [selectDoctor, setSelectDoctor] = useState<string | undefined>();
+  const [selectedCenter, setSelectedCenter] = useState<string | undefined>();
   return (
+    <>
+      <Swiper
+        modules={[Autoplay]}
+        autoplay={{
+          delay: 3000,
+        }}
+        spaceBetween={10}
+      >
+        {data.map((member, index) => (
+          <SwiperSlide
+            key={index}
+            className="flex flex-col items-center gap-3 pb-5"
+          >
+            <Image
+              src={member.image}
+              alt={member.name}
+              height={2000}
+              width={1000}
+              className="w-full h-full object-cover grow"
+            />
+            <div className="space-y-3 mt-4">
+              <h1 className="flex items-center font-semibold text-primary-400 typography-h3">
+                {member.name}
+                {/* <ExternalLink className="inline-block ml-2 text-sm" /> */}
+              </h1>
+              <h2 className="font-semibold text-text-500 typography-paragraph-large">
+                {member.position}
+              </h2>
+              <p className="font-medium text-text-300 typography-paragraph-regular">
+                {member.description}
+              </p>
+              <div className="flex flex-wrap gap-3 mt-4">
+                <button
+                  onClick={() => {
+                    setIsOpenAppointmentModal(true);
+                    setSelectDoctor(member.id);
+                    setSelectedCenter(member.center?.id);
+                  }}
+                  className="px-3 py-1 border border-secondary-500 rounded-full font-medium text-secondary-500 typography-paragraph-regular cursor-pointer"
+                >
+                  Consult Now
+                </button>
+                <button className="font-medium text-secondary-500 typography-paragraph-regular cursor-pointer">
+                  Call Back Request
+                </button>
+                <Link
+                  href={"/ourExperts/profile"}
+                  className="px-2 font-medium text-secondary-500 typography-paragraph-regular"
+                >
+                  View Detail
+                </Link>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <RequestAppoimentModal
+        isOpen={isOpenAppointmentModal}
+        setIsOpen={setIsOpenAppointmentModal}
+        onClose={() => setIsOpenAppointmentModal(false)}
+        selectDoctor={selectDoctor}
+        selectedCenter={selectedCenter}
+      />
+      <RequestCallModal
+        isOpen={isOpenRequestCallModal}
+        setIsOpen={setIsOpenRequestCallModal}
+        onClose={() => setIsOpenRequestCallModal(false)}
+      />
+    </>
     <>
       <Swiper
         modules={[Autoplay]}
