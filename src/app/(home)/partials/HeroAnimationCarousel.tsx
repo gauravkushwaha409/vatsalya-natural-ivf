@@ -1,28 +1,29 @@
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import Image from "next/image";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const HeroAnimationCarousel: React.FC<{ images: string[] }> = ({ images }) => {
+const HeroAnimationCarousel: React.FC<{ children: React.ReactNode[] }> = ({
+  children: slides,
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const isSmall = useMediaQuery("(width <= 40rem)");
 
   useEffect(() => {
     const next = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images?.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
     }, 5000);
     return () => clearInterval(next);
-  }, [images?.length]);
+  }, [slides.length]);
 
   const thumbnailWidth = isSmall ? 70 : 100;
   const gap = 10;
-  const inactiveCount = images?.length - 1;
+  const inactiveCount = slides.length - 1;
   const totalWidth = inactiveCount * thumbnailWidth + (inactiveCount - 1) * gap;
 
   return (
-    <div className="flex flex-col justify-center items-center w-full h-full pt-20 lg:pt-0">
+    <div className="flex flex-col justify-center items-center pt-20 lg:pt-0 w-full h-full">
       <ul className="relative w-full h-full">
-        {images?.map((image, i) => {
-          const indexOffset = (i + currentIndex) % images?.length;
+        {slides.map((slide, i) => {
+          const indexOffset = (i + currentIndex) % slides.length;
           const isActive = indexOffset === 0;
 
           let leftPosition;
@@ -65,13 +66,14 @@ const HeroAnimationCarousel: React.FC<{ images: string[] }> = ({ images }) => {
                     : "bottom-0 lg:top-[calc(100%-180px-0.5rem)] h-[70px] lg:h-[110px] aspect-square  border-secondary-200"
                 } `}
             >
-              <Image
+              {slide}
+              {/* <Image
                 width={1800}
                 height={2000}
                 alt={`Image ${i}`}
-                src={image}
+                src={slide}
                 className="block rounded-lg w-full h-full object-cover"
-              />
+              /> */}
             </li>
           );
         })}

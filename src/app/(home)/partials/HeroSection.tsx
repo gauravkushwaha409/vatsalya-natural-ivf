@@ -1,15 +1,15 @@
 "use client";
 
+import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
+import { IHomeData } from "../interface/home.interface";
 import HeroAnimationCarousel from "./HeroAnimationCarousel";
 import HeroTextAnimation from "./HeroTextAnimation";
-import RequestAppoimentModal from "../modals/RequestAppoimentModal";
-import { IHomeData } from "../interface/home.interface";
 
 type HomeProps = {
-  data: IHomeData;
+  data?: IHomeData;
 };
 const HeroSection: React.FC<HomeProps> = ({ data }) => {
   const text = "Journey to <parenthood,> /b Naturally and Compassionately";
@@ -17,10 +17,11 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
   const handleAppointmentClick = () => {
     setOpenModal(true);
   };
+  console.log(data, "herooo");
   return (
-    <div className="relative flex justify-center padding h-full min-h-screen overflow-y-hidden">
+    <div className="relative flex justify-center h-full min-h-screen overflow-y-hidden padding">
       <div className="flex flex-col justify-center mt-16 lg:mt-[8.72rem] w-full h-full text-left">
-        <h1 className="font-bold text-primary-500 uppercase tracking-widest typography-paragraph-large ">
+        <h1 className="font-bold text-primary-500 uppercase tracking-widest typography-paragraph-large">
           {data?.title}{" "}
         </h1>
         <div className="relative pt-5">
@@ -71,18 +72,16 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
             />
           </motion.div>
         </div>
-        <p
-          className="mt-[0.88rem] max-w-2xl font-normal lg:font-[500] text-text-400 typography-paragraph-small lg:typography-paragraph-large"
-          dangerouslySetInnerHTML={{ __html: data?.description }}
-        />
-
+        <p className="mt-[0.88rem] max-w-2xl lg:font-[500] font-normal text-text-400 typography-paragraph-small lg:typography-paragraph-large">
+          {data?.subtitle}
+        </p>
         <div className="flex items-center gap-6 mt-[2.44rem] h-full">
           <button
             onClick={() => handleAppointmentClick()}
             style={{
               background: "linear-gradient(90deg, #A0385A 0%, #3A142C 100%)",
             }}
-            className="shadow-box px-[2.75rem] py-[0.94rem] border-2 border-secondary-100 rounded-full w-max font-bold text-white cursor-pointer typography-paragraph-regular lg:typography-h4 z-[100]"
+            className="z-[100] shadow-box px-[2.75rem] py-[0.94rem] border-2 border-secondary-100 rounded-full w-max font-bold text-white cursor-pointer typography-paragraph-regular lg:typography-h4"
           >
             Book an Appointment
           </button>
@@ -97,7 +96,7 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
           </button>
         </div>
       </div>
-      <div className="-bottom-10 lg:-bottom-36 z-10 absolute inset-x-0 ">
+      <div className="-bottom-10 lg:-bottom-36 z-10 absolute inset-x-0">
         <div>
           <Image
             className="absolute"
@@ -124,7 +123,20 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
         /> */}
       </div>
       <div className="right-0 left-0 lg:left-1/2 absolute inset-y-0">
-        <HeroAnimationCarousel images={data?.caroselImages} />
+        {data?.caroselImages && (
+          <HeroAnimationCarousel>
+            {data?.caroselImages.map((img, i) => (
+              <Image
+                key={i}
+                width={1800}
+                height={2000}
+                alt={`Image ${i}`}
+                src={img}
+                className="block rounded-lg w-full h-full object-cover"
+              />
+            ))}
+          </HeroAnimationCarousel>
+        )}
       </div>
       <RequestAppoimentModal
         isOpen={openModal}

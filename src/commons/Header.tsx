@@ -6,17 +6,17 @@ import MobileNav from "./partials/MobileNav";
 
 const Header = () => {
   const navLinks = [
-    { name: "About Us", link: "/aboutUs" },
+    { name: "About Us", link: "/about-us" },
     { name: "Services", link: "/services" },
-    { name: "Our Experts", link: "/ourExperts" },
-    { name: "Success Stories", link: "/successStory" },
+    { name: "Our Experts", link: "/our-experts" },
+    { name: "Success Stories", link: "/success-story" },
     { name: "Blog & News", link: "/blog" },
-    { name: "Request a Call", link: "/requestCall" },
+    { name: "Request a Call", link: "/request-call" },
     { name: "Career", link: "/career" },
     { name: "Contact Us", link: "/contact" },
   ];
   return (
-    <header className="bg-transparent z-50 relative backdrop-blur-[5.6px] padding py-0 lg:py-[0.63rem] text-white">
+    <header className="z-50 relative bg-transparent backdrop-blur-[5.6px] py-0 lg:py-[0.63rem] text-white padding">
       <div className="flex justify-between items-center">
         <Link href="/">
           <Image
@@ -44,14 +44,14 @@ const Header = () => {
         <MobileNav navlinks={navLinks} />
       </div>
       <nav className="mt-5 w-auto hide-for-mobile">
-        <ul className="flex  justify-between  font-manrope">
+        <ul className="flex justify-between font-manrope">
           {navLinks.map((item, index) => (
             <li
-              className="border-r border-secondary-500 pr-6  w-max text-left"
+              className="pr-6 border-secondary-500 border-r w-max text-left"
               key={index}
             >
               <Link
-                className="w-max group link-gradient-hover"
+                className="group w-max link-gradient-hover"
                 href={item.link}
               >
                 <span>{item.name}</span>

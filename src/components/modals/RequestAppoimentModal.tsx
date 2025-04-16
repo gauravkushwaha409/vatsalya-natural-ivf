@@ -1,13 +1,15 @@
 "use client";
-import React from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-
+import { useGetDataQuery } from "@/api/api";
+import { endpoints } from "@/api/endpoints";
+import CalendarModal from "@/components/modals/CalenderModal";
 import useClickOutside from "@/hooks/useClickOutside";
-
+import { ICenter } from "@/interface/center";
+import { IExperts } from "@/interface/experts";
+import { useFormik } from "formik";
 import { motion } from "framer-motion";
-// import CalendarModal from "./CalenderModal";
+import React, { useState } from "react";
 import { createPortal } from "react-dom";
+import * as Yup from "yup";
 
 interface RequestAppoimentModalProps {
   isOpen: boolean;
@@ -16,7 +18,7 @@ interface RequestAppoimentModalProps {
   selectDoctor?: string | undefined;
   selectedDate?: Date | null | string;
 }
-interface IFormValues {
+export interface IFormValues {
   name: string;
   phone: string;
   address: string;
@@ -29,9 +31,13 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
   isOpen,
   onClose,
 }) => {
-  // const [modalOpen, setModalOpen] = useState(false);
-  // const [selectDoctor, setSelectDoctor] = useState<string | undefined>();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [data, setData] = useState<IFormValues | undefined>();
   const modalRef = useClickOutside(onClose);
+
+  const { data: centerData } = useGetDataQuery({
+    url: `${endpoints.center}`,
+  });
 
   const formik = useFormik<IFormValues>({
     initialValues: {
@@ -55,53 +61,66 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
         .min(10, "Message must be at least 10 characters"),
     }),
     onSubmit: async (values) => {
-      console.log("Form submitted with values:", values);
-      // setSelectDoctor(values.doctor);
-      // handleRequestAppoiment();
+      console.log(values);
+      setData(values);
+      handleRequestAppoiment();
     },
   });
-  // const onCloseModal = () => {
-  //   setModalOpen(true);
-  // };
-  // const handleRequestAppoiment = () => {
-  //   setModalOpen(true);
-  //   onClose();
-  // };
+
+  const { data: doctorData } = useGetDataQuery(
+    {
+      url: `${endpoints.doctor}`,
+      params: {
+        center: formik.values.center,
+      },
+    },
+    {
+      skip: !formik.values.center,
+    }
+  );
+
+  const onCloseModal = () => {
+    setModalOpen(true);
+  };
+  const handleRequestAppoiment = () => {
+    setModalOpen(true);
+    onClose();
+  };
   if (typeof window !== "undefined")
     return createPortal(
       <>
         {isOpen && (
-          <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-[100] text-black">
+          <div className="z-[100] fixed inset-0 flex justify-center items-center bg-black/40 text-black">
             <motion.div
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.3 }}
-              className="w-[90%] md:w-[60%] px-10 py-7 shadow-md rounded-lg bg-white relative"
+              className="relative bg-white shadow-md px-10 py-7 rounded-lg w-[90%] md:w-[60%]"
               ref={modalRef}
             >
-              <h1 className="typography-h3 mb-5 font-medium">
+              <h1 className="mb-5 font-medium typography-h3">
                 Request an Appointment
               </h1>
               <button
                 onClick={() => onClose()}
-                className="text-2xl text-text-400 absolute top-5 right-10 cursor-pointer *:"
+                className="top-5 right-10 absolute text-text-400 text-2xl cursor-pointer *:"
               >
                 x
               </button>
               <form
                 onSubmit={formik.handleSubmit}
-                className="grid grid-cols-2 gap-4 text-text-500 typography-paragraph-regular font-semibold py-2.5"
+                className="gap-4 grid grid-cols-2 py-2.5 font-semibold text-text-500 typography-paragraph-regular"
               >
                 {/* Name Field */}
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="name" className="text-base font-regular">
+                  <label htmlFor="name" className="font-regular text-base">
                     Name
                   </label>
                   <input
                     id="name"
                     name="name"
                     type="text"
-                    className="border border-gray-400 rounded-lg p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
+                    className="bg-transparent p-3 border border-gray-400 rounded-lg outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.name}
@@ -114,14 +133,14 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
 
                 {/* Phone Field */}
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="phone" className="text-base font-regular">
+                  <label htmlFor="phone" className="font-regular text-base">
                     Phone No.
                   </label>
                   <input
                     id="phone"
                     name="phone"
                     type="number"
-                    className="border border-gray-400 rounded-lg p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
+                    className="bg-transparent p-3 border border-gray-400 rounded-lg outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.phone}
@@ -136,14 +155,14 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
 
                 {/* Address Field */}
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="address" className="text-base font-regular">
+                  <label htmlFor="address" className="font-regular text-base">
                     Address
                   </label>
                   <input
                     id="address"
                     name="address"
                     type="text"
-                    className="border border-gray-400 rounded-lg p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
+                    className="bg-transparent p-3 border border-gray-400 rounded-lg outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.address}
@@ -157,21 +176,23 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
                 </div>
                 {/* Center Field */}
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="center" className="text-base font-regular">
+                  <label htmlFor="center" className="font-regular text-base">
                     Center
                   </label>
                   <select
                     id="center"
                     name="center"
-                    className="border border-gray-400 rounded-lg p-2.5 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
+                    className="bg-transparent p-2.5 border border-gray-400 rounded-lg outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.center}
                   >
                     <option value="">Select a center</option>
-                    <option value="Dubai Marina">Dubai Marina</option>
-                    <option value="Jumeirah Beach">Jumeirah Beach</option>
-                    <option value="Downtown Dubai">Downtown Dubai</option>
+                    {centerData?.data?.records.map((center: ICenter) => (
+                      <option key={center.id} value={center.id}>
+                        {center.name}
+                      </option>
+                    ))}
                   </select>
                   {formik.touched.center && formik.errors.center && (
                     <p className="text-red-500 text-sm">
@@ -181,21 +202,23 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
                 </div>
                 {/* Doctor Field */}
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="center" className="text-base font-regular">
+                  <label htmlFor="center" className="font-regular text-base">
                     Doctor
                   </label>
                   <select
                     id="doctor"
                     name="doctor"
-                    className="border border-gray-400 rounded-lg p-2.5 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
+                    className="bg-transparent p-2.5 border border-gray-400 rounded-lg outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.doctor}
                   >
                     <option value="">Select a Doctor</option>
-                    <option value="Dubai Marina">Dubai Marina</option>
-                    <option value="Jumeirah Beach">Jumeirah Beach</option>
-                    <option value="Downtown Dubai">Downtown Dubai</option>
+                    {doctorData?.data?.records.map((docter: IExperts) => (
+                      <option key={docter.id} value={docter.id}>
+                        {docter.name}
+                      </option>
+                    ))}
                   </select>
                   {formik.touched.doctor && formik.errors.doctor && (
                     <p className="text-red-500 text-sm">
@@ -206,13 +229,13 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
 
                 {/* Message Field */}
                 <div className="flex flex-col gap-2 col-span-2">
-                  <label htmlFor="message" className="text-base font-regular">
+                  <label htmlFor="message" className="font-regular text-base">
                     Message
                   </label>
                   <textarea
                     id="message"
                     name="message"
-                    className="border border-gray-400 rounded-lg p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
+                    className="bg-transparent p-3 border border-gray-400 rounded-lg outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small"
                     rows={4}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
@@ -230,7 +253,7 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
                 <div className="flex justify-end col-span-2">
                   <button
                     type="submit"
-                    className="bg-secondary-500 hover:bg-secondary-600 text-white py-4 px-10 rounded-full typography-paragraph-regular"
+                    className="bg-secondary-500 hover:bg-secondary-600 px-10 py-4 rounded-full text-white typography-paragraph-regular"
                   >
                     Next
                   </button>
@@ -239,12 +262,12 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
             </motion.div>
           </div>
         )}
-        {/* <CalendarModal
+        <CalendarModal
           modalOpen={modalOpen}
           onCloseModal={onCloseModal}
           setModalOpen={setModalOpen}
-          selectDoctor={selectDoctor}
-        /> */}
+          data={data}
+        />
       </>,
       document.body
     );

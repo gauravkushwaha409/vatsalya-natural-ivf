@@ -1,5 +1,5 @@
 "use client";
-import { IsuccessStoriesRecord } from "@/app/successStory/interface/successStories.interface";
+import { IsuccessStoriesRecord } from "@/app/success-story/interface/successStories.interface";
 import { Play } from "lucide-react";
 import Image from "next/image";
 import { ImQuotesLeft } from "react-icons/im";
