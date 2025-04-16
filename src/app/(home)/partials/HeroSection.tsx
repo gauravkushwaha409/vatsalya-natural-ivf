@@ -17,7 +17,6 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
   const handleAppointmentClick = () => {
     setOpenModal(true);
   };
-  console.log(data, "herooo");
   return (
     <div className="relative flex justify-center h-full min-h-screen overflow-y-hidden padding">
       <div className="flex flex-col justify-center mt-16 lg:mt-[8.72rem] w-full h-full text-left">

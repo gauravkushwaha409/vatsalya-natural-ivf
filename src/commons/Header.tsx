@@ -52,7 +52,6 @@ const Header = () => {
         <ul className="flex  justify-between  font-manrope">
           {navLinks.map((item, index) => {
             const isActive = pathame === item.link;
-            console.log(isActive);
             return (
               <li
                 className="border-r border-secondary-500 pr-6  w-max text-left"
