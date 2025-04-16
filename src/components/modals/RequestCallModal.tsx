@@ -163,7 +163,7 @@ const RequestCallModal: React.FC<RequestCallModalProps> = ({
                 type="submit"
                 className="flex self-end items-center bg-secondary-500 py-3 px-6 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular cursor-pointer"
               >
-                Request a Call
+                {isRequestCallLoading ? " Requesting a Call" : "Request a Call"}
               </button>
             </form>
           </section>
