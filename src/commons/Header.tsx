@@ -5,7 +5,6 @@ import Link from "next/link";
 import Schedule from "./partials/Schedule";
 import MobileNav from "./partials/MobileNav";
 import { usePathname } from "next/navigation";
-import { usePathname } from "next/navigation";
 
 const Header = () => {
   const pathame = usePathname();
