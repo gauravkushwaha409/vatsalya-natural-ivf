@@ -253,9 +253,11 @@ const MobileTeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
               <h2 className="font-semibold text-text-500 typography-paragraph-large">
                 {member.position}
               </h2>
-              <p className="font-medium text-text-300 typography-paragraph-regular">
-                {member.description}
-              </p>
+              <p
+                className="font-medium text-text-300 typography-paragraph-regular"
+                dangerouslySetInnerHTML={{ __html: member.description }}
+              />
+
               <div className="flex flex-wrap gap-3 mt-4">
                 <button
                   onClick={() => {

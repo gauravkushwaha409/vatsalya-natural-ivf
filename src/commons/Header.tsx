@@ -59,12 +59,12 @@ const Header = () => {
                 key={index}
               >
                 <Link
-                  className={`w-max group link-gradient-hover ${
-                    isActive ? "text-orange-500" : ""
-                  }`}
+                  className={`w-max group link-gradient-hover `}
                   href={item.link}
                 >
-                  <span>{item.name}</span>
+                  <span className={isActive ? "!text-primary-500" : ""}>
+                    {item.name}
+                  </span>
                 </Link>
               </li>
             );
