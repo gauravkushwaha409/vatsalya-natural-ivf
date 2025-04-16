@@ -5,19 +5,20 @@ import Link from "next/link";
 import Schedule from "./partials/Schedule";
 import MobileNav from "./partials/MobileNav";
 import { usePathname } from "next/navigation";
+import PATHS from "@/utils/path";
 
 const Header = () => {
   const pathame = usePathname();
 
   const navLinks = [
-    { name: "About Us", link: "/about-us" },
-    { name: "Services", link: "/services" },
-    { name: "Our Experts", link: "/our-team" },
-    { name: "Success Stories", link: "/success-story" },
-    { name: "Blog & News", link: "/blog" },
-    { name: "Request a Call", link: "/reqcall" },
-    { name: "Career", link: "/career" },
-    { name: "Contact Us", link: "/contact-us" },
+    { name: "About Us", link: PATHS.about },
+    { name: "Services", link: PATHS.services },
+    { name: "Our Experts", link: PATHS.team },
+    { name: "Success Stories", link: PATHS.successStory },
+    { name: "Blog & News", link: PATHS.blog },
+    { name: "Request a Call", link: PATHS.reqCall },
+    { name: "Career", link: PATHS.career },
+    { name: "Contact Us", link: PATHS.contact },
   ];
   return (
     <header className="z-50 relative bg-transparent backdrop-blur-[5.6px] py-0 lg:py-[0.63rem] text-white padding">

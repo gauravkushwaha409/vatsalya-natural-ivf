@@ -3,6 +3,7 @@
 import { IOurExpertsRecord } from "@/app/our-team/interface/ourExperts.interface";
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import RequestCallModal from "@/components/modals/RequestCallModal";
+import PATHS from "@/utils/path";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -150,7 +151,7 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
                 Call Back Request
               </button>
               <Link
-                href={"/ourExperts/profile"}
+                href={`${PATHS.teamDetails}/${data[activeIndex]?.slug}`}
                 className="px-8 py-3 font-medium text-secondary-500 typography-paragraph-regular"
               >
                 View Detail
@@ -259,8 +260,8 @@ const MobileTeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
                 <button
                   onClick={() => {
                     setIsOpenAppointmentModal(true);
-                    setSelectDoctor(member.id);
-                    setSelectedCenter(member.center?.id);
+                    setSelectDoctor(member?.id);
+                    setSelectedCenter(member?.center?.id);
                   }}
                   className="px-3 py-1 border border-secondary-500 rounded-full font-medium text-secondary-500 typography-paragraph-regular cursor-pointer"
                 >
@@ -270,7 +271,7 @@ const MobileTeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
                   Call Back Request
                 </button>
                 <Link
-                  href={"/ourExperts/profile"}
+                  href={`${PATHS.teamDetails}/${member?.slug}`}
                   className="px-2 font-medium text-secondary-500 typography-paragraph-regular"
                 >
                   View Detail
