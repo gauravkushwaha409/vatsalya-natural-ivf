@@ -2,15 +2,26 @@ import React from "react";
 import Herosection from "./partials/Herosection";
 import Services from "./partials/Services";
 import CallToActions from "./partials/CallToActions";
-
-const page = () => {
-  return (
-    <section>
-      <Herosection />
-      <Services />
-      <CallToActions />
-    </section>
-  );
+import ErrorMessage from "@/components/ErrorMessage";
+export const dynamic = "force-dynamic";
+const ServicePage = () => {
+  try {
+    return (
+      <section>
+        <Herosection />
+        <Services />
+        <CallToActions />
+      </section>
+    );
+  } catch (error) {
+    console.error("Error fetching blog data:", error);
+    return (
+      <>
+        <Herosection />
+        <ErrorMessage />
+      </>
+    );
+  }
 };
 
-export default page;
+export default ServicePage;
