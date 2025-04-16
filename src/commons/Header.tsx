@@ -1,10 +1,13 @@
+"use client";
 import { Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Schedule from "./partials/Schedule";
 import MobileNav from "./partials/MobileNav";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
+  const pathame = usePathname();
   const navLinks = [
     { name: "About Us", link: "/about-us" },
     { name: "Services", link: "/services" },
