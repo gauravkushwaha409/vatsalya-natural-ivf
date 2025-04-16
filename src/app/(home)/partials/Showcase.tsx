@@ -21,7 +21,7 @@ const Showcase: React.FC<ShowCaseItemProps> = ({ data }) => {
           className="w-full lg:w-min h-auto lg:h-[22.625rem] object-contain aspect-auto"
         />
       </div>
-      <div className="flex sm:flex-row flex-col flex-wrap justify-around items-center gap-8 sm:gap-4 w-full">
+      <div className="flex sm:flex-row flex-col flex-wrap justify-end items-center  w-full lg:w-9/12">
         <ShowCaseItem
           svg="/svg/award.svg"
           title={
@@ -57,7 +57,7 @@ const ShowCaseItem: React.FC<{
   subtitle: string;
 }> = ({ svg, title, subtitle }) => {
   return (
-    <div className="flex flex-col items-center gap-[1.42rem] px-4 sm:px-6 md:px-10 lg:px-16">
+    <div className="flex flex-col items-center justify-center gap-[1.42rem] px-4 sm:px-6 md:px-10 lg:px-10 border-r border-primary-100 ">
       <div className="p-4 sm:p-5 md:p-6 lg:p-7 border-[4px] border-primary-200/[0.54] sm:border-[5px] md:border-[6px] lg:border-[7px] rounded-full aspect-square">
         <Image
           src={svg}

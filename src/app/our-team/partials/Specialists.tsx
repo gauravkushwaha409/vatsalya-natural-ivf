@@ -7,6 +7,8 @@ import {
   IOurExpertsData,
   IOurExpertsRecord,
 } from "../interface/ourExperts.interface";
+import Link from "next/link";
+import PATHS from "@/utils/path";
 
 interface SpecialistsProps {
   data: IOurExpertsData;
@@ -14,9 +16,7 @@ interface SpecialistsProps {
 const Specialists: React.FC<SpecialistsProps> = ({ data }) => {
   const [hoveredCardId, setHoveredCardId] = useState<number | null>(null);
   const router = useRouter();
-  const handleViewMore = (slug: string) => {
-    router.push("/ourExperts/" + slug);
-  };
+
   return (
     <section className="py-20 padding  ">
       <div className="flex flex-col items-center">
@@ -95,12 +95,11 @@ const Specialists: React.FC<SpecialistsProps> = ({ data }) => {
                     {items?.position}
                   </p>
                   <div className="flex items-center  text-nowrap">
-                    <button
-                      onClick={() => handleViewMore(items?.slug)}
-                      className="typography-caption px-5 py-2 cursor-pointer font-medium text-text-400 border rounded-full border-text-400"
-                    >
-                      View Details
-                    </button>
+                    <Link href={`${PATHS.teamDetails}/${items?.slug}`}>
+                      <button className="typography-caption px-5 py-2 cursor-pointer font-medium text-text-400 border rounded-full border-text-400">
+                        View Details
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>
