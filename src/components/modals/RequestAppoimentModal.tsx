@@ -17,6 +17,7 @@ interface RequestAppoimentModalProps {
   setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>;
   selectDoctor?: string | undefined;
   selectedDate?: Date | null | string;
+  selectedCenter?: string | undefined;
 }
 export interface IFormValues {
   name: string;
@@ -30,6 +31,8 @@ export interface IFormValues {
 const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
   isOpen,
   onClose,
+  selectDoctor,
+  selectedCenter,
 }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [data, setData] = useState<IFormValues | undefined>();
@@ -185,7 +188,7 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
                     className="bg-transparent p-2.5 border border-gray-400 rounded-lg outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    value={formik.values.center}
+                    value={selectedCenter || formik.values.center}
                   >
                     <option value="">Select a center</option>
                     {centerData?.data?.records.map((center: ICenter) => (
@@ -211,7 +214,7 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
                     className="bg-transparent p-2.5 border border-gray-400 rounded-lg outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    value={formik.values.doctor}
+                    value={selectDoctor || formik.values.doctor}
                   >
                     <option value="">Select a Doctor</option>
                     {doctorData?.data?.records.map((docter: IExperts) => (
