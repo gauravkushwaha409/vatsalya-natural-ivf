@@ -20,7 +20,7 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
   return (
     <div className="relative flex justify-center padding h-full min-h-screen overflow-y-hidden">
       <div className="flex flex-col justify-center mt-16 lg:mt-[8.72rem] w-full h-full text-left">
-        <h1 className="font-bold text-primary-500 uppercase tracking-wide typography-paragraph-large">
+        <h1 className="font-bold text-primary-500 uppercase tracking-widest typography-paragraph-large ">
           {data?.title}{" "}
         </h1>
         <div className="relative pt-5">
@@ -71,9 +71,11 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
             />
           </motion.div>
         </div>
-        <p className="mt-[0.88rem] max-w-2xl font-normal lg:font-[500] text-text-400 typography-paragraph-small lg:typography-paragraph-large">
-          {data?.subtitle}
-        </p>
+        <p
+          className="mt-[0.88rem] max-w-2xl font-normal lg:font-[500] text-text-400 typography-paragraph-small lg:typography-paragraph-large"
+          dangerouslySetInnerHTML={{ __html: data?.description }}
+        />
+
         <div className="flex items-center gap-6 mt-[2.44rem] h-full">
           <button
             onClick={() => handleAppointmentClick()}
