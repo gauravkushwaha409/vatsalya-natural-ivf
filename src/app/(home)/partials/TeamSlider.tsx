@@ -125,13 +125,6 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
               }}
             />
 
-            <p
-              className="font-medium text-text-300 typography-paragraph-regular"
-              dangerouslySetInnerHTML={{
-                __html: data[activeIndex]?.description,
-              }}
-            />
-
             <div>
               <button
                 onClick={() => {

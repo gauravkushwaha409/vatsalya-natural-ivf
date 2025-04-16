@@ -71,9 +71,11 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
             />
           </motion.div>
         </div>
-        <p className="mt-[0.88rem] max-w-2xl lg:font-[500] font-normal text-text-400 typography-paragraph-small lg:typography-paragraph-large">
-          {data?.subtitle}
-        </p>
+        <p
+          className="mt-[0.88rem] max-w-2xl lg:font-[500] font-normal text-text-400 typography-paragraph-small lg:typography-paragraph-large"
+          dangerouslySetInnerHTML={{ __html: data?.description || "" }}
+        />
+
         <div className="flex items-center gap-6 mt-[2.44rem] h-full">
           <button
             onClick={() => handleAppointmentClick()}
