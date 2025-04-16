@@ -1,10 +1,10 @@
 "use client";
 
+import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
 import { IHomeData } from "../interface/home.interface";
-import RequestAppoimentModal from "../modals/RequestAppoimentModal";
 import HeroAnimationCarousel from "./HeroAnimationCarousel";
 import HeroTextAnimation from "./HeroTextAnimation";
 

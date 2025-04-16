@@ -1,17 +1,17 @@
 "use client";
+import { usePostDataMutation } from "@/api/api";
+import { endpoints } from "@/api/endpoints";
 import useClickOutside from "@/hooks/useClickOutside";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { ISlot, ISlotResponse } from "@/interface/slot";
+import { showErrorMessage, showSuccessMessage } from "@/utils/toast";
 import { add, format } from "date-fns";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import RenderCells from "../RenderCells";
 import ConfirmationModal from "./ConfirmationModal";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { usePostDataMutation } from "@/api/api";
-import { IFormValues } from "@/app/(home)/modals/RequestAppoimentModal";
-import { endpoints } from "@/api/endpoints";
-import { showErrorMessage, showSuccessMessage } from "@/utils/toast";
-import { ISlot, ISlotResponse } from "@/interface/slot";
+import { IFormValues } from "./RequestAppoimentModal";
 
 interface CalendarProps {
   modalOpen: boolean;
@@ -164,7 +164,7 @@ const CalendarModal: React.FC<CalendarProps> = ({
                 x
               </button>
 
-              <div className="flex flex-col lg:flex-row justify-center gap-10 mt-5">
+              <div className="flex lg:flex-row flex-col justify-center gap-10 mt-5">
                 <motion.div className="w-[100%] lg:w-[50%] aspect-square">
                   <div>{renderHeader()}</div>
                   <div>{renderDays()}</div>
@@ -184,7 +184,7 @@ const CalendarModal: React.FC<CalendarProps> = ({
                     initial={{ width: isSmall ? "100%" : "0", opacity: 0 }}
                     animate={{ width: isSmall ? "100%" : "40%", opacity: 1 }}
                     transition={{ duration: 1.2 }}
-                    className="bg-white mt-0 lg:mt-10 flex flex-row lg:flex-col justify-center items-center gap-5"
+                    className="flex flex-row lg:flex-col justify-center items-center gap-5 bg-white mt-0 lg:mt-10"
                   >
                     {availableSlots?.data?.map((slot: ISlot) => (
                       <button

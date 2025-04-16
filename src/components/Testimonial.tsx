@@ -1,7 +1,7 @@
+import { IsuccessStoriesData } from "@/app/success-story/interface/successStories.interface";
 import quoteIcon from "@/assests/about/quoteIcon.png";
 import Image from "next/image";
 import TestimonialSwiper from "./TestimonialSwiper";
-import { IsuccessStoriesData } from "@/app/successStory/interface/successStories.interface";
 // import CustomCarousel from "./Carousel";
 
 type Props = {
@@ -21,11 +21,11 @@ const Testimonial: React.FC<Props> = ({ data }) => {
             className="w-[100px] h-[100px] object-contain"
           />
         </div>
-        <div className="flex flex-col lg:flex-row lg:justify-between">
+        <div className="flex lg:flex-row flex-col lg:justify-between">
           {/* Text Section  */}
           <div className="space-y-4 pt-20 lg:pt-16 pb-10 lg:pb-0 lg:w-[30%]">
             <div className="flex items-center gap-4 w-full">
-              <h2 className="font-bold text-primary-500 text-base uppercase  leading-[150%] tracking-widest">
+              <h2 className="font-bold text-primary-500 text-base uppercase leading-[150%] tracking-widest">
                 Testimonial
               </h2>
               <div className="flex-1 bg-primary-500 max-w-[148px] h-px"></div>

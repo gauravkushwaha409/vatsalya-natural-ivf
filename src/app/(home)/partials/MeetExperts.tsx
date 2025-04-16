@@ -1,5 +1,5 @@
+import { IOurExpertsData } from "@/app/our-experts/interface/ourExperts.interface";
 import TeamSlider from "./TeamSlider";
-import { IOurExpertsData } from "@/app/ourExperts/interface/ourExperts.interface";
 
 interface MeetExpertsProps {
   data: IOurExpertsData;

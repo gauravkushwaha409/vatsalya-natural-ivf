@@ -2,7 +2,7 @@
 import {
   IsuccessStoriesData,
   IsuccessStoriesRecord,
-} from "@/app/successStory/interface/successStories.interface";
+} from "@/app/success-story/interface/successStories.interface";
 import VideoModal from "@/components/modals/VideoModal";
 import { testimonialData } from "@/data/testimonialData";
 import { motion } from "motion/react";
