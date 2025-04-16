@@ -6,7 +6,7 @@ import { ICarreerResponse } from "./interfaces/carrer.interface";
 import Benefits from "./partials/Benefits";
 import HeroCareer from "./partials/HeroCareer";
 import OpenPosition from "./partials/OpenPosition";
-
+export const dynamic = "force-dynamic";
 const Career = async () => {
   try {
     const data = await getData<ICarreerResponse>(endpoints.carrer);
