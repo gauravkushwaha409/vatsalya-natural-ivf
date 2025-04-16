@@ -12,7 +12,7 @@ const AnimatingText: React.FC<{
       onViewportEnter={() => {
         setIsInViewport(true);
       }}
-      className={`flex flex-wrap ${className}`}
+      className={`flex flex-wrap  ${className}`}
     >
       {text?.split(" ")?.map((word, wordIndex) => {
         return (

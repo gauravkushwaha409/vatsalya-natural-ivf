@@ -17,6 +17,8 @@ interface ProfileProps {
 }
 const Profile: React.FC<ProfileProps> = ({ data }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
+  const [selectedDoctor, setSelectedDoctor] = useState<string>("");
+  const [selectedCenter, setSelectedCenter] = useState<string>("");
   const [openCallModal, setOpenCallModal] = useState<boolean>(false);
   return (
     <section className="py-5 bg-background-100 padding">
@@ -86,9 +88,10 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
               {data?.education}
             </span>
           </div>
-          <p className="text-text-500 typography-paragraph-regular ">
-            {data?.description}
-          </p>
+          <p
+            className="text-text-500 typography-paragraph-regular "
+            dangerouslySetInnerHTML={{ __html: data?.description || "" }}
+          />
         </div>
       </div>
       <div className="py-5">
@@ -127,7 +130,11 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
       </div>
       <div className="flex  items-center gap-5">
         <button
-          onClick={() => setOpenModal(true)}
+          onClick={() => {
+            setOpenModal(true);
+            setSelectedDoctor(data?.id);
+            setSelectedCenter(data?.center?.id);
+          }}
           className="bg-secondary-500 cursor-pointer hover:bg-secondary-600 text-white py-2 lg:py-4 px-6 lg:px-10  rounded-full typography-paragraph-regular"
         >
           Consult Now
@@ -142,6 +149,8 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
       <RequestAppoimentModal
         isOpen={openModal}
         onClose={() => setOpenModal(false)}
+        selectDoctor={selectedDoctor}
+        selectedCenter={selectedCenter}
       />
       <RequestCallModal
         isOpen={openCallModal}
