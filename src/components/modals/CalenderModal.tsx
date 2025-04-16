@@ -186,15 +186,44 @@ const CalendarModal: React.FC<CalendarProps> = ({
                     transition={{ duration: 1.2 }}
                     className="flex flex-row lg:flex-col justify-center items-center gap-5 bg-white mt-0 lg:mt-10"
                   >
-                    {availableSlots?.data?.map((slot: ISlot) => (
-                      <button
-                        key={slot.id}
-                        onClick={() => handleSelectTime(slot.id)}
-                        className="bg-white hover:bg-secondary-500 px-4 py-2 border border-secondary-300 rounded-full w-full text-secondary-500 hover:text-white transition-colors duration-700 hover:duration-200 ease-in-out"
-                      >
-                        {slot.startTime} - {slot.endTime}
-                      </button>
-                    ))}
+                    {availableSlots?.data?.length || 0 > 0 ? (
+                      <>
+                        {availableSlots?.data?.map((slot: ISlot) => (
+                          <button
+                            key={slot.id}
+                            onClick={() => handleSelectTime(slot.id)}
+                            className="bg-white hover:bg-secondary-500 px-4 py-2 border border-secondary-300 rounded-full w-full text-secondary-500 hover:text-white transition-colors duration-700 hover:duration-200 ease-in-out"
+                          >
+                            {slot.startTime} - {slot.endTime}
+                          </button>
+                        ))}
+                      </>
+                    ) : (
+                      <>
+                        <div className="flex flex-col items-center justify-center gap-2 p-6 text-center text-secondary-500 border border-secondary-200 rounded-xl bg-secondary-50 shadow-sm">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-10 w-10 text-secondary-400"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={1.5}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M12 8v4m0 4h.01M21 12A9 9 0 1 1 3 12a9 9 0 0 1 18 0Z"
+                            />
+                          </svg>
+                          <p className="text-lg font-semibold">
+                            No slots available
+                          </p>
+                          <p className="text-sm text-secondary-400">
+                            Please try again later or choose another day.
+                          </p>
+                        </div>
+                      </>
+                    )}
                   </motion.div>
                 )}
               </div>

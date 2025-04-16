@@ -76,7 +76,6 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
       try {
         // Create a new FormData object
         const formData = new FormData();
-        console.log(formik.errors);
         // Append the form values
         formData.append("name", values.name);
         formData.append("phone_no", values.phone_no);

@@ -49,9 +49,11 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           </div>
 
           <div className="pt-6">
-            <p className="mb-4 text-text-400 line-clamp-3 typography-paragraph-large">
-              {data?.storyContent}
-            </p>
+            <p
+              className="mb-4 text-text-400 line-clamp-3 typography-paragraph-large"
+              dangerouslySetInnerHTML={{ __html: data?.storyContent || "" }}
+            />
+
             <p className="font-semibold text-text-500 typography-paragraph-large">
               {data?.characterName}
             </p>

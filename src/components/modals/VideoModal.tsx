@@ -16,7 +16,7 @@ export default function VideoModal({
 
   // const handleVideoLoad = () => {
   // };
-
+  console.log(videoUrl || "videourl");
   return (
     <>
       {isOpen && (

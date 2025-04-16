@@ -27,6 +27,12 @@ const RenderCells: React.FC<CalendarProps> = ({
   const startDate = startOfWeek(monthStart);
   const endDate = endOfWeek(monthEnd);
 
+  const isPastDate = (date: Date) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return date < today;
+  };
+
   const rows = [];
   let days = [];
   let tempDay = startDate;
@@ -36,24 +42,29 @@ const RenderCells: React.FC<CalendarProps> = ({
       const currentDay = tempDay;
       const isInCurrentMonth = isSameMonth(currentDay, monthStart);
       const isSelected = selectedDate && isSameDay(currentDay, selectedDate);
+      const isPast = isPastDate(currentDay);
 
-      const dayClasses = `p-2 m-1 text-center cursor-pointer rounded-full ${
-        isSelected
-          ? "bg-secondary-500 text-white w-10"
-          : isInCurrentMonth
-          ? "text-black w-10"
-          : "text-gray-400 w-10"
-      }`;
+      const dayClasses = `p-2 m-1 text-center rounded-full w-10
+        ${isSelected ? "bg-secondary-500 text-white" : ""}
+        ${
+          !isSelected && isInCurrentMonth && !isPast
+            ? "text-black hover:bg-secondary-100 cursor-pointer"
+            : ""
+        }
+        ${!isInCurrentMonth ? "text-gray-400" : ""}
+        ${isPast ? "text-gray-300 bg-gray-100 cursor-not-allowed" : ""}
+      `;
 
       days.push(
-        <div
+        <button
           aria-label="day"
           key={currentDay.toDateString()}
           className={dayClasses}
-          onClick={() => onDateSelect(currentDay)}
+          onClick={() => !isPast && onDateSelect(currentDay)}
+          disabled={isPast}
         >
           {format(currentDay, "d")}
-        </div>
+        </button>
       );
 
       tempDay = add(tempDay, { days: 1 });

@@ -70,9 +70,10 @@ const OpenPosition: React.FC<IOpenPositionProps> = ({ data }) => {
                 </div>
 
                 {/* Job Description */}
-                <p className="typography-paragraph-regular font-medium text-text-300 text-justify line-clamp-2">
-                  {job.description}
-                </p>
+                <p
+                  className="typography-paragraph-regular font-medium text-text-300 text-justify line-clamp-2"
+                  dangerouslySetInnerHTML={{ __html: job?.description || "" }}
+                />
               </div>
             ))}
           </div>

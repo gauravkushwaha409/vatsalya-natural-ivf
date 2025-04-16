@@ -23,7 +23,6 @@ const BlogDescription: React.FC<BlogDescriptionProps> = ({ data }) => {
 
   const currentUrl = typeof window !== "undefined" ? window.location.href : "";
 
-  console.log(data, "data blog");
   return (
     <div>
       <div className="mb-10">
