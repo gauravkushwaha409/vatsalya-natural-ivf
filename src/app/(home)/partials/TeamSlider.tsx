@@ -1,6 +1,6 @@
 "use client";
 
-import { IOurExpertsRecord } from "@/app/our-experts/interface/ourExperts.interface";
+import { IOurExpertsRecord } from "@/app/our-team/interface/ourExperts.interface";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

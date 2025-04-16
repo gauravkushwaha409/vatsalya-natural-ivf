@@ -8,12 +8,12 @@ const Header = () => {
   const navLinks = [
     { name: "About Us", link: "/about-us" },
     { name: "Services", link: "/services" },
-    { name: "Our Experts", link: "/our-experts" },
+    { name: "Our Experts", link: "/our-team" },
     { name: "Success Stories", link: "/success-story" },
     { name: "Blog & News", link: "/blog" },
-    { name: "Request a Call", link: "/request-call" },
+    { name: "Request a Call", link: "/reqcall" },
     { name: "Career", link: "/career" },
-    { name: "Contact Us", link: "/contact" },
+    { name: "Contact Us", link: "/contact-us" },
   ];
   return (
     <header className="z-50 relative bg-transparent backdrop-blur-[5.6px] py-0 lg:py-[0.63rem] text-white padding">

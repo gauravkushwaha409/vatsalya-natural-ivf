@@ -1,4 +1,5 @@
 "use client";
+import CopyButton from "@/components/ui/CopyButton";
 import { useNewsletter } from "@/hooks/subscription/useNewsletter";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,10 +7,10 @@ import Link from "next/link";
 const Footer = () => {
   const { formik, isLoading } = useNewsletter();
   return (
-    <div className="bg-primary-100 backdrop-blur-[5.6px] padding pt-10 text-text-400 overflow-hidden">
+    <div className="bg-primary-100 backdrop-blur-[5.6px] pt-10 overflow-hidden text-text-400 padding">
       <div className="gap-[6.56rem] grid grid-cols-2 lg:grid-cols-4">
         <div className="space-y-3 font-manrope text-text-400 typography-paragraph-regular">
-          <div className="h-20 aspect-auto -ml-5">
+          <div className="-ml-5 h-20 aspect-auto">
             <Link href="/">
               <Image
                 src={"/horizontal-logo.png"}
@@ -27,7 +28,8 @@ const Footer = () => {
             <a href={`mailto:${`info@vatsalya.com`}`}>
               info@vatsalyagmail.com{" "}
             </a>
-            <svg
+            <CopyButton text="info@vatsalyagmail.com" />
+            {/* <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="19"
@@ -46,7 +48,7 @@ const Footer = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
-            </svg>
+            </svg> */}
           </p>
           <a href={`tel:${"+977 9876543210"}`}>+977 9876543210</a>
           <div className="flex gap-4 mt-5">
@@ -112,16 +114,16 @@ const Footer = () => {
             Company
           </h3>
           <p>
-            <Link href="/about">About Us </Link>
+            <Link href="/about-us">About Us </Link>
           </p>
           <p>
             <Link href="/services">Services </Link>
           </p>
           <p>
-            <Link href="/stories">Success Stories </Link>
+            <Link href="/success-story">Success Stories </Link>
           </p>
           <p>
-            <Link href="/contact">Contact </Link>
+            <Link href="/contact-us">Contact </Link>
           </p>
           <p>
             <Link href="/career">Career </Link>
@@ -133,7 +135,7 @@ const Footer = () => {
           </h3>
 
           <p>
-            <Link href="/faq">FAQs</Link>
+            <Link href="/faqs">FAQs</Link>
           </p>
           <p>
             <Link href="/booking">Consultation Booking</Link>
@@ -155,7 +157,7 @@ const Footer = () => {
                 name="email"
                 type="email"
                 placeholder="Enter your email"
-                className="outline-0 ring-0 placeholder:text-dark-variant-300 grow bg-transparent text-black"
+                className="bg-transparent outline-0 ring-0 text-black placeholder:text-dark-variant-300 grow"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.email}
@@ -168,7 +170,7 @@ const Footer = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="bg-secondary-500 p-4 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular disabled:opacity-50 cursor-pointer"
+              className="bg-secondary-500 disabled:opacity-50 p-4 rounded-[6.25rem] font-manrope font-bold text-white cursor-pointer typography-paragraph-regular"
             >
               {isLoading ? "Subscribing..." : "Subscribe"}
             </button>
