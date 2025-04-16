@@ -3,7 +3,7 @@ import Herosection from "./partials/Herosection";
 import Specialists from "./partials/Specialists";
 import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
-
+export const dynamic = "force-dynamic";
 const page = async () => {
   try {
     const { data } = await getData(endpoints.experts);
