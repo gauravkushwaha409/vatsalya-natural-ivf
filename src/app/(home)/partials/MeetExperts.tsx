@@ -1,4 +1,4 @@
-import { IOurExpertsData } from "@/app/our-experts/interface/ourExperts.interface";
+import { IOurExpertsData } from "@/app/our-team/interface/ourExperts.interface";
 import TeamSlider from "./TeamSlider";
 
 interface MeetExpertsProps {

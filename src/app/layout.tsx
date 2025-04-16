@@ -33,6 +33,14 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: "Vatsalya",
   description: "Vatsalya IVF is a leading fertility clinic in Nepal.",
+  icons: {
+    icon: [
+      { url: "/static/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/static/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/static/apple-touch-icon.png",
+  },
+  manifest: "/static/site.webmanifest",
 };
 
 export default function RootLayout({
