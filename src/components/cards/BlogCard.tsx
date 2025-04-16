@@ -13,7 +13,7 @@ interface IBlog {
 const BlogCard: React.FC<IBlog> = ({ data }) => {
   return (
     <div>
-      <div className="max-w-md rounded-lg bg-white transition-all duration-300 ease-in-out hover:shadow-lg  ">
+      <div className="max-w-md rounded-lg bg-white transition-all duration-300 ease-in-out hover:shadow-lg h-full ">
         <div className="aspect-[400/240] overflow-hidden">
           {/* Image */}
           <Link href={`/blog/${data?.slug}`}>

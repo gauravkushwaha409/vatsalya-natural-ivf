@@ -9,6 +9,7 @@ import { endpoints } from "@/api/endpoints";
 interface ServiceDetailPageProps {
   params: Promise<{ slug: string }>;
 }
+export const dynamic = "force-dynamic";
 const page = async ({ params }: ServiceDetailPageProps) => {
   try {
     const slug = await params;
