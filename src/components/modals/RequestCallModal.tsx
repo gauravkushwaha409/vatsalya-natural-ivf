@@ -98,7 +98,7 @@ const RequestCallModal: React.FC<RequestCallModalProps> = ({
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.name}
-                    placeholder="e.g. Sujata Khatri "
+                    placeholder="Enter Your Name"
                     className="bg-transparent p-3 pl-6 border-[0.3px] border-[#72796F] rounded-[12px] outline-none w-full h-[54px] mt-2.5 text-sm"
                   />
                   {formik.touched.name && formik.errors.name && (
@@ -123,7 +123,7 @@ const RequestCallModal: React.FC<RequestCallModalProps> = ({
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.phone}
-                    placeholder="e.g. 9876543210"
+                    placeholder="Enter Your Phone Number"
                     className="bg-transparent p-3 pl-6 border-[0.3px] border-[#72796F] rounded-[12px] outline-none w-full h-[54px] mt-2.5 text-sm"
                   />
                   {formik.touched.phone && formik.errors.phone && (
@@ -148,7 +148,7 @@ const RequestCallModal: React.FC<RequestCallModalProps> = ({
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.message}
-                  placeholder="|"
+                  placeholder="Enter Your Message..."
                   className="bg-transparent p-3 pl-6 border-[0.3px] border-[#72796F] rounded-[12px] outline-none w-full h-[54px] mt-2.5 text-sm"
                 />
                 {formik.touched.message && formik.errors.message && (

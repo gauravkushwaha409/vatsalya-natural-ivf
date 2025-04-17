@@ -139,7 +139,7 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.name}
-                  placeholder="e.g. Sujata Khatri "
+                  placeholder="Enter Your Name"
                   className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
                 />
                 {formik.touched.name && formik.errors.name && (
@@ -161,7 +161,7 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.phone_no}
-                  placeholder="e.g. 9876543210"
+                  placeholder="Enter Your Phone Number"
                   className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
                 />
                 {formik.touched.phone_no && formik.errors.phone_no && (
@@ -183,7 +183,7 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.email}
-                  placeholder="e.g. sujata@gmail.com"
+                  placeholder="Enter Your Email"
                   className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
                 />
                 {formik.touched.email && formik.errors.email && (
@@ -206,7 +206,7 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.address}
-                  placeholder="e.g. Gaushala, Kathmandu "
+                  placeholder="Enter Your Address"
                 />
                 {formik.touched.address && formik.errors.address && (
                   <p className="text-red-500 text-sm">
@@ -260,7 +260,7 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.message}
-                placeholder="|"
+                placeholder="Enter Your Message..."
                 className="border border-gray-400 rounded-xl pl-3 pt-4 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
               />
               {formik.touched.message && formik.errors.message && (

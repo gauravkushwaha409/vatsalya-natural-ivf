@@ -68,7 +68,7 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
               <MdLocationPin size={20} className="text-secondary-500" />
             </div>
             <span className="typography-paragraph-regular text-text-500 ">
-              {data?.center?.location}
+              {data?.center?.name}
             </span>
           </div>
 
