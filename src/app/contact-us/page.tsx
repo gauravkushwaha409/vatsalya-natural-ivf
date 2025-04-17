@@ -1,10 +1,8 @@
-import React from "react";
-import Headings from "./partials/Headings";
-import Contacts from "./partials/Contacts";
-import ContactForm from "./partials/ContactForm";
-import Locations from "./partials/Locations";
-import ContactMap from "./partials/ContactMap";
 import ContactFaqs from "./partials/ContactFaqs";
+import ContactForm from "./partials/ContactForm";
+import Contacts from "./partials/Contacts";
+import DynamicMap from "./partials/DynamicMap";
+import Headings from "./partials/Headings";
 
 const page = () => {
   return (
@@ -12,8 +10,7 @@ const page = () => {
       <Headings />
       <Contacts />
       <ContactForm />
-      <Locations />
-      <ContactMap />
+      <DynamicMap />
       <ContactFaqs />
     </section>
   );

@@ -4,9 +4,14 @@ import Image from "next/image";
 import { useContactForm } from "@/hooks/contact/useContact";
 import { ICenter } from "@/interface/center";
 
-const Locations = () => {
+interface LocationsProps {
+  onSelectMap: (url: string) => void;
+}
+
+const Locations: React.FC<LocationsProps> = ({ onSelectMap }) => {
   const { centerData } = useContactForm();
   const centers = centerData?.data;
+  console.log(centers, "centersss");
 
   return (
     <section className="py-20">
@@ -25,6 +30,7 @@ const Locations = () => {
           <div
             className="bg-white rounded-lg p-5 flex gap-5 shadow-md hover:bg-primary-50 transition-colors duration-300 delay-75  cursor-pointer"
             key={index}
+            onClick={() => onSelectMap(center.location)} // <- handle click
           >
             <div className="w-10">
               <Image
@@ -37,7 +43,7 @@ const Locations = () => {
             </div>
             <div className="flex flex-col gap-2">
               <p className="text-text-400 typography-paragraph-small">
-                {center?.location}
+                {center?.name}
               </p>
               <p className="text-text-400 typography-paragraph-small">
                 {center?.phone.join(", ")}

@@ -26,4 +26,5 @@ export interface ICenter {
   phone: string[];
   created_date: string;
   updated_date: string;
+  mapUrl: string;
 }
