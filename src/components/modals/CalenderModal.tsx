@@ -19,7 +19,7 @@ interface CalendarProps {
   onCloseModal: () => void;
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   data?: IFormValues;
-  formik: FormikProps<IFormValues>;
+  formik?: FormikProps<IFormValues>;
 }
 
 const CalendarModal: React.FC<CalendarProps> = ({
@@ -133,7 +133,7 @@ const CalendarModal: React.FC<CalendarProps> = ({
       if (response?.data?.status === "success") {
         setAvailableSlots(response?.data);
         showSuccessMessage(response?.data?.message);
-        formik.resetForm();
+        formik?.resetForm();
       }
     } catch (error) {
       console.error("Failed to fetch slots:", error);
