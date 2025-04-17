@@ -10,7 +10,6 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import buterflysvg from "@/assests/icons/butterflyExpertise.svg";
 
 interface TeamSliderProps {
   data: IOurExpertsRecord[];
@@ -58,7 +57,7 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
           style={{
             minHeight: `${ACTIVE_EL_HEIGHT}rem`,
           }}
-          className="relative flex items-end gap-[1.25rem] mx-6 lg:mx-20 overflow-hidden "
+          className="relative flex items-end gap-[1.25rem] mx-6 lg:mx-20 overflow-hidden"
         >
           {data?.map((member, index) => {
             const i =
@@ -67,55 +66,39 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
                 data.length) %
               data.length;
             return (
-              <div key={index} className="flex w-full h-full  ">
-                <div
-                  style={{
-                    height:
-                      activeIndex == index
-                        ? `${ACTIVE_EL_HEIGHT}rem`
-                        : `${INACTIVE_EL_HEIGHT}rem`,
-                    width:
-                      activeIndex == index
-                        ? `${ACTIVE_EL_WIDTH}rem`
-                        : `${INACTIVE_EL_WIDTH}rem`,
-                    left:
-                      i <= ACTIVE_INDEX
-                        ? `${i * INACTIVE_EL_WIDTH + GAP * i}rem`
-                        : `${
-                            i * INACTIVE_EL_WIDTH +
-                            (ACTIVE_EL_WIDTH - INACTIVE_EL_WIDTH) +
-                            GAP * i
-                          }rem`,
-                    borderRadius:
-                      activeIndex == index ? "2.331rem" : "0.875rem",
-                    background:
-                      "linear-gradient(to right, #EBC0DB 0%, #FFD2CE 100%)",
-                  }}
-                  className={`absolute bottom-0 left-0 z-10 overflow-hidden  ${
-                    i == data.length - 1 ? "" : "transition-all duration-500"
-                  } ease-in-out `}
-                >
-                  <Image
-                    src={member?.image}
-                    alt={member?.name}
-                    height={2000}
-                    width={1000}
-                    className="w-full h-full object-cover grow"
-                  />
-                  <div
-                    className={`absolute right-3 top-10 z-0 ${
-                      activeIndex ? "h-32" : "h-10 border"
-                    }`}
-                  >
-                    <Image
-                      src={buterflysvg}
-                      alt="heropic"
-                      width={1920}
-                      height={1080}
-                      className="w-full h-full object-contain "
-                    />
-                  </div>
-                </div>
+              // <div key={index} className="flex w-full h-full">
+              <div
+                key={index}
+                style={{
+                  height:
+                    activeIndex == index
+                      ? `${ACTIVE_EL_HEIGHT}rem`
+                      : `${INACTIVE_EL_HEIGHT}rem`,
+                  width:
+                    activeIndex == index
+                      ? `${ACTIVE_EL_WIDTH}rem`
+                      : `${INACTIVE_EL_WIDTH}rem`,
+                  left:
+                    i <= ACTIVE_INDEX
+                      ? `${i * INACTIVE_EL_WIDTH + GAP * i}rem`
+                      : `${
+                          i * INACTIVE_EL_WIDTH +
+                          (ACTIVE_EL_WIDTH - INACTIVE_EL_WIDTH) +
+                          GAP * i
+                        }rem`,
+                  borderRadius: activeIndex == index ? "2.331rem" : "0.875rem",
+                }}
+                className={`absolute bottom-0 left-0 z-10 overflow-hidden  ${
+                  i == data.length - 1 ? "" : "transition-all duration-500"
+                } ease-in-out `}
+              >
+                <Image
+                  src={member?.image}
+                  alt={member?.name}
+                  height={2000}
+                  width={1000}
+                  className="w-full h-full object-cover grow"
+                />
               </div>
             );
           })}

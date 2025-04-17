@@ -93,7 +93,7 @@ const WhenToVisit: React.FC<WhenToVisitProps> = ({ data }) => {
               <div className="rounded-full rounded-br-none h-[7.5rem] md:h-[12.69rem] aspect-square overflow-hidden">
                 <Image
                   className="w-full h-full object-cover"
-                  src={data?.images[0]}
+                  src={data?.whenToVisitImages[0]}
                   width={500}
                   height={500}
                   alt="What we offer 1"
@@ -121,7 +121,7 @@ const WhenToVisit: React.FC<WhenToVisitProps> = ({ data }) => {
               <div className="rounded-full rounded-bl-none h-[7.5rem] md:h-[12.69rem] aspect-square overflow-hidden">
                 {/* <div className="w-max"> */}
                 <Image
-                  src={data?.images[1]}
+                  src={data?.whenToVisitImages[1]}
                   width={500}
                   height={500}
                   className="w-full h-full object-cover"
@@ -132,7 +132,7 @@ const WhenToVisit: React.FC<WhenToVisitProps> = ({ data }) => {
               {/* Right bottom card */}
               <div className="rounded-[5.625rem] rounded-tl-none rounded-br-none h-[7.5rem] md:h-[12.69rem] aspect-square overflow-hidden">
                 <Image
-                  src={data?.images[2]}
+                  src={data?.whenToVisitImages[2]}
                   width={500}
                   height={500}
                   className="w-full h-full object-cover"
