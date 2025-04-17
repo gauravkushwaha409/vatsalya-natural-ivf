@@ -10,6 +10,7 @@ interface IFertilityCare {
   data: IFertilityCareData;
 }
 const FertilityCare: React.FC<IFertilityCare> = ({ data }) => {
+  console.log(data, "dataaaa");
   return (
     <section>
       <div className=" bg-gradient-to-r from-[#EBC0DB] to-[#FFD2CE] px-5 lg:px-10 py-20">
@@ -45,9 +46,11 @@ const FertilityCare: React.FC<IFertilityCare> = ({ data }) => {
                     <span className="typography-h4 text-primary-500 font-medium ">
                       {item?.title}
                     </span>
-                    <span className="typography-paragraph-regular font-medium text-text-400 pt-1.5">
-                      {item?.whenToSeeService}
-                    </span>
+
+                    <p
+                      className="typography-paragraph-regular font-medium text-text-400 pt-1.5"
+                      dangerouslySetInnerHTML={{ __html: item?.title || "" }}
+                    />
                   </div>
                 </div>
               )
