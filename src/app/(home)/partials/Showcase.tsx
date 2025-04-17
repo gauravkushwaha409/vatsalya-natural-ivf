@@ -5,6 +5,7 @@ type ShowCaseItemProps = {
   data: IStatsData;
 };
 const Showcase: React.FC<ShowCaseItemProps> = ({ data }) => {
+  console.log(data, "dataaaastatsss");
   return (
     <div
       style={{
@@ -23,7 +24,7 @@ const Showcase: React.FC<ShowCaseItemProps> = ({ data }) => {
       </div>
       <div className="flex sm:flex-row flex-col flex-wrap justify-end items-center  w-full lg:w-9/12">
         <ShowCaseItem
-          svg="/svg/award.svg"
+          svg={data?.caringforFamiliesIcon}
           title={
             <>
               {data?.caringforFamilies}
@@ -35,12 +36,13 @@ const Showcase: React.FC<ShowCaseItemProps> = ({ data }) => {
           subtitle="Caring for Families"
         />
         <ShowCaseItem
-          svg={"/svg/heart.svg"}
+          svg={data?.successfulIVFTreatmentsIcon}
           title={`${data?.successfulIVFTreatments}+`}
           subtitle="Successful IVF Treatments"
         />
+
         <ShowCaseItem
-          svg="/svg/star.svg"
+          svg={data?.expertSpecialistsIcon}
           title={`${data?.expertSpecialists}+`}
           subtitle="Expert Specialists"
         />
