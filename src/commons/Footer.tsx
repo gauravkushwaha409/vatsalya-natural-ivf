@@ -1,11 +1,57 @@
-"use client";
+import { getHomePageData } from "@/app/(home)/hook/hook.hook";
 import CopyButton from "@/components/ui/CopyButton";
-import { useNewsletter } from "@/hooks/subscription/useNewsletter";
+// import { useNewsletter } from "@/hooks/subscription/useNewsletter";
 import Image from "next/image";
 import Link from "next/link";
 
-const Footer = () => {
-  const { formik, isLoading } = useNewsletter();
+const socialLinks = [
+  {
+    name: "facebook",
+    href: "https://www.facebook.com/",
+    icon: "/svg/facebook.svg",
+  },
+  {
+    name: "instagram",
+    href: "https://www.instagram.com/",
+    icon: "/svg/instagram.svg",
+  },
+  {
+    name: "linkedin",
+    href: "https://www.linkedin.com/",
+    icon: "/svg/linkedin.svg",
+  },
+  {
+    name: "twitter",
+    href: "https://www.twitter.com/",
+    icon: "/svg/twitter.svg",
+  },
+  {
+    name: "whatsapp",
+    href: "https://www.whatsapp.com/",
+    icon: "/svg/whatsapp.svg",
+  },
+];
+
+const companyLinks = [
+  { label: "About Us", href: "/about-us" },
+  { label: "Services", href: "/services" },
+  { label: "Success Stories", href: "/success-story" },
+  { label: "Contact", href: "/contact-us" },
+  { label: "Career", href: "/career" },
+];
+
+const helpLinks = [
+  { label: "FAQs", href: "/faqs" },
+  { label: "Consultation Booking", href: "/booking" },
+  { label: "Terms & Conditions", href: "/terms" },
+  { label: "Privacy Policy", href: "/privacy" },
+];
+
+const Footer = async () => {
+  const { footerData } = await getHomePageData();
+  console.log(footerData?.data?.socialMedia, "footerData");
+
+  // const { formik, isLoading } = useNewsletter();
   return (
     <div className="bg-primary-100 backdrop-blur-[5.6px] pt-10 overflow-hidden text-text-400 padding">
       <div className="gap-[6.56rem] grid grid-cols-2 lg:grid-cols-4">
@@ -52,106 +98,46 @@ const Footer = () => {
           </p>
           <a href={`tel:${"+977 9876543210"}`}>+977 9876543210</a>
           <div className="flex gap-4 mt-5">
-            <a
-              className="hover:brightness-80 transition-all duration-300"
-              href="https://www.facebook.com/"
-            >
-              <Image
-                src="/svg/facebook.svg"
-                width={24}
-                height={24}
-                alt="facebook"
-              />
-            </a>
-            <a
-              className="hover:brightness-80 transition-all duration-300"
-              href="https://www.instagram.com/"
-            >
-              <Image
-                src="/svg/instagram.svg"
-                width={24}
-                height={24}
-                alt="facebook"
-              />
-            </a>
-            <a
-              className="hover:brightness-80 transition-all duration-300"
-              href="https://www.linked.com/"
-            >
-              <Image
-                src="/svg/linkedin.svg"
-                width={24}
-                height={24}
-                alt="facebook"
-              />
-            </a>
-            <a
-              className="hover:brightness-80 transition-all duration-300"
-              href="https://www.twitter.com/"
-            >
-              <Image
-                src="/svg/twitter.svg"
-                width={24}
-                height={24}
-                alt="facebook"
-              />
-            </a>
-            <a
-              className="hover:brightness-80 transition-all duration-300"
-              href="https://www.whatsapp.com/"
-            >
-              <Image
-                src="/svg/whatsapp.svg"
-                width={24}
-                height={24}
-                alt="facebook"
-              />
-            </a>
+            {socialLinks.map((item) => (
+              <a
+                key={item.name}
+                className="hover:brightness-80 transition-all duration-300"
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image src={item.icon} width={24} height={24} alt={item.name} />
+              </a>
+            ))}
           </div>
         </div>
         <div className="space-y-3 font-manrope text-text-400 typography-paragraph-regular">
           <h3 className="font-[600] text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.1575rem]">
             Company
           </h3>
-          <p>
-            <Link href="/about-us">About Us </Link>
-          </p>
-          <p>
-            <Link href="/services">Services </Link>
-          </p>
-          <p>
-            <Link href="/success-story">Success Stories </Link>
-          </p>
-          <p>
-            <Link href="/contact-us">Contact </Link>
-          </p>
-          <p>
-            <Link href="/career">Career </Link>
-          </p>
+          {companyLinks.map((link) => (
+            <p key={link.href}>
+              <Link href={link.href}>{link.label}</Link>
+            </p>
+          ))}
         </div>
+
         <div className="space-y-3 font-manrope text-text-400 typography-paragraph-regular">
           <h3 className="font-[600] text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.1575rem]">
             Help
           </h3>
-
-          <p>
-            <Link href="/faqs">FAQs</Link>
-          </p>
-          <p>
-            <Link href="/booking">Consultation Booking</Link>
-          </p>
-          <p>
-            <Link href="/terms">Terms & Conditions </Link>
-          </p>
-          <p>
-            <Link href="/privacy">Privacy Policy </Link>
-          </p>
+          {helpLinks.map((link) => (
+            <p key={link.href}>
+              <Link href={link.href}>{link.label}</Link>
+            </p>
+          ))}
         </div>
+
         <div className="space-y-3 font-manrope text-text-400 typography-paragraph-regular">
           <h3 className="font-[600] text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.1575rem]">
             Subscribe to Newsletter
           </h3>
-          <form onSubmit={formik.handleSubmit} className="space-y-3">
+          {/* <form onSubmit={formik.handleSubmit} className="space-y-3">
             <label className="flex bg-white/[0.12] px-4 py-4 border border-[#E4E4E7] rounded-[0.75rem]">
               <input
                 name="email"
@@ -174,7 +160,7 @@ const Footer = () => {
             >
               {isLoading ? "Subscribing..." : "Subscribe"}
             </button>
-          </form>
+          </form> */}
         </div>
       </div>
       <hr className="bg-[#FFF1EF] my-5" />

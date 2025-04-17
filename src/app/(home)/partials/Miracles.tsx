@@ -68,22 +68,22 @@ const Miracles: React.FC<ShowCaseItemProps> = ({ data }) => {
         <div className="w-min">
           <div className="flex w-max">
             <div className="mt-[4.63rem]">
-              <ImageContainer src={data?.images[3]} alt="Miracle 5" />
+              <ImageContainer src={data?.images[5]} alt="Miracle 5" />
             </div>
             <div className="">
-              <ImageContainer src={data?.images[3]} alt="Miracle 6" />
+              <ImageContainer src={data?.images[6]} alt="Miracle 6" />
             </div>
             <div className="mt-[2.5rem]">
-              <ImageContainer src={data?.images[3]} alt="Miracle 7" />
+              <ImageContainer src={data?.images[7]} alt="Miracle 7" />
             </div>
             <div className="">
-              <ImageContainer src={data?.images[3]} alt="Miracle 8" />
+              <ImageContainer src={data?.images[8]} alt="Miracle 8" />
             </div>
             <div className="mt-[4.63rem]">
-              <ImageContainer src={data?.images[3]} alt="Miracle 9" />
+              <ImageContainer src={data?.images[9]} alt="Miracle 9" />
             </div>
           </div>
-          <div className="px-[1.81rem] pb-10 w-full text-center">
+          <div className="px-[1.81rem] pb-10 w-full text-center space-y-4">
             <h1
               style={{
                 background: "linear-gradient(0deg, #A03879 0%, #FF6F61 100%)",
@@ -95,9 +95,10 @@ const Miracles: React.FC<ShowCaseItemProps> = ({ data }) => {
             >
               {data?.title}
             </h1>
-            <p className="text-text-500 typography-paragraph-small">
-              {data?.subtitle}
-            </p>
+            <p
+              className="text-text-500 typography-paragraph-small"
+              dangerouslySetInnerHTML={{ __html: data?.subtitle || "" }}
+            />
             <button
               style={{
                 boxShadow: "0px 5.486px 12.343px 0px rgba(215, 101, 120, 0.33)",
@@ -109,12 +110,12 @@ const Miracles: React.FC<ShowCaseItemProps> = ({ data }) => {
           </div>
         </div>
         <div className="">
-          <ImageContainer src={data?.images[3]} alt="Miracle 10" />
-          <ImageContainer src={data?.images[3]} alt="Miracle 11" />
+          <ImageContainer src={data?.images[10]} alt="Miracle 10" />
+          <ImageContainer src={data?.images[11]} alt="Miracle 11" />
         </div>
         <div className="mt-[3.12rem]">
-          <ImageContainer src={data?.images[3]} alt="Miracle 12" />
-          <ImageContainer src={data?.images[3]} alt="Miracle 13" />
+          <ImageContainer src={data?.images[12]} alt="Miracle 12" />
+          <ImageContainer src={data?.images[13]} alt="Miracle 13" />
         </div>
       </div>
     </div>

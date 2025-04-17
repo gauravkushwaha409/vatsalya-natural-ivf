@@ -45,13 +45,13 @@ const TestimonialSection: React.FC<testimonialData> = ({ data }) => {
 
       {/* testimonial section */}
       <div className="grid md:grid-cols-2 mt-10 gap-10 items-center">
-        <div className="rounded-lg overflow-hidden">
+        <div className="rounded-lg overflow-hidden w-full h-[20.625rem]">
           <Image
             src={data?.SuccessStory?.image}
             alt="A family standing in front of Vatsalya sign"
             width={600}
             height={450}
-            className="w-full h-auto"
+            className="w-full rounded-lg h-full object-cover"
           />
         </div>
 
@@ -83,8 +83,13 @@ const TestimonialSection: React.FC<testimonialData> = ({ data }) => {
             {data?.SuccessStory?.quoteContent}
           </div>
 
-          <div className="typography-paragraph-large font-medium text-text-400 text-justify space-y-4">
-            <p>{`"${data?.SuccessStory?.storyContent}"`}</p>
+          <div>
+            <p
+              className="typography-paragraph-large font-medium text-text-400 text-justify space-y-4"
+              dangerouslySetInnerHTML={{
+                __html: data?.SuccessStory?.storyContent || "",
+              }}
+            />
           </div>
 
           <button
