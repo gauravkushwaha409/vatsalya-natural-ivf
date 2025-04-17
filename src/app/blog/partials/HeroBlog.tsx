@@ -43,7 +43,7 @@ const HeroBlog = () => {
           </h2>
 
           {/* Subheading */}
-          <p className="mb-10 text-text-400 typography-paragraph-large">
+          <p className="mb-10 text-text-400 typography-paragraph-large max-w-lg text-justify">
             We understand that the journey to parenthood is unique for every
             individual and couple. Whether you are considering fertility
             treatments, exploring IVF options, or simply looking for guidance on
