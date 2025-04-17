@@ -18,6 +18,9 @@ export interface IStatsData {
   expertSpecialists: number;
   created_date: string;
   updated_date: string;
+  caringforFamiliesIcon: string;
+  successfulIVFTreatmentsIcon: string;
+  expertSpecialistsIcon: string;
 }
 
 export type IStatsResponse = ApiResponse<IStatsRoot>;

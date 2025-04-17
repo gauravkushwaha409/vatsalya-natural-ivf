@@ -26,7 +26,9 @@ const HomePage = async () => {
       blogData,
       showcaseData,
       testimonialData,
+      homeGalleryData,
     } = await getHomePageData();
+
     return (
       <div className="space-y-20">
         <div
@@ -66,7 +68,7 @@ const HomePage = async () => {
         <BrandsSlider />
         <MeetExperts data={expertsData?.data} />
         <Showcase data={showcaseData?.data} />
-        <Miracles />
+        <Miracles data={homeGalleryData?.data} />
         <div className="mt-60 w-full">
           <Testimonial data={testimonialData?.data} />
         </div>

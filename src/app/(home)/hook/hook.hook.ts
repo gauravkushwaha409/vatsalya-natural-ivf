@@ -18,6 +18,7 @@ export const getHomePageData = async () => {
   const blogData = await safeFetch(endpoints.blog);
   const showcaseData = await safeFetch(endpoints.stats);
   const testimonialData = await safeFetch(endpoints.sucessStory);
+  const homeGalleryData = await safeFetch(endpoints.homeGallery);
 
   return {
     homedata,
@@ -27,5 +28,6 @@ export const getHomePageData = async () => {
     blogData,
     showcaseData,
     testimonialData,
+    homeGalleryData,
   };
 };
