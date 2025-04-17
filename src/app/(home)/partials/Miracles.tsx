@@ -1,8 +1,13 @@
 "use client";
 import { useIsSmall } from "@/hooks/useMediaQuery";
 import Image from "next/image";
+import { IGalleryData } from "../interface/home.gallery.interface";
 
-const Miracles = () => {
+type ShowCaseItemProps = {
+  data: IGalleryData;
+};
+
+const Miracles: React.FC<ShowCaseItemProps> = ({ data }) => {
   const isMobile = useIsSmall();
   // Mobile view component
   if (isMobile) {
@@ -52,30 +57,30 @@ const Miracles = () => {
     <div className="flex justify-center my-[12.5rem]">
       <div className="relative flex">
         <div className="mt-[3.12rem]">
-          <ImageContainer src="/team/member-1.jpeg" alt="Miracle 1" />
-          <ImageContainer src="/team/member-1.jpeg" alt="Miracle 2" />
+          <ImageContainer src={data?.images[0]} alt="Miracle 1" />
+          <ImageContainer src={data?.images[1]} alt="Miracle 2" />
         </div>
         <div className="">
-          <ImageContainer src="/team/member-1.jpeg" alt="Miracle 3" />
-          <ImageContainer src="/team/member-1.jpeg" alt="Miracle 4" />
+          <ImageContainer src={data?.images[3]} alt="Miracle 3" />
+          <ImageContainer src={data?.images[4]} alt="Miracle 4" />
         </div>
 
         <div className="w-min">
           <div className="flex w-max">
             <div className="mt-[4.63rem]">
-              <ImageContainer src="/team/member-1.jpeg" alt="Miracle 5" />
+              <ImageContainer src={data?.images[3]} alt="Miracle 5" />
             </div>
             <div className="">
-              <ImageContainer src="/team/member-1.jpeg" alt="Miracle 6" />
+              <ImageContainer src={data?.images[3]} alt="Miracle 6" />
             </div>
             <div className="mt-[2.5rem]">
-              <ImageContainer src="/team/member-1.jpeg" alt="Miracle 7" />
+              <ImageContainer src={data?.images[3]} alt="Miracle 7" />
             </div>
             <div className="">
-              <ImageContainer src="/team/member-1.jpeg" alt="Miracle 8" />
+              <ImageContainer src={data?.images[3]} alt="Miracle 8" />
             </div>
             <div className="mt-[4.63rem]">
-              <ImageContainer src="/team/member-1.jpeg" alt="Miracle 9" />
+              <ImageContainer src={data?.images[3]} alt="Miracle 9" />
             </div>
           </div>
           <div className="px-[1.81rem] pb-10 w-full text-center">
@@ -88,12 +93,10 @@ const Miracles = () => {
               }}
               className="bg-clip-text font-extrabold typography-h2"
             >
-              50,000+ Miracles
+              {data?.title}
             </h1>
             <p className="text-text-500 typography-paragraph-small">
-              Bringing hope, joy, and new beginnings—Vatsalya has helped 50,000+
-              families with successful natural IVF. Your journey to parenthood
-              starts here
+              {data?.subtitle}
             </p>
             <button
               style={{
@@ -106,12 +109,12 @@ const Miracles = () => {
           </div>
         </div>
         <div className="">
-          <ImageContainer src="/team/member-1.jpeg" alt="Miracle 10" />
-          <ImageContainer src="/team/member-1.jpeg" alt="Miracle 11" />
+          <ImageContainer src={data?.images[3]} alt="Miracle 10" />
+          <ImageContainer src={data?.images[3]} alt="Miracle 11" />
         </div>
         <div className="mt-[3.12rem]">
-          <ImageContainer src="/team/member-1.jpeg" alt="Miracle 12" />
-          <ImageContainer src="/team/member-1.jpeg" alt="Miracle 13" />
+          <ImageContainer src={data?.images[3]} alt="Miracle 12" />
+          <ImageContainer src={data?.images[3]} alt="Miracle 13" />
         </div>
       </div>
     </div>

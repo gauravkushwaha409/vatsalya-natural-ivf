@@ -4,6 +4,7 @@ import Image from "next/image";
 type ShowCaseItemProps = {
   data: IStatsData;
 };
+
 const Showcase: React.FC<ShowCaseItemProps> = ({ data }) => {
   return (
     <div

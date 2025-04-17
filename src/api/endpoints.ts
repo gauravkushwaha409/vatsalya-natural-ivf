@@ -23,6 +23,7 @@ interface Endpoints {
   home: string;
   howWorks: string;
   consultationBooking: string;
+  homeGallery: string;
 }
 
 export interface IAboutUS {
@@ -62,6 +63,7 @@ export const endpoints: Endpoints = {
   home: "/home",
   howWorks: "/how-works",
   consultationBooking: "/consultation-booking",
+  homeGallery: "/home-gallery",
 };
 
 export const BASE_API_URL = process.env.NEXT_PUBLIC_API_URL;
