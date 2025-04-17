@@ -57,7 +57,7 @@ export interface IHomeWhenVisit {
   id: string;
   title: string;
   subtitle: string;
-  images: string[];
+  whenToVisitImages: string[];
   description: string;
   home: string;
   created_date: string;

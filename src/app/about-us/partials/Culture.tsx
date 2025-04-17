@@ -7,24 +7,24 @@ type Props = {
 };
 
 const Culture: React.FC<Props> = ({ data }) => {
-  const images = [
+  const ourCultureImages = [
     {
       id: 1,
-      src: data?.images[0],
+      src: data?.ourCultureImages[0],
       className:
         "lg:mt-[10.5rem] w-[10rem] lg:w-[13.03988rem] h-[10.5rem] lg:h-[12.5rem] lg:m-4",
       colSpan: "col-span-1",
     },
     {
       id: 2,
-      src: data?.images[1],
+      src: data?.ourCultureImages[1],
 
       className: "lg:-ml-4 lg:w-[36.51163rem] h-[15rem] lg:m-4",
       colSpan: "col-span-2",
     },
     {
       id: 3,
-      src: data?.images[2],
+      src: data?.ourCultureImages[2],
 
       className:
         "ml-49 lg:ml-10 -mt-112 lg:mt-18.5 w-[10rem] lg:w-[13.03988rem] h-[10.5rem] lg:h-[12.5rem] lg:w-[191px] lg:h-[180px] lg:m-4",
@@ -32,7 +32,7 @@ const Culture: React.FC<Props> = ({ data }) => {
     },
     {
       id: 4,
-      src: data?.images[3],
+      src: data?.ourCultureImages[3],
 
       className:
         "mt-0 lg:-ml-[0.4rem] lg:mt-[10.5rem] w-[10rem] lg:w-[13.03988rem] h-[10.5rem] lg:m-4",
@@ -40,7 +40,7 @@ const Culture: React.FC<Props> = ({ data }) => {
     },
     {
       id: 5,
-      src: data?.images[4],
+      src: data?.ourCultureImages[4],
 
       className:
         "lg:ml-[16.8rem]  lg:-mt-[6.8rem] -mt-47 w-[11rem]  lg:w-[191px]  h-[10.5rem] lg:h-[180px] lg:m-4",
@@ -48,7 +48,7 @@ const Culture: React.FC<Props> = ({ data }) => {
     },
     {
       id: 6,
-      src: data?.images[5],
+      src: data?.ourCultureImages[5],
 
       className:
         "lg:ml-[14rem] lg:-mt-[6.8rem] -mt-[0.9rem] w-full lg:w-[36.51163rem] h-[15rem] lg:m-4",
@@ -80,7 +80,7 @@ const Culture: React.FC<Props> = ({ data }) => {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-[1.23rem]">
-            {images?.map((img) => (
+            {ourCultureImages?.map((img) => (
               <div
                 key={img.id}
                 className={`${img.className} rounded-[24px] ${img.colSpan}`}

@@ -9,6 +9,7 @@ interface BenefitsProps {
 }
 
 const Benefits: React.FC<BenefitsProps> = ({ data }) => {
+  console.log(data, "dataaaaa");
   return (
     <div className="py-16 md:py-24 padding">
       <div className="flex flex-col items-center text-center space-y-4">
@@ -37,7 +38,7 @@ const Benefits: React.FC<BenefitsProps> = ({ data }) => {
           >
             <div className="w-[80px] h-[80px]">
               <Image
-                src={data.icon}
+                src={data?.icon}
                 alt={data.title}
                 width={80}
                 height={80}
@@ -48,9 +49,10 @@ const Benefits: React.FC<BenefitsProps> = ({ data }) => {
               <h5 className="text-text-500 typography-paragraph-large font-semibold mb-2">
                 {data.title}
               </h5>
-              <p className="text-text-400 typography-paragraph-regular leading-[150%]">
-                {data.details}
-              </p>
+              <p
+                className="text-text-400 typography-paragraph-regular leading-[150%"
+                dangerouslySetInnerHTML={{ __html: data?.details || "" }}
+              />
             </div>
           </div>
         ))}

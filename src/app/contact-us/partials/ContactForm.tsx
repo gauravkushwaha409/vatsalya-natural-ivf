@@ -38,7 +38,7 @@ const ContactForm = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.name}
-              placeholder="John Doe"
+              placeholder="Enter Your Name"
             />
             {formik.touched.name && formik.errors.name && (
               <p className="text-red-500 text-sm">{formik.errors.name}</p>
@@ -61,7 +61,7 @@ const ContactForm = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.phone}
-              placeholder="e.g. 9876543210"
+              placeholder="Enter Your Phone Number"
             />
             {formik.touched.phone && formik.errors.phone && (
               <p className="text-red-500 text-sm">{formik.errors.phone}</p>
@@ -84,7 +84,7 @@ const ContactForm = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.address}
-              placeholder="baneshwor, kathmandu"
+              placeholder="Enter Your Address"
             />
             {formik.touched.address && formik.errors.address && (
               <p className="text-red-500 text-sm">{formik.errors.address}</p>
@@ -130,7 +130,7 @@ const ContactForm = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.message}
-              placeholder="Best time to contact you?"
+              placeholder="Enter Your Message..."
             />
             {formik.touched.message && formik.errors.message && (
               <p className="text-red-500 text-sm">{formik.errors.message}</p>

@@ -28,6 +28,12 @@ const nextConfig: NextConfig = {
         hostname: "gladstone-cleaning.s3.ap-south-1.amazonaws.com",
         pathname: "/**",
       },
+      {
+        protocol: "http",
+        hostname: "192.168.1.100",
+        port: "5000",
+        pathname: "/images/**",
+      },
     ],
   },
 };
