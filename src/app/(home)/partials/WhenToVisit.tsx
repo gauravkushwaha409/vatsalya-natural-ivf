@@ -2,6 +2,8 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import { IHomeWhenVisit } from "../interface/home.interface";
+import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
+import { useState } from "react";
 
 const ANIMATION_DURATION = 1;
 
@@ -9,6 +11,10 @@ type WhenToVisitProps = {
   data: IHomeWhenVisit;
 };
 const WhenToVisit: React.FC<WhenToVisitProps> = ({ data }) => {
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const handleAppointmentClick = () => {
+    setOpenModal(true);
+  };
   return (
     <div className="flex flex-col justify-between py-16 min-h-screen overflow-x-hidden">
       <div
@@ -66,6 +72,7 @@ const WhenToVisit: React.FC<WhenToVisitProps> = ({ data }) => {
 
           <button
             className="mt-5 px-8 py-4 border border-secondary-500 rounded-full font-extrabold text-secondary-500 cursor-pointer typography-paragraph-regular"
+            onClick={() => handleAppointmentClick()}
             style={{
               boxShadow: "0px 5.486px 12.343px 0px rgba(215, 101, 120, 0.33)",
             }}
@@ -151,6 +158,10 @@ const WhenToVisit: React.FC<WhenToVisitProps> = ({ data }) => {
           backgroundPosition: "100% 100%",
         }}
         className="relative flex justify-center -mt-2 w-full h-[11.96rem]"
+      />
+      <RequestAppoimentModal
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
       />
     </div>
   );
