@@ -52,7 +52,7 @@ export interface IAboutUsGallery {
   title: string;
   subtitle: string;
   description: string;
-  images: string[];
+  ourCultureImages: string[];
   aboutus: string;
   createdAt: string;
   updatedAt: string;
