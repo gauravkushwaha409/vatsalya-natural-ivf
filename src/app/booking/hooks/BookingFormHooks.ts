@@ -55,6 +55,7 @@ export const useBookingForm = () => {
 
         if (response?.data?.status === "success") {
           showSuccessMessage(response?.data?.message);
+          formik.resetForm();
         }
       } catch (error) {
         console.error("Failed to fetch slots:", error);
