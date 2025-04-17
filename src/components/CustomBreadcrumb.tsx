@@ -39,7 +39,7 @@ function CustomBreadcrumb({
                   </Link>
                 ) : (
                   // last item & active
-                  <span className="typography-caption text-primary-300">
+                  <span className="typography-caption text-primary-300 capitalize">
                     {item.name}
                   </span>
                 )}
