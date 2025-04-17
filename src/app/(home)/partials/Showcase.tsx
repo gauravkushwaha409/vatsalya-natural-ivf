@@ -5,7 +5,6 @@ type ShowCaseItemProps = {
   data: IStatsData;
 };
 const Showcase: React.FC<ShowCaseItemProps> = ({ data }) => {
-  console.log(data, "dataaaastatsss");
   return (
     <div
       style={{
