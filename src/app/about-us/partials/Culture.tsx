@@ -7,7 +7,6 @@ type Props = {
 };
 
 const Culture: React.FC<Props> = ({ data }) => {
-  console.log(data, "dataaaa cultureeee");
   const ourCultureImages = [
     {
       id: 1,
