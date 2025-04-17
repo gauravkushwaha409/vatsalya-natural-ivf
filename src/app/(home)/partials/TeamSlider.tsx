@@ -1,6 +1,7 @@
 "use client";
 
 import { IOurExpertsRecord } from "@/app/our-team/interface/ourExperts.interface";
+import buterflysvg from "@/assests/icons/butterflyExpertise.svg";
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import RequestCallModal from "@/components/modals/RequestCallModal";
 import PATHS from "@/utils/path";
@@ -92,13 +93,32 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
                   i == data.length - 1 ? "" : "transition-all duration-500"
                 } ease-in-out `}
               >
-                <Image
-                  src={member?.image}
-                  alt={member?.name}
-                  height={2000}
-                  width={1000}
-                  className="w-full h-full object-cover grow"
-                />
+                <div
+                  style={{
+                    backgroundImage: `url(${buterflysvg.src}),linear-gradient(to right, #EBC0DB 0%, #FFD2CE 100%)`,
+                    backgroundPosition: "top right 10%, center",
+                    backgroundRepeat: "no-repeat, no-repeat",
+                    backgroundSize: "20%, cover",
+                  }}
+                  className="w-full h-full"
+                >
+                  <Image
+                    src={member?.image}
+                    alt={member?.name}
+                    height={2000}
+                    width={1000}
+                    className="w-full h-full object-cover grow"
+                  />
+                  {/* <div className="top-10 -right-3 z-0 absolute h-36">
+                    <Image
+                      src={buterflysvg}
+                      alt="heropic"
+                      width={1920}
+                      height={1080}
+                      className="w-full h-full"
+                    />
+                  </div> */}
+                </div>
               </div>
             );
           })}
@@ -132,14 +152,14 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
                   setSelectDoctor(data[activeIndex]?.id);
                   setSelectedCenter(data[activeIndex]?.center?.id);
                 }}
-                className="px-8 py-3 border border-secondary-500 rounded-full font-medium text-secondary-500 typography-paragraph-regular cursor-pointer"
+                className="px-8 py-3 border border-secondary-500 rounded-full font-medium text-secondary-500 cursor-pointer typography-paragraph-regular"
               >
                 Consult Now
               </button>
 
               <button
                 onClick={() => setIsOpenRequestCallModal(true)}
-                className="px-5 py-3 font-medium text-secondary-500 typography-paragraph-regular cursor-pointer"
+                className="px-5 py-3 font-medium text-secondary-500 cursor-pointer typography-paragraph-regular"
               >
                 Call Back Request
               </button>
@@ -258,11 +278,11 @@ const MobileTeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
                     setSelectDoctor(member?.id);
                     setSelectedCenter(member?.center?.id);
                   }}
-                  className="px-3 py-1 border border-secondary-500 rounded-full font-medium text-secondary-500 typography-paragraph-regular cursor-pointer"
+                  className="px-3 py-1 border border-secondary-500 rounded-full font-medium text-secondary-500 cursor-pointer typography-paragraph-regular"
                 >
                   Consult Now
                 </button>
-                <button className="font-medium text-secondary-500 typography-paragraph-regular cursor-pointer">
+                <button className="font-medium text-secondary-500 cursor-pointer typography-paragraph-regular">
                   Call Back Request
                 </button>
                 <Link
