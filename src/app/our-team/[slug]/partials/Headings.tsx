@@ -9,7 +9,7 @@ const Headings = () => {
         <CustomBreadcrumb
           items={[
             { name: "Home", link: "/" },
-            { name: "Our Experts", link: "/ourExperts" },
+            { name: "Our Experts", link: "/our-team" },
             { name: "Profile", link: "ourExperts/profile" },
           ]}
         />

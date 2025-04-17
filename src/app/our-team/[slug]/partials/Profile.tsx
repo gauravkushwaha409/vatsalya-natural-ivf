@@ -94,10 +94,13 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
           />
         </div>
       </div>
+
       <div className="py-5">
-        <h5 className="typography-h4 font-semibold text-text-500 py-5">
-          Services Offered
-        </h5>
+        {data?.service.length === 1 && (
+          <h5 className="typography-h4 font-semibold text-text-500 py-5">
+            Services Offered
+          </h5>
+        )}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {data?.service?.map((items: IProfileService, index: number) => (
             <>
@@ -128,6 +131,7 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
           ))}
         </div>
       </div>
+
       <div className="flex  items-center gap-5">
         <button
           onClick={() => {

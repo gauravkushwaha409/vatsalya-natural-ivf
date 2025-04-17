@@ -35,7 +35,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
               <div
                 className={`flex w-full justify-center md:w-1/2 ${
                   index % 2 == 0
-                    ? "md:justify-end md:items-center"
+                    ? "md:justify-end md:items-center "
                     : "md:justify-start md:items-center"
                 }`}
               >
@@ -52,18 +52,16 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
               <div
                 className={`w-full md:w-1/2 space-y-3 flex flex-col ${
                   index % 2 == 0
-                    ? "items-center md:text-left md:items-start"
-                    : "items-center md:text-right md:items-end"
+                    ? "items-center md:text-left md:items-start "
+                    : "items-center md:text-right md:items-end "
                 }`}
               >
-                <span className="flex justify-center items-center bg-primary-50 rounded-full size-[2.5rem] md:size-[3.375rem] font-roboto font-medium text-primary-500 text-xl md:text-2xl">
+                <span className="flex justify-center items-center bg-primary-50 rounded-full size-[2.5rem] md:size-[3.375rem] font-roboto font-medium text-primary-500 text-xl md:text-2xl text-end">
                   {index + 1}
                 </span>
-                <h3 className="font-semibold md:text-left text-center typography-h3">
-                  {step.title}
-                </h3>
+                <h3 className="font-semibold  typography-h3">{step.title}</h3>
                 <p
-                  className="font-medium text-text-400 md:text-left text-center typography-paragraph-small md:typography-paragraph-regular"
+                  className="font-medium text-text-400  typography-paragraph-small md:typography-paragraph-regular"
                   dangerouslySetInnerHTML={{ __html: step.detail }}
                 />
               </div>
