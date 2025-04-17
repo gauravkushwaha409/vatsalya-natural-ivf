@@ -7,7 +7,7 @@ import { ICenter } from "@/interface/center";
 import { IExperts } from "@/interface/experts";
 import { useFormik } from "formik";
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import * as Yup from "yup";
 
