@@ -49,7 +49,7 @@ const FertilityCare: React.FC<IFertilityCare> = ({ data }) => {
 
                     <p
                       className="typography-paragraph-regular font-medium text-text-400 pt-1.5"
-                      dangerouslySetInnerHTML={{ __html: item?.title || "" }}
+                      dangerouslySetInnerHTML={{ __html: item?.detail || "" }}
                     />
                   </div>
                 </div>

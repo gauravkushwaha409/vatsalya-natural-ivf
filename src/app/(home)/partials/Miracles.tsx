@@ -49,7 +49,7 @@ const Miracles = () => {
 
   // Original desktop view (unchanged)
   return (
-    <div className="flex justify-center mt-20">
+    <div className="flex justify-center my-[12.5rem]">
       <div className="relative flex">
         <div className="mt-[3.12rem]">
           <ImageContainer src="/team/member-1.jpeg" alt="Miracle 1" />

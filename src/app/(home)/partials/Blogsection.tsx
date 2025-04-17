@@ -6,7 +6,7 @@ type BlogCardProps = {
 };
 const Blogsection: React.FC<BlogCardProps> = ({ data }) => {
   return (
-    <div className="my-10 padding">
+    <div className="mb-[12.5rem] padding">
       <div className="flex items-center gap-3 pb-2">
         <span className="font-bold text-primary-500 uppercase tracking-widest typography-paragraph-regular">
           Blogs
