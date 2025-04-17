@@ -156,7 +156,7 @@ const Footer = () => {
               <input
                 name="email"
                 type="email"
-                placeholder="Enter your email"
+                placeholder="Enter your Email"
                 className="bg-transparent outline-0 ring-0 text-black placeholder:text-dark-variant-300 grow"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
