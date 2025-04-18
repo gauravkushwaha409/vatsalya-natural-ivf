@@ -10,7 +10,6 @@ interface IFertilityCare {
   data: IFertilityCareData;
 }
 const FertilityCare: React.FC<IFertilityCare> = ({ data }) => {
-  console.log(data, "dataaaa");
   return (
     <section>
       <div className=" bg-gradient-to-r from-[#EBC0DB] to-[#FFD2CE] px-5 lg:px-10 py-20">

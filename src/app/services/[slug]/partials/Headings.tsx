@@ -6,7 +6,6 @@ interface HeadingsProps {
   data: IServiceDetailsData;
 }
 const Headings: React.FC<HeadingsProps> = ({ data }) => {
-  console.log(data?.service?.slug, "slugggggg");
   return (
     <header className="flex items-center flex-col pt-5 pb-10 bg-gradient-to-b from-[#FFF1EF] to-[#FDFCFB]">
       <div className="flex mx-auto w-max typography-caption text-text-400">
