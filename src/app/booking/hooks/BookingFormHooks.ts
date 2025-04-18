@@ -1,5 +1,6 @@
 import { useGetDataQuery, usePostDataMutation } from "@/api/api";
 import { endpoints } from "@/api/endpoints";
+import { ApiResponse, handleErrors } from "@/helper/error-helper";
 
 import { showErrorMessage, showSuccessMessage } from "@/utils/toast";
 import { useFormik } from "formik";
@@ -42,13 +43,14 @@ export const useBookingForm = () => {
         .required("Message is required")
         .min(10, "Message must be at least 10 characters"),
     }),
-    onSubmit: async (values) => {
+    onSubmit: async (values, { setErrors }) => {
       try {
-        const response = await postAppointment({
+        const response = (await postAppointment({
           url: `${endpoints.consultationBooking}`,
           data: values,
-        });
+        })) as ApiResponse;
         if (response?.error) {
+          handleErrors(response, setErrors);
           showErrorMessage("Failed to Book ");
           return;
         }

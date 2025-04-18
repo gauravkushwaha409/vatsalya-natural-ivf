@@ -37,18 +37,18 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
   const [modalOpen, setModalOpen] = useState(false);
   const [data, setData] = useState<IFormValues | undefined>();
   const modalRef = useClickOutside(onClose);
-  console.log(selectedCenter, selectDoctor, "selectedCenter");
   const { data: centerData } = useGetDataQuery({
     url: `${endpoints.center}`,
   });
 
   const formik = useFormik<IFormValues>({
+    enableReinitialize: true,
     initialValues: {
       name: "",
       phone: "",
       address: "",
-      center: "",
-      doctor: "",
+      center: selectedCenter || "",
+      doctor: selectDoctor || "",
       message: "",
     },
     validationSchema: Yup.object({
@@ -64,7 +64,6 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
         .min(10, "Message must be at least 10 characters"),
     }),
     onSubmit: async (values) => {
-      console.log(values);
       setData(values);
       handleRequestAppoiment();
     },
@@ -73,7 +72,7 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
   const { data: doctorData } = useGetDataQuery({
     url: `${endpoints.doctor}`,
     params: {
-      center: selectedCenter || formik.values.center,
+      center: formik.values.center,
     },
   });
 
@@ -184,7 +183,7 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
                     className="bg-transparent p-2.5 border border-gray-400 rounded-lg outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    value={selectedCenter || formik.values.center}
+                    value={formik.values.center}
                   >
                     <option value="">Select a center</option>
                     {centerData?.data?.records.map((center: ICenter) => (
@@ -210,7 +209,7 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
                     className="bg-transparent p-2.5 border border-gray-400 rounded-lg outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    value={selectDoctor || formik.values.doctor}
+                    value={formik.values.doctor}
                   >
                     <option value="">Select a Doctor</option>
                     {doctorData?.data?.records.map((docter: IExperts) => (
