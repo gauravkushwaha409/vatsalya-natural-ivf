@@ -1,8 +1,8 @@
 "use client";
-import Image from "next/image";
-import React, { useState } from "react";
 import calltoAction from "@/assests/services/appoiment.jpg";
-import CalendarModal from "@/components/modals/CalenderModal";
+import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
+import Image from "next/image";
+import { useState } from "react";
 const CallToActions = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   return (
@@ -36,10 +36,9 @@ const CallToActions = () => {
           </div>
         </div>
       </div>
-      <CalendarModal
-        modalOpen={openModal}
-        setModalOpen={setOpenModal}
-        onCloseModal={() => setOpenModal(false)}
+      <RequestAppoimentModal
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
       />
     </section>
   );
