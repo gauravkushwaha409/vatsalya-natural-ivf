@@ -12,7 +12,7 @@ const Milestone: React.FC<Props> = ({ data }) => {
         <div className=" flex flex-col md:flex-row items-center gap-10">
           {/* Left Section */}
           <div className="flex items-center gap-4 space-y-5">
-            <div className="space-y-4 ">
+            <div className="space-y-4 w-full lg:w-lg">
               <div className="flex items-center w-full  gap-4 ">
                 <h2 className="text-primary-500 uppercase tracking-widest text-base leading-[150%] font-bold">
                   Our Milestones
