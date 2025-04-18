@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 import { IHeroBlogRoot } from "../interface/blog.hero.interface";
+import Link from "next/link";
 
 interface BlogsCardProps {
   data: IHeroBlogRoot[];
@@ -61,9 +62,12 @@ const HeroBlog: React.FC<BlogsCardProps> = ({ data }) => {
           />
 
           {/* CTA Button */}
-          <button className="px-8 py-3 border-[0.4px] border-secondary-500 rounded-[6.25rem] font-manrope font-bold text-secondary-500 cursor-pointer typography-paragraph-regular">
+          <Link
+            href={`/blog/${featureBlogs[0]?.slug}`}
+            className="px-8 py-3 border-[0.4px] border-secondary-500 rounded-[6.25rem] font-manrope font-bold text-secondary-500 cursor-pointer typography-paragraph-regular"
+          >
             Read More
-          </button>
+          </Link>
         </div>
       </div>
     </>
