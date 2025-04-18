@@ -43,7 +43,7 @@ const OurStory: React.FC<Props> = ({ data }) => {
             </div>
 
             {/* Secondary image (bottom left) */}
-            <div className="absolute left-0 -bottom-10 w-3/4 h-3/4 rounded-lg overflow-hidden ">
+            <div className="absolute left-0 -bottom-10 w-3/4 h-3/4 border-10 border-white rounded-lg overflow-hidden ">
               <Image
                 src={data?.images[1]}
                 alt="Patients with their baby"

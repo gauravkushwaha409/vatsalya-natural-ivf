@@ -3,6 +3,7 @@
 import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
 import { ISucessStoriesMetaResponse } from "../interface/sucessStoriesMeta.interface";
+import { IJourneyRoot } from "../interface/journey.interface";
 
 export const fetchSuccessStories = async (page = 1, perPage = 12) => {
   const stories = await getData(
@@ -13,8 +14,11 @@ export const fetchSuccessStories = async (page = 1, perPage = 12) => {
     endpoints.sucessStoryMeta
   );
 
+  const yourJourneyData = await getData<IJourneyRoot>(endpoints.rating);
+
   return {
     stories,
     metadata,
+    yourJourneyData,
   };
 };
