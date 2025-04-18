@@ -25,9 +25,12 @@ const YourJourney: React.FC<Props> = ({ data }) => {
             <h1 className="typography-h4 lg:typography-h2 font-bold leading-[150%] text-secondary-500 max-w-[525px]">
               {journeyData?.title}
             </h1>
-            <p className="typography-paragraph-regular lg:typography-paragraph-large text-text-400 font-medium max-w-[613px] py-4">
-              {journeyData?.description}
-            </p>
+            <p
+              className="typography-paragraph-regular lg:typography-paragraph-large text-text-400 font-medium max-w-[613px] py-4"
+              dangerouslySetInnerHTML={{
+                __html: journeyData?.description || "",
+              }}
+            />
             <button
               onClick={() => setOpenModal(true)}
               className="bg-secondary-500 cursor-pointer py-4 px-6 mt-2 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular"
@@ -43,7 +46,7 @@ const YourJourney: React.FC<Props> = ({ data }) => {
                 Trusted by
               </p>
               <h1 className="typography-h2 font-bold text-black leading-[150%]">
-                {journeyData?.clientNumber}
+                {journeyData?.clientNumber}+
               </h1>
               <p className="typography-paragraph-regular font-semibold text-black">
                 Happy Families
