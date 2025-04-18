@@ -1,9 +1,17 @@
 import React from "react";
-import blogHero from "@/assests/blog/blogHero.png";
 import Image from "next/image";
 import CustomBreadcrumb from "@/components/CustomBreadcrumb";
+import { IHeroBlogRoot } from "../interface/blog.hero.interface";
 
-const HeroBlog = () => {
+interface BlogsCardProps {
+  data: IHeroBlogRoot[];
+}
+
+const HeroBlog: React.FC<BlogsCardProps> = ({ data }) => {
+  const featureBlogs = data.filter(
+    (blog: IHeroBlogRoot) => blog.type === "feature"
+  );
+
   return (
     <>
       <div className="bg-gradient-to-b from-primary-50 to-background-100 py-10">
@@ -22,7 +30,7 @@ const HeroBlog = () => {
       <div className="relative mb-12 md:mb-20 w-full h-[500px] overflow-hidden">
         <div className="z-0 absolute inset-0 border-primary-500">
           <Image
-            src={blogHero}
+            src={featureBlogs[0]?.image}
             alt="Happy couple with newborn baby"
             fill
             className="object-cover"
@@ -35,21 +43,22 @@ const HeroBlog = () => {
 
         {/* Content */}
         <div className="z-10 relative flex flex-col justify-center items-center md:items-start px-5 md:px-12 lg:px-20 max-w-4xl h-full text-white md:text-left text-center">
-          <p className="text-text-400 typography-paragraph-regular">Feature</p>
+          <p className="text-text-400 typography-paragraph-regular capitalize">
+            {featureBlogs[0]?.type}
+          </p>
 
           {/* Heading */}
           <h2 className="my-3.5 max-w-lg font-bold text-secondary-500 leading-[1.5] typography-h2">
-            A New Beginning: Your Journey to Parenthood
+            {featureBlogs[0]?.title}
           </h2>
 
           {/* Subheading */}
-          <p className="mb-10 text-text-400 typography-paragraph-large max-w-lg text-justify">
-            We understand that the journey to parenthood is unique for every
-            individual and couple. Whether you are considering fertility
-            treatments, exploring IVF options, or simply looking for guidance on
-            reproductive health, we are here to support you every step of the
-            way.
-          </p>
+          <p
+            className="mb-10 text-text-400 typography-paragraph-large max-w-lg text-justify line-clamp-6"
+            dangerouslySetInnerHTML={{
+              __html: featureBlogs[0]?.description || "",
+            }}
+          />
 
           {/* CTA Button */}
           <button className="px-8 py-3 border-[0.4px] border-secondary-500 rounded-[6.25rem] font-manrope font-bold text-secondary-500 cursor-pointer typography-paragraph-regular">
