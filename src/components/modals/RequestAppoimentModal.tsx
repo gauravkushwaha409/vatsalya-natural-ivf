@@ -37,7 +37,7 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
   const [modalOpen, setModalOpen] = useState(false);
   const [data, setData] = useState<IFormValues | undefined>();
   const modalRef = useClickOutside(onClose);
-
+  console.log(selectedCenter, selectDoctor, "selectedCenter");
   const { data: centerData } = useGetDataQuery({
     url: `${endpoints.center}`,
   });
@@ -70,17 +70,12 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
     },
   });
 
-  const { data: doctorData } = useGetDataQuery(
-    {
-      url: `${endpoints.doctor}`,
-      params: {
-        center: formik.values.center,
-      },
+  const { data: doctorData } = useGetDataQuery({
+    url: `${endpoints.doctor}`,
+    params: {
+      center: selectedCenter || formik.values.center,
     },
-    {
-      skip: !formik.values.center,
-    }
-  );
+  });
 
   const onCloseModal = () => {
     setModalOpen(true);
@@ -89,6 +84,7 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
     setModalOpen(true);
     onClose();
   };
+
   if (typeof window !== "undefined")
     return createPortal(
       <>
@@ -270,6 +266,7 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
           onCloseModal={onCloseModal}
           setModalOpen={setModalOpen}
           data={data}
+          formik={formik}
         />
       </>,
       document.body

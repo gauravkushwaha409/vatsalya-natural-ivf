@@ -12,12 +12,14 @@ import { createPortal } from "react-dom";
 import RenderCells from "../RenderCells";
 import ConfirmationModal from "./ConfirmationModal";
 import { IFormValues } from "./RequestAppoimentModal";
+import { FormikProps } from "formik";
 
 interface CalendarProps {
   modalOpen: boolean;
   onCloseModal: () => void;
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   data?: IFormValues;
+  formik?: FormikProps<IFormValues>;
 }
 
 const CalendarModal: React.FC<CalendarProps> = ({
@@ -25,6 +27,7 @@ const CalendarModal: React.FC<CalendarProps> = ({
   onCloseModal,
   setModalOpen,
   data,
+  formik,
 }) => {
   const [postAppointment] = usePostDataMutation();
   const [availableSlots, setAvailableSlots] = useState<ISlotResponse | null>(
@@ -130,6 +133,7 @@ const CalendarModal: React.FC<CalendarProps> = ({
       if (response?.data?.status === "success") {
         setAvailableSlots(response?.data);
         showSuccessMessage(response?.data?.message);
+        formik?.resetForm();
       }
     } catch (error) {
       console.error("Failed to fetch slots:", error);
