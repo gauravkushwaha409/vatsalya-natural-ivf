@@ -76,40 +76,39 @@ const YourJourney: React.FC<Props> = ({ data }) => {
               <div>
                 <ul className="text-primary font-normal leading-[16px] text-xs py-2.5">
                   <li className="flex items-center">
-                    {Array.from(
-                      { length: journeyData?.rating || 0 },
-                      (_, index) => {
-                        const ratingValue = journeyData?.rating || 0;
-                        if (ratingValue >= index + 1) {
-                          return (
-                            <IoStar
-                              key={index}
-                              size={24}
-                              className="ml-0.5 text-primary-500"
-                            />
-                          );
-                        } else if (
-                          ratingValue > index &&
-                          ratingValue < index + 1
-                        ) {
-                          return (
-                            <IoStarHalf
-                              key={index}
-                              size={24}
-                              className="ml-0.5 text-primary-500"
-                            />
-                          );
-                        } else {
-                          return (
-                            <IoStarOutline
-                              key={index}
-                              size={24}
-                              className="ml-0.5 text-primary-500"
-                            />
-                          );
-                        }
+                    {Array.from({ length: 5 }, (_, index) => {
+                      const ratingValue = journeyData?.rating || 0;
+
+                      if (ratingValue >= index + 1) {
+                        return (
+                          <IoStar
+                            key={index}
+                            size={24}
+                            className="ml-0.5 text-primary-500"
+                          />
+                        );
+                      } else if (
+                        ratingValue > index &&
+                        ratingValue < index + 1
+                      ) {
+                        return (
+                          <IoStarHalf
+                            key={index}
+                            size={24}
+                            className="ml-0.5 text-primary-500"
+                          />
+                        );
+                      } else {
+                        return (
+                          <IoStarOutline
+                            key={index}
+                            size={24}
+                            className="ml-0.5 text-primary-500"
+                          />
+                        );
                       }
-                    )}
+                    })}
+
                     {journeyData?.review?.length > 0 && (
                       <span className="mt-2 ml-2 typography-paragraph-regular text-text-500">
                         ({journeyData?.review})
