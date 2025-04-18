@@ -33,7 +33,7 @@ const BrandsSlider = () => {
           <SwiperSlide className=" " key={index}>
             <div className="flex justify-center items-center w-full h-full">
               <Image
-                className="w-auto h-full"
+                className="w-auto h-full object-contain"
                 src={`/brands/brand-${item}.png`}
                 width={300}
                 height={100}

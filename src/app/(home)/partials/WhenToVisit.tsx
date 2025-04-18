@@ -1,9 +1,9 @@
 "use client";
+import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import { motion } from "motion/react";
 import Image from "next/image";
-import { IHomeWhenVisit } from "../interface/home.interface";
-import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import { useState } from "react";
+import { IHomeWhenVisit } from "../interface/home.interface";
 
 const ANIMATION_DURATION = 1;
 
@@ -23,7 +23,7 @@ const WhenToVisit: React.FC<WhenToVisitProps> = ({ data }) => {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
-        className="relative flex justify-center -mt-2 w-full h-[11.96rem]"
+        className="hidden relative lg:flex justify-center -mt-2 w-full h-[11.96rem]"
       >
         <Image
           className="-top-[29%] absolute object-cover"
@@ -40,7 +40,7 @@ const WhenToVisit: React.FC<WhenToVisitProps> = ({ data }) => {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
-        className="flex md:flex-row flex-col-reverse gap-y-4 -my-px px-20 py-8"
+        className="flex md:flex-row flex-col-reverse gap-y-4 -my-px px-4 md:px-20 py-8"
       >
         <motion.div
           initial={{
@@ -56,17 +56,18 @@ const WhenToVisit: React.FC<WhenToVisitProps> = ({ data }) => {
           }}
           className="w-full"
         >
-          <div className="flex items-center gap-5">
-            <h2 className="text-secondary-500 uppercase tracking-[0.18rem] typography-paragraph-regular">
+          <div className="flex items-center gap-5 mt-8 lg:mt-0">
+            <div className="lg:hidden bg-secondary-200 lg:w-[16.25rem] h-px grow lg:grow-0" />
+            <h2 className="w-max text-secondary-500 uppercase tracking-[0.18rem] typography-paragraph-regular">
               WHEN TO VISIT
             </h2>
-            <div className="bg-secondary-200 w-[16.25rem] h-px" />
+            <div className="bg-secondary-200 lg:w-[16.25rem] h-px grow lg:grow-0" />
           </div>
           <h1 className="my-5 font-semibold text-text-500 typography-h2">
             Signs You Should See a Fertility Specialist
           </h1>
           <div
-            className=" pl-5 font-[500] text-text-500 *:marker:text-secondary-500 *:marker:content-['➤\00a0'] leading-[150%] typography-paragraph-large"
+            className="pl-5 font-[500] text-text-500 *:marker:text-secondary-500 *:marker:content-['➤\00a0'] leading-[150%] typography-paragraph-large"
             dangerouslySetInnerHTML={{ __html: data?.description }}
           />
 
@@ -157,7 +158,7 @@ const WhenToVisit: React.FC<WhenToVisitProps> = ({ data }) => {
           backgroundRepeat: "no-repeat",
           backgroundPosition: "100% 100%",
         }}
-        className="relative flex justify-center -mt-2 w-full h-[11.96rem]"
+        className="hidden relative lg:flex justify-center -mt-2 w-full h-[11.96rem]"
       />
       <RequestAppoimentModal
         isOpen={openModal}
