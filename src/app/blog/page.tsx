@@ -21,9 +21,12 @@ const BlogPage = async ({ searchParams }: BlogProps) => {
       endpoints.blog + `?page=${page}&perPage=${perPage}`
     );
     const blogData = data?.data;
+    const FeatureData = data?.data?.records;
+
+  
     return (
       <div className="">
-        <HeroBlog />
+        <HeroBlog data={FeatureData} />
         <BlogsCard data={blogData} page={page} />
       </div>
     );

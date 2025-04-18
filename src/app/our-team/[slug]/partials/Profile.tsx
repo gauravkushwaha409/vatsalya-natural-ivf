@@ -108,15 +108,16 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
                 key={index}
                 className="bg-primary-50/20 rounded-lg p-5 border border-text-50 flex items-center gap-5 shadow-sm backdrop-blur-2xl"
               >
-                <div className="h-8 w-8">
+                <div className="w-54">
                   <Image
                     src={items?.icon}
                     alt={items?.name}
                     width={1920}
                     height={1080}
-                    className="w-full h-full contain  "
+                    className="w-full h-full object-contain "
                   />
                 </div>
+
                 <div>
                   <h2 className="typography-paragraph-large font-semibold text-text-500">
                     {items?.name}
