@@ -15,8 +15,8 @@ const Career = async () => {
     return (
       <div>
         <HeroCareer />
-        <Benefits data={data?.data} />
         <OpenPosition data={openPositionData?.data} />
+        <Benefits data={data?.data} />
       </div>
     );
   } catch (e) {

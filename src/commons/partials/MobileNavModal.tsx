@@ -20,13 +20,13 @@ const MobileNavModal: React.FC<props> = ({ navlinks, isOpen, setIsOpen }) => {
             style={{
               background: "linear-gradient(to right, #EBC0DB 0%, #FFD2CE 100%)",
             }}
-            className="top-0 z-40 fixed flex justify-center w-screen items-center  overflow-hidden text-black"
+            className=" top-0 z-40 fixed flex justify-center w-screen  overflow-hidden text-black"
           >
-            <div className="flex flex-col justify-center gap-5  ">
+            <div className="flex flex-col mt-26 gap-5 ">
               {navlinks.map((item, index) => (
                 <ul className="px-8 w-max text-left" key={index}>
                   <Link
-                    className="w-max font-bold text-secondary-500 typography-paragraph-large"
+                    className="w-max font-bold text-secondary-500 typography-h4 "
                     href={item.link}
                     onClick={() => {
                       setIsOpen(false);
