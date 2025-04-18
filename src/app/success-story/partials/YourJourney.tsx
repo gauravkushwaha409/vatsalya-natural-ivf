@@ -109,9 +109,11 @@ const YourJourney: React.FC<Props> = ({ data }) => {
                         }
                       }
                     )}
-                    <span className="mt-2 ml-2 typography-paragraph-regular text-text-500">
-                      ({journeyData?.review})
-                    </span>
+                    {journeyData?.review?.length > 0 && (
+                      <span className="mt-2 ml-2 typography-paragraph-regular text-text-500">
+                        ({journeyData?.review})
+                      </span>
+                    )}
                   </li>
                 </ul>
               </div>

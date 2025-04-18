@@ -20,7 +20,7 @@ const TestimonialSection: React.FC<testimonialData> = ({ data }) => {
           {/* line  */}
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
 
-          <h2 className="text-primary-500 text-sm md:text-base font-bold tracking-widest uppercase leading-[24px]">
+          <h2 className="text-primary-500 text-sm md:text-base font-bold tracking-widest uppercase leading-[24px] max-w-3xl">
             {data?.successStoryMainTitle}
           </h2>
           {/* line  */}
