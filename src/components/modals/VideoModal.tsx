@@ -12,10 +12,16 @@ export default function VideoModal({
   onClose,
   videoUrl,
 }: VideoModalProps) {
-  // const [isVideoLoading, setIsVideoLoading] = useState(true);
+  const extractVideoId = (url: string) => {
+    if (!url) return "";
+    const match = url.match(
+      /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]+)/
+    );
+    return match ? match[1] : "";
+  };
 
-  // const handleVideoLoad = () => {
-  // };
+
+
   return (
     <>
       {isOpen && (
@@ -30,10 +36,9 @@ export default function VideoModal({
             <iframe
               width="100%"
               height="500"
-              src={
-                videoUrl ||
-                `https://www.youtube.com/embed/vLyP1aOmENc?si=aPCpD2JOABihWFx_`
-              }
+              src={`https://www.youtube.com/embed/${extractVideoId(
+                videoUrl
+              )}?&rel=0`}
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

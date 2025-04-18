@@ -56,6 +56,7 @@ const RequestCallModal: React.FC<RequestCallModalProps> = ({
         }
         if (response?.data?.status === "success") {
           showSuccessMessage(response?.data?.message);
+          onClose();
         }
         resetForm();
       } catch (error) {
