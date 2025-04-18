@@ -196,7 +196,7 @@
   @apply font-normal text-[1.125rem] lg:text-[2.07375rem] leading-[120%];
 }
 @utility typography-h3 {
-  @apply font-normal text-[1.72813rem] leading-[120%];
+  @apply font-normal md:text-[1.72813rem] text-xl leading-[120%];
 }
 @utility typography-h4 {
   @apply font-normal text-[1.44rem] leading-[120%];

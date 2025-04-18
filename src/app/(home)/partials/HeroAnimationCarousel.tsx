@@ -45,7 +45,6 @@ const HeroAnimationCarousel: React.FC<{ children: React.ReactNode[] }> = ({
               key={i}
               style={{
                 left: isActive ? (isSmall ? "0%" : "0") : leftPosition,
-
                 width: isActive
                   ? isSmall
                     ? "100%"
@@ -57,23 +56,15 @@ const HeroAnimationCarousel: React.FC<{ children: React.ReactNode[] }> = ({
                 transition: isActive
                   ? "all 2500ms ease-in-out, z-index 0s"
                   : "all 2500ms ease-in-out",
-                // transition: "z-index 0s",
               }}
               className={`absolute transition-all border  overflow-hidden
                 ${
                   isActive
-                    ? "bottom-5 lg:top-0  h-[calc(100%-200px-5.5rem)] lg:h-[calc(100%-120px-1.5rem)] border-transparent  "
+                    ? "bottom-5 lg:top-0  h-[calc(100%-200px-5.5rem)] lg:h-full border-transparent  "
                     : "bottom-0 lg:top-[calc(100%-180px-0.5rem)] h-[70px] lg:h-[110px] aspect-square  border-secondary-200"
                 } `}
             >
               {slide}
-              {/* <Image
-                width={1800}
-                height={2000}
-                alt={`Image ${i}`}
-                src={slide}
-                className="block rounded-lg w-full h-full object-cover"
-              /> */}
             </li>
           );
         })}
