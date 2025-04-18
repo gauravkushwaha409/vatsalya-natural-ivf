@@ -14,8 +14,6 @@ type Props = {
 const YourJourney: React.FC<Props> = ({ data }) => {
   const journeyData = data?.data;
 
-  console.log(journeyData, "journeryyyy");
-
   const [openModal, setOpenModal] = useState<boolean>(false);
 
   return (

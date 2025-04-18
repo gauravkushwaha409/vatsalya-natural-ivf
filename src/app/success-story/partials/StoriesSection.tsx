@@ -17,7 +17,6 @@ type Props = {
 const StoriesSection: React.FC<Props> = ({ data, metaData }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [videoUrl, setVideoUrl] = useState<string>("");
-  console.log(metaData, "daaaa");
   const { currentPage, handlePageChange } = usePaginationChange();
   return (
     <div className="padding">
