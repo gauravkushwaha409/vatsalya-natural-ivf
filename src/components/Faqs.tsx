@@ -32,6 +32,7 @@ const Faq: React.FC<{ faq: FAQOptions[] }> = ({ faq }) => {
           <div
             key={index}
             className="flex pb-1 border-b border-gray-300 overflow-hidden transition-all cursor-pointer select-none"
+            onClick={() => toggleFaq(index)}
           >
             <div className="bg-secondary-500 rounded-r-xl w-1 transition-all duration-300" />
 
@@ -45,14 +46,12 @@ const Faq: React.FC<{ faq: FAQOptions[] }> = ({ faq }) => {
                   {faqItem.question}
                 </h1>
 
-                {/* Toggle button */}
-                <button
-                  onClick={() => toggleFaq(index)}
+                <span
                   className="text-2xl ml-4 focus:outline-none cursor-pointer"
                   aria-label={`Toggle FAQ ${index}`}
                 >
                   {isOpen ? "−" : "+"}
-                </button>
+                </span>
               </div>
 
               <div
