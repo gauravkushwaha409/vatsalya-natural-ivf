@@ -6,6 +6,7 @@ import useClickOutside from "@/hooks/useClickOutside";
 import { usePostDataMutation } from "@/api/api";
 import { endpoints } from "@/api/endpoints";
 import { showErrorMessage, showSuccessMessage } from "@/utils/toast";
+import { ApiResponse, handleErrors } from "@/helper/error-helper";
 
 interface IFormValues {
   name: string;
@@ -44,11 +45,12 @@ const RequestCallModal: React.FC<RequestCallModalProps> = ({
     }),
     onSubmit: async (values, { resetForm }) => {
       try {
-        const response = await postRequestCall({
+        const response = (await postRequestCall({
           url: endpoints.request_call,
           data: values,
-        });
+        })) as ApiResponse;
         if (response?.data?.status === "error") {
+          handleErrors(response, formik.setErrors);
           showErrorMessage(response?.data?.message);
           return;
         }

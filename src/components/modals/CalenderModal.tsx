@@ -13,6 +13,7 @@ import RenderCells from "../RenderCells";
 import ConfirmationModal from "./ConfirmationModal";
 import { IFormValues } from "./RequestAppoimentModal";
 import { FormikProps } from "formik";
+import { ApiResponse, handleErrors } from "@/helper/error-helper";
 
 interface CalendarProps {
   modalOpen: boolean;
@@ -89,18 +90,23 @@ const CalendarModal: React.FC<CalendarProps> = ({
     };
 
     try {
-      const response = await postAppointment({
+      const response = (await postAppointment({
         url: endpoints.appointment,
         data: payload,
-      });
+      })) as ApiResponse;
 
       if (response?.error) {
+        if (formik) {
+          handleErrors(response, formik.setErrors);
+        }
         showErrorMessage("Failed to book appointment");
         return;
       }
 
       if (response?.data?.status === "success") {
         showSuccessMessage(response.data.message);
+        formik?.resetForm();
+
         setModalOpen(false);
         setOpenModal(true);
       }
