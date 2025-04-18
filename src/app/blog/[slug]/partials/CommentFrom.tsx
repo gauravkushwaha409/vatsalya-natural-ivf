@@ -14,10 +14,10 @@ const CommentForm = ({ slug }: { slug: string }) => {
       </h1>
       <form
         onSubmit={formik.handleSubmit}
-        className="flex flex-col gap-3 sm:gap-6 max-w-[1280px]"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-6 max-w-[1280px]"
       >
         {/* comment */}
-        <div>
+        <div className="col-span-2">
           <label
             className="typography-paragraph-regular font-semibold text-text-500"
             htmlFor="message"
@@ -30,7 +30,7 @@ const CommentForm = ({ slug }: { slug: string }) => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.comment}
-            placeholder="Comment"
+            placeholder="Enter Your Comment..."
             className="bg-transparent p-3 pt-6 pl-6 border-[0.3px] border-[#72796F] rounded-[12px] outline-none w-full mt-2.5 h-[185px] text-sm"
           />
           {formik.touched.comment && formik.errors.comment && (
@@ -40,64 +40,62 @@ const CommentForm = ({ slug }: { slug: string }) => {
           )}
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8 items-center">
-          {/*  Name */}
-          <div className="w-full lg:w-1/2">
-            <label
-              className="typography-paragraph-regular font-semibold text-text-500"
-              htmlFor="name"
-            >
-              Name
-            </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.name}
-              placeholder="e.g. Sujata Khatri "
-              className="bg-transparent p-3 pl-6 border-[0.3px] border-[#72796F] rounded-[12px] outline-none w-full h-[54px] mt-2.5 text-sm"
-            />
-            {formik.touched.name && formik.errors.name && (
-              <p className="pt-2 pl-4 text-red-500 text-sm">
-                {formik.errors.name}
-              </p>
-            )}
-          </div>
+        {/*  Name */}
+        <div className="w-full ">
+          <label
+            className="typography-paragraph-regular font-semibold text-text-500"
+            htmlFor="name"
+          >
+            Name
+          </label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.name}
+            placeholder="Enter Your Name"
+            className="bg-transparent p-3 pl-6 border-[0.3px] border-[#72796F] rounded-[12px] outline-none w-full h-[54px] mt-2.5 text-sm"
+          />
+          {formik.touched.name && formik.errors.name && (
+            <p className="pt-2 pl-4 text-red-500 text-sm">
+              {formik.errors.name}
+            </p>
+          )}
+        </div>
 
-          {/* Email */}
-          <div className="w-full lg:w-1/2">
-            <label
-              className="typography-paragraph-regular font-semibold text-text-500"
-              htmlFor="email"
-            >
-              Email
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.email}
-              placeholder="e.g. ritimashrestha@gmail.com"
-              className="bg-transparent p-3 pl-6 border-[0.3px] border-[#72796F] rounded-[12px] outline-none w-full h-[54px] mt-2.5 text-sm"
-            />
-            {formik.touched.email && formik.errors.email && (
-              <p className="pt-2 pl-4 text-red-500 text-sm">
-                {formik.errors.email}
-              </p>
-            )}
-          </div>
+        {/* Email */}
+        <div className="w-full ">
+          <label
+            className="typography-paragraph-regular font-semibold text-text-500"
+            htmlFor="email"
+          >
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
+            placeholder="Enter Your Email"
+            className="bg-transparent p-3 pl-6 border-[0.3px] border-[#72796F] rounded-[12px] outline-none w-full h-[54px] mt-2.5 text-sm"
+          />
+          {formik.touched.email && formik.errors.email && (
+            <p className="pt-2 pl-4 text-red-500 text-sm">
+              {formik.errors.email}
+            </p>
+          )}
         </div>
 
         {/* save in my requirement */}
         <label
           htmlFor="custom-checkbox"
-          className="flex items-center gap-3 ml-2 cursor-pointer"
+          className="flex items-center gap-3 ml-2 cursor-pointer col-span-2"
         >
-          <div className="inline-block relative w-6 h-4 sm:w-4">
+          <div className="inline-block relative w-4.5 h-4 sm:w-4">
             <input
               type="checkbox"
               id="custom-checkbox"
@@ -119,7 +117,7 @@ const CommentForm = ({ slug }: { slug: string }) => {
         {/* Submit */}
         <button
           type="submit"
-          className="flex self-start bg-secondary-500 py-3 px-6 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular cursor-pointer"
+          className="w-fit flex self-start bg-secondary-500 py-3 px-6 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular cursor-pointer"
         >
           {isLoading ? "Submitting..." : "Submit"}
         </button>

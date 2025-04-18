@@ -8,7 +8,9 @@ interface SimilarBlogsProps {
 const SimilarBlogs: React.FC<SimilarBlogsProps> = ({ data }) => {
   return (
     <section className="my-10 ">
-      <h2 className="pb-10 font-semibold typography-h3">Similar Blogs</h2>
+      {data?.length === 1 && (
+        <h2 className="pb-10 font-semibold typography-h3">Similar Blogs</h2>
+      )}
       <div className="gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
         {data?.slice(0, 3).map((blog, index) => (
           <BlogCard key={index} data={blog} />
