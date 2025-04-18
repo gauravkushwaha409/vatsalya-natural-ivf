@@ -1,6 +1,8 @@
 "use client";
+import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import { useIsSmall } from "@/hooks/useMediaQuery";
 import Image from "next/image";
+import { useState } from "react";
 import { IGalleryData } from "../interface/home.gallery.interface";
 
 type ShowCaseItemProps = {
@@ -8,18 +10,23 @@ type ShowCaseItemProps = {
 };
 
 const Miracles: React.FC<ShowCaseItemProps> = ({ data }) => {
+  const [appointmentPopupOpen, setAppointmentPopupOpen] = useState(false);
   const isMobile = useIsSmall();
   // Mobile view component
   if (isMobile) {
     return (
       <div className="flex flex-col items-center mt-10 md:mt-20 px-4">
+        <RequestAppoimentModal
+          isOpen={appointmentPopupOpen}
+          onClose={() => setAppointmentPopupOpen(false)}
+        />
         <div className="gap-2 grid grid-cols-2">
-          <ImageContainer src="/team/member-1.jpeg" alt="Miracle 1" />
-          <ImageContainer src="/team/member-1.jpeg" alt="Miracle 2" />
-          <ImageContainer src="/team/member-1.jpeg" alt="Miracle 3" />
-          <ImageContainer src="/team/member-1.jpeg" alt="Miracle 4" />
-          <ImageContainer src="/team/member-1.jpeg" alt="Miracle 5" />
-          <ImageContainer src="/team/member-1.jpeg" alt="Miracle 6" />
+          <ImageContainer src={data?.images?.[0]} alt="Miracle 1" />
+          <ImageContainer src={data?.images?.[1]} alt="Miracle 2" />
+          <ImageContainer src={data?.images?.[2]} alt="Miracle 3" />
+          <ImageContainer src={data?.images?.[3]} alt="Miracle 4" />
+          <ImageContainer src={data?.images?.[4]} alt="Miracle 5" />
+          <ImageContainer src={data?.images?.[5]} alt="Miracle 6" />
         </div>
 
         <div className="px-4 py-8 w-full text-center">
@@ -34,7 +41,7 @@ const Miracles: React.FC<ShowCaseItemProps> = ({ data }) => {
           >
             50,000+ Miracles
           </h1>
-          <p className="mt-2 text-text-500 typography-paragraph-small">
+          <p className="mt-2 text-text-500 typography-paragraph-regular">
             Bringing hope, joy, and new beginnings—Vatsalya has helped 50,000+
             families with successful natural IVF. Your journey to parenthood
             starts here
@@ -43,6 +50,7 @@ const Miracles: React.FC<ShowCaseItemProps> = ({ data }) => {
             style={{
               boxShadow: "0px 5.486px 12.343px 0px rgba(215, 101, 120, 0.33)",
             }}
+            onClick={() => setAppointmentPopupOpen(true)}
             className="mt-3 px-6 py-3 border rounded-full font-extrabold text-secondary-400 text-sm typography-paragraph-regular"
           >
             Your Miracle Awaits
@@ -55,6 +63,10 @@ const Miracles: React.FC<ShowCaseItemProps> = ({ data }) => {
   // Original desktop view (unchanged)
   return (
     <div className="flex justify-center py-6 sm:py-10">
+      <RequestAppoimentModal
+        isOpen={appointmentPopupOpen}
+        onClose={() => setAppointmentPopupOpen(false)}
+      />
       <div className="relative flex">
         <div className="mt-[3.12rem]">
           <ImageContainer src={data?.images[0]} alt="Miracle 1" />
@@ -83,7 +95,7 @@ const Miracles: React.FC<ShowCaseItemProps> = ({ data }) => {
               <ImageContainer src={data?.images[9]} alt="Miracle 9" />
             </div>
           </div>
-          <div className="px-[1.81rem] pb-10 w-full text-center space-y-4">
+          <div className="space-y-4 px-[1.81rem] pb-10 w-full text-center">
             <h1
               style={{
                 background: "linear-gradient(0deg, #A03879 0%, #FF6F61 100%)",
@@ -100,10 +112,11 @@ const Miracles: React.FC<ShowCaseItemProps> = ({ data }) => {
               dangerouslySetInnerHTML={{ __html: data?.subtitle || "" }}
             />
             <button
+              onClick={() => setAppointmentPopupOpen(true)}
               style={{
                 boxShadow: "0px 5.486px 12.343px 0px rgba(215, 101, 120, 0.33)",
               }}
-              className="mt-3 px-8 py-4 border rounded-full font-extrabold text-secondary-400 typography-paragraph-regular"
+              className="hover:bg-primary-500 mt-3 px-8 py-4 border rounded-full font-extrabold text-secondary-400 hover:text-white transition-colors duration-300 cursor-pointer typography-paragraph-regular"
             >
               Your Miracle Awaits
             </button>

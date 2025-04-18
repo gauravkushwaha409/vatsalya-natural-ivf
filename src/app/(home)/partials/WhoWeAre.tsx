@@ -1,4 +1,5 @@
 "use client";
+import { useIsSmall } from "@/hooks/useMediaQuery";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
@@ -11,6 +12,7 @@ type WhoWeAreProps = {
 };
 const WhoWeAre: React.FC<WhoWeAreProps> = ({ data }) => {
   const [isInViewport, setIsInViewport] = useState(false);
+  const isMobile = useIsSmall();
   return (
     <motion.div
       onViewportEnter={() => {
@@ -48,8 +50,9 @@ const WhoWeAre: React.FC<WhoWeAreProps> = ({ data }) => {
       <div className="relative w-full grow">
         <motion.div
           style={{
-            backgroundImage:
-              "linear-gradient(90deg, #EBC0DB 0%, transparent 40%), url(/home/who-we-are-bg.png)",
+            backgroundImage: isMobile
+              ? ""
+              : "linear-gradient(90deg, #EBC0DB 0%, transparent 40%), url(/home/who-we-are-bg.png)",
           }}
           initial={{ left: `${STARTING_OFFSET}` }}
           animate={{
@@ -72,13 +75,13 @@ const WhoWeAre: React.FC<WhoWeAreProps> = ({ data }) => {
             transition={{
               duration: BASE_DURATION,
             }}
-            className="right-0 -left-1/2 z-10 relative inset-y-0 flex lg:flex-row flex-col items-center gap-10 p-11 pr-20"
+            className="right-0 -left-1/2 z-10 relative inset-y-0 flex lg:flex-row flex-col items-center gap-10 p-11 lg:pr-20"
           >
             <motion.div
               animate={{
                 opacity: isInViewport ? 1 : 0,
               }}
-              className="rounded-md lg:rounded-full w-[19.5rem] aspect-square overflow-hidden shrink-0"
+              className="rounded-full lg:rounded-md w-[19.5rem] aspect-square overflow-hidden shrink-0"
             >
               <Image
                 src={data?.image}

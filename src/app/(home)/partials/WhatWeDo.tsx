@@ -1,4 +1,5 @@
 "use client";
+import { useIsSmall } from "@/hooks/useMediaQuery";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
@@ -11,6 +12,7 @@ type WhoWeAreProps = {
 };
 const WhatWeDo: React.FC<WhoWeAreProps> = ({ data }) => {
   const [isInViewport, setIsInViewport] = useState(false);
+  const isMobile = useIsSmall();
   return (
     <motion.div
       onViewportEnter={() => {
@@ -26,8 +28,9 @@ const WhatWeDo: React.FC<WhoWeAreProps> = ({ data }) => {
       <div className="relative w-full grow">
         <motion.div
           style={{
-            background:
-              "linear-gradient(90deg, transparent 40%, #FFD2CE 100%),url(/home/who-we-are-bg.png)",
+            background: !isMobile
+              ? "linear-gradient(90deg, transparent 40%, #FFD2CE 100%),url(/home/who-we-are-bg.png)"
+              : "",
           }}
           initial={{ left: `-${STARTING_OFFSET}` }}
           animate={{
@@ -50,7 +53,7 @@ const WhatWeDo: React.FC<WhoWeAreProps> = ({ data }) => {
             transition={{
               duration: BASE_DURATION,
             }}
-            className="right-0 -left-1/2 z-10 relative inset-y-0 flex lg:flex-row flex-col-reverse items-center gap-10 p-11 pl-20"
+            className="right-0 -left-1/2 z-10 relative inset-y-0 flex lg:flex-row flex-col-reverse items-center gap-10 p-11 lg:pl-20"
           >
             <motion.p
               animate={{
@@ -67,7 +70,7 @@ const WhatWeDo: React.FC<WhoWeAreProps> = ({ data }) => {
               animate={{
                 opacity: isInViewport ? 1 : 0,
               }}
-              className="rounded-lg lg:rounded-full w-[19.5rem] aspect-square overflow-hidden shrink-0"
+              className="rounded-full lg:rounded-full w-[19.5rem] aspect-square overflow-hidden shrink-0"
             >
               <Image
                 src={data?.image}
@@ -92,14 +95,14 @@ const WhatWeDo: React.FC<WhoWeAreProps> = ({ data }) => {
         }}
         className="flex flex-col justify-center gap-5 pl-3 lg:w-1/4"
       >
-        <div className="flex justify-center items-center gap-5 mt-4 pl-3 lg:pl-">
+        <div className="flex justify-center items-center gap-5 mt-4 pl-3">
           <span className="font-bold text-primary-500 uppercase lg:leading-[0.18rem] typography-paragraph-regular">
             {data?.title}
           </span>
           <div className="bg-primary-500 h-[0.0625rem] grow"></div>
         </div>
         <p className="font-bold text-text-500 typography-h2">
-          {data?.subtitle}{" "}
+          {data?.subtitle}
         </p>
       </motion.div>
     </motion.div>

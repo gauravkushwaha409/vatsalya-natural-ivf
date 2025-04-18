@@ -1,9 +1,9 @@
 import Image from "next/image";
-import HowWeWorkAnimatingLine from "./HowWeWorkAnimatingLine";
 import {
   IHowWeWorkData,
   IHowWeWorkHowWorksDetail,
 } from "../interface/howWeWork.interface";
+import HowWeWorkAnimatingLine from "./HowWeWorkAnimatingLine";
 
 type HowWeWorkProps = {
   data: IHowWeWorkData;
@@ -21,13 +21,16 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
       <h2 className="px-4 pb-8 md:pb-16 font-bold text-center typography-h2">
         {data?.subtitle}{" "}
       </h2>
+      {/* <div className="lg:hidden">
+        <HowWeWorkMobileCarousel data={data} />
+      </div> */}
 
-      {/*  */}
-      <div className="relative flex flex-col gap-16 md:gap-32 px-6 sm:px-10 md:px-20 lg:px-40">
+      {/* large screens */}
+      <div className="relative lg:flex flex-col md:gap-32 px-6 sm:px-10 md:px-20 lg:px-40 divide-y">
         {data?.HowWorksDetails?.map(
           (step: IHowWeWorkHowWorksDetail, index: number) => (
             <div
-              className={`flex flex-col md:flex-row gap-y-6 gap-x-8 lg:gap-x-24 ${
+              className={`flex flex-col md:flex-row gap-y-6 gap-x-8 lg:gap-x-24 pb-4 mb-4 ${
                 index % 2 == 0 ? "md:flex-row" : "md:flex-row-reverse"
               }`}
               key={index}
@@ -59,9 +62,11 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
                 <span className="flex justify-center items-center bg-primary-50 rounded-full size-[2.5rem] md:size-[3.375rem] font-roboto font-medium text-primary-500 text-xl md:text-2xl text-end">
                   {index + 1}
                 </span>
-                <h3 className="font-semibold  typography-h3">{step.title}</h3>
+                <h3 className="font-semibold md:text-left text-center typography-h2">
+                  {step.title}
+                </h3>
                 <p
-                  className="font-medium text-text-400  typography-paragraph-small md:typography-paragraph-regular"
+                  className="font-medium text-text-400 md:text-left text-justify typography-paragraph-regular"
                   dangerouslySetInnerHTML={{ __html: step.detail }}
                 />
               </div>

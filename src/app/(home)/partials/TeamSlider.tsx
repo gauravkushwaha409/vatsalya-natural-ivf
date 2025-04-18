@@ -109,15 +109,6 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
                     width={1000}
                     className="w-full h-full object-cover grow"
                   />
-                  {/* <div className="top-10 -right-3 z-0 absolute h-36">
-                    <Image
-                      src={buterflysvg}
-                      alt="heropic"
-                      width={1920}
-                      height={1080}
-                      className="w-full h-full"
-                    />
-                  </div> */}
                 </div>
               </div>
             );
@@ -251,13 +242,23 @@ const MobileTeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
             key={index}
             className="flex flex-col items-center gap-3 lg:pb-5"
           >
-            <Image
-              src={member.image}
-              alt={member.name}
-              height={2000}
-              width={1000}
-              className="w-full h-full object-cover grow"
-            />
+            <div
+              style={{
+                backgroundImage: `url(${buterflysvg.src}),linear-gradient(to right, #EBC0DB 0%, #FFD2CE 100%)`,
+                backgroundPosition: "top right 10%, center",
+                backgroundRepeat: "no-repeat, no-repeat",
+                backgroundSize: "20%, cover",
+              }}
+              className="rounded-md w-full h-full overflow-hidden"
+            >
+              <Image
+                src={member.image}
+                alt={member.name}
+                height={2000}
+                width={1000}
+                className="w-full h-full object-cover grow"
+              />
+            </div>
             <div className="space-y-3 mt-4">
               <h1 className="flex items-center font-semibold text-primary-400 typography-h3">
                 {member.name}
@@ -271,7 +272,7 @@ const MobileTeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
                 dangerouslySetInnerHTML={{ __html: member.description }}
               />
 
-              <div className="flex flex-wrap gap-3 mt-4">
+              <div className="flex flex-wrap items-center gap-3 mt-4">
                 <button
                   onClick={() => {
                     setIsOpenAppointmentModal(true);

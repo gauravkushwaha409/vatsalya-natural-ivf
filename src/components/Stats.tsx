@@ -8,7 +8,7 @@ type ShowCaseItemProps = {
 const Stats: React.FC<ShowCaseItemProps> = ({ data }) => {
   return (
     <div>
-      <div className="grid grid-cols-3 gap-4 items-center">
+      <div className="items-center gap-4 gap-y-8 grid grid-cols-2 md:grid-cols-3">
         <ShowCaseItem
           svg={data?.caringforFamiliesIcon}
           title={
@@ -31,6 +31,7 @@ const Stats: React.FC<ShowCaseItemProps> = ({ data }) => {
           svg={data?.expertSpecialistsIcon}
           title={`${data?.expertSpecialists}+`}
           subtitle="Expert Specialists"
+          border={false}
         />
       </div>
     </div>
@@ -43,9 +44,14 @@ const ShowCaseItem: React.FC<{
   svg: string;
   title: React.ReactNode;
   subtitle: string;
-}> = ({ svg, title, subtitle }) => {
+  border?: boolean;
+}> = ({ svg, title, subtitle, border = true }) => {
   return (
-    <div className=" flex flex-col items-center justify-center gap-[1.42rem] px-4 sm:px-6 md:px-10 lg:px-10 border-r border-primary-100 ">
+    <div
+      className={`flex flex-col justify-center items-center gap-[1.42rem] px-4 sm:px-6 md:px-10 lg:px-10 border-primary-100 ${
+        border ? "border-r" : ""
+      }`}
+    >
       <div className="p-4 sm:p-5 md:p-6 lg:p-7 border-[4px] border-primary-200/[0.54] sm:border-[5px] md:border-[6px] lg:border-[7px] rounded-full aspect-square">
         <Image
           src={svg}

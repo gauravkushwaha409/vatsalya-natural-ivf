@@ -30,7 +30,7 @@ const HomePage = async () => {
     } = await getHomePageData();
 
     return (
-      <div className="space-y-20">
+      <div className="space-y-20 w-full">
         <div
           style={{
             background:
