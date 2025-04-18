@@ -1,4 +1,7 @@
+import ErrorMessage from "@/components/ErrorMessage";
 import Testimonial from "@/components/Testimonial";
+import { getHomePageData } from "./hook/hook.hook";
+import Blogsection from "./partials/Blogsection";
 import BrandsSlider from "./partials/BrandsSlider";
 import HomeFaq from "./partials/Faq";
 import HeroSection from "./partials/HeroSection";
@@ -11,9 +14,6 @@ import WhatWeDo from "./partials/WhatWeDo";
 import WhatWeOffer from "./partials/WhatWeOffer";
 import WhenToVisit from "./partials/WhenToVisit";
 import WhoWeAre from "./partials/WhoWeAre";
-import Blogsection from "./partials/Blogsection";
-import { getHomePageData } from "./hook/hook.hook";
-import ErrorMessage from "@/components/ErrorMessage";
 
 export const dynamic = "force-dynamic";
 const HomePage = async () => {

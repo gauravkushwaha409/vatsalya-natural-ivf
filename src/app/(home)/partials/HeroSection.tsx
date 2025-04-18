@@ -99,7 +99,7 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
         </div>
       </div>
       <div className="-bottom-10 lg:-bottom-36 z-10 absolute inset-x-0">
-        <div className="relative w-full h-full overflow-x-hidden">
+        <div className="relative bg-yell w-full h-full overflow-x-hidden">
           <AnimatingLines />
           <Image
             src="/home/hero-bottom-background.png"

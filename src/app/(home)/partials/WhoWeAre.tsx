@@ -81,7 +81,7 @@ const WhoWeAre: React.FC<WhoWeAreProps> = ({ data }) => {
               animate={{
                 opacity: isInViewport ? 1 : 0,
               }}
-              className="rounded-full lg:rounded-md w-[19.5rem] aspect-square overflow-hidden shrink-0"
+              className="rounded-full w-[19.5rem] aspect-square overflow-hidden shrink-0"
             >
               <Image
                 src={data?.image}
