@@ -2,6 +2,7 @@ import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
 import BlogsCard from "./partials/BlogsCard";
 import HeroBlog from "./partials/HeroBlog";
+export const dynamic = "force-dynamic";
 
 interface BlogProps {
   params: Promise<{ slug: string }>;
@@ -10,8 +11,6 @@ interface BlogProps {
     page?: string | string[];
   }>;
 }
-
-export const dynamic = "force-dynamic";
 
 const BlogPage = async ({ searchParams }: BlogProps) => {
   try {
@@ -23,7 +22,6 @@ const BlogPage = async ({ searchParams }: BlogProps) => {
     const blogData = data?.data;
     const FeatureData = data?.data?.records;
 
-  
     return (
       <div className="">
         <HeroBlog data={FeatureData} />

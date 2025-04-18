@@ -3,6 +3,7 @@ import ContactForm from "./partials/ContactForm";
 import Contacts from "./partials/Contacts";
 import DynamicMap from "./partials/DynamicMap";
 import Headings from "./partials/Headings";
+export const dynamic = "force-dynamic";
 
 const page = () => {
   return (
