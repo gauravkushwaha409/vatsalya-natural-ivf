@@ -4,6 +4,7 @@ import Faq from "@/components/Faqs";
 import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
 import ErrorMessage from "@/components/ErrorMessage";
+export const dynamic = "force-dynamic";
 
 const FAQ = async () => {
   try {

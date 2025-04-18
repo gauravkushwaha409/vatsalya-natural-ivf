@@ -1,6 +1,7 @@
 import React from "react";
 import HeroRequest from "./partials/HeroRequest";
 import CallSection from "./partials/CallSection";
+export const dynamic = "force-dynamic";
 
 const RequestCall = () => {
   return (
