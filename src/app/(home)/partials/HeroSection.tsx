@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
 import { IHomeData } from "../interface/home.interface";
+import AnimatingLines from "./AnimatingLines";
 import HeroAnimationCarousel from "./HeroAnimationCarousel";
 import HeroTextAnimation from "./HeroTextAnimation";
 
@@ -98,15 +99,8 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
         </div>
       </div>
       <div className="-bottom-10 lg:-bottom-36 z-10 absolute inset-x-0">
-        <div>
-          <Image
-            className="absolute"
-            src="/home/hero-bottom-lines.png"
-            alt="Illustration of circle"
-            layout="responsive"
-            width={1000}
-            height={1000}
-          />
+        <div className="relative w-full h-full overflow-x-hidden">
+          <AnimatingLines />
           <Image
             src="/home/hero-bottom-background.png"
             alt="Illustration of circle"
@@ -115,13 +109,6 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
             height={1000}
           />
         </div>
-        {/* <Image
-          src="/vatsalya-butterfly.svg"
-          alt="Illustration of circle"
-          width={100}
-          height={100}
-          className="-bottom-20 left-1/2 absolute -translate-x-1/2 transform"
-        /> */}
       </div>
       <div className="right-0 left-0 lg:left-1/2 absolute inset-y-0">
         {data?.caroselImages && (
