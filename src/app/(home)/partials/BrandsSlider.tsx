@@ -4,7 +4,7 @@ import { Autoplay, FreeMode } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 const BrandsSlider = () => {
   return (
-    <div className="pb-10">
+    <div className="pb-6 lg:pb-10">
       <Swiper
         className="h-[4.375rem] pointer-events-none"
         slidesPerView={2}

@@ -229,7 +229,7 @@ const MobileTeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
         {data.map((member, index) => (
           <SwiperSlide
             key={index}
-            className="flex flex-col items-center gap-3 pb-5"
+            className="flex flex-col items-center gap-3 lg:pb-5"
           >
             <Image
               src={member.image}
