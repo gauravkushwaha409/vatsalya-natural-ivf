@@ -11,7 +11,6 @@ interface LocationsProps {
 const Locations: React.FC<LocationsProps> = ({ onSelectMap }) => {
   const { centerData } = useContactForm();
   const centers = centerData?.data;
-  console.log(centers, "centersss");
 
   return (
     <section className="py-20">

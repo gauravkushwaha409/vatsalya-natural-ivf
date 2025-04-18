@@ -9,7 +9,6 @@ interface BenefitsProps {
 }
 
 const Benefits: React.FC<BenefitsProps> = ({ data }) => {
-  console.log(data, "dataaaaa");
   return (
     <div className="py-16 md:py-24 padding">
       <div className="flex flex-col items-center text-center space-y-4">

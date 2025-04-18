@@ -9,7 +9,7 @@ type HomeFaqProps = {
 };
 const HomeFaq: React.FC<HomeFaqProps> = ({ data }) => {
   return (
-    <section className="flex gap-10 px-5 md:px-20 pb-20">
+    <section className="flex gap-10 px-5 md:px-20 pb-6 sm:pb-10">
       <div className="hidden md:flex justify-start items-center w-full md:w-1/2">
         <div className="relative rounded-lg w-10/12 aspect-[16/16]">
           <Image

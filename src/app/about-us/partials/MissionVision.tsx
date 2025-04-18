@@ -29,7 +29,7 @@ const MissionVision: React.FC<Props> = ({ data }) => {
                     {/* Inner most border (with fixed width and height) */}
                     <div className="w-[8.625rem] h-[8.625rem]  rounded-full rounded-br-none border-[0.8px] border-white flex items-center justify-center">
                       <Image
-                        src={data?.images[0]}
+                        src={data?.aboutUsMissionImages[0]}
                         width={400}
                         height={400}
                         alt="Mother holding baby"
@@ -56,7 +56,7 @@ const MissionVision: React.FC<Props> = ({ data }) => {
                     {/* Inner most border */}
                     <div className=" w-[8.625rem] h-[8.625rem] rounded-full rounded-bl-none border-[0.8px] ">
                       <Image
-                        src={data?.images[1]}
+                        src={data?.aboutUsMissionImages[1]}
                         width={400}
                         height={400}
                         alt="Mother holding baby"
@@ -83,7 +83,7 @@ const MissionVision: React.FC<Props> = ({ data }) => {
                     {/* Inner most border */}
                     <div className=" w-[8.625rem] h-[8.625rem] pr-[0.85rem] lg:pr-0 rounded-full rounded-tr-none border-[0.8px] ">
                       <Image
-                        src={data?.images[2]}
+                        src={data?.aboutUsMissionImages[2]}
                         alt="Mother holding baby"
                         width={400}
                         height={400}
@@ -110,7 +110,7 @@ const MissionVision: React.FC<Props> = ({ data }) => {
                     {/* Inner most border */}
                     <div className="w-[8.625rem] h-[8.625rem] rounded-full rounded-tl-none border-[0.8px] ">
                       <Image
-                        src={data?.images[3]}
+                        src={data?.aboutUsMissionImages[3]}
                         width={400}
                         height={400}
                         alt="Mother holding baby"

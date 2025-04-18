@@ -69,7 +69,7 @@ const HomePage = async () => {
         <MeetExperts data={expertsData?.data} />
         <Showcase data={showcaseData?.data} />
         <Miracles data={homeGalleryData?.data} />
-        <div className="mt-60 w-full">
+        <div className="w-full">
           <Testimonial data={testimonialData?.data} />
         </div>
         <HomeFaq data={homedata?.data?.Faq} />

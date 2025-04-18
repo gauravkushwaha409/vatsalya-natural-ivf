@@ -54,7 +54,7 @@ const Miracles: React.FC<ShowCaseItemProps> = ({ data }) => {
 
   // Original desktop view (unchanged)
   return (
-    <div className="flex justify-center my-[12.5rem]">
+    <div className="flex justify-center py-6 sm:py-10">
       <div className="relative flex">
         <div className="mt-[3.12rem]">
           <ImageContainer src={data?.images[0]} alt="Miracle 1" />
