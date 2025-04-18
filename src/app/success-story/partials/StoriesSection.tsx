@@ -32,8 +32,8 @@ const StoriesSection: React.FC<Props> = ({ data, metaData }) => {
           <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
         </div>
 
-        <h1 className="typography-h2 font-semibold tracking-tight ">
-          {metaData?.successStoryExamplesTitle}
+        <h1 className="typography-h2 font-semibold tracking-tight max-w-3xl ">
+          {metaData?.successStoryExamplesSubtitle}
         </h1>
       </div>
 

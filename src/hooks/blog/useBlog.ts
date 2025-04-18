@@ -17,6 +17,7 @@ export const useBlog = ({ slug }: { slug: string }) => {
   const handleToggle = () => {
     setIsChecked(!isChecked);
   };
+
   const [postComment, { isLoading }] = usePostDataMutation();
 
   const formik = useFormik<IFormValues>({
@@ -43,6 +44,7 @@ export const useBlog = ({ slug }: { slug: string }) => {
         const response = await postComment({
           url: `${endpoints.blog}/${slug}/comment`,
           data: values,
+          invalidateTag: "comment-count",
         });
 
         if (response.error) {

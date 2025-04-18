@@ -16,12 +16,15 @@ const SuccessStory = async ({ searchParams }: Props) => {
   try {
     const page = Number((await searchParams)?.page) || 1;
     const { stories, metadata } = await fetchSuccessStories(page, 12);
+
+    const { yourJourneyData } = await fetchSuccessStories();
+
     return (
       <div>
         <HeroSuccess />
         <TestimonialSection data={metadata?.data} />
         <StoriesSection data={stories?.data} metaData={metadata?.data} />
-        <YourJourney />
+        <YourJourney data={yourJourneyData} />
       </div>
     );
   } catch (error) {

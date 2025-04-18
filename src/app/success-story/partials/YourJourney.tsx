@@ -1,23 +1,19 @@
 "use client";
-import Image, { StaticImageData } from "next/image";
-import React, { useState } from "react";
-import userAvatar from "@/assests/success-story/user.png";
 import butterfly from "@/assests/success-story/butterflyVector.png";
+import Image from "next/image";
+import React, { useState } from "react";
 
-import { IoStar } from "react-icons/io5";
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
+import { IJourneyRoot } from "../interface/journey.interface";
+import { IoStar, IoStarHalf, IoStarOutline } from "react-icons/io5";
 
-// Define an array of avatars
-const avatars: StaticImageData[] = [
-  userAvatar,
-  userAvatar,
-  userAvatar,
-  userAvatar,
-  userAvatar,
-  userAvatar,
-];
+type Props = {
+  data: IJourneyRoot;
+};
 
-const YourJourney = () => {
+const YourJourney: React.FC<Props> = ({ data }) => {
+  const journeyData = data?.data;
+
   const [openModal, setOpenModal] = useState<boolean>(false);
 
   return (
@@ -27,12 +23,10 @@ const YourJourney = () => {
           {/* Text Section */}
           <div>
             <h1 className="typography-h4 lg:typography-h2 font-bold leading-[150%] text-secondary-500 max-w-[525px]">
-              Your Journey to Parenthood Begins Here
+              {journeyData?.title}
             </h1>
             <p className="typography-paragraph-regular lg:typography-paragraph-large text-text-400 font-medium max-w-[613px] py-4">
-              At Vatsalya, we combine expertise with compassion to help create
-              families. Trust our experienced team to guide you through your
-              fertility journey.
+              {journeyData?.description}
             </p>
             <button
               onClick={() => setOpenModal(true)}
@@ -49,7 +43,7 @@ const YourJourney = () => {
                 Trusted by
               </p>
               <h1 className="typography-h2 font-bold text-black leading-[150%]">
-                10,000+
+                {journeyData?.clientNumber}
               </h1>
               <p className="typography-paragraph-regular font-semibold text-black">
                 Happy Families
@@ -57,7 +51,7 @@ const YourJourney = () => {
 
               {/* Avatar Images */}
               <div className="flex items-center">
-                {avatars?.map((user, index) => (
+                {journeyData?.clientImages.map((user, index) => (
                   <div
                     key={index}
                     className={`w-14 h-14 rounded-full border-2 border-white overflow-hidden ${
@@ -79,16 +73,45 @@ const YourJourney = () => {
               <div>
                 <ul className="text-primary font-normal leading-[16px] text-xs py-2.5">
                   <li className="flex items-center">
-                    {Array.from({ length: 5 }).map((_, index) => (
-                      <IoStar
-                        key={index}
-                        size={24}
-                        className="ml-0.5 text-primary-500"
-                      />
-                    ))}
-                    <span className="mt-2 ml-2 typography-paragraph-regular text-text-500">
-                      (140 reviews)
-                    </span>
+                    {Array.from(
+                      { length: journeyData?.rating || 0 },
+                      (_, index) => {
+                        const ratingValue = journeyData?.rating || 0;
+                        if (ratingValue >= index + 1) {
+                          return (
+                            <IoStar
+                              key={index}
+                              size={24}
+                              className="ml-0.5 text-primary-500"
+                            />
+                          );
+                        } else if (
+                          ratingValue > index &&
+                          ratingValue < index + 1
+                        ) {
+                          return (
+                            <IoStarHalf
+                              key={index}
+                              size={24}
+                              className="ml-0.5 text-primary-500"
+                            />
+                          );
+                        } else {
+                          return (
+                            <IoStarOutline
+                              key={index}
+                              size={24}
+                              className="ml-0.5 text-primary-500"
+                            />
+                          );
+                        }
+                      }
+                    )}
+                    {journeyData?.review?.length > 0 && (
+                      <span className="mt-2 ml-2 typography-paragraph-regular text-text-500">
+                        ({journeyData?.review})
+                      </span>
+                    )}
                   </li>
                 </ul>
               </div>

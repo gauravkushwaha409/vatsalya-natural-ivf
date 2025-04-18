@@ -96,7 +96,7 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
       </div>
 
       <div className="py-5">
-        {data?.service.length === 1 && (
+        {data?.service.length > 0 && (
           <h5 className="typography-h4 font-semibold text-text-500 py-5">
             Services Offered
           </h5>
