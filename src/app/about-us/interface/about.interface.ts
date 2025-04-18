@@ -28,7 +28,7 @@ export interface IAboutUsAboutusMission {
   title: string;
   subtitle: string;
   description: string;
-  images: string[];
+  aboutUsMissionImages: string[];
   aboutus: string;
   created_date: string;
   updated_date: string;
