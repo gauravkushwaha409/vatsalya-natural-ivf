@@ -1,11 +1,12 @@
 "use client";
-import Image from "next/image";
-import React from "react";
-import { IoArrowForwardOutline } from "react-icons/io5";
-import Link from "next/link";
-import { IserviceData, IserviceRecord } from "../interfaces/services.interface";
 import CustomPagination from "@/components/CustomPagination";
 import usePaginationChange from "@/hooks/usePaginationChange";
+import { motion } from "motion/react";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import { IoArrowForwardOutline } from "react-icons/io5";
+import { IserviceData, IserviceRecord } from "../interfaces/services.interface";
 
 interface IServiceCards {
   data: IserviceData;
@@ -32,9 +33,21 @@ const ServiceCards: React.FC<IServiceCards> = ({ data }) => {
       </div>
       <div className="gap-10 grid lg:grid-cols-3 xl:grid-col-4 py-10 pb-20">
         {data?.records?.map((item: IserviceRecord, index: number) => (
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 0.5,
+                ease: "easeInOut",
+              },
+            }}
+            viewport={{ once: true, amount: 0.4 }}
+            key={index}
+            className="w-full h-full"
+          >
             <Link
-              key={index}
               href={`/services/${item?.slug}`}
               className="flex justify-between items-center"
             >
@@ -71,7 +84,7 @@ const ServiceCards: React.FC<IServiceCards> = ({ data }) => {
                 </div>
               </div>
             </Link>
-          </div>
+          </motion.div>
         ))}
       </div>
       {data?.totalPages > 1 && (
