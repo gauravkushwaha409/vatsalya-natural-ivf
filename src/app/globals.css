@@ -199,7 +199,7 @@
   @apply font-normal md:text-[1.72813rem] text-xl leading-[120%];
 }
 @utility typography-h4 {
-  @apply font-normal text-[1.44rem] leading-[120%];
+  @apply font-normal md:text-[1.44rem] text-base leading-[120%];
 }
 @utility typography-paragraph-large {
   @apply font-normal text-[0.875rem] lg:text-[1.2rem] leading-[120%];
@@ -231,6 +231,17 @@
 @utility padding {
   @apply px-5 lg:px-20;
 }
+
+
+@utility no-scrollbar {
+  ::-webkit-scrollbar{
+    display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  overflow: -moz-scrollbars-none;
+}
+
 
 @layer base {
   * {

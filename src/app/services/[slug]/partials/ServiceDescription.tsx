@@ -1,31 +1,29 @@
 "use client";
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import React, { useState } from "react";
+import { IoMdCheckmark } from "react-icons/io";
 import {
   IServiceDetailsService,
   IServiceDetailsServiceDetailsListSection,
 } from "../../interfaces/serviceDetails.interface";
-import { IoMdCheckmark } from "react-icons/io";
 
 interface IServiceDescription {
   data: IServiceDetailsService;
 }
 const ServiceDescription: React.FC<IServiceDescription> = ({ data }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
+  console.log(data);
 
   return (
-    <article className="py-10 flex  flex-col gap-5 text-text-400 text-justify">
+    <article className="flex flex-col gap-5 py-10 text-text-400 text-justify">
       <p dangerouslySetInnerHTML={{ __html: data?.description }} />
       {data?.serviceDetailsListSection?.map(
-        (items: IServiceDetailsServiceDetailsListSection, index: number) => (
-          <div key={index} className="flex gap-2">
-            <div className="bg-secondary-500 rounded-full h-5 w-5  flex justify-center items-center mt-1.5 ">
-              <IoMdCheckmark size={18} className="text-white" />
-            </div>
-            <div key={index}>
-              <h4 className="typography-h4 font-medium">{items?.title}</h4>
-              <p dangerouslySetInnerHTML={{ __html: items?.description }} />
-              {items?.listItems?.map((item, index) => (
+        (section: IServiceDetailsServiceDetailsListSection, index: number) => (
+          <div key={index} className="flex flex-col gap-2">
+            <div>
+              <h4 className="font-medium typography-h4">{section?.title}</h4>
+              <p dangerouslySetInnerHTML={{ __html: section?.description }} />
+              {section?.listItems?.map((item, index) => (
                 <div key={index}>
                   <p>{item?.listItemTitle}</p>
                   <p
@@ -36,12 +34,33 @@ const ServiceDescription: React.FC<IServiceDescription> = ({ data }) => {
                 </div>
               ))}
             </div>
+            {section?.listItems && (
+              <div className="flex flex-col gap-2">
+                {section.listItems.map((item) => (
+                  <div className="flex gap-2" key={item._id}>
+                    <span className="inline-flex justify-center items-center bg-secondary-500 p-1 rounded-full size-7">
+                      <IoMdCheckmark className="size-full text-white" />
+                    </span>
+                    <div>
+                      <p className="font-medium text-secondary-500 typography-h4">
+                        {item?.listItemTitle}
+                      </p>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: item?.listItemDescription,
+                        }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         )
       )}
       <button
         onClick={() => setOpenModal(true)}
-        className="typography-h4 font-semibold border-[0.4px] border-secondary-100 bg-secondary-500 py-4 px-11 rounded-full text-lg transition-colors duration-300 shadow-[0px 8px 18px 0px rgba(101,53,83,0.62)] cursor-pointer text-white w-fit "
+        className="bg-secondary-500 shadow-[0px px-11 py-4 border-[0.4px] border-secondary-100 rounded-full w-fit font-semibold text-white text-lg transition-colors duration-300 cursor-pointer typography-h4 8px 18px 0px rgba(101,53,83,0.62)]"
       >
         Book an Appointment
       </button>
