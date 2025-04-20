@@ -10,7 +10,7 @@ export type ChatMessage = {
 export const useChat = (token: string, room: string = "testroom") => {
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
-  const [receivedMessage, setReceivedMessage] = useState<ChatMessage[]>([]);
+  // const [receivedMessage, setReceivedMessage] = useState<ChatMessage[]>([]);
   const [isConnected, setIsConnected] = useState(false);
   const socketRef = useRef<WebSocket | null>(null);
 

@@ -2,10 +2,10 @@
 import { BASE_API_URL } from "@/api/endpoints";
 
 import { useChat } from "../hooks/useChat";
-import { useState } from "react";
+import ChatLoginForm from "./ChatLoginForm";
 import Header from "./Header";
-import MessagesContainer from "./MessagesContainer";
 import MessageInput from "./MessageInput";
+import MessagesContainer from "./MessagesContainer";
 
 const MessageUI: React.FC<{ isOpen: boolean; closePopup: () => void }> = ({
   closePopup,
@@ -14,6 +14,7 @@ const MessageUI: React.FC<{ isOpen: boolean; closePopup: () => void }> = ({
   const token = process.env.NEXT_PUBLIC_WEBSOCKET_TOKEN || "";
   const { sendMessage, messages, chatContainerRef } = useChat(token);
   console.log("api base url is", BASE_API_URL);
+  const isLoggedIn = false; // Replace with actual login check
 
   return (
     <div
@@ -29,13 +30,18 @@ const MessageUI: React.FC<{ isOpen: boolean; closePopup: () => void }> = ({
       className="flex flex-col border rounded-[1.25rem] min-w-[25rem] h-[40rem] max-h-[calc(100vh-10rem)] overflow-hidden"
     >
       <Header onClose={closePopup} />
-      <div ref={chatContainerRef} className="flex-1 px-1.5 overflow-y-auto ">
-        <MessagesContainer messages={messages} />
-      </div>
-
-      <div className="shrink-0">
-        <MessageInput sendMessage={sendMessage} />
-      </div>
+      {isLoggedIn ? (
+        <>
+          <div ref={chatContainerRef} className="flex-1 px-1.5 overflow-y-auto">
+            <MessagesContainer messages={messages} />
+          </div>
+          <div className="shrink-0">
+            <MessageInput sendMessage={sendMessage} />
+          </div>
+        </>
+      ) : (
+        <ChatLoginForm />
+      )}
     </div>
   );
 };

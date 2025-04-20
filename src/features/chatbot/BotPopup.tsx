@@ -32,6 +32,7 @@ const BotPopup = () => {
             className="size-[2.5rem]"
           />
         </button>
+
         <div
           className="right-0 bottom-full z-50 absolute mb-3"
           style={{

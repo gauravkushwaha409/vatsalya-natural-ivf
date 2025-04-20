@@ -25,6 +25,9 @@ interface Endpoints {
   consultationBooking: string;
   homeGallery: string;
   rating: string;
+  chatbot: {
+    register: string;
+  };
 }
 
 export interface IAboutUS {
@@ -66,6 +69,12 @@ export const endpoints: Endpoints = {
   consultationBooking: "/consultation-booking",
   homeGallery: "/home-gallery",
   rating: "/rating",
+  // Chatbot
+  chatbot: {
+    register: "/user/register",
+  },
 };
 
 export const BASE_API_URL = process.env.NEXT_PUBLIC_API_URL;
+export const BASE_CHATBOT_URL = process.env.NEXT_PUBLIC_API_URL_CHATBOT;
+
