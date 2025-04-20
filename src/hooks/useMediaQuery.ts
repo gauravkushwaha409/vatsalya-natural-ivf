@@ -2,35 +2,26 @@
 import { useEffect, useState } from "react";
 
 export function useMediaQuery(query: string): boolean {
-  const [matches, setMatches] = useState<boolean>(false);
+  const isSmall =
+    typeof window !== "undefined" ? window.matchMedia(query).matches : false;
+
+  const [matches, setMatches] = useState<boolean>(isSmall);
 
   useEffect(() => {
     const media = window.matchMedia(query);
-    if (media.matches !== matches) {
-      setMatches(media.matches);
-    }
+    setMatches(media.matches);
 
-    const listener = () => {
-      setMatches(media.matches);
+    const listener = (event: MediaQueryListEvent) => {
+      setMatches(event.matches);
     };
-
-    if (typeof media.addEventListener === "function") {
-      media.addEventListener("change", listener);
-    } else {
-      media.addListener(listener);
-    }
+    media.addEventListener("change", listener);
 
     return () => {
-      if (typeof media.removeEventListener === "function") {
-        media.removeEventListener("change", listener);
-      } else {
-        media.removeListener(listener);
-      }
+      media.removeEventListener("change", listener);
     };
-  }, [matches, query]);
+  }, [query]);
 
   return matches;
 }
-export const useIsSmall = () => useMediaQuery("(width <= 40rem)");
-export const useIsMedium = () =>
-  useMediaQuery("(width <= 40rem & width >= 48rem)");
+
+export const useIsSmall = () => useMediaQuery("(max-width: 40rem)");

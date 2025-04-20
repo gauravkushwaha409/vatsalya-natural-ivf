@@ -28,7 +28,7 @@ const Slogan: React.FC<SloganProps> = ({ data }) => {
         height={200}
         className="-top-20 left-10 md:left-20 lg:left-44 -z-10 absolute size-20 md:size-auto -rotate-[110deg]"
       />
-      <AnimatingText className="justify-center mx-auto lg:mb-20 px-4 lg:px-1 max-w-[62.375rem] font-semibold text-text-300 leading-8 typography-h4">
+      <AnimatingText className="justify-center mx-auto lg:mb-20 px-4 lg:px-1 max-w-[62.375rem] font-semibold text-text-300 leading-snug md:leading-8 typography-h4">
         {` " ${cleanText} " `}
       </AnimatingText>
     </div>

@@ -6,7 +6,7 @@ interface MeetExpertsProps {
 }
 const MeetExperts: React.FC<MeetExpertsProps> = ({ data }) => {
   return (
-    <div className="pb-6 sm:pb-10">
+    <div className="pb-6 sm:pb-10 padding">
       <div className="flex justify-center items-center gap-5 py-10">
         <span className="bg-primary-500 w-[8.5rem] h-px" />
         <h2 className="font-bold text-primary-500 uppercase tracking-[0.18rem]">
