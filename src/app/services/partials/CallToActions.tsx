@@ -8,28 +8,28 @@ const CallToActions = () => {
   return (
     <section>
       <div>
-        <div className="relative w-full h-[70vh] overflow-hidden flex justify-center items-center">
+        <div className="relative flex justify-center items-center w-full h-[70vh] overflow-hidden">
           {/* Background Image with Overlay */}
-          <div className="absolute inset-0 z-0">
+          <div className="z-0 absolute inset-0">
             <Image
               src={calltoAction}
               alt="Happy couple with newborn baby"
               fill
-              className="object-cover brightness-75"
+              className="brightness-75 object-cover"
               priority
             />
           </div>
 
           {/* Content */}
-          <div className="relative  z-10 flex flex-col items-center justify-center  p-16 rounded-2xl text-white px-20 text-center backdrop-blur-sm bg-white/30 w-[940px] ">
-            <h3 className="typography-h4 lg:typography-h2  mb-5 font-bold text-secondary-500">
+          <div className="z-10 relative flex flex-col justify-center items-center bg-white/30 backdrop-blur-sm mx-3 p-16 md:px-20 rounded-2xl w-[940px] text-white text-center">
+            <h3 className="mb-5 font-bold text-secondary-500 typography-h4 lg:typography-h2">
               Struggling with Infertility? We’re Here to Help, Every Step of the
               Way.
             </h3>
             {/* CTA Button */}
             <button
               onClick={() => setOpenModal(true)}
-              className="typography-h4 font-semibold border-[0.4px] border-secondary-100 bg-secondary-500 py-4 px-11 rounded-full text-lg transition-colors duration-300 shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] cursor-pointer "
+              className="bg-secondary-500 shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] px-4 md:px-11 py-2 md:py-4 border-[0.4px] border-secondary-100 rounded-full font-semibold text-lg transition-colors duration-300 cursor-pointer typography-h4"
             >
               Book an Appointment
             </button>
