@@ -7,10 +7,9 @@ export type ChatMessage = {
   file_type?: string;
 };
 
-export const useChat = (token: string, room: string = "testroom") => {
+export const useChat = (token: string | null, room?: string) => {
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
-  // const [receivedMessage, setReceivedMessage] = useState<ChatMessage[]>([]);
   const [isConnected, setIsConnected] = useState(false);
   const socketRef = useRef<WebSocket | null>(null);
 
@@ -26,8 +25,11 @@ export const useChat = (token: string, room: string = "testroom") => {
   }, [messages]);
 
   useEffect(() => {
+    if (!token || !room) {
+      console.warn(" Missing token or room. WebSocket not initialized.");
+      return;
+    }
     const url = `wss://api.nipali.com/ws/${room}/?token=${token}`;
-    console.log("🌐 Connecting to WebSocket URL:", url);
 
     const socket = new WebSocket(url);
     socketRef.current = socket;
@@ -38,7 +40,6 @@ export const useChat = (token: string, room: string = "testroom") => {
     };
 
     socket.onmessage = (event) => {
-      console.log("📩 Raw WebSocket message:", event.data);
       try {
         const data: ChatMessage = JSON.parse(event.data);
         console.log("🧾 Parsed message:", data);
@@ -46,10 +47,9 @@ export const useChat = (token: string, room: string = "testroom") => {
         if (data.type === "chat_message") {
           setMessages((prev) => [...prev, data]);
         } else {
-          console.log("ℹ️ Unknown message type:", data.type);
         }
       } catch (error) {
-        console.error("❌ Failed to parse message", error);
+        console.error(" Failed to parse message", error);
       }
     };
 
@@ -58,7 +58,7 @@ export const useChat = (token: string, room: string = "testroom") => {
     };
 
     socket.onclose = (event) => {
-      console.warn("🔌 WebSocket closed", {
+      console.warn(" WebSocket closed", {
         code: event.code,
         reason: event.reason,
         wasClean: event.wasClean,
@@ -67,7 +67,7 @@ export const useChat = (token: string, room: string = "testroom") => {
     };
 
     return () => {
-      console.log("👋 Closing WebSocket");
+      console.log("Closing WebSocket");
       socket.close();
     };
   }, [token, room]);

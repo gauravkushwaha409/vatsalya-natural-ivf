@@ -1,7 +1,7 @@
 "use client";
-import { BASE_API_URL } from "@/api/endpoints";
 
 import { useChat } from "../hooks/useChat";
+import { useChatAuth } from "../hooks/useChatAuth";
 import ChatLoginForm from "./ChatLoginForm";
 import Header from "./Header";
 import MessageInput from "./MessageInput";
@@ -11,10 +11,8 @@ const MessageUI: React.FC<{ isOpen: boolean; closePopup: () => void }> = ({
   closePopup,
   isOpen,
 }) => {
-  const token = process.env.NEXT_PUBLIC_WEBSOCKET_TOKEN || "";
-  const { sendMessage, messages, chatContainerRef } = useChat(token);
-  console.log("api base url is", BASE_API_URL);
-  const isLoggedIn = false; // Replace with actual login check
+  const { isLoggedIn, token, roomName } = useChatAuth();
+  const { sendMessage, messages, chatContainerRef } = useChat(token, roomName);
 
   return (
     <div

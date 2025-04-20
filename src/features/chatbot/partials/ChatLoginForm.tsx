@@ -1,7 +1,10 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useChatAuth } from "../hooks/useChatAuth";
 
 const ChatLoginForm = () => {
+  const { handleLogin } = useChatAuth();
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -9,9 +12,7 @@ const ChatLoginForm = () => {
       firstname: "",
       lastname: "",
     },
-    onSubmit: (values) => {
-      console.log("Form values", values);
-    },
+    onSubmit: handleLogin,
     validationSchema: Yup.object({
       email: Yup.string()
         .email("Invalid email address")
@@ -24,11 +25,11 @@ const ChatLoginForm = () => {
     }),
   });
   return (
-    <div className="flex-1 px-6 py-[1.88rem] overflow-y-auto">
+    <div className="flex-1 px-6 py-[1.88rem] overflow-y-auto no-scrollbar">
       <p className="pb-2 font-medium text-text-400 typography-paragraph-regular">
         Please enter your name, email, and phone number to start the chat.
       </p>
-      <form className="space-y-2">
+      <form onSubmit={formik.handleSubmit} className="space-y-2">
         <label className="flex flex-col gap-1">
           <span className="font-semibold text-text-500 typography-paragraph-regular">
             First Name
@@ -73,7 +74,7 @@ const ChatLoginForm = () => {
             className="bg-secondary-50 p-3 border border-gray-400 rounded-xl outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.lastname}
+            value={formik.values.phone_no}
             placeholder="Enter Your Last Name"
           />
           {formik.touched.phone_no && formik.errors.phone_no && (
