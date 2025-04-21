@@ -131,7 +131,6 @@ const CardAnimation = () => {
       </motion.div>
       {/* right top card */}
       <motion.div
-        
         variants={rightTopCardVariant}
         initial="initial"
         animate="animate"
@@ -155,7 +154,7 @@ const CardAnimation = () => {
         style={{
           boxShadow: "0px 4px 24px 0px rgba(0, 0, 0, 0.12)",
         }}
-        className="absolute flex flex-col justify-center gap-1 bg-[rgba(255,241,239,0.49)] backdrop-blur-[28px] ml-2 p-[0.8rem] border border-gray-100 rounded-[.75rem] max-w-1/2 text-secondary-500 \"
+        className="absolute flex flex-col justify-center gap-1 bg-[rgba(255,241,239,0.49)] backdrop-blur-[28px] ml-2 p-[0.8rem] border border-gray-100 rounded-[.75rem] max-w-1/2 text-secondary-500"
       >
         <p className="pb-2 font-medium text-text-500 text-xs">Testimonial</p>
         <div className="flex -space-x-3">
