@@ -7,6 +7,7 @@ import { useState } from "react";
 import { IHomeData } from "../interface/home.interface";
 import AnimatingLines from "./AnimatingLines";
 import HeroAnimationCarousel from "./HeroAnimationCarousel";
+import HeroCardAnimation from "./HeroCardAnimation";
 import HeroTextAnimation from "./HeroTextAnimation";
 
 type HomeProps = {
@@ -18,6 +19,7 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
   const handleAppointmentClick = () => {
     setOpenModal(true);
   };
+  const [activeIndex, setActiveIndex] = useState(0);
   return (
     <div className="relative flex justify-center h-full min-h-[45rem] overflow-y-hidden padding">
       <div className="flex flex-col justify-center mt-16 lg:mt-[8.72rem] w-full h-full text-left">
@@ -112,16 +114,20 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
       </div>
       <div className="right-0 left-0 lg:left-1/2 absolute inset-y-0">
         {data?.caroselImages && (
-          <HeroAnimationCarousel>
-            {data?.caroselImages.map((img, i) => (
-              <Image
-                key={i}
-                width={1800}
-                height={2000}
-                alt={`Image ${i}`}
-                src={img}
-                className="block rounded-lg w-full h-full object-cover"
-              />
+          <HeroAnimationCarousel
+            onActiveIndexChange={(index) => setActiveIndex(index)}
+          >
+            {data.caroselImages.map((img, i) => (
+              <div key={i} className="relative w-full h-full">
+                <Image
+                  width={1800}
+                  height={2000}
+                  alt={`Image ${i}`}
+                  src={img}
+                  className="block rounded-lg w-full h-full object-cover"
+                />
+                <HeroCardAnimation isActive={activeIndex === i} />
+              </div>
             ))}
           </HeroAnimationCarousel>
         )}

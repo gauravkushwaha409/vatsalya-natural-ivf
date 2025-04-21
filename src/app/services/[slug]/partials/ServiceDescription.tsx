@@ -16,25 +16,29 @@ const ServiceDescription: React.FC<IServiceDescription> = ({ data }) => {
 
   return (
     <article className="flex flex-col gap-5 py-10 text-text-400 text-justify">
-      <p
-        className="max-w-none prose-ul:list-disc prose"
-        dangerouslySetInnerHTML={{ __html: data?.description }}
-      />
+      <p dangerouslySetInnerHTML={{ __html: data?.description }} />
       {data?.serviceDetailsListSection?.map(
         (section: IServiceDetailsServiceDetailsListSection, index: number) => (
           <div key={index} className="flex flex-col gap-2">
             <div>
-              <h4 className="font-semibold typography-h2">{section?.title}</h4>
-              <p
-                className="max-w-none prose-ul:list-disc prose"
-                dangerouslySetInnerHTML={{ __html: section?.description }}
-              />
+              <h4 className="font-medium typography-h4">{section?.title}</h4>
+              <p dangerouslySetInnerHTML={{ __html: section?.description }} />
+              {section?.listItems?.map((item, index) => (
+                <div key={index}>
+                  <p>{item?.listItemTitle}</p>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: item?.listItemDescription,
+                    }}
+                  />
+                </div>
+              ))}
             </div>
             {section?.listItems && (
               <div className="flex flex-col gap-2">
                 {section.listItems.map((item) => (
                   <div className="flex gap-2" key={item._id}>
-                    <span className="inline-flex justify-center items-center bg-secondary-500 p-1 rounded-full size-7 shrink-0">
+                    <span className="inline-flex justify-center items-center bg-secondary-500 p-1 rounded-full size-7">
                       <IoMdCheckmark className="size-full text-white" />
                     </span>
                     <div>
@@ -42,7 +46,6 @@ const ServiceDescription: React.FC<IServiceDescription> = ({ data }) => {
                         {item?.listItemTitle}
                       </p>
                       <div
-                        className="max-w-none prose-ul:list-disc prose"
                         dangerouslySetInnerHTML={{
                           __html: item?.listItemDescription,
                         }}

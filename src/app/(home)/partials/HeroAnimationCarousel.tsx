@@ -1,11 +1,22 @@
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import React, { useEffect, useState } from "react";
 
-const HeroAnimationCarousel: React.FC<{ children: React.ReactNode[] }> = ({
-  children: slides,
-}) => {
+const HeroAnimationCarousel: React.FC<{
+  children: React.ReactNode[];
+  onActiveIndexChange?: (index: number) => void;
+}> = ({ children: slides, onActiveIndexChange }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const isSmall = useMediaQuery("(width <= 40rem)");
+
+  useEffect(() => {
+    if (onActiveIndexChange) {
+      const activeIndex =
+        slides.length - currentIndex >= slides.length
+          ? 0
+          : slides.length - currentIndex;
+      onActiveIndexChange(activeIndex);
+    }
+  }, [currentIndex, onActiveIndexChange, slides.length]);
 
   useEffect(() => {
     const next = setInterval(() => {
@@ -25,7 +36,6 @@ const HeroAnimationCarousel: React.FC<{ children: React.ReactNode[] }> = ({
         {slides.map((slide, i) => {
           const indexOffset = (i + currentIndex) % slides.length;
           const isActive = indexOffset === 0;
-
           let leftPosition;
           if (isActive) {
             leftPosition = 0;
