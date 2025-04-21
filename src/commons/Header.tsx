@@ -21,7 +21,7 @@ const Header = () => {
     { name: "Contact Us", link: PATHS.contact },
   ];
   return (
-    <header className="z-50 relative bg-transparent backdrop-blur-[5.6px] py-0 lg:py-[0.63rem] text-white padding">
+    <header className="bg-transparent backdrop-blur-[5.6px] py-0 lg:py-[0.63rem] text-white padding">
       <div className="flex justify-between items-center">
         <Link href="/">
           <Image
@@ -49,12 +49,12 @@ const Header = () => {
         <MobileNav navlinks={navLinks} />
       </div>
       <nav className="mt-5 w-auto hide-for-mobile">
-        <ul className="flex  justify-between  font-manrope">
+        <ul className="flex justify-between font-manrope">
           {navLinks.map((item, index) => {
             const isActive = pathame === item.link;
             return (
               <li
-                className="border-r border-secondary-500 pr-6  w-max text-left"
+                className="pr-6 border-secondary-500 border-r w-max text-left"
                 key={index}
               >
                 <Link

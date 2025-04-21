@@ -25,10 +25,10 @@ export default function VideoModal({
   return (
     <>
       {isOpen && (
-        <div className="padding z-50 fixed inset-0 flex justify-center items-center bg-black/40 w-full h-screen text-black">
+        <div className="z-[60] fixed inset-0 flex justify-center items-center bg-black/40 w-full h-screen text-black padding">
           <button
             onClick={onClose}
-            className="top-[30%] lg:top-5 right-5 z-10 absolute flex justify-center items-center p-2 border border-white rounded-full w-10 h-10 cursor-pointer"
+            className="top-[30%] lg:top-5 right-5 absolute flex justify-center items-center p-2 border border-white rounded-full w-10 h-10 cursor-pointer"
           >
             <X size={24} className="font-bold text-white" />
           </button>
