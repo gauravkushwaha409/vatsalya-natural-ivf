@@ -36,7 +36,7 @@ const HomePage = async () => {
             background:
               "linear-gradient(90deg, #FFD2CE 0%, #EBC0DB 100%) no-repeat",
           }}
-          className="z-[0] relative overflow-hidden"
+          className="z-[1] relative overflow-hidden"
         >
           <div
             style={{
@@ -44,14 +44,14 @@ const HomePage = async () => {
                 "url('/home/hero-noise.png') #fff4 0% 0% / 100px 70px repeat",
               backgroundBlendMode: "screen",
             }}
-            className="z-[1] relative"
+            className="z-[2] relative"
           >
             <HeroSection data={homedata?.data} />
             <div
               style={{
                 background: "url('/home/circle.svg') no-repeat right top",
               }}
-              className="z-[2] absolute inset-0 pointer-events-none"
+              className="z-[3] absolute inset-0 pointer-events-none"
             ></div>
           </div>
         </div>
