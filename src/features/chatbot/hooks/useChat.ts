@@ -1,3 +1,4 @@
+import { BASE_SOCKET_URL } from "@/api/endpoints";
 import { useEffect, useRef, useState } from "react";
 
 export type ChatMessage = {
@@ -29,7 +30,7 @@ export const useChat = (token: string | null, room?: string) => {
       console.warn(" Missing token or room. WebSocket not initialized.");
       return;
     }
-    const url = `wss://api.nipali.com/ws/${room}/?token=${token}`;
+    const url = `${BASE_SOCKET_URL}/${room}/?token=${token}`;
 
     const socket = new WebSocket(url);
     socketRef.current = socket;
