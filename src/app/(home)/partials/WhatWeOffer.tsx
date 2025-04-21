@@ -1,21 +1,21 @@
 "use client";
 
-import { useIsSmall } from "@/hooks/useMediaQuery";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { motion } from "motion/react";
 import { useState } from "react";
-import MobileLayout from "./MobileLayout";
-import DesktopLayout from "./DesktopLayout";
 import {
   OfferCard,
   WhatWeOfferProps,
 } from "../interface/whatWeOffer.interface";
+import DesktopLayout from "./DesktopLayout";
+import MobileLayout from "./MobileLayout";
 
 // Section Title component
 
 // Main component
 const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
   const [isInView, setIsInView] = useState<boolean>(false);
-  const isMobile = useIsSmall();
+  const isMobile = useMediaQuery("(width <= 60rem)");
   const OFFER_CARDS: OfferCard[] = [
     {
       id: data[0]?.id ?? "default-id-0",
@@ -82,7 +82,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
       onViewportEnter={() => setIsInView(true)}
       onViewportLeave={() => setIsInView(false)}
       viewport={{ amount: 0.4 }}
-      className="px-4 md:px-6 lg:px-0"
+      className="px-4 md:px-6 lg:px-0 overflow-x-hidden"
     >
       <div className="flex justify-center items-center gap-3 sm:gap-5 py-6 sm:py-10">
         <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
