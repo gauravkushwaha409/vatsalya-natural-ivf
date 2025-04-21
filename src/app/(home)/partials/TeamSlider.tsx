@@ -58,7 +58,7 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
           style={{
             minHeight: `${ACTIVE_EL_HEIGHT}rem`,
           }}
-          className="relative flex items-end gap-[1.25rem] mx-6 lg:mx-20 overflow-hidden"
+          className="relative flex items-end gap-[1.25rem] overflow-hidden"
         >
           {data?.map((member, index) => {
             const i =
@@ -121,7 +121,7 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
             style={{
               left: `${ACTIVE_EL_WIDTH + GAP + INACTIVE_EL_WIDTH}rem`,
             }}
-            className={`top-0 left-full absolute space-y-3 starting:opacity-0 ml-10 w-[32.4rem] transition-all duration-700 ease-in-out `}
+            className={`top-0 left-full absolute space-y-3 starting:opacity-0 ml-10  w-[35%] 2xl:w-[32.4rem] transition-all duration-700 ease-in-out `}
           >
             <h1 className="font-semibold typography-h3">
               {data[activeIndex]?.name}
@@ -136,7 +136,7 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
               }}
             />
 
-            <div>
+            <div className="flex flex-wrap items-center gap-1 gap-y-3 mt-4">
               <button
                 onClick={() => {
                   setIsOpenAppointmentModal(true);

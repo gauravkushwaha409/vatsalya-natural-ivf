@@ -15,18 +15,25 @@ const Miracles: React.FC<ShowCaseItemProps> = ({ data }) => {
   // Mobile view component
   if (isMobile) {
     return (
-      <div className="flex flex-col items-center mt-10 md:mt-20 px-4">
+      <div className="flex flex-col items-center mt-10 md:mt-20">
         <RequestAppoimentModal
           isOpen={appointmentPopupOpen}
           onClose={() => setAppointmentPopupOpen(false)}
         />
         <div className="gap-2 grid grid-cols-2">
-          <ImageContainer src={data?.images?.[0]} alt="Miracle 1" />
+          {data?.images.map((image, index) => (
+            <ImageContainer
+              key={index}
+              src={image}
+              alt={`Miracle ${index + 1}`}
+            />
+          ))}
+          {/* <ImageContainer src={data?.images?.[0]} alt="Miracle 1" />
           <ImageContainer src={data?.images?.[1]} alt="Miracle 2" />
           <ImageContainer src={data?.images?.[2]} alt="Miracle 3" />
           <ImageContainer src={data?.images?.[3]} alt="Miracle 4" />
           <ImageContainer src={data?.images?.[4]} alt="Miracle 5" />
-          <ImageContainer src={data?.images?.[5]} alt="Miracle 6" />
+          <ImageContainer src={data?.images?.[5]} alt="Miracle 6" /> */}
         </div>
 
         <div className="px-4 py-8 w-full text-center">
@@ -60,14 +67,13 @@ const Miracles: React.FC<ShowCaseItemProps> = ({ data }) => {
     );
   }
 
-  // Original desktop view (unchanged)
   return (
     <div className="flex justify-center py-6 sm:py-10">
       <RequestAppoimentModal
         isOpen={appointmentPopupOpen}
         onClose={() => setAppointmentPopupOpen(false)}
       />
-      <div className="relative flex">
+      <div className="relative flex padding">
         <div className="mt-[3.12rem]">
           <ImageContainer src={data?.images[0]} alt="Miracle 1" />
           <ImageContainer src={data?.images[1]} alt="Miracle 2" />
@@ -142,7 +148,7 @@ const ImageContainer: React.FC<{ src: string; alt: string }> = ({
   alt,
 }) => {
   return (
-    <div className="relative m-[0.44rem] rounded-[0.75rem] w-32 h-40 overflow-hidden">
+    <div className="relative m-[0.44rem] rounded-[0.75rem] w-20 2xl:w-32 aspect-[4/5] overflow-hidden">
       <Image
         width={128}
         height={160}
