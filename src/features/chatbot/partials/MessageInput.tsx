@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import { useChat } from "../hooks/useChat";
 import { Send } from "lucide-react";
+import React, { useState } from "react";
 
 const MessageInput: React.FC<{ sendMessage: (message: string) => void }> = ({
   sendMessage,

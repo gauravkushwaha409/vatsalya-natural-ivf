@@ -26,7 +26,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
       </div> */}
 
       {/* large screens */}
-      <div className="relative lg:flex flex-col md:gap-32 px-6 sm:px-10 md:px-20 lg:px-40 divide-y">
+      <div className="relative lg:flex flex-col md:gap-32 px-6 sm:px-10 md:px-20 lg:px-40 divide-y md:divide-y-0">
         {data?.HowWorksDetails?.map(
           (step: IHowWeWorkHowWorksDetail, index: number) => (
             <div
