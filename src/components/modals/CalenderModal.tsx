@@ -1,19 +1,19 @@
 "use client";
 import { usePostDataMutation } from "@/api/api";
 import { endpoints } from "@/api/endpoints";
+import { ApiResponse, handleErrors } from "@/helper/error-helper";
 import useClickOutside from "@/hooks/useClickOutside";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { ISlot, ISlotResponse } from "@/interface/slot";
 import { showErrorMessage, showSuccessMessage } from "@/utils/toast";
 import { add, format } from "date-fns";
+import { FormikProps } from "formik";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import RenderCells from "../RenderCells";
 import ConfirmationModal from "./ConfirmationModal";
 import { IFormValues } from "./RequestAppoimentModal";
-import { FormikProps } from "formik";
-import { ApiResponse, handleErrors } from "@/helper/error-helper";
 
 interface CalendarProps {
   modalOpen: boolean;
@@ -132,7 +132,12 @@ const CalendarModal: React.FC<CalendarProps> = ({
       });
       if (response?.error) {
         setAvailableSlots(null);
-        showErrorMessage("Failed to fetch available slots");
+        showErrorMessage(
+          (response?.error &&
+            "data" in response.error &&
+            (response.error.data as { message?: string })?.message) ||
+            "No slots available"
+        );
         return;
       }
 
@@ -210,10 +215,10 @@ const CalendarModal: React.FC<CalendarProps> = ({
                       </>
                     ) : (
                       <>
-                        <div className="flex flex-col items-center justify-center gap-2 p-6 text-center text-secondary-500 border border-secondary-200 rounded-xl bg-secondary-50 shadow-sm">
+                        <div className="flex flex-col justify-center items-center gap-2 bg-secondary-50 shadow-sm p-6 border border-secondary-200 rounded-xl text-secondary-500 text-center">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="h-10 w-10 text-secondary-400"
+                            className="w-10 h-10 text-secondary-400"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -225,10 +230,10 @@ const CalendarModal: React.FC<CalendarProps> = ({
                               d="M12 8v4m0 4h.01M21 12A9 9 0 1 1 3 12a9 9 0 0 1 18 0Z"
                             />
                           </svg>
-                          <p className="text-lg font-semibold">
+                          <p className="font-semibold text-lg">
                             No slots available
                           </p>
-                          <p className="text-sm text-secondary-400">
+                          <p className="text-secondary-400 text-sm">
                             Please try again later or choose another day.
                           </p>
                         </div>
