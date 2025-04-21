@@ -1,6 +1,7 @@
 "use client";
 
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
+import VideoModal from "@/components/modals/VideoModal";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
@@ -16,6 +17,7 @@ type HomeProps = {
 const HeroSection: React.FC<HomeProps> = ({ data }) => {
   const text = "Journey to <parenthood,> /b Naturally and Compassionately";
   const [openModal, setOpenModal] = useState<boolean>(false);
+  const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
   const handleAppointmentClick = () => {
     setOpenModal(true);
   };
@@ -85,11 +87,14 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
             style={{
               background: "linear-gradient(90deg, #A0385A 0%, #3A142C 100%)",
             }}
-            className="z-[100] shadow-box px-[2.75rem] py-[0.94rem] border-2 border-secondary-100 rounded-full w-max font-bold text-white cursor-pointer typography-paragraph-regular lg:typography-h4"
+            className="z-[49] shadow-box px-[2.75rem] py-[0.94rem] border-2 border-secondary-100 rounded-full w-max font-bold text-white cursor-pointer typography-paragraph-regular lg:typography-h4"
           >
             Book an Appointment
           </button>
-          <button className="flex justify-center items-center p-[0.69rem] border border-secondary-800 rounded-full cursor-pointer shrink-0 grow-0">
+          <button
+            onClick={() => setVideoModalOpen(true)}
+            className="flex justify-center items-center p-[0.69rem] border border-secondary-800 rounded-full cursor-pointer shrink-0 grow-0"
+          >
             <Image
               src={"/svg/play-icon.svg"}
               height={24}
@@ -135,6 +140,13 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
       <RequestAppoimentModal
         isOpen={openModal}
         onClose={() => setOpenModal(false)}
+      />
+      <VideoModal
+        isOpen={videoModalOpen}
+        onClose={() => setVideoModalOpen(false)}
+        videoUrl={
+          "https://www.youtube.com/embed/sGAedr5C5FM?si=cibOMawH4JPqErOH"
+        }
       />
     </div>
   );
