@@ -1,16 +1,15 @@
 import { BASE_SOCKET_URL } from "@/api/endpoints";
 import { useEffect, useRef, useState } from "react";
+import { IChatMessage } from "../interfaces/dto/message.type";
 
-export type ChatMessage = {
-  type: string;
-  message: string;
-  file?: string;
-  file_type?: string;
-};
+// interface IMessage extends IChatMessage {
+//   loading?: boolean;
+//   sender: "user" | "bot";
+// }
 
 export const useChat = (token: string | null, room?: string) => {
   const chatContainerRef = useRef<HTMLDivElement>(null);
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [messages, setMessages] = useState<IChatMessage[]>([]);
   const [isConnected, setIsConnected] = useState(false);
   const socketRef = useRef<WebSocket | null>(null);
 
@@ -27,7 +26,7 @@ export const useChat = (token: string | null, room?: string) => {
 
   useEffect(() => {
     if (!token || !room) {
-      console.warn(" Missing token or room. WebSocket not initialized.");
+      console.warn("Missing token or room. WebSocket not initialized.");
       return;
     }
     const url = `${BASE_SOCKET_URL}/${room}/?token=${token}`;
@@ -36,21 +35,18 @@ export const useChat = (token: string | null, room?: string) => {
     socketRef.current = socket;
 
     socket.onopen = () => {
-      console.log("✅ WebSocket connected");
       setIsConnected(true);
     };
 
     socket.onmessage = (event) => {
       try {
-        const data: ChatMessage = JSON.parse(event.data);
-        console.log("🧾 Parsed message:", data);
-
+        const data: IChatMessage = JSON.parse(event.data);
         if (data.type === "chat_message") {
           setMessages((prev) => [...prev, data]);
         } else {
         }
       } catch (error) {
-        console.error(" Failed to parse message", error);
+        console.error("Failed to parse message", error);
       }
     };
 
