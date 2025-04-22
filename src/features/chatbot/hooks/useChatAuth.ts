@@ -46,5 +46,15 @@ export const useChatAuth = () => {
     }
   };
 
-  return { isLoggedIn,error, isLoading, handleLogin, token, userName:user?.firstname+" "+user?.lastname, roomName:room?.name, roomId:room?.id  };
+  return {
+    isLoggedIn,
+    error,
+    isLoading,
+    handleLogin,
+    token,
+    userName: user?.firstname + " " + user?.lastname,
+    roomName: room?.name,
+    roomId: room?.id,
+    userId: user?.id,
+  };
 };

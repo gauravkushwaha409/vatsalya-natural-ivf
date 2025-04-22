@@ -66,13 +66,13 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
               ease: "linear",
             }}
             className="absolute flex"
-            // className="-top-7 left-[28.5%] absolute flex -rotate-45"
           >
             <Image
               src="/home/butterfly.gif"
               alt="Illustration of butterfly"
               width={100}
               height={100}
+              unoptimized
             />
           </motion.div>
         </div>
@@ -106,14 +106,14 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
         </div>
       </div>
       <div className="-bottom-10 lg:-bottom-36 z-10 absolute inset-x-0">
-        <div className="relative bg-yell w-full h-full overflow-x-hidden">
+        <div className="relative w-full h-full overflow-x-hidden">
           <AnimatingLines />
           <Image
             src="/home/hero-bottom-background.png"
             alt="Illustration of circle"
-            layout="responsive"
             width={1000}
             height={1000}
+            className="w-full h-full"
           />
         </div>
       </div>

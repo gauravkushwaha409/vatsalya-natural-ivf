@@ -13,7 +13,7 @@ interface IBlog {
 const BlogCard: React.FC<IBlog> = ({ data }) => {
   return (
     <div>
-      <div className="max-w-md rounded-lg bg-white transition-all duration-300 ease-in-out hover:shadow-lg h-full ">
+      <div className="bg-white hover:shadow-lg rounded-lg max-w-md h-full transition-all duration-300 ease-in-out">
         <div className="aspect-[400/240] overflow-hidden">
           {/* Image */}
           <Link href={`/blog/${data?.slug}`}>
@@ -27,15 +27,15 @@ const BlogCard: React.FC<IBlog> = ({ data }) => {
           </Link>
         </div>
 
-        <div className="p-6 ">
-          <p className="typography-paragraph-regular text-secondary-500 font-bold">
+        <div className="p-6">
+          <p className="font-bold text-secondary-500 typography-paragraph-regular">
             {formatDate(data?.created_date)}
           </p>
           <Link
             className="flex justify-between items-center w-full cursor-pointer"
             href={`/blog/${data?.slug}`}
           >
-            <h5 className="typography-h3 font-semibold text-[#1A1A1A] my-4 leading-[150%] line-clamp-1">
+            <h5 className="my-4 font-semibold text-[#1A1A1A] line-clamp-1 leading-[150%] typography-h3">
               {data?.title}
             </h5>
             <div>
@@ -43,23 +43,21 @@ const BlogCard: React.FC<IBlog> = ({ data }) => {
             </div>
           </Link>
           <p
-            className="typography-paragraph-regular font-medium text-[#667085] line-clamp-2 "
+            className="font-medium text-[#667085] line-clamp-2 typography-paragraph-regular"
             dangerouslySetInnerHTML={{ __html: data?.description }}
           />
 
-          <div className="flex gap-2 pt-4 flex-wrap">
+          <div className="flex flex-wrap gap-2 pt-4">
             {data?.tags?.map((tag, index) => (
-              <>
-                <div className="bg-primary-50 rounded-2xl" key={index}>
-                  <p
-                    className={` ${
-                      index % 2 == 0 ? "text-primary-400" : "text-secondary-500"
-                    } typography-paragraph-small font-medium px-2.5 py-0.5`}
-                  >
-                    {tag}
-                  </p>
-                </div>
-              </>
+              <div className="bg-primary-50 rounded-2xl" key={index}>
+                <p
+                  className={` ${
+                    index % 2 == 0 ? "text-primary-400" : "text-secondary-500"
+                  } typography-paragraph-small font-medium px-2.5 py-0.5`}
+                >
+                  {tag}
+                </p>
+              </div>
             ))}
           </div>
         </div>

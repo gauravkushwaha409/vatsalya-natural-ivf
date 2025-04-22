@@ -1,20 +1,21 @@
 import { Send } from "lucide-react";
 import React, { useState } from "react";
 
-const MessageInput: React.FC<{ sendMessage: (message: string) => void }> = ({
-  sendMessage,
-}) => {
+const MessageInput: React.FC<{
+  sendMessage: (message: string) => void;
+  disabled: boolean;
+}> = ({ sendMessage, disabled }) => {
   const [messageInput, setMessageInput] = useState("");
 
   const handleSendMessage = () => {
     if (messageInput.trim() !== "") {
       sendMessage(messageInput);
-      setMessageInput(""); // clear input
+      setMessageInput("");
     }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && !disabled) {
       handleSendMessage();
     }
   };
@@ -30,7 +31,12 @@ const MessageInput: React.FC<{ sendMessage: (message: string) => void }> = ({
           onKeyDown={handleKeyDown}
           className="flex-1 py-4 pl-5 rounded-full outline-0 focus:outline-none h-max"
         />
-        <button type="button" onClick={() => handleSendMessage}>
+        <button
+          disabled={disabled}
+          type="button"
+          onClick={() => handleSendMessage}
+          className="disabled:opacity-50 hover:brightness-110 cursor-pointer"
+        >
           <Send className="text-primary-900" />
         </button>
       </label>

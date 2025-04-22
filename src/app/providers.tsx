@@ -1,8 +1,8 @@
 "use client";
-import { Provider } from "react-redux";
-import store from "../store/store";
 import { ProgressProvider } from "@bprogress/next/app";
+import { Provider } from "react-redux";
 import { Toaster } from "sonner";
+import store from "../store/store";
 
 const Providers: React.FC<Readonly<{ children: React.ReactNode }>> = ({
   children,

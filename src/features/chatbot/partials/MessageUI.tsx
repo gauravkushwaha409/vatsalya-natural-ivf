@@ -12,7 +12,10 @@ const MessageUI: React.FC<{ isOpen: boolean; closePopup: () => void }> = ({
   isOpen,
 }) => {
   const { isLoggedIn, token, roomName } = useChatAuth();
-  const { sendMessage, messages, chatContainerRef } = useChat(token, roomName);
+  const { sendMessage, messages, chatContainerRef, isSending } = useChat(
+    token,
+    roomName
+  );
 
   return (
     <div
@@ -34,7 +37,7 @@ const MessageUI: React.FC<{ isOpen: boolean; closePopup: () => void }> = ({
             <MessagesContainer messages={messages} />
           </div>
           <div className="shrink-0">
-            <MessageInput sendMessage={sendMessage} />
+            <MessageInput disabled={isSending} sendMessage={sendMessage} />
           </div>
         </>
       ) : (

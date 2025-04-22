@@ -34,8 +34,8 @@ const Line = ({ rotation = 0 }: { rotation?: number }) => {
           y2="65.6154"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFBDB6" />
-          <stop offset="1" stop-color="#D3A3C1" />
+          <stop stopColor="#FFBDB6" />
+          <stop offset="1" stopColor="#D3A3C1" />
         </linearGradient>
 
         {/* Highly visible shimmer effect */}
