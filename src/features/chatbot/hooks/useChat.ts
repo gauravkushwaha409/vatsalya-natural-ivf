@@ -5,7 +5,7 @@ import { useChatAuth } from "./useChatAuth";
 
 export interface IMessage extends IChatMessage {
   status?: "sending" | "sent" | "failed" | "typing";
-  sender: "user" | "bot";
+  sender: "user" | "bot" | "systemUser";
 }
 
 export const useChat = (token: string | null, room?: string) => {
@@ -52,12 +52,17 @@ export const useChat = (token: string | null, room?: string) => {
         const socketData: IChatMessage = JSON.parse(event.data);
         const data: IMessage = {
           ...socketData,
-          sender: socketData.sender_id === userId ? "user" : "bot",
+          sender:
+            socketData.sender_id === userId
+              ? "user"
+              : socketData.is_bot == false
+              ? "systemUser"
+              : "bot",
         };
         if (data.type === "chat_message") {
           if (data.sender_id === userId) {
             setIsMessageSending(false);
-            // update the last message to sending message status
+            // update the last message with sending message status
             setMessages((prev) => {
               const sendingStatusIndex = prev.findIndex(
                 (message) =>
@@ -73,27 +78,8 @@ export const useChat = (token: string | null, room?: string) => {
               }
               return [...prev, data];
             });
-          }
-          // if it is bot's message, add bot message
-          else {
-            // below logic replaces the last message with typing status
-            if (
-              messages.length > 0 &&
-              messages[messages.length - 1].sender === "bot" &&
-              messages[messages.length - 1].status === "typing"
-            ) {
-              setMessages((prev) => {
-                const newData = prev.map((message) => {
-                  if (message.sender === "bot" && message.status === "typing") {
-                    return { ...data, status: "sent" as const };
-                  }
-                  return { ...message };
-                });
-                return newData;
-              });
-            } else {
-              setMessages((prev) => [...prev, data]);
-            }
+          } else {
+            setMessages((prev) => [...prev, data]);
           }
         }
       } catch (error) {
@@ -142,25 +128,6 @@ export const useChat = (token: string | null, room?: string) => {
     setMessages((prev) => {
       return [...prev, newData];
     });
-    setTimeout(() => {
-      const botdata: IMessage = {
-        avatar: "",
-        message: "",
-        room_id: roomId || "",
-        sender: "bot",
-        room_name: room || "",
-        sender_id: userId || "",
-        type: "chat_message",
-        sender_name: userName,
-        status: "typing",
-      };
-      setMessages((prev) => {
-        return prev[prev.length - 1].sender === "user"
-          ? [...prev, botdata]
-          : prev;
-      });
-    }, 1000);
-
     setIsMessageSending(true);
     try {
       if (socketRef.current?.readyState === WebSocket.OPEN) {

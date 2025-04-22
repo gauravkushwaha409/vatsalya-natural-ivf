@@ -10,4 +10,5 @@ export interface IChatMessage {
   file_type?: string;
   call_type?: string;
   created_at?: string;
+  is_bot?: boolean;
 }

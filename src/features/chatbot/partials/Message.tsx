@@ -4,12 +4,18 @@ import Image from "next/image";
 
 type MessageProps = {
   text: string;
-  sender: "bot" | "user";
+  sender: "user" | "bot" | "systemUser";
   name?: string;
   status?: "sending" | "sent" | "failed" | "typing";
+  senderDetails?: {
+    name: string;
+    image?: string;
+    sendTime?: string;
+  };
 };
 
 const Message: React.FC<MessageProps> = ({ sender, text, status }) => {
+  console.log(sender, text, status);
   return (
     <motion.div
       initial={{ opacity: 0, y: "100%" }}
@@ -48,23 +54,19 @@ const Message: React.FC<MessageProps> = ({ sender, text, status }) => {
             : "bg-secondary-50 text-text-400 rounded-bl-xs"
         }`}
       >
-        {status == "typing" ? (
-          <TypingAnimation />
-        ) : (
-          <p className="typography-paragraph-regular">{text}</p>
-        )}
+        <p className="typography-paragraph-regular">{text}</p>
       </div>
     </motion.div>
   );
 };
 export default Message;
 
-const TypingAnimation: React.FC = () => {
-  return (
-    <div className="flex items-center gap-2 px-2 py-1">
-      <div className="bg-primary-500 rounded-full size-1.5 animate-bounce"></div>
-      <div className="bg-primary-500 rounded-full size-1.5 animate-bounce delay-200"></div>
-      <div className="bg-primary-500 rounded-full size-1.5 animate-bounce delay-400"></div>
-    </div>
-  );
-};
+// const TypingAnimation: React.FC = () => {
+//   return (
+//     <div className="flex items-center gap-2 px-2 py-1">
+//       <div className="bg-primary-500 rounded-full size-1.5 animate-bounce"></div>
+//       <div className="bg-primary-500 rounded-full size-1.5 animate-bounce delay-200"></div>
+//       <div className="bg-primary-500 rounded-full size-1.5 animate-bounce delay-400"></div>
+//     </div>
+//   );
+// };
