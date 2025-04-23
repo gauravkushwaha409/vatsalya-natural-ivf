@@ -75,7 +75,7 @@ const ChatLoginForm = () => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.phone_no}
-            placeholder="Enter Your Last Name"
+            placeholder="Enter Your Phone"
           />
           {formik.touched.phone_no && formik.errors.phone_no && (
             <p className="text-red-500 text-sm">{formik.errors.phone_no}</p>
@@ -92,7 +92,7 @@ const ChatLoginForm = () => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.email}
-            placeholder="Enter Your Last Name"
+            placeholder="Enter Your Email"
           />
           {formik.touched.email && formik.errors.email && (
             <p className="text-red-500 text-sm">{formik.errors.email}</p>
