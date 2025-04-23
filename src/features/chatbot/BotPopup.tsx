@@ -34,7 +34,7 @@ const BotPopup = () => {
         </button>
 
         <div
-          className="right-0 bottom-full z-50 absolute mb-3"
+          className="right-0 bottom-0 md:bottom-full z-50 absolute mb-3"
           style={{
             scrollbarWidth: "none",
           }}
