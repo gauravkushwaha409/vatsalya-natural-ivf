@@ -26,7 +26,7 @@ const WhenToVisit: React.FC<WhenToVisitProps> = ({ data }) => {
         className="hidden relative lg:flex justify-center -mt-2 w-full h-[11.96rem]"
       >
         <Image
-          className="-top-[29%] absolute object-cover"
+          className="-top-[29%] absolute inset-0 w-full object-cover"
           src="/home/when-to-visit/three-lines.png"
           alt="lines"
           width={1000}
