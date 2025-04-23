@@ -29,7 +29,6 @@ const WhenToVisit: React.FC<WhenToVisitProps> = ({ data }) => {
           className="-top-[29%] absolute object-cover"
           src="/home/when-to-visit/three-lines.png"
           alt="lines"
-          layout="responsive"
           width={1000}
           height={1000}
         />

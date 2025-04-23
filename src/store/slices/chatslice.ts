@@ -41,7 +41,11 @@ const chatSlice = createSlice({
   reducers: {
     loginTochatBot: (
       state,
-      action: PayloadAction<{ token: string; user: User; room: {id:string,name:string} }>
+      action: PayloadAction<{
+        token: string;
+        user: User;
+        room: { id: string; name: string };
+      }>
     ) => {
       const { token, user, room } = action.payload;
       try {
@@ -54,11 +58,20 @@ const chatSlice = createSlice({
         state.room = room;
         state.isLoggedIn = true;
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
+    },
+    logoutFromChatBot: (state) => {
+      localStorage.removeItem("chatbot_token");
+      localStorage.removeItem("chatbot_user");
+      localStorage.removeItem("chatbot_room");
+      state.isLoggedIn = false;
+      state.user = null;
+      state.room = null;
+      state.token = null;
     },
   },
 });
 
-export const {loginTochatBot} = chatSlice.actions
+export const { loginTochatBot, logoutFromChatBot } = chatSlice.actions;
 export default chatSlice.reducer;

@@ -1,21 +1,18 @@
-import { useAppSelector } from "@/store/store";
 import React from "react";
-import { IChatMessage } from "../interfaces/dto/message.type";
+import { IMessage } from "../hooks/useChat";
 import Message from "./Message";
 
-const MessagesContainer: React.FC<{ messages: IChatMessage[] }> = ({
+const MessagesContainer: React.FC<{ messages: IMessage[] }> = ({
   messages,
 }) => {
-  const myid = useAppSelector((state) => state.chat.user?.id);
   return (
-    <div className="space-y-5 mb-4 px-1.5 pt-4 w-full h-full">
-      {/* <Message text="Hello, how can I help you?" sender="bot" /> */}
-
-      {messages?.map((message: IChatMessage, index) => (
+    <div className="space-y-5 mb-4 px-1.5 pt-4 w-full h-max overflow-y-hidden">
+      {messages?.map((message, index) => (
         <Message
           key={index}
           text={message?.message}
-          sender={message.sender_id === myid ? "user" : "bot"}
+          sender={message.sender}
+          status={message.status}
         />
       ))}
     </div>

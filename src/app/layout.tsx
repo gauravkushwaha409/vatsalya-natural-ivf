@@ -50,16 +50,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Providers>
-        <body
-          className={`${manRope.variable} ${inter.variable} ${plusJakarta.variable} ${roboto.variable} antialiased font-manrope bg-background-100 `}
-        >
+      <body
+        className={`${manRope.variable} ${inter.variable} ${plusJakarta.variable} ${roboto.variable} antialiased font-manrope bg-background-100 `}
+      >
+        <Providers>
           <Header />
           <div className="">{children}</div>
           <Footer />
           <BotPopup />
-        </body>
-      </Providers>
+        </Providers>
+      </body>
     </html>
   );
 }
