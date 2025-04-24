@@ -3,6 +3,7 @@
 import { useChat } from "../hooks/useChat";
 import { useChatAuth } from "../hooks/useChatAuth";
 import ChatLoginForm from "./ChatLoginForm";
+import ChatSuggestion from "./ChatSuggestion";
 import Header from "./Header";
 import MessageInput from "./MessageInput";
 import MessagesContainer from "./MessagesContainer";
@@ -12,10 +13,8 @@ const MessageUI: React.FC<{ isOpen: boolean; closePopup: () => void }> = ({
   isOpen,
 }) => {
   const { isLoggedIn, token, roomName } = useChatAuth();
-  const { sendMessage, messages, chatContainerRef, isSending } = useChat(
-    token,
-    roomName
-  );
+  const { sendMessage, messages, chatContainerRef, isSending, suggestions } =
+    useChat(token, roomName);
 
   return (
     <div
@@ -36,6 +35,11 @@ const MessageUI: React.FC<{ isOpen: boolean; closePopup: () => void }> = ({
           <div ref={chatContainerRef} className="flex-1 px-1.5 overflow-y-auto">
             <MessagesContainer messages={messages} />
           </div>
+          <ChatSuggestion
+            sendMessage={sendMessage}
+            suggestions={suggestions}
+            disabled={isSending}
+          />
           <div className="shrink-0">
             <MessageInput disabled={isSending} sendMessage={sendMessage} />
           </div>

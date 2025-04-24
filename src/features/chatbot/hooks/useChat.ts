@@ -1,6 +1,7 @@
 import { BASE_SOCKET_URL } from "@/api/endpoints";
 import { useEffect, useRef, useState } from "react";
 import { IChatMessage } from "../interfaces/dto/message.type";
+import { FileTypes } from "../interfaces/file.types";
 import { useChatAuth } from "./useChatAuth";
 
 export interface IMessage extends IChatMessage {
@@ -11,6 +12,8 @@ export interface IMessage extends IChatMessage {
 export const useChat = (token: string | null, room?: string) => {
   const { roomId, userName, userId } = useChatAuth();
   const [isSending, setIsMessageSending] = useState(false);
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+  // const [isTyping, setIsTyping] = useState(false);
   const url = `${BASE_SOCKET_URL}/${room}/?token=${token}`;
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState<IMessage[]>([]);
@@ -50,6 +53,7 @@ export const useChat = (token: string | null, room?: string) => {
     const handleNewMessages = (event: MessageEvent) => {
       try {
         const socketData: IChatMessage = JSON.parse(event.data);
+
         const data: IMessage = {
           ...socketData,
           sender:
@@ -60,6 +64,10 @@ export const useChat = (token: string | null, room?: string) => {
               : "bot",
         };
         if (data.type === "chat_message") {
+          // handle suggestions
+          if (data.sender !== "user") {
+            setSuggestions(data.suggestions || []);
+          }
           if (data.sender_id === userId) {
             setIsMessageSending(false);
             // update the last message with sending message status
@@ -108,11 +116,19 @@ export const useChat = (token: string | null, room?: string) => {
     };
   }, [socketRef, messages, userId]);
 
-  const sendMessage = (message: string) => {
+  const sendMessage = (
+    message: string,
+    file?: { file: string; type: FileTypes }
+  ) => {
     if (!isConnected) {
       return;
     }
-    const payload = JSON.stringify({ type: "chat_message", message });
+    const payload = JSON.stringify({
+      type: "chat_message",
+      message,
+      file: file?.file,
+      file_type: file?.type,
+    });
     const newData: IMessage = {
       avatar: "",
       message,
@@ -122,6 +138,8 @@ export const useChat = (token: string | null, room?: string) => {
       sender_id: userId || "",
       type: "chat_message",
       sender_name: userName,
+      file: file?.file,
+      file_type: file?.type,
       status: "sending",
     };
 
@@ -158,5 +176,12 @@ export const useChat = (token: string | null, room?: string) => {
     });
   };
 
-  return { isConnected, messages, sendMessage, chatContainerRef, isSending };
+  return {
+    isConnected,
+    messages,
+    sendMessage,
+    chatContainerRef,
+    isSending,
+    suggestions,
+  };
 };

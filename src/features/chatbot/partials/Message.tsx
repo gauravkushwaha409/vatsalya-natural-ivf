@@ -15,7 +15,6 @@ type MessageProps = {
 };
 
 const Message: React.FC<MessageProps> = ({ sender, text, status }) => {
-  console.log(sender, text, status);
   return (
     <motion.div
       initial={{ opacity: 0, y: "100%" }}

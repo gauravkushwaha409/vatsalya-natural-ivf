@@ -11,4 +11,5 @@ export interface IChatMessage {
   call_type?: string;
   created_at?: string;
   is_bot?: boolean;
+  suggestions?: string[];
 }
