@@ -7,7 +7,7 @@ import {
   IChatMessageHistoryResponse,
 } from "../interfaces/dto/message.type";
 import { FileTypes } from "../interfaces/file.types";
-
+import page from "@/app/(home)/page";
 export interface IMessage extends IChatMessage {
   status?: "sending" | "sent" | "failed" | "typing";
   sender: "user" | "bot" | "systemUser";
@@ -32,6 +32,7 @@ export const useChat = (token: string | null, room?: string) => {
     await refetch();
     const messagesData = data?.pages as IChatMessageHistoryResponse[];
     const messagesList: IMessage[] = [];
+    console.log(messagesData, "pagedata");
     if (messagesData && messagesData.length > 0) {
       messagesData?.forEach((page) => {
         page?.results?.data?.messages?.forEach((message) => {
@@ -68,7 +69,7 @@ export const useChat = (token: string | null, room?: string) => {
   useEffect(() => {
     fetchNextPage();
     appendHistoryToMessages();
-  }, []);
+  }, [data]);
 
   useEffect(() => {
     if (chatContainerRef.current) {
