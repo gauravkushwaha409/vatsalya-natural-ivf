@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { ILoginResponse } from "../interfaces/dto/loginDTO";
 
-interface IChatLoginFormData {
+export interface IChatLoginFormData {
   email: string;
   phone_no: string;
   firstname: string;

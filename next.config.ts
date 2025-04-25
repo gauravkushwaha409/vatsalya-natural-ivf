@@ -30,9 +30,13 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "http",
-        hostname: "192.168.1.100",
-        port: "5000",
-        pathname: "/images/**",
+        hostname: "192.168.1.97",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "api.nipali.com",
+        pathname: "/**",
       },
     ],
   },

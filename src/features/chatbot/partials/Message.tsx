@@ -1,35 +1,29 @@
 import { Loader2 } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
+import { IMessage } from "../hooks/useChat";
 
 type MessageProps = {
-  text: string;
-  sender: "user" | "bot" | "systemUser";
-  name?: string;
-  status?: "sending" | "sent" | "failed" | "typing";
-  senderDetails?: {
-    name: string;
-    image?: string;
-    sendTime?: string;
-  };
+  message: IMessage;
 };
 
-const Message: React.FC<MessageProps> = ({ sender, text, status }) => {
+const Message: React.FC<MessageProps> = ({ message }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: "100%" }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, bounce: 0.1 }}
       className={`w-full flex justify-start gap-[0.88rem]  items-end ${
-        sender == "user" ? " flex-row-reverse" : " flex-row"
+        message.sender == "user" ? " flex-row-reverse" : " flex-row"
       }
         ${status == "sending" ? "animate-pulse opacity-50" : ""}
          mb-2`}
     >
       <div className="relative">
-        {sender == "user" ? (
+        {message.sender == "user" ? (
           <div className="flex justify-center items-center bg-primary-400 rounded-full size-[1.75rem] font-semibold text-white text-sm">
-            {sender ? sender[0].toUpperCase() : ""}
+            {message.sender ? message.sender[0].toUpperCase() : ""}
           </div>
         ) : (
           <Image
@@ -48,12 +42,23 @@ const Message: React.FC<MessageProps> = ({ sender, text, status }) => {
       </div>
       <div
         className={`max-w-[70%] p-2.5 rounded-3xl ${
-          sender == "user"
+          message.sender == "user"
             ? "bg-primary-50 text-text-400 rounded-br-xs"
             : "bg-secondary-50 text-text-400 rounded-bl-xs"
         }`}
       >
-        <p className="typography-paragraph-regular">{text}</p>
+        {message.file && message.file_type == "image" && (
+          <Link href={message.file} target="_blank">
+            <Image
+              src={message.file}
+              alt="file"
+              width={100}
+              height={100}
+              className="mb-2 rounded-lg w-auto max-h-24"
+            />
+          </Link>
+        )}
+        <p className="typography-paragraph-regular">{message.message}</p>
       </div>
     </motion.div>
   );

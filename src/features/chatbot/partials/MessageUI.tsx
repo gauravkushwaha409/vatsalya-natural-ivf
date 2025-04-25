@@ -1,5 +1,6 @@
 "use client";
 
+import { useAppSelector } from "@/store/store";
 import { useChat } from "../hooks/useChat";
 import { useChatAuth } from "../hooks/useChatAuth";
 import ChatLoginForm from "./ChatLoginForm";
@@ -12,7 +13,8 @@ const MessageUI: React.FC<{ isOpen: boolean; closePopup: () => void }> = ({
   closePopup,
   isOpen,
 }) => {
-  const { isLoggedIn, token, roomName } = useChatAuth();
+  const isLoggedIn = useAppSelector((state) => state.chat.isLoggedIn);
+  const { token, roomName, handleLogin } = useChatAuth();
   const { sendMessage, messages, chatContainerRef, isSending, suggestions } =
     useChat(token, roomName);
 
@@ -45,7 +47,7 @@ const MessageUI: React.FC<{ isOpen: boolean; closePopup: () => void }> = ({
           </div>
         </>
       ) : (
-        <ChatLoginForm />
+        <ChatLoginForm handleLogin={handleLogin} />
       )}
     </div>
   );

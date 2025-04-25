@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { Image as ImageLogo, Send, X } from "lucide-react";
+import { Image as ImageLogo, Loader2, Send, X } from "lucide-react";
 import Image from "next/image";
 import React, { useRef } from "react";
 import useFile from "../hooks/useFile";
@@ -12,22 +12,24 @@ const MessageInput: React.FC<{
   ) => void;
   disabled: boolean;
 }> = ({ sendMessage, disabled }) => {
-  const { handleFileUpload } = useFile();
+  const { handleFileUpload, isUploading } = useFile();
+  const [imageUrl, setImageUrl] = React.useState<string | null>(null);
   const imageInputRef = useRef<HTMLInputElement>(null);
+
   const formik = useFormik({
     initialValues: {
       message: "",
       image: null as null | File,
     },
     onSubmit: async (values) => {
-      if (!values.image || values.message.trim().length < 1) return;
-      let fileUrl;
-      if (values.image) {
-        fileUrl = await handleFileUpload(values.image);
-      }
-      console.log(fileUrl, "file uploaded to this url");
-      if (fileUrl)
-        sendMessage(values.message, { file: fileUrl, type: "image" });
+      if ((!values.message && !values.image) || disabled) return;
+      await new Promise<void>((resolve) =>
+        setTimeout(() => {
+          if (!isUploading) resolve();
+        }, 80)
+      );
+      if (imageUrl)
+        sendMessage(values.message, { file: imageUrl, type: "image" });
       else sendMessage(values.message);
       formik.setFieldValue("message", "");
       formik.setFieldValue("image", null);
@@ -36,8 +38,8 @@ const MessageInput: React.FC<{
   });
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter" && !disabled) {
-      formik.handleSubmit();
+    if (e.key === "Enter" && !e.shiftKey) {
+      formik.submitForm();
     }
   };
 
@@ -57,9 +59,18 @@ const MessageInput: React.FC<{
               <button
                 type="button"
                 onClick={() => formik.setFieldValue("image", null)}
-                className="top-0 left-full absolute bg-primary-200 opacity-0 group-hover:opacity-100 p-0.5 rounded-full transition-all -translate-x-1/2 -translate-y-1/2 duration-200"
+                className={`top-0 left-full absolute bg-primary-200 group-hover:opacity-100 p-0.5 rounded-full transition-all -translate-x-1/2 -translate-y-1/2 duration-200 ${
+                  isUploading ? "opacity-100" : "opacity-0"
+                }`}
               >
-                <X className="text-secondary-500" size={12} />
+                {isUploading ? (
+                  <Loader2
+                    className="text-secondary-500 animate-spin"
+                    size={12}
+                  />
+                ) : (
+                  <X className="text-secondary-500" size={12} />
+                )}
               </button>
             </div>
           )}
@@ -78,10 +89,11 @@ const MessageInput: React.FC<{
         >
           <input
             ref={imageInputRef}
-            onChange={(e) => {
+            onChange={async (e) => {
               if (e.target.files && e.target.files[0]) {
                 formik.setFieldValue("image", e.target.files[0]);
-                console.log(e.target.files[0]);
+                const imageUrl = await handleFileUpload(e.target.files[0]);
+                if (imageUrl) setImageUrl(imageUrl);
               }
             }}
             disabled={disabled}
