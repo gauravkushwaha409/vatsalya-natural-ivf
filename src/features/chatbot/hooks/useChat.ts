@@ -2,12 +2,8 @@ import { useGetAllDataInfiniteQuery } from "@/api/api";
 import { BASE_CHATBOT_URL, BASE_SOCKET_URL } from "@/api/endpoints";
 import { useAppSelector } from "@/store/store";
 import { useEffect, useRef, useState } from "react";
-import {
-  IChatMessage,
-  IChatMessageHistoryResponse,
-} from "../interfaces/dto/message.type";
+import { IChatMessage } from "../interfaces/dto/message.type";
 import { FileTypes } from "../interfaces/file.types";
-import page from "@/app/(home)/page";
 export interface IMessage extends IChatMessage {
   status?: "sending" | "sent" | "failed" | "typing";
   sender: "user" | "bot" | "systemUser";
@@ -15,9 +11,10 @@ export interface IMessage extends IChatMessage {
 
 export const useChat = (token: string | null, room?: string) => {
   const { user, room: roomData } = useAppSelector((state) => state.chat);
-  const { data, fetchNextPage, refetch } = useGetAllDataInfiniteQuery({
-    url: `${BASE_CHATBOT_URL}/chat/rooms/${roomData?.id}/`,
-  });
+  const { data, fetchNextPage, refetch, isFetchingNextPage, hasNextPage } =
+    useGetAllDataInfiniteQuery({
+      url: `${BASE_CHATBOT_URL}/chat/rooms/${roomData?.id}/`,
+    });
   const userName = user?.firstname + " " + user?.lastname;
   const userId = user?.id;
   const [isSending, setIsMessageSending] = useState(false);
@@ -28,60 +25,61 @@ export const useChat = (token: string | null, room?: string) => {
   const [isConnected, setIsConnected] = useState(false);
   const socketRef = useRef<WebSocket | null>(null);
 
-  const appendHistoryToMessages = async () => {
+  const fetchMoreDataAndUpdateMessages = async () => {
     await refetch();
-    const messagesData = data?.pages as IChatMessageHistoryResponse[];
-    const messagesList: IMessage[] = [];
-    console.log(messagesData, "pagedata");
-    if (messagesData && messagesData.length > 0) {
-      messagesData?.forEach((page) => {
-        page?.results?.data?.messages?.forEach((message) => {
-          const transformedMessage: IMessage = {
-            message: message.message,
-            sender:
-              message.sender === userId
-                ? "user"
-                : message.is_bot
-                ? "bot"
-                : "systemUser",
-            sender_id: message.sender,
-            sender_name: "",
-            room_id: message.room,
-            room_name: roomData?.name || "",
-            avatar: "",
-            file: message.file,
-            file_type: message.file_type,
-            type: "chat_message",
-            status: message.sender === userId ? "sent" : undefined,
-            created_at: message.created_at,
-            is_bot: message.is_bot,
-            call_type: message.call_type,
-          };
-          messagesList.push(transformedMessage);
-        });
-      });
-      console.log(messagesList, "sdfjkdsljflksdjklfj");
-      setMessages([...messagesList]);
+    await fetchNextPage();
+    setMessages(() => {
+      const allMsgs: IMessage[] = (data?.pages ?? [])
+        .flatMap((page) => {
+          return page.results?.data;
+        })
+        .sort(
+          (a, b) =>
+            new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+        )
+        .map((msg) => ({
+          message: msg?.message,
+          sender:
+            msg?.sender === userId
+              ? "user"
+              : msg?.is_bot
+              ? "bot"
+              : "systemUser",
+          sender_id: msg?.sender,
+          sender_name: "",
+          room_id: msg?.room,
+          room_name: roomData?.name || "",
+          avatar: "",
+          file: msg?.file,
+          file_type: msg?.file_type,
+          type: "chat_message",
+          status: msg?.sender === userId ? "sent" : undefined,
+          created_at: msg?.created_at,
+          is_bot: msg?.is_bot,
+          call_type: msg?.call_type,
+        }));
+      return [...allMsgs];
+    });
+  };
+
+  const handleFetchMoreData = async () => {
+    if (!hasNextPage) return;
+    if (chatContainerRef.current) {
+      const container = chatContainerRef.current;
+      const previousScrollHeight = container.scrollHeight;
+      const previousScrollTop = container.scrollTop;
+
+      await fetchMoreDataAndUpdateMessages();
+
+      const newScrollHeight = container.scrollHeight;
+      const scrollDifference = newScrollHeight - previousScrollHeight;
+
+      container.scrollTop = previousScrollTop + scrollDifference;
+    } else {
+      fetchMoreDataAndUpdateMessages();
     }
   };
 
-  // fetch and populate messages on initial load
-  useEffect(() => {
-    fetchNextPage();
-    appendHistoryToMessages();
-  }, [data]);
-
-  useEffect(() => {
-    if (chatContainerRef.current) {
-      setTimeout(() => {
-        chatContainerRef.current?.scrollTo(
-          0,
-          chatContainerRef.current.scrollHeight
-        );
-      }, 1);
-    }
-  }, [messages]);
-  // Effect to handle socket connection and message handling
   useEffect(() => {
     if (!token || !room) {
       console.warn("Missing token or room. WebSocket not initialized.");
@@ -145,6 +143,12 @@ export const useChat = (token: string | null, room?: string) => {
           } else {
             setMessages((prev) => [...prev, data]);
           }
+          setTimeout(() => {
+            chatContainerRef.current?.scrollTo(
+              0,
+              chatContainerRef.current.scrollHeight
+            );
+          }, 1);
         }
       } catch (error) {
         console.error("Failed to parse message", error);
@@ -208,6 +212,12 @@ export const useChat = (token: string | null, room?: string) => {
       return [...prev, newData];
     });
     setIsMessageSending(true);
+    setTimeout(() => {
+      chatContainerRef.current?.scrollTo(
+        0,
+        chatContainerRef.current.scrollHeight
+      );
+    }, 1);
     try {
       if (socketRef.current?.readyState === WebSocket.OPEN) {
         socketRef.current.send(payload);
@@ -244,5 +254,7 @@ export const useChat = (token: string | null, room?: string) => {
     chatContainerRef,
     isSending,
     suggestions,
+    fetchNextPage: handleFetchMoreData,
+    isFetchingNextPage,
   };
 };

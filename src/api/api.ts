@@ -108,7 +108,7 @@ export const apiSlice = createApi({
       query: ({ pageParam: { page, size }, queryArg: { url, params } }) => ({
         url,
         method: "GET",
-        params: { ...params, p: page, pageSize: size },
+        params: { ...params, p: page, page_size: size },
       }),
       providesTags: (_, __, { tag }) =>
         tag ? [{ type: "Data", id: tag }] : [],

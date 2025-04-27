@@ -28,9 +28,10 @@ const MessageInput: React.FC<{
           if (!isUploading) resolve();
         }, 80)
       );
-      if (imageUrl)
+      if (imageUrl) {
         sendMessage(values.message, { file: imageUrl, type: "image" });
-      else sendMessage(values.message);
+        setImageUrl(null);
+      } else sendMessage(values.message);
       formik.setFieldValue("message", "");
       formik.setFieldValue("image", null);
       if (imageInputRef.current) imageInputRef.current.value = "";
@@ -39,7 +40,8 @@ const MessageInput: React.FC<{
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
-      formik.submitForm();
+      e.preventDefault();
+      formik.handleSubmit();
     }
   };
 
@@ -79,6 +81,8 @@ const MessageInput: React.FC<{
             placeholder="Type your message..."
             {...formik.getFieldProps("message")}
             onKeyDown={handleKeyDown}
+            autoComplete="off"
+            autoFocus
             className="flex-1 py-4 pl-5 rounded-full outline-0 focus:outline-none h-max"
           />
         </div>
