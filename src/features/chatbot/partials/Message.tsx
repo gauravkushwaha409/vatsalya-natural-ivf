@@ -17,7 +17,7 @@ const Message: React.FC<MessageProps> = ({ message }) => {
       className={`w-full flex justify-start gap-[0.88rem]  items-end ${
         message.sender == "user" ? " flex-row-reverse" : " flex-row"
       }
-        ${status == "sending" ? "animate-pulse opacity-50" : ""}
+        ${message.status == "sending" ? "animate-pulse opacity-50" : ""}
          mb-2`}
     >
       <div className="relative">
