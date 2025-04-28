@@ -14,10 +14,10 @@ const Herosection = () => {
           className="top-0 z-10 absolute brightness-50 w-full h-full object-cover"
         />
         <div className="top-5 left-1/2 z-30 absolute -translate-x-1/2 transform">
-          <Breadcrumb name="OurExperts" baseName="Home" />
+          <Breadcrumb name="Our Team" baseName="Home" />
         </div>
         <div className="top-1/3 left-0 lg:left-1/2 z-10 absolute px-5 text-white text-center translate-x-0 lg:-translate-x-1/2 transform">
-          <h1 className="pb-5 font-bold typography-h1">Our Experts</h1>
+          <h1 className="pb-5 font-bold typography-h1">Our Team</h1>
           <p className="font-normal !text-text-50 typography-paragraph-regular">
             Our team of experts is dedicated to providing advanced fertility
             care with compassion and precision, guiding you on your journey to
