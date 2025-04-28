@@ -99,7 +99,6 @@ export const useChat = (token: string | null, room?: string) => {
     };
   }, [token, room, url, userId]);
 
-  // effect to handle socket events
   useEffect(() => {
     const socket = socketRef.current;
     if (!socket) return;
