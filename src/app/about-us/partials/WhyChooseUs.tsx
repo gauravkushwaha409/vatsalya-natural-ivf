@@ -8,30 +8,30 @@ type data = {
 const WhyChooseUs: React.FC<data> = ({ data }) => {
   return (
     <div className="pb-16 lg:pb-24 padding">
-      <div className="flex flex-col items-center text-center space-y-4">
-        <div className="flex items-center w-full justify-center gap-4 max-w-3xl">
+      <div className="flex flex-col items-center space-y-4 text-center">
+        <div className="flex justify-center items-center gap-4 w-full max-w-3xl">
           {/* line  */}
-          <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
+          <div className="flex-1 bg-primary-400 max-w-[148px] h-px"></div>
 
-          <h2 className="text-primary-500 text-sm lg:text-base font-bold tracking-widest uppercase leading-[24px]">
+          <h2 className="font-bold text-primary-500 text-sm lg:text-base uppercase leading-[24px] tracking-widest">
             {data?.title}
           </h2>
           {/* line  */}
-          <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
+          <div className="flex-1 bg-primary-400 max-w-[148px] h-px"></div>
         </div>
 
-        <h2 className="typography-h2 font-semibold tracking-tight ">
+        <h2 className="font-semibold tracking-tight typography-h2">
           {data?.subtitle}
         </h2>
 
-        <div className="flex flex-col lg:flex-row justify-between gap-6 mt-4">
-          <div className="grid grid-cols-2 gap-6">
+        <div className="flex lg:flex-row flex-col justify-between gap-6 mt-4">
+          <div className="gap-6 grid grid-cols-2">
             {data?.WhyusDetail?.map((data) => (
               <div
                 key={data.id}
-                className="flex flex-col lg:flex-row items-center lg:items-start gap-4 border border-secondary-50 px-4 py-5 rounded-[14px] h-fit"
+                className="flex lg:flex-row flex-col items-center lg:items-start gap-4 px-3 py-4 border border-secondary-50 rounded-[14px] h-fit"
               >
-                <div className="w-[80px] h-[80px]">
+                <div className="size-[3.75rem] shrink-0">
                   <Image
                     src={data.icon}
                     alt={data.question}
@@ -41,11 +41,11 @@ const WhyChooseUs: React.FC<data> = ({ data }) => {
                   />
                 </div>
                 <div className="lg:text-left">
-                  <h5 className="text-secondary-500 typography-h4 mb-2">
+                  <h5 className="mb-2 font-medium text-secondary-500 typography-h4">
                     {data.question}
                   </h5>
                   <p
-                    className="text-text-400 typography-paragraph-large font-medium leading-[150%]"
+                    className="font-medium text-text-400 leading-[150%] typography-paragraph-regular"
                     dangerouslySetInnerHTML={{ __html: data.answer || "" }}
                   />
                 </div>
@@ -54,7 +54,7 @@ const WhyChooseUs: React.FC<data> = ({ data }) => {
           </div>
 
           {/* Video Section */}
-          <div className="rounded-[8.44px] w-full lg:w-1/2 h-auto lg:h-[320px]">
+          <div className="rounded-[8.44px] w-full lg:w-3/4 h-auto lg:h-[21.875rem]">
             <iframe
               width="560"
               height="315"
@@ -62,7 +62,7 @@ const WhyChooseUs: React.FC<data> = ({ data }) => {
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              className="w-full h-[250px] sm:h-[350px] lg:h-full rounded-[8.44px] object-cover"
+              className="rounded-[8.44px] w-full h-[250px] sm:h-[350px] lg:h-full object-cover"
             ></iframe>
           </div>
         </div>
