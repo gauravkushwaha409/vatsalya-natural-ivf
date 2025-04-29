@@ -41,6 +41,14 @@ const FertilityStageSelection = () => {
       <div>
         <div className="relative flex flex-col justify-center items-center w-full overflow-hidden">
           {/* Background Image with Overlay */}
+          <div className="flex justify-center items-center gap-3 pb-4">
+            <div className="bg-primary-400 w-[148px] h-px"></div>
+
+            <span className="font-bold text-primary-500 uppercase tracking-widest typography-paragraph-regular">
+              Stage of Fertility
+            </span>
+            <div className="bg-primary-400 w-[148px] h-px"></div>
+          </div>
 
           {/* Content */}
           {/* <div className="z-10 relative flex flex-col justify-center items-center bg-white/30 backdrop-blur-sm mx-3 p-16 md:px-20 rounded-2xl text-white text-center"> */}
