@@ -1,8 +1,7 @@
-import React from "react";
+import ErrorMessage from "@/components/ErrorMessage";
+import FertilityStageSelection from "./partials/FertilityStageSelection";
 import Herosection from "./partials/Herosection";
 import Services from "./partials/Services";
-import CallToActions from "./partials/CallToActions";
-import ErrorMessage from "@/components/ErrorMessage";
 import Tests from "./partials/Tests";
 export const dynamic = "force-dynamic";
 const ServicePage = () => {
@@ -12,7 +11,8 @@ const ServicePage = () => {
         <Herosection />
         <Services />
         <Tests />
-        <CallToActions />
+        <FertilityStageSelection />
+        {/* <CallToActions /> */}
       </section>
     );
   } catch (error) {

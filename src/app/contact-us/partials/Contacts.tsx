@@ -1,12 +1,12 @@
 "use client";
+import { useContactForm } from "@/hooks/contact/useContact";
+import Link from "next/link";
 import {
-  FaPhoneAlt,
+  FaClock,
   FaEnvelope,
   FaMapMarkerAlt,
-  FaClock,
+  FaPhoneAlt,
 } from "react-icons/fa";
-import React from "react";
-import { useContactForm } from "@/hooks/contact/useContact";
 
 const Contacts = () => {
   const { settingData } = useContactForm();
@@ -18,6 +18,7 @@ const Contacts = () => {
       type: "Phone",
       icon: <FaPhoneAlt className="text-secondary-400" size={20} />,
       label: "Contact No.",
+      link: setting?.phoneNumber && `tel:${setting?.phoneNumber[0]}`,
       value: setting?.phoneNumber?.join(", "),
     },
     {
@@ -25,6 +26,7 @@ const Contacts = () => {
       type: "Email",
       icon: <FaEnvelope className="text-secondary-400" size={24} />,
       label: "Email",
+      link: setting?.email && `mailto:${setting?.email[0]}`,
       value: setting?.email?.join(", "),
     },
     {
@@ -43,19 +45,29 @@ const Contacts = () => {
     },
   ];
   return (
-    <section className="grid grid-cols-2 lg:grid-cols-4 justify-start  gap-10 lg:gap-2 pb-10">
-      {contactData?.map(({ id, icon, label, value }) => (
+    <section className="justify-start gap-10 lg:gap-2 grid grid-cols-2 lg:grid-cols-4 pb-10">
+      {contactData?.map(({ id, icon, label, value, link }) => (
         <div
           key={id}
           className="flex flex-col justify-center items-center gap-1"
         >
-          <div className="bg-secondary-200/40 h-12 w-12 rounded-full  flex justify-center items-center">
+          <div className="flex justify-center items-center bg-secondary-200/40 rounded-full w-12 h-12">
             {icon}
           </div>
-          <span className="text-secondary-600 font-semibold mt-2">{label}</span>
-          <span className="text-text-400 typography-paragraph-regular">
-            {value}
-          </span>
+          <span className="mt-2 font-semibold text-secondary-600">{label}</span>
+          {link ? (
+            <Link
+              href={link}
+              target="_blank"
+              className="text-text-400 typography-paragraph-regular"
+            >
+              {value}
+            </Link>
+          ) : (
+            <span className="text-text-400 typography-paragraph-regular">
+              {value}
+            </span>
+          )}
         </div>
       ))}
     </section>
