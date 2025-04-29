@@ -50,6 +50,63 @@ const Specialists: React.FC<SpecialistsProps> = ({ data }) => {
         <p className="mb-10 pt-4 font-semibold text-text-500 text-center typography-h3">
           A team of experts dedicated to your parenthood journey
         </p> */}
+        {activeTab === "bod" && (
+          <div className="flex md:flex-row flex-col gap-10 col-span-2 sm:col-span-3 lg:col-span-4">
+            <div
+              className="relative rounded-tl-[50px] rounded-br-[50px] w-[18.125rem] aspect-[290/336] overflow-hidden shrink-0"
+              // style={{
+              //   background:
+              //     "linear-gradient(to right, #EBC0DB 0%, #FFD2CE 100%)",
+              // }}
+            >
+              <Image
+                src="/team/director.png"
+                alt="heropic"
+                width={1920}
+                height={1080}
+                className="z-10 absolute w-full h-full object-cover"
+              />
+              {/* <div className="top-10 -right-3 z-0 absolute h-36">
+                <Image
+                  src={buterflysvg}
+                  alt="heropic"
+                  width={1920}
+                  height={1080}
+                  className="w-full h-full"
+                />
+              </div> */}
+            </div>
+            <div className="space-y-[0.88rem]">
+              <h2 className="font-bold leading-[150%] typography-h2">
+                Mr. Prashant Subedi{" "}
+              </h2>
+              <p className="font-semibold text-text-500 typography-h4">
+                Managing Director
+              </p>
+              <p className="text-text-400 leading-[150%] typography-paragraph-small">
+                Mr. Prashant Subedi leads Vatsalya with a clear and inspiring
+                vision rooted in excellence, compassion, and innovation within
+                the healthcare sector. As the Managing Director, he plays a
+                pivotal role in shaping the organization’s strategic direction
+                and culture. With years of comprehensive leadership experience
+                in healthcare management, Mr. Subedi combines business acumen
+                with a profound sense of empathy, ensuring that the values of
+                integrity, transparency, and patient-centric care remain at the
+                heart of everything Vatsalya does. Under his dynamic leadership,
+                <br />
+                Vatsalya has evolved from a promising healthcare center into a
+                nationally recognized name in fertility and wellness services.
+                His deep commitment to delivering accessible, ethical, and
+                world-class medical care has not only enhanced the quality of
+                services but also established a strong foundation of trust with
+                patients and their families. By fostering a collaborative work
+                environment and investing in continuous professional
+                development, Mr. Subedi empowers his team to excel and innovate
+                in their respective fields.
+              </p>
+            </div>
+          </div>
+        )}
 
         <div className="flex p-2 border border-secondary-50 rounded-full max-w-full">
           {tabs.map((tab) => (
@@ -77,7 +134,7 @@ const Specialists: React.FC<SpecialistsProps> = ({ data }) => {
         key={activeTab}
         className="gap-x-10 gap-y-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 my-10"
       >
-        {activeTab === "bod" && (
+        {/* {activeTab === "bod" && (
           <div className="flex md:flex-row flex-col gap-10 col-span-2 sm:col-span-3 lg:col-span-4">
             <div
               className="relative rounded-tl-[50px] rounded-br-[50px] w-[18.125rem] aspect-[290/336] overflow-hidden shrink-0"
@@ -125,7 +182,7 @@ const Specialists: React.FC<SpecialistsProps> = ({ data }) => {
               </p>
             </div>
           </div>
-        )}
+        )} */}
         {data?.records?.map((items: IOurExpertsRecord, index: number) => (
           <div
             key={items?.id}

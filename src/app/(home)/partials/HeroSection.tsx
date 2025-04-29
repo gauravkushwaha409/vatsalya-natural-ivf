@@ -15,7 +15,7 @@ type HomeProps = {
   data?: IHomeData;
 };
 const HeroSection: React.FC<HomeProps> = ({ data }) => {
-  const text = "Journey to <parenthood,> /b Naturally and Compassionately";
+  const text = "Journey to <Parenthood,> /b Naturally and Compassionately";
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
   const handleAppointmentClick = () => {

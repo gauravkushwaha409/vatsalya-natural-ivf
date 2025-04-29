@@ -1,50 +1,153 @@
+import Image from "next/image";
 
 const Tests = () => {
   return (
     <div className="grid grid-cols-2 my-10 divide-x padding">
       <div>
-        <h1 className="pb-4 font-medium text-primary-500 typography-h2">
+        <h1 className="pb-4 font-bold text-primary-500 typography-h4">
           Tests for men
         </h1>
-        <ul className="space-y-[0.66rem] pr-5 pl-5 text-text-400 list-disc typography-paragraph-regular">
-          <li>Blood Tests – for hormone level and ovulation check</li>
-          <li>
-            Hysterosalpingography – to check possible fallopian tubal blockage
+        <ul className="space-y-[0.66rem] pr-5 text-text-400 list-disc typography-paragraph-regular">
+          <li className="flex items-center gap-3">
+            <div className="bg-[#FFD2EE] p-1 rounded-full size-8">
+              <Image
+                src={"/svg/trophy.svg"}
+                alt={`troubleConceiving`}
+                className="w-full h-full"
+                width={400}
+                height={400}
+              />
+            </div>
+            <span className="font-bold">Blood Tests</span> – for hormone level
+            and ovulation check
           </li>
-          <li>
-            Hysteroscopy – view reproductive organs internally with camera
-            attached to flexible tube
+          <li className="flex items-center gap-3">
+            <div className="bg-[#FFD2EE] p-1 rounded-full size-8">
+              <Image
+                src={"/svg/trophy.svg"}
+                alt={`troubleConceiving`}
+                className="w-full h-full"
+                width={400}
+                height={400}
+              />
+            </div>
+            <span className="font-bold">Blood Tests</span> – for hormone level
+            and ovulation check
           </li>
-          <li>
-            Ovarian Reserve Testing – finds out how effective eggs are after
-            ovulation
+          <li className="flex items-center gap-3">
+            <div className="bg-[#FFD2EE] p-1 rounded-full size-8">
+              <Image
+                src={"/svg/trophy.svg"}
+                alt={`troubleConceiving`}
+                className="w-full h-full"
+                width={400}
+                height={400}
+              />
+            </div>
+            <span className="font-bold">Blood Tests</span> – for hormone level
+            and ovulation check
           </li>
-          {/* <li>
-            Chlamydia Test – to check for sexually transmitted bacterial
-            infection
-          </li> */}
+          <li className="flex items-center gap-3">
+            <div className="bg-[#FFD2EE] p-1 rounded-full size-8">
+              <Image
+                src={"/svg/trophy.svg"}
+                alt={`troubleConceiving`}
+                className="w-full h-full"
+                width={400}
+                height={400}
+              />
+            </div>
+            <span className="font-bold">Blood Tests</span> – for hormone level
+            and ovulation check
+          </li>
+          <li className="flex items-center gap-3">
+            <div className="bg-[#FFD2EE] p-1 rounded-full size-8">
+              <Image
+                src={"/svg/trophy.svg"}
+                alt={`troubleConceiving`}
+                className="w-full h-full"
+                width={400}
+                height={400}
+              />
+            </div>
+            <span className="font-bold">Blood Tests</span> – for hormone level
+            and ovulation check
+          </li>
         </ul>
       </div>
       <div className="pl-10">
-        <h1 className="pb-4 font-medium text-primary-500 typography-h2">
+        <h1 className="pb-4 font-bold text-primary-500 typography-h4">
           Tests for women
         </h1>
-        <ul className="space-y-[0.66rem] pl-5 text-text-400 list-disc typography-paragraph-regular">
-          <li>
-            Semen Analysis – used to test sperm concentration, motility,etc.
+        <ul className="space-y-[0.66rem] pr-5 text-text-400 list-disc typography-paragraph-regular">
+          <li className="flex items-center gap-3">
+            <div className="bg-[#FFD2EE] p-1 rounded-full size-8">
+              <Image
+                src={"/svg/trophy.svg"}
+                alt={`troubleConceiving`}
+                className="w-full h-full"
+                width={400}
+                height={400}
+              />
+            </div>
+            <span className="font-bold">Blood Tests</span> – for hormone level
+            and ovulation check
           </li>
-          <li>Blood Test – for hormone and testosterone level</li>
-          <li>
-            Ultrasound – to reveal issues such as ejaculatory duct obstruction
-            or retrograde ejaculation
+          <li className="flex items-center gap-3">
+            <div className="bg-[#FFD2EE] p-1 rounded-full size-8">
+              <Image
+                src={"/svg/trophy.svg"}
+                alt={`troubleConceiving`}
+                className="w-full h-full"
+                width={400}
+                height={400}
+              />
+            </div>
+            <span className="font-bold">Blood Tests</span> – for hormone level
+            and ovulation check
           </li>
-          <li>
-            Chlamydia Test – to check for sexually transmitted bacterial
-            infection
+          <li className="flex items-center gap-3">
+            <div className="bg-[#FFD2EE] p-1 rounded-full size-8">
+              <Image
+                src={"/svg/trophy.svg"}
+                alt={`troubleConceiving`}
+                className="w-full h-full"
+                width={400}
+                height={400}
+              />
+            </div>
+            <span className="font-bold">Blood Tests</span> – for hormone level
+            and ovulation check
+          </li>
+          <li className="flex items-center gap-3">
+            <div className="bg-[#FFD2EE] p-1 rounded-full size-8">
+              <Image
+                src={"/svg/trophy.svg"}
+                alt={`troubleConceiving`}
+                className="w-full h-full"
+                width={400}
+                height={400}
+              />
+            </div>
+            <span className="font-bold">Blood Tests</span> – for hormone level
+            and ovulation check
+          </li>
+          <li className="flex items-center gap-3">
+            <div className="bg-[#FFD2EE] p-1 rounded-full size-8">
+              <Image
+                src={"/svg/trophy.svg"}
+                alt={`troubleConceiving`}
+                className="w-full h-full"
+                width={400}
+                height={400}
+              />
+            </div>
+            <span className="font-bold">Blood Tests</span> – for hormone level
+            and ovulation check
           </li>
         </ul>
       </div>
     </div>
   );
-}
-export default Tests
+};
+export default Tests;
