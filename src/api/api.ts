@@ -20,11 +20,30 @@ interface IUpdateDataArgs {
   options?: any;
   invalidateTag?: string;
 }
+
 interface IDeleteDataArgs {
   url: string;
   body?: any;
   options?: any;
   invalidates?: string[];
+}
+
+type InitialPageParam = {
+  page: number;
+  size: number;
+};
+export interface PaginatedResponse<T> {
+  links: Links;
+  total_items: number;
+  total_pages: number;
+  current_page: number;
+  page_size: number;
+  results: T;
+}
+
+export interface Links {
+  next: string;
+  previous: string;
 }
 
 const baseQuery = fetchBaseQuery({
@@ -81,6 +100,45 @@ export const apiSlice = createApi({
           ? invalidates.map((tag: string) => ({ type: "Data", id: tag }))
           : [],
     }),
+    getAllData: builder.infiniteQuery<
+      PaginatedResponse<any>,
+      IGetDataArgs,
+      InitialPageParam
+    >({
+      query: ({ pageParam: { page, size }, queryArg: { url, params } }) => ({
+        url,
+        method: "GET",
+        params: { ...params, p: page, page_size: size },
+      }),
+      providesTags: (_, __, { tag }) =>
+        tag ? [{ type: "Data", id: tag }] : [],
+      infiniteQueryOptions: {
+        initialPageParam: {
+          page: 1,
+          size: 10,
+        },
+        getNextPageParam: (lastPage) => {
+          const nextPage = lastPage.links.next;
+          if (nextPage) {
+            return {
+              page: lastPage.current_page + 1,
+              size: lastPage.page_size,
+            };
+          }
+          return undefined;
+        },
+        getPreviousPageParam: (lastPage) => {
+          const prevPage = lastPage?.links.previous;
+          if (prevPage) {
+            return {
+              page: lastPage.current_page - 1,
+              size: lastPage.page_size,
+            };
+          }
+          return undefined;
+        },
+      },
+    }),
   }),
 });
 
@@ -89,4 +147,5 @@ export const {
   usePostDataMutation,
   useUpdateDataMutation,
   useDeleteDataMutation,
+  useGetAllDataInfiniteQuery,
 } = apiSlice;

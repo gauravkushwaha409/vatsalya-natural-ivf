@@ -1,7 +1,10 @@
 import Image from "next/image";
 import React from "react";
 
-const Header: React.FC<{ onClose: () => void }> = ({ onClose }) => {
+const Header: React.FC<{ onClose: () => void; isConnected: boolean }> = ({
+  onClose,
+  isConnected,
+}) => {
   return (
     <div className="flex items-center gap-2 bg-secondary-50 p-6">
       <div className="bg-primary-50 rounded-full w-10 h-10">
@@ -15,10 +18,17 @@ const Header: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       </div>
       <div className="flex flex-col">
         <h4 className="font-semibold text-primary-900">Vatsalya Bot</h4>
-        <p className="flex items-center gap-1 text-primary-500 text-xs">
-          <span className="inline-block bg-green-400 rounded-full size-2" />
-          Active
-        </p>
+        {isConnected ? (
+          <p className="flex items-center gap-1 text-primary-500 text-xs">
+            <span className="inline-block bg-green-400 rounded-full size-2" />
+            Active
+          </p>
+        ) : (
+          <p className="flex items-center gap-1 opacity-70 grayscale-25 text-primary-500 text-xs">
+            <span className="inline-block bg-red-500 rounded-full size-2" />
+            Inactive
+          </p>
+        )}
       </div>
       <div className="flex ml-auto">
         <button

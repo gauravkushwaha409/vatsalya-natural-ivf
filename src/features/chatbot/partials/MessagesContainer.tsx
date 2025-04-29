@@ -8,12 +8,7 @@ const MessagesContainer: React.FC<{ messages: IMessage[] }> = ({
   return (
     <div className="space-y-5 mb-4 px-1.5 pt-4 w-full h-max overflow-y-hidden">
       {messages?.map((message, index) => (
-        <Message
-          key={index}
-          text={message?.message}
-          sender={message.sender}
-          status={message.status}
-        />
+        <Message key={index} message={message} />
       ))}
     </div>
   );

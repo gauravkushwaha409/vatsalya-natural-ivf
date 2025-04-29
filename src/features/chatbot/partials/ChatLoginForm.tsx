@@ -1,10 +1,10 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useChatAuth } from "../hooks/useChatAuth";
+import { IChatLoginFormData } from "../hooks/useChatAuth";
 
-const ChatLoginForm = () => {
-  const { handleLogin } = useChatAuth();
-
+const ChatLoginForm: React.FC<{
+  handleLogin: (formData: IChatLoginFormData) => void;
+}> = ({ handleLogin }) => {
   const formik = useFormik({
     initialValues: {
       email: "",

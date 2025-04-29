@@ -1,8 +1,12 @@
 "use client";
 
+import { useAppSelector } from "@/store/store";
+import { Loader2 } from "lucide-react";
+import { motion } from "motion/react";
 import { useChat } from "../hooks/useChat";
 import { useChatAuth } from "../hooks/useChatAuth";
 import ChatLoginForm from "./ChatLoginForm";
+import ChatSuggestion from "./ChatSuggestion";
 import Header from "./Header";
 import MessageInput from "./MessageInput";
 import MessagesContainer from "./MessagesContainer";
@@ -11,11 +15,18 @@ const MessageUI: React.FC<{ isOpen: boolean; closePopup: () => void }> = ({
   closePopup,
   isOpen,
 }) => {
-  const { isLoggedIn, token, roomName } = useChatAuth();
-  const { sendMessage, messages, chatContainerRef, isSending } = useChat(
-    token,
-    roomName
-  );
+  const isLoggedIn = useAppSelector((state) => state.chat.isLoggedIn);
+  const { token, roomName, handleLogin } = useChatAuth();
+  const {
+    sendMessage,
+    messages,
+    chatContainerRef,
+    isSending,
+    suggestions,
+    fetchNextPage,
+    isFetchingNextPage,
+    isConnected,
+  } = useChat(token, roomName);
 
   return (
     <div
@@ -30,18 +41,37 @@ const MessageUI: React.FC<{ isOpen: boolean; closePopup: () => void }> = ({
       }}
       className="flex flex-col border rounded-[1.25rem] min-w-[25rem] h-[40rem] max-h-[calc(100vh-10rem)] overflow-hidden"
     >
-      <Header onClose={closePopup} />
+      <Header isConnected={isConnected} onClose={closePopup} />
+
       {isLoggedIn ? (
         <>
           <div ref={chatContainerRef} className="flex-1 px-1.5 overflow-y-auto">
+            <motion.div
+              onViewportEnter={fetchNextPage}
+              className="flex justify-center items-center"
+            >
+              {isFetchingNextPage ? (
+                <>
+                  <Loader2 className="text-primary-500 animate-spin" />
+                  <span className="text-primary-500 text-xs">Loading...</span>
+                </>
+              ) : (
+                ""
+              )}
+            </motion.div>
             <MessagesContainer messages={messages} />
           </div>
+          <ChatSuggestion
+            sendMessage={sendMessage}
+            suggestions={suggestions}
+            disabled={isSending}
+          />
           <div className="shrink-0">
             <MessageInput disabled={isSending} sendMessage={sendMessage} />
           </div>
         </>
       ) : (
-        <ChatLoginForm />
+        <ChatLoginForm handleLogin={handleLogin} />
       )}
     </div>
   );

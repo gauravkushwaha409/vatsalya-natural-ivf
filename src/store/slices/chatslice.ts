@@ -10,19 +10,17 @@ interface ChatState {
 }
 
 const getinitialState = (): ChatState => {
- 
-    if (typeof window !== "undefined") {
-      const token = localStorage.getItem("chatbot_token");
-      const user = localStorage.getItem("chatbot_user");
-      const room = localStorage.getItem("chatbot_room");
-      return {
-        token: token ? token : null,
-        user: user ? JSON.parse(user) : null,
-        room: room ? JSON.parse(room) : null,
-        isLoggedIn: token ? true : false,
-        messages: [],
-      };
-    
+  if (typeof window !== "undefined") {
+    const token = sessionStorage.getItem("chatbot_token");
+    const user = sessionStorage.getItem("chatbot_user");
+    const room = sessionStorage.getItem("chatbot_room");
+    return {
+      token: token ? token : null,
+      user: user ? JSON.parse(user) : null,
+      room: room ? JSON.parse(room) : null,
+      isLoggedIn: token ? true : false,
+      messages: [],
+    };
   } else {
     return {
       token: null,
@@ -33,7 +31,6 @@ const getinitialState = (): ChatState => {
     };
   }
 };
-
 
 const chatSlice = createSlice({
   name: "chat",
@@ -49,9 +46,11 @@ const chatSlice = createSlice({
     ) => {
       const { token, user, room } = action.payload;
       try {
-        localStorage.setItem("chatbot_token", token);
-        localStorage.setItem("chatbot_user", JSON.stringify(user));
-        localStorage.setItem("chatbot_room", JSON.stringify(room));
+        // store data in sessionStorage
+        sessionStorage.setItem("chatbot_token", token);
+        sessionStorage.setItem("chatbot_user", JSON.stringify(user));
+        sessionStorage.setItem("chatbot_room", JSON.stringify(room));
+
         // Set the state with the received data
         state.token = token;
         state.user = user;
@@ -62,9 +61,9 @@ const chatSlice = createSlice({
       }
     },
     logoutFromChatBot: (state) => {
-      localStorage.removeItem("chatbot_token");
-      localStorage.removeItem("chatbot_user");
-      localStorage.removeItem("chatbot_room");
+      sessionStorage.removeItem("chatbot_token");
+      sessionStorage.removeItem("chatbot_user");
+      sessionStorage.removeItem("chatbot_room");
       state.isLoggedIn = false;
       state.user = null;
       state.room = null;

@@ -251,7 +251,7 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
                 <div className="flex justify-end col-span-2">
                   <button
                     type="submit"
-                    className="bg-secondary-500 hover:bg-secondary-600 px-10 py-4 rounded-full text-white typography-paragraph-regular"
+                    className="bg-secondary-500 hover:bg-secondary-600 px-10 py-4 rounded-full text-white cursor-pointer typography-paragraph-regular"
                   >
                     Next
                   </button>
