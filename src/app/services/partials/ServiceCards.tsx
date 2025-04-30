@@ -16,34 +16,6 @@ const ServiceCards: React.FC<IServiceCards> = ({ data }) => {
 
   return (
     <section className="padding">
-      <div className="flex flex-col items-center">
-        <div className="flex justify-center items-center gap-4 w-full">
-          {/* line  */}
-          <div className="flex-1 bg-primary-400 max-w-[148px] h-px"></div>
-
-          <h2 className="font-bold text-primary-500 text-sm md:text-base uppercase leading-[24px] tracking-widest">
-            {`Our Services`}
-          </h2>
-          {/* line  */}
-          <div className="flex-1 bg-primary-400 max-w-[148px] h-px"></div>
-        </div>
-        <p className="pt-4 font-semibold text-text-500 typography-h3">
-          {` Services We’re Providing`}
-        </p>
-        <p className="mx-auto pt-4 max-w-[95.5%] text-text-400 text-center leading-[150%] typography-paragraph-regular">
-          Discovering Parenthood with IVF at Vatsalya Natural IVF in Nepal,
-          understanding the intricacies of infertility is a crucial step in your
-          journey towards parenthood. The diagnosis process plays a pivotal role
-          in uncovering the underlying reasons for challenges in conception,
-          even when engaging in regular unprotected intercourse. Our approach
-          begins with thoughtful inquiries into your sexual life, medical
-          history, and previous attempts at infertility treatment. Recognizing
-          that 40% of cases are linked to female factor infertility, 30% to male
-          factor infertility, 20% to a combination of both male and female
-          factors, and the remaining cases having unknown origins, our fertility
-          diagnosis is comprehensive and inclusive of both partners.
-        </p>
-      </div>
       <div className="gap-10 grid lg:grid-cols-3 xl:grid-col-4 py-10 pb-20">
         {data?.records?.map((item: IserviceRecord, index: number) => (
           <motion.div
@@ -65,7 +37,7 @@ const ServiceCards: React.FC<IServiceCards> = ({ data }) => {
               className="flex justify-between items-center h-full"
             >
               <div
-                className="group relative flex flex-col justify-center bg-primary-50 hover:bg-primary-100 p-7 lg:p-10 rounded-tl-[50px] rounded-br-[50px] overflow-hidden transition-colors duration-300"
+                className="group relative flex flex-col justify-center bg-primary-50 hover:bg-primary-100 p-7 lg:p-10 rounded-tl-[50px] rounded-br-[50px] overflow-hidden transition-colors duration-300 w-full"
                 key={index}
               >
                 <div className="w-28 h-28">

@@ -28,6 +28,11 @@ interface Endpoints {
   chatbot: {
     register: string;
   };
+  management_team: string;
+  leader: string;
+  service_header: string;
+  service_test: string;
+  service_stage: string;
 }
 
 export interface IAboutUS {
@@ -73,9 +78,13 @@ export const endpoints: Endpoints = {
   chatbot: {
     register: "/user/register",
   },
+  management_team: "/team",
+  leader: "/leader",
+  service_header: "/service-header",
+  service_test: "/fertility-test",
+  service_stage: "/fertility-stage",
 };
 
 export const BASE_API_URL = process.env.NEXT_PUBLIC_API_URL;
 export const BASE_CHATBOT_URL = process.env.NEXT_PUBLIC_API_URL_CHATBOT;
 export const BASE_SOCKET_URL = process.env.NEXT_PUBLIC_CHATBOT_SOCKET_URL;
-
