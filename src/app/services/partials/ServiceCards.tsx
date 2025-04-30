@@ -16,7 +16,7 @@ const ServiceCards: React.FC<IServiceCards> = ({ data }) => {
 
   return (
     <section className="padding">
-      <div className="gap-10 grid lg:grid-cols-3 xl:grid-col-4 py-10 pb-20">
+      <div className="gap-10 grid grid-cols-1 lg:grid-cols-3 xl:grid-col-4 py-10 pb-20">
         {data?.records?.map((item: IserviceRecord, index: number) => (
           <motion.div
             initial={{ opacity: 0, y: 100 }}

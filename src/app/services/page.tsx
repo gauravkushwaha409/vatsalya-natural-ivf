@@ -3,15 +3,21 @@ import FertilityStageSelection from "./partials/FertilityStageSelection";
 import Herosection from "./partials/Herosection";
 import Services from "./partials/Services";
 import Tests from "./partials/Tests";
+import { getData } from "@/api/axios";
+import { endpoints } from "@/api/endpoints";
+import { IStageRoot } from "./interfaces/stage.interface";
 export const dynamic = "force-dynamic";
-const ServicePage = () => {
+const ServicePage = async () => {
+  const { data: fertilityData } = await getData<IStageRoot>(
+    endpoints.service_stage
+  );
   try {
     return (
       <section>
         <Herosection />
         <Services />
         <Tests />
-        <FertilityStageSelection />
+        <FertilityStageSelection data={fertilityData} />
         {/* <CallToActions /> */}
       </section>
     );

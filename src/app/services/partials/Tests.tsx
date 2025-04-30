@@ -11,12 +11,12 @@ const Tests = async () => {
     endpoints.service_test + "?testFor=women"
   );
   return (
-    <div className="grid grid-cols-2 my-20 divide-x padding">
+    <div className="grid grid-cols-1 lg:grid-cols-2 my-10 gap-5 lg:gap-0 lg:my-20 divide-x-0 lg:divide-x padding">
       <div>
         <h1 className="pb-4 font-bold text-primary-500 typography-h4">
           Tests for men
         </h1>
-        <ul className="space-y-[0.66rem] *:bg-gradient-to-r *:from-[#EBC0DB] *:to-[#FFD2CE] pr-5 text-text-400 list-disc typography-paragraph-regular">
+        <ul className="space-y-[0.66rem] *:bg-gradient-to-r *:from-[#EBC0DB] *:to-[#FFD2CE] pr-0 lg:pr-5 text-text-400 list-disc typography-paragraph-regular">
           {MenTest?.records?.map((test, index) => (
             <li
               key={index}
@@ -39,11 +39,11 @@ const Tests = async () => {
           ))}
         </ul>
       </div>
-      <div className="pl-10">
+      <div className="pl-0 lg:pl-10">
         <h1 className="pb-4 font-bold text-primary-500 typography-h4">
           Tests for women
         </h1>
-        <ul className="space-y-[0.66rem] *:bg-gradient-to-r *:from-[#EBC0DB] *:to-[#FFD2CE] pr-5 text-text-400 list-disc typography-paragraph-regular">
+        <ul className="space-y-[0.66rem] *:bg-gradient-to-r *:from-[#EBC0DB] *:to-[#FFD2CE] pr-0 lg:pr-5 text-text-400 list-disc typography-paragraph-regular">
           {WomenTest?.records?.map((test, index) => (
             <li
               key={index}
