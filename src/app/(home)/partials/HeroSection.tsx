@@ -15,7 +15,7 @@ type HomeProps = {
   data?: IHomeData;
 };
 const HeroSection: React.FC<HomeProps> = ({ data }) => {
-  const text = "Journey to <parenthood,> /b Naturally and Compassionately";
+  const text = "Journey to <Parenthood,> /b Naturally and Compassionately";
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
   const handleAppointmentClick = () => {
@@ -100,7 +100,7 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
               height={24}
               width={24}
               alt="Play icon"
-              className="size-[1.11rem] text-secondary-900"
+              className="size-[1.11rem] text-secondary-900 translate-x-0.5"
             />
           </button>
         </div>

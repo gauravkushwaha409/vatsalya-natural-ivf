@@ -13,7 +13,7 @@ const Header = () => {
   const navLinks = [
     { name: "About Us", link: PATHS.about },
     { name: "Services", link: PATHS.services },
-    { name: "Our Experts", link: PATHS.team },
+    { name: "Our Team", link: PATHS.team },
     { name: "Success Stories", link: PATHS.successStory },
     { name: "Blog & News", link: PATHS.blog },
     { name: "Request a Call", link: PATHS.reqCall },

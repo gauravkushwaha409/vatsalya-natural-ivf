@@ -41,11 +41,11 @@ const HomePage = async () => {
           <div
             style={{
               background:
-                "url('/home/hero-noise.png') #fff4 0% 0% / 100px 70px repeat",
-              backgroundBlendMode: "screen",
+                "url('/home/hero-noise.png') no-repeat center / cover",
             }}
-            className="z-[2] relative"
-          >
+            className="absolute inset-0 opacity-[0.33]"
+          ></div>
+          <div className="z-[2] relative">
             <HeroSection data={homedata?.data} />
             <div
               style={{
