@@ -29,14 +29,14 @@ const Specialists: React.FC<SpecialistsProps> = ({ data, managementTeam }) => {
     {
       id: "management",
       name: "Management Team",
-      content: <TeamCard data={managementTeam} />,
+      content: <TeamCard data={managementTeam} showView={false} />,
     },
   ];
   const [activeTab, setActiveTab] = useState<TabsID>(tabs[0].id);
 
   return (
     <section className="pb-20 padding">
-      <div className="flex flex-col items-center pb-4">
+      <div className="flex flex-col items-center pb-4 my-5">
         <div className="flex p-2 border border-secondary-50 rounded-full max-w-full">
           {tabs.map((tab) => (
             <button
@@ -56,7 +56,7 @@ const Specialists: React.FC<SpecialistsProps> = ({ data, managementTeam }) => {
             </button>
           ))}
         </div>
-        <div className="w-full pt-10">
+        <div className="w-full pt-0 lg:pt-10">
           {tabs.find((tab) => tab.id === activeTab)?.content}
         </div>
       </div>

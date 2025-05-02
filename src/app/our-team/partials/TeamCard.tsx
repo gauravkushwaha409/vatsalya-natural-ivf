@@ -11,8 +11,9 @@ import {
 import buterflysvg from "./../../../assests/icons/butterflyExpertise.svg";
 interface Props {
   data: IOurExpertsData;
+  showView?: boolean;
 }
-const TeamCard: React.FC<Props> = ({ data }) => {
+const TeamCard: React.FC<Props> = ({ data, showView = true }) => {
   const [hoveredCardId, setHoveredCardId] = useState<number | null>(null);
 
   return (
@@ -20,7 +21,7 @@ const TeamCard: React.FC<Props> = ({ data }) => {
       <motion.div
         initial={{ opacity: 0.3 }}
         animate={{ opacity: 1 }}
-        className="gap-x-10 gap-y-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 my-10"
+        className="gap-x-10 gap-y-10 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 my-5 lg:my-10"
       >
         {data?.records?.map((items: IOurExpertsRecord, index: number) => (
           <div
@@ -81,13 +82,15 @@ const TeamCard: React.FC<Props> = ({ data }) => {
                   <p className="mt-1 mb-2 font-medium text-secondary-500 typography-paragraph-small">
                     {items?.position}
                   </p>
-                  <div className="flex items-center text-nowrap">
-                    <Link href={`${PATHS.teamDetails}/${items?.slug}`}>
-                      <button className="px-5 py-2 border border-text-400 rounded-full font-medium text-text-400 cursor-pointer typography-caption">
-                        View Details
-                      </button>
-                    </Link>
-                  </div>
+                  {showView && (
+                    <div className="flex items-center text-nowrap">
+                      <Link href={`${PATHS.teamDetails}/${items?.slug}`}>
+                        <button className="px-5 py-2 border border-text-400 rounded-full font-medium text-text-400 cursor-pointer typography-caption">
+                          View Details
+                        </button>
+                      </Link>
+                    </div>
+                  )}
                 </div>
               </div>
             )}
