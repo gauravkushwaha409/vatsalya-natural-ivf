@@ -1,21 +1,30 @@
-"use client";
-import CustomPagination from "@/components/CustomPagination";
-import usePaginationChange from "@/hooks/usePaginationChange";
-import { motion } from "motion/react";
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
+import { motion } from "motion/react";
 import { IoArrowForwardOutline } from "react-icons/io5";
-import { IserviceData, IserviceRecord } from "../interfaces/services.interface";
-
-interface IServiceCards {
-  data: IserviceData;
-}
-const ServiceCards: React.FC<IServiceCards> = ({ data }) => {
-  const { handlePageChange, currentPage } = usePaginationChange();
-
+import Link from "next/link";
+import Image from "next/image";
+import {
+  IserviceData,
+  IserviceRecord,
+} from "@/app/services/interfaces/services.interface";
+const ClinicServices: React.FC<{ data: IserviceData }> = ({ data }) => {
   return (
-    <section className="padding">
+    <section>
+      <div className="flex flex-col items-center">
+        <div className="flex justify-center items-center gap-4 w-full">
+          {/* line  */}
+          <div className="flex-1 bg-primary-400 max-w-[148px] h-px"></div>
+
+          <h2 className="font-bold text-primary-500 text-sm md:text-base uppercase leading-[24px] tracking-widest">
+            {`Our Services`}
+          </h2>
+          {/* line  */}
+          <div className="flex-1 bg-primary-400 max-w-[148px] h-px"></div>
+        </div>
+        <p className="pt-4 font-semibold text-text-500 typography-h3">
+          Services We’re Providings
+        </p>
+      </div>
       <div className="gap-10 grid grid-cols-1 lg:grid-cols-3 xl:grid-col-4 py-10 pb-20">
         {data?.records?.map((item: IserviceRecord, index: number) => (
           <motion.div
@@ -52,7 +61,7 @@ const ServiceCards: React.FC<IServiceCards> = ({ data }) => {
                 <div className="flex flex-col gap-2 pt-4">
                   <div className="flex justify-between w-full">
                     {" "}
-                    <h2 className="font-bold typography-h4">
+                    <h2 className="font-bold typography-h3">
                       {item?.name}{" "}
                     </h2>{" "}
                     <button className="cursor-pointer">
@@ -72,17 +81,8 @@ const ServiceCards: React.FC<IServiceCards> = ({ data }) => {
           </motion.div>
         ))}
       </div>
-      {data?.totalPages > 1 && (
-        <CustomPagination
-          currentPage={currentPage}
-          onPageChange={handlePageChange}
-          pageCount={data?.totalPages}
-          perPage={5}
-          totalItems={10}
-        />
-      )}
     </section>
   );
 };
 
-export default ServiceCards;
+export default ClinicServices;

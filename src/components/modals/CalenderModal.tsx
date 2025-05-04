@@ -11,7 +11,7 @@ import { FormikProps } from "formik";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
-import RenderCells from "../RenderCells";
+import RenderCells from "@/components/RenderCells";
 import ConfirmationModal from "./ConfirmationModal";
 import { IFormValues } from "./RequestAppoimentModal";
 

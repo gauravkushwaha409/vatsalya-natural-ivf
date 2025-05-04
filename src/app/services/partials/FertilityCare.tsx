@@ -14,7 +14,7 @@ interface IFertilityCare {
 const FertilityCare: React.FC<IFertilityCare> = ({ data }) => {
   return (
     <section>
-      <div className="bg-gradient-to-r from-[#EBC0DB] to-[#FFD2CE] px-5 lg:px-10 py-20">
+      <div className="bg-gradient-to-r from-[#EBC0DB] to-[#FFD2CE] px-5 lg:px-10 py-20 overflow-hidden">
         <motion.div
           whileInView={{ opacity: 1 }}
           initial={{ opacity: 0 }}

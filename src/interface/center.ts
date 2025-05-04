@@ -1,11 +1,11 @@
-export interface Root {
+export interface ICenterRoot {
   status: string;
   statusCode: number;
   message: string;
-  data: Data;
+  data: ICenterData;
 }
 
-export interface Data {
+export interface ICenterData {
   records: ICenter[];
   totalRecords: number;
   perPage: number;
@@ -27,4 +27,6 @@ export interface ICenter {
   created_date: string;
   updated_date: string;
   mapUrl: string;
+  email: string;
+  description: string;
 }

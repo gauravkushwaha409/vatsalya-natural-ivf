@@ -3,15 +3,20 @@ import Herosection from "./partials/Herosection";
 import Specialists from "./partials/Specialists";
 import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
+import Leader from "./partials/Leader";
 export const dynamic = "force-dynamic";
 
 const page = async () => {
   try {
     const { data } = await getData(endpoints.experts);
+    const { data: leader } = await getData(endpoints.leader);
+    const { data: managementTeam } = await getData(endpoints.management_team);
+
     return (
       <section>
         <Herosection />
-        <Specialists data={data} />
+        <Leader data={leader} />
+        <Specialists data={data} managementTeam={managementTeam} />
       </section>
     );
   } catch (error) {
