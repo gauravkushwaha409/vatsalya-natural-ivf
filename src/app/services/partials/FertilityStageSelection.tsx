@@ -3,38 +3,7 @@ import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import Image from "next/image";
 import { useState } from "react";
 import { IStageData } from "../interfaces/stage.interface";
-const stages = [
-  {
-    name: "Having Trouble Conceiving",
-    description:
-      "If you have been trying to conceive for over a year without success, it may be time to seek help.",
-    image: "/home/stages/stage-1.jpg",
-  },
-  {
-    name: "Irregular Menstrual Cycles",
-    description:
-      "If you have irregular or absent menstrual cycles, it may indicate an underlying issue.",
-    image: "/home/stages/stage-2.png",
-  },
-  {
-    name: "Age-Related Concerns",
-    description:
-      "If you are over 35 and have been trying to conceive for six months or more, it's advisable to consult a specialist.",
-    image: "/home/stages/stage-3.jpg",
-  },
-  {
-    name: "Previous Pregnancy Loss",
-    description:
-      "If you have experienced recurrent miscarriages or pregnancy loss, it's important to seek medical advice.",
-    image: "/home/stages/stage-4.jpg",
-  },
-  {
-    name: "Family History of Infertility",
-    description:
-      "If you have a family history of infertility or reproductive issues, it may be beneficial to consult a specialist.",
-    image: "/home/stages/stage-5.jpg",
-  },
-];
+
 const FertilityStageSelection: React.FC<{ data: IStageData }> = ({ data }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   return (

@@ -14,7 +14,7 @@ export interface IArticleData {
   description: string;
   readTime: string;
   author: IArticleAuthor;
-  tags: any[];
+  tags: [];
   seo: IArticleSeo;
   created_date: string;
   updated_date: string;

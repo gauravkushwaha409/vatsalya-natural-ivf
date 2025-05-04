@@ -20,7 +20,6 @@ export interface IStageData {
 }
 
 export interface IStageRecord {
-  object: string;
   id: string;
   title: string;
   description: string;
@@ -30,4 +29,8 @@ export interface IStageRecord {
   updatedAt: string;
 }
 
-export interface IStageSeo {}
+export interface IStageSeo {
+  title: string;
+  description: string;
+  keywords: string;
+}

@@ -6,7 +6,6 @@ export interface IServiceHeadingRoot {
 }
 
 export interface IServiceHeadingData {
-  object: string;
   id: string;
   title: string;
   description: string;
@@ -15,4 +14,8 @@ export interface IServiceHeadingData {
   updated_date: string;
 }
 
-export interface IServiceHeadingSeo {}
+export interface IServiceHeadingSeo {
+  title: string;
+  description: string;
+  keywords: string;
+}

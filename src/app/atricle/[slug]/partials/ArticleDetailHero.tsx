@@ -1,5 +1,4 @@
 import CustomBreadcrumb from "@/components/CustomBreadcrumb";
-import Image from "next/image";
 import React from "react";
 import { CiCalendar } from "react-icons/ci";
 
