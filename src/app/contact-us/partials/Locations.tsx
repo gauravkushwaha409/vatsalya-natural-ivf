@@ -45,7 +45,7 @@ const Locations: React.FC<LocationsProps> = ({ onSelectMap }) => {
                 {center?.name}
               </p>
               <p className="text-text-400 typography-paragraph-small">
-                {center?.phone.join(", ")}
+                {center?.phone}
               </p>
             </div>
           </div>
