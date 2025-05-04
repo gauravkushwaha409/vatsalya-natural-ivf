@@ -9,6 +9,7 @@ const PATHS = {
   career: "/career",
   contact: "/contact-us",
   teamDetails: "/our-team",
+  article: "/atricle",
 };
 
 export default PATHS;
