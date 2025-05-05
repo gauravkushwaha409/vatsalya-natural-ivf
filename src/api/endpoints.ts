@@ -34,6 +34,7 @@ interface Endpoints {
   service_test: string;
   service_stage: string;
   article: string;
+  why_choose_us: string;
 }
 
 export interface IAboutUS {
@@ -85,6 +86,7 @@ export const endpoints: Endpoints = {
   service_test: "/fertility-test",
   service_stage: "/fertility-stage",
   article: "/article",
+  why_choose_us: "/why-choose-us",
 };
 
 export const BASE_API_URL = process.env.NEXT_PUBLIC_API_URL;

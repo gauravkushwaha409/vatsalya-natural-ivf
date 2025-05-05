@@ -4,8 +4,9 @@ import hero from "@/assests/success-story/heroSuccess.jpg";
 import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 import Image from "next/image";
 import { useState } from "react";
+import PATHS from "@/utils/path";
 
-const HeroSection = () => {
+const HeroSection: React.FC<{ slug: string }> = ({ slug }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
 
   return (
@@ -31,7 +32,11 @@ const HeroSection = () => {
                 link: "/",
               },
               {
-                name: "Success Stories",
+                name: "our-clinic",
+                link: PATHS.clinic,
+              },
+              {
+                name: slug,
               },
             ]}
             className="top-4 absolute"
