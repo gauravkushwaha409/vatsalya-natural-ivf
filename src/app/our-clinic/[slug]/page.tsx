@@ -5,7 +5,6 @@ import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
 import ClinicServices from "./partials/ClinicServices";
 import Specialists from "./partials/Specialists";
-import WhyChooseUs from "./partials/WhyChooseUs";
 import ContactUs from "./partials/ContactUs";
 import { IClinicDetailsRoot } from "./interface/clinicDetails.interface";
 import { IOurExpertsData } from "@/app/our-team/interface/ourExperts.interface";

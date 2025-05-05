@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import image1 from "@/assests/about/ourstory1.png";
-import image2 from "@/assests/about/ourstory2.png";
+
 import { IClinicDetailsData } from "../interface/clinicDetails.interface";
 interface AboutClinicProps {
   data: IClinicDetailsData;

@@ -5,9 +5,7 @@ import { ICenter, ICenterRoot } from "@/interface/center";
 import PATHS from "@/utils/path";
 import Link from "next/link";
 import React from "react";
-import { FaPhone } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
-import { IoMdMail } from "react-icons/io";
 import { IoArrowForwardOutline, IoMailOpenOutline } from "react-icons/io5";
 import { PiPhonePauseThin } from "react-icons/pi";
 

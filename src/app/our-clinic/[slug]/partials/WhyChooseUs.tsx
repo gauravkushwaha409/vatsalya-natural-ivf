@@ -1,7 +1,6 @@
 import SectionHeading from "@/components/compoundComponent/SectionHeading";
 import Image from "next/image";
 import React from "react";
-import pic1 from "@/assests/about/family.png";
 import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
 import { IWhyChooseUsRoot } from "../interface/whyChooseUs.interface";
