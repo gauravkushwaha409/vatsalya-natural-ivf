@@ -15,7 +15,6 @@ interface Props {
 }
 const TeamCard: React.FC<Props> = ({ data, showView = true }) => {
   const [hoveredCardId, setHoveredCardId] = useState<number | null>(null);
-
   return (
     <div>
       <motion.div

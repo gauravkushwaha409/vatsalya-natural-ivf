@@ -15,6 +15,7 @@ export interface IArticleData {
   readTime: string;
   author: IArticleAuthor;
   tags: [];
+  faqs: IArticleFaq[];
   seo: IArticleSeo;
   created_date: string;
   updated_date: string;
@@ -33,4 +34,15 @@ export interface IArticleAuthor {
 export interface IArticleSeo {
   metaTitle: string;
   metaDescription: string;
+}
+
+export interface IArticleFaq {
+  object: string;
+  id: string;
+  question: string;
+  answer: string;
+  article: string;
+  seo: IArticleSeo;
+  created_date: string;
+  updated_date: string;
 }

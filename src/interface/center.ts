@@ -29,4 +29,5 @@ export interface ICenter {
   mapUrl: string;
   email: string;
   description: string;
+  slug: string;
 }
