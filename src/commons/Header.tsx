@@ -16,12 +16,12 @@ const Header = () => {
     { name: "Our Team", link: PATHS.team },
     { name: "Success Stories", link: PATHS.successStory },
     { name: "Blog & News", link: PATHS.blog },
-    { name: "Request a Call", link: PATHS.reqCall },
+    { name: "International Patient", link: PATHS.international_Patient },
     { name: "Clinic", link: PATHS.clinic },
     { name: "Contact Us", link: PATHS.contact },
   ];
   return (
-    <header className="bg-transparent backdrop-blur-[5.6px] py-0 lg:py-[0.63rem] text-white padding">
+    <header className="bg-primary-50 backdrop-blur-[5.6px] py-0 lg:py-[0.63rem] text-white padding">
       <div className="flex justify-between items-center">
         <Link href="/">
           <Image

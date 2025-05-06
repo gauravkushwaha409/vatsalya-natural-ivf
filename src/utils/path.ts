@@ -11,6 +11,9 @@ const PATHS = {
   teamDetails: "/our-team",
   article: "/atricle",
   clinic: "/our-clinic",
+  ivfDueCalculatotr: "/calculator",
+  international_Patient: "/international-client",
+  ovulationCalculator: "/ovulation-calculator",
 };
 
 export default PATHS;
