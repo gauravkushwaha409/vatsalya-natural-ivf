@@ -39,6 +39,7 @@ export const getData = async <T = any>(
         Expires: "0",
       },
       signal: controller.signal,
+      next: { revalidate: 60 },
     });
 
     clearTimeout(timeoutId);
