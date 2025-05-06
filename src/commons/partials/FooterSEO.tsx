@@ -10,22 +10,6 @@ import { useState } from "react";
 import { BsArrowsExpand } from "react-icons/bs";
 import { ImShrink2 } from "react-icons/im";
 
-const seoData = [
-  {
-    text: "Branches",
-    items: [
-      { text: "Biratnagar", link: "#" },
-      { text: "Nepalgunj", link: "#" },
-      { text: "Kathmandu", link: "#" },
-      { text: "Pokhara", link: "#" },
-      { text: "Bharatpur", link: "#" },
-      { text: "Butwal", link: "#" },
-      { text: "Lalitpur", link: "#" },
-      { text: "Chitwan", link: "#" },
-      { text: "Jhapa", link: "#" },
-    ],
-  },
-];
 const FooterSeo = () => {
   const [isHidden, setIsHidden] = useState(false);
   const { data: article } = useGetDataQuery<{ data: IArticleRoot }>({
