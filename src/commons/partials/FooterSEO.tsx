@@ -2,6 +2,7 @@
 import { useGetDataQuery } from "@/api/api";
 import { endpoints } from "@/api/endpoints";
 import { IArticleRoot } from "@/interface/article.interface";
+import { ICenterRoot } from "@/interface/center";
 import PATHS from "@/utils/path";
 import { motion } from "motion/react";
 import Link from "next/link";
@@ -29,6 +30,9 @@ const FooterSeo = () => {
   const [isHidden, setIsHidden] = useState(false);
   const { data: article } = useGetDataQuery<{ data: IArticleRoot }>({
     url: endpoints.article,
+  });
+  const { data: branches } = useGetDataQuery<{ data: ICenterRoot }>({
+    url: endpoints.center,
   });
   return (
     <div className="bg-primary-100 padding">
@@ -59,25 +63,21 @@ const FooterSeo = () => {
         className="mt-2.5 overflow-hidden text-text-400"
       >
         <div className="flex flex-col gap-y-2">
-          {seoData.map((item, index) => (
-            <div key={index}>
-              <h2 className="mb-1 font-medium text-secondary-400">
-                {item.text}
-              </h2>
+          <div>
+            <h2 className="mb-1 font-medium text-secondary-400">Branches</h2>
 
-              <div className="flex flex-wrap gap-y-2 pb-4 divide-x -ml-3">
-                {item.items.map((item, index) => (
-                  <Link
-                    className="px-3 border-background-800 font-manrope text-text-400 typography-paragraph-regular decoration-transparent hover:decoration-text-500 underline underline-offset-2 transition-all duration-200"
-                    key={index}
-                    href={item.link}
-                  >
-                    {item.text}
-                  </Link>
-                ))}
-              </div>
+            <div className="flex flex-wrap gap-y-2 pb-4 divide-x -ml-3">
+              {branches?.data?.records?.map((item, index) => (
+                <Link
+                  className="px-3 border-background-800 font-manrope text-text-400 typography-paragraph-regular decoration-transparent hover:decoration-text-500 underline underline-offset-2 transition-all duration-200"
+                  key={index}
+                  href={`${PATHS.clinic}/${item.slug}`}
+                >
+                  {item.name}
+                </Link>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
         <div className="flex flex-col gap-y-2">
           <div>
