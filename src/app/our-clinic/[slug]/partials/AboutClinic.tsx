@@ -9,7 +9,7 @@ const AboutClinic: React.FC<AboutClinicProps> = ({ data }) => {
   return (
     <div>
       <section className="padding py-16 md:py-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-18 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-18 ">
           <div className="space-y-6 ">
             <div className="flex items-center w-full  gap-4 ">
               <h2 className="text-primary-500 uppercase tracking-widest text-base leading-[150%] font-bold">
@@ -26,7 +26,7 @@ const AboutClinic: React.FC<AboutClinicProps> = ({ data }) => {
             </div>
           </div>
 
-          <div className="relative h-[400px] md:h-[500px]">
+          <div className="relative h-[400px]">
             {/* Main image (top right) */}
             <div className="absolute right-0 top-0 w-3/4 h-3/4 rounded-lg overflow-hidden ">
               <Image
