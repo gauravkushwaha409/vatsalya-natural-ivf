@@ -57,7 +57,7 @@ const WhenToVisit: React.FC<WhenToVisitProps> = ({ data }) => {
         >
           <div className="flex items-center gap-5 mt-8 lg:mt-0">
             <div className="lg:hidden bg-secondary-200 lg:w-[16.25rem] h-px grow lg:grow-0" />
-            <h2 className="w-max text-secondary-500 uppercase tracking-[0.18rem] typography-paragraph-regular">
+            <h2 className="w-max text-secondary-500 uppercase tracking-[0.18rem] typography-paragraph-regular font-bold">
               WHEN TO VISIT
             </h2>
             <div className="bg-secondary-200 lg:w-[16.25rem] h-px grow lg:grow-0" />

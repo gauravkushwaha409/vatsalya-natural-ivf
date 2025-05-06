@@ -54,6 +54,7 @@ const ShowCaseItem: React.FC<{
     >
       <div className="p-4 sm:p-5 md:p-6 lg:p-7 border-[4px] border-primary-200/[0.54] sm:border-[5px] md:border-[6px] lg:border-[7px] rounded-full aspect-square">
         <Image
+          crossOrigin="anonymous"
           src={svg}
           alt={"svg"}
           className="size-10 sm:size-12 md:size-14 lg:size-16"
