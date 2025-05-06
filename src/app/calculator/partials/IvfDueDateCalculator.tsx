@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import Image1 from "@/assests/contact/pic2.png";
+import { IOvulationData } from "@/app/ovulation-calculator/interface/ovulation.interface";
 
 const transferTypes = [
   { value: "day3", label: "Day 3 Embryo Transfer", daysToAdd: 263 },
@@ -10,8 +11,12 @@ const transferTypes = [
   { value: "frozenDay5", label: "Frozen Embryo (Day 5)", daysToAdd: 261 },
   { value: "blastocyst", label: "Blastocyst Transfer", daysToAdd: 261 },
 ];
-
-const IvfDueDateCalculator = () => {
+interface IvfDueDateCalculatorProps {
+  data: IOvulationData;
+}
+const IvfDueDateCalculator: React.FC<IvfDueDateCalculatorProps> = ({
+  data,
+}) => {
   const [transferDate, setTransferDate] = useState("");
   const [transferType, setTransferType] = useState("");
   const [dueDate, setDueDate] = useState("");
@@ -113,6 +118,12 @@ const IvfDueDateCalculator = () => {
             />
           </div>
         </div>
+        <p
+          className="prose py-10"
+          dangerouslySetInnerHTML={{
+            __html: data?.records[0]?.description || "",
+          }}
+        />
       </section>
     </>
   );
