@@ -55,11 +55,8 @@ const DropdownPortal = ({
 };
 
 const Schedule = () => {
-  const [modalOpen, setModalOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [selectedCalculator, setSelectedCalculator] = useState<
-    "ivf" | "ovulation" | null
-  >(null);
+
   const [isMounted, setIsMounted] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -80,9 +77,7 @@ const Schedule = () => {
     setDropdownOpen((prev) => !prev);
   };
 
-  const handleSelect = (type: "ivf" | "ovulation") => {
-    setSelectedCalculator(type);
-    setModalOpen(true);
+  const handleSelect = () => {
     setDropdownOpen(false);
   };
 
