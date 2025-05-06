@@ -8,6 +8,7 @@ import Specialists from "./partials/Specialists";
 import ContactUs from "./partials/ContactUs";
 import { IClinicDetailsRoot } from "./interface/clinicDetails.interface";
 import { IOurExpertsData } from "@/app/our-team/interface/ourExperts.interface";
+import WhyChooseUs from "./partials/WhyChooseUs";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -30,7 +31,7 @@ const ClinicDetailPage: React.FC<Props> = async ({ params }) => {
         <AboutClinic data={data} />
         <ClinicServices data={services} />
         <Specialists data={expertData} />
-        {/* <WhyChooseUs /> */}
+        <WhyChooseUs />
         <ContactUs data={data} />
       </section>
     );

@@ -33,6 +33,8 @@ const WhyChooseUs = async () => {
                 alt="image"
                 src={item?.image}
                 className="w-full h-full object-cover"
+                width={1200}
+                height={1200}
               />
             </div>
           ))}
