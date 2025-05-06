@@ -4,8 +4,12 @@ import { add, format } from "date-fns";
 import OvulationRenderCell from "./OvulationRenderCell";
 import RequestCallForm from "./RequestCallForm";
 import Cycle from "./Cycle";
+import { IOvulationData } from "../interface/ovulation.interface";
 
-const Calendar = () => {
+interface CalendarProps {
+  data: IOvulationData;
+}
+const Calendar: React.FC<CalendarProps> = ({ data }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
@@ -65,29 +69,35 @@ const Calendar = () => {
         </p>
       </div>
       <div className="flex lg:flex-row flex-col  gap-10  py-10 w-full ">
-        <div className="flex gap-10 w-3/4">
-          <div
-            className=" aspect-square  h-fit items-center shadow-sm px-5 rounded-xl pt-10
+        <div className="  w-full lg:w-3/4">
+          <div className="flex flex-col lg:flex-row  gap-10">
+            <div
+              className=" aspect-square  h-fit items-center shadow-sm px-5 rounded-xl pt-5
         "
-          >
-            <h1 className="pb-2.5 border-secondary-100 border-b-2 font-medium text-center typography-paragraph-large">
-              Select the first day of your last period
-            </h1>
+            >
+              <h1 className="pb-2.5 border-secondary-100 border-b-2 font-medium text-center typography-paragraph-large">
+                Select the first day of your last period
+              </h1>
 
-            <div>{renderHeader()}</div>
-            <div>{renderDays()}</div>
-            <div>
-              <OvulationRenderCell
-                currentDate={currentDate}
-                selectedDate={selectedDate}
-                setSelectedDate={setSelectedDate}
-                onDateSelect={handleDateSelect}
-              />
+              <div>{renderHeader()}</div>
+              <div>{renderDays()}</div>
+              <div>
+                <OvulationRenderCell
+                  currentDate={currentDate}
+                  selectedDate={selectedDate}
+                  setSelectedDate={setSelectedDate}
+                  onDateSelect={handleDateSelect}
+                />
+              </div>
             </div>
+            <Cycle />
           </div>
-          <Cycle />
+          <p
+            className="prose py-10 overflow-hidden"
+            dangerouslySetInnerHTML={{ __html: data?.records[0]?.description }}
+          />
         </div>
-        <div className="w-2/6">
+        <div className="w-full lg:w-2/6">
           <RequestCallForm />
         </div>
       </div>

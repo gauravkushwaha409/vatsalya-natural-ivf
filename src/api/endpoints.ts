@@ -36,6 +36,7 @@ interface Endpoints {
   article: string;
   why_choose_us: string;
   international_patients: string;
+  calculator_description: string;
 }
 
 export interface IAboutUS {
@@ -89,6 +90,7 @@ export const endpoints: Endpoints = {
   article: "/article",
   why_choose_us: "/why-choose-us",
   international_patients: "/international-patient",
+  calculator_description: "/calculator-description",
 };
 
 export const BASE_API_URL = process.env.NEXT_PUBLIC_API_URL;
