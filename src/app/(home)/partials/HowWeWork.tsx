@@ -62,7 +62,11 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
                 <span className="flex justify-center items-center bg-primary-50 rounded-full size-[2.5rem] md:size-[3.375rem] font-roboto font-medium text-primary-500 text-xl md:text-2xl text-end">
                   {index + 1}
                 </span>
-                <h3 className="font-semibold md:text-left text-center typography-h2">
+                <h3
+                  className={`font-semibold ${
+                    index % 2 === 0 ? "md:text-left" : "md:text-right"
+                  } text-center typography-h2`}
+                >
                   {step.title}
                 </h3>
                 <p

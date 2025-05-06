@@ -29,7 +29,7 @@ const Locations: React.FC<LocationsProps> = ({ onSelectMap }) => {
           <div
             className="bg-white rounded-lg p-5 flex gap-5 shadow-md hover:bg-primary-50 transition-colors duration-300 delay-75  cursor-pointer"
             key={index}
-            onClick={() => onSelectMap(center.location)} // <- handle click
+            onClick={() => onSelectMap(center.mapUrl)} // <- handle click
           >
             <div className="w-10">
               <Image
