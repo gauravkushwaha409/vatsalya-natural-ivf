@@ -71,11 +71,8 @@ const WhenToVisit: React.FC<WhenToVisitProps> = ({ data }) => {
           />
 
           <button
-            className="mt-5 px-8 py-4 border border-secondary-500 rounded-full font-extrabold text-secondary-500 cursor-pointer typography-paragraph-regular"
+            className="mt-5 px-8 py-4 shadow-md border border-secondary-500 rounded-full font-extrabold text-secondary-500 cursor-pointer typography-paragraph-regular hover:bg-secondary-500 hover:text-white hover:border-white duration-300"
             onClick={() => handleAppointmentClick()}
-            style={{
-              boxShadow: "0px 5.486px 12.343px 0px rgba(215, 101, 120, 0.33)",
-            }}
           >
             BOOK AN APPOINTMENT
           </button>

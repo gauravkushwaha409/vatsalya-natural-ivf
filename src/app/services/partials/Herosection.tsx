@@ -22,7 +22,7 @@ const Herosection = () => {
           </div>
           <div className="top-5 left-1/2 z-30 absolute -translate-x-1/2 transform">
             {" "}
-            <Breadcrumb name="services" />
+            <Breadcrumb name="Services" />
           </div>
 
           {/* Content */}

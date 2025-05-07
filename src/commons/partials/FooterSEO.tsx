@@ -48,7 +48,7 @@ const FooterSeo = () => {
       >
         <div className="flex flex-col gap-y-2">
           <div>
-            <h3 className="font-bold text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.18rem] typography-paragraph-regular">
+            <h3 className=" font-medium text-secondary-500  typography-paragraph-larger">
               Branches
             </h3>
 
@@ -67,7 +67,7 @@ const FooterSeo = () => {
         </div>
         <div className="flex flex-col gap-y-2">
           <div>
-            <h3 className="font-bold text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.18rem] typography-paragraph-regular">
+            <h3 className=" font-medium text-secondary-500  typography-paragraph-larger">
               Fertility
             </h3>
 
@@ -85,7 +85,7 @@ const FooterSeo = () => {
           </div>
         </div>
       </motion.div>
-      <hr className="bg-background-50 rounded-full w-full h-px" />
+      <hr className="bg-[#FFF1EF]  w-full " />
     </div>
   );
 };
