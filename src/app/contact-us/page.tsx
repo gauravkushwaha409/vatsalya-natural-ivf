@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 const page = () => {
   return (
-    <section className="padding bg-background-100 ">
+    <section className="padding bg-gradient-to-b from-primary-50 to-background-10 ">
       <Headings />
       <Contacts />
       <ContactForm />

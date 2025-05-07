@@ -3,7 +3,7 @@ import React from "react";
 
 const Headings = () => {
   return (
-    <header className="py-10 text-center flex flex-col justify-center items-center bg-background-100 ">
+    <header className="py-10 text-center flex flex-col justify-center items-center  ">
       {/* breadcrumb  */}
       <CustomBreadcrumb
         items={[{ name: "Home", link: "/" }, { name: "Contact Us" }]}
