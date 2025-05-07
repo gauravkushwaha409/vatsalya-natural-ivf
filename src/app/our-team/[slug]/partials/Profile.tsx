@@ -37,7 +37,7 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
               height={1080}
               className="w-full h-full contain absolute z-10 "
             />
-            <div className="h-36 absolute right-2 rotate-240 top-10 z-0">
+            <div className="h-36 absolute right-2  top-10 z-0">
               <Image
                 src={buterflysvg}
                 alt="heropic"

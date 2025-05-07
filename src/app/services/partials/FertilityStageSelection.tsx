@@ -3,13 +3,11 @@ import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import Image from "next/image";
 import { useState } from "react";
 import { IStageData } from "../interfaces/stage.interface";
-import { CheckCircle, Circle } from "lucide-react"; // Circle as unselected icon
 
 const FertilityStageSelection: React.FC<{ data: IStageData }> = ({ data }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  const handleStageSelect = (index: number) => {
+  const handleStageSelect = () => {
     setOpenModal(true); // Open modal when a stage is selected
   };
 
@@ -61,7 +59,7 @@ const FertilityStageSelection: React.FC<{ data: IStageData }> = ({ data }) => {
                 <div className="absolute top-0 left-0 w-full h-full delay-100 bg-white opacity-0  group-hover:opacity-100 transition-all duration-200 ease-in rounded-3xl">
                   <div className="bg-secondary-50 w-full h-full rounded-3xl flex justify-center items-center">
                     <button
-                      onClick={() => handleStageSelect(index)}
+                      onClick={() => handleStageSelect()}
                       style={{
                         boxShadow:
                           "0px 5.486px 12.343px 0px rgba(215, 101, 120, 0.33)",

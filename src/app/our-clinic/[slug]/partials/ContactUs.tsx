@@ -25,7 +25,7 @@ const ContactUs: React.FC<IContactUsProps> = ({ data }) => {
     },
     {
       id: 3,
-      type: "Location",
+      type: "Address",
       icon: <FaMapMarkerAlt className="text-secondary-400" size={26} />,
       label: "Location",
       value: data?.location,

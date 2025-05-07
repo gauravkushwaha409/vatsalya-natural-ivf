@@ -2,7 +2,9 @@
 import { IsuccessStoriesRecord } from "@/app/success-story/interface/successStories.interface";
 import { Play } from "lucide-react";
 import Image from "next/image";
+
 import { ImQuotesLeft } from "react-icons/im";
+import ReadMoreModal from "./modals/ReadMoreModal";
 
 interface TestimonialCardProps {
   data: IsuccessStoriesRecord;
@@ -50,10 +52,16 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 
           <div className="pt-6">
             <p
-              className="mb-4 text-text-400 line-clamp-3 typography-paragraph-large"
+              className=" text-text-400 line-clamp-3 typography-paragraph-large"
               dangerouslySetInnerHTML={{ __html: data?.storyContent || "" }}
             />
-
+            <button className="text-primary-400 text-base font-semibold mb-4 cursor-pointer mt-1">
+              <ReadMoreModal
+                text="Read More"
+                title={data?.storyContent}
+                characterName={data?.characterName}
+              />
+            </button>
             <p className="font-semibold text-text-500 typography-paragraph-large">
               {data?.characterName}
             </p>

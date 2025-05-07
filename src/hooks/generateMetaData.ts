@@ -9,10 +9,17 @@ type SEOData = {
 type ImageData = {
   url: string;
 };
+type VideoData = {
+  url: string;
+  width?: number;
+  height?: number;
+  type?: string; // e.g., "video/mp4"
+};
 
 export function createMetadata(
   seo: SEOData,
-  imagesUrls?: ImageData[]
+  imagesUrls?: ImageData[],
+  videoData?: VideoData
 ): Metadata {
   return {
     title: seo.metaTitle,
@@ -27,6 +34,16 @@ export function createMetadata(
         width: 800,
         height: 600,
       })),
+      videos: videoData
+        ? [
+            {
+              url: videoData.url,
+              width: videoData.width || 1280,
+              height: videoData.height || 720,
+              type: videoData.type || "video/mp4",
+            },
+          ]
+        : undefined,
       locale: "en_US",
       type: "website",
     },

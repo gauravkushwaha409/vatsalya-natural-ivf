@@ -9,11 +9,21 @@ import ContactUs from "./partials/ContactUs";
 import { IClinicDetailsRoot } from "./interface/clinicDetails.interface";
 import { IOurExpertsData } from "@/app/our-team/interface/ourExperts.interface";
 import WhyChooseUs from "./partials/WhyChooseUs";
+import { createMetadata } from "@/hooks/generateMetaData";
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
+export async function generateMetadata({ params }: Props) {
+  const slugs = (await params).slug;
+  const { data } = await getData<IClinicDetailsRoot>(
+    endpoints.center + `/get/${slugs}`
+  );
+  const images = data?.images?.map((url) => ({ url })) || [];
+  const meta = createMetadata(data?.seo, images);
+  return meta;
+}
 const ClinicDetailPage: React.FC<Props> = async ({ params }) => {
   try {
     const slugs = (await params).slug;

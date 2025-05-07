@@ -5,11 +5,22 @@ import ServiceFaq from "./partials/ServiceFaq";
 import ErrorMessage from "@/components/ErrorMessage";
 import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
+import { IServiceDetailsRoot } from "../interfaces/serviceDetails.interface";
+import { createMetadata } from "@/hooks/generateMetaData";
 
 interface ServiceDetailPageProps {
   params: Promise<{ slug: string }>;
 }
 export const dynamic = "force-dynamic";
+export async function generateMetadata({ params }: ServiceDetailPageProps) {
+  const slugs = (await params).slug;
+  const { data } = await getData<IServiceDetailsRoot>(
+    endpoints.service + `/${slugs}`
+  );
+  const images = [{ url: data?.service?.videoUrl }];
+  const meta = createMetadata(data?.service?.seo, images);
+  return meta;
+}
 const page = async ({ params }: ServiceDetailPageProps) => {
   try {
     const slug = await params;

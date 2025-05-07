@@ -17,6 +17,7 @@ import WhoWeAre from "./partials/WhoWeAre";
 import Notice from "./partials/Notice";
 
 export const dynamic = "force-dynamic";
+
 const HomePage = async () => {
   try {
     const {

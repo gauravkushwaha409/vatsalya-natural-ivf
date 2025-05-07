@@ -6,13 +6,16 @@ const Headings = () => {
   return (
     <header className="flex items-center flex-col pt-5  bg-gradient-to-b from-[#FFF1EF] to-[#FDFCFB]">
       <div className="flex mx-auto w-max typography-caption text-text-400 item">
-        <CustomBreadcrumb
-          items={[
-            { name: "Home", link: "/" },
-            { name: "Our Experts", link: "/our-team" },
-            { name: "Profile", link: "ourExperts/profile" },
-          ]}
-        />
+        <div className="flex items-center justify-center">
+          <CustomBreadcrumb
+            items={[
+              { name: "Home", link: "/" },
+              { name: "Our Experts", link: "/our-team" },
+              { name: "Profile", link: "ourExperts/profile" },
+            ]}
+            mt={true}
+          />
+        </div>
       </div>
       <h1 className="typography-h2 font-bold text-secondary-500 mt-[10px]">
         Profile

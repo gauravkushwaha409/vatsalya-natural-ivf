@@ -15,6 +15,7 @@ const Headings: React.FC<HeadingsProps> = ({ data }) => {
             { name: "Services", link: "/services" },
             { name: data?.service?.slug },
           ]}
+          mt={true}
         />
       </div>
       <h1 className="typography-h1 font-bold text-secondary-500 mt-[10px]">
