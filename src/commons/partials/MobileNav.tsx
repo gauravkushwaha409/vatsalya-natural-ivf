@@ -1,9 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import lineicon from "@/assests/icons/Lineicon.svg";
 import MobileNavModal from "./MobileNavModal";
-import Image from "next/image";
-import { motion } from "framer-motion";
 import NavBotton from "@/components/bottons/NavBotton";
 
 type props = {
