@@ -18,7 +18,7 @@ const HeroCardAnimation: React.FC<HeroCardAnimationProps> = ({ isActive }) => {
     <div className="absolute inset-0">
       <AnimatePresence mode="wait">
         {animationType === "card" && isActive && <CardAnimation />}
-        {/* {animationType === "location" && isActive && <LocationAnimation />} */}
+        {animationType === "location" && isActive && <LocationAnimation />}
         {animationType === "stats" && isActive && <StatsAnimation />}
         {/* <AnimatingLines /> */}
       </AnimatePresence>
