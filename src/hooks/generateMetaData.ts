@@ -10,12 +10,10 @@ type ImageData = {
   url: string;
 };
 
-export function createMetadata<T>(
+export function createMetadata(
   seo: SEOData,
   imagesUrls?: ImageData[]
 ): Metadata {
-  console.log(seo.metaTitle, "seo");
-
   return {
     title: seo.metaTitle,
     description: seo.metaDescription,

@@ -1,30 +1,31 @@
-"use client"
-import { MapPin } from 'lucide-react';
-import { AnimatePresence, motion, Variants } from 'motion/react';
+"use client";
+import { MapPin } from "lucide-react";
+import { AnimatePresence, motion, Variants } from "motion/react";
 import Image from "next/image";
 
-type AnimationType = "card" | "stats" | "location"
+type AnimationType = "card" | "stats" | "location";
 interface HeroCardAnimationProps {
   isActive: boolean;
 }
 const BASE_DELAY = 2;
 const BASE_DURATION = 3;
 const HeroCardAnimation: React.FC<HeroCardAnimationProps> = ({ isActive }) => {
-  const animationType:AnimationType = (["card", "stats", "location"]as AnimationType[])[Math.floor(Math.random()*3)];
+  const animationType: AnimationType = (
+    ["card", "stats", "location"] as AnimationType[]
+  )[Math.floor(Math.random() * 3)];
 
   return (
     <div className="absolute inset-0">
-      <AnimatePresence mode='wait'>
+      <AnimatePresence mode="wait">
         {animationType === "card" && isActive && <CardAnimation />}
-        {animationType === "location" && isActive && <LocationAnimation />}
+        {/* {animationType === "location" && isActive && <LocationAnimation />} */}
         {animationType === "stats" && isActive && <StatsAnimation />}
         {/* <AnimatingLines /> */}
       </AnimatePresence>
     </div>
-  )
-}
-export default HeroCardAnimation
-
+  );
+};
+export default HeroCardAnimation;
 
 const CardAnimation = () => {
   const leftCardVariant: Variants = {
@@ -32,14 +33,14 @@ const CardAnimation = () => {
       opacity: 0,
       bottom: 0,
       left: "50%",
-      transition:{
-        default:{
-          duration:BASE_DURATION,
+      transition: {
+        default: {
+          duration: BASE_DURATION,
         },
-        opacity:{
-          duration:BASE_DURATION/4
-        }
-      }
+        opacity: {
+          duration: BASE_DURATION / 4,
+        },
+      },
     },
     animate: {
       opacity: 1,
@@ -52,20 +53,20 @@ const CardAnimation = () => {
         bounce: 0,
       },
     },
-  }
+  };
   const rightTopCardVariant: Variants = {
     initial: {
       opacity: 0,
       top: "100%",
       right: "50%",
-      transition:{
-        default:{
-          duration:BASE_DURATION,
+      transition: {
+        default: {
+          duration: BASE_DURATION,
         },
-        opacity:{
-          duration:BASE_DURATION/4
-        }
-      }
+        opacity: {
+          duration: BASE_DURATION / 4,
+        },
+      },
     },
     animate: {
       opacity: 1,
@@ -78,20 +79,20 @@ const CardAnimation = () => {
         bounce: 0,
       },
     },
-  }
+  };
   const rightBottomCardVariant: Variants = {
     initial: {
       opacity: 0,
       bottom: "0%",
       right: "50%",
-      transition:{
-        default:{
-          duration:BASE_DURATION,
+      transition: {
+        default: {
+          duration: BASE_DURATION,
         },
-        opacity:{
-          duration:BASE_DURATION/4
-        }
-      }
+        opacity: {
+          duration: BASE_DURATION / 4,
+        },
+      },
     },
     animate: {
       opacity: 1,
@@ -104,7 +105,7 @@ const CardAnimation = () => {
         bounce: 0,
       },
     },
-  }
+  };
 
   return (
     <div className="relative w-full h-full">
@@ -177,7 +178,7 @@ const CardAnimation = () => {
       </motion.div>
     </div>
   );
-}
+};
 
 const LocationAnimation = () => {
   const Variants: Variants = {
@@ -201,9 +202,9 @@ const LocationAnimation = () => {
         delay: BASE_DELAY,
         type: "spring",
         bounce: 0,
-      }
-    }
-  }
+      },
+    },
+  };
   return (
     <motion.div
       variants={Variants}
@@ -234,7 +235,7 @@ const LocationAnimation = () => {
       ))}
     </motion.div>
   );
-}
+};
 const StatsAnimation = () => {
   const Variants: Variants = {
     initial: {
@@ -257,9 +258,9 @@ const StatsAnimation = () => {
         delay: BASE_DELAY,
         type: "spring",
         bounce: 0,
-      }
-    }
-  }
+      },
+    },
+  };
   return (
     <motion.div
       variants={Variants}
@@ -307,4 +308,4 @@ const StatsAnimation = () => {
       ))}
     </motion.div>
   );
-}
+};
