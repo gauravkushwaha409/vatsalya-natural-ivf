@@ -7,8 +7,8 @@ import React, { useState } from "react";
 import {
   IOurExpertsData,
   IOurExpertsRecord,
-} from "../interface/ourExperts.interface";
-import buterflysvg from "./../../../assests/icons/butterflyExpertise.svg";
+} from "../../app/our-team/interface/ourExperts.interface";
+import buterflysvg from "@/assests/icons/butterflyExpertise.svg";
 interface Props {
   data: IOurExpertsData;
   showView?: boolean;

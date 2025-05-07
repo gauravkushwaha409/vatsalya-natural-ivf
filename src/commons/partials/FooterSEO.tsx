@@ -21,9 +21,9 @@ const FooterSeo = () => {
   return (
     <div className="bg-primary-100 padding">
       <div className="flex justify-between items-center">
-        <p className="mt-5 font-medium text-black-300 text-secondary-500 typography-paragraph-large">
+        <h3 className="font-bold mt-5 text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.18rem] typography-paragraph-larger">
           Important Links
-        </p>
+        </h3>
         <button
           onClick={() => setIsHidden((prev) => !prev)}
           className="size-4 text-secondary-500 text-xs cursor-pointer"
@@ -48,9 +48,11 @@ const FooterSeo = () => {
       >
         <div className="flex flex-col gap-y-2">
           <div>
-            <h2 className="mb-1 font-medium text-secondary-400">Branches</h2>
+            <h3 className="font-bold text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.18rem] typography-paragraph-regular">
+              Branches
+            </h3>
 
-            <div className="flex flex-wrap gap-y-2 pb-4 divide-x -ml-3">
+            <div className="flex flex-wrap gap-y-2 pb-4 divide-x -ml-3 mt-1">
               {branches?.data?.records?.map((item, index) => (
                 <Link
                   className="px-3 border-background-800 font-manrope text-text-400 typography-paragraph-regular decoration-transparent hover:decoration-text-500 underline underline-offset-2 transition-all duration-200"
@@ -65,9 +67,11 @@ const FooterSeo = () => {
         </div>
         <div className="flex flex-col gap-y-2">
           <div>
-            <h2 className="mb-1 font-medium text-secondary-400">Fertility</h2>
+            <h3 className="font-bold text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.18rem] typography-paragraph-regular">
+              Fertility
+            </h3>
 
-            <div className="flex flex-wrap gap-y-2 pb-4 divide-x -ml-3">
+            <div className="flex flex-wrap gap-y-2 pb-4 divide-x -ml-3 mt-1">
               {article?.data?.records?.map((item, index) => (
                 <Link
                   className="px-3 border-background-800 font-manrope text-text-400 typography-paragraph-regular decoration-transparent hover:decoration-text-500 underline underline-offset-2 transition-all duration-200"

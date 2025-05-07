@@ -14,6 +14,7 @@ import WhatWeDo from "./partials/WhatWeDo";
 import WhatWeOffer from "./partials/WhatWeOffer";
 import WhenToVisit from "./partials/WhenToVisit";
 import WhoWeAre from "./partials/WhoWeAre";
+import Notice from "./partials/Notice";
 
 export const dynamic = "force-dynamic";
 const HomePage = async () => {
@@ -74,6 +75,7 @@ const HomePage = async () => {
         </div>
         <HomeFaq data={homedata?.data?.Faq} />
         <Blogsection data={blogData?.data} />
+        <Notice />
       </div>
     );
   } catch (error) {

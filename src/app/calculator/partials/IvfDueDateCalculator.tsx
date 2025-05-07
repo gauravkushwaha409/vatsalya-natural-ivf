@@ -41,7 +41,7 @@ const IvfDueDateCalculator: React.FC<IvfDueDateCalculatorProps> = ({
 
   return (
     <>
-      <section className="padding py-16 md:py-24">
+      <section className="padding py-16 md:py-24 w-full">
         <div className="flex flex-col items-center ">
           <div className="flex justify-center items-center gap-4 w-full">
             {/* line  */}
@@ -119,7 +119,7 @@ const IvfDueDateCalculator: React.FC<IvfDueDateCalculatorProps> = ({
           </div>
         </div>
         <p
-          className="prose py-10"
+          className="prose py-10  min-w-full"
           dangerouslySetInnerHTML={{
             __html: data?.records[0]?.description || "",
           }}

@@ -1,4 +1,5 @@
 "use client";
+import NavBotton from "@/components/bottons/NavBotton";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import React from "react";
@@ -20,8 +21,11 @@ const MobileNavModal: React.FC<props> = ({ navlinks, isOpen, setIsOpen }) => {
             style={{
               background: "linear-gradient(to right, #EBC0DB 0%, #FFD2CE 100%)",
             }}
-            className=" top-0 z-40 fixed flex justify-center w-screen  overflow-hidden text-black"
+            className="  top-0 z-[100] fixed flex justify-center w-screen  overflow-hidden text-black"
           >
+            <div className="absolute top-4 right-10">
+              <NavBotton isOpen={isOpen} setIsOpen={setIsOpen} />
+            </div>
             <div className="flex flex-col mt-26 gap-5 ">
               {navlinks.map((item, index) => (
                 <ul className="px-8 w-max text-left" key={index}>
