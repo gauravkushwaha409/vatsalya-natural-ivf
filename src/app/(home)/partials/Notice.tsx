@@ -21,21 +21,6 @@ const Notice = () => {
   const [currentIndex, setCurrentIndex] = useState(0); // Track the index of the current image
   const [isOpen, setIsOpen] = useState(true); // State to manage the dialog open/close
 
-  const handleCloseDialog = () => {
-    const records = noticeData?.data?.records || []; // Default to empty array if records is undefined
-    switch (currentIndex) {
-      case records.length - 1:
-        setCurrentIndex(0); // If it's the last image, start over
-        break;
-      default:
-        setCurrentIndex(currentIndex + 1); // Move to the next image
-        break;
-    }
-
-    // Close the dialog after handling the state
-    setIsOpen(false); // Close dialog after clicking through
-  };
-
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild></DialogTrigger>
