@@ -54,7 +54,7 @@ const DropdownPortal = ({
   );
 };
 
-const Schedule = () => {
+const NavCalculator = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const [isMounted, setIsMounted] = useState(false);
@@ -82,14 +82,14 @@ const Schedule = () => {
   };
 
   return (
-    <div className="relative inline-block">
+    <div className="relative hide-for-mobile ">
       <button
         ref={buttonRef}
         onClick={handleButtonClick}
         style={{
           boxShadow: "0px 5.486px 12.343px 0px rgba(215, 101, 120, 0.33)",
         }}
-        className="bg-secondary-500 flex gap-3 items-center px-8 py-4 border border-secondary-200 rounded-full font-manrope font-extrabold text-white typography-paragraph-regular cursor-pointer hide-for-mobile"
+        className="bg-secondary-500 flex gap-3 items-center px-8 py-4 border border-secondary-200 rounded-full font-manrope font-extrabold text-white typography-paragraph-regular cursor-pointer "
       >
         <PiCalculatorBold />
         Calculator
@@ -112,4 +112,4 @@ declare global {
   }
 }
 
-export default Schedule;
+export default NavCalculator;

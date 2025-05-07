@@ -93,7 +93,7 @@ const Calendar: React.FC<CalendarProps> = ({ data }) => {
             <Cycle />
           </div>
           <p
-            className="prose py-10 overflow-hidden"
+            className="prose py-10 overflow-hidden min-w-full"
             dangerouslySetInnerHTML={{ __html: data?.records[0]?.description }}
           />
         </div>

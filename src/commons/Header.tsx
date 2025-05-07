@@ -2,10 +2,10 @@
 import { Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import Schedule from "./partials/Schedule";
 import MobileNav from "./partials/MobileNav";
 import { usePathname } from "next/navigation";
 import PATHS from "@/utils/path";
+import NavCalculator from "./partials/NavCalculator";
 
 const Header = () => {
   const pathame = usePathname();
@@ -19,6 +19,10 @@ const Header = () => {
     { name: "International Patient", link: PATHS.international_Patient },
     { name: "Clinic", link: PATHS.clinic },
     { name: "Contact Us", link: PATHS.contact },
+  ];
+  const mobileNavLinks = [
+    { name: "IVF Calculator", link: PATHS.ivfDueCalculatotr },
+    { name: "Ovulation Calculator", link: PATHS.ovulationCalculator },
   ];
   return (
     <header className="bg-primary-50 backdrop-blur-[5.6px] py-0 lg:py-[0.63rem] text-white padding">
@@ -45,8 +49,8 @@ const Header = () => {
           </label>
         </div>
 
-        <Schedule />
-        <MobileNav navlinks={navLinks} />
+        <NavCalculator />
+        <MobileNav navlinks={[...navLinks, ...mobileNavLinks]} />
       </div>
       <nav className="mt-5 w-auto hide-for-mobile">
         <ul className="flex justify-between font-manrope">

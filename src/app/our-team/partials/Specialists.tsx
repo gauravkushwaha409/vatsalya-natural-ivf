@@ -2,7 +2,7 @@
 import { motion } from "motion/react";
 import React, { JSX, useState } from "react";
 import { IOurExpertsData } from "../interface/ourExperts.interface";
-import TeamCard from "./TeamCard";
+import TeamCard from "../../../components/cards/TeamCard";
 
 interface SpecialistsProps {
   data: IOurExpertsData;

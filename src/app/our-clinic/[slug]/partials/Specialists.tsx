@@ -1,5 +1,5 @@
 import { IOurExpertsData } from "@/app/our-team/interface/ourExperts.interface";
-import TeamCard from "@/app/our-team/partials/TeamCard";
+import TeamCard from "@/components/cards/TeamCard";
 import SectionHeading from "@/components/compoundComponent/SectionHeading";
 import React from "react";
 

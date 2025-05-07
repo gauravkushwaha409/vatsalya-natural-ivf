@@ -76,7 +76,7 @@ const BasicTab: React.FC<CustomTabProps> = ({ tabs }) => {
       )}
 
       {/* Tab content */}
-      <div className="tab-content pt-5">{tabs[activeTab]?.content}</div>
+      <div className=" pt-5">{tabs[activeTab]?.content}</div>
     </div>
   );
 };
