@@ -3,14 +3,11 @@ import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import Image from "next/image";
 import { useState } from "react";
 import { IStageData } from "../interfaces/stage.interface";
-import { CheckCircle, Circle } from "lucide-react"; // Circle as unselected icon
 
 const FertilityStageSelection: React.FC<{ data: IStageData }> = ({ data }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  const handleStageSelect = (index: number) => {
-    setSelectedIndex(index);
+  const handleStageSelect = () => {
     setOpenModal(true); // Open modal when a stage is selected
   };
 
@@ -27,54 +24,52 @@ const FertilityStageSelection: React.FC<{ data: IStageData }> = ({ data }) => {
         </div>
 
         <h3 className="mb-10 font-semibold text-text-500 text-center text-wrap typography-h2">
-          Which Stage of Fertility Are You In?
+          Which Stage of Fertility are You in?
         </h3>
 
         {/* Stage cards */}
         <div className="gap-6 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 w-full">
           {data?.records?.map((stage, index) => {
-            const isSelected = selectedIndex === index;
-
             return (
               <button
                 key={index}
-                onClick={() => handleStageSelect(index)}
-                className={`relative flex flex-col justify-center items-center space-y-2 bg-background-200 shadow m-2 mx-0 lg:mx-4 p-4 border rounded-3xl transition-all duration-200 ease-in-out cursor-pointer 
-                  ${
-                    isSelected
-                      ? "border-primary-500 bg-primary-50 shadow-md scale-[101%]"
-                      : "hover:bg-primary-50 shadow-primary-100/30 hover:shadow-md hover:scale-[101%]"
-                  } active:scale-95`}
+                className={`relative flex flex-col p-10  bg-white shadow m-2 mx-0 lg:mx-4  border rounded-3xl transition-all duration-200 ease-in-out cursor-pointer 
+               active:scale-95 group`}
               >
-                {/* Icon */}
-                <div className="absolute top-2 right-2">
-                  {isSelected ? (
-                    <CheckCircle className="text-primary-500 w-6 h-6" />
-                  ) : (
-                    <Circle className="text-muted-foreground w-6 h-6" />
-                  )}
-                </div>
-
-                <div className="rounded-full size-24 overflow-hidden">
+                <div className="rounded-full size-20 overflow-hidden">
                   <Image
                     width={400}
                     height={400}
                     src={stage.image}
                     alt={stage.title}
-                    className="mb-2 w-full h-full object-cover"
+                    className="mb-2 w-full h-full object-cover border border-red-500"
                   />
                 </div>
 
-                <h4 className="flex items-center gap-2 font-bold text-secondary-500 typography-h4 lg:typography-h3">
+                <h4 className=" font-bold text-text-500 typography-h4 mt-3.5 text-left">
                   {stage.title}
                 </h4>
 
                 <p
-                  className="mt-2 mb-4 text-text-200 text-center typography-paragraph-regular"
+                  className="mt-2.5  text-text-400 font-medium  typography-paragraph-regular text-left"
                   dangerouslySetInnerHTML={{
                     __html: stage.description || "",
                   }}
                 />
+                <div className="absolute top-0 left-0 w-full h-full delay-100 bg-white opacity-0  group-hover:opacity-100 transition-all duration-200 ease-in rounded-3xl">
+                  <div className="bg-secondary-50 w-full h-full rounded-3xl flex justify-center items-center">
+                    <button
+                      onClick={() => handleStageSelect()}
+                      style={{
+                        boxShadow:
+                          "0px 5.486px 12.343px 0px rgba(215, 101, 120, 0.33)",
+                      }}
+                      className="bg-secondary-500 flex gap-3 items-center px-8 py-4 border border-secondary-200 rounded-full font-manrope font-extrabold text-white typography-paragraph-regular cursor-pointer "
+                    >
+                      Book an Appointment
+                    </button>
+                  </div>
+                </div>
               </button>
             );
           })}

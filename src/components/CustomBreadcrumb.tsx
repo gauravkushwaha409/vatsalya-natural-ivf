@@ -13,6 +13,7 @@ interface BreadcrumbProps {
   separator?: string | JSX.Element;
   homeIcon?: JSX.Element;
   className?: string;
+  mt?: boolean;
 }
 
 function CustomBreadcrumb({
@@ -20,6 +21,7 @@ function CustomBreadcrumb({
   separator = ">",
   homeIcon,
   className = "",
+  mt,
 }: BreadcrumbProps) {
   return (
     <nav className={`flex items-center  ${className}`} aria-label="Breadcrumb">
@@ -48,7 +50,7 @@ function CustomBreadcrumb({
               {/* Separator Section  */}
               {!isLast && (
                 <li
-                  className="mx-0.5 typography-caption mt-1 "
+                  className={`${!mt ? "mt-1" : ""} mx-0.5 typography-caption  `}
                   aria-hidden="true"
                 >
                   {separator}

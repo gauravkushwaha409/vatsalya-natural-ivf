@@ -1,4 +1,5 @@
 "use client";
+
 import PATHS from "@/utils/path";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
@@ -35,6 +36,7 @@ const DropdownPortal = ({
             <Link
               href={PATHS.ivfDueCalculatotr}
               className="w-full text-left px-4 py-2 hover:bg-gray-100 inline-block"
+              onClick={() => onSelect("ivf")}
             >
               IVF Calculator
             </Link>
@@ -43,6 +45,7 @@ const DropdownPortal = ({
             <Link
               href={PATHS.ovulationCalculator}
               className="w-full text-left px-4 py-2 hover:bg-gray-100 inline-block"
+              onClick={() => onSelect("ovulation")}
             >
               Ovulation Calculator
             </Link>
@@ -56,19 +59,31 @@ const DropdownPortal = ({
 
 const NavCalculator = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
   const [isMounted, setIsMounted] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     setIsMounted(true);
     window.dropdownPosition = { top: "0px", left: "0px" };
-  }, []);
+
+    // Add scroll event listener to close dropdown on scroll
+    const handleScroll = () => {
+      if (dropdownOpen) {
+        setDropdownOpen(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [dropdownOpen]);
 
   const handleButtonClick = () => {
     if (buttonRef.current) {
       const rect = buttonRef.current.getBoundingClientRect();
-
       window.dropdownPosition = {
         top: `${rect.bottom + window.scrollY + 8}px`,
         left: `${rect.right - 224 + window.scrollX}px`,
@@ -82,20 +97,17 @@ const NavCalculator = () => {
   };
 
   return (
-    <div className="relative hide-for-mobile ">
+    <div className="relative hide-for-mobile">
       <button
         ref={buttonRef}
         onClick={handleButtonClick}
         style={{
           boxShadow: "0px 5.486px 12.343px 0px rgba(215, 101, 120, 0.33)",
         }}
-        className="bg-secondary-500 flex gap-3 items-center px-8 py-4 border border-secondary-200 rounded-full font-manrope font-extrabold text-white typography-paragraph-regular cursor-pointer "
+        className="bg-secondary-500 flex gap-3 items-center px-8 py-4 border border-secondary-200 rounded-full font-manrope font-extrabold text-white typography-paragraph-regular cursor-pointer"
       >
-        <PiCalculatorBold />
-        Calculator
-        <MdOutlineArrowDropDown size={20} />
+        <PiCalculatorBold /> Calculator <MdOutlineArrowDropDown size={20} />
       </button>
-
       {isMounted && (
         <DropdownPortal isOpen={dropdownOpen} onSelect={handleSelect} />
       )}

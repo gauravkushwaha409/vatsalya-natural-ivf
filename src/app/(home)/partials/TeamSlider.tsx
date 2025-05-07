@@ -96,7 +96,7 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
                 <div
                   style={{
                     backgroundImage: `url(${buterflysvg.src}),linear-gradient(to right, #EBC0DB 0%, #FFD2CE 100%)`,
-                    backgroundPosition: "top right 10%, center",
+                    backgroundPosition: "top 10% right 0%, center",
                     backgroundRepeat: "no-repeat, no-repeat",
                     backgroundSize: "20%, cover",
                   }}

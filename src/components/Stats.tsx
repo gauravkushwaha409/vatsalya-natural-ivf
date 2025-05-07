@@ -52,7 +52,7 @@ const ShowCaseItem: React.FC<{
         border ? "border-r" : ""
       }`}
     >
-      <div className="p-4 sm:p-5 md:p-6 lg:p-7 border-[4px] border-primary-200/[0.54] sm:border-[5px] md:border-[6px] lg:border-[7px] rounded-full aspect-square">
+      <div className="p-4 sm:p-5 md:p-6 lg:p-7 border-[4px] border-primary-200/[0.54] sm:border-[5px] md:border-[6px] lg:border-[7px] rounded-full aspect-square bg-white">
         <Image
           crossOrigin="anonymous"
           src={svg}
