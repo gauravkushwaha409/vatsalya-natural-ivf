@@ -39,7 +39,19 @@ interface Endpoints {
   calculator_description: string;
   notice: string;
   seo: ISeo;
+  breadcrumb: IBreadCrumb;
 }
+export interface IBreadCrumb {
+  about_us: string;
+  service: string;
+  our_expert: string;
+  success_story: string;
+  career: string;
+  clinic: string;
+  clinic_detail: string;
+  team: string;
+}
+
 export interface ISeo {
   about_us: string;
   service: string;
@@ -55,7 +67,6 @@ export interface ISeo {
   faqs: string;
   career: string;
 }
-
 export interface IAboutUS {
   aboutUs: string;
   mission: string;
@@ -123,6 +134,16 @@ export const endpoints: Endpoints = {
     request_call: "/seo/static/request-a-call",
     faqs: "/seo/static/faqs",
     career: "/seo/static/career",
+  },
+  breadcrumb: {
+    about_us: "/breadcrumb?filter=about-us",
+    service: "/breadcrumb?filter=service",
+    our_expert: "/breadcrumb?filter=our-expert",
+    success_story: "/breadcrumb?filter=success-story",
+    career: "/breadcrumb?filter=career",
+    clinic: "/breadcrumb?filter=clinic",
+    clinic_detail: "/breadcrumb?filter=clinic-detail",
+    team: "/breadcrumb?filter=team",
   },
 };
 
