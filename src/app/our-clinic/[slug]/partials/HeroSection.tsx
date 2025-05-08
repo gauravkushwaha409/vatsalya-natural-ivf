@@ -5,7 +5,6 @@ import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 import Image from "next/image";
 import { useState } from "react";
 import PATHS from "@/utils/path";
-import Hero from "@/components/compoundComponent/Hero";
 
 const HeroSection: React.FC<{ slug: string }> = ({ slug }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
@@ -65,17 +64,6 @@ const HeroSection: React.FC<{ slug: string }> = ({ slug }) => {
           onClose={() => setOpenModal(false)}
         />
       </div>
-      <Hero heroData={heroData}>
-        <Hero.Container>
-          <Hero.Background />
-          <Hero.Breadcrumb />
-          <Hero.Content className="px-6 md:px-16 text-left md:text-center">
-            <Hero.Title />
-            <Hero.Description className="text-gray-100 max-w-2xl" />
-            <Hero.Button />
-          </Hero.Content>
-        </Hero.Container>
-      </Hero>
     </>
   );
 };
