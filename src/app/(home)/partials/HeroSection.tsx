@@ -25,41 +25,23 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
   return (
     <div className="relative flex justify-center h-full min-h-[45rem] overflow-y-hidden padding">
       <div className="flex flex-col justify-center mt-16 lg:mt-[8.72rem] w-full h-full text-left">
-        <h1 className="font-bold text-primary-500 uppercase tracking-widest typography-paragraph-large">
+        <h1 className="font-bold relative text-primary-500 uppercase tracking-widest typography-paragraph-large">
           {data?.title}{" "}
         </h1>
-        <div className="relative pt-5">
+        <div className=" pt-5">
           <HeroTextAnimation text={data?.subtitle || text} />
           <motion.div
             initial={{
               rotate: 90,
-              top: "120%",
-              left: 0,
+              top: "20%",
+              left: 20,
             }}
             animate={{
               rotate: [
                 90, 89, 88, 90, 75, 65, 55, 50, 45, 30, 15, 0, -20, -30, -45,
               ],
-              top: [
-                "120%",
-                "118%",
-                "115%",
-                "112%",
-                "105%",
-                "98%",
-                "90%",
-                "80%",
-                "65%",
-                "50%",
-                "35%",
-                "20%",
-                "5%",
-                "-10%",
-                "-20%",
-              ],
-              left: [
-                0, 40, 80, 120, 200, 250, 300, 350, 380, 390, 395, 400, 400,
-              ],
+              top: ["20%", "22%", "24%", "22%", "18%", "17%", "12%"],
+              left: [0, 40, 80, 120, 200, 250, 300],
             }}
             transition={{
               duration: 2,
