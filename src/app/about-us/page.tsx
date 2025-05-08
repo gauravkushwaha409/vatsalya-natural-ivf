@@ -8,8 +8,17 @@ import OurStory from "./partials/OurStory";
 import WhyChooseUs from "./partials/WhyChooseUs";
 import { fetchAboutPageData } from "./hooks/fetchAboutUsData";
 import ErrorMessage from "@/components/ErrorMessage";
+import { getData } from "@/api/axios";
+import { endpoints } from "@/api/endpoints";
+import { ISeoRoot } from "@/interface/seo.interface";
+import { createMetadata } from "@/hooks/generateMetaData";
 export const dynamic = "force-dynamic";
 
+export async function generateMetadata() {
+  const { data } = await getData<ISeoRoot>(endpoints.seo.about_us);
+  const meta = createMetadata(data);
+  return meta;
+}
 const AboutUs = async () => {
   try {
     const { aboutUsData, statsData, whyUsData, testimonialData } =

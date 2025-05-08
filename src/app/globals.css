@@ -4,7 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-*{
+* {
   @apply box-border;
 }
 
@@ -137,6 +137,7 @@
   /* shadcn */
   --shadow-box: 0px 8px 18px 0px rgba(211, 163, 193, 0.77);
   --animate-bgFade: bgFade 1s ease-in-out;
+  --breakpoint-xs: 28rem;
 
   @keyframes bgFade {
     0% {
@@ -233,16 +234,14 @@
   @apply px-5 lg:px-20;
 }
 
-
 @utility no-scrollbar {
-  ::-webkit-scrollbar{
+  ::-webkit-scrollbar {
     display: none;
   }
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
   overflow: -moz-scrollbars-none;
 }
-
 
 @layer base {
   * {

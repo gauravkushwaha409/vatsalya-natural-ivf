@@ -3,7 +3,15 @@ import Calendar from "./partials/Calendar";
 import HeroSection from "./partials/HeroSection";
 import { endpoints } from "@/api/endpoints";
 import { IOvulationRoot } from "./interface/ovulation.interface";
+import { createMetadata } from "@/hooks/generateMetaData";
 
+export async function generateMetadata() {
+  const { data } = await getData<IOvulationRoot>(
+    `${endpoints.calculator_description}?filter=ovulation`
+  );
+  const meta = createMetadata(data?.records[0]?.seo);
+  return meta;
+}
 const OvulationPage = async () => {
   try {
     const { data } = await getData<IOvulationRoot>(

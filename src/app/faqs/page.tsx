@@ -4,8 +4,14 @@ import Faq from "@/components/Faqs";
 import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
 import ErrorMessage from "@/components/ErrorMessage";
+import { ISeoRoot } from "@/interface/seo.interface";
+import { createMetadata } from "@/hooks/generateMetaData";
 export const dynamic = "force-dynamic";
-
+export async function generateMetadata() {
+  const { data } = await getData<ISeoRoot>(endpoints.seo.faqs);
+  const meta = createMetadata(data);
+  return meta;
+}
 const FAQ = async () => {
   try {
     const data = await getData(endpoints.faq);

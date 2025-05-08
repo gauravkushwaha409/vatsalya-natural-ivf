@@ -15,9 +15,17 @@ import WhatWeOffer from "./partials/WhatWeOffer";
 import WhenToVisit from "./partials/WhenToVisit";
 import WhoWeAre from "./partials/WhoWeAre";
 import Notice from "./partials/Notice";
+import { getData } from "@/api/axios";
+import { endpoints } from "@/api/endpoints";
+import { createMetadata } from "@/hooks/generateMetaData";
+import { ISeoRoot } from "@/interface/seo.interface";
 
 export const dynamic = "force-dynamic";
-
+export async function generateMetadata() {
+  const { data } = await getData<ISeoRoot>(endpoints.seo.home);
+  const meta = createMetadata(data);
+  return meta;
+}
 const HomePage = async () => {
   try {
     const {

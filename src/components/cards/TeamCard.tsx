@@ -20,7 +20,7 @@ const TeamCard: React.FC<Props> = ({ data, showView = true }) => {
       <motion.div
         initial={{ opacity: 0.3 }}
         animate={{ opacity: 1 }}
-        className="gap-x-10 gap-y-10 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 my-5 lg:my-10"
+        className="gap-x-10 gap-y-10 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 my-5 lg:my-10"
       >
         {data?.records?.map((items: IOurExpertsRecord, index: number) => (
           <div

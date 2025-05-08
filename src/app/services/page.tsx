@@ -6,7 +6,14 @@ import Tests from "./partials/Tests";
 import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
 import { IStageRoot } from "./interfaces/stage.interface";
+import { ISeoRoot } from "@/interface/seo.interface";
+import { createMetadata } from "@/hooks/generateMetaData";
 export const dynamic = "force-dynamic";
+export async function generateMetadata() {
+  const { data } = await getData<ISeoRoot>(endpoints.seo.service);
+  const meta = createMetadata(data);
+  return meta;
+}
 const ServicePage = async () => {
   const { data: fertilityData } = await getData<IStageRoot>(
     endpoints.service_stage

@@ -2,6 +2,8 @@ import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
 import BlogsCard from "./partials/BlogsCard";
 import HeroBlog from "./partials/HeroBlog";
+import { ISeoRoot } from "@/interface/seo.interface";
+import { createMetadata } from "@/hooks/generateMetaData";
 export const dynamic = "force-dynamic";
 
 interface BlogProps {
@@ -11,7 +13,11 @@ interface BlogProps {
     page?: string | string[];
   }>;
 }
-
+export async function generateMetadata() {
+  const { data } = await getData<ISeoRoot>(endpoints.seo.blog);
+  const meta = createMetadata(data);
+  return meta;
+}
 const BlogPage = async ({ searchParams }: BlogProps) => {
   try {
     const page = (await Number((await searchParams)?.page)) || 1;
