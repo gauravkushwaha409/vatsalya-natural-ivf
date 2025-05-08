@@ -36,7 +36,6 @@ const ServicePage = async () => {
     console.error("Error fetching blog data:", error);
     return (
       <>
-        <Herosection />
         <ErrorMessage />
       </>
     );
