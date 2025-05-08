@@ -29,7 +29,7 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
           {data?.title}{" "}
         </h1>
         <div className="relative pt-5">
-          <HeroTextAnimation text={text} />
+          <HeroTextAnimation text={data?.subtitle || text} />
           <motion.div
             initial={{
               rotate: 90,
