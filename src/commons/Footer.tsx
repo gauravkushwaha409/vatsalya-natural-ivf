@@ -5,6 +5,10 @@ import { companyLinks, helpLinks } from "@/data/footerData";
 import Image from "next/image";
 import Link from "next/link";
 import FooterSeo from "./partials/FooterSEO";
+import { getData } from "@/api/axios";
+import { endpoints } from "@/api/endpoints";
+import { IserviceRecord } from "@/app/services/interfaces/services.interface";
+import PATHS from "@/utils/path";
 
 const Footer = async () => {
   const { footerData } = await getHomePageData();
@@ -38,12 +42,12 @@ const Footer = async () => {
       icon: "/svg/whatsapp.svg",
     },
   ];
-
+  const { data } = await getData(endpoints.service + `?page=${1}&perPage=${5}`);
   return (
     <>
       <FooterSeo />
       <div className="bg-primary-100 backdrop-blur-[5.6px] pt-10 overflow-hidden text-text-400 padding">
-        <div className="gap-[6.56rem] grid grid-cols-2 lg:grid-cols-4">
+        <div className="gap-[6.56rem] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           <div className="space-y-3 font-manrope text-text-400 typography-paragraph-regular">
             <div className="-ml-5 h-20 aspect-auto">
               <Link href="/">
@@ -105,7 +109,17 @@ const Footer = async () => {
               </p>
             ))}
           </div>
-
+          {/* Company Links */}
+          <div className="space-y-3 font-manrope text-text-400 typography-paragraph-regular">
+            <h3 className="font-bold text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.18rem] typography-paragraph-regular">
+              Services
+            </h3>
+            {data?.records?.map((link: IserviceRecord, index: number) => (
+              <p key={index}>
+                <Link href={`${PATHS.services}/${link.slug}`}>{link.name}</Link>
+              </p>
+            ))}
+          </div>
           {/* Help Links */}
           <div className="space-y-3 font-manrope text-text-400 typography-paragraph-regular">
             <h3 className="font-[600] text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.1575rem]">
