@@ -32,8 +32,16 @@ export interface IArticleAuthor {
 }
 
 export interface IArticleSeo {
+  object: string;
+  id: string;
   metaTitle: string;
   metaDescription: string;
+  ogTitle: string;
+  ogDescription: string;
+  seoFor: string;
+  createdAt: string;
+  updatedAt: string;
+  canonicalUrl: string;
 }
 
 export interface IArticleFaq {

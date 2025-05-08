@@ -6,10 +6,18 @@ import ArticleDetailHero from "./partials/ArticleDetailHero";
 import ArticleDescription from "./partials/AtricleDescription";
 import { IArticleRoot } from "./interface/article.interface";
 import ErrorMessage from "@/components/ErrorMessage";
+import { createMetadata } from "@/hooks/generateMetaData";
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;
 }
+export async function generateMetadata({ params }: ArticlePageProps) {
+  const slug = (await params).slug;
+  const { data } = await getData<IArticleRoot>(endpoints.article + `/${slug}`);
+  const meta = createMetadata(data?.seo);
+  return meta;
+}
+
 const ArticlePage: React.FC<ArticlePageProps> = async ({ params }) => {
   try {
     const slug = await params;

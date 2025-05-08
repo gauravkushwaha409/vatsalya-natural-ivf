@@ -8,6 +8,7 @@ import { endpoints } from "@/api/endpoints";
 import { IStageRoot } from "./interfaces/stage.interface";
 import { ISeoRoot } from "@/interface/seo.interface";
 import { createMetadata } from "@/hooks/generateMetaData";
+import { IBreadCrumbRoot } from "@/interface/breadcrumb.interface";
 export const dynamic = "force-dynamic";
 export async function generateMetadata() {
   const { data } = await getData<ISeoRoot>(endpoints.seo.service);
@@ -18,10 +19,13 @@ const ServicePage = async () => {
   const { data: fertilityData } = await getData<IStageRoot>(
     endpoints.service_stage
   );
+  const { data: heroData } = await getData<IBreadCrumbRoot>(
+    endpoints.breadcrumb.service
+  );
   try {
     return (
       <section>
-        <Herosection />
+        <Herosection data={heroData} />
         <Services />
         <Tests />
         <FertilityStageSelection data={fertilityData} />
@@ -32,7 +36,6 @@ const ServicePage = async () => {
     console.error("Error fetching blog data:", error);
     return (
       <>
-        <Herosection />
         <ErrorMessage />
       </>
     );
