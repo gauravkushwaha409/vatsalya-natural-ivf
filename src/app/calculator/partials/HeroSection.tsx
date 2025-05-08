@@ -31,7 +31,7 @@ const HeroSection = () => {
                 link: "/",
               },
               {
-                name: "Our Clinic",
+                name: "Calculator",
               },
             ]}
             className="top-4 absolute"

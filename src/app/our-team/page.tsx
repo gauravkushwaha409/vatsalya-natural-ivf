@@ -4,8 +4,14 @@ import Specialists from "./partials/Specialists";
 import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
 import Leader from "./partials/Leader";
+import { ISeoRoot } from "@/interface/seo.interface";
+import { createMetadata } from "@/hooks/generateMetaData";
 export const dynamic = "force-dynamic";
-
+export async function generateMetadata() {
+  const { data } = await getData<ISeoRoot>(endpoints.seo.our_team);
+  const meta = createMetadata(data);
+  return meta;
+}
 const page = async () => {
   try {
     const { data } = await getData(endpoints.experts);

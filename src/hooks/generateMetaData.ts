@@ -17,17 +17,17 @@ type VideoData = {
 };
 
 export function createMetadata(
-  seo: SEOData,
-  imagesUrls?: ImageData[],
+  seo: SEOData | null,
+  imagesUrls?: ImageData[] | null,
   videoData?: VideoData
 ): Metadata {
   return {
-    title: seo.metaTitle,
-    description: seo.metaDescription,
+    title: seo?.metaTitle || "Vatsalaya",
+    description: seo?.metaDescription || "Vatsalaya",
     openGraph: {
-      title: seo.metaTitle,
-      description: seo.metaDescription,
-      url: seo.canonicalUrl,
+      title: seo?.metaTitle || "Vatsalaya",
+      description: seo?.metaDescription || "Vatsalaya",
+      url: seo?.canonicalUrl || "https://vatsalaya.com",
       siteName: "Vatsalaya",
       images: imagesUrls?.map((img) => ({
         url: img.url,
@@ -48,7 +48,7 @@ export function createMetadata(
       type: "website",
     },
     alternates: {
-      canonical: seo.canonicalUrl,
+      canonical: seo?.canonicalUrl,
       languages: {
         "en-US": "/en-US",
         "de-DE": "/de-DE",

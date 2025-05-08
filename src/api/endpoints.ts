@@ -38,6 +38,22 @@ interface Endpoints {
   international_patients: string;
   calculator_description: string;
   notice: string;
+  seo: ISeo;
+}
+export interface ISeo {
+  about_us: string;
+  service: string;
+  blog: string;
+  contact_us: string;
+  home: string;
+  success_stories: string;
+  our_team: string;
+  international_patient: string;
+  clinic: string;
+  consultation_booking: string;
+  request_call: string;
+  faqs: string;
+  career: string;
 }
 
 export interface IAboutUS {
@@ -93,6 +109,21 @@ export const endpoints: Endpoints = {
   international_patients: "/international-patient",
   calculator_description: "/calculator-description",
   notice: "/notice/get",
+  seo: {
+    home: "/seo/static/home",
+    about_us: "/seo/static/about-us",
+    service: "/seo/static/service",
+    blog: "/seo/static/blog",
+    contact_us: "/seo/static/contact-us",
+    success_stories: "/seo/static/success-stories",
+    our_team: "/seo/static/our-team",
+    international_patient: "/seo/static/international-patient",
+    clinic: "/seo/static/clinic",
+    consultation_booking: "/seo/static/consultation-booking",
+    request_call: "/seo/static/request-a-call",
+    faqs: "/seo/static/faqs",
+    career: "/seo/static/career",
+  },
 };
 
 export const BASE_API_URL = process.env.NEXT_PUBLIC_API_URL;

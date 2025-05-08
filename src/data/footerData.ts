@@ -1,3 +1,5 @@
+import PATHS from "@/utils/path";
+
 export const socialLinks = [
   {
     name: "facebook",
@@ -32,6 +34,7 @@ export const companyLinks = [
   { label: "Success Stories", href: "/success-story" },
   { label: "Contact", href: "/contact-us" },
   { label: "Career", href: "/career" },
+  { label: "Request a Call", href: PATHS.reqCall },
 ];
 
 export const helpLinks = [
