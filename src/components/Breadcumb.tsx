@@ -17,7 +17,7 @@ const Breadcrumb: React.FC<{
             {baseName || "Home"}
           </Link>
           <span className="inline-block px-1">{">"}</span>
-          <span className="text-primary-300">{name}</span>
+          <span className="!text-primary-300">{name}</span>
         </div>
       </div>
     </>

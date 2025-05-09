@@ -1,46 +1,34 @@
-import CustomBreadcrumb from "@/components/CustomBreadcrumb";
-import Image from "next/image";
+"use client";
 import React from "react";
-import hero from "@/assests/career/career.png";
 import ApplyFormModal from "../../../components/modals/ApplyFormModal";
+import Hero from "@/components/compoundComponent/Hero";
+import { useGetDataQuery } from "@/api/api";
+import { endpoints } from "@/api/endpoints";
 
 const HeroCareer = () => {
+  const { data } = useGetDataQuery({ url: endpoints.breadcrumb.career });
+  const records = data?.data?.records[0];
+  const heroData = {
+    ...records,
+    breadcrumb: "Clinic",
+  };
   return (
-    <div>
-      <div className="relative w-full h-[500px] overflow-hidden">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={hero}
-            alt="Happy couple with newborn baby"
-            fill
-            className="object-cover brightness-[0.35]"
-            priority
-          />
-        </div>
-
-        {/* Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-4 text-center">
-          {/* Breadcrumb need to be redo again*/}
-          <CustomBreadcrumb
-            items={[{ name: "Home", link: "/" }, { name: "Career" }]}
-            className="absolute top-4 "
-          />
-          {/* Heading */}
-          <h1 className="typography-h2 font-bold mb-4">Career</h1>
-          {/* Subheading */}
-          <p className="typography-paragraph-large font-medium mb-10">
-            Be a part of a team that is making a difference in reproductive
-            health and patient care
-          </p>
-          {/* CTA Button */}
-          <ApplyFormModal
-            title="Join Us"
-            customClass="typography-h4 font-semibold border-[0.4px] border-secondary-100 hover:bg-secondary py-4 px-11 rounded-full text-lg transition-colors duration-300 shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] bg-gradient-to-r from-[#A0385A] to-[#3A142C]"
-          />
-        </div>
-      </div>
-    </div>
+    <Hero heroData={heroData}>
+      <Hero.Container>
+        <Hero.Background />
+        <Hero.Breadcrumb />
+        <Hero.Content className="px-6 md:px-16 text-left md:text-center">
+          <Hero.Title />
+          <Hero.Description className="text-gray-100 max-w-2xl" />
+          <Hero.HeroCustomButton className="bg-none shadow-none border-none hover:bg-none">
+            <ApplyFormModal
+              title="Join Us"
+              customClass="typography-h4 font-semibold border-[0.4px] border-secondary-100 hover:bg-secondary py-4 px-11 rounded-full text-lg transition-colors duration-300 shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] bg-gradient-to-r from-[#A0385A] to-[#3A142C]"
+            />
+          </Hero.HeroCustomButton>
+        </Hero.Content>
+      </Hero.Container>
+    </Hero>
   );
 };
 

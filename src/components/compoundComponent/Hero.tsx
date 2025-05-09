@@ -1,6 +1,12 @@
 "use client";
 
-import { useState, createContext, useContext, ReactNode } from "react";
+import {
+  useState,
+  createContext,
+  useContext,
+  ReactNode,
+  Children,
+} from "react";
 import Image, { StaticImageData } from "next/image";
 import { twMerge } from "tailwind-merge";
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
@@ -135,6 +141,32 @@ const HeroBreadcrumb = ({ className, name: propName }: HeroBreadcrumbProps) => {
   );
 };
 
+type HeroCustomBreadcrumbProps = {
+  className?: string;
+  children?: ReactNode;
+};
+
+const HeroCustomBreadcrumb = ({
+  className,
+  children,
+}: HeroCustomBreadcrumbProps) => {
+  const { heroData } = useHero();
+  const name = children || heroData.breadcrumb;
+
+  if (!name) return null;
+
+  return (
+    <div
+      className={twMerge(
+        "top-5 left-1/2 z-30 absolute -translate-x-1/2 transform",
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
+};
+
 // Content Component
 type HeroContentProps = {
   children: ReactNode;
@@ -167,7 +199,12 @@ const HeroTitle = ({ children, className }: HeroTitleProps) => {
   if (!titleContent) return null;
 
   return (
-    <h1 className={twMerge("mb-4 font-bold typography-h1", className)}>
+    <h1
+      className={twMerge(
+        "mb-4 font-bold typography-h1 !text-secondary-50",
+        className
+      )}
+    >
       {titleContent}
     </h1>
   );
@@ -188,7 +225,7 @@ const HeroDescription = ({ children, className }: HeroDescriptionProps) => {
   return (
     <p
       className={twMerge(
-        "mb-10 font-medium typography-paragraph-large",
+        "mb-10 font-medium typography-paragraph-regular !text-text-50/80 ",
         className
       )}
     >
@@ -212,7 +249,7 @@ const HeroButton = ({ children, className }: HeroButtonProps) => {
     <button
       onClick={() => setOpenModal(true)}
       className={twMerge(
-        "hover:bg-secondary bg-gradient-to-r from-[#A0385A] to-[#3A142C] shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] px-11 py-4 border-[0.4px] border-secondary-100 rounded-full font-semibold text-lg transition-colors duration-300 typography-h4 cursor-pointer",
+        "hover:bg-secondary bg-gradient-to-r from-[#A0385A] to-[#3A142C] shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] px-11 py-4 border-[0.4px] border-secondary-100 rounded-full font-semibold  transition-colors duration-300 typography-h4 cursor-pointer",
         className
       )}
     >
@@ -220,7 +257,33 @@ const HeroButton = ({ children, className }: HeroButtonProps) => {
     </button>
   );
 };
+type HeroCustomButtonProps = {
+  children?: ReactNode;
+  className?: string;
+  props?: HTMLButtonElement;
+};
 
+const HeroCustomButton = ({
+  children,
+  className,
+  ...props
+}: HeroCustomButtonProps) => {
+  const { heroData } = useHero();
+  const buttonContent =
+    children || heroData.buttonText || "Book an Appointment";
+
+  return (
+    <button
+      {...props}
+      className={twMerge(
+        " bg-gradient-to-r from-[#A0385A] to-[#3A142C] shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)]  border-[0.4px] border-secondary-100 font-semibold  duration-300 typography-h4 cursor-pointer",
+        className
+      )}
+    >
+      {buttonContent}
+    </button>
+  );
+};
 // Container Component
 type HeroContainerProps = {
   children: ReactNode;
@@ -231,7 +294,7 @@ const HeroContainer = ({ children, className }: HeroContainerProps) => {
   return (
     <div
       className={twMerge(
-        "relative w-full h-[500px] overflow-hidden",
+        "relative w-full h-[428px] overflow-hidden",
         className
       )}
     >
@@ -248,6 +311,8 @@ Hero.Content = HeroContent;
 Hero.Title = HeroTitle;
 Hero.Description = HeroDescription;
 Hero.Button = HeroButton;
+Hero.CustomBreadcrumb = HeroCustomBreadcrumb;
+Hero.HeroCustomButton = HeroCustomButton;
 
 // Make sure to use default export
 export default Hero;

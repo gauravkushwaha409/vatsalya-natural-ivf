@@ -40,6 +40,7 @@ interface Endpoints {
   notice: string;
   seo: ISeo;
   breadcrumb: IBreadCrumb;
+  terms: string;
 }
 export interface IBreadCrumb {
   about_us: string;
@@ -50,6 +51,9 @@ export interface IBreadCrumb {
   clinic: string;
   clinic_detail: string;
   team: string;
+  InternationalPatient: string;
+  FertilityCalculator: string;
+  OvulationCalculator: string;
 }
 
 export interface ISeo {
@@ -140,11 +144,15 @@ export const endpoints: Endpoints = {
     service: "/breadcrumb?filter=service",
     our_expert: "/breadcrumb?filter=our-expert",
     success_story: "/breadcrumb?filter=success-story",
-    career: "/breadcrumb?filter=career",
+    career: "/breadcrumb?filter=carrer",
     clinic: "/breadcrumb?filter=clinic",
     clinic_detail: "/breadcrumb?filter=clinic-detail",
     team: "/breadcrumb?filter=team",
+    InternationalPatient: "/breadcrumb?filter=international-patient",
+    FertilityCalculator: "/breadcrumb?filter=fertility-calculator",
+    OvulationCalculator: "/breadcrumb?filter=ovulation-calculator",
   },
+  terms: "/terms",
 };
 
 export const BASE_API_URL = process.env.NEXT_PUBLIC_API_URL;

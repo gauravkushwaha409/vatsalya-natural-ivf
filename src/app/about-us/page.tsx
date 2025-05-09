@@ -25,7 +25,7 @@ const AboutUs = async () => {
       await fetchAboutPageData();
 
     return (
-      <div>
+      <div className="overflow-hidden">
         <AboutHero />
         <OurStory data={aboutUsData?.data} />
         <MissionVision data={aboutUsData?.data?.AboutusMission[0]} />
