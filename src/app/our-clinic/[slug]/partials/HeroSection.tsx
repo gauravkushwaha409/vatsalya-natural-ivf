@@ -1,8 +1,7 @@
 "use client";
-import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
-import hero from "@/assests/success-story/heroSuccess.jpg";
+
 import CustomBreadcrumb from "@/components/CustomBreadcrumb";
-import Image from "next/image";
+
 import PATHS from "@/utils/path";
 import Hero from "@/components/compoundComponent/Hero";
 import { useGetDataQuery } from "@/api/api";
