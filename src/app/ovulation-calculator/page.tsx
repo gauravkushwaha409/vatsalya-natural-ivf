@@ -4,6 +4,7 @@ import HeroSection from "./partials/HeroSection";
 import { endpoints } from "@/api/endpoints";
 import { IOvulationRoot } from "./interface/ovulation.interface";
 import { createMetadata } from "@/hooks/generateMetaData";
+import { IBreadCrumbData } from "@/interface/breadcrumb.interface";
 
 export async function generateMetadata() {
   const { data } = await getData<IOvulationRoot>(
@@ -17,9 +18,13 @@ const OvulationPage = async () => {
     const { data } = await getData<IOvulationRoot>(
       `${endpoints.calculator_description}?filter=ovulation`
     );
+    const { data: HeroData } = await getData<{ data: IBreadCrumbData }>(
+      endpoints.breadcrumb.OvulationCalculator
+    );
+
     return (
       <section>
-        <HeroSection />
+        <HeroSection data={HeroData} />
         <Calendar data={data} />
       </section>
     );
