@@ -1,14 +1,37 @@
 "use client";
+import PATHS from "@/utils/path";
 import { Search } from "lucide-react";
+import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import MobileNav from "./partials/MobileNav";
 import { usePathname } from "next/navigation";
-import PATHS from "@/utils/path";
+import { useEffect, useRef, useState } from "react";
+import MobileNav from "./partials/MobileNav";
 import NavCalculator from "./partials/NavCalculator";
 
 const Header = () => {
   const pathame = usePathname();
+  const [isHeaderHidden, setIsHeaderHidden] = useState(false);
+  const lastScrollY = useRef(0);
+  const handleScroll = () => {
+    if (typeof window !== "undefined") {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY.current) {
+        setIsHeaderHidden(true);
+      } else {
+        setIsHeaderHidden(false);
+      }
+      lastScrollY.current = currentScrollY;
+    }
+  };
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, []);
 
   const navLinks = [
     { name: "About Us", link: PATHS.about },
@@ -25,7 +48,11 @@ const Header = () => {
     { name: "Ovulation Calculator", link: PATHS.ovulationCalculator },
   ];
   return (
-    <header className="bg-primary-50 backdrop-blur-[5.6px] py-0 lg:py-[0.63rem] text-white padding">
+    <motion.header
+      animate={{ y: isHeaderHidden ? "-110%" : 0 }}
+      transition={{ duration: 0.3, bounce: 0 }}
+      className="top-0 z-50 sticky bg-primary-50 backdrop-blur-[5.6px] py-0 lg:py-[0.63rem] text-white padding"
+    >
       <div className="flex justify-between items-center">
         <Link href="/">
           <Image
@@ -52,7 +79,7 @@ const Header = () => {
         <NavCalculator />
         <MobileNav navlinks={[...navLinks, ...mobileNavLinks]} />
       </div>
-      <nav className="mt-5 w-auto hide-for-mobile">
+      <nav className="my-2.5 w-auto hide-for-mobile">
         <ul className="flex justify-between font-manrope">
           {navLinks.map((item, index) => {
             const isActive = pathame === item.link;
@@ -74,7 +101,7 @@ const Header = () => {
           })}
         </ul>
       </nav>
-    </header>
+    </motion.header>
   );
 };
 export default Header;
