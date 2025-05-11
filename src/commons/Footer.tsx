@@ -47,7 +47,7 @@ const Footer = async () => {
     <>
       <FooterSeo />
       <div className="bg-primary-100 backdrop-blur-[5.6px] pt-10 overflow-hidden text-text-400 padding">
-        <div className="gap-[6.56rem] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+        <div className="gap-[2.56rem] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           <div className="space-y-3 font-manrope text-text-400 typography-paragraph-regular">
             <div className="-ml-5 h-20 aspect-auto">
               <Link href="/">
@@ -130,6 +130,9 @@ const Footer = async () => {
                 <Link href={link.href}>{link.label}</Link>
               </p>
             ))}
+            <Link href="/sitemap.xml" target="_blank">
+              SiteMap
+            </Link>
           </div>
 
           {/* Newsletter */}
