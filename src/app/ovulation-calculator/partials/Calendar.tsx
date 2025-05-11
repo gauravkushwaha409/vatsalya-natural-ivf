@@ -1,10 +1,11 @@
 "use client";
-import React, { useState } from "react";
 import { add, format } from "date-fns";
+import React, { useState } from "react";
+import { IOvulationData } from "../interface/ovulation.interface";
+import Cycle from "./Cycle";
 import OvulationRenderCell from "./OvulationRenderCell";
 import RequestCallForm from "./RequestCallForm";
-import Cycle from "./Cycle";
-import { IOvulationData } from "../interface/ovulation.interface";
+import Result from "./Result";
 
 interface CalendarProps {
   data: IOvulationData;
@@ -12,6 +13,9 @@ interface CalendarProps {
 const Calendar: React.FC<CalendarProps> = ({ data }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [cycleLength, setCycleLength] = useState(28);
+
+  const [isResultshown, setIsResultsShown] = useState(false);
 
   const renderHeader = () => {
     const monthYear = format(currentDate, "MMMM yyyy");
@@ -51,8 +55,8 @@ const Calendar: React.FC<CalendarProps> = ({ data }) => {
   };
 
   return (
-    <div className="my-10 padding ">
-      <div className="flex flex-col items-center ">
+    <div className="my-10 padding">
+      <div className="flex flex-col items-center">
         <div className="flex justify-center items-center gap-4 w-full">
           {/* line  */}
           <div className="flex-1 bg-primary-400 max-w-[148px] h-px"></div>
@@ -68,32 +72,45 @@ const Calendar: React.FC<CalendarProps> = ({ data }) => {
           calculator to find your most fertile days.
         </p>
       </div>
-      <div className="flex lg:flex-row flex-col  gap-10  py-10 w-full ">
-        <div className="  w-full lg:w-3/4">
-          <div className="flex flex-col lg:flex-row  gap-10">
-            <div
-              className=" aspect-square  h-fit items-center shadow-sm px-5 rounded-xl pt-5
-        "
-            >
-              <h1 className="pb-2.5 border-secondary-100 border-b-2 font-medium text-center typography-paragraph-large">
-                Select the first day of your last period
-              </h1>
+      <div className="flex lg:flex-row flex-col gap-10 py-10 w-full">
+        <div className="w-full lg:w-3/4">
+          {!isResultshown ? (
+            <div className="flex lg:flex-row flex-col gap-10 starting:opacity-0 transition-opacity">
+              <div className="items-center shadow-sm px-5 pt-5 rounded-xl h-fit aspect-square">
+                <h1 className="pb-2.5 border-secondary-100 border-b-2 font-medium text-center typography-paragraph-large">
+                  Select the first day of your last period
+                </h1>
 
-              <div>{renderHeader()}</div>
-              <div>{renderDays()}</div>
-              <div>
-                <OvulationRenderCell
-                  currentDate={currentDate}
-                  selectedDate={selectedDate}
-                  setSelectedDate={setSelectedDate}
-                  onDateSelect={handleDateSelect}
-                />
+                <div>{renderHeader()}</div>
+                <div>{renderDays()}</div>
+                <div>
+                  <OvulationRenderCell
+                    currentDate={currentDate}
+                    selectedDate={selectedDate}
+                    setSelectedDate={setSelectedDate}
+                    onDateSelect={handleDateSelect}
+                  />
+                </div>
               </div>
+              <Cycle
+                defaultValue={cycleLength}
+                onChange={(val) => setCycleLength(val)}
+                disabled={!selectedDate || !cycleLength}
+                oncalculate={() => setIsResultsShown(true)}
+              />
             </div>
-            <Cycle />
-          </div>
+          ) : (
+            selectedDate &&
+            cycleLength && (
+              <Result
+                onRestartClick={() => setIsResultsShown(false)}
+                cycleLength={cycleLength}
+                selectedDate={selectedDate}
+              />
+            )
+          )}
           <p
-            className="prose py-10 overflow-hidden min-w-full"
+            className="py-10 min-w-full overflow-hidden prose"
             dangerouslySetInnerHTML={{ __html: data?.records[0]?.description }}
           />
         </div>

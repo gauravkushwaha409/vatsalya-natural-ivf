@@ -51,7 +51,7 @@ const Header = () => {
     <motion.header
       animate={{ y: isHeaderHidden ? "-110%" : 0 }}
       transition={{ duration: 0.3, bounce: 0 }}
-      className="top-0 z-50 sticky bg-primary-50 backdrop-blur-[5.6px] py-0 lg:py-[0.63rem] text-white padding"
+      className="top-0 z-50 sticky bg-primary-50 backdrop-blur-[5.6px] py-0 lg:py-[1.75rem] text-white padding"
     >
       <div className="flex justify-between items-center">
         <Link href="/">

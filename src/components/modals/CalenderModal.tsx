@@ -1,6 +1,7 @@
 "use client";
 import { usePostDataMutation } from "@/api/api";
 import { endpoints } from "@/api/endpoints";
+import RenderCells from "@/components/RenderCells";
 import { ApiResponse, handleErrors } from "@/helper/error-helper";
 import useClickOutside from "@/hooks/useClickOutside";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
@@ -11,7 +12,6 @@ import { FormikProps } from "formik";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
-import RenderCells from "@/components/RenderCells";
 import ConfirmationModal from "./ConfirmationModal";
 import { IFormValues } from "./RequestAppoimentModal";
 
@@ -22,7 +22,16 @@ interface CalendarProps {
   data?: IFormValues;
   formik?: FormikProps<IFormValues>;
 }
+function convertToAmPm(timeStr: string) {
+  const [hourStr, minute] = timeStr.split(":");
+  let hour = parseInt(hourStr, 10);
+  const amPm = hour >= 12 ? "PM" : "AM";
 
+  // Convert hour to 12-hour format
+  hour = hour % 12 || 12;
+
+  return `${hour.toString().padStart(2, "0")}:${minute} ${amPm}`;
+}
 const CalendarModal: React.FC<CalendarProps> = ({
   modalOpen,
   onCloseModal,
@@ -209,7 +218,8 @@ const CalendarModal: React.FC<CalendarProps> = ({
                             onClick={() => handleSelectTime(slot.id)}
                             className="bg-white hover:bg-secondary-500 px-4 py-2 border border-secondary-300 rounded-full w-full text-secondary-500 hover:text-white transition-colors duration-700 hover:duration-200 ease-in-out"
                           >
-                            {slot.startTime} - {slot.endTime}
+                            {convertToAmPm(slot.startTime)} -{" "}
+                            {convertToAmPm(slot.endTime)}
                           </button>
                         ))}
                       </>
