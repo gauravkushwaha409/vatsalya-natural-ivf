@@ -11,8 +11,8 @@ const PATHS = {
   teamDetails: "/our-team",
   article: "/atricle",
   clinic: "/our-clinic",
-  ivfDueCalculatotr: "/calculator",
-  international_Patient: "/international-client",
+  ivfDueCalculatotr: "/ivf-calculator",
+  international_Patient: "/international-patients",
   ovulationCalculator: "/ovulation-calculator",
 };
 

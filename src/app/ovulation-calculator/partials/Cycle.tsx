@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
-import { Minus, Plus } from "lucide-react";
+import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
+import { Minus, Plus } from "lucide-react";
+import React, { useEffect, useState } from "react";
 interface CycleLengthSelectorProps {
   defaultValue?: number;
   min?: number;
   max?: number;
   onChange?: (value: number) => void;
   className?: string;
+  oncalculate?: () => void;
+  disabled?: boolean;
 }
 const Cycle: React.FC<CycleLengthSelectorProps> = ({
   defaultValue = 28,
@@ -16,6 +18,8 @@ const Cycle: React.FC<CycleLengthSelectorProps> = ({
   max = 40,
   onChange,
   className,
+  oncalculate,
+  disabled = false,
 }) => {
   const [value, setValue] = useState<number>(defaultValue);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -45,30 +49,30 @@ const Cycle: React.FC<CycleLengthSelectorProps> = ({
   // Calculate percentage for the gradient position
   const percentage = ((value - min) / (max - min)) * 100;
   return (
-    <div className="flex w-auto h-fit flex-col gap-2 items-start shadow-md p-5 rounded-lg">
-      <h1 className="pb-2.5 border-secondary-100 border-b-2 font-medium text-center typography-paragraph-large w-full">
+    <div className="flex flex-col items-start gap-2 shadow-md p-5 rounded-lg w-auto h-fit">
+      <h1 className="pb-2.5 border-secondary-100 border-b-2 w-full font-medium text-center typography-paragraph-large">
         How long is your cycle?{" "}
       </h1>
       <div className={cn("w-full max-w-2xs space-y-6", className)}>
         <div className="flex flex-col gap-2">
           <div className="flex justify-between items-center">
-            <label className="typography-paragraph-regular font-medium text-gray-800">
+            <label className="font-medium text-gray-800 typography-paragraph-regular">
               Cycle Length
             </label>
-            <span className="typography-paragraph-regular text-secondary-700 font-medium">
+            <span className="font-medium text-secondary-700 typography-paragraph-regular">
               {min}-{max} days
             </span>
           </div>
 
-          <div className=" rounded-xl p-6 ">
+          <div className="p-6 rounded-xl">
             <div className="flex justify-between items-center mb-8">
               <Button
                 variant="outline"
                 size="icon"
-                className="h-10 w-10 rounded-full border-secondary-300 hover:bg-secondary-50 hover:text-secondary-600"
+                className="hover:bg-secondary-50 border-secondary-300 rounded-full w-10 h-10 hover:text-secondary-600"
                 onClick={handleDecrement}
               >
-                <Minus className="h-4 w-4" />
+                <Minus className="w-4 h-4" />
               </Button>
 
               <div
@@ -77,56 +81,62 @@ const Cycle: React.FC<CycleLengthSelectorProps> = ({
                   isAnimating ? "animate-pulse-scale" : ""
                 )}
               >
-                <span className="text-4xl font-bold text-secondary-600">
+                <span className="font-bold text-secondary-600 text-4xl">
                   {value}
                 </span>
-                <span className="text-sm text-gray-500 mt-1">days</span>
-                <div className="absolute -bottom-4 w-16 h-1 bg-gradient-to-r from-secondary-300 to-secondary-500 rounded-full animate-fade-in" />
+                <span className="mt-1 text-gray-500 text-sm">days</span>
+                <div className="-bottom-4 absolute bg-gradient-to-r from-secondary-300 to-secondary-500 rounded-full w-16 h-1 animate-fade-in" />
               </div>
 
               <Button
                 variant="outline"
                 size="icon"
-                className="h-10 w-10 rounded-full border-secondary-300 hover:bg-secondary-50 hover:text-secondary-600"
+                className="hover:bg-secondary-50 border-secondary-300 rounded-full w-10 h-10 hover:text-secondary-600"
                 onClick={handleIncrement}
               >
-                <Plus className="h-4 w-4" />
+                <Plus className="w-4 h-4" />
               </Button>
             </div>
 
             <div className="relative mt-3">
-              <div className="h-2 bg-secondary-100 rounded-full">
+              <div className="bg-secondary-100 rounded-full h-2">
                 <div
-                  className="absolute h-2 bg-gradient-to-r from-secondary-300 to-secondary-500 rounded-full transition-all duration-300"
+                  className="absolute bg-gradient-to-r from-secondary-300 to-secondary-500 rounded-full h-2 transition-all duration-300"
                   style={{ width: `${percentage}%` }}
                 />
               </div>
-              <Slider
-                defaultValue={[defaultValue]}
-                value={[value]}
-                min={min}
-                max={max}
-                step={1}
-                onValueChange={handleSliderChange}
-                className=""
-              />
-              <div className="flex justify-between mt-2 text-xs text-gray-500">
+              <div>
+                <Slider
+                  defaultValue={[defaultValue]}
+                  value={[value]}
+                  min={min}
+                  max={max}
+                  step={1}
+                  onValueChange={handleSliderChange}
+                  className=""
+                />
+              </div>
+              <div className="flex justify-between mt-2 text-gray-500 text-xs">
                 <span>{min}</span>
                 <span>{max}</span>
               </div>
             </div>
           </div>
 
-          <div className="px-4 ">
-            <p className="text-sm text-gray-600 italic">
+          <div className="px-4">
+            <p className="text-gray-600 text-sm italic">
               The average menstrual cycle is 28 days, but can range from 21-35
               days and still be considered normal.
             </p>
           </div>
         </div>
       </div>
-      <button className="hover:bg-secondary-700 bg-secondary-500  px-11 py-2 border-[0.4px] border-secondary-100 rounded-full font-semibold typography-paragraph-regular transition-colors duration-300 typography-h4 cursor-pointer text-white w-full mt-2">
-        Result
+      <button
+        onClick={oncalculate}
+        disabled={disabled}
+        className="bg-secondary-500 hover:bg-secondary-700 disabled:opacity-50 mt-2 px-11 py-2 border-[0.4px] border-secondary-100 rounded-full w-full font-semibold text-white transition-all duration-300 cursor-pointer typography-paragraph-regular typography-h4"
+      >
+        Calculate
       </button>
     </div>
   );
