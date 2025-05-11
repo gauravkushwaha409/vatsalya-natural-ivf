@@ -19,17 +19,13 @@ const WhatWeDo: React.FC<WhoWeAreProps> = ({ data }) => {
         setIsInViewport(true);
       }}
       viewport={{ amount: 0.4 }}
-      onViewportLeave={() => setIsInViewport(false)}
-      style={{
-        backgroundImage: "url(/home/who-we-are-bg.png)",
-      }}
       className="flex lg:flex-row flex-col-reverse gap-[2.63rem] bg-cover bg-no-repeat bg-center lg:pr-20 min-h-[25.625rem] overflow-hidden"
     >
       <div className="relative w-full grow">
         <motion.div
           style={{
             background: !isMobile
-              ? "linear-gradient(90deg, transparent 40%, #FFD2CE 100%),url(/home/who-we-are-bg.png)"
+              ? "linear-gradient(90deg, transparent 40%, #FFD2CE 100%)"
               : "",
           }}
           initial={{ left: `-${STARTING_OFFSET}` }}
@@ -95,8 +91,8 @@ const WhatWeDo: React.FC<WhoWeAreProps> = ({ data }) => {
         }}
         className="flex flex-col justify-center gap-5 pl-3 lg:w-1/4"
       >
-        <div className="flex justify-center items-center gap-5 mt-4 ">
-          <span className="font-bold text-primary-500 uppercase lg:leading-[0.18rem] typography-paragraph-regular tracking-widest">
+        <div className="flex justify-center items-center gap-5 mt-4">
+          <span className="font-bold text-primary-500 uppercase lg:leading-[0.18rem] tracking-widest typography-paragraph-regular">
             {data?.title}
           </span>
           <div className="bg-primary-500 h-[0.0625rem] grow"></div>

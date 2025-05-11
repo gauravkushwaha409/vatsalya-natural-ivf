@@ -19,10 +19,6 @@ const WhoWeAre: React.FC<WhoWeAreProps> = ({ data }) => {
         setIsInViewport(true);
       }}
       viewport={{ amount: 0.7 }}
-      // onViewportLeave={() => setIsInViewport(false)}
-      style={{
-        backgroundImage: "url(/home/who-we-are-bg.png)",
-      }}
       className="flex lg:flex-row flex-col gap-[2.63rem] bg-cover bg-no-repeat bg-center lg:pl-20 min-h-[25.625rem] overflow-hidden"
     >
       <motion.div
@@ -38,7 +34,7 @@ const WhoWeAre: React.FC<WhoWeAreProps> = ({ data }) => {
         className="flex flex-col justify-center gap-5 pl-3 lg:w-1/4"
       >
         <div className="flex justify-center items-center gap-5 mt-4">
-          <span className=" font-bold text-primary-500 uppercase lg:leading-[0.18rem] typography-paragraph-regular tracking-widest">
+          <span className="font-bold text-primary-500 uppercase lg:leading-[0.18rem] tracking-widest typography-paragraph-regular">
             {data?.title}
           </span>
           <div className="bg-primary-500 h-[0.0625rem] grow"></div>
@@ -52,7 +48,7 @@ const WhoWeAre: React.FC<WhoWeAreProps> = ({ data }) => {
           style={{
             backgroundImage: isMobile
               ? ""
-              : "linear-gradient(90deg, #EBC0DB 0%, transparent 40%), url(/home/who-we-are-bg.png)",
+              : "linear-gradient(90deg, #EBC0DB 0%, transparent 40%)",
           }}
           initial={{ left: `${STARTING_OFFSET}` }}
           animate={{
