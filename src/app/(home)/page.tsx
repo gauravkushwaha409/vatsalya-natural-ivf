@@ -1,5 +1,9 @@
+import { getData } from "@/api/axios";
+import { endpoints } from "@/api/endpoints";
 import ErrorMessage from "@/components/ErrorMessage";
 import Testimonial from "@/components/Testimonial";
+import { createMetadata } from "@/hooks/generateMetaData";
+import { ISeoRoot } from "@/interface/seo.interface";
 import { getHomePageData } from "./hook/hook.hook";
 import Blogsection from "./partials/Blogsection";
 import BrandsSlider from "./partials/BrandsSlider";
@@ -8,17 +12,13 @@ import HeroSection from "./partials/HeroSection";
 import HowWeWork from "./partials/HowWeWork";
 import MeetExperts from "./partials/MeetExperts";
 import Miracles from "./partials/Miracles";
+import Notice from "./partials/Notice";
 import Showcase from "./partials/Showcase";
 import Slogan from "./partials/Slogan";
 import WhatWeDo from "./partials/WhatWeDo";
 import WhatWeOffer from "./partials/WhatWeOffer";
 import WhenToVisit from "./partials/WhenToVisit";
 import WhoWeAre from "./partials/WhoWeAre";
-import Notice from "./partials/Notice";
-import { getData } from "@/api/axios";
-import { endpoints } from "@/api/endpoints";
-import { createMetadata } from "@/hooks/generateMetaData";
-import { ISeoRoot } from "@/interface/seo.interface";
 
 export const dynamic = "force-dynamic";
 export async function generateMetadata() {
@@ -68,7 +68,13 @@ const HomePage = async () => {
 
         {/* Main Slogan */}
         <Slogan data={homedata?.data?.mission[0]} />
-        <div className="w-full overflow-hidden">
+        <div
+          style={{
+            background: "url(/home/who-we-are-bg.png) repeat-y 0% / cover",
+            backgroundSize: "100% 50%",
+          }}
+          className="w-full overflow-hidden"
+        >
           <WhoWeAre data={homedata?.data?.WhatWeDo[0]} />
           <WhatWeDo data={homedata?.data?.WhatWeDo[1]} />
         </div>
