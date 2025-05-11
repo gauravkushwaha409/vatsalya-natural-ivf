@@ -13,7 +13,7 @@ const Clinics = async () => {
   const { data } = await getData<ICenterRoot>(endpoints.center);
   return (
     <section className="py-20 padding">
-      <div className="flex flex-col items-center ">
+      <div className="flex flex-col items-center">
         <div className="flex justify-center items-center gap-4 w-full">
           {/* line  */}
           <div className="flex-1 bg-primary-400 max-w-[148px] h-px"></div>
@@ -25,28 +25,28 @@ const Clinics = async () => {
           <div className="flex-1 bg-primary-400 max-w-[148px] h-px"></div>
         </div>
         <p className="pt-4 font-semibold text-text-500 typography-h3">
-          We are across the country{" "}
+          Serving All Across Nepal
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+      <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10">
         {data?.records?.map((center: ICenter, index: number) => (
           <>
             <div
               key={index}
-              className=" px-8 py-6 rounded-xl  bg-white shadow-md flex flex-col gap-3"
+              className="flex flex-col gap-3 bg-white shadow-md px-8 py-6 rounded-xl"
             >
               <div className="flex items-center gap-2.5 w-full">
-                <div className="flex  w-8  justify-center items-center aspect-square rounded-full bg-secondary-50">
+                <div className="flex justify-center items-center bg-secondary-50 rounded-full w-8 aspect-square">
                   <FaLocationDot className="text-secondary-400" />
                 </div>
-                <h3 className="typography-paragraph-regular text-text-600  font-semibold line-clamp-1">
+                <h3 className="font-semibold text-text-600 line-clamp-1 typography-paragraph-regular">
                   {center.name}
                 </h3>
                 <Link
                   href={`${PATHS.clinic}/${center?.slug}`}
                   className="ml-auto"
                 >
-                  <button className="text-primary-500 cursor-pointer typography-paragraph-small   flex items-center  ">
+                  <button className="flex items-center text-primary-500 cursor-pointer typography-paragraph-small">
                     view{" "}
                     <IoArrowForwardOutline
                       size={18}
@@ -56,19 +56,19 @@ const Clinics = async () => {
                 </Link>
               </div>
               <p
-                className="typography-paragraph-small text-text-500 prose line-clamp-3 "
+                className="text-text-500 line-clamp-3 typography-paragraph-small prose"
                 dangerouslySetInnerHTML={{ __html: center.description || "" }}
               />
 
               <div className="flex items-center gap-2">
                 <IoMailOpenOutline className="text-secondary-400" />
-                <span className="typography-paragraph-small font-medium text-text-500">
+                <span className="font-medium text-text-500 typography-paragraph-small">
                   {center.email}
                 </span>
               </div>
               <div className="flex items-center gap-2">
                 <PiPhonePauseThin className="text-secondary-400" />
-                <span className="typography-paragraph-small font-medium text-text-500">
+                <span className="font-medium text-text-500 typography-paragraph-small">
                   {center.phone}
                 </span>
               </div>

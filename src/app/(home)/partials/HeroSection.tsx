@@ -25,10 +25,10 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
   return (
     <div className="relative flex justify-center h-full min-h-[45rem] overflow-y-hidden padding">
       <div className="flex flex-col justify-center mt-16 lg:mt-[8.72rem] w-full h-full text-left">
-        <h1 className="font-bold relative text-primary-500 uppercase tracking-widest typography-paragraph-large">
+        <h1 className="relative font-bold text-primary-500 uppercase tracking-widest typography-paragraph-large">
           {data?.title}{" "}
         </h1>
-        <div className=" pt-5">
+        <div className="pt-5">
           <HeroTextAnimation text={data?.subtitle || text} />
           <motion.div
             initial={{
@@ -66,7 +66,7 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
         <div className="flex items-center gap-6 mt-[2.44rem] h-full">
           <button
             onClick={() => handleAppointmentClick()}
-            className="z-[49] px-[2.75rem] py-[0.94rem] rounded-[100px] border-2 border-secondary-100 font-bold text-white cursor-pointer typography-paragraph-regular lg:typography-h4 w-max"
+            className="z-[49] px-[2.75rem] py-[0.94rem] border-2 border-secondary-100 rounded-[100px] w-max font-bold text-white cursor-pointer typography-paragraph-regular lg:typography-h4"
             style={{
               background: "linear-gradient(90deg, #A0385A 0%, #3A142C 100%)",
               boxShadow: "0px 8px 18px 0px rgba(211, 163, 193, 0.77)",
