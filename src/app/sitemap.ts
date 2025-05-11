@@ -1,6 +1,5 @@
 import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
-
 import { MetadataRoute } from "next";
 import { IserviceData } from "./services/interfaces/services.interface";
 import { IBlogData } from "./blog/interface/blog.interface";
@@ -8,7 +7,6 @@ import { IOurExpertsData } from "./our-team/interface/ourExperts.interface";
 import { ICenterData } from "@/interface/center";
 
 const siteurl = process.env.NEXT_PUBLIC_SITE_URL;
-const baseurl = process.env.NEXT_PUBLIC_API_URL;
 //changed
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
