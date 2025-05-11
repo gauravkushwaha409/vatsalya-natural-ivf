@@ -3,6 +3,8 @@ import Header from "@/commons/Header";
 import BotPopup from "@/features/chatbot/BotPopup";
 import type { Metadata } from "next";
 import { Inter, Manrope, Plus_Jakarta_Sans, Roboto } from "next/font/google";
+import Image from "next/image";
+import Link from "next/link";
 import "swiper/css";
 import "./globals.css";
 import Providers from "./providers";
@@ -57,6 +59,15 @@ export default function RootLayout({
           <Header />
           <div className="">{children}</div>
           <Footer />
+          <Link href="tel:+977-980-100-2000">
+            <Image
+              src="/phone.png"
+              alt="phone"
+              width={50}
+              height={50}
+              className="right-6 bottom-24 z-50 fixed size-[4.5rem]"
+            />
+          </Link>
           <BotPopup />
         </Providers>
       </body>
