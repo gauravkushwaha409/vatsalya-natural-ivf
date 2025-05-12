@@ -41,6 +41,7 @@ interface Endpoints {
   seo: ISeo;
   breadcrumb: IBreadCrumb;
   terms: string;
+  privacy: string;
 }
 export interface IBreadCrumb {
   about_us: string;
@@ -152,7 +153,8 @@ export const endpoints: Endpoints = {
     FertilityCalculator: "/breadcrumb?filter=fertility-calculator",
     OvulationCalculator: "/breadcrumb?filter=ovulation-calculator",
   },
-  terms: "/terms",
+  terms: "/term",
+  privacy: "/privacy",
 };
 
 export const BASE_API_URL = process.env.NEXT_PUBLIC_API_URL;
