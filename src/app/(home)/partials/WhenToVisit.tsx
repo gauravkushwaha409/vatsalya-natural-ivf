@@ -57,7 +57,7 @@ const WhenToVisit: React.FC<WhenToVisitProps> = ({ data }) => {
         >
           <div className="flex items-center gap-5 mt-8 lg:mt-0">
             <div className="lg:hidden bg-secondary-200 lg:w-[16.25rem] h-px grow lg:grow-0" />
-            <h2 className="w-max text-secondary-500 uppercase tracking-[0.18rem] typography-paragraph-regular font-bold">
+            <h2 className="w-max font-bold text-secondary-500 uppercase tracking-[0.18rem] typography-paragraph-regular">
               WHEN TO VISIT
             </h2>
             <div className="bg-secondary-200 lg:w-[16.25rem] h-px grow lg:grow-0" />
@@ -71,7 +71,7 @@ const WhenToVisit: React.FC<WhenToVisitProps> = ({ data }) => {
           />
 
           <button
-            className="mt-5 px-8 py-4 shadow-md border border-secondary-500 rounded-full font-extrabold text-secondary-500 cursor-pointer typography-paragraph-regular hover:bg-secondary-500 hover:text-white hover:border-white duration-300"
+            className="hover:bg-secondary-500 shadow-md mt-5 px-8 py-4 border border-secondary-500 hover:border-white rounded-full font-extrabold text-secondary-500 hover:text-white duration-300 cursor-pointer typography-paragraph-regular"
             onClick={() => handleAppointmentClick()}
           >
             BOOK AN APPOINTMENT
