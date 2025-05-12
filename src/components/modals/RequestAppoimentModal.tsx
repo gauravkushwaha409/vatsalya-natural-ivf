@@ -7,6 +7,7 @@ import { ICenter } from "@/interface/center";
 import { IExperts } from "@/interface/experts";
 import { useFormik } from "formik";
 import { motion } from "framer-motion";
+import { X } from "lucide-react";
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import * as Yup from "yup";
@@ -96,15 +97,17 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
               className="relative bg-white shadow-md px-10 py-7 rounded-lg w-[90%] md:w-[60%]"
               ref={modalRef}
             >
-              <h1 className="mb-5 font-medium typography-h3">
-                Request an Appointment
-              </h1>
-              <button
-                onClick={() => onClose()}
-                className="top-5 right-10 absolute text-text-400 text-2xl cursor-pointer *:"
-              >
-                x
-              </button>
+              <div className="flex justify-between items-center mb-5">
+                <h1 className="font-medium typography-h3">
+                  Request an Appointment
+                </h1>
+                <button
+                  onClick={() => onClose()}
+                  className="text-text-400 text-2xl cursor-pointer *:"
+                >
+                  <X />
+                </button>
+              </div>
               <form
                 onSubmit={formik.handleSubmit}
                 className="gap-4 grid grid-cols-2 py-2.5 font-semibold text-text-500 typography-paragraph-regular"
