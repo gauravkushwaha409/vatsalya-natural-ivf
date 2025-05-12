@@ -1,34 +1,38 @@
-import { termsData } from "@/data/termsData";
-import React from "react";
+import { getData } from "@/api/axios";
+import { endpoints } from "@/api/endpoints";
+import { TermResponse } from "@/app/terms/interfaces/Term.type";
 
-const PrivacyContent = () => {
+const PrivacyContent = async () => {
+  const privacy = await getData<TermResponse>(endpoints.privacy);
+
   return (
     <div>
-      <div className="padding pb-10">
+      <div className="pb-10 padding">
         {/* here goes rich text  */}
 
         {/* Introduction */}
-        <p className="text-text-400 typography-paragraph-large font-medium leading-[150%] text-justify">
-          {termsData.introduction}
+        <p className="font-medium text-text-400 text-justify leading-[150%] typography-paragraph-large">
+          {privacy.data.title}
         </p>
-
+        <div
+          className="py-4"
+          dangerouslySetInnerHTML={{ __html: privacy.data.content }}
+        />
         {/* Dynamic Sections */}
-        {termsData.sections.map((section) => (
+        {/* {termsData.sections.map((section) => (
           <section key={section.id} className="mt-8">
-            <h2 className="typography-h3 text-text-500 font-semibold leading-[150%]">
+            <h2 className="font-semibold text-text-500 leading-[150%] typography-h3">
               {section.title}
             </h2>
-            <p className="text-text-400 typography-paragraph-large font-medium leading-[150%] text-justify">
+            <p className="font-medium text-text-400 text-justify leading-[150%] typography-paragraph-large">
               {section.content}
             </p>
-
-            {/* Render List If Present */}
             {section.listItems && (
-              <ul className="list-disc pl-6 mt-2 space-y-2">
+              <ul className="space-y-2 mt-2 pl-6 list-disc">
                 {section.listItems.map((item, index) => (
                   <li
                     key={index}
-                    className="text-text-400 typography-paragraph-large font-medium leading-[150%] text-justify"
+                    className="font-medium text-text-400 text-justify leading-[150%] typography-paragraph-large"
                   >
                     {item}
                   </li>
@@ -36,22 +40,22 @@ const PrivacyContent = () => {
               </ul>
             )}
           </section>
-        ))}
+        ))} */}
 
         {/* Contact Information */}
-        <section className="mt-8">
-          <h2 className="typography-h3 text-text-500 font-semibold leading-[150%]">
+        {/* <section className="mt-8">
+          <h2 className="font-semibold text-text-500 leading-[150%] typography-h3">
             8. Contact Information
           </h2>
-          <p className="text-text-400 typography-paragraph-large font-medium leading-[150%] text-justify">
+          <p className="font-medium text-text-400 text-justify leading-[150%] typography-paragraph-large">
             If you have any questions about these Terms, please contact us at:
           </p>
-          <address className="not-italic mt-2">
-            <p className="text-text-400 typography-paragraph-large font-medium leading-[150%] text-justify">
+          <address className="mt-2 not-italic">
+            <p className="font-medium text-text-400 text-justify leading-[150%] typography-paragraph-large">
               Phone: {termsData.contactInfo.phone}
             </p>
           </address>
-        </section>
+        </section> */}
       </div>
     </div>
   );
