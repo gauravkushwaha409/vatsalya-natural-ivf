@@ -73,6 +73,7 @@ const TestimonialSwiper: React.FC<ITestimonialSwiper> = ({ data }) => {
               onSlideChange={(swiper) => {
                 setActiveSlide(swiper.activeIndex);
               }}
+              className="h-full"
             >
               {data?.records?.map(
                 (testimonial: IsuccessStoriesRecord, index: number) => (
@@ -92,7 +93,7 @@ const TestimonialSwiper: React.FC<ITestimonialSwiper> = ({ data }) => {
       </div>
 
       {/* Carousel Navigation */}
-      <div className="flex justify-center items-center mt-2 lg:-mt-10 w-full">
+      <div className="flex justify-center items-center mt-2 w-full">
         {/* Left Arrow  */}
         <button
           disabled={activeSlide === 0}
@@ -134,7 +135,7 @@ const TestimonialSwiper: React.FC<ITestimonialSwiper> = ({ data }) => {
         {/* Right arrow  */}
         <button
           disabled={activeSlide === noofSlides - 1}
-          className="px-6 text-white cursor-pointer"
+          className="disabled:opacity-50 px-6 text-white cursor-pointer disabled:cursor-not-allowed"
           onClick={() => {
             if (swiperRef.current && swiperRef.current.swiper) {
               swiperRef.current.swiper.slideNext();
