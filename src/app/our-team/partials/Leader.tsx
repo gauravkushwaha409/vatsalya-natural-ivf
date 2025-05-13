@@ -6,7 +6,6 @@ interface Props {
   data: ILeaderData;
 }
 const Leader: React.FC<Props> = ({ data }) => {
-  console.log(data);
   return (
     <section className="pt-20 padding">
       <div className="flex md:flex-row flex-col gap-10 col-span-2 sm:col-span-3 lg:col-span-4">
@@ -53,7 +52,7 @@ const Leader: React.FC<Props> = ({ data }) => {
             {data?.leaderPosition}
           </p>
           <p
-            className="text-text-400 leading-[150%] typography-paragraph-small porse "
+            className="text-text-400 leading-[150%] typography-paragraph-small porse"
             dangerouslySetInnerHTML={{
               __html: data?.leaderMessage || "",
             }}

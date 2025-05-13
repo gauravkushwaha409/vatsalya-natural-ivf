@@ -111,9 +111,9 @@ const TestimonialSwiper: React.FC<ITestimonialSwiper> = ({ data }) => {
           {Array.from({ length: noofSlides }).map((_, index) => (
             <button
               key={index}
-              onClick={() => {
-                console.log(`Navigating to slide: ${index}`);
-              }}
+              // onClick={() => {
+              //   console.log(`Navigating to slide: ${index}`);
+              // }}
               className="relative hover:bg-[#888888]/80 rounded-full size-3 bg-text-200/50 cursor-pointer"
             >
               {index === activeSlide && (
