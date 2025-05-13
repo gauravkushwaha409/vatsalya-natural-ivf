@@ -1,12 +1,13 @@
 import {
   add,
+  endOfMonth,
+  endOfWeek,
   format,
+  isAfter,
   isSameDay,
   isSameMonth,
   startOfMonth,
-  endOfMonth,
   startOfWeek,
-  endOfWeek,
 } from "date-fns";
 
 interface CalendarProps {
@@ -37,11 +38,11 @@ const OvulationRenderCell: React.FC<CalendarProps> = ({
       const isInCurrentMonth = isSameMonth(currentDay, monthStart);
       const isSelected = selectedDate && isSameDay(currentDay, selectedDate);
 
-      const dayClasses = `p-2 m-1 text-center rounded-full w-10
+      const dayClasses = `p-2 m-1 text-center rounded-full w-10 
         ${isSelected ? "bg-secondary-500 text-white" : ""}
         ${
           !isSelected && isInCurrentMonth
-            ? "text-black hover:bg-secondary-100 cursor-pointer"
+            ? "text-black hover:bg-secondary-100 disabled:hover:bg-transparent disabled:opacity-50 cursor-pointer"
             : ""
         }
         ${!isInCurrentMonth ? "text-gray-400" : ""}
@@ -52,6 +53,7 @@ const OvulationRenderCell: React.FC<CalendarProps> = ({
           aria-label="day"
           key={currentDay.toDateString()}
           className={dayClasses}
+          disabled={isAfter(currentDay, new Date())}
           onClick={() => onDateSelect(currentDay)}
         >
           {format(currentDay, "d")}
@@ -62,7 +64,7 @@ const OvulationRenderCell: React.FC<CalendarProps> = ({
     }
 
     rows.push(
-      <div key={tempDay.toString()} className="grid grid-cols-7 gap-2">
+      <div key={tempDay.toString()} className="gap-2 grid grid-cols-7">
         {days}
       </div>
     );

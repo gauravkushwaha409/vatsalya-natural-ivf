@@ -1,12 +1,13 @@
 "use client";
-import React from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import useClickOutside from "@/hooks/useClickOutside";
 import { usePostDataMutation } from "@/api/api";
 import { endpoints } from "@/api/endpoints";
-import { showErrorMessage, showSuccessMessage } from "@/utils/toast";
 import { ApiResponse, handleErrors } from "@/helper/error-helper";
+import useClickOutside from "@/hooks/useClickOutside";
+import { showErrorMessage, showSuccessMessage } from "@/utils/toast";
+import { useFormik } from "formik";
+import { X } from "lucide-react";
+import React from "react";
+import * as Yup from "yup";
 
 interface IFormValues {
   name: string;
@@ -74,22 +75,24 @@ const RequestCallModal: React.FC<RequestCallModalProps> = ({
             className="relative bg-white shadow-md px-10 py-7 rounded-lg"
             ref={modalRef}
           >
-            <h1 className="typography-h3 mb-5 font-medium">Request a Call</h1>
-            <button
-              onClick={() => onClose()}
-              className="text-2xl text-text-400 absolute top-5 right-10 cursor-pointer *:"
-            >
-              x
-            </button>
+            <div className="flex justify-between items-center mb-5">
+              <h1 className="font-medium typography-h3">Request a Call</h1>
+              <button
+                onClick={() => onClose()}
+                className="text-text-400 text-2xl cursor-pointer *:"
+              >
+                <X />
+              </button>
+            </div>
             <form
               onSubmit={formik.handleSubmit}
               className="flex flex-col gap-2 sm:gap-6 w-full"
             >
-              <div className="flex flex-col lg:flex-row gap-4 lg:gap-10 lg:items-center">
+              <div className="flex lg:flex-row flex-col lg:items-center gap-4 lg:gap-10">
                 {/*  Name */}
                 <div className="lg:w-1/2">
                   <label
-                    className="typography-paragraph-regular font-semibold text-text-500"
+                    className="font-semibold text-text-500 typography-paragraph-regular"
                     htmlFor="name"
                   >
                     Name
@@ -102,7 +105,7 @@ const RequestCallModal: React.FC<RequestCallModalProps> = ({
                     onBlur={formik.handleBlur}
                     value={formik.values.name}
                     placeholder="Enter Your Name"
-                    className="bg-transparent p-3 pl-6 border-[0.3px] border-[#72796F] rounded-[12px] outline-none w-full h-[54px] mt-2.5 text-sm"
+                    className="bg-transparent mt-2.5 p-3 pl-6 border-[#72796F] border-[0.3px] rounded-[12px] outline-none w-full h-[54px] text-sm"
                   />
                   {formik.touched.name && formik.errors.name && (
                     <p className="pt-2 pl-4 text-red-500 text-sm">
@@ -114,7 +117,7 @@ const RequestCallModal: React.FC<RequestCallModalProps> = ({
                 {/* phone */}
                 <div className="lg:w-1/2">
                   <label
-                    className="typography-paragraph-regular font-semibold text-text-500"
+                    className="font-semibold text-text-500 typography-paragraph-regular"
                     htmlFor="phone"
                   >
                     Phone
@@ -127,7 +130,7 @@ const RequestCallModal: React.FC<RequestCallModalProps> = ({
                     onBlur={formik.handleBlur}
                     value={formik.values.phone}
                     placeholder="Enter Your Phone Number"
-                    className="bg-transparent p-3 pl-6 border-[0.3px] border-[#72796F] rounded-[12px] outline-none w-full h-[54px] mt-2.5 text-sm"
+                    className="bg-transparent mt-2.5 p-3 pl-6 border-[#72796F] border-[0.3px] rounded-[12px] outline-none w-full h-[54px] text-sm"
                   />
                   {formik.touched.phone && formik.errors.phone && (
                     <p className="pt-2 pl-4 text-red-500 text-sm">
@@ -140,7 +143,7 @@ const RequestCallModal: React.FC<RequestCallModalProps> = ({
               {/* message */}
               <div>
                 <label
-                  className="typography-paragraph-regular font-semibold text-text-500"
+                  className="font-semibold text-text-500 typography-paragraph-regular"
                   htmlFor="message"
                 >
                   Message
@@ -152,7 +155,7 @@ const RequestCallModal: React.FC<RequestCallModalProps> = ({
                   onBlur={formik.handleBlur}
                   value={formik.values.message}
                   placeholder="Enter Your Message..."
-                  className="bg-transparent p-3 pl-6 border-[0.3px] border-[#72796F] rounded-[12px] outline-none w-full h-[54px] mt-2.5 text-sm"
+                  className="bg-transparent mt-2.5 p-3 pl-6 border-[#72796F] border-[0.3px] rounded-[12px] outline-none w-full h-[54px] text-sm"
                 />
                 {formik.touched.message && formik.errors.message && (
                   <p className="pt-2 pl-4 text-red-500 text-sm">
@@ -164,7 +167,7 @@ const RequestCallModal: React.FC<RequestCallModalProps> = ({
               {/* Submit */}
               <button
                 type="submit"
-                className="flex self-end items-center bg-secondary-500 py-3 px-6 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular cursor-pointer"
+                className="flex items-center self-end bg-secondary-500 px-6 py-3 rounded-[6.25rem] font-manrope font-bold text-white cursor-pointer typography-paragraph-regular"
               >
                 {isRequestCallLoading ? " Requesting a Call" : "Request a Call"}
               </button>

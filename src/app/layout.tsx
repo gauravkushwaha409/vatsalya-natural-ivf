@@ -6,6 +6,7 @@ import { Inter, Manrope, Plus_Jakarta_Sans, Roboto } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import "swiper/css";
+import { getHomePageData } from "./(home)/hook/hook.hook";
 import "./globals.css";
 import Providers from "./providers";
 
@@ -45,11 +46,13 @@ export const metadata: Metadata = {
   manifest: "/static/site.webmanifest",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { footerData } = await getHomePageData();
+
   return (
     <html lang="en">
       <body
@@ -59,7 +62,7 @@ export default function RootLayout({
           <Header />
           <div className="">{children}</div>
           <Footer />
-          <Link href="tel:+977-980-100-2000">
+          <Link href={`tel:${footerData?.data?.phoneNumber?.[0]}`}>
             <Image
               src="/phone.png"
               alt="phone"

@@ -1,5 +1,5 @@
 "use client";
-import { add, format } from "date-fns";
+import { add, format, isAfter, isBefore, isSameMonth } from "date-fns";
 import React, { useState } from "react";
 import { IOvulationData } from "../interface/ovulation.interface";
 import Cycle from "./Cycle";
@@ -11,7 +11,8 @@ interface CalendarProps {
   data: IOvulationData;
 }
 const Calendar: React.FC<CalendarProps> = ({ data }) => {
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const today = new Date();
+  const [currentDate, setCurrentDate] = useState(today);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [cycleLength, setCycleLength] = useState(28);
 
@@ -21,19 +22,25 @@ const Calendar: React.FC<CalendarProps> = ({ data }) => {
     const monthYear = format(currentDate, "MMMM yyyy");
     return (
       <div className="flex justify-between items-center p-4 header">
-        <button
-          className="text-[#9B51E0] text-sm"
-          onClick={() => setCurrentDate(add(currentDate, { months: -1 }))}
-        >
-          ❮
-        </button>
-        <h2 className="font-medium text-primary text-base">{monthYear}</h2>
-        <button
-          className="text-[#9B51E0] text-sm"
-          onClick={() => setCurrentDate(add(currentDate, { months: 1 }))}
-        >
-          ❯
-        </button>
+        {isAfter(currentDate, add(today, { months: -4 })) && (
+          <button
+            className="text-[#9B51E0] text-sm"
+            onClick={() => setCurrentDate(add(currentDate, { months: -1 }))}
+          >
+            ❮
+          </button>
+        )}
+        <h2 className="mx-auto font-medium text-primary text-base">
+          {monthYear}
+        </h2>
+        {isBefore(currentDate, add(today, { months: -1 })) && (
+          <button
+            className="text-[#9B51E0] text-sm"
+            onClick={() => setCurrentDate(add(currentDate, { months: 1 }))}
+          >
+            ❯
+          </button>
+        )}
       </div>
     );
   };
@@ -51,7 +58,16 @@ const Calendar: React.FC<CalendarProps> = ({ data }) => {
     );
   };
   const handleDateSelect = (date: Date) => {
-    setSelectedDate(date);
+    // handle previous month
+    if (isSameMonth(date, add(currentDate, { months: -1 }))) {
+      setCurrentDate(add(currentDate, { months: -1 }));
+      setSelectedDate(date);
+    }
+    // handle next month
+    else if (isSameMonth(date, add(currentDate, { months: 1 }))) {
+      setCurrentDate(add(currentDate, { months: 1 }));
+      setSelectedDate(date);
+    } else setSelectedDate(date);
   };
 
   return (
@@ -81,7 +97,7 @@ const Calendar: React.FC<CalendarProps> = ({ data }) => {
                   Select the first day of your last period
                 </h1>
 
-                <div>{renderHeader()}</div>
+                <div key={currentDate.toDateString()}>{renderHeader()}</div>
                 <div>{renderDays()}</div>
                 <div>
                   <OvulationRenderCell
