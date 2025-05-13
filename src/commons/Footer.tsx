@@ -14,7 +14,6 @@ const Footer = async () => {
   const { footerData } = await getHomePageData();
 
   const socialMedia = footerData?.data?.socialMedia;
-  console.log(socialMedia, "socialMedia");
 
   const socialLinks = [
     {

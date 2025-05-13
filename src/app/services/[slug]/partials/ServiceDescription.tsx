@@ -12,7 +12,6 @@ interface IServiceDescription {
 }
 const ServiceDescription: React.FC<IServiceDescription> = ({ data }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
-  console.log(data);
 
   return (
     <article className="flex flex-col gap-5 py-10 text-text-400 text-justify">
@@ -43,12 +42,12 @@ const ServiceDescription: React.FC<IServiceDescription> = ({ data }) => {
             {section?.listItems && (
               <div className="flex flex-col gap-2">
                 {section.listItems.map((item) => (
-                  <div className="flex gap-2" key={item._id}>
-                    <span className="inline-flex justify-center items-center bg-secondary-500 p-1 rounded-full size-7 shrink-0">
+                  <div className="flex items-center gap-2" key={item._id}>
+                    <span className="inline-flex justify-center items-center bg-secondary-500 p-0.5 rounded-full size-5 shrink-0">
                       <IoMdCheckmark className="size-full text-white" />
                     </span>
                     <div>
-                      <p className="font-medium text-secondary-500 typography-h4">
+                      <p className="font-medium text-secondary-500 typography-paragraph-regular">
                         {item?.listItemTitle}
                       </p>
                       <div
