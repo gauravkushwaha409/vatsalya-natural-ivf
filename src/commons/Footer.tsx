@@ -14,6 +14,7 @@ const Footer = async () => {
   const { footerData } = await getHomePageData();
 
   const socialMedia = footerData?.data?.socialMedia;
+  console.log(socialMedia, "socialMedia");
 
   const socialLinks = [
     {
@@ -40,6 +41,16 @@ const Footer = async () => {
       name: "whatsapp",
       href: socialMedia?.whatsapp,
       icon: "/svg/whatsapp.svg",
+    },
+    {
+      name: "youtube",
+      href: socialMedia?.youtube,
+      icon: "/svg/youtube.svg",
+    },
+    {
+      name: "youtube",
+      href: socialMedia?.tiktok,
+      icon: "/svg/tiktok.svg",
     },
   ];
   const { data } = await getData(endpoints.service + `?page=${1}&perPage=${5}`);
@@ -75,13 +86,13 @@ const Footer = async () => {
               {footerData?.data?.phoneNumber}
             </a>
 
-            <div className="flex gap-4 mt-5">
+            <div className="flex flex-wrap items-center gap-4 mt-5">
               {socialLinks.map(
                 (item) =>
                   item.href && (
                     <a
                       key={item.name}
-                      className="hover:brightness-80 transition-all duration-300"
+                      className="hover:brightness-80 size-6 transition-all duration-300 shrink-0"
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -90,6 +101,7 @@ const Footer = async () => {
                         src={item.icon}
                         width={24}
                         height={24}
+                        className=""
                         alt={item.name}
                       />
                     </a>

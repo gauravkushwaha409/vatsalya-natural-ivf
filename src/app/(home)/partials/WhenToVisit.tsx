@@ -39,7 +39,7 @@ const WhenToVisit: React.FC<WhenToVisitProps> = ({ data }) => {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
-        className="flex md:flex-row flex-col-reverse gap-y-4 -my-px px-4 md:px-20 py-8"
+        className="flex md:flex-row flex-col-reverse gap-y-4 -my-px px-4 md:px-20 py-8 grow"
       >
         <motion.div
           initial={{
