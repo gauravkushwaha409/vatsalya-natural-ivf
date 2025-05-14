@@ -29,7 +29,7 @@ const ServiceDetails: React.FC<IServiceDetails> = ({ data }) => {
           initial={{ opacity: 0, x: isSmall ? "0%" : "50%" }}
           animate={{ opacity: 1, x: "0%" }}
           transition={{ duration: 1.5, delay: 2 }}
-          className="top-4 sticky my-4 w-full lg:w-1/3 h-max lg:max-h-screen lg:overflow-y-auto lg:no-scrollbar"
+          className="top-4 sticky my-4 w-full lg:w-1/3 h-max"
         >
           <ServiceForm />
           <InfertilityTreatment data={data?.service} />
