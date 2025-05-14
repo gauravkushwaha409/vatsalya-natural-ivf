@@ -8,6 +8,21 @@
   @apply box-border;
 }
 
+.prose.li-check li {
+  @apply relative pl-8 list-none;
+}
+
+.prose.li-check li::before {
+  content: '';
+  @apply inline-flex top-1 left-0 absolute justify-center items-center bg-secondary-500 p-0.5 rounded-full shrink-0;
+  width: 1.25rem;  /* size-5 */
+  height: 1.25rem;
+  background-image: url('/svg/li-check.svg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 @theme inline {
   /* Primary colors */
   --color-primary-50: #fff1ef;
