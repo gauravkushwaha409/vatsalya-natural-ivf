@@ -29,7 +29,7 @@ const BlogPage = async ({ searchParams }: BlogProps) => {
     const FeatureData = data?.data?.records;
 
     return (
-      <div className="">
+      <div className="pt-8">
         <HeroBlog data={FeatureData} />
         <BlogsCard data={blogData} page={page} />
       </div>

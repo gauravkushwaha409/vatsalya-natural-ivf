@@ -11,8 +11,8 @@ interface BlogDetailHeroProps {
 }
 const BlogDetailHero: React.FC<BlogDetailHeroProps> = ({ data }) => {
   return (
-    <div className="bg-gradient-to-b from-primary-50 to-background-100 py-5 lg:py-10  ">
-      <div className="flex flex-col justify-center items-center text-center ">
+    <div className="bg-gradient-to-b from-primary-50 to-background-100 py-5 lg:py-10">
+      <div className="flex flex-col justify-center items-center text-center">
         {/* breadcrumb  */}
         <CustomBreadcrumb
           items={[
@@ -22,18 +22,18 @@ const BlogDetailHero: React.FC<BlogDetailHeroProps> = ({ data }) => {
           ]}
         />
 
-        <h1 className="text-secondary-500 font-bold leading-[150%] typography-h1 pt-3 ">
+        <h1 className="px-5 lg:px-[11.25rem] pt-3 font-bold text-secondary-500 leading-[150%] typography-h1">
           {data?.title}
         </h1>
 
         <div className="flex gap-2 pt-4">
-          <p className="flex gap-2 items-center typography-paragraph-regular text-text-400 font-medium border-r-[0.5px] border-[#4F565D] pr-2">
+          <p className="flex items-center gap-2 pr-2 border-[#4F565D] border-r-[0.5px] font-medium text-text-400 typography-paragraph-regular">
             <span>
               <CiCalendar />
             </span>
             {formatDate(data?.created_date)}
           </p>
-          <p className="flex gap-2 items-center typography-paragraph-regular text-text-400 font-medium border-r-[0.5px] border-[#4F565D] pr-2">
+          <p className="flex items-center gap-2 pr-2 border-[#4F565D] border-r-[0.5px] font-medium text-text-400 typography-paragraph-regular">
             {data?.readTime} to read
           </p>
           {data?.tags?.map((tag, index) => (
@@ -52,8 +52,8 @@ const BlogDetailHero: React.FC<BlogDetailHeroProps> = ({ data }) => {
         </div>
       </div>
 
-      <div className="px-5 lg:px-[11.25rem] ">
-        <div className="pt-5 lg:py-10 aspect-[1071/428]">
+      <div className="px-5 lg:px-[11.25rem]">
+        <div className="lg:py-10 pt-5 aspect-[1071/428]">
           <Image
             src={data?.image}
             alt="hero blog detail"
