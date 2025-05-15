@@ -1,8 +1,8 @@
-import React from "react";
-import Image from "next/image";
 import CustomBreadcrumb from "@/components/CustomBreadcrumb";
-import { IHeroBlogRoot } from "../interface/blog.hero.interface";
+import Image from "next/image";
 import Link from "next/link";
+import React from "react";
+import { IHeroBlogRoot } from "../interface/blog.hero.interface";
 
 interface BlogsCardProps {
   data: IHeroBlogRoot[];
@@ -12,6 +12,7 @@ const HeroBlog: React.FC<BlogsCardProps> = ({ data }) => {
   const featureBlogs = data.filter(
     (blog: IHeroBlogRoot) => blog.type === "feature"
   );
+  if (!featureBlogs.length) return;
 
   return (
     <>
@@ -44,7 +45,7 @@ const HeroBlog: React.FC<BlogsCardProps> = ({ data }) => {
 
         {/* Content */}
         <div className="z-10 relative flex flex-col justify-center items-center md:items-start px-5 md:px-12 lg:px-20 max-w-4xl h-full text-white md:text-left text-center">
-          <p className="text-text-400 typography-paragraph-regular capitalize">
+          <p className="text-text-400 capitalize typography-paragraph-regular">
             {featureBlogs[0]?.type}
           </p>
 
@@ -55,7 +56,7 @@ const HeroBlog: React.FC<BlogsCardProps> = ({ data }) => {
 
           {/* Subheading */}
           <p
-            className="mb-10 text-text-400 typography-paragraph-large max-w-lg text-justify line-clamp-6"
+            className="mb-10 max-w-lg text-text-400 text-justify line-clamp-6 typography-paragraph-large"
             dangerouslySetInnerHTML={{
               __html: featureBlogs[0]?.description || "",
             }}
