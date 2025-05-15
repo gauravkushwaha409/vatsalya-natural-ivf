@@ -22,13 +22,13 @@ export function createMetadata(
   videoData?: VideoData
 ): Metadata {
   return {
-    title: seo?.metaTitle || "Vatsalaya",
-    description: seo?.metaDescription || "Vatsalaya",
+    title: seo?.metaTitle || "vatsalya",
+    description: seo?.metaDescription || "vatsalya",
     openGraph: {
-      title: seo?.metaTitle || "Vatsalaya",
-      description: seo?.metaDescription || "Vatsalaya",
-      url: seo?.canonicalUrl || "https://vatsalaya.com",
-      siteName: "Vatsalaya",
+      title: seo?.metaTitle || "vatsalya",
+      description: seo?.metaDescription || "vatsalya",
+      url: seo?.canonicalUrl || "https://vatsalya.com",
+      siteName: "vatsalya",
       images: imagesUrls?.map((img) => ({
         url: img.url,
         width: 800,
@@ -51,7 +51,6 @@ export function createMetadata(
       canonical: seo?.canonicalUrl,
       languages: {
         "en-US": "/en-US",
-        "de-DE": "/de-DE",
       },
     },
   };

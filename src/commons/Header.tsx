@@ -1,11 +1,10 @@
 "use client";
 import PATHS from "@/utils/path";
-import { Search } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import MobileNav from "./partials/MobileNav";
 import NavCalculator from "./partials/NavCalculator";
 
@@ -71,7 +70,13 @@ const Header = () => {
               className="outline-0 ring-0 placeholder:text-dark-variant-300 grow"
             />
             <button className="top-1/2 right-5 absolute hover:bg-primary-50 p-2 rounded-full -translate-y-1/2">
-              <Search size={18} />
+              <Image
+                src={"/svg/search-icon.svg"}
+                alt="search"
+                width={20}
+                height={20}
+                className="size-6"
+              />
             </button>
           </label>
         </div>
@@ -80,23 +85,25 @@ const Header = () => {
         <MobileNav navlinks={[...navLinks, ...mobileNavLinks]} />
       </div>
       <nav className="my-2.5 w-auto hide-for-mobile">
-        <ul className="flex justify-between font-manrope">
+        <ul className="flex justify-between items-center gap-2 font-manrope">
           {navLinks.map((item, index) => {
             const isActive = pathame === item.link;
             return (
-              <li
-                className="pr-6 border-secondary-500 border-r w-max text-left"
-                key={index}
-              >
-                <Link
-                  className={`w-max group link-gradient-hover `}
-                  href={item.link}
-                >
-                  <span className={isActive ? "!text-primary-500" : ""}>
-                    {item.name}
-                  </span>
-                </Link>
-              </li>
+              <Fragment key={index}>
+                <li className="border-secondary-500 w-max text-center">
+                  <Link
+                    className={`w-max group link-gradient-hover `}
+                    href={item.link}
+                  >
+                    <span className={isActive ? "!text-primary-500" : ""}>
+                      {item.name}
+                    </span>
+                  </Link>
+                </li>
+                {index !== navLinks.length - 1 && (
+                  <div className="border-secondary-500 border-l-2 h-5" />
+                )}
+              </Fragment>
             );
           })}
         </ul>

@@ -11,16 +11,27 @@ type HowWeWorkProps = {
 const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
   return (
     <div className="py-10 md:py-20">
-      <div className="flex justify-center items-center gap-3 md:gap-5 py-6 md:py-10">
-        <span className="bg-primary-500 w-[4rem] md:w-[8.5rem] h-px" />
-        <h2 className="font-bold text-primary-500 text-sm md:text-base uppercase tracking-[0.12rem] md:tracking-[0.18rem]">
-          {data?.title}
+      <div className="relative">
+        <div className="flex justify-center items-center gap-3 md:gap-5 py-6 md:py-10">
+          <span className="bg-primary-500 w-[4rem] md:w-[8.5rem] h-px" />
+          <h2 className="font-bold text-primary-500 text-sm md:text-base uppercase tracking-[0.12rem] md:tracking-[0.18rem]">
+            {data?.title}
+          </h2>
+          <span className="bg-primary-500 w-[4rem] md:w-[8.5rem] h-px" />
+        </div>
+        <h2 className="px-4 pb-8 md:pb-16 font-semibold text-text-500 text-center typography-h2">
+          {data?.subtitle}{" "}
         </h2>
-        <span className="bg-primary-500 w-[4rem] md:w-[8.5rem] h-px" />
+        <div className="top-12 right-[9%] -z-10 absolute pointer-events-none">
+          <Image
+            src={"/svg/butterfly.svg"}
+            alt="how-we-work"
+            width={500}
+            height={500}
+            className="size-[15rem] object-contain"
+          />
+        </div>
       </div>
-      <h2 className="px-4 pb-8 md:pb-16 font-bold text-center typography-h2">
-        {data?.subtitle}{" "}
-      </h2>
       {/* <div className="lg:hidden">
         <HowWeWorkMobileCarousel data={data} />
       </div> */}
@@ -59,7 +70,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
                     : "items-center md:text-right md:items-end "
                 }`}
               >
-                <span className="flex justify-center items-center bg-primary-50 rounded-full size-[2.5rem] md:size-[3.375rem] font-roboto font-medium text-primary-500 typography-paragraph-regular text-end">
+                <span className="flex justify-center items-center bg-primary-50 rounded-full size-[2.5rem] md:size-[3.375rem] font-roboto font-medium text-primary-500 text-end typography-paragraph-regular">
                   {index + 1}
                 </span>
                 <h3
