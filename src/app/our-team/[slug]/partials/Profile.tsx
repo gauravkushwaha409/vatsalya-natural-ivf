@@ -108,7 +108,7 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
                 key={index}
                 className="flex items-center gap-5 bg-primary-50/20 shadow-sm backdrop-blur-2xl p-5 border border-text-50 rounded-lg"
               >
-                <div className="w-54">
+                <div className="w-13 shrink-0">
                   <Image
                     src={items?.icon}
                     alt={items?.name}
