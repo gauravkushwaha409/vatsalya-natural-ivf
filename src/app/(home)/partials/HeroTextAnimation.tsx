@@ -1,9 +1,10 @@
 import { motion } from "motion/react";
+import Butterfly from "./Butterfly";
 
 const HeroTextAnimation: React.FC<{ text: string }> = ({ text }) => {
   const lines = text.split("/b");
   return (
-    <h1 className="relative w-full lg:max-w-1/2 font-bold lg:font-extrabold text-secondary-500 lg:text-[2.48813rem] leading-[130%] typography-h4">
+    <h1 className="relative w-max lg:max-w-1/2 font-bold lg:font-extrabold text-secondary-500 lg:text-[2.48813rem] leading-[130%] typography-h4">
       {lines.map((line, index) => (
         <div key={index} className="flex flex-wrap">
           {index > 0 && <br />}
@@ -11,7 +12,7 @@ const HeroTextAnimation: React.FC<{ text: string }> = ({ text }) => {
             if (word.startsWith("<") && word.endsWith(">")) {
               const cleanWord = word.slice(1, -1); // Remove the angle brackets
               return (
-                <span key={index} className="text-primary-500">
+                <div key={index} className="text-primary-500">
                   <WordAnimation
                     key={index}
                     delay={0.3 * index}
@@ -19,12 +20,12 @@ const HeroTextAnimation: React.FC<{ text: string }> = ({ text }) => {
                     text={cleanWord}
                   />
                   &nbsp;
-                </span>
+                </div>
               );
             }
             return (
               word && (
-                <span key={index}>
+                <div className="" key={index}>
                   <WordAnimation
                     key={index}
                     delay={0.3 * index}
@@ -32,43 +33,28 @@ const HeroTextAnimation: React.FC<{ text: string }> = ({ text }) => {
                     text={word}
                   />
                   &nbsp;
-                </span>
+                </div>
               )
             );
           })}
           {/* <AnimatedText text={line} /> */}
         </div>
       ))}
-      {/* {text.split(" ").map((word, index) => {
-        if (word.startsWith("<") && word.endsWith(">")) {
-          const cleanWord = word.slice(1, -1); // Remove the angle brackets
-          return (
-            <span key={index} className="text-primary-500">
-              <WordAnimation
-                key={index}
-                delay={0.3 * index}
-                duration={0.3}
-                text={cleanWord}
-              />
-              &nbsp;
-            </span>
-          );
-        }
-
-        return word === "/b" ? (
-          <br key={index} />
-        ) : (
-          <span key={index}>
-            <WordAnimation
-              key={index}
-              delay={0.3 * index}
-              duration={0.3}
-              text={word}
-            />
-            &nbsp;
-          </span>
-        );
-      })} */}
+      <span
+        aria-hidden
+        className="inline top-0 left-0 absolute text-transparent pointer-events-none"
+      >
+        <span className="relative">
+          {lines[0]
+            .split("")
+            .map((char) => (char == "<" || char == ">" ? "" : char))
+            .join("")}
+          <div className="top-0 right-0 absolute -translate-y-1/2 translate-x-1/2">
+            <Butterfly />
+          </div>
+        </span>
+        {/* <WordAnimation delay={0.3} duration={0.3} text={lines[0]} /> */}
+      </span>
     </h1>
   );
 };

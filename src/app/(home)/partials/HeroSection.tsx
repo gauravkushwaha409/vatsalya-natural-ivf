@@ -2,7 +2,7 @@
 
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import VideoModal from "@/components/modals/VideoModal";
-import { motion } from "motion/react";
+// import { motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
 import { IHomeData } from "../interface/home.interface";
@@ -29,8 +29,9 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
           {data?.title}{" "}
         </h1>
         <div className="pt-5">
+          {/* <HeroTextAnimation text={text} /> */}
           <HeroTextAnimation text={data?.subtitle || text} />
-          <motion.div
+          {/* <motion.div
             initial={{
               rotate: 90,
               top: "20%",
@@ -56,7 +57,7 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
               height={100}
               unoptimized
             />
-          </motion.div>
+          </motion.div> */}
         </div>
         <p
           className="mt-[0.88rem] max-w-2xl lg:font-[500] font-normal text-text-400 typography-paragraph-small lg:typography-paragraph-large"
