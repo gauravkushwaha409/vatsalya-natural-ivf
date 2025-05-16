@@ -181,8 +181,8 @@ export function SitemapContent({
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Header */}
-      <div className="px-4 sm:px-6 lg:px-8 py-10">
-        <div className="mx-auto max-w-7xl">
+      <div className="py-10">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <h1 className="flex items-center gap-3 mb-4 font-semibold text-primary-300 text-3xl sm:text-4xl uppercase">
             Sitemap <div className="bg-primary-300 w-1/3 h-0.5" />
           </h1>
