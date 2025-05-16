@@ -1,14 +1,14 @@
+import { getData } from "@/api/axios";
+import { endpoints } from "@/api/endpoints";
 import { getHomePageData } from "@/app/(home)/hook/hook.hook";
+import { IserviceRecord } from "@/app/services/interfaces/services.interface";
 import NewsLetter from "@/components/NewsLetter";
 import CopyButton from "@/components/ui/CopyButton";
 import { companyLinks, helpLinks } from "@/data/footerData";
+import PATHS from "@/utils/path";
 import Image from "next/image";
 import Link from "next/link";
 import FooterSeo from "./partials/FooterSEO";
-import { getData } from "@/api/axios";
-import { endpoints } from "@/api/endpoints";
-import { IserviceRecord } from "@/app/services/interfaces/services.interface";
-import PATHS from "@/utils/path";
 
 const Footer = async () => {
   const { footerData } = await getHomePageData();
@@ -141,9 +141,7 @@ const Footer = async () => {
                 <Link href={link.href}>{link.label}</Link>
               </p>
             ))}
-            <Link href="/sitemap.xml" target="_blank">
-              SiteMap
-            </Link>
+            <Link href="/sitemap-page">SiteMap</Link>
           </div>
 
           {/* Newsletter */}

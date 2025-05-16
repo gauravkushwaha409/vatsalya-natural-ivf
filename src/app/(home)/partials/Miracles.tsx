@@ -15,12 +15,37 @@ const Miracles: React.FC<ShowCaseItemProps> = ({ data }) => {
   // Mobile view component
   if (isMobile) {
     return (
-      <div className="flex flex-col items-center mt-10 md:mt-20">
+      <div className="flex flex-col items-center mt-10 md:mt-20 px-4">
         <RequestAppoimentModal
           isOpen={appointmentPopupOpen}
           onClose={() => setAppointmentPopupOpen(false)}
         />
-        <div className="gap-2 grid grid-cols-2">
+        <h1
+          style={{
+            background: "linear-gradient(0deg, #A03879 0%, #FF6F61 100%)",
+            backgroundClip: "text",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+          className="bg-clip-text font-extrabold text-2xl typography-h2"
+        >
+          50,000+ Miracles
+        </h1>
+        <p className="mt-2 text-text-500 typography-paragraph-regular">
+          Bringing hope, joy, and new beginnings—Vatsalya has helped 50,000+
+          families with successful natural IVF. Your journey to parenthood
+          starts here
+        </p>
+        <button
+          style={{
+            boxShadow: "0px 5.486px 12.343px 0px rgba(215, 101, 120, 0.33)",
+          }}
+          onClick={() => setAppointmentPopupOpen(true)}
+          className="mt-3 px-6 py-3 border rounded-full font-extrabold text-secondary-400 text-sm typography-paragraph-regular"
+        >
+          Your Miracle Awaits
+        </button>
+        <div className="flex flex-wrap justify-center gap-2 mt-5">
           {data?.images.map((image, index) => (
             <ImageContainer
               key={index}
@@ -28,41 +53,11 @@ const Miracles: React.FC<ShowCaseItemProps> = ({ data }) => {
               alt={`Miracle ${index + 1}`}
             />
           ))}
-          {/* <ImageContainer src={data?.images?.[0]} alt="Miracle 1" />
-          <ImageContainer src={data?.images?.[1]} alt="Miracle 2" />
-          <ImageContainer src={data?.images?.[2]} alt="Miracle 3" />
-          <ImageContainer src={data?.images?.[3]} alt="Miracle 4" />
-          <ImageContainer src={data?.images?.[4]} alt="Miracle 5" />
-          <ImageContainer src={data?.images?.[5]} alt="Miracle 6" /> */}
         </div>
 
-        <div className="px-4 py-8 w-full text-center">
-          <h1
-            style={{
-              background: "linear-gradient(0deg, #A03879 0%, #FF6F61 100%)",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-            className="bg-clip-text font-extrabold text-2xl typography-h2"
-          >
-            50,000+ Miracles
-          </h1>
-          <p className="mt-2 text-text-500 typography-paragraph-regular">
-            Bringing hope, joy, and new beginnings—Vatsalya has helped 50,000+
-            families with successful natural IVF. Your journey to parenthood
-            starts here
-          </p>
-          <button
-            style={{
-              boxShadow: "0px 5.486px 12.343px 0px rgba(215, 101, 120, 0.33)",
-            }}
-            onClick={() => setAppointmentPopupOpen(true)}
-            className="mt-3 px-6 py-3 border rounded-full font-extrabold text-secondary-400 text-sm typography-paragraph-regular"
-          >
-            Your Miracle Awaits
-          </button>
-        </div>
+        {/* <div className="px-4 py-8 w-full text-center">
+          
+        </div> */}
       </div>
     );
   }

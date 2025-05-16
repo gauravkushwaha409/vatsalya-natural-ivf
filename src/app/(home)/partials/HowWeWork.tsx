@@ -10,7 +10,7 @@ type HowWeWorkProps = {
 };
 const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
   return (
-    <div className="py-10 md:py-20">
+    <div className="pt-10 md:pt-20">
       <div className="relative">
         <div className="flex justify-center items-center gap-3 md:gap-5 py-6 md:py-10">
           <span className="bg-primary-500 w-[4rem] md:w-[8.5rem] h-px" />
@@ -22,13 +22,13 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
         <h2 className="px-4 pb-8 md:pb-16 font-semibold text-text-500 text-center typography-h2">
           {data?.subtitle}{" "}
         </h2>
-        <div className="top-12 right-[9%] -z-10 absolute pointer-events-none">
+        <div className="top-0 md:top-12 right-1 md:right-[9%] -z-10 absolute pointer-events-none">
           <Image
             src={"/svg/butterfly.svg"}
             alt="how-we-work"
             width={500}
             height={500}
-            className="size-[15rem] object-contain"
+            className="size-[5rem] md:size-[8rem] lg:size-[15rem] object-contain"
           />
         </div>
       </div>
@@ -41,7 +41,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
         {data?.HowWorksDetails?.map(
           (step: IHowWeWorkHowWorksDetail, index: number) => (
             <div
-              className={`flex flex-col md:flex-row gap-y-6 gap-x-8 lg:gap-x-24 pb-4 mb-4 ${
+              className={`flex flex-col-reverse gap-y-6 gap-x-8 lg:gap-x-24 pb-4 mb-4 ${
                 index % 2 == 0 ? "md:flex-row" : "md:flex-row-reverse"
               }`}
               key={index}
@@ -81,7 +81,9 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
                   {step.title}
                 </h3>
                 <p
-                  className="font-medium text-text-400 md:text-left text-justify typography-paragraph-regular"
+                  className={`font-medium text-text-400 typography-paragraph-regular  ${
+                    index % 2 === 0 ? "md:text-left" : "md:text-right"
+                  }`}
                   dangerouslySetInnerHTML={{ __html: step.detail }}
                 />
               </div>
