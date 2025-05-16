@@ -77,7 +77,7 @@ const TestimonialSwiper: React.FC<ITestimonialSwiper> = ({ data }) => {
             >
               {data?.records?.map(
                 (testimonial: IsuccessStoriesRecord, index: number) => (
-                  <SwiperSlide key={index}>
+                  <SwiperSlide className="pb-4" key={index}>
                     <TestimonialCard
                       key={index}
                       data={testimonial}
