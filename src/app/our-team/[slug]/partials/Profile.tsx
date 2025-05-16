@@ -35,7 +35,7 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
               alt="heropic"
               width={1920}
               height={1080}
-              className="z-10 absolute w-full h-full contain"
+              className="z-10 absolute w-full h-full object-contain"
             />
             <div className="top-10 right-2 z-0 absolute h-36">
               <Image

@@ -101,7 +101,7 @@ const Header = () => {
                   </Link>
                 </li>
                 {index !== navLinks.length - 1 && (
-                  <div className="border-secondary-500 border-l-2 h-5" />
+                  <div className="border-secondary-500 border-l-2 h-8" />
                 )}
               </Fragment>
             );

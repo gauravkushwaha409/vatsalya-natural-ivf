@@ -130,7 +130,7 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
               {data[activeIndex]?.position}
             </h2>
             <p
-              className="font-medium text-text-300 typography-paragraph-regular"
+              className="font-medium text-text-300 line-clamp-6 typography-paragraph-regular"
               dangerouslySetInnerHTML={{
                 __html: data[activeIndex]?.description,
               }}

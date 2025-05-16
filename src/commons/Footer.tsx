@@ -98,8 +98,8 @@ const Footer = async () => {
                     >
                       <Image
                         src={item.icon}
-                        width={24}
-                        height={24}
+                        width={20}
+                        height={20}
                         className=""
                         alt={item.name}
                       />

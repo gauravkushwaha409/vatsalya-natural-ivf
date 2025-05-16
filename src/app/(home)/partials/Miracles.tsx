@@ -29,7 +29,7 @@ const Miracles: React.FC<ShowCaseItemProps> = ({ data }) => {
           }}
           className="bg-clip-text font-extrabold text-2xl typography-h2"
         >
-          50,000+ Miracles
+          15,000+ Miracles
         </h1>
         <p className="mt-2 text-text-500 typography-paragraph-regular">
           Bringing hope, joy, and new beginnings—Vatsalya has helped 50,000+

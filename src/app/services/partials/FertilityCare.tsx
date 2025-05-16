@@ -55,11 +55,11 @@ const FertilityCare: React.FC<IFertilityCare> = ({ data }) => {
                   className="flex items-center gap-5"
                   key={index}
                 >
-                  <div className="bg-[#FFD2EE] p-4 lg:p-3 rounded-full w-16 h-16">
+                  <div className="bg-[#FFD2EE] p-4 lg:p-4 rounded-full size-[4.625rem]">
                     <Image
                       src={item?.icon}
-                      alt={`troubleConceiving`}
-                      className="w-full h-full"
+                      alt={item?.title + " icon"}
+                      className="w-full h-full object-cover"
                       width={400}
                       height={400}
                     />
