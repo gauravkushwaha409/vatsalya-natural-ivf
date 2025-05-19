@@ -79,9 +79,9 @@ const ServiceForm = () => {
           className="bg-secondary-50/30 px-5 py-7 rounded-lg w-full"
           style={{ boxShadow: "0px 4px 22.6px 7px rgba(0, 0, 0, 0.06)" }}
         >
-          <h1 className="pb-2.5 border-secondary-100 border-b-2 font-medium text-center typography-paragraph-large">
+          <p className="pb-2.5 border-secondary-100 border-b-2 font-medium text-center typography-paragraph-large">
             Request a Call
-          </h1>
+          </p>
           <form
             onSubmit={formik.handleSubmit}
             className="gap-4 grid grid-cols-1 py-2.5 font-semibold text-text-500 typography-paragraph-regular"

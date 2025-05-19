@@ -52,9 +52,9 @@ const ServiceCards: React.FC<IServiceCards> = ({ data }) => {
                 <div className="flex flex-col gap-2 pt-4">
                   <div className="flex justify-between w-full">
                     {" "}
-                    <h2 className="font-bold typography-h3">
+                    <h3 className="font-bold typography-h3">
                       {item?.name}{" "}
-                    </h2>{" "}
+                    </h3>{" "}
                     <button className="cursor-pointer">
                       <IoArrowForwardOutline
                         size={24}

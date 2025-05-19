@@ -11,8 +11,8 @@ const ContactFaqs = () => {
   const setting = settingData?.data;
   return (
     <section className="flex lg:flex-row flex-col gap-10 py-20">
-      <div className="flex w-full md:w-1/2 justify-start items-center">
-        <div className="  aspect-[16/16] relative rounded-lg  w-10/12 ">
+      <div className="flex justify-start items-center w-full md:w-1/2">
+        <div className="relative rounded-lg w-10/12 aspect-[16/16]">
           <Image
             src={pic1}
             alt="approval"
@@ -21,8 +21,8 @@ const ContactFaqs = () => {
             unoptimized
             className="w-full h-full"
           />
-          <div className="bg-white   aspect-[271/252] w-[50%] absolute -bottom-10 -right-10 pt-[0.1rem] pl-[0.1rem] rounded-l-3xl rounded-t-none  ">
-            <div className="rounded-xl flex items-center justify-center flex-col  h-full w-full">
+          <div className="-right-10 -bottom-10 absolute bg-white pt-[0.1rem] pl-[0.1rem] rounded-t-none rounded-l-3xl w-[50%] aspect-[271/252]">
+            <div className="flex flex-col justify-center items-center rounded-xl w-full h-full">
               <Image
                 src={pic2}
                 alt="approval"
@@ -35,15 +35,15 @@ const ContactFaqs = () => {
         </div>
       </div>
       <div className="w-full md:w-1/2">
-        <div className="flex items-center gap-3 py-5 ">
-          <span className="text-primary-500 typography-paragraph-regular font-bold uppercase tracking-widest">
+        <div className="flex items-center gap-3 py-5">
+          <span className="font-bold text-primary-500 uppercase tracking-widest typography-paragraph-regular">
             FAQs
           </span>
           <div className="border border-primary-400 border-t w-21"></div>
         </div>
-        <h1 className="typography-h4 lg:typography-h2 font-semibold pb-4">
+        <h4 className="pb-4 font-semibold typography-h4 lg:typography-h2">
           Answers to Your Fertility Questions
-        </h1>
+        </h4>
         <Faq faq={setting?.Faq} />
       </div>
     </section>

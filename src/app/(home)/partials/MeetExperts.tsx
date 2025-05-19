@@ -16,9 +16,9 @@ const MeetExperts: React.FC<MeetExpertsProps> = ({ data }) => {
           </h2>
           <span className="bg-primary-500 w-[8.5rem] h-px" />
         </div>
-        <h2 className="pb-[3.75rem] font-bold text-center typography-h2">
+        <h3 className="pb-[3.75rem] font-bold text-center typography-h2">
           World-Class Doctors, Dedicated to Your Care
-        </h2>
+        </h3>
         <TeamSlider data={data?.records} />
       </div>
       {/* butterfly gif */}

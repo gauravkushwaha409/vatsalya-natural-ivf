@@ -29,11 +29,12 @@ export function createMetadata(
       description: seo?.metaDescription || "vatsalya",
       url: seo?.canonicalUrl || "https://vatsalya.com",
       siteName: "vatsalya",
-      images: imagesUrls?.map((img) => ({
-        url: img.url,
-        width: 800,
-        height: 600,
-      })),
+      images:
+        imagesUrls?.map((img) => ({
+          url: img.url,
+          width: 800,
+          height: 600,
+        })) || "/main-logo.png",
       videos: videoData
         ? [
             {
@@ -48,7 +49,7 @@ export function createMetadata(
       type: "website",
     },
     alternates: {
-      canonical: seo?.canonicalUrl,
+      canonical: seo?.canonicalUrl || "https://vatsalya.com",
       languages: {
         "en-US": "/en-US",
       },

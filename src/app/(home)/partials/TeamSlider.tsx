@@ -123,12 +123,12 @@ const TeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
             }}
             className={`top-0 left-full absolute space-y-3 starting:opacity-0 ml-10  w-[35%] 2xl:w-[32.4rem] transition-all duration-700 ease-in-out `}
           >
-            <h1 className="font-semibold typography-h3">
+            <p className="font-semibold typography-h3">
               {data[activeIndex]?.name}
-            </h1>
-            <h2 className="font-semibold text-text-500 typography-paragraph-large">
+            </p>
+            <p className="font-semibold text-text-500 typography-paragraph-large">
               {data[activeIndex]?.position}
-            </h2>
+            </p>
             <p
               className="font-medium text-text-300 line-clamp-6 typography-paragraph-regular"
               dangerouslySetInnerHTML={{
@@ -260,13 +260,13 @@ const MobileTeamSlider: React.FC<TeamSliderProps> = ({ data }) => {
               />
             </div>
             <div className="space-y-3 mt-4">
-              <h1 className="flex items-center font-semibold text-primary-400 typography-h3">
+              <p className="flex items-center font-semibold text-primary-400 typography-h3">
                 {member.name}
                 {/* <ExternalLink className="inline-block ml-2 text-sm" /> */}
-              </h1>
-              <h2 className="font-semibold text-text-500 typography-paragraph-large">
+              </p>
+              <p className="font-semibold text-text-500 typography-paragraph-large">
                 {member.position}
-              </h2>
+              </p>
               <p
                 className="font-medium text-text-300 typography-paragraph-regular"
                 dangerouslySetInnerHTML={{ __html: member.description }}

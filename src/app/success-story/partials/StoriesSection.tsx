@@ -20,24 +20,24 @@ const StoriesSection: React.FC<Props> = ({ data, metaData }) => {
   const { currentPage, handlePageChange } = usePaginationChange();
   return (
     <div className="padding">
-      <div className="flex flex-col items-center text-center space-y-4">
-        <div className="flex items-center w-full justify-center gap-4 max-w-3xl">
+      <div className="flex flex-col items-center space-y-4 text-center">
+        <div className="flex justify-center items-center gap-4 w-full max-w-3xl">
           {/* line  */}
-          <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
+          <div className="flex-1 bg-primary-400 max-w-[148px] h-px"></div>
 
-          <h2 className="text-primary-500 text-sm md:text-base font-bold tracking-widest uppercase leading-[24px]">
+          <h2 className="font-bold text-primary-500 text-sm md:text-base uppercase leading-[24px] tracking-widest">
             {metaData?.successStoryExamplesTitle}
           </h2>
           {/* line  */}
-          <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
+          <div className="flex-1 bg-primary-400 max-w-[148px] h-px"></div>
         </div>
 
-        <h1 className="typography-h2 font-semibold tracking-tight max-w-3xl ">
+        <h3 className="max-w-3xl font-semibold tracking-tight typography-h2">
           {metaData?.successStoryExamplesSubtitle}
-        </h1>
+        </h3>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10 rounded-lg ">
+      <div className="gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-10 rounded-lg">
         {data?.records?.map(
           (testimonial: IsuccessStoriesRecord, index: number) => (
             <TestimonialCard

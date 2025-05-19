@@ -41,8 +41,8 @@ const IvfDueDateCalculator: React.FC<IvfDueDateCalculatorProps> = ({
 
   return (
     <>
-      <section className="padding py-16 md:py-24 w-full">
-        <div className="flex flex-col items-center ">
+      <section className="py-16 md:py-24 w-full padding">
+        <div className="flex flex-col items-center">
           <div className="flex justify-center items-center gap-4 w-full">
             {/* line  */}
             <div className="flex-1 bg-primary-400 max-w-[148px] h-px"></div>
@@ -57,30 +57,30 @@ const IvfDueDateCalculator: React.FC<IvfDueDateCalculatorProps> = ({
             We are across the country{" "}
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-18 items-center py-10">
-          <div className="p-5 rounded-lg shadow-md space-y-4 w-full mx-auto">
-            <h1 className="typography-h3 text-text-500 font-semibold">
+        <div className="items-center gap-18 grid grid-cols-1 md:grid-cols-2 py-10">
+          <div className="space-y-4 shadow-md mx-auto p-5 rounded-lg w-full">
+            <p className="font-semibold text-text-500 typography-h3">
               IVF Due Date Calculator
-            </h1>
+            </p>
 
             <div className=" ">
-              <label className="text-text-400 font-medium typography-paragraph-regular ">
+              <label className="font-medium text-text-400 typography-paragraph-regular">
                 Transfer Date:
               </label>
               <input
                 type="date"
-                className="w-full p-2 border rounded mt-2 typography-paragraph-small"
+                className="mt-2 p-2 border rounded w-full typography-paragraph-small"
                 value={transferDate}
                 onChange={(e) => setTransferDate(e.target.value)}
               />
             </div>
 
             <div className="space-y-1">
-              <label className="text-text-400 font-medium typography-paragraph-regular ">
+              <label className="font-medium text-text-400 typography-paragraph-regular">
                 Type of Transfer:
               </label>
               <select
-                className="w-full p-2 border rounded mt-2 typography-paragraph-small"
+                className="mt-2 p-2 border rounded w-full typography-paragraph-small"
                 value={transferType}
                 onChange={(e) => setTransferType(e.target.value)}
               >
@@ -95,31 +95,31 @@ const IvfDueDateCalculator: React.FC<IvfDueDateCalculatorProps> = ({
 
             <button
               onClick={calculateDueDate}
-              className="hover:bg-secondary bg-gradient-to-r from-[#A0385A] to-[#3A142C]  px-11 py-2 border-[0.4px] border-secondary-100 rounded-full font-semibold typography-paragraph-regular transition-colors duration-300 typography-h4 cursor-pointer text-white w-full"
+              className="hover:bg-secondary bg-gradient-to-r from-[#A0385A] to-[#3A142C] px-11 py-2 border-[0.4px] border-secondary-100 rounded-full w-full font-semibold text-white transition-colors duration-300 cursor-pointer typography-paragraph-regular typography-h4"
             >
               Calculate
             </button>
 
             {dueDate && (
-              <div className="mt-4 p-3 bg-green-100 rounded text-green-800">
+              <div className="bg-green-100 mt-4 p-3 rounded text-green-800">
                 <strong>Estimated Due Date:</strong> {dueDate}
               </div>
             )}
           </div>
 
-          <div className=" overflow-hidden aspect-[16/14]">
+          <div className="aspect-[16/14] overflow-hidden">
             {/* Main image (top right) */}
             <Image
               src={Image1}
               alt="Happy family with healthcare providers"
               width={500}
               height={400}
-              className="object-contain w-full h-full"
+              className="w-full h-full object-contain"
             />
           </div>
         </div>
         <p
-          className="prose py-10  min-w-full"
+          className="py-10 min-w-full prose"
           dangerouslySetInnerHTML={{
             __html: data?.records[0]?.description || "",
           }}

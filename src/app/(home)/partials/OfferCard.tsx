@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { OfferCardProps } from "../interface/whatWeOffer.interface";
 import { useRouter } from "next/navigation";
+import { OfferCardProps } from "../interface/whatWeOffer.interface";
 
 const OfferCard: React.FC<OfferCardProps> = ({
   card,
@@ -91,17 +91,17 @@ const OfferCard: React.FC<OfferCardProps> = ({
           width={isMobile ? 80 : 100}
           height={isMobile ? 80 : 100}
           alt={title}
-          className=" p-3.5 "
+          className="p-3.5"
         />
       </div>
-      <h1
+      <h3
         className={`font-bold ${textColor} ${
           isMobile ? "typography-h6" : "typography-h4"
         }`}
         style={titleStyle}
       >
         {title}
-      </h1>
+      </h3>
       <p
         className={`font-medium text-text-400 line-clamp-${
           card.position === "left-top" ? "4" : "3"

@@ -31,23 +31,23 @@ const Faq: React.FC<{ faq: FAQOptions[] }> = ({ faq }) => {
         return (
           <div
             key={index}
-            className="flex pb-1 border-b border-gray-300 overflow-hidden transition-all cursor-pointer select-none"
+            className="flex pb-1 border-gray-300 border-b overflow-hidden transition-all cursor-pointer select-none"
             onClick={() => toggleFaq(index)}
           >
             <div className="bg-secondary-500 rounded-r-xl w-1 transition-all duration-300" />
 
             <div className="w-full">
               <div className="flex justify-between items-center p-3">
-                <h1
+                <p
                   className={`font-bold text-base ${
                     isOpen ? "text-secondary-500" : ""
                   }`}
                 >
                   {faqItem.question}
-                </h1>
+                </p>
 
                 <span
-                  className="text-2xl ml-4 focus:outline-none cursor-pointer"
+                  className="ml-4 focus:outline-none text-2xl cursor-pointer"
                   aria-label={`Toggle FAQ ${index}`}
                 >
                   {isOpen ? "−" : "+"}

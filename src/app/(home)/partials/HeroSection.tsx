@@ -25,9 +25,9 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
   return (
     <div className="relative flex justify-center h-full min-h-[45rem] overflow-y-hidden padding">
       <div className="flex flex-col justify-center mt-16 lg:mt-[8.72rem] w-full h-full text-left">
-        <h1 className="relative font-bold text-primary-500 uppercase tracking-widest typography-paragraph-large">
+        <p className="relative font-bold text-primary-500 uppercase tracking-widest typography-paragraph-large">
           {data?.title}{" "}
-        </h1>
+        </p>
         <div className="pt-5">
           {/* <HeroTextAnimation text={text} /> */}
           <HeroTextAnimation text={data?.subtitle || text} />
@@ -59,7 +59,7 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
             />
           </motion.div> */}
         </div>
-        <p
+        <h1
           className="mt-[0.88rem] max-w-2xl lg:font-[500] font-normal text-text-400 typography-paragraph-small lg:typography-paragraph-large"
           dangerouslySetInnerHTML={{ __html: data?.description || "" }}
         />

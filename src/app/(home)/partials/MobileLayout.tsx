@@ -19,12 +19,12 @@ const MobileLayout: React.FC<MobileLayoutProps> = ({ OFFER_CARDS }) => {
                 className="p-3.5"
               />
             </div>
-            <h1
+            <h3
               className={`font-bold ${card.textColor} typography-h4`}
               // style={}
             >
               {card.title}
-            </h1>
+            </h3>
             <p
               className={`font-medium text-text-400 line-clamp-4 typography-paragraph-regular text-justify`}
               dangerouslySetInnerHTML={{ __html: card.description || "" }}

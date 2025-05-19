@@ -31,9 +31,9 @@ const Testimonial: React.FC<Props> = ({ data }) => {
               <div className="flex-1 bg-primary-500 max-w-[148px] h-px"></div>
             </div>
 
-            <h2 className="font-semibold text-text-500 typography-h2">
+            <p className="font-semibold text-text-500 typography-h2">
               Voices of Our Valued Patients
-            </h2>
+            </p>
           </div>
           {/* Carousel Section  */}
           <div className="lg:w-[70%]">
