@@ -9,10 +9,10 @@ const RequestCallForm = () => {
   return (
     <section className="relative">
       <div className="top-0 sticky pb-7 w-full text-black">
-        <div className=" px-5 py-7 rounded-lg w-full shadow-sm">
-          <h1 className="pb-2.5 border-secondary-100 border-b-2 font-medium text-center typography-paragraph-large">
+        <div className="shadow-sm px-5 py-7 rounded-lg w-full">
+          <p className="pb-2.5 border-secondary-100 border-b-2 font-medium text-center typography-paragraph-large">
             Request a Call
-          </h1>
+          </p>
           <form
             onSubmit={formik.handleSubmit}
             className="gap-4 grid grid-cols-1 py-2.5 font-semibold text-text-500 typography-paragraph-regular"

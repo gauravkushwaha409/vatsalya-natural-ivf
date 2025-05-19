@@ -93,9 +93,9 @@ const Calendar: React.FC<CalendarProps> = ({ data }) => {
           {!isResultshown ? (
             <div className="flex lg:flex-row flex-col gap-10 starting:opacity-0 transition-opacity">
               <div className="items-center shadow-sm px-5 pt-5 rounded-xl h-fit aspect-square">
-                <h1 className="pb-2.5 border-secondary-100 border-b-2 font-medium text-center typography-paragraph-large">
+                <p className="pb-2.5 border-secondary-100 border-b-2 font-medium text-center typography-paragraph-large">
                   Select the first day of your last period
-                </h1>
+                </p>
 
                 <div key={currentDate.toDateString()}>{renderHeader()}</div>
                 <div>{renderDays()}</div>
