@@ -33,12 +33,12 @@ const WhoWeAre: React.FC<WhoWeAreProps> = ({ data }) => {
         }}
         className="flex flex-col justify-center gap-5 pl-3 lg:w-1/4"
       >
-        <div className="flex justify-center items-center gap-5 mt-4">
+        <h2 className="flex justify-center items-center gap-5 mt-4">
           <span className="font-bold text-primary-500 uppercase lg:leading-[0.18rem] tracking-widest typography-paragraph-regular">
             {data?.title}
           </span>
           <div className="bg-primary-500 h-[0.0625rem] grow"></div>
-        </div>
+        </h2>
         <p className="font-bold text-text-500 typography-h2">
           {data?.subtitle}
         </p>

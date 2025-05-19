@@ -20,7 +20,7 @@ const Miracles: React.FC<ShowCaseItemProps> = ({ data }) => {
           isOpen={appointmentPopupOpen}
           onClose={() => setAppointmentPopupOpen(false)}
         />
-        <h1
+        <div
           style={{
             background: "linear-gradient(0deg, #A03879 0%, #FF6F61 100%)",
             backgroundClip: "text",
@@ -29,8 +29,8 @@ const Miracles: React.FC<ShowCaseItemProps> = ({ data }) => {
           }}
           className="bg-clip-text font-extrabold text-2xl typography-h2"
         >
-          50,000+ Miracles
-        </h1>
+          15,000+ Miracles
+        </div>
         <p className="mt-2 text-text-500 typography-paragraph-regular">
           Bringing hope, joy, and new beginnings—Vatsalya has helped 50,000+
           families with successful natural IVF. Your journey to parenthood
@@ -97,7 +97,7 @@ const Miracles: React.FC<ShowCaseItemProps> = ({ data }) => {
             </div>
           </div>
           <div className="space-y-4 px-[1.81rem] pb-10 w-full text-center">
-            <h1
+            <p
               style={{
                 background: "linear-gradient(0deg, #A03879 0%, #FF6F61 100%)",
                 backgroundClip: "text",
@@ -107,7 +107,7 @@ const Miracles: React.FC<ShowCaseItemProps> = ({ data }) => {
               className="bg-clip-text font-extrabold typography-h2"
             >
               {data?.title}
-            </h1>
+            </p>
             <p
               className="text-text-500 typography-paragraph-small"
               dangerouslySetInnerHTML={{ __html: data?.subtitle || "" }}
@@ -143,14 +143,16 @@ const ImageContainer: React.FC<{ src: string; alt: string }> = ({
   alt,
 }) => {
   return (
-    <div className="relative m-[0.44rem] rounded-[0.75rem] w-20 2xl:w-32 aspect-[4/5] overflow-hidden">
-      <Image
-        width={128}
-        height={160}
-        src={src}
-        alt={alt}
-        className="w-full h-full object-cover"
-      />
-    </div>
+    src && (
+      <div className="relative m-[0.44rem] rounded-[0.75rem] w-20 2xl:w-32 aspect-[4/5] overflow-hidden">
+        <Image
+          width={128}
+          height={160}
+          src={src}
+          alt={alt}
+          className="w-full h-full object-cover"
+        />
+      </div>
+    )
   );
 };

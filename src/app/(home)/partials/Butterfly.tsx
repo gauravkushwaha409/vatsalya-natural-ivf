@@ -100,6 +100,7 @@ const Butterfly = () => {
           alt="Illustration of butterfly"
           width={100}
           height={100}
+          className="size-20 md:size-25 object-cover"
           unoptimized
         />
       </motion.div>

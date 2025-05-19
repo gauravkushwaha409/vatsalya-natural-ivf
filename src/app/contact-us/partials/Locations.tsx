@@ -21,9 +21,9 @@ const Locations: React.FC<LocationsProps> = ({ onSelectMap }) => {
         </span>
         <div className="border border-primary-500/50 border-t-1 w-20"></div>
       </div>
-      <h1 className="mt-5 font-semibold text-text-500 text-center typography-h3">
+      <h2 className="mt-5 font-semibold text-text-500 text-center typography-h3">
         Serving All Across Nepal
-      </h1>
+      </h2>
       <div className="gap-5 grid grid-cols-1 md:grid-cols-4 my-5">
         {centers?.records.map((center: ICenter, index: number) => (
           <div

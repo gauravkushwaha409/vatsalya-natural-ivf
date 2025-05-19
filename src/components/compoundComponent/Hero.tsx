@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, createContext, useContext, ReactNode } from "react";
-import Image, { StaticImageData } from "next/image";
-import { twMerge } from "tailwind-merge";
-import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import Breadcrumb from "@/components/Breadcumb";
+import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
+import Image, { StaticImageData } from "next/image";
+import { createContext, ReactNode, useContext, useState } from "react";
+import { twMerge } from "tailwind-merge";
+import { motion } from "motion/react";
 
 // Define the type for the hero data that will be passed to the context
 type HeroData = {
@@ -195,7 +196,7 @@ const HeroTitle = ({ children, className }: HeroTitleProps) => {
   return (
     <h1
       className={twMerge(
-        "mb-4 font-bold typography-h1 !text-secondary-50",
+        "mb-4 font-bold !text-secondary-50 typography-h1",
         className
       )}
     >
@@ -219,7 +220,7 @@ const HeroDescription = ({ children, className }: HeroDescriptionProps) => {
   return (
     <p
       className={twMerge(
-        "mb-10 font-medium typography-paragraph-regular !text-text-50/80 ",
+        "mb-5 font-medium !text-text-50/80 typography-paragraph-regular",
         className
       )}
     >
@@ -240,15 +241,16 @@ const HeroButton = ({ children, className }: HeroButtonProps) => {
     children || heroData.buttonText || "Book an Appointment";
 
   return (
-    <button
+    <motion.button
+      whileTap={{ scale: 0.95 }}
       onClick={() => setOpenModal(true)}
       className={twMerge(
-        "hover:bg-secondary bg-gradient-to-r from-[#A0385A] to-[#3A142C] shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] px-11 py-4 border-[0.4px] border-secondary-100 rounded-full font-semibold  transition-colors duration-300 typography-h4 cursor-pointer",
+        "hover:bg-secondary bg-gradient-to-r from-[#A0385A] to-[#3A142C] shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] px-11 py-4 border-[0.4px] border-secondary-100 rounded-full font-semibold transition-colors duration-300 cursor-pointer typography-h4",
         className
       )}
     >
       {buttonContent}
-    </button>
+    </motion.button>
   );
 };
 type HeroCustomButtonProps = {
@@ -270,7 +272,7 @@ const HeroCustomButton = ({
     <button
       {...props}
       className={twMerge(
-        " bg-gradient-to-r from-[#A0385A] to-[#3A142C] shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)]  border-[0.4px] border-secondary-100 font-semibold  duration-300 typography-h4 cursor-pointer",
+        "bg-gradient-to-r from-[#A0385A] to-[#3A142C] shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] border-[0.4px] border-secondary-100 font-semibold duration-300 cursor-pointer typography-h4",
         className
       )}
     >

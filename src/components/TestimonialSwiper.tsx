@@ -48,6 +48,7 @@ const TestimonialSwiper: React.FC<ITestimonialSwiper> = ({ data }) => {
           {testimonialData && testimonialData?.length > 0 && (
             <Swiper
               ref={swiperRef}
+              loop={true}
               modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
               autoplay={{
                 delay: 4000,
@@ -58,26 +59,24 @@ const TestimonialSwiper: React.FC<ITestimonialSwiper> = ({ data }) => {
                 setActiveSlide(swiper.activeIndex);
               }}
               speed={1200}
-              spaceBetween={50}
+              spaceBetween={0}
               slidesPerView={2}
               breakpoints={{
                 "@0.00": {
                   slidesPerView: 1,
-                  spaceBetween: 10,
                 },
                 "@0.75": {
                   slidesPerView: 2,
-                  spaceBetween: 20,
                 },
               }}
               onSlideChange={(swiper) => {
-                setActiveSlide(swiper.activeIndex);
+                setActiveSlide(swiper.realIndex);
               }}
               className="h-full"
             >
               {data?.records?.map(
                 (testimonial: IsuccessStoriesRecord, index: number) => (
-                  <SwiperSlide className="pb-4" key={index}>
+                  <SwiperSlide className="px-5 pb-4" key={index}>
                     <TestimonialCard
                       key={index}
                       data={testimonial}
@@ -96,7 +95,7 @@ const TestimonialSwiper: React.FC<ITestimonialSwiper> = ({ data }) => {
       <div className="flex justify-center items-center mt-2 w-full">
         {/* Left Arrow  */}
         <button
-          disabled={activeSlide === 0}
+          // disabled={activeSlide === 0}
           className="px-6 text-white cursor-pointer"
           onClick={() => {
             if (swiperRef.current && swiperRef.current.swiper) {
@@ -134,7 +133,7 @@ const TestimonialSwiper: React.FC<ITestimonialSwiper> = ({ data }) => {
         </div>
         {/* Right arrow  */}
         <button
-          disabled={activeSlide === noofSlides - 1}
+          // disabled={activeSlide === noofSlides - 1}
           className="disabled:opacity-50 px-6 text-white cursor-pointer disabled:cursor-not-allowed"
           onClick={() => {
             if (swiperRef.current && swiperRef.current.swiper) {

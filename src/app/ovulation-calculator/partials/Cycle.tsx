@@ -50,9 +50,9 @@ const Cycle: React.FC<CycleLengthSelectorProps> = ({
   const percentage = ((value - min) / (max - min)) * 100;
   return (
     <div className="flex flex-col items-start gap-2 shadow-md p-5 rounded-lg w-auto h-fit">
-      <h1 className="pb-2.5 border-secondary-100 border-b-2 w-full font-medium text-center typography-paragraph-large">
+      <p className="pb-2.5 border-secondary-100 border-b-2 w-full font-medium text-center typography-paragraph-large">
         How long is your cycle?{" "}
-      </h1>
+      </p>
       <div className={cn("w-full max-w-2xs space-y-6", className)}>
         <div className="flex flex-col gap-2">
           <div className="flex justify-between items-center">

@@ -10,23 +10,23 @@ const ContactForm = () => {
   const { formik, isLoading, centerData } = useContactForm();
 
   return (
-    <div className=" flex lg:flex-row flex-col justify-center items-center gap-20 py-20">
-      <div className="  w-full md:w-1/2  flex flex-col gap-5">
-        <div className="flex items-center gap-3 ">
-          <span className="text-primary-500 typography-paragraph-regular font-bold uppercase tracking-widest">
+    <div className="flex lg:flex-row flex-col justify-center items-center gap-20 py-20">
+      <div className="flex flex-col gap-5 w-full md:w-1/2">
+        <div className="flex items-center gap-3">
+          <span className="font-bold text-primary-500 uppercase tracking-widest typography-paragraph-regular">
             contact
           </span>
           <div className="border border-primary-400 border-t w-21"></div>
         </div>
-        <h1 className="typography-h3 font-semibold text-text-500 ">
+        <h3 className="font-semibold text-text-500 typography-h3">
           Get in Touch With Us
-        </h1>
-        <form onSubmit={formik.handleSubmit} className="grid grid-cols-2 gap-4">
+        </h3>
+        <form onSubmit={formik.handleSubmit} className="gap-4 grid grid-cols-2">
           {/* Name Field */}
           <div className="flex flex-col gap-2">
             <label
               htmlFor="name"
-              className="typography-paragraph-regular font-semibold text-text-500"
+              className="font-semibold text-text-500 typography-paragraph-regular"
             >
               Name
             </label>
@@ -34,7 +34,7 @@ const ContactForm = () => {
               id="name"
               name="name"
               type="text"
-              className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none"
+              className="bg-transparent p-3 border border-gray-400 rounded-xl outline-none font-thinC text-sm"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.name}
@@ -49,7 +49,7 @@ const ContactForm = () => {
           <div className="flex flex-col gap-2">
             <label
               htmlFor="phone"
-              className="typography-paragraph-regular font-semibold text-text-500"
+              className="font-semibold text-text-500 typography-paragraph-regular"
             >
               Phone Number
             </label>
@@ -57,7 +57,7 @@ const ContactForm = () => {
               id="phone"
               name="phone"
               type="number"
-              className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none"
+              className="bg-transparent p-3 border border-gray-400 rounded-xl outline-none font-thinC text-sm"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.phone}
@@ -72,7 +72,7 @@ const ContactForm = () => {
           <div className="flex flex-col gap-2">
             <label
               htmlFor="address"
-              className="typography-paragraph-regular font-semibold text-text-500"
+              className="font-semibold text-text-500 typography-paragraph-regular"
             >
               Address
             </label>
@@ -80,7 +80,7 @@ const ContactForm = () => {
               id="address"
               name="address"
               type="text"
-              className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none"
+              className="bg-transparent p-3 border border-gray-400 rounded-xl outline-none font-thinC text-sm"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.address}
@@ -91,13 +91,13 @@ const ContactForm = () => {
             )}
           </div>
           <div className="flex flex-col gap-1">
-            <label htmlFor="center" className="text-base font-regular">
+            <label htmlFor="center" className="font-regular text-base">
               Center
             </label>
             <select
               id="center"
               name="center"
-              className="border border-gray-400 rounded-xl p-2.5  bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium"
+              className="bg-transparent p-2.5 border border-gray-400 rounded-xl outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.center}
@@ -118,14 +118,14 @@ const ContactForm = () => {
           <div className="flex flex-col gap-2 col-span-2">
             <label
               htmlFor="message"
-              className="typography-paragraph-regular font-semibold text-text-500"
+              className="font-semibold text-text-500 typography-paragraph-regular"
             >
               Message
             </label>
             <textarea
               id="message"
               name="message"
-              className="border border-gray-400 rounded-xl p-2 bg-transparent text-sm font-thinC outline-none"
+              className="bg-transparent p-2 border border-gray-400 rounded-xl outline-none font-thinC text-sm"
               rows={4}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -141,15 +141,15 @@ const ContactForm = () => {
           <div className="flex justify-end col-span-2">
             <button
               type="submit"
-              className="bg-secondary-500 text-white py-2 px-4 rounded-full hover:bg-secondary-600 transition duration-300 ease-in-out min-w-max w-full"
+              className="bg-secondary-500 hover:bg-secondary-600 px-4 py-2 rounded-full w-full min-w-max text-white transition duration-300 ease-in-out"
             >
               {isLoading ? "Submitting..." : "Submit"}
             </button>
           </div>
         </form>
       </div>
-      <div className="flex w-full md:w-1/2 justify-center items-center">
-        <div className="  aspect-[16/16] relative rounded-lg  w-10/12 -mt-10">
+      <div className="flex justify-center items-center w-full md:w-1/2">
+        <div className="relative -mt-10 rounded-lg w-10/12 aspect-[16/16]">
           <Image
             src={pic1}
             alt="approval"
@@ -158,8 +158,8 @@ const ContactForm = () => {
             unoptimized
             className="w-full h-full"
           />
-          <div className="bg-white   aspect-[271/252] w-[50%] absolute -bottom-10 -right-10 pt-[0.1rem] pl-[0.1rem] rounded-l-3xl rounded-t-none  ">
-            <div className="rounded-xl flex items-center justify-center flex-col  h-full w-full">
+          <div className="-right-10 -bottom-10 absolute bg-white pt-[0.1rem] pl-[0.1rem] rounded-t-none rounded-l-3xl w-[50%] aspect-[271/252]">
+            <div className="flex flex-col justify-center items-center rounded-xl w-full h-full">
               <Image
                 src={pic2}
                 alt="approval"

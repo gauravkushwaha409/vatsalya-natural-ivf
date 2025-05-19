@@ -121,7 +121,7 @@ const CardAnimation = () => {
         className="bottom-[47%] absolute bg-[rgba(255,241,239,0.49)] backdrop-blur-[28px] ml-2 p-[0.8rem] border border-gray-100 rounded-[.75rem] max-w-1/3 md:max-w-1/2"
       >
         <p className="font-medium text-text-500 text-xs">Success Stories</p>
-        <p className="mb-3 font-semibold text-text-500 text-2xl">10000+</p>
+        <p className="mb-3 font-semibold text-text-500 text-2xl">15,000+</p>
         <Image
           src={"/home/hero-graph.png"}
           height={400}

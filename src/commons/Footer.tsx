@@ -47,7 +47,7 @@ const Footer = async () => {
       icon: "/svg/youtube.svg",
     },
     {
-      name: "youtube",
+      name: "tiktok",
       href: socialMedia?.tiktok,
       icon: "/svg/tiktok.svg",
     },
@@ -98,8 +98,8 @@ const Footer = async () => {
                     >
                       <Image
                         src={item.icon}
-                        width={24}
-                        height={24}
+                        width={20}
+                        height={20}
                         className=""
                         alt={item.name}
                       />

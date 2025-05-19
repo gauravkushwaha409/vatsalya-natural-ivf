@@ -37,10 +37,10 @@ const ServiceCards: React.FC<IServiceCards> = ({ data }) => {
               className="flex justify-between items-center h-full"
             >
               <div
-                className="group relative flex flex-col justify-center bg-primary-50 hover:bg-primary-100 p-7 lg:p-10 rounded-tl-[50px] rounded-br-[50px] overflow-hidden transition-colors duration-300 w-full"
+                className="group relative flex flex-col justify-center bg-primary-50 hover:bg-primary-100 p-7 lg:p-10 rounded-tl-[50px] rounded-br-[50px] w-full overflow-hidden transition-colors duration-300"
                 key={index}
               >
-                <div className="w-28 h-28">
+                <div className="size-[7.25rem]">
                   <Image
                     src={item?.icon}
                     alt="icons1"
@@ -52,9 +52,9 @@ const ServiceCards: React.FC<IServiceCards> = ({ data }) => {
                 <div className="flex flex-col gap-2 pt-4">
                   <div className="flex justify-between w-full">
                     {" "}
-                    <h2 className="font-bold typography-h4">
+                    <h3 className="font-bold typography-h3">
                       {item?.name}{" "}
-                    </h2>{" "}
+                    </h3>{" "}
                     <button className="cursor-pointer">
                       <IoArrowForwardOutline
                         size={24}

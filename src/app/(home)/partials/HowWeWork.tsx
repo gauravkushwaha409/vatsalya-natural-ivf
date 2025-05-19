@@ -19,9 +19,9 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
           </h2>
           <span className="bg-primary-500 w-[4rem] md:w-[8.5rem] h-px" />
         </div>
-        <h2 className="px-4 pb-8 md:pb-16 font-semibold text-text-500 text-center typography-h2">
+        <p className="px-4 pb-8 md:pb-16 font-semibold text-text-500 text-center typography-h2">
           {data?.subtitle}{" "}
-        </h2>
+        </p>
         <div className="top-0 md:top-12 right-1 md:right-[9%] -z-10 absolute pointer-events-none">
           <Image
             src={"/svg/butterfly.svg"}

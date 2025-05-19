@@ -21,7 +21,7 @@ const FooterSeo = () => {
   return (
     <div className="bg-primary-100 padding">
       <div className="flex justify-between items-center">
-        <h3 className="font-bold mt-5 text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.18rem] typography-paragraph-larger">
+        <h3 className="mt-5 font-bold text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.18rem] typography-paragraph-larger">
           Important Links
         </h3>
         <button
@@ -48,14 +48,14 @@ const FooterSeo = () => {
       >
         <div className="flex flex-col gap-y-2">
           <div>
-            <h3 className=" font-medium text-secondary-500  typography-paragraph-larger">
-              Branches
+            <h3 className="font-medium text-secondary-500 typography-paragraph-larger">
+              Clinics
             </h3>
 
-            <div className="flex flex-wrap gap-y-2 pb-4 divide-x -ml-3 mt-1">
+            <div className="flex flex-wrap gap-y-2 mt-1 -ml-3 pb-4 divide-x">
               {branches?.data?.records?.map((item, index) => (
                 <Link
-                  className="px-3 border-background-800 font-manrope text-text-400 typography-paragraph-regular decoration-transparent hover:decoration-text-500 underline underline-offset-2 transition-all duration-200"
+                  className="px-3 border-background-800 font-manrope text-text-400 decoration-transparent hover:decoration-text-500 underline underline-offset-2 transition-all duration-200 typography-paragraph-regular"
                   key={index}
                   href={`${PATHS.clinic}/${item.slug}`}
                 >
@@ -67,14 +67,14 @@ const FooterSeo = () => {
         </div>
         <div className="flex flex-col gap-y-2">
           <div>
-            <h3 className=" font-medium text-secondary-500  typography-paragraph-larger">
+            <h3 className="font-medium text-secondary-500 typography-paragraph-larger">
               Fertility
             </h3>
 
-            <div className="flex flex-wrap gap-y-2 pb-4 divide-x -ml-3 mt-1">
+            <div className="flex flex-wrap gap-y-2 mt-1 -ml-3 pb-4 divide-x">
               {article?.data?.records?.map((item, index) => (
                 <Link
-                  className="px-3 border-background-800 font-manrope text-text-400 typography-paragraph-regular decoration-transparent hover:decoration-text-500 underline underline-offset-2 transition-all duration-200"
+                  className="px-3 border-background-800 font-manrope text-text-400 decoration-transparent hover:decoration-text-500 underline underline-offset-2 transition-all duration-200 typography-paragraph-regular"
                   key={index}
                   href={`${PATHS.article}/${item.slug}`}
                 >
@@ -85,7 +85,7 @@ const FooterSeo = () => {
           </div>
         </div>
       </motion.div>
-      <hr className="bg-[#FFF1EF]  w-full " />
+      <hr className="bg-[#FFF1EF] w-full" />
     </div>
   );
 };

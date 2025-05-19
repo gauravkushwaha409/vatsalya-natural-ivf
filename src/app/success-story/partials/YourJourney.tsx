@@ -23,9 +23,9 @@ const YourJourney: React.FC<Props> = ({ data }) => {
         <div className="items-center gap-4 lg:gap-40 grid grid-cols-1 lg:grid-cols-2 p-10">
           {/* Text Section */}
           <div>
-            <h1 className="max-w-[525px] font-bold text-secondary-500 leading-[150%] typography-h4 lg:typography-h2">
+            <h2 className="max-w-[525px] font-bold text-secondary-500 leading-[150%] typography-h4 lg:typography-h2">
               {journeyData?.title}
-            </h1>
+            </h2>
             <p
               className="py-4 max-w-[613px] font-medium text-text-400 typography-paragraph-regular lg:typography-paragraph-large"
               dangerouslySetInnerHTML={{
@@ -46,9 +46,9 @@ const YourJourney: React.FC<Props> = ({ data }) => {
               <p className="font-semibold text-black typography-paragraph-regular">
                 Trusted by
               </p>
-              <h1 className="font-bold text-black leading-[150%] typography-h2">
+              <p className="font-bold text-black leading-[150%] typography-h2">
                 {journeyData?.clientNumber}+
-              </h1>
+              </p>
               <p className="font-semibold text-black typography-paragraph-regular">
                 Happy Families
               </p>

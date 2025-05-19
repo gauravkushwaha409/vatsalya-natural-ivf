@@ -62,9 +62,9 @@ const WhenToVisit: React.FC<WhenToVisitProps> = ({ data }) => {
             </h2>
             <div className="bg-secondary-200 lg:w-[16.25rem] h-px grow lg:grow-0" />
           </div>
-          <h1 className="my-5 font-semibold text-text-500 typography-h2">
+          <h3 className="my-5 font-semibold text-text-500 typography-h2">
             Signs You Should See a Fertility Specialist
-          </h1>
+          </h3>
           <div
             className="pl-5 font-[500] text-text-500 *:marker:text-secondary-500 *:marker:content-['➤\00a0'] leading-[150%] typography-paragraph-large"
             dangerouslySetInnerHTML={{ __html: data?.description }}

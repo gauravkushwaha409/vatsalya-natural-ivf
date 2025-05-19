@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { useNewsletter } from "@/hooks/subscription/useNewsletter";
 
 const NewsLetter = () => {
@@ -26,7 +25,7 @@ const NewsLetter = () => {
         <button
           type="submit"
           disabled={isLoading}
-          className="bg-secondary-500 disabled:opacity-50 p-4 rounded-[6.25rem] font-manrope font-bold text-white cursor-pointer typography-paragraph-regular"
+          className="bg-secondary-500 disabled:opacity-50 px-[1.88rem] py-2.5 rounded-[6.25rem] font-manrope font-bold text-white cursor-pointer typography-paragraph-regular"
         >
           {isLoading ? "Subscribing..." : "Subscribe"}
         </button>

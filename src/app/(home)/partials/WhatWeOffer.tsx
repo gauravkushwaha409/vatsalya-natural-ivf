@@ -91,9 +91,9 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
         </h2>
         <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
       </div>
-      <h1 className="px-4 pb-8 md:pb-16 font-bold text-center typography-h2">
+      <p className="px-4 pb-8 md:pb-16 font-bold text-center typography-h2">
         Comprehensive Fertility Care, Tailored for You
-      </h1>
+      </p>
       {isMobile ? (
         <MobileLayout OFFER_CARDS={OFFER_CARDS} />
       ) : (

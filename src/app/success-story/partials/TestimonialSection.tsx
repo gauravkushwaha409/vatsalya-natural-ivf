@@ -14,49 +14,49 @@ const TestimonialSection: React.FC<testimonialData> = ({ data }) => {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
   return (
-    <div className="my-20 padding relative">
-      <div className=" flex flex-col items-center text-center space-y-4 ">
-        <div className=" flex items-center w-full justify-center gap-4 max-w-3xl">
+    <div className="relative my-20 padding">
+      <div className="flex flex-col items-center space-y-4 text-center">
+        <div className="flex justify-center items-center gap-4 w-full max-w-3xl">
           {/* line  */}
-          <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
+          <div className="flex-1 bg-primary-400 max-w-[148px] h-px"></div>
 
-          <h2 className="text-primary-500 text-sm md:text-base font-bold tracking-widest uppercase leading-[24px] max-w-3xl">
+          <h2 className="max-w-3xl font-bold text-primary-500 text-sm md:text-base uppercase leading-[24px] tracking-widest">
             {data?.successStoryMainTitle}
           </h2>
           {/* line  */}
-          <div className="h-px bg-primary-400 flex-1 max-w-[148px]"></div>
+          <div className="flex-1 bg-primary-400 max-w-[148px] h-px"></div>
         </div>
 
         {/* butterfluy gif  */}
-        <div className="lg:w-[368] lg:h-[370] absolute z-10 -top-40 right-0">
+        <div className="-top-40 right-0 z-10 absolute lg:w-[368] lg:h-[370]">
           <Image
             src="/butterfly-gif.gif"
             alt="butterfly-git"
             width={800}
             height={800}
-            className="w-full h-full object-cover opacity-30"
+            className="opacity-30 w-full h-full object-cover"
           />
         </div>
 
-        <h1 className="typography-h2 font-semibold tracking-tight ">
+        <h3 className="font-semibold tracking-tight typography-h2">
           {data?.successStoryMainSubtitle}
-        </h1>
+        </h3>
       </div>
 
       {/* testimonial section */}
-      <div className="grid md:grid-cols-2 mt-10 gap-10 items-center">
-        <div className="rounded-lg overflow-hidden w-full h-[20.625rem]">
+      <div className="items-center gap-10 grid md:grid-cols-2 mt-10">
+        <div className="rounded-lg w-full h-[20.625rem] overflow-hidden">
           <Image
             src={data?.SuccessStory?.image}
             alt="A family standing in front of Vatsalya sign"
             width={600}
             height={450}
-            className="w-full rounded-lg h-full object-cover"
+            className="rounded-lg w-full h-full object-cover"
           />
         </div>
 
         <div className="space-y-6">
-          <div className="flex  text-base md:text-[19.2px] font-normal text-primary-500 italic tracking-[1.92px] leading-[23.04px]">
+          <div className="flex font-normal text-primary-500 md:text-[19.2px] text-base italic leading-[23.04px] tracking-[1.92px]">
             <span className="relative">
               <svg
                 width="24"
@@ -85,7 +85,7 @@ const TestimonialSection: React.FC<testimonialData> = ({ data }) => {
 
           <div>
             <p
-              className="typography-paragraph-large font-medium text-text-400 text-justify space-y-4"
+              className="space-y-4 font-medium text-text-400 text-justify typography-paragraph-large"
               dangerouslySetInnerHTML={{
                 __html: data?.SuccessStory?.storyContent || "",
               }}
@@ -93,13 +93,13 @@ const TestimonialSection: React.FC<testimonialData> = ({ data }) => {
           </div>
 
           <button
-            className="rounded-full mt-4 flex items-center gap-2 cursor-pointer"
+            className="flex items-center gap-2 mt-4 rounded-full cursor-pointer"
             onClick={() => setIsOpenModal(true)}
           >
-            <div className="rounded-full p-2 border-[0.56px] border-secondary-800">
-              <Play className="h-4 w-4  fill-secondary-900" />
+            <div className="p-2 border-[0.56px] border-secondary-800 rounded-full">
+              <Play className="fill-secondary-900 w-4 h-4" />
             </div>
-            <span className="typography-paragraph-regular text-secondary-800">
+            <span className="text-secondary-800 typography-paragraph-regular">
               Watch Video
             </span>
           </button>
