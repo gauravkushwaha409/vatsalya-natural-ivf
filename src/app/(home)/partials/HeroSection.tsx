@@ -29,35 +29,7 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
           {data?.title}{" "}
         </p>
         <div className="pt-5">
-          {/* <HeroTextAnimation text={text} /> */}
           <HeroTextAnimation text={data?.subtitle || text} />
-          {/* <motion.div
-            initial={{
-              rotate: 90,
-              top: "20%",
-              left: 20,
-            }}
-            animate={{
-              rotate: [
-                90, 89, 88, 90, 75, 65, 55, 50, 45, 30, 15, 0, -20, -30, -45,
-              ],
-              top: ["20%", "22%", "24%", "22%", "18%", "17%", "12%"],
-              left: [0, 40, 80, 120, 200, 250, 300],
-            }}
-            transition={{
-              duration: 2,
-              ease: "linear",
-            }}
-            className="absolute flex"
-          >
-            <Image
-              src="/home/butterfly.gif"
-              alt="Illustration of butterfly"
-              width={100}
-              height={100}
-              unoptimized
-            />
-          </motion.div> */}
         </div>
         <h1
           className="mt-[0.88rem] max-w-2xl lg:font-[500] font-normal text-text-400 typography-paragraph-small lg:typography-paragraph-large"

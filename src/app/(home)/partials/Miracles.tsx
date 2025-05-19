@@ -143,14 +143,16 @@ const ImageContainer: React.FC<{ src: string; alt: string }> = ({
   alt,
 }) => {
   return (
-    <div className="relative m-[0.44rem] rounded-[0.75rem] w-20 2xl:w-32 aspect-[4/5] overflow-hidden">
-      <Image
-        width={128}
-        height={160}
-        src={src}
-        alt={alt}
-        className="w-full h-full object-cover"
-      />
-    </div>
+    src && (
+      <div className="relative m-[0.44rem] rounded-[0.75rem] w-20 2xl:w-32 aspect-[4/5] overflow-hidden">
+        <Image
+          width={128}
+          height={160}
+          src={src}
+          alt={alt}
+          className="w-full h-full object-cover"
+        />
+      </div>
+    )
   );
 };

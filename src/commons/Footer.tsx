@@ -47,7 +47,7 @@ const Footer = async () => {
       icon: "/svg/youtube.svg",
     },
     {
-      name: "youtube",
+      name: "tiktok",
       href: socialMedia?.tiktok,
       icon: "/svg/tiktok.svg",
     },

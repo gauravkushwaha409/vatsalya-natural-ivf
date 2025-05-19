@@ -52,16 +52,16 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 
           <div className="pt-6">
             <p
-              className=" text-text-400 line-clamp-3 typography-paragraph-large"
+              className="text-text-400 line-clamp-3 typography-paragraph-large"
               dangerouslySetInnerHTML={{ __html: data?.storyContent || "" }}
             />
-            <button className="text-primary-400 text-base font-semibold mb-4 cursor-pointer mt-1">
+            <div className="mt-1 mb-4 font-semibold text-primary-400 text-base cursor-pointer">
               <ReadMoreModal
                 text="Read More"
                 title={data?.storyContent}
                 characterName={data?.characterName}
               />
-            </button>
+            </div>
             <p className="font-semibold text-text-500 typography-paragraph-large">
               {data?.characterName}
             </p>

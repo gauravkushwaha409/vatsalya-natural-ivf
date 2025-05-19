@@ -4,7 +4,7 @@ import Butterfly from "./Butterfly";
 const HeroTextAnimation: React.FC<{ text: string }> = ({ text }) => {
   const lines = text.split("/b");
   return (
-    <p className="relative w-max lg:max-w-1/2 font-bold lg:font-extrabold text-secondary-500 lg:text-[2.48813rem] leading-[130%] typography-h4">
+    <div className="relative w-max lg:max-w-1/2 font-bold lg:font-extrabold text-secondary-500 lg:text-[2.48813rem] leading-[130%] typography-h4">
       {lines.map((line, index) => (
         <div key={index} className="flex flex-wrap">
           {index > 0 && <br />}
@@ -55,7 +55,7 @@ const HeroTextAnimation: React.FC<{ text: string }> = ({ text }) => {
         </span>
         {/* <WordAnimation delay={0.3} duration={0.3} text={lines[0]} /> */}
       </span>
-    </p>
+    </div>
   );
 };
 export default HeroTextAnimation;
