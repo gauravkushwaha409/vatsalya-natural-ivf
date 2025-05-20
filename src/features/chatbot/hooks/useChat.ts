@@ -12,9 +12,12 @@ export interface IMessage extends IChatMessage {
 export const useChat = (token: string | null, room?: string) => {
   const { user, room: roomData } = useAppSelector((state) => state.chat);
   const { data, fetchNextPage, refetch, isFetchingNextPage, hasNextPage } =
-    useGetAllDataInfiniteQuery({
-      url: `${BASE_CHATBOT_URL}/chat/rooms/${roomData?.id}/`,
-    });
+    useGetAllDataInfiniteQuery(
+      {
+        url: `${BASE_CHATBOT_URL}/chat/rooms/${roomData?.id}/`,
+      },
+      { skip: !roomData?.id }
+    );
   const userName = user?.firstname + " " + user?.lastname;
   const userId = user?.id;
   const [isSending, setIsMessageSending] = useState(false);
@@ -82,7 +85,7 @@ export const useChat = (token: string | null, room?: string) => {
 
   useEffect(() => {
     if (!token || !room) {
-      console.warn("Missing token or room. WebSocket not initialized.");
+      // console.warn("Missing token or room. WebSocket not initialized.");
       return;
     }
     let socket: WebSocket | null = null;

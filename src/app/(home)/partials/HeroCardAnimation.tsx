@@ -296,7 +296,13 @@ const StatsAnimation = () => {
             }}
             className="bg-[rgba(246,235,242,0.40)] p-[1.1875rem_1.0625rem] border border-gray-50 rounded-full"
           >
-            <Image src={stat.img} alt={stat.text} width={40} height={40} />
+            <Image
+              className="size-auto shrink-0"
+              src={stat.img}
+              alt={stat.text}
+              width={40}
+              height={40}
+            />
           </div>
           <div>
             <span className="font-semibold typography-paragraph-small">
@@ -309,3 +315,5 @@ const StatsAnimation = () => {
     </motion.div>
   );
 };
+
+

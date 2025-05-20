@@ -1,8 +1,8 @@
 "use client";
-import React from "react";
 import lineicon from "@/assests/icons/Lineicon.svg";
-import Image from "next/image";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import React from "react";
 interface props {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -12,7 +12,7 @@ const NavBotton: React.FC<props> = ({ isOpen, setIsOpen }) => {
     <div>
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className="flex flex-col items-center justify-center gap-1.5 p-2 hover:cursor-pointer"
+        className="flex flex-col justify-center items-center gap-1.5 p-2 hover:cursor-pointer"
       >
         <motion.div
           initial={{ rotate: 0, y: 0 }}
@@ -20,7 +20,14 @@ const NavBotton: React.FC<props> = ({ isOpen, setIsOpen }) => {
           transition={{ duration: 0.3 }}
           className="w-6"
         >
-          <Image src={lineicon} alt="lineicon" className="w-full h-full" />
+          <Image
+            src={lineicon}
+            priority
+            width={50}
+            height={50}
+            alt="lineicon"
+            className="w-full h-full"
+          />
         </motion.div>
 
         <motion.div
@@ -29,7 +36,14 @@ const NavBotton: React.FC<props> = ({ isOpen, setIsOpen }) => {
           transition={{ duration: 0.3 }}
           className="w-6"
         >
-          <Image src={lineicon} alt="lineicon" className="w-full h-full" />
+          <Image
+            src={lineicon}
+            priority
+            width={50}
+            height={50}
+            alt="lineicon"
+            className="w-full h-full"
+          />
         </motion.div>
 
         <motion.div
@@ -38,7 +52,14 @@ const NavBotton: React.FC<props> = ({ isOpen, setIsOpen }) => {
           transition={{ duration: 0.3 }}
           className="w-6"
         >
-          <Image src={lineicon} alt="lineicon" className="w-full h-full" />
+          <Image
+            src={lineicon}
+            priority
+            width={50}
+            height={50}
+            alt="lineicon"
+            className="w-full h-full"
+          />
         </motion.div>
       </button>
     </div>

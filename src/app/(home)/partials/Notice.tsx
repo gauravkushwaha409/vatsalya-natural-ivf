@@ -2,7 +2,12 @@
 
 import { useGetDataQuery } from "@/api/api";
 import { endpoints } from "@/api/endpoints";
-import { Dialog, DialogContent, DialogOverlay } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogOverlay,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { INoticeRoot } from "../interface/notice.interface";
@@ -56,14 +61,19 @@ const Notice = () => {
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogOverlay className="bg-black/55">
-        <DialogContent className="mx-auto px-0 border-8 border-secondary-300 max-w-2xl h-11/12">
+        <DialogContent
+          aria-describedby="notice"
+          className="mx-auto px-0 border-8 border-secondary-300 max-w-2xl h-11/12"
+        >
+          <DialogTitle className="hidden">NOtice</DialogTitle>
           <div className="relative w-full h-full">
             {currentRecord?.image && (
               <Image
                 alt={currentRecord?.title || "Notice"}
                 src={currentRecord.image}
-                fill
-                className="object-contain"
+                height={6000}
+                width={3000}
+                className="w-full h-full object-contain"
                 priority
               />
             )}

@@ -26,6 +26,7 @@ export async function generateMetadata() {
   const meta = createMetadata(data);
   return meta;
 }
+
 const HomePage = async () => {
   try {
     const {
@@ -50,8 +51,7 @@ const HomePage = async () => {
         >
           <div
             style={{
-              background:
-                "url('/home/hero-noise.png') no-repeat center / cover",
+              background: "url('/noise.png') no-repeat center / cover",
             }}
             className="absolute inset-0 opacity-[0.33]"
           ></div>

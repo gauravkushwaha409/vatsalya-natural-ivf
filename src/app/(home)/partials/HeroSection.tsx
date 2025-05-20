@@ -56,6 +56,7 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
               height={24}
               width={24}
               alt="Play icon"
+              priority
               className="size-[1.11rem] text-secondary-900 translate-x-0.5"
             />
           </button>

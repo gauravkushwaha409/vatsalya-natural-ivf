@@ -2,7 +2,8 @@ import Footer from "@/commons/Footer";
 import Header from "@/commons/Header";
 import BotPopup from "@/features/chatbot/BotPopup";
 import type { Metadata } from "next";
-import { Inter, Manrope, Plus_Jakarta_Sans, Roboto } from "next/font/google";
+import { Manrope, Roboto } from "next/font/google";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import "swiper/css";
@@ -16,17 +17,17 @@ const manRope = Manrope({
   weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
-});
+// const inter = Inter({
+//   variable: "--font-inter",
+//   subsets: ["latin"],
+//   weight: ["200", "300", "400", "500", "600", "700", "800"],
+// });
 
-const plusJakarta = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta-sans",
-  subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
-});
+// const plusJakarta = Plus_Jakarta_Sans({
+//   variable: "--font-plus-jakarta-sans",
+//   subsets: ["latin"],
+//   weight: ["200", "300", "400", "500", "600", "700", "800"],
+// });
 const roboto = Roboto({
   variable: "--font-roboto",
   subsets: ["latin"],
@@ -55,8 +56,12 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
+      <Head>
+        <link rel="preload" as="image" href="/noise.png" />
+      </Head>
       <body
-        className={`${manRope.variable} ${inter.variable} ${plusJakarta.variable} ${roboto.variable} antialiased font-manrope bg-background-100 `}
+        className={`${manRope.variable} ${roboto.variable} antialiased font-manrope bg-background-100 `}
+        // className={`${manRope.variable} ${inter.variable} ${plusJakarta.variable} ${roboto.variable} antialiased font-manrope bg-background-100 `}
       >
         <Providers>
           <Header />
@@ -68,6 +73,7 @@ export default async function RootLayout({
               alt="phone"
               width={50}
               height={50}
+              priority
               className="right-6 bottom-24 z-50 fixed size-[4.5rem]"
             />
           </Link>
