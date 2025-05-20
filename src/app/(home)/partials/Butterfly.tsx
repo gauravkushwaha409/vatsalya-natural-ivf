@@ -37,61 +37,73 @@ const Butterfly = () => {
 
   useEffect(() => {
     if (!ref.current || !scope.current) return;
-    const container = ref.current;
-    const { x, width } = container.getBoundingClientRect();
-    const initialX = -(x + width / 2);
-    const initialY = 180;
-    const initialRotate = 90;
 
-    const animateButterfly = async () => {
-      animate(
-        scope.current,
-        {
-          x: initialX,
-          y: initialY,
-          rotate: initialRotate,
-          opacity: 1,
-        },
-        { duration: 0 }
-      );
-      const points = generateAnimationPoints(
-        { x: initialX, y: initialY, rotate: initialRotate },
-        { x: -10, y: 180, rotate: 90 },
-        10
-      );
-      const animations = [
-        ...points,
-        { x: 0, y: 180, rotate: 90 },
-        { x: 10, y: 180, rotate: 90 },
-        { x: 20, y: 170, rotate: 80 },
-        { x: 30, y: 160, rotate: 70 },
-        { x: 40, y: 150, rotate: 60 },
-        { x: 50, y: 140, rotate: 50 },
-        { x: 60, y: 130, rotate: 40 },
-        { x: 60, y: 120, rotate: 30 },
-        { x: 60, y: 110, rotate: 20 },
-        { x: 60, y: 100, rotate: 10 },
-        { x: 60, y: 90, rotate: 0 },
-        { x: 60, y: 80, rotate: -10 },
-        { x: 60, y: 70, rotate: -20 },
-        { x: 55, y: 60, rotate: -30 },
-        { x: 50, y: 50, rotate: -40 },
-        { x: 40, y: 40, rotate: -41 },
-        { x: 40, y: 30, rotate: -42 },
-        { x: 30, y: 20, rotate: -43 },
-        { x: 20, y: 10, rotate: -44 },
-        { x: 10, y: 0, rotate: -45 },
-        { x: 0, y: 0, rotate: -45 },
-      ];
-      for (let i = 0; i < animations.length; i++) {
-        await animate(scope.current, animations[i], {
-          duration: 0.02,
-          ease: "linear",
-        });
-      }
-    };
-    animateButterfly();
-  }, [ref, scope, animate]);
+    requestAnimationFrame(() => {
+      const container = ref.current!;
+      const { x, width } = container.getBoundingClientRect();
+      const initialX = -(x + width / 2);
+      const initialY = 180;
+      const initialRotate = 90;
+
+      const animateButterfly = async () => {
+        animate(
+          scope.current!,
+          {
+            x: initialX,
+            y: initialY,
+            rotate: initialRotate,
+            opacity: 1,
+          },
+          { duration: 0 }
+        );
+
+        const points = generateAnimationPoints(
+          { x: initialX, y: initialY, rotate: initialRotate },
+          { x: -10, y: 180, rotate: 90 },
+          10
+        );
+
+        const animations = [
+          ...points,
+          { x: 0, y: 180, rotate: 90 },
+          { x: 10, y: 180, rotate: 90 },
+          { x: 20, y: 170, rotate: 80 },
+          { x: 30, y: 160, rotate: 70 },
+          { x: 40, y: 150, rotate: 60 },
+          { x: 50, y: 140, rotate: 50 },
+          { x: 60, y: 130, rotate: 40 },
+          { x: 60, y: 120, rotate: 30 },
+          { x: 60, y: 110, rotate: 20 },
+          { x: 60, y: 100, rotate: 10 },
+          { x: 60, y: 90, rotate: 0 },
+          { x: 60, y: 80, rotate: -10 },
+          { x: 60, y: 70, rotate: -20 },
+          { x: 55, y: 60, rotate: -30 },
+          { x: 50, y: 50, rotate: -40 },
+          { x: 40, y: 40, rotate: -41 },
+          { x: 40, y: 30, rotate: -42 },
+          { x: 30, y: 20, rotate: -43 },
+          { x: 20, y: 10, rotate: -44 },
+          { x: 10, y: 0, rotate: -45 },
+          { x: 0, y: 0, rotate: -45 },
+        ];
+
+        (scope.current as HTMLDivElement).style.willChange = "transform";
+
+        for (let i = 0; i < animations.length; i++) {
+          await animate(scope.current!, animations[i], {
+            duration: 0.02,
+            ease: "linear",
+          });
+        }
+
+        (scope.current as HTMLDivElement).style.willChange = "";
+      };
+
+      animateButterfly();
+    });
+  }, [animate, scope]);
+
   return (
     <div ref={ref}>
       <motion.div ref={scope} className="flex opacity-0 butterfly">
@@ -102,6 +114,7 @@ const Butterfly = () => {
           height={100}
           className="size-20 md:size-25 object-cover"
           unoptimized
+          priority
         />
       </motion.div>
     </div>

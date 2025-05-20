@@ -34,7 +34,7 @@ export function createMetadata(
           url: img.url,
           width: 800,
           height: 600,
-        })) || "/main-logo.png",
+        })) || "https://vatsalya.com/main-logo.png",
       videos: videoData
         ? [
             {

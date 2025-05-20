@@ -57,7 +57,9 @@ const Header = () => {
           <Image
             src={"/horizontal-logo.png"}
             width={200}
+            priority
             height={50}
+            className="w-auto h-auto"
             alt="logo"
           />
         </Link>

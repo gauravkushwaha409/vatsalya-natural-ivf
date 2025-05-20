@@ -44,6 +44,7 @@ const Line = ({ rotation = 0 }: { rotation?: number }) => {
           gradientUnits="userSpaceOnUse"
           x1="-720"
           x2="0"
+          initial={{ x1: -720, x2: 0 }}
           animate={{
             x1: [-720, 2160],
             x2: [0, 2880],

@@ -26,6 +26,7 @@ const BotPopup = () => {
         >
           <Image
             src={"/svg/bot-image.svg"}
+            priority
             width={50}
             height={50}
             alt="bot image"
