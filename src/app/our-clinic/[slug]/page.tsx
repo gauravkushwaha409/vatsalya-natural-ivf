@@ -1,15 +1,15 @@
-import React from "react";
-import HeroSection from "./partials/HeroSection";
-import AboutClinic from "./partials/AboutClinic";
 import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
-import ClinicServices from "./partials/ClinicServices";
-import Specialists from "./partials/Specialists";
-import ContactUs from "./partials/ContactUs";
-import { IClinicDetailsRoot } from "./interface/clinicDetails.interface";
 import { IOurExpertsData } from "@/app/our-team/interface/ourExperts.interface";
-import WhyChooseUs from "./partials/WhyChooseUs";
 import { createMetadata } from "@/hooks/generateMetaData";
+import React from "react";
+import { IClinicDetailsRoot } from "./interface/clinicDetails.interface";
+import AboutClinic from "./partials/AboutClinic";
+import ClinicServices from "./partials/ClinicServices";
+import ContactUs from "./partials/ContactUs";
+import HeroSection from "./partials/HeroSection";
+import Specialists from "./partials/Specialists";
+import WhyChooseUs from "./partials/WhyChooseUs";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -39,7 +39,7 @@ const ClinicDetailPage: React.FC<Props> = async ({ params }) => {
       <section>
         <HeroSection slug={slugs} />
         <AboutClinic data={data} />
-        <ClinicServices data={services} />
+        <ClinicServices data={services} location={data.location} />
         <Specialists data={expertData} />
         <WhyChooseUs />
         <ContactUs data={data} />

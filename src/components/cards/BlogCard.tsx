@@ -39,7 +39,10 @@ const BlogCard: React.FC<IBlog> = ({ data }) => {
               {data?.title}
             </h5>
             <div>
-              <IoArrowForwardOutline size={24} className="-rotate-40" />
+              <IoArrowForwardOutline
+                size={24}
+                className="text-primary-500 -rotate-40"
+              />
             </div>
           </Link>
           <p

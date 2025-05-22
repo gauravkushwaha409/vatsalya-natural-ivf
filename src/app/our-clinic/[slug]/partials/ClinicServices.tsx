@@ -4,8 +4,9 @@ import { IserviceData } from "@/app/services/interfaces/services.interface";
 import ServiceCards from "@/app/services/partials/ServiceCards";
 interface IServiceCards {
   data: IserviceData;
+  location?: string;
 }
-const ClinicServices: React.FC<IServiceCards> = ({ data }) => {
+const ClinicServices: React.FC<IServiceCards> = ({ data, location }) => {
   return (
     <section>
       <div className="flex flex-col items-center">
@@ -20,7 +21,7 @@ const ClinicServices: React.FC<IServiceCards> = ({ data }) => {
           <div className="flex-1 bg-primary-400 max-w-[148px] h-px"></div>
         </div>
         <p className="pt-4 font-semibold text-text-500 typography-h3">
-          Services We’re Providings
+          Services We’re Providing {location ? `at ${location}` : ""}
         </p>
       </div>
       <ServiceCards data={data} />
