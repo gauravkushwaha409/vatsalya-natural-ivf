@@ -45,7 +45,7 @@ const Clinics = async () => {
                 className="ml-auto"
               >
                 <button className="flex items-center text-primary-500 cursor-pointer typography-paragraph-small">
-                  view{" "}
+                  View{" "}
                   <IoArrowForwardOutline
                     size={18}
                     className="text-primary-500 -rotate-40"

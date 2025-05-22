@@ -140,13 +140,13 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
             setSelectedDoctor(data?.id);
             setSelectedCenter(data?.center?.id);
           }}
-          className="bg-secondary-500 hover:bg-secondary-600 px-6 lg:px-10 py-2 lg:py-4 rounded-full text-white cursor-pointer typography-paragraph-regular"
+          className="bg-secondary-500 hover:bg-secondary-600 px-6 py-3 rounded-full font-medium text-white transition-colors cursor-pointer typography-paragraph-regular"
         >
           Consult Now
         </button>
         <button
           onClick={() => setOpenCallModal(true)}
-          className="p-2 lg:p-4 px-5 border border-secondary-100 rounded-full font-semibold text-secondary-500 cursor-pointer typography-paragraph-regular"
+          className="px-6 py-3 border border-secondary-200 rounded-full font-medium text-secondary-500 cursor-pointer typography-paragraph-regular"
         >
           Call Back Request
         </button>

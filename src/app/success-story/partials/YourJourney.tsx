@@ -23,11 +23,11 @@ const YourJourney: React.FC<Props> = ({ data }) => {
         <div className="items-center gap-4 lg:gap-40 grid grid-cols-1 lg:grid-cols-2 p-10">
           {/* Text Section */}
           <div>
-            <h2 className="max-w-[525px] font-bold text-secondary-500 leading-[150%] typography-h4 lg:typography-h2">
+            <h2 className="max-w-[525px] font-bold text-secondary-500 leading-[150%] typography-h2">
               {journeyData?.title}
             </h2>
             <p
-              className="py-4 max-w-[613px] font-medium text-text-400 typography-paragraph-regular lg:typography-paragraph-large"
+              className="py-4 max-w-[613px] font-medium text-text-400 typography-paragraph-large"
               dangerouslySetInnerHTML={{
                 __html: journeyData?.description || "",
               }}

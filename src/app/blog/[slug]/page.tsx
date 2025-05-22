@@ -5,11 +5,22 @@ import CommentForm from "./partials/CommentFrom";
 import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
 import ErrorMessage from "@/components/ErrorMessage";
+import { createMetadata } from "@/hooks/generateMetaData";
 import SimilarBlogs from "./partials/SimilarBlogs";
 
 interface BlogDetailPageProps {
   params: Promise<{ slug: string }>;
 }
+
+export async function generateMetadata({ params }: BlogDetailPageProps) {
+  const slug = await params;
+  const data = await getData(endpoints.blog + `/${slug?.slug}`);
+  const images = [{ url: data.data.blog.image }];
+  const meta = createMetadata(data.data.blog.seo, images);
+  return meta;
+}
+
+
 const BlogDetail = async ({ params }: BlogDetailPageProps) => {
   try {
     const slug = await params;
