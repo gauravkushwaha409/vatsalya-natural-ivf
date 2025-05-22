@@ -95,7 +95,6 @@ const HeroBackground = ({
     propBrightness || heroData.brightness || "brightness-[0.35]";
 
   if (!image) {
-    console.warn("No image provided to HeroBackground");
     return null;
   }
 

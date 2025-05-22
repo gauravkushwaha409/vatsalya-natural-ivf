@@ -3,9 +3,9 @@ import Header from "@/commons/Header";
 import BotPopup from "@/features/chatbot/BotPopup";
 import type { Metadata } from "next";
 import { Manrope, Roboto } from "next/font/google";
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import "swiper/css";
 import { getHomePageData } from "./(home)/hook/hook.hook";
 import "./globals.css";
@@ -56,9 +56,27 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <Head>
+      <head>
         <link rel="preload" as="image" href="/noise.png" />
-      </Head>
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-N3MFB9XL1Y"
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-N3MFB9XL1Y', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${manRope.variable} ${roboto.variable} antialiased font-manrope bg-background-100 `}
         // className={`${manRope.variable} ${inter.variable} ${plusJakarta.variable} ${roboto.variable} antialiased font-manrope bg-background-100 `}
@@ -74,6 +92,7 @@ export default async function RootLayout({
               width={50}
               height={50}
               priority
+              unoptimized
               className="right-6 bottom-24 z-50 fixed size-[4.5rem]"
             />
           </Link>

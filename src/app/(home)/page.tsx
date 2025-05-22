@@ -20,7 +20,7 @@ import WhatWeOffer from "./partials/WhatWeOffer";
 import WhenToVisit from "./partials/WhenToVisit";
 import WhoWeAre from "./partials/WhoWeAre";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 export async function generateMetadata() {
   const { data } = await getData<ISeoRoot>(endpoints.seo.home);
   const meta = createMetadata(data);
