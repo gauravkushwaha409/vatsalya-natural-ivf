@@ -3,13 +3,20 @@
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import VideoModal from "@/components/modals/VideoModal";
 // import { motion } from "motion/react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useState } from "react";
 import { IHomeData } from "../interface/home.interface";
-import AnimatingLines from "./AnimatingLines";
-import HeroAnimationCarousel from "./HeroAnimationCarousel";
-import HeroCardAnimation from "./HeroCardAnimation";
-import HeroTextAnimation from "./HeroTextAnimation";
+const AnimatingLines = dynamic(() => import("./AnimatingLines"));
+const HeroAnimationCarousel = dynamic(() => import("./HeroAnimationCarousel"), {
+  ssr: false,
+});
+const HeroCardAnimation = dynamic(() => import("./HeroCardAnimation"), {
+  ssr: false,
+});
+const HeroTextAnimation = dynamic(() => import("./HeroTextAnimation"), {
+  ssr: false,
+});
 
 type HomeProps = {
   data?: IHomeData;
