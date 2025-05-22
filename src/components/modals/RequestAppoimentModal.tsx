@@ -60,9 +60,7 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
       address: Yup.string().required("Address is required"),
       center: Yup.string().required("Center selection is required"),
       doctor: Yup.string().required("Doctor selection is required"),
-      message: Yup.string()
-        .required("Message is required")
-        .min(10, "Message must be at least 10 characters"),
+      message: Yup.string().required("Message is required"),
     }),
     onSubmit: async (values) => {
       setData(values);
