@@ -53,10 +53,11 @@ const RequestAppoimentModal: React.FC<RequestAppoimentModalProps> = ({
       message: "",
     },
     validationSchema: Yup.object({
-      name: Yup.string()
-        .required("Name is required")
-        .min(3, "Name must be at least 3 characters"),
-      phone: Yup.string().required("Phone number is required"),
+      name: Yup.string().required("Name is required"),
+      phone: Yup.string()
+        .required("Phone number is required")
+        .min(10, "Phone number must be at least 10 digits")
+        .max(15, "Phone number must be at most 15 digits"),
       address: Yup.string().required("Address is required"),
       center: Yup.string().required("Center selection is required"),
       doctor: Yup.string().required("Doctor selection is required"),
