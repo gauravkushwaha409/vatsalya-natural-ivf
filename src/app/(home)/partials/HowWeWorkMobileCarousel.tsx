@@ -1,7 +1,9 @@
 "use client";
 import Image from "next/image";
+import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { IHowWeWorkData } from "../interface/howWeWork.interface";
+
 
 const HowWeWorkMobileCarousel = ({ data }: { data: IHowWeWorkData }) => {
   return (

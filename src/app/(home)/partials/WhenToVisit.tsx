@@ -35,7 +35,7 @@ const WhenToVisit: React.FC<WhenToVisitProps> = ({ data }) => {
       </div>
       <div
         style={{
-          backgroundImage: `url(/home/when-to-visit/whole-bg.png)`,
+          backgroundImage: `url(/home/when-to-visit/whole-bg.webp)`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}

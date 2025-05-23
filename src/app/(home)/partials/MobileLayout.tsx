@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
+
 import { MobileLayoutProps } from "../interface/whatWeOffer.interface";
 
 const MobileLayout: React.FC<MobileLayoutProps> = ({ OFFER_CARDS }) => {
@@ -32,9 +34,10 @@ const MobileLayout: React.FC<MobileLayoutProps> = ({ OFFER_CARDS }) => {
 
             <Link
               href={`/services/${card.slug}`}
+              aria-label={`More about this ${card.title}`}
               className={`typography-paragraph-regular cursor-pointer text-text-300 hover:text-text-500`}
             >
-              Learn more
+              More info
             </Link>
           </div>
         </SwiperSlide>

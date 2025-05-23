@@ -50,6 +50,7 @@ function PaginationLink({
 }: PaginationLinkProps) {
   return (
     <a
+      aria-label="Go to page"
       aria-current={isActive ? "page" : undefined}
       data-slot="pagination-link"
       data-active={isActive}
@@ -77,7 +78,7 @@ function PaginationPrevious({
       className={cn("gap-1 px-2.5 sm:pl-2.5 ", className)}
       {...props}
     >
-      <ChevronLeftIcon className="text-text-100 w-2 h-4" />
+      <ChevronLeftIcon className="w-2 h-4 text-text-100" />
     </PaginationLink>
   );
 }
@@ -93,7 +94,7 @@ function PaginationNext({
       className={cn("gap-1 px-2.5 sm:pr-2.5 ", className)}
       {...props}
     >
-      <ChevronRightIcon className="text-text-100 w-2 h-4" />
+      <ChevronRightIcon className="w-2 h-4 text-text-100" />
     </PaginationLink>
   );
 }

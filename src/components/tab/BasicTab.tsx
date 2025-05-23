@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import React from "react";
 import useTabs from "../hooks/usetabs";
 
 type Tab = {
@@ -28,7 +28,7 @@ const BasicTab: React.FC<CustomTabProps> = ({ tabs }) => {
       {showLeftScroll && (
         <button
           onClick={scrollLeft}
-          className="absolute left-0 top-2   -translate-y-1/2 bg-white rounded-full shadow-md p-1 z-10 hover:bg-gray-50 -ml-4"
+          className="top-2 left-0 z-10 absolute bg-white hover:bg-gray-50 shadow-md -ml-4 p-1 rounded-full -translate-y-1/2"
           aria-label="Scroll left"
         >
           <ChevronLeft size={20} className="text-primary-500" />
@@ -39,10 +39,17 @@ const BasicTab: React.FC<CustomTabProps> = ({ tabs }) => {
       <div className="overflow-hidden">
         <div
           ref={tabsContainerRef}
-          className="flex gap-10 overflow-x-scroll no-scrollbar pb-2 transition-all duration-300"
+          className="flex gap-10 pb-2 overflow-x-scroll transition-all duration-300 no-scrollbar"
         >
           {tabs?.map((tab, index) => (
             <div
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  setActiveTab(index);
+                }
+              }}
               key={index}
               className={`tab-item flex-shrink-0 text-base text-nowrap font-semibold hover:cursor-pointer ${
                 activeTab === index ? "text-primary-500" : "text-text-600"
@@ -52,11 +59,11 @@ const BasicTab: React.FC<CustomTabProps> = ({ tabs }) => {
               {tab.label}
               {activeTab === index ? (
                 <div className="pt-2 transition-all duration-500 ease-in">
-                  <hr className="border-0.5 rounded-full border-primary-500" />
+                  <hr className="border-0.5 border-primary-500 rounded-full" />
                 </div>
               ) : (
                 <div className="pt-2 transition-all duration-500 ease-in">
-                  <hr className="border-0.5 rounded-full border-secondary-50" />
+                  <hr className="border-0.5 border-secondary-50 rounded-full" />
                 </div>
               )}
             </div>
@@ -68,7 +75,7 @@ const BasicTab: React.FC<CustomTabProps> = ({ tabs }) => {
       {showRightScroll && (
         <button
           onClick={scrollRight}
-          className="absolute -right-0.5 top-2 -translate-y-1/2 bg-white rounded-full shadow-md p-1 z-10 hover:bg-gray-50 -mr-4"
+          className="top-2 -right-0.5 z-10 absolute bg-white hover:bg-gray-50 shadow-md -mr-4 p-1 rounded-full -translate-y-1/2"
           aria-label="Scroll right"
         >
           <ChevronRight size={20} className="text-primary-500" />
@@ -76,7 +83,7 @@ const BasicTab: React.FC<CustomTabProps> = ({ tabs }) => {
       )}
 
       {/* Tab content */}
-      <div className=" pt-5">{tabs[activeTab]?.content}</div>
+      <div className="pt-5">{tabs[activeTab]?.content}</div>
     </div>
   );
 };

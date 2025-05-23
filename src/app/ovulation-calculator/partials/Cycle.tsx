@@ -56,9 +56,9 @@ const Cycle: React.FC<CycleLengthSelectorProps> = ({
       <div className={cn("w-full max-w-2xs space-y-6", className)}>
         <div className="flex flex-col gap-2">
           <div className="flex justify-between items-center">
-            <label className="font-medium text-gray-800 typography-paragraph-regular">
+            <div className="font-medium text-gray-800 typography-paragraph-regular">
               Cycle Length
-            </label>
+            </div>
             <span className="font-medium text-secondary-700 typography-paragraph-regular">
               {min}-{max} days
             </span>

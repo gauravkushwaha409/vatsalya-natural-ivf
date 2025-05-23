@@ -1,4 +1,6 @@
 "use client";
+import { useGetDataQuery } from "@/api/api";
+import { endpoints } from "@/api/endpoints";
 import { MapPin } from "lucide-react";
 import { AnimatePresence, motion, Variants } from "motion/react";
 import Image from "next/image";
@@ -28,6 +30,10 @@ const HeroCardAnimation: React.FC<HeroCardAnimationProps> = ({ isActive }) => {
 export default HeroCardAnimation;
 
 const CardAnimation = () => {
+  const { data } = useGetDataQuery({
+    url: `${endpoints.sucessStory}?perPage=5`,
+  });
+  console.log(data?.data?.totalRecords, "tessss");
   const leftCardVariant: Variants = {
     initial: {
       opacity: 0,
@@ -159,20 +165,22 @@ const CardAnimation = () => {
       >
         <p className="pb-2 font-medium text-text-500 text-xs">Testimonial</p>
         <div className="flex -space-x-3">
-          {[1, 2, 3, 4, 5].map((i) => (
-            <div className="bg-white p-0.5 rounded-full size-9" key={i}>
-              <Image
-                src={`https://www.picsum.photos/200/200?${i}`}
-                unoptimized
-                alt="Play icon"
-                height={100}
-                width={100}
-                className="rounded-full size-8"
-              />
-            </div>
-          ))}
+          {data?.data?.records?.map(
+            (testimonial: { image: string }, i: number) => (
+              <div className="bg-white p-0.5 rounded-full size-9" key={i}>
+                <Image
+                  loading="lazy"
+                  src={testimonial.image}
+                  alt="Play icon"
+                  height={100}
+                  width={100}
+                  className="rounded-full size-8"
+                />
+              </div>
+            )
+          )}
           <div className="flex justify-center items-center bg-white p-0.5 rounded-full size-9 font-medium text-primary-500 text-xs">
-            70+
+            {data?.data?.totalRecords ? `${data?.data?.totalRecords}+` : "20+"}
           </div>
         </div>
       </motion.div>

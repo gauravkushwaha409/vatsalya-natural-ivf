@@ -7,8 +7,13 @@ const NewsLetter = () => {
   return (
     <div>
       <form onSubmit={formik.handleSubmit} className="space-y-3">
-        <label className="flex bg-white/[0.12] px-4 py-4 border border-[#E4E4E7] rounded-[0.75rem]">
+        <label
+          htmlFor="email"
+          aria-label="Email"
+          className="flex bg-white/[0.12] px-4 py-4 border border-[#E4E4E7] rounded-[0.75rem]"
+        >
           <input
+            id="email"
             name="email"
             type="email"
             placeholder="Enter your Email"

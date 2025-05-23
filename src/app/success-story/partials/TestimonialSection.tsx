@@ -1,9 +1,9 @@
 "use client";
+import VideoModal from "@/components/modals/VideoModal";
 import { Play } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 import { IoIosQuote } from "react-icons/io";
-import VideoModal from "@/components/modals/VideoModal";
 import { ISucessStoriesMetaData } from "../interface/sucessStoriesMeta.interface";
 
 type testimonialData = {
@@ -35,6 +35,7 @@ const TestimonialSection: React.FC<testimonialData> = ({ data }) => {
             width={800}
             height={800}
             className="opacity-30 w-full h-full object-cover"
+            unoptimized
           />
         </div>
 

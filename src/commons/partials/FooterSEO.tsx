@@ -55,7 +55,7 @@ const FooterSeo = () => {
             <div className="flex flex-wrap gap-y-2 mt-1 -ml-3 pb-4 divide-x">
               {branches?.data?.records?.map((item, index) => (
                 <Link
-                  className="px-3 border-background-800 font-manrope text-text-400 decoration-transparent hover:decoration-text-500 underline underline-offset-2 transition-all duration-200 typography-paragraph-regular"
+                  className="px-3 py-3 border-background-800 font-manrope text-text-400 decoration-transparent hover:decoration-text-500 underline underline-offset-2 transition-all duration-200 typography-paragraph-regular"
                   key={index}
                   href={`${PATHS.clinic}/${item.slug}`}
                 >

@@ -89,8 +89,8 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
             {data.caroselImages.map((img, i) => (
               <div key={i} className="relative w-full h-full">
                 <Image
-                  width={1800}
-                  height={2000}
+                  width={762}
+                  height={720}
                   alt={`Image ${i}`}
                   src={img}
                   className="block rounded-lg w-full h-full object-cover"

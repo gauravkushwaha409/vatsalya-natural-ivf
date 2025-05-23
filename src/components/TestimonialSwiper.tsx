@@ -108,11 +108,8 @@ const TestimonialSwiper: React.FC<ITestimonialSwiper> = ({ data }) => {
         {/* Pagination Dots  */}
         <div className="flex gap-2">
           {Array.from({ length: noofSlides }).map((_, index) => (
-            <button
+            <div
               key={index}
-              // onClick={() => {
-              //   console.log(`Navigating to slide: ${index}`);
-              // }}
               className="relative hover:bg-[#888888]/80 rounded-full size-3 bg-text-200/50 cursor-pointer"
             >
               {index === activeSlide && (
@@ -128,7 +125,7 @@ const TestimonialSwiper: React.FC<ITestimonialSwiper> = ({ data }) => {
                   className="absolute inset-0 bg-white rounded-full"
                 />
               )}
-            </button>
+            </div>
           ))}
         </div>
         {/* Right arrow  */}

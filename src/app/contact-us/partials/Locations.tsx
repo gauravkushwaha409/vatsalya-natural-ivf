@@ -1,8 +1,8 @@
 "use client";
-import React from "react";
-import Image from "next/image";
 import { useContactForm } from "@/hooks/contact/useContact";
 import { ICenter } from "@/interface/center";
+import Image from "next/image";
+import React from "react";
 
 interface LocationsProps {
   onSelectMap: (url: string) => void;
@@ -27,6 +27,13 @@ const Locations: React.FC<LocationsProps> = ({ onSelectMap }) => {
       <div className="gap-5 grid grid-cols-1 md:grid-cols-4 my-5">
         {centers?.records.map((center: ICenter, index: number) => (
           <div
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                onSelectMap(center.mapUrl);
+              }
+            }}
             className="flex gap-5 bg-white hover:bg-primary-50 shadow-md p-5 rounded-lg transition-colors duration-300 delay-75 cursor-pointer"
             key={index}
             onClick={() => onSelectMap(center.mapUrl)} // <- handle click
