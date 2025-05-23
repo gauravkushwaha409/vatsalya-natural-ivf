@@ -10,6 +10,7 @@ import "swiper/css";
 import { getHomePageData } from "./(home)/hook/hook.hook";
 import "./globals.css";
 import Providers from "./providers";
+import { IoLogoWhatsapp } from "react-icons/io5";
 
 const manRope = Manrope({
   variable: "--font-manrope",
@@ -96,7 +97,16 @@ export default async function RootLayout({
               className="right-6 bottom-24 z-50 fixed size-[4.5rem]"
             />
           </Link>
-          <BotPopup />
+          <Link
+            target="_blank"
+            href={`https://api.whatsapp.com/send?phone=${footerData?.data?.socialMedia?.whatsapp}`}
+          >
+            <IoLogoWhatsapp
+              className="right-10 bottom-14 fixed text-green-500 z-50 "
+              size={40}
+            />
+          </Link>
+          {/* <BotPopup /> */}
         </Providers>
       </body>
     </html>

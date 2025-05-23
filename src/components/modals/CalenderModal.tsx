@@ -208,18 +208,32 @@ const CalendarModal: React.FC<CalendarProps> = ({
                     initial={{ width: isSmall ? "100%" : "0", opacity: 0 }}
                     animate={{ width: isSmall ? "100%" : "40%", opacity: 1 }}
                     transition={{ duration: 1.2 }}
-                    className="flex flex-row lg:flex-col justify-center items-center gap-5 bg-white mt-0 lg:mt-10"
+                    className="flex flex-row lg:flex-col justify-center items-center gap-5 bg-white mt-0 lg:mt-10 h-[10vh] lg:h-[40vh] overflow-y-scroll"
                   >
                     {availableSlots?.data?.length || 0 > 0 ? (
                       <>
                         {availableSlots?.data?.map((slot: ISlot) => (
                           <button
+                            disabled={slot?.available === 0}
                             key={slot.id}
                             onClick={() => handleSelectTime(slot.id)}
-                            className="bg-white hover:bg-secondary-500 px-4 py-2 border border-secondary-300 rounded-full w-full text-secondary-500 hover:text-white transition-colors duration-700 hover:duration-200 ease-in-out"
+                            className={`bg-white px-4  typography-paragraph-regular py-1.5 group border border-secondary-300 rounded-full text-nowrap w-full text-secondary-500 hover:text-white transition-colors duration-700 hover:duration-200 ease-in-out flex flex-col ${
+                              slot?.available === 0
+                                ? "cursor-not-allowed hover:bg-secondary-500/50 "
+                                : "hover:bg-secondary-500 cursor-pointer "
+                            }`}
+                            style={{
+                              scrollbarWidth: "thin",
+                            }}
                           >
                             {convertToAmPm(slot.startTime)} -{" "}
                             {convertToAmPm(slot.endTime)}
+                            <span className="text-secondary-400 typography-paragraph-regular group-hover:text-white">
+                              <span className="font-bold">
+                                ({slot?.available})
+                              </span>{" "}
+                              slots available
+                            </span>
                           </button>
                         ))}
                       </>
