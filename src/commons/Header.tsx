@@ -63,25 +63,6 @@ const Header = () => {
             alt="logo"
           />
         </Link>
-        <div className="hide-for-mobile">
-          <label className="relative flex bg-light-variant-50 px-5 py-4 border-2 border-dark-variant-50 rounded-[1.75rem] min-w-[22.5rem] font-roboto text-dark-variant-300 typography-paragraph-regular">
-            <input
-              autoComplete="off"
-              type="text"
-              placeholder="Search..."
-              className="outline-0 ring-0 placeholder:text-dark-variant-300 grow"
-            />
-            <button className="top-1/2 right-5 absolute hover:bg-primary-50 p-2 rounded-full -translate-y-1/2">
-              <Image
-                src={"/svg/search-icon.svg"}
-                alt="search"
-                width={20}
-                height={20}
-                className="size-6"
-              />
-            </button>
-          </label>
-        </div>
 
         <NavCalculator />
         <MobileNav navlinks={[...navLinks, ...mobileNavLinks]} />
