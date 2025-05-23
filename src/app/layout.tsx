@@ -1,6 +1,5 @@
 import Footer from "@/commons/Footer";
 import Header from "@/commons/Header";
-import BotPopup from "@/features/chatbot/BotPopup";
 import type { Metadata } from "next";
 import { Manrope, Roboto } from "next/font/google";
 import Image from "next/image";
