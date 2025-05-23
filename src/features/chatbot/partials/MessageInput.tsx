@@ -82,7 +82,6 @@ const MessageInput: React.FC<{
             {...formik.getFieldProps("message")}
             onKeyDown={handleKeyDown}
             autoComplete="off"
-            autoFocus
             className="flex-1 py-4 pl-5 rounded-full outline-0 focus:outline-none h-max"
           />
         </div>

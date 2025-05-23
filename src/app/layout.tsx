@@ -5,29 +5,16 @@ import { Manrope, Roboto } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
-import "swiper/css";
+import { IoLogoWhatsapp } from "react-icons/io5";
 import { getHomePageData } from "./(home)/hook/hook.hook";
 import "./globals.css";
 import Providers from "./providers";
-import { IoLogoWhatsapp } from "react-icons/io5";
 
 const manRope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
-
-// const inter = Inter({
-//   variable: "--font-inter",
-//   subsets: ["latin"],
-//   weight: ["200", "300", "400", "500", "600", "700", "800"],
-// });
-
-// const plusJakarta = Plus_Jakarta_Sans({
-//   variable: "--font-plus-jakarta-sans",
-//   subsets: ["latin"],
-//   weight: ["200", "300", "400", "500", "600", "700", "800"],
-// });
 const roboto = Roboto({
   variable: "--font-roboto",
   subsets: ["latin"],
@@ -57,7 +44,27 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="alternate" hrefLang="en" href="https://vatsalya.com.np/" />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href="https://vatsalya.com.np/"
+        />
         <link rel="preload" as="image" href="/noise.png" />
+        <link rel="preload" as="image" href="/noise.webp" />
+        <link rel="preload" as="image" href="/phone.png" />
+        <link rel="preload" as="image" href="/home/who-we-are-bg.webp" />
+        <link
+          rel="preload"
+          as="image"
+          href="/home/when-to-visit/whole-bg.webp"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/home/when-to-visit/three-lines.png"
+        />
+        <link rel="preload" as="image" href="/home/butterfly.gif" />
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-N3MFB9XL1Y"
@@ -100,10 +107,7 @@ export default async function RootLayout({
             target="_blank"
             href={`https://api.whatsapp.com/send?phone=${footerData?.data?.socialMedia?.whatsapp}`}
           >
-            <IoLogoWhatsapp
-              className="right-10 bottom-14 fixed text-green-500 z-50 "
-              size={40}
-            />
+            <IoLogoWhatsapp className="right-10 bottom-14 z-50 fixed size-[2.5rem] text-green-500" />
           </Link>
           {/* <BotPopup /> */}
         </Providers>

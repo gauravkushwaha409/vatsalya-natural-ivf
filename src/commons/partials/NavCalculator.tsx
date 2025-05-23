@@ -17,25 +17,26 @@ const DropdownPortal = ({
   if (!isOpen) return null;
 
   return createPortal(
-    <div className="fixed inset-0 z-50">
-      <div
+    <div className="z-50 fixed inset-0">
+      <button
         className="absolute inset-0"
         onClick={() => onSelect("ivf")}
         style={{ cursor: "default" }}
-      ></div>
+        aria-label="Close dropdown"
+      />
       <div
-        className="absolute z-[100] bg-white rounded-lg shadow-lg border border-gray-200"
+        className="z-[100] absolute bg-white shadow-lg border border-gray-200 rounded-lg"
         style={{
           top: window.dropdownPosition?.top || "0px",
           left: window.dropdownPosition?.left || "0px",
           width: "224px",
         }}
       >
-        <ul className="py-1 text-sm text-gray-700">
+        <ul className="py-1 text-gray-700 text-sm">
           <li>
             <Link
               href={PATHS.ivfDueCalculatotr}
-              className="w-full text-left px-4 py-2 hover:bg-gray-100 inline-block"
+              className="inline-block hover:bg-gray-100 px-4 py-2 w-full text-left"
               onClick={() => onSelect("ivf")}
             >
               IVF Calculator
@@ -44,7 +45,7 @@ const DropdownPortal = ({
           <li>
             <Link
               href={PATHS.ovulationCalculator}
-              className="w-full text-left px-4 py-2 hover:bg-gray-100 inline-block"
+              className="inline-block hover:bg-gray-100 px-4 py-2 w-full text-left"
               onClick={() => onSelect("ovulation")}
             >
               Ovulation Calculator
@@ -104,7 +105,7 @@ const NavCalculator = () => {
         style={{
           boxShadow: "0px 5.486px 12.343px 0px rgba(215, 101, 120, 0.33)",
         }}
-        className="bg-secondary-500 flex gap-3 items-center px-8 py-4 border border-secondary-200 rounded-full font-manrope font-extrabold text-white typography-paragraph-regular cursor-pointer"
+        className="flex items-center gap-3 bg-secondary-500 px-8 py-4 border border-secondary-200 rounded-full font-manrope font-extrabold text-white cursor-pointer typography-paragraph-regular"
       >
         <PiCalculatorBold /> Calculator <MdOutlineArrowDropDown size={20} />
       </button>

@@ -4,9 +4,10 @@ import ErrorMessage from "@/components/ErrorMessage";
 import Testimonial from "@/components/Testimonial";
 import { createMetadata } from "@/hooks/generateMetaData";
 import { ISeoRoot } from "@/interface/seo.interface";
+import dynamic from "next/dynamic";
+import Image from "next/image";
 import { getHomePageData } from "./hook/hook.hook";
 import Blogsection from "./partials/Blogsection";
-import BrandsSlider from "./partials/BrandsSlider";
 import HomeFaq from "./partials/Faq";
 import HeroSection from "./partials/HeroSection";
 import HowWeWork from "./partials/HowWeWork";
@@ -19,6 +20,7 @@ import WhatWeDo from "./partials/WhatWeDo";
 import WhatWeOffer from "./partials/WhatWeOffer";
 import WhenToVisit from "./partials/WhenToVisit";
 import WhoWeAre from "./partials/WhoWeAre";
+const BrandsSlider = dynamic(() => import("./partials/BrandsSlider"));
 
 // export const dynamic = "force-dynamic";
 export async function generateMetadata() {
@@ -49,12 +51,18 @@ const HomePage = async () => {
           }}
           className="z-[1] relative overflow-hidden"
         >
-          <div
-            style={{
-              background: "url('/noise.png') no-repeat center / cover",
-            }}
-            className="absolute inset-0 opacity-[0.33]"
-          ></div>
+          <div className="absolute inset-0">
+            <Image
+              src="/noise.webp"
+              alt="Background texture"
+              priority
+              fill
+              style={{
+                opacity: 0.33,
+                objectFit: "cover",
+              }}
+            />
+          </div>
           <div className="z-[2] relative">
             <HeroSection data={homedata?.data} />
             <div
@@ -70,7 +78,7 @@ const HomePage = async () => {
         <Slogan data={homedata?.data?.mission[0]} />
         <div
           style={{
-            background: "url(/home/who-we-are-bg.png) repeat-y 0% / cover",
+            background: "url(/home/who-we-are-bg.webp) repeat-y 0% / cover",
             backgroundSize: "100% 50%",
           }}
           className="w-full overflow-hidden"

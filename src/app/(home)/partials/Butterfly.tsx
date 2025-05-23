@@ -110,11 +110,11 @@ const Butterfly = () => {
         <Image
           src="/home/butterfly.gif"
           alt="Illustration of butterfly"
-          width={100}
-          height={100}
+          width={80}
+          height={80}
           className="size-20 md:size-25 object-cover"
-          unoptimized
           priority
+          unoptimized
         />
       </motion.div>
     </div>

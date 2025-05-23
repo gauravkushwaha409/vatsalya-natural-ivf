@@ -32,7 +32,7 @@ const MessageUI: React.FC<{ isOpen: boolean; closePopup: () => void }> = ({
     <div
       style={{
         background:
-          "linear-gradient(90deg, #EBC0DB 0%, #FFD2CE 100%), url('/noise.png') center / cover no-repeat, lightgray",
+          "linear-gradient(90deg, #EBC0DB 0%, #FFD2CE 100%), url('/noise.webp') center / cover no-repeat, lightgray",
         boxShadow: "0px 5px 19.9px 5px rgba(0, 0, 0, 0.06)",
         opacity: isOpen ? "1" : "0",
         pointerEvents: isOpen ? "all" : "none",

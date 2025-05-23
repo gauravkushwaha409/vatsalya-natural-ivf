@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export interface FAQOptions {
   question: string;
@@ -31,6 +31,14 @@ const Faq: React.FC<{ faq: FAQOptions[] }> = ({ faq }) => {
         return (
           <div
             key={index}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                toggleFaq(index);
+              }
+            }}
+            aria-label={`Toggle FAQ ${index}`}
             className="flex pb-1 border-gray-300 border-b overflow-hidden transition-all cursor-pointer select-none"
             onClick={() => toggleFaq(index)}
           >

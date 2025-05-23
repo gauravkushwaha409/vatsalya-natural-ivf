@@ -115,6 +115,7 @@ const OfferCard: React.FC<OfferCardProps> = ({
 
       <button
         className={`${getButtonClassName()} cursor-pointer`}
+        aria-label={`More about this ${card.title}`}
         onClick={() => router.push(`/services/${slug}`)}
       >
         Learn more

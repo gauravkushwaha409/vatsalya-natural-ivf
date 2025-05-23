@@ -35,9 +35,9 @@ const BlogCard: React.FC<IBlog> = ({ data }) => {
             className="flex justify-between items-center w-full cursor-pointer"
             href={`/blog/${data?.slug}`}
           >
-            <h5 className="my-4 font-semibold text-[#1A1A1A] line-clamp-1 leading-[150%] typography-h3">
+            <p className="my-4 font-semibold text-[#1A1A1A] line-clamp-1 leading-[150%] typography-h3">
               {data?.title}
-            </h5>
+            </p>
             <div>
               <IoArrowForwardOutline
                 size={24}

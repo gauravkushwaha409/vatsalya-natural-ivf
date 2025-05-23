@@ -3,6 +3,7 @@ import { usePostDataMutation } from "@/api/api";
 import { endpoints } from "@/api/endpoints";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogHeader,
   DialogTitle,
@@ -12,7 +13,6 @@ import { showErrorMessage, showSuccessMessage } from "@/utils/toast";
 import { useFormik } from "formik";
 import { useRef, useState } from "react";
 import * as Yup from "yup";
-import { DialogClose } from "@/components/ui/dialog";
 
 interface IcustomClass {
   customClass?: string;
@@ -118,18 +118,18 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
         </DialogTrigger>
         <DialogContent className="sm:max-w-[600px]">
           <DialogHeader>
-            <DialogTitle className="hide-for-mobile typography-h3 text-text-500 font-semibold lg:mb-2.5">
+            <DialogTitle className="lg:mb-2.5 font-semibold text-text-500 hide-for-mobile typography-h3">
               Submit your CV & details about you
             </DialogTitle>
           </DialogHeader>
           <form
             onSubmit={formik.handleSubmit}
-            className="grid grid-cols-1 gap-4"
+            className="gap-4 grid grid-cols-1"
           >
-            <div className="grid grid-cols-2 gap-4">
+            <div className="gap-4 grid grid-cols-2">
               {/* Name Field */}
               <div className="flex flex-col gap-2">
-                <label className="text-base font-regular" htmlFor="name">
+                <label className="font-regular text-base" htmlFor="name">
                   Name
                 </label>
                 <input
@@ -140,10 +140,10 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
                   onBlur={formik.handleBlur}
                   value={formik.values.name}
                   placeholder="Enter Your Name"
-                  className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
+                  className="bg-transparent p-3 border border-gray-400 rounded-xl outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small"
                 />
                 {formik.touched.name && formik.errors.name && (
-                  <p className=" pl-4 text-red-500 text-sm">
+                  <p className="pl-4 text-red-500 text-sm">
                     {formik.errors.name}
                   </p>
                 )}
@@ -151,7 +151,7 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
 
               {/* Phone Field */}
               <div className="flex flex-col gap-2">
-                <label className="text-base font-regular" htmlFor="phone_no">
+                <label className="font-regular text-base" htmlFor="phone_no">
                   Phone
                 </label>
                 <input
@@ -162,7 +162,7 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
                   onBlur={formik.handleBlur}
                   value={formik.values.phone_no}
                   placeholder="Enter Your Phone Number"
-                  className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
+                  className="bg-transparent p-3 border border-gray-400 rounded-xl outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small"
                 />
                 {formik.touched.phone_no && formik.errors.phone_no && (
                   <p className="pl-4 text-red-500 text-sm">
@@ -173,7 +173,7 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
 
               {/* Email */}
               <div className="flex flex-col gap-2">
-                <label className="text-base font-regular" htmlFor="email">
+                <label className="font-regular text-base" htmlFor="email">
                   Email
                 </label>
                 <input
@@ -184,7 +184,7 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
                   onBlur={formik.handleBlur}
                   value={formik.values.email}
                   placeholder="Enter Your Email"
-                  className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
+                  className="bg-transparent p-3 border border-gray-400 rounded-xl outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small"
                 />
                 {formik.touched.email && formik.errors.email && (
                   <p className="pl-4 text-red-500 text-sm">
@@ -195,14 +195,14 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
 
               {/* Address Field */}
               <div className="flex flex-col gap-2">
-                <label htmlFor="address" className="text-base font-regular">
+                <label htmlFor="address" className="font-regular text-base">
                   Address
                 </label>
                 <input
                   id="address"
                   name="address"
                   type="text"
-                  className="border border-gray-400 rounded-xl p-3 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
+                  className="bg-transparent p-3 border border-gray-400 rounded-xl outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.address}
@@ -218,7 +218,7 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
 
             {/* CV Upload Field */}
             <div>
-              <label htmlFor="resume" className="text-base font-regular">
+              <label htmlFor="resume" className="font-regular text-base">
                 Resume{" "}
                 <span className="text-text-300 typography-caption">
                   *(Below 5MB - pdf/docx)
@@ -230,28 +230,28 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
                 name="resume"
                 type="file"
                 accept=".pdf,.docx"
-                className="hidden  "
+                className="hidden"
                 onChange={handleFileChange}
               />
-              <div className="border border-gray-400 rounded-xl  bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium flex mt-2">
-                <span
-                  className="cursor-pointer bg-[#d6d7d6] px-5 py-3.5 rounded-l-xl"
+              <div className="flex bg-transparent mt-2 border border-gray-400 rounded-xl outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small">
+                <button
+                  className="inline bg-[#d6d7d6] px-5 py-3.5 rounded-l-xl cursor-pointer"
                   onClick={() => inputRef.current?.click()}
                 >
                   Choose File
-                </span>
-                <span className="text-gray-500 flex items-center pl-2">
+                </button>
+                <span className="flex items-center pl-2 text-gray-500">
                   {resume ? resume.name : "No File Chosen"}
                 </span>
               </div>
               {formErrors.resume && (
-                <p className="text-red-500 text-sm mt-1">{formErrors.resume}</p>
+                <p className="mt-1 text-red-500 text-sm">{formErrors.resume}</p>
               )}
             </div>
 
             {/* Message Field */}
             <div className="flex flex-col gap-2">
-              <label className="text-base font-regular" htmlFor="message">
+              <label className="font-regular text-base" htmlFor="message">
                 Message
               </label>
               <textarea
@@ -261,7 +261,7 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
                 onBlur={formik.handleBlur}
                 value={formik.values.message}
                 placeholder="Enter Your Message..."
-                className="border border-gray-400 rounded-xl pl-3 pt-4 bg-transparent text-sm font-thinC outline-none text-text-400 typography-paragraph-small font-medium "
+                className="bg-transparent pt-4 pl-3 border border-gray-400 rounded-xl outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small"
               />
               {formik.touched.message && formik.errors.message && (
                 <p className="pl-4 text-red-500 text-sm">
@@ -283,7 +283,7 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
               />
               <label
                 htmlFor="terms"
-                className="typography-paragraph-small text-[11.11px] text-text-400"
+                className="text-[11.11px] text-text-400 typography-paragraph-small"
               >
                 By using this form you agree with the storage and handling of
                 your data by this website.
@@ -294,7 +294,7 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
             )}
             <button
               type="submit"
-              className="my-5 bg-secondary-500 px-8 py-3 rounded-full font-bold text-white"
+              className="bg-secondary-500 my-5 px-8 py-3 rounded-full font-bold text-white"
               disabled={isLoading}
             >
               {isLoading ? "Submitting..." : "Submit"}
@@ -302,7 +302,12 @@ const ApplyFormModal: React.FC<IcustomClass> = ({ customClass, title }) => {
 
             {/* Hidden Dialog Close Button */}
             <DialogClose asChild>
-              <button ref={dialogCloseRef} type="button" className="hidden" />
+              <button
+                aria-label="close dialog"
+                ref={dialogCloseRef}
+                type="button"
+                className="hidden"
+              />
             </DialogClose>
           </form>
         </DialogContent>
