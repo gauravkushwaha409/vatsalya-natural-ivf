@@ -41,8 +41,7 @@ const ContactUs: React.FC<IContactUsProps> = ({ data }) => {
           <div className="flex-1 bg-primary-500 max-w-[148px] h-px"></div>
         </div>
         <h2 className="font-semibold text-text-500 typography-h2">
-          Take your first step towards parenthood with Kathmandu’s No.1
-          Fertility Center
+          {data?.contactUsTitle}
         </h2>
 
         <div className="flex justify-between px-5 pb-10">

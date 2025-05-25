@@ -17,6 +17,7 @@ export interface IClinicDetailsData {
   email: string;
   description: string;
   images: string[];
+  contactUsTitle: string;
   expert: IClinicDetailsExpert[];
   seo: IClinicDetailsSeo2;
   created_date: string;
