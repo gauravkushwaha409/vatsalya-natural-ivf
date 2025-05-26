@@ -217,7 +217,7 @@ const CalendarModal: React.FC<CalendarProps> = ({
                             disabled={slot?.available === 0}
                             key={slot.id}
                             onClick={() => handleSelectTime(slot.id)}
-                            className={`bg-white px-4  typography-paragraph-regular py-1.5 group border border-secondary-300 rounded-full text-nowrap w-full text-secondary-500 hover:text-white transition-colors duration-700 hover:duration-200 ease-in-out flex flex-col ${
+                            className={`bg-white px-4 typography-paragraph-regular py-2.5 font-medium group border border-secondary-300 rounded-full text-nowrap w-full text-secondary-500 hover:text-white transition-colors duration-700 hover:duration-200 ease-in-out flex flex-col ${
                               slot?.available === 0
                                 ? "cursor-not-allowed hover:bg-secondary-500/50 "
                                 : "hover:bg-secondary-500 cursor-pointer "
@@ -228,12 +228,12 @@ const CalendarModal: React.FC<CalendarProps> = ({
                           >
                             {convertToAmPm(slot.startTime)} -{" "}
                             {convertToAmPm(slot.endTime)}
-                            <span className="text-secondary-400 typography-paragraph-regular group-hover:text-white">
+                            {/* <span className="text-secondary-400 group-hover:text-white typography-paragraph-regular">
                               <span className="font-bold">
                                 ({slot?.available})
                               </span>{" "}
                               slots available
-                            </span>
+                            </span> */}
                           </button>
                         ))}
                       </>
