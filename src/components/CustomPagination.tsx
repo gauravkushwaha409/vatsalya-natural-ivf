@@ -2,15 +2,14 @@
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 type PaginationProps = {
   currentPage: number;
-  totalItems: number;
+  totalItems?: number;
   pageCount: number;
-  perPage: number;
+  perPage?: number;
   onPageChange: (page: number) => void;
 };
 
 const CustomPagination = ({
   currentPage,
-
   pageCount,
   onPageChange,
 }: PaginationProps) => {
@@ -32,12 +31,12 @@ const CustomPagination = ({
 
   return (
     <div className="w-full">
-      <div className="flex flex-col md:flex-row justify-center items-center gap-4 my-4">
+      <div className="flex md:flex-row flex-col justify-center items-center gap-4 my-4">
         <div className="flex items-center gap-1">
           <button
             onClick={() => onPageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className="p-2 rounded-lg text-text-100 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="disabled:opacity-50 p-2 rounded-lg text-text-100 disabled:cursor-not-allowed"
           >
             <MdKeyboardArrowLeft className="w-5 h-5" />
           </button>
@@ -59,7 +58,7 @@ const CustomPagination = ({
           <button
             onClick={() => onPageChange(currentPage + 1)}
             disabled={currentPage === pageCount}
-            className="p-2 rounded-lg text-text-100 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="disabled:opacity-50 p-2 rounded-lg text-text-100 disabled:cursor-not-allowed"
           >
             <MdKeyboardArrowRight className="w-5 h-5" />
           </button>

@@ -1,7 +1,7 @@
+import buterflysvg from "@/assests/icons/butterflyExpertise.svg";
 import Image from "next/image";
 import React from "react";
 import { ILeaderData } from "../interface/leader.interface";
-import buterflysvg from "@/assests/icons/butterflyExpertise.svg";
 interface Props {
   data: ILeaderData;
 }
@@ -52,7 +52,7 @@ const Leader: React.FC<Props> = ({ data }) => {
             {data?.leaderPosition}
           </p>
           <p
-            className="text-text-400 leading-[150%] typography-paragraph-small porse"
+            className="text-text-400 leading-[150%] typography-paragraph-large porse"
             dangerouslySetInnerHTML={{
               __html: data?.leaderMessage || "",
             }}

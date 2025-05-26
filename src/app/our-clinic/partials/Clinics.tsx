@@ -44,8 +44,11 @@ const Clinics = async () => {
                 href={`${PATHS.clinic}/${center?.slug}`}
                 className="ml-auto"
               >
-                <button className="flex items-center text-primary-500 cursor-pointer typography-paragraph-small">
-                  view{" "}
+                <button
+                  aria-label={`view ${center.name}`}
+                  className="flex items-center text-primary-500 cursor-pointer typography-paragraph-small"
+                >
+                  View{" "}
                   <IoArrowForwardOutline
                     size={18}
                     className="text-primary-500 -rotate-40"

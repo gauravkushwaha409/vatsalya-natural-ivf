@@ -1,21 +1,21 @@
 import React from "react";
 import {
   FaFacebook,
-  FaWhatsapp,
-  FaInstagram,
   FaFacebookMessenger,
+  FaInstagram,
   FaRegCopy,
+  FaWhatsapp,
 } from "react-icons/fa";
 import {
   FacebookShareButton,
+  InstapaperShareButton,
   TwitterShareButton,
   WhatsappShareButton,
-  InstapaperShareButton,
 } from "react-share";
 
+import useClickOutside from "@/hooks/useClickOutside";
 import { motion } from "framer-motion";
 import { FaXTwitter } from "react-icons/fa6";
-import useClickOutside from "@/hooks/useClickOutside";
 import { toast } from "sonner";
 interface SocialMediaShareModalProps {
   isOpen: boolean | undefined;
@@ -35,21 +35,21 @@ const SocialMediaShareModal: React.FC<SocialMediaShareModalProps> = ({
   return (
     <>
       {isOpen && (
-        <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-50 text-black">
+        <div className="z-50 fixed inset-0 flex justify-center items-center bg-black/40 text-black">
           <motion.div
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.3 }}
-            className="w-auto px-10 py-7 shadow-md rounded-lg bg-white"
+            className="bg-white shadow-md px-10 py-7 rounded-lg w-auto"
             ref={modalRef}
           >
-            <h1 className="text-section-h1 mb-4 text-center">Share to:</h1>
+            <h1 className="mb-4 text-section-h1 text-center">Share to:</h1>
             <div className="flex gap-10">
               <FacebookShareButton url={shareLink || ""}>
                 <FaFacebook className="text-blue-600 text-3xl" />
               </FacebookShareButton>{" "}
               <TwitterShareButton url={shareLink || ""}>
-                <FaXTwitter className=" text-xl lg:text-3xl" />
+                <FaXTwitter className="text-xl lg:text-3xl" />
               </TwitterShareButton>{" "}
               <WhatsappShareButton url={shareLink || ""}>
                 <FaWhatsapp className="text-green-500 text-xl lg:text-3xl" />
@@ -60,7 +60,7 @@ const SocialMediaShareModal: React.FC<SocialMediaShareModalProps> = ({
               <FacebookShareButton url={shareLink || ""}>
                 <FaFacebookMessenger className="text-blue-500 text-xl lg:text-3xl" />
               </FacebookShareButton>{" "}
-              <button onClick={handleCopyLink}>
+              <button aria-label="copy link" onClick={handleCopyLink}>
                 <FaRegCopy className="text-gray-500 text-xl lg:text-3xl" />
               </button>
             </div>

@@ -1,4 +1,5 @@
 "use client";
+import buterflysvg from "@/assests/icons/butterflyExpertise.svg";
 import PATHS from "@/utils/path";
 import { motion } from "motion/react";
 import Image from "next/image";
@@ -8,7 +9,6 @@ import {
   IOurExpertsData,
   IOurExpertsRecord,
 } from "../../app/our-team/interface/ourExperts.interface";
-import buterflysvg from "@/assests/icons/butterflyExpertise.svg";
 interface Props {
   data: IOurExpertsData;
   showView?: boolean;

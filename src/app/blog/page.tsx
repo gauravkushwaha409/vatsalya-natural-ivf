@@ -2,6 +2,7 @@ import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
 import { createMetadata } from "@/hooks/generateMetaData";
 import { ISeoRoot } from "@/interface/seo.interface";
+import { notFound } from "next/navigation";
 import BlogsCard from "./partials/BlogsCard";
 import HeroBlog from "./partials/HeroBlog";
 export const dynamic = "force-dynamic";
@@ -27,15 +28,18 @@ const BlogPage = async ({ searchParams }: BlogProps) => {
     );
     const blogData = data?.data;
     const FeatureData = data?.data?.records;
+    if (data?.data?.records?.length === 0) throw new Error("no_data");
 
     return (
-      <div className="pt-8">
+      <div className="">
         <HeroBlog data={FeatureData} />
         <BlogsCard data={blogData} page={page} />
       </div>
     );
   } catch (error) {
-    console.error("Error fetching blog data:", error);
+    if (error instanceof Error) {
+      if (error.message === "no_data") notFound();
+    }
     return (
       <div className="flex justify-center items-center h-screen">
         <p className="text-red-500">An error occurred</p>

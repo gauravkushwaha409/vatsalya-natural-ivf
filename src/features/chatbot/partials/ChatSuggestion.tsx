@@ -13,7 +13,7 @@ const ChatSuggestion: React.FC<{
       key={suggestions.join("")}
       style={{
         background:
-          "linear-gradient(90deg, #EBC0DB 0%, #FFD2CE 100%), url('/noise.png') center / cover no-repeat, lightgray",
+          "linear-gradient(90deg, #EBC0DB 0%, #FFD2CE 100%), url('/noise.webp') center / cover no-repeat, lightgray",
       }}
       className={`flex flex-wrap justify-center gap-1 px-[2.31rem] py-3 w-full sticky bottom-0  ${
         disabled ? "opacity-50" : ""

@@ -1,10 +1,9 @@
-import React from "react";
-import Headings from "./partials/Headings";
-import Profile from "./partials/Profile";
 import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
-import { IProfileRoot } from "../interface/profile.interface";
 import { createMetadata } from "@/hooks/generateMetaData";
+import { IProfileRoot } from "../interface/profile.interface";
+import Headings from "./partials/Headings";
+import Profile from "./partials/Profile";
 
 interface ProfilePageProps {
   params: Promise<{ slug: string }>;
@@ -26,7 +25,7 @@ const ProfilePage = async ({ params }: ProfilePageProps) => {
   const slug = await params;
   const { data } = await getData(endpoints.experts + `/${slug?.slug}`);
   return (
-    <section className="">
+    <section className="mb-16">
       <Headings />
       <Profile data={data} />
     </section>

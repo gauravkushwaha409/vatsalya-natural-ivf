@@ -64,9 +64,9 @@ const IvfDueDateCalculator: React.FC<IvfDueDateCalculatorProps> = ({
             </p>
 
             <div className=" ">
-              <label className="font-medium text-text-400 typography-paragraph-regular">
+              <div className="font-medium text-text-400 typography-paragraph-regular">
                 Transfer Date:
-              </label>
+              </div>
               <input
                 type="date"
                 className="mt-2 p-2 border rounded w-full typography-paragraph-small"
@@ -76,9 +76,9 @@ const IvfDueDateCalculator: React.FC<IvfDueDateCalculatorProps> = ({
             </div>
 
             <div className="space-y-1">
-              <label className="font-medium text-text-400 typography-paragraph-regular">
+              <div className="font-medium text-text-400 typography-paragraph-regular">
                 Type of Transfer:
-              </label>
+              </div>
               <select
                 className="mt-2 p-2 border rounded w-full typography-paragraph-small"
                 value={transferType}

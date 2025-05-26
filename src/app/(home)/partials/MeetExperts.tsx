@@ -29,6 +29,7 @@ const MeetExperts: React.FC<MeetExpertsProps> = ({ data }) => {
           width={100}
           height={100}
           className="w-full h-full object-contain animate-pulse"
+          unoptimized
         />
       </div>
     </div>

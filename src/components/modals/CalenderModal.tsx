@@ -4,14 +4,14 @@ import { endpoints } from "@/api/endpoints";
 import RenderCells from "@/components/RenderCells";
 import { ApiResponse, handleErrors } from "@/helper/error-helper";
 import useClickOutside from "@/hooks/useClickOutside";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { ISlot, ISlotResponse } from "@/interface/slot";
 import { showErrorMessage, showSuccessMessage } from "@/utils/toast";
 import { add, format } from "date-fns";
 import { FormikProps } from "formik";
 import { motion } from "framer-motion";
+import { X } from "lucide-react";
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
+import AppointmentConfirmationModal from "./ConfirmAppointmentModal";
 import ConfirmationModal from "./ConfirmationModal";
 import { IFormValues } from "./RequestAppoimentModal";
 
@@ -22,16 +22,6 @@ interface CalendarProps {
   data?: IFormValues;
   formik?: FormikProps<IFormValues>;
 }
-function convertToAmPm(timeStr: string) {
-  const [hourStr, minute] = timeStr.split(":");
-  let hour = parseInt(hourStr, 10);
-  const amPm = hour >= 12 ? "PM" : "AM";
-
-  // Convert hour to 12-hour format
-  hour = hour % 12 || 12;
-
-  return `${hour.toString().padStart(2, "0")}:${minute} ${amPm}`;
-}
 const CalendarModal: React.FC<CalendarProps> = ({
   modalOpen,
   onCloseModal,
@@ -40,15 +30,12 @@ const CalendarModal: React.FC<CalendarProps> = ({
   formik,
 }) => {
   const [postAppointment] = usePostDataMutation();
-  const [availableSlots, setAvailableSlots] = useState<ISlotResponse | null>(
-    null
-  );
+
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [showTime, setShwowTime] = useState<boolean>(false);
+  const [showConfirmationModal, setShowConfirmationModal] = useState<boolean>(false);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [openModal, setOpenModal] = useState<boolean>(false);
   const modalRef1 = useClickOutside(onCloseModal);
-  const isSmall = useMediaQuery("(width <= 40rem)");
 
   const renderHeader = () => {
     const monthYear = format(currentDate, "MMMM yyyy");
@@ -84,8 +71,8 @@ const CalendarModal: React.FC<CalendarProps> = ({
     );
   };
 
-  const handleSelectTime = async (slotId: string) => {
-    if (!selectedDate || !data) return;
+  const handleConfirmation = async () => {
+    if (!data || !selectedDate) return;
 
     const payload = {
       name: data.name,
@@ -95,7 +82,6 @@ const CalendarModal: React.FC<CalendarProps> = ({
       expert: data.doctor,
       message: data.message,
       date: format(selectedDate, "yyyy-MM-dd"),
-      time: slotId,
     };
 
     try {
@@ -124,46 +110,10 @@ const CalendarModal: React.FC<CalendarProps> = ({
       showErrorMessage("Something went wrong");
     }
   };
-
-  const fetchAvailableSlots = async (date: Date) => {
-    if (!data?.center || !data?.doctor) return;
-
-    const payload = {
-      date: format(date, "yyyy-MM-dd"),
-      center: data.center,
-      expert: data.doctor,
-    };
-
-    try {
-      const response = await postAppointment({
-        url: `${endpoints.available_dates}`,
-        data: payload,
-      });
-      if (response?.error) {
-        setAvailableSlots(null);
-        showErrorMessage(
-          (response?.error &&
-            "data" in response.error &&
-            (response.error.data as { message?: string })?.message) ||
-            "No slots available"
-        );
-        return;
-      }
-
-      if (response?.data?.status === "success") {
-        setAvailableSlots(response?.data);
-        showSuccessMessage(response?.data?.message);
-        formik?.resetForm();
-      }
-    } catch (error) {
-      console.error("Failed to fetch slots:", error);
-    }
-  };
-
-  const handleDateSelect = (date: Date) => {
+  const handleDateSelect = async (date: Date) => {
     setSelectedDate(date);
-    setShwowTime(true);
-    fetchAvailableSlots(date);
+    setShowConfirmationModal(true)
+    // fetchAvailableSlots(date);
   };
 
   if (typeof document !== "undefined")
@@ -175,7 +125,7 @@ const CalendarModal: React.FC<CalendarProps> = ({
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.3 }}
-              className="relative bg-white p-5 md:p-10 lg:px-10 rounded-lg w-11/12 lg:w-7/12"
+              className="relative bg-white p-5 md:p-10 lg:px-10 rounded-lg"
               ref={modalRef1}
             >
               <h1 className="font-medium text-start typography-h3">
@@ -185,11 +135,11 @@ const CalendarModal: React.FC<CalendarProps> = ({
                 onClick={() => setModalOpen(false)}
                 className="top-5 right-10 absolute text-text-400 text-2xl cursor-pointer"
               >
-                x
+                <X />
               </button>
 
               <div className="flex lg:flex-row flex-col justify-center gap-10 mt-5">
-                <motion.div className="w-[100%] lg:w-[50%] aspect-square">
+                <motion.div className="w-full aspect-square">
                   <div>{renderHeader()}</div>
                   <div>{renderDays()}</div>
                   <div>
@@ -197,64 +147,23 @@ const CalendarModal: React.FC<CalendarProps> = ({
                       currentDate={currentDate}
                       selectedDate={selectedDate}
                       setSelectedDate={setSelectedDate}
-                      setShwowTime={setShwowTime}
+                      // setShwowTime={setShwowTime}
                       onDateSelect={handleDateSelect}
                     />
                   </div>
                 </motion.div>
-
-                {showTime && (
-                  <motion.div
-                    initial={{ width: isSmall ? "100%" : "0", opacity: 0 }}
-                    animate={{ width: isSmall ? "100%" : "40%", opacity: 1 }}
-                    transition={{ duration: 1.2 }}
-                    className="flex flex-row lg:flex-col justify-center items-center gap-5 bg-white mt-0 lg:mt-10"
-                  >
-                    {availableSlots?.data?.length || 0 > 0 ? (
-                      <>
-                        {availableSlots?.data?.map((slot: ISlot) => (
-                          <button
-                            key={slot.id}
-                            onClick={() => handleSelectTime(slot.id)}
-                            className="bg-white hover:bg-secondary-500 px-4 py-2 border border-secondary-300 rounded-full w-full text-secondary-500 hover:text-white transition-colors duration-700 hover:duration-200 ease-in-out"
-                          >
-                            {convertToAmPm(slot.startTime)} -{" "}
-                            {convertToAmPm(slot.endTime)}
-                          </button>
-                        ))}
-                      </>
-                    ) : (
-                      <>
-                        <div className="flex flex-col justify-center items-center gap-2 bg-secondary-50 shadow-sm p-6 border border-secondary-200 rounded-xl text-secondary-500 text-center">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="w-10 h-10 text-secondary-400"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth={1.5}
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M12 8v4m0 4h.01M21 12A9 9 0 1 1 3 12a9 9 0 0 1 18 0Z"
-                            />
-                          </svg>
-                          <p className="font-semibold text-lg">
-                            No slots available
-                          </p>
-                          <p className="text-secondary-400 text-sm">
-                            Please try again later or choose another day.
-                          </p>
-                        </div>
-                      </>
-                    )}
-                  </motion.div>
-                )}
               </div>
             </motion.div>
           </div>
         )}
+        <AppointmentConfirmationModal
+          isOpen={showConfirmationModal}
+          onClose={() => setShowConfirmationModal(false)}
+          onConfirm={handleConfirmation}
+          appointmentDate={
+            selectedDate ? format(selectedDate, "MMMM d, yyyy") : ""
+          }
+        />
         <ConfirmationModal
           isOpen={openModal}
           onClose={() => setOpenModal(false)}

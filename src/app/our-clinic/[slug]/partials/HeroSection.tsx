@@ -20,7 +20,7 @@ const HeroSection: React.FC<{ slug: string }> = ({ slug }) => {
       <Hero heroData={heroData}>
         <Hero.Container>
           <Hero.Background />
-          <Hero.CustomBreadcrumb className="text-text-50 flex items-center">
+          <Hero.CustomBreadcrumb className="flex items-center text-text-50">
             <CustomBreadcrumb
               items={[
                 {
@@ -28,7 +28,7 @@ const HeroSection: React.FC<{ slug: string }> = ({ slug }) => {
                   link: "/",
                 },
                 {
-                  name: "our-clinic",
+                  name: "Our Clinic",
                   link: PATHS.clinic,
                 },
                 {
@@ -39,7 +39,7 @@ const HeroSection: React.FC<{ slug: string }> = ({ slug }) => {
           </Hero.CustomBreadcrumb>
           <Hero.Content className="px-6 md:px-16 text-left md:text-center">
             <Hero.Title />
-            <Hero.Description className="text-gray-100 max-w-2xl" />
+            <Hero.Description className="max-w-2xl text-gray-100" />
             <Hero.Button />
           </Hero.Content>
         </Hero.Container>

@@ -23,7 +23,9 @@ const ServiceDescription: React.FC<IServiceDescription> = ({ data }) => {
         (section: IServiceDetailsServiceDetailsListSection, index: number) => (
           <div key={index} className="flex flex-col gap-2">
             <div>
-              <h4 className="font-medium typography-h4">{section?.title}</h4>
+              <h4 className="pb-2 font-semibold typography-h2">
+                {section?.title}
+              </h4>
               <p
                 className="max-w-none prose li-check"
                 dangerouslySetInnerHTML={{ __html: section?.description }}

@@ -44,7 +44,12 @@ const CopyButton: React.FC<CopyButtonProps> = ({
 
   return (
     window.navigator.clipboard && (
-      <button disabled={copied} className={`h-7 pl-1 ${!copied?"cursor-pointer":""}`} onClick={copyToClipboard}>
+      <button
+        aria-label="copy link"
+        disabled={copied}
+        className={`h-7 pl-1 ${!copied ? "cursor-pointer" : ""}`}
+        onClick={copyToClipboard}
+      >
         {copied ? (
           <div className="relative flex items-center gap-1 text-xs">
             <Check size={17} className="text-green-400" />

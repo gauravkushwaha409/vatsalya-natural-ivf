@@ -1,7 +1,7 @@
+import Link from "next/link";
 import React from "react";
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 import { IClinicDetailsData } from "../interface/clinicDetails.interface";
-import Link from "next/link";
 interface IContactUsProps {
   data: IClinicDetailsData;
 }
@@ -32,20 +32,19 @@ const ContactUs: React.FC<IContactUsProps> = ({ data }) => {
     },
   ];
   return (
-    <section className="bg-gradient-to-r from-[#EBC0DB] to-primary-100 padding py-10 lg:py-20 flex flex-col lg:flex-row gap-5 lg:gap-10">
-      <div className="space-y-6 w-full lg:w-1/2 ">
-        <div className="flex items-center w-full  gap-4 ">
-          <h2 className="text-primary-500 uppercase tracking-widest text-base leading-[150%] font-bold">
+    <section className="flex lg:flex-row flex-col gap-5 lg:gap-10 bg-gradient-to-r from-[#EBC0DB] to-primary-100 py-10 lg:py-20 padding">
+      <div className="space-y-6 w-full lg:w-1/2">
+        <div className="flex items-center gap-4 w-full">
+          <h2 className="font-bold text-primary-500 text-base uppercase leading-[150%] tracking-widest">
             Contact Us
           </h2>
-          <div className="h-px bg-primary-500 flex-1 max-w-[148px]"></div>
+          <div className="flex-1 bg-primary-500 max-w-[148px] h-px"></div>
         </div>
-        <h2 className="typography-h2 font-semibold text-text-500 ">
-          Take your first step towards parenthood with Kathmandu’s No.1
-          Fertility Center
+        <h2 className="font-semibold text-text-500 typography-h2">
+          {data?.contactUsTitle}
         </h2>
 
-        <div className="flex justify-between px-5  pb-10">
+        <div className="flex justify-between px-5 pb-10">
           {contactData?.map(({ id, icon, label, value, link }) => (
             <div
               key={id}
@@ -76,6 +75,7 @@ const ContactUs: React.FC<IContactUsProps> = ({ data }) => {
       </div>
       <div className="w-full lg:w-1/2 h-auto">
         <iframe
+          title="Google Map"
           src={data?.mapUrl}
           loading="lazy"
           className="w-full h-full"

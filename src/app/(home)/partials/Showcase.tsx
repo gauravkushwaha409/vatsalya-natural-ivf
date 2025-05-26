@@ -10,7 +10,7 @@ const Showcase: React.FC<ShowCaseItemProps> = ({ data }) => {
   return (
     <div
       style={{
-        background: "url(/noise.png) #fff1ef",
+        background: "url(/noise.webp) #fff1ef",
       }}
       className="flex lg:flex-row flex-col justify-between items-center gap-20 px-4 sm:px-8 md:px-12 lg:px-20 py-4"
     >

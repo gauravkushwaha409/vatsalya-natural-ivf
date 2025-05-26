@@ -2,8 +2,9 @@
 import React from "react";
 
 
-import useClickOutside from "@/hooks/useClickOutside";
 import checkgif from "@/assests/gif/confirmed.png";
+import useClickOutside from "@/hooks/useClickOutside";
+import { X } from "lucide-react";
 import Image from "next/image";
 
 interface RequestAppoimentModalProps {
@@ -22,22 +23,22 @@ const ConfirmationModal: React.FC<RequestAppoimentModalProps> = ({
       {isOpen && (
         <div
           ref={modalRef}
-          className="fixed inset-0 bg-black/40 flex justify-center items-center z-[100] text-black  "
+          className="z-[100] fixed inset-0 flex justify-center items-center bg-black/40 text-black"
         >
-          <div className="bg-white flex flex-col items-center gap-4 p-10 w-fit mx-auto relative">
+          <div className="relative flex flex-col items-center gap-4 bg-white shadow-lg mx-auto p-10 rounded-lg w-1/2">
             <button
               onClick={() => onClose()}
               className="top-5 right-10 absolute text-text-400 text-2xl cursor-pointer *:"
             >
-              x
+              <X />
             </button>
-            <Image src={checkgif} alt="checkgif" className="w-20 " />
-            <span className="typography-h3 text-secondary-600 font-bold text-center">
+            <Image src={checkgif} alt="checkgif" className="w-20" />
+            <span className="font-bold text-secondary-600 text-center typography-h3">
               Appointment Request Sent
             </span>
-            <p className="text-text-400 typography-paragraph-regular font-medium w-full md:w-3/4 text-center">
-              Your appointment request has been successfully sent. You will
-              receive a confirmation shortly.
+            <p className="w-full font-medium text-text-400 text-center typography-paragraph-regular">
+              Your appointment request has been successfully sent. A member of
+              our team will contact you shortly to confirm the details
             </p>
           </div>
         </div>

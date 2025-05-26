@@ -55,7 +55,10 @@ const ServiceCards: React.FC<IServiceCards> = ({ data }) => {
                     <h3 className="font-bold typography-h3">
                       {item?.name}{" "}
                     </h3>{" "}
-                    <button className="cursor-pointer">
+                    <button
+                      aria-label={`Go to ${item?.name}`}
+                      className="cursor-pointer"
+                    >
                       <IoArrowForwardOutline
                         size={24}
                         className="text-primary-500 -rotate-40"

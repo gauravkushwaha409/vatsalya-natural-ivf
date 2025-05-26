@@ -14,7 +14,7 @@ export const useChat = (token: string | null, room?: string) => {
   const { data, fetchNextPage, refetch, isFetchingNextPage, hasNextPage } =
     useGetAllDataInfiniteQuery(
       {
-        url: `${BASE_CHATBOT_URL}/chat/rooms/${roomData?.id}/`,
+        url: `${BASE_CHATBOT_URL}/message/rooms/${roomData?.id}/`,
       },
       { skip: !roomData?.id }
     );
