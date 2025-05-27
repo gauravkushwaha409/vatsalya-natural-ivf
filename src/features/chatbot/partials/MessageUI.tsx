@@ -63,6 +63,7 @@ const MessageUI: React.FC<{ isOpen: boolean; closePopup: () => void }> = ({
             </motion.div>
             <MessagesContainer messages={messages} />
           </div>
+
           <CategorySteps />
 
           <div className="shrink-0">

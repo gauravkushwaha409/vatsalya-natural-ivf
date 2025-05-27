@@ -18,7 +18,21 @@ export const useSubCatgory = (
     isLoading: isLoadingSubCategory,
     isFetching: isFetchingSubCategory,
   } = useChatGetDataQuery({
-    url: endpoints.subCategory,
+    url: endpoints.chatbot?.subCategory,
+    params: {
+      p: 1,
+      page_size: 40,
+      category_id: categoriesId,
+    },
+    tag: "subCategories",
+  });
+  const {
+    data: chatChildCategories,
+    isError: isErrorChildCategory,
+    isLoading: isLoadingChildCategory,
+    isFetching: isFetchingChildCategory,
+  } = useChatGetDataQuery({
+    url: endpoints.chatbot?.subCategory,
     params: {
       p: 1,
       page_size: 40,
@@ -38,11 +52,15 @@ export const useSubCatgory = (
       setSteps(2);
     }
   };
+  const handleBack = () => {
+    setSteps(0);
+  };
   return {
     chatSubCategoriesData,
     isErrorSubCategory,
     isLoadingSubCategory,
     isFetchingSubCategory,
     handleSubCategoryClick,
+    handleBack,
   };
 };

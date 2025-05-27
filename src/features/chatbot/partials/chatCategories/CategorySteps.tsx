@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CategoryLists from "./CategoryLists";
-import SubCategoryList from "../SubCategoryList";
+import SubCategoryList from "./SubCategoryList";
 import Answers from "./Answers";
 
 const CategorySteps = () => {

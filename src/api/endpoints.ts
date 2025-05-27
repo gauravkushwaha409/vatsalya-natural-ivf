@@ -27,6 +27,9 @@ interface Endpoints {
   rating: string;
   chatbot: {
     register: string;
+    category: string;
+    subCategory: string;
+    answers: string;
   };
   management_team: string;
   leader: string;
@@ -42,9 +45,6 @@ interface Endpoints {
   breadcrumb: IBreadCrumb;
   terms: string;
   privacy: string;
-  category: string;
-  subCategory: string;
-  answers: string;
 }
 export interface IBreadCrumb {
   about_us: string;
@@ -117,6 +117,10 @@ export const endpoints: Endpoints = {
   // Chatbot
   chatbot: {
     register: "/user/register",
+    category: "chat/category/list/",
+    subCategory: "chat/subCategory/list/",
+    childCategory: "chat/childCategory/list/",
+    answers: "chat/question/list/",
   },
   management_team: "/team",
   leader: "/leader",
@@ -156,11 +160,9 @@ export const endpoints: Endpoints = {
     FertilityCalculator: "/breadcrumb?filter=fertility-calculator",
     OvulationCalculator: "/breadcrumb?filter=ovulation-calculator",
   },
-  category: "chat/category/list/",
-  subCategory: "chat/subCategory/list/",
+
   terms: "/term",
   privacy: "/privacy",
-  answers: "chat/question/list/",
 };
 
 export const BASE_API_URL = process.env.NEXT_PUBLIC_API_URL;

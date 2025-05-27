@@ -1,18 +1,20 @@
 import React from "react";
-import MessagesContainer from "../MessagesContainer";
 import { useAnswers } from "../../hooks/useAnswers";
-import ChatSuggestion from "../ChatSuggestion";
 import CategoriesMessage from "./CategoriesMessage";
-import CategoriesChatSuggestion from "./CategoriesChatCategories";
+import CategoriesChatSuggestion from "./CategoriesChatSuggestions";
 
 const Answers = () => {
   const { answerdata, isError, isFetching, isLoading, handleSuggestions } =
     useAnswers();
+  console.log(
+    "answerdata",
+    answerdata?.results?.map((items) => items?.answers)
+  );
   return (
     <div className="relative">
       {answerdata?.results?.map((items) => (
         <div>
-          <CategoriesMessage messages={items?.answers} />
+          <CategoriesMessage message={items?.answers} />
         </div>
       ))}
 

@@ -16,7 +16,7 @@ export const useCategory = (
     isLoading: isLoadingCategory,
     isFetching: isFetchingCategory,
   } = useChatGetDataQuery({
-    url: endpoints.category,
+    url: endpoints.chatbot?.category,
     params: {
       p: 1,
       page_size: 20,
@@ -35,11 +35,15 @@ export const useCategory = (
       setSteps(1);
     }
   };
+  const handleBack = () => {
+    setSteps(0);
+  };
   return {
     chatCategoriesData,
     isErrorCategory,
     isLoadingCategory,
     isFetchingCategory,
     handleCategoryClick,
+    handleBack,
   };
 };

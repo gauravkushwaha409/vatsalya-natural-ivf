@@ -5,6 +5,7 @@ export interface ICategoryState {
   subCategoriesId: string;
   childCategoriesID: string;
   suggestions: string;
+  selectedSuggestion?: any;
 }
 
 const initialState: ICategoryState = {
@@ -28,6 +29,9 @@ const categorySlice = createSlice({
       state.childCategoriesID = action.payload;
     },
     setSuggestions: (state, action) => {
+      state.suggestions = action.payload;
+    },
+    selectedSuggestion: (state, action) => {
       state.suggestions = action.payload;
     },
   },

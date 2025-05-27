@@ -14,7 +14,7 @@ export const useAnswers = () => {
     setSuggestions(sugg);
   };
   const { data, isLoading, isError, isFetching } = useChatGetDataQuery({
-    url: endpoints.answers,
+    url: endpoints.chatbot?.answers,
     params: {
       p: 1,
       category: categoriesId,
