@@ -17,7 +17,7 @@ const DropdownPortal = ({
   if (!isOpen) return null;
 
   return createPortal(
-    <div className="z-50 fixed inset-0">
+    <div className="z-50 absolute inset-0">
       <button
         className="absolute inset-0"
         onClick={() => onSelect("ivf")}
