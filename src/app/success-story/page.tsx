@@ -1,14 +1,13 @@
-import React from "react";
-import TestimonialSection from "./partials/TestimonialSection";
-import StoriesSection from "./partials/StoriesSection";
-import YourJourney from "./partials/YourJourney";
-import HeroSuccess from "./partials/HeroSuccess";
-import { fetchSuccessStories } from "./hooks/fetchSuccessStoriesData";
-import ErrorMessage from "@/components/ErrorMessage";
-import { ISeoRoot } from "@/interface/seo.interface";
-import { endpoints } from "@/api/endpoints";
 import { getData } from "@/api/axios";
+import { endpoints } from "@/api/endpoints";
+import ErrorMessage from "@/components/ErrorMessage";
 import { createMetadata } from "@/hooks/generateMetaData";
+import { ISeoRoot } from "@/interface/seo.interface";
+import { fetchSuccessStories } from "./hooks/fetchSuccessStoriesData";
+import HeroSuccess from "./partials/HeroSuccess";
+import StoriesSection from "./partials/StoriesSection";
+import TestimonialSection from "./partials/TestimonialSection";
+import YourJourney from "./partials/YourJourney";
 export const dynamic = "force-dynamic";
 
 type Props = {
@@ -25,12 +24,18 @@ const SuccessStory = async ({ searchParams }: Props) => {
   try {
     const page = Number((await searchParams)?.page) || 1;
     const { stories, metadata } = await fetchSuccessStories(page, 12);
-
     const { yourJourneyData } = await fetchSuccessStories();
+    // herosection data
+    const data = await getData(endpoints.breadcrumb.success_story);
+    const records = data?.data?.records[0];
+    const heroData = {
+      ...records,
+      breadcrumb: "Sucess Stories",
+    };
 
     return (
       <div>
-        <HeroSuccess />
+        <HeroSuccess heroData={heroData} />
         <TestimonialSection data={metadata?.data} />
         <StoriesSection data={stories?.data} metaData={metadata?.data} />
         <YourJourney data={yourJourneyData} />
@@ -40,7 +45,7 @@ const SuccessStory = async ({ searchParams }: Props) => {
     console.error("Error fetching blog data:", error);
     return (
       <>
-        <HeroSuccess />
+        <HeroSuccess heroData={{ title: "Sucess Stories" }} />
         <ErrorMessage />
       </>
     );

@@ -41,3 +41,6 @@ export interface IInternationalClientSeo {
   ogDescription?: string;
   canonicalUrl?: string;
 }
+
+
+

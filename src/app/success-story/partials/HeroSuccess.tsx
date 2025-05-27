@@ -1,16 +1,8 @@
 "use client";
 
-import { useGetDataQuery } from "@/api/api";
-import { endpoints } from "@/api/endpoints";
-import Hero from "@/components/compoundComponent/Hero";
+import Hero, { HeroData } from "@/components/compoundComponent/Hero";
 
-const HeroSuccess = () => {
-  const { data } = useGetDataQuery({ url: endpoints.breadcrumb.success_story });
-  const records = data?.data?.records[0];
-  const heroData = {
-    ...records,
-    breadcrumb: "Sucess Stories",
-  };
+const HeroSuccess: React.FC<{ heroData: HeroData }> = ({ heroData }) => {
   return (
     <Hero heroData={heroData}>
       <Hero.Container>
