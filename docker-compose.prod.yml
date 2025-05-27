@@ -21,17 +21,17 @@ services:
       retries: 3
     networks:
       - vatsalya-network-prod
-    deploy:
-      replicas: 2
-      update_config:
-        parallelism: 1
-        delay: 10s
-        order: start-first
-      restart_policy:
-        condition: any
-        delay: 5s
-        max_attempts: 3
-        window: 120s
+    # deploy:
+    #   replicas: 2
+    #   update_config:
+    #     parallelism: 1
+    #     delay: 10s
+    #     order: start-first
+    #   restart_policy:
+    #     condition: any
+    #     delay: 5s
+    #     max_attempts: 3
+    #     window: 120s
     restart: always
 
 networks:
