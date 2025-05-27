@@ -1,17 +1,13 @@
-"use client";
-import { useGetDataQuery } from "@/api/api";
-import { endpoints } from "@/api/endpoints";
 import ServiceForm from "@/app/services/[slug]/partials/ServiceForms";
 import BasicTab from "@/components/tab/BasicTab";
-import React from "react";
 import { IInternationalClientRoot } from "../interface/internationalClient.interface";
+import { getData } from "@/api/axios";
+import { endpoints } from "@/api/endpoints";
 
-const InternationalClients = () => {
-  const { data: internationalPatients } = useGetDataQuery<{
-    data: IInternationalClientRoot;
-  }>({
-    url: endpoints.international_patients,
-  });
+const InternationalClients = async () => {
+  const internationalPatients = await getData<IInternationalClientRoot>(
+    endpoints.international_patients
+  );
   const Tabs =
     internationalPatients?.data?.records?.map((item) => ({
       label: item?.title,
@@ -19,9 +15,9 @@ const InternationalClients = () => {
     })) || [];
 
   return (
-    <section className="padding bg-background-100 py-10 flex  gap-5 lg:gap-10 ">
-      <div className="w-full lg:w-8/12 h-auto shadow-sm rounded-lg px-5 py-5 ">
-        <div className="max-w-5xl mx-auto">
+    <section className="flex gap-5 lg:gap-10 bg-background-100 py-10 padding">
+      <div className="shadow-sm px-5 py-5 rounded-lg w-full lg:w-8/12 h-auto">
+        <div className="mx-auto max-w-5xl">
           <BasicTab tabs={Tabs} />
         </div>
       </div>

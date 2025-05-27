@@ -2,13 +2,13 @@
 
 import Breadcrumb from "@/components/Breadcumb";
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
+import { motion } from "motion/react";
 import Image, { StaticImageData } from "next/image";
 import { createContext, ReactNode, useContext, useState } from "react";
 import { twMerge } from "tailwind-merge";
-import { motion } from "motion/react";
 
 // Define the type for the hero data that will be passed to the context
-type HeroData = {
+export type HeroData = {
   title?: string;
   description?: string;
   image?: string | StaticImageData;

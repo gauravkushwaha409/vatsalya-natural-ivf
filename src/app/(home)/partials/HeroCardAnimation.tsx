@@ -33,7 +33,6 @@ const CardAnimation = () => {
   const { data } = useGetDataQuery({
     url: `${endpoints.sucessStory}?perPage=5`,
   });
-  console.log(data?.data?.totalRecords, "tessss");
   const leftCardVariant: Variants = {
     initial: {
       opacity: 0,
