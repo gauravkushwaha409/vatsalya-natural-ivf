@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Build arguments for environment variables
 ARG NEXT_PUBLIC_API_URL=https://api.vatsalya.com.np/api/v1
-ARG NODE_ENV=production
+ARG NODE_ENV=development
 
 
 # Set environment variables
