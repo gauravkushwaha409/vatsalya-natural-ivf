@@ -5,15 +5,18 @@ WORKDIR /app
 # Install dependencies needed for build
 RUN apk add --no-cache libc6-compat
 
-# Copy package files
+# Copy all configuration files first
 COPY package*.json ./
 COPY next.config.ts ./
 COPY tsconfig.json ./
+COPY postcss.config.mjs ./
+COPY eslint.config.mjs ./
+COPY components.json ./
 
 # Install dependencies
 RUN npm ci
 
-# Copy source code
+# Copy source files
 COPY src/ ./src/
 COPY public/ ./public/
 
@@ -38,14 +41,18 @@ RUN adduser --system --uid 1001 nextjs
 RUN mkdir .next
 RUN chown nextjs:nodejs .next
 
-# Install production dependencies only
+# Copy package files and install production dependencies
 COPY --from=builder /app/package*.json ./
 RUN npm ci --only=production
 
-# Copy built application and set permissions
+# Copy all necessary configuration files
+COPY --from=builder --chown=nextjs:nodejs /app/next.config.ts ./
+COPY --from=builder --chown=nextjs:nodejs /app/postcss.config.mjs ./
+COPY --from=builder --chown=nextjs:nodejs /app/components.json ./
+
+# Copy built application and static files
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/next.config.ts ./
 
 # Create cache directory with correct permissions
 RUN mkdir -p .next/cache && chown -R nextjs:nodejs .next/cache
