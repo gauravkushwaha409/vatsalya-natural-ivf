@@ -36,11 +36,7 @@ const Footer = async () => {
       href: socialMedia?.twitter,
       icon: "/svg/twitter.svg",
     },
-    {
-      name: "whatsapp",
-      href: socialMedia?.whatsapp,
-      icon: "/svg/whatsapp.svg",
-    },
+
     {
       name: "youtube",
       href: socialMedia?.youtube,
