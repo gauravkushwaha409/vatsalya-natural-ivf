@@ -31,9 +31,24 @@ const page: React.FC<TeamProps> = async ({ searchParams }) => {
       `${endpoints.management_team}?page=${managementPage}&perPage=${perPage}`
     );
 
+    // const { data } = useGetDataQuery({ url: endpoints.breadcrumb.our_expert });
+    // const records = data?.data?.records[0];
+    // const heroData = {
+    //   ...records,
+    //   breadcrumb: "Our Team",
+    // };
+
+    // herosection data
+    const heroResponse = await getData(endpoints.breadcrumb.our_expert);
+    const records = heroResponse?.data?.records[0];
+    const heroData = {
+      ...records,
+      breadcrumb: "Our Team",
+    };
+
     return (
       <section>
-        <Herosection />
+        <Herosection heroData={heroData} />
         <Leader data={leader} />
         <Specialists data={data} managementTeam={managementTeam} />
       </section>

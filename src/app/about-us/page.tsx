@@ -1,4 +1,10 @@
+import { getData } from "@/api/axios";
+import { endpoints } from "@/api/endpoints";
+import ErrorMessage from "@/components/ErrorMessage";
 import Testimonial from "@/components/Testimonial";
+import { createMetadata } from "@/hooks/generateMetaData";
+import { ISeoRoot } from "@/interface/seo.interface";
+import { fetchAboutPageData } from "./hooks/fetchAboutUsData";
 import AboutHero from "./partials/AboutHero";
 import Culture from "./partials/Culture";
 import Family from "./partials/Family";
@@ -6,12 +12,6 @@ import Milestone from "./partials/Milestone";
 import MissionVision from "./partials/MissionVision";
 import OurStory from "./partials/OurStory";
 import WhyChooseUs from "./partials/WhyChooseUs";
-import { fetchAboutPageData } from "./hooks/fetchAboutUsData";
-import ErrorMessage from "@/components/ErrorMessage";
-import { getData } from "@/api/axios";
-import { endpoints } from "@/api/endpoints";
-import { ISeoRoot } from "@/interface/seo.interface";
-import { createMetadata } from "@/hooks/generateMetaData";
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata() {
@@ -23,10 +23,17 @@ const AboutUs = async () => {
   try {
     const { aboutUsData, statsData, whyUsData, testimonialData } =
       await fetchAboutPageData();
+    //
+    const data = getData(endpoints.breadcrumb.about_us);
+    const records = (await data).data?.records[0];
+    const heroData = {
+      ...records,
+      breadcrumb: "About Us",
+    };
 
     return (
       <div className="overflow-hidden">
-        <AboutHero />
+        <AboutHero heroData={heroData} />
         <OurStory data={aboutUsData?.data} />
         <MissionVision data={aboutUsData?.data?.AboutusMission[0]} />
         <Family data={aboutUsData?.data?.Family[0]} />
@@ -40,7 +47,7 @@ const AboutUs = async () => {
     console.error(error);
     return (
       <>
-        <AboutHero />
+        <AboutHero heroData={{ title: "About Us" }} />
 
         <ErrorMessage />
       </>

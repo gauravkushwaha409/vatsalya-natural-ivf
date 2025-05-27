@@ -1,15 +1,13 @@
 "use client";
-import { useGetDataQuery } from "@/api/api";
-import { endpoints } from "@/api/endpoints";
-import Hero from "@/components/compoundComponent/Hero";
+import Hero, { HeroData } from "@/components/compoundComponent/Hero";
 
-const AboutHero = () => {
-  const { data } = useGetDataQuery({ url: endpoints.breadcrumb.about_us });
-  const records = data?.data?.records[0];
-  const heroData = {
-    ...records,
-    breadcrumb: "AboutUs",
-  };
+const AboutHero: React.FC<{ heroData: HeroData }> = ({ heroData }) => {
+  // const { data } = useGetDataQuery({ url: endpoints.breadcrumb.about_us });
+  // const records = data?.data?.records[0];
+  // const heroData = {
+  //   ...records,
+  //   breadcrumb: "AboutUs",
+  // };
   return (
     <Hero heroData={heroData}>
       <Hero.Container>
