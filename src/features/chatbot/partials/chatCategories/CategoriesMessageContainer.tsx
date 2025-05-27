@@ -1,6 +1,6 @@
 import React from "react";
-import { IMessage } from "../hooks/useChat";
-import Message from "./Message";
+import { IMessage } from "../../hooks/useChat";
+import CategoriesMessage from "./CategoriesMessage";
 
 const MessagesContainer: React.FC<{ messages: IMessage[] }> = ({
   messages,
@@ -8,7 +8,7 @@ const MessagesContainer: React.FC<{ messages: IMessage[] }> = ({
   return (
     <div className="space-y-5 mb-4 px-1.5 pt-4 w-full h-max overflow-y-hidden">
       {messages?.map((message, index) => (
-        <Message key={index} message={message?.answer} />
+        <CategoriesMessage key={index} message={message?.answer} />
       ))}
     </div>
   );

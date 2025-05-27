@@ -101,7 +101,7 @@ const ChatLoginForm: React.FC<{
 
         <button
           type="submit"
-          className="bg-secondary-500 mt-4 p-3 border border-secondary-200 rounded-full w-full font-semibold text-white text-sm typography-paragraph-small"
+          className="bg-secondary-500 mt-4 p-3 border border-secondary-200 rounded-full w-full font-semibold text-white text-sm typography-paragraph-small cursor-pointer"
           style={{
             boxShadow: "0px 5.486px 12.343px 0px rgba(215, 101, 120, 0.33)",
           }}

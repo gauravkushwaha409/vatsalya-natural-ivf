@@ -42,6 +42,9 @@ interface Endpoints {
   breadcrumb: IBreadCrumb;
   terms: string;
   privacy: string;
+  category: string;
+  subCategory: string;
+  answers: string;
 }
 export interface IBreadCrumb {
   about_us: string;
@@ -153,8 +156,11 @@ export const endpoints: Endpoints = {
     FertilityCalculator: "/breadcrumb?filter=fertility-calculator",
     OvulationCalculator: "/breadcrumb?filter=ovulation-calculator",
   },
+  category: "chat/category/list/",
+  subCategory: "chat/subCategory/list/",
   terms: "/term",
   privacy: "/privacy",
+  answers: "chat/question/list/",
 };
 
 export const BASE_API_URL = process.env.NEXT_PUBLIC_API_URL;

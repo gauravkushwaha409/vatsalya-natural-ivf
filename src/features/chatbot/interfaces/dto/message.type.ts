@@ -6,7 +6,7 @@ export interface IChatMessage {
   sender_name: string;
   room_id: string;
   room_name: string;
-  message: string;
+  message: string | null;
   avatar: string;
   file?: string;
   file_type?: FileTypes | null;

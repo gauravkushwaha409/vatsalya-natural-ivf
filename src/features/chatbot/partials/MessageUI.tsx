@@ -10,6 +10,8 @@ import ChatSuggestion from "./ChatSuggestion";
 import Header from "./Header";
 import MessageInput from "./MessageInput";
 import MessagesContainer from "./MessagesContainer";
+import CategoryLists from "./chatCategories/CategoryLists";
+import CategorySteps from "./chatCategories/CategorySteps";
 
 const MessageUI: React.FC<{ isOpen: boolean; closePopup: () => void }> = ({
   closePopup,
@@ -61,11 +63,8 @@ const MessageUI: React.FC<{ isOpen: boolean; closePopup: () => void }> = ({
             </motion.div>
             <MessagesContainer messages={messages} />
           </div>
-          <ChatSuggestion
-            sendMessage={sendMessage}
-            suggestions={suggestions}
-            disabled={isSending}
-          />
+          <CategorySteps />
+
           <div className="shrink-0">
             <MessageInput disabled={isSending} sendMessage={sendMessage} />
           </div>
