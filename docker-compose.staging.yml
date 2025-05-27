@@ -1,0 +1,32 @@
+services:
+  vatsalya-fe:
+    build:
+      context: .
+      dockerfile: Dockerfile.staging
+      args:
+        NEXT_PUBLIC_API_URL: https://staging-api.vatsalya.com.np/api/v1
+        NODE_ENV: staging
+    container_name: vatsalya-fe-staging
+    ports:
+      - "8003:3000"
+    env_file:
+      - .env.staging
+    environment:
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-https://api.vatsalya.com.np/api/v1}
+      - NODE_ENV=staging
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+    networks:
+      - vatsalya-network-staging
+    restart: unless-stopped
+
+networks:
+  vatsalya-network-staging:
+    name: vatsalya-network-staging
+    external: true 

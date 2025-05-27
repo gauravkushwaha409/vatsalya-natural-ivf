@@ -1,0 +1,32 @@
+# Build stage
+FROM node:22-alpine AS builder
+WORKDIR /app
+
+# Install dependencies needed for build
+RUN apk add --no-cache libc6-compat
+
+# Copy package files
+COPY package*.json ./
+COPY next.config.ts ./
+COPY tsconfig.json ./
+
+# Install all dependencies (including devDependencies)
+RUN npm install
+
+# Copy source code
+COPY . .
+
+# Build arguments and environment variables
+ARG NEXT_PUBLIC_API_URL
+ARG NODE_ENV=staging
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+ENV NODE_ENV=$NODE_ENV
+
+# Build application
+RUN npm run build
+
+# Expose port
+EXPOSE 3000
+
+# Start the application with development features
+CMD ["npm", "run", "dev"] 
