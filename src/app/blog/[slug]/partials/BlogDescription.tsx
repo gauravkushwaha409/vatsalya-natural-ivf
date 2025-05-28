@@ -1,11 +1,13 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useGetDataQuery, usePostDataMutation } from "@/api/api";
+import { endpoints } from "@/api/endpoints";
+import SocialMediaShareModal from "@/components/modals/SocialMediaShareModal";
 import { MessageCircle } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { BsEnvelope } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
-import SocialMediaShareModal from "@/components/modals/SocialMediaShareModal";
 import { FaFacebook, FaTwitter } from "react-icons/fa6";
-import { BsEnvelope } from "react-icons/bs";
 import { IoShareSocial } from "react-icons/io5";
 import {
   EmailShareButton,
@@ -13,8 +15,6 @@ import {
   TwitterShareButton,
 } from "react-share";
 import { IBlogDetailsBlog } from "../../interface/blogdetails.interface";
-import { useGetDataQuery, usePostDataMutation } from "@/api/api";
-import { endpoints } from "@/api/endpoints";
 
 interface BlogDescriptionProps {
   data: IBlogDetailsBlog;
@@ -65,16 +65,16 @@ const BlogDescription: React.FC<BlogDescriptionProps> = ({ data }) => {
     <div>
       <div className="mb-10">
         <p
-          className="typography-paragraph-large text-text-500 text-justify leading-[150%]"
+          className="max-w-none text-text-500 text-justify leading-[150%] typography-paragraph-large prose"
           dangerouslySetInnerHTML={{ __html: data?.description }}
         />
       </div>
 
       {/* share + like section */}
       <div>
-        <div className="flex items-center justify-between mb-10">
-          <div className="flex gap-5 items-center">
-            <div className="flex gap-1.5 items-center">
+        <div className="flex justify-between items-center mb-10">
+          <div className="flex items-center gap-5">
+            <div className="flex items-center gap-1.5">
               <MessageCircle size={24} className="text-gray-600" />
               <span className="text-text-500 typography-paragraph-regular">
                 {commentLength}
@@ -82,7 +82,7 @@ const BlogDescription: React.FC<BlogDescriptionProps> = ({ data }) => {
             </div>
             <button
               onClick={handleLike}
-              className="flex gap-1.5 items-center focus:outline-none cursor-pointer"
+              className="flex items-center gap-1.5 focus:outline-none cursor-pointer"
               disabled={LikeLoading}
             >
               {isLiked ? (
