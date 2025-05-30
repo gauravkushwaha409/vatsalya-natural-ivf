@@ -30,6 +30,7 @@ interface Endpoints {
     category: string;
     subCategory: string;
     answers: string;
+    childCategory: string;
   };
   management_team: string;
   leader: string;

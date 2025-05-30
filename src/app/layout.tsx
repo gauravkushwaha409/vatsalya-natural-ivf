@@ -9,7 +9,7 @@ import { IoLogoWhatsapp } from "react-icons/io5";
 import { getHomePageData } from "./(home)/hook/hook.hook";
 import "./globals.css";
 import Providers from "./providers";
-import BotPopup from "@/features/chatbot/BotPopup";
+import BotPopup from "./(chatbot)/BotPopup";
 
 const manRope = Manrope({
   variable: "--font-manrope",

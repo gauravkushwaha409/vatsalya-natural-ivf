@@ -6,7 +6,7 @@ const Header: React.FC<{ onClose: () => void; isConnected: boolean }> = ({
   isConnected,
 }) => {
   return (
-    <div className="flex items-center gap-2 bg-secondary-50 p-6">
+    <div className="flex items-center gap-2 bg-secondary-50 p-2">
       <div className="bg-primary-50 rounded-full w-10 h-10">
         <Image
           src={"/svg/bot-image.svg"}

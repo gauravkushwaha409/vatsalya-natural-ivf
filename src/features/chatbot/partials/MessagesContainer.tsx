@@ -1,15 +1,21 @@
 import React from "react";
-import { IMessage } from "../hooks/useChat";
 import Message from "./Message";
+import MessageInput from "./MessageInput";
+import { useSocketChat } from "@/app/(chatbot)/hooks/useSocketChat";
 
-const MessagesContainer: React.FC<{ messages: IMessage[] }> = ({
-  messages,
-}) => {
+const MessagesContainer = () => {
+  const { handleSendMessage, messages, chatContainerRef } = useSocketChat();
+  console.log(messages, "socketmsg");
   return (
-    <div className="space-y-5 mb-4 px-1.5 pt-4 w-full h-max overflow-y-hidden">
-      {messages?.map((message, index) => (
-        <Message key={index} message={message?.answer} />
-      ))}
+    <div className="flex flex-col flex-1 h-[23rem]">
+      <div className="flex-1 overflow-y-auto" ref={chatContainerRef}>
+        {messages?.map((message, index) => (
+          <Message key={index} message={message} />
+        ))}
+      </div>
+      <div className="border-t border-gray-200  mt-2 ">
+        <MessageInput sendMessage={handleSendMessage} disabled={false} />
+      </div>
     </div>
   );
 };

@@ -47,7 +47,7 @@ export interface Links {
 }
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: BASE_CHATBOT_URL,
+  baseUrl: "http://192.168.1.78:8008/api/v1",
   prepareHeaders: async (headers) => {
     headers.set("Accept", "application/json");
     return headers;

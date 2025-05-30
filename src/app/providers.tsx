@@ -3,6 +3,7 @@ import { ProgressProvider } from "@bprogress/next/app";
 import { Provider } from "react-redux";
 import { Toaster } from "sonner";
 import store from "../store/store";
+import { ChatProvider } from "./(chatbot)/context/ChatContext";
 
 const Providers: React.FC<Readonly<{ children: React.ReactNode }>> = ({
   children,
@@ -16,7 +17,10 @@ const Providers: React.FC<Readonly<{ children: React.ReactNode }>> = ({
         shallowRouting
       >
         <Toaster />
-        <Provider store={store}>{children}</Provider>
+        <Provider store={store}>
+          {" "}
+          <ChatProvider>{children}</ChatProvider>
+        </Provider>
       </ProgressProvider>
     </>
   );

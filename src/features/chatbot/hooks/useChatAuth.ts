@@ -9,12 +9,13 @@ import { ILoginResponse } from "../interfaces/dto/loginDTO";
 export interface IChatLoginFormData {
   email: string;
   phone_no: string;
-  firstname: string;
-  lastname: string;
+  name: string;
 }
 
 export const useChatAuth = () => {
-  const { isLoggedIn,room,token,user } = useAppSelector(state => state.chat)
+  const { isLoggedIn, room, token, user } = useAppSelector(
+    (state) => state.chat
+  );
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
@@ -22,10 +23,11 @@ export const useChatAuth = () => {
   const handleLogin = async (formData: IChatLoginFormData) => {
     setIsLoading(true);
     try {
-      const {data} = await axios.post<ILoginResponse>(
-        `${BASE_CHATBOT_URL}${endpoints.chatbot.register}`,formData
+      const { data } = await axios.post<ILoginResponse>(
+        `${BASE_CHATBOT_URL}${endpoints.chatbot.register}`,
+        formData
       );
-      const { user, room,access } = data.data;
+      const { user, room, access } = data.data;
 
       dispatch(
         loginTochatBot({
@@ -34,7 +36,6 @@ export const useChatAuth = () => {
           user,
         })
       );
-
     } catch (error) {
       if (error instanceof Error) {
         setError(error.message);
