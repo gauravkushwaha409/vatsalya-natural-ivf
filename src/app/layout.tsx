@@ -6,10 +6,10 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import { IoLogoWhatsapp } from "react-icons/io5";
+import BotPopup from "./(chatbot)/BotPopup";
 import { getHomePageData } from "./(home)/hook/hook.hook";
 import "./globals.css";
 import Providers from "./providers";
-import BotPopup from "./(chatbot)/BotPopup";
 
 const manRope = Manrope({
   variable: "--font-manrope",
@@ -86,9 +86,11 @@ export default async function RootLayout({
         />
       </head>
       <body
-        className={`${manRope.variable} ${roboto.variable} antialiased font-manrope bg-background-100 `}
+        className={`${manRope.variable} ${roboto.variable} antialiased font-manrope bg-background-100 relative`}
         // className={`${manRope.variable} ${inter.variable} ${plusJakarta.variable} ${roboto.variable} antialiased font-manrope bg-background-100 `}
       >
+        {/* this divs fills the white space when header is hidden */}
+        <div className="top-0 -z-20 absolute inset-x-0 bg-primary-50 h-[12rem]" />
         <Providers>
           <Header />
           <div className="">{children}</div>
