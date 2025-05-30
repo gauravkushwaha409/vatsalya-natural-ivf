@@ -8,7 +8,7 @@ import { ILoginResponse } from "../interfaces/dto/loginDTO";
 
 export interface IChatLoginFormData {
   email: string;
-  phone_no: string;
+  phone: string;
   name: string;
 }
 

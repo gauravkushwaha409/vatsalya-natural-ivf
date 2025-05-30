@@ -8,7 +8,7 @@ const ChatLoginForm: React.FC<{
   const formik = useFormik({
     initialValues: {
       email: "",
-      phone_no: "",
+      phone: "",
       name: "",
     },
     onSubmit: handleLogin,
@@ -16,7 +16,7 @@ const ChatLoginForm: React.FC<{
       email: Yup.string()
         .email("Invalid email address")
         .required("Email is required"),
-      phone_no: Yup.string()
+      phone: Yup.string()
         .required("Phone number is required")
         .min(10, "Phone number must be at least 10 characters"),
       name: Yup.string().required("First name is required"),
@@ -68,15 +68,15 @@ const ChatLoginForm: React.FC<{
           </span>
           <input
             type="text"
-            name="phone_no"
+            name="phone"
             className="bg-secondary-50 p-3 border border-gray-400 rounded-xl outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.phone_no}
             placeholder="Enter Your Phone"
           />
-          {formik.touched.phone_no && formik.errors.phone_no && (
-            <p className="text-red-500 text-sm">{formik.errors.phone_no}</p>
+          {formik.touched.phone && formik.errors.phone && (
+            <p className="text-red-500 text-sm">{formik.errors.phone}</p>
           )}
         </label>
         <label className="flex flex-col gap-1">
