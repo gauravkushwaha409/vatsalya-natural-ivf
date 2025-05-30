@@ -10,11 +10,11 @@ const BotPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="fixed right-4 bottom-6 z-50">
+    <div className="fixed right-10 bottom-2 z-50">
       <div className="relative">
         <motion.button
           onClick={() => setIsOpen(!isOpen)}
-          className="bg-secondary-500 p-2 border-2 border-secondary-500 rounded-full flex items-center justify-center shadow-xl"
+          className="bg-secondary-50 p-2  rounded-full flex items-center justify-center shadow-xl"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           animate={
@@ -44,7 +44,7 @@ const BotPopup = () => {
           <motion.div
             animate={{ rotate: isOpen ? 360 : 0 }}
             transition={{ duration: 0.5 }}
-            className="size-12 relative"
+            className="size-8 relative"
           >
             <Image src={botImage} alt="bot" fill className="object-contain" />
           </motion.div>
