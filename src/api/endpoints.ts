@@ -27,6 +27,10 @@ interface Endpoints {
   rating: string;
   chatbot: {
     register: string;
+    category: string;
+    subCategory: string;
+    answers: string;
+    childCategory: string;
   };
   management_team: string;
   leader: string;
@@ -114,6 +118,10 @@ export const endpoints: Endpoints = {
   // Chatbot
   chatbot: {
     register: "/user/register",
+    category: "chat/category/list/",
+    subCategory: "chat/subCategory/list/",
+    childCategory: "chat/childCategory/list/",
+    answers: "chat/question/list/",
   },
   management_team: "/team",
   leader: "/leader",
@@ -153,6 +161,7 @@ export const endpoints: Endpoints = {
     FertilityCalculator: "/breadcrumb?filter=fertility-calculator",
     OvulationCalculator: "/breadcrumb?filter=ovulation-calculator",
   },
+
   terms: "/term",
   privacy: "/privacy",
 };

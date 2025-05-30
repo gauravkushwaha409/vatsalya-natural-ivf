@@ -6,7 +6,8 @@ import { IChatMessage } from "../interfaces/dto/message.type";
 import { FileTypes } from "../interfaces/file.types";
 export interface IMessage extends IChatMessage {
   status?: "sending" | "sent" | "failed" | "typing";
-  sender: "user" | "bot" | "systemUser";
+  sender?: "user" | "bot" | "systemUser";
+  content?: "string";
 }
 
 export const useChat = (token: string | null, room?: string) => {

@@ -46,8 +46,8 @@ const MessageInput: React.FC<{
   };
 
   return (
-    <form onSubmit={formik.handleSubmit} className="px-5 pb-6">
-      <label className="flex items-center gap-2 bg-light-variant-100 pr-5 border-dark-variant-50 rounded-[1.75rem]">
+    <form onSubmit={formik.handleSubmit} className="">
+      <label className="flex items-center gap-2 bg-light-variant-100 pr-5 border-dark-variant-50 ">
         <div className="w-full">
           {formik.values.image && (
             <div className="group relative mt-2 pl-3 w-max">
