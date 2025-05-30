@@ -9,7 +9,7 @@ type MessageProps = {
 };
 
 const Message: React.FC<MessageProps> = ({ message }) => {
-  console.log(message, " messagee");
+  message, " messagee";
   const userId = localStorage.getItem("userId");
   return (
     <motion.div

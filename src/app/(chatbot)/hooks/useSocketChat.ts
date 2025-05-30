@@ -80,7 +80,7 @@ export const useSocketChat = () => {
   };
 
   const handleSendMessage = async (values: any, { resetForm }: any) => {
-    console.log(values), "values test";
+    values, "values test";
 
     if (!socket?.connected) return;
 

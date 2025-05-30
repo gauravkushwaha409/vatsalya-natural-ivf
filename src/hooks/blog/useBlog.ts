@@ -77,7 +77,7 @@ export const useBlog = ({ slug }: { slug: string }) => {
       }
       return () => {};
     } catch (error) {
-      console.log(error);
+      error;
     }
   }, [isChecked, formik]);
   return {
