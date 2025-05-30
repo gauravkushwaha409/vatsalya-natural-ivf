@@ -30,7 +30,7 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
   };
   const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <div className="relative flex justify-center h-full min-h-[45rem] overflow-y-hidden padding">
+    <div className="relative flex justify-center h-full min-h-[45rem] 2xl:min-h-[max(86vh,45rem)] overflow-y-hidden padding">
       <div className="flex flex-col justify-center mt-16 lg:mt-[8.72rem] w-full h-full text-left">
         <p className="relative font-bold text-primary-500 uppercase tracking-widest typography-paragraph-large">
           {data?.title}{" "}
@@ -46,7 +46,7 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
         <div className="flex items-center gap-6 mt-[2.44rem] h-full">
           <button
             onClick={() => handleAppointmentClick()}
-            className="z-[49] px-[2.75rem] py-[0.94rem] border-2 border-secondary-100 rounded-[100px] w-max font-bold text-white cursor-pointer typography-paragraph-regular lg:typography-h4"
+            className="px-[2.75rem] py-[0.94rem] border-2 border-secondary-100 rounded-[100px] w-max font-bold text-white cursor-pointer typography-paragraph-regular lg:typography-h4"
             style={{
               background: "linear-gradient(90deg, #A0385A 0%, #3A142C 100%)",
               boxShadow: "0px 8px 18px 0px rgba(211, 163, 193, 0.77)",
@@ -93,7 +93,7 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
                   height={720}
                   alt={`Image ${i}`}
                   src={img}
-                  className="block rounded-lg w-full h-full object-cover"
+                  className="block rounded-lg w-full h-full object-[right_calc(100%-50%)] object-cover 2xl:object-contain"
                 />
                 <HeroCardAnimation isActive={activeIndex === i} />
               </div>
