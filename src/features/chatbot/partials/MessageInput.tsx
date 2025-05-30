@@ -3,15 +3,14 @@ import { Image as ImageLogo, Loader2, Send, X } from "lucide-react";
 import Image from "next/image";
 import React, { useRef } from "react";
 import useFile from "../hooks/useFile";
-import { FileTypes } from "../interfaces/file.types";
 
 const MessageInput: React.FC<{
   sendMessage: (
-    message: string,
-    file?: { file: string; type: FileTypes }
+    values: { message: string },
+    actions: { resetForm: () => void }
   ) => void;
-  disabled: boolean;
-}> = ({ sendMessage, disabled }) => {
+  disabled?: boolean;
+}> = ({ sendMessage, disabled = false }) => {
   const { handleFileUpload, isUploading } = useFile();
   const [imageUrl, setImageUrl] = React.useState<string | null>(null);
   const imageInputRef = useRef<HTMLInputElement>(null);
@@ -21,19 +20,10 @@ const MessageInput: React.FC<{
       message: "",
       image: null as null | File,
     },
-    onSubmit: async (values) => {
-      if ((!values.message && !values.image) || disabled) return;
-      await new Promise<void>((resolve) =>
-        setTimeout(() => {
-          if (!isUploading) resolve();
-        }, 80)
-      );
-      if (imageUrl) {
-        sendMessage(values.message, { file: imageUrl, type: "image" });
-        setImageUrl(null);
-      } else sendMessage(values.message);
-      formik.setFieldValue("message", "");
-      formik.setFieldValue("image", null);
+    onSubmit: async (values, actions) => {
+      console.log(values, "value");
+      sendMessage(values, actions);
+
       if (imageInputRef.current) imageInputRef.current.value = "";
     },
   });
@@ -107,7 +97,6 @@ const MessageInput: React.FC<{
           <ImageLogo className="text-primary-900" />
         </label>
         <button
-          disabled={disabled}
           type="submit"
           className="disabled:opacity-50 hover:brightness-110 cursor-pointer"
         >

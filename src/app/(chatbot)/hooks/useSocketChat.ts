@@ -79,7 +79,11 @@ export const useSocketChat = () => {
   };
 
   const handleSendMessage = async (values: any, { resetForm }: any) => {
-    if (!socket?.connected) return;
+    console.log(socket, values, "socketvalue");
+    if (!socket?.connected) {
+      alert("not connected");
+      return;
+    }
     const { message, image } = values;
 
     if (image) {

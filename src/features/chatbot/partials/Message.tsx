@@ -32,9 +32,8 @@ const Message: React.FC<MessageProps> = ({ message }) => {
         )}
       </div>
       <div
-        className={`max-w-[70%] p-2.5 rounded-3xl 
-
-             "bg-secondary-50 text-text-400 rounded-bl-xs"
+        className={`max-w-[70%] p-2.5 rounded-3xl
+             bg-secondary-50 text-text-400 rounded-bl-xs
         `}
       >
         {/* {message.file && message.file_type == "image" && (

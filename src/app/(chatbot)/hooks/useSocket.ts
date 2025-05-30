@@ -1,8 +1,7 @@
-import { BASE_API_URL } from "@/api/endpoints";
 import { useEffect, useState } from "react";
 import io, { Socket } from "socket.io-client";
 
-const SERVER_URL = BASE_API_URL;
+const SERVER_URL = "https://api.vatsalya.com.np";
 // const SERVER_URL = 'http://localhost:8000';
 
 export function useSocket(): Socket | null {

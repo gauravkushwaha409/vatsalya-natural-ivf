@@ -14,7 +14,7 @@ const MessagesContainer = () => {
         ))}
       </div>
       <div className="border-t border-gray-200  mt-2 ">
-        <MessageInput sendMessage={handleSendMessage} disabled={false} />
+        <MessageInput sendMessage={handleSendMessage} />
       </div>
     </div>
   );
