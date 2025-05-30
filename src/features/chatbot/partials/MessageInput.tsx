@@ -38,7 +38,7 @@ const MessageInput: React.FC<{
   return (
     <form onSubmit={formik.handleSubmit} className="">
       <label className="flex items-center gap-2 bg-light-variant-100 pr-5 border-dark-variant-50 ">
-        <div className="w-full">
+        <div className="w-full p-2">
           {formik.values.image && (
             <div className="group relative mt-2 pl-3 w-max">
               <Image
@@ -72,7 +72,7 @@ const MessageInput: React.FC<{
             {...formik.getFieldProps("message")}
             onKeyDown={handleKeyDown}
             autoComplete="off"
-            className="flex-1 py-4 pl-5 rounded-full outline-0 focus:outline-none h-max"
+            className="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:border-transparent text-gray-700 placeholder-gray-400 disabled:bg-gray-100 disabled:text-gray-500 text-sm md:text-base bg-white"
           />
         </div>
         <label
