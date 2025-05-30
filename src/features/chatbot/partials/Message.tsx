@@ -1,4 +1,5 @@
 import { ISocketMessage } from "@/app/(chatbot)/hooks/useSocketChat";
+import { format } from "date-fns";
 import { Loader2 } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
@@ -9,7 +10,14 @@ type MessageProps = {
 };
 
 const Message: React.FC<MessageProps> = ({ message }) => {
-  message, " messagee";
+  const formatMessageTime = (timestamp: any) => {
+    try {
+      const date = new Date(timestamp);
+      return format(date, "MMM d yy, h:mm a");
+    } catch (error) {
+      return timestamp;
+    }
+  };
   const userId = localStorage.getItem("userId");
   return (
     <motion.div
@@ -38,7 +46,7 @@ const Message: React.FC<MessageProps> = ({ message }) => {
       </div>
       <div
         className={`max-w-[70%] p-2.5 rounded-3xl
-             bg-secondary-50 text-text-400 rounded-bl-xs
+             bg-white text-text-400 rounded-bl-xs
         `}
       >
         {message?.type === "image" ? (
@@ -58,6 +66,9 @@ const Message: React.FC<MessageProps> = ({ message }) => {
             <p className={``}>{message?.content}</p>
           </>
         )}
+        <div className="text-xs text-gray-500 mt-1">
+          {formatMessageTime(message.sendTime)}
+        </div>
       </div>
     </motion.div>
   );
