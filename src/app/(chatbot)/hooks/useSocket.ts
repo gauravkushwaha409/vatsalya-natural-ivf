@@ -11,11 +11,11 @@ export function useSocket(): Socket | null {
     const socketIo = io(SERVER_URL);
 
     socketIo.on("connect", () => {
-      console.log("Socket connected");
+      ("Socket connected");
     });
 
     socketIo.on("disconnect", () => {
-      console.log("Socket disconnected");
+      ("Socket disconnected");
     });
 
     setSocket(socketIo);

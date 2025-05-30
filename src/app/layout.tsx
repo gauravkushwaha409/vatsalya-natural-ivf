@@ -101,14 +101,14 @@ export default async function RootLayout({
               height={50}
               priority
               unoptimized
-              className="right-6 bottom-24 z-50 fixed size-[4.5rem]"
+              className="right-6 bottom-28 z-50 fixed size-[4.5rem]"
             />
           </Link>
           <Link
             target="_blank"
             href={`https://api.whatsapp.com/send?phone=977${footerData?.data?.socialMedia?.whatsapp}`}
           >
-            <IoLogoWhatsapp className="right-10 bottom-14 z-50 fixed size-[2.5rem] text-green-500" />
+            <IoLogoWhatsapp className="right-10 bottom-18 z-50 fixed size-[2.5rem] text-green-500" />
           </Link>
           <BotPopup />
         </Providers>

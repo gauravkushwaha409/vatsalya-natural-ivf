@@ -1,8 +1,8 @@
 import { usePostDataMutation } from "@/api/api";
 import { IChatLoginFormData } from "@/features/chatbot/hooks/useChatAuth";
 import ChatLoginForm from "@/features/chatbot/partials/ChatLoginForm";
-import MessagesContainer from "@/features/chatbot/partials/MessagesContainer";
 import React from "react";
+import MessagesContainer from "./MessagesContainer";
 
 const RealTimeChat = () => {
   const [chatLogin] = usePostDataMutation();
@@ -25,15 +25,15 @@ const RealTimeChat = () => {
   const userId = localStorage.getItem("userId");
 
   return (
-    <div className="flex flex-col h-full">
+    <>
       {userId ? (
-        <div className="flex flex-col h-full">
+        <div className="">
           <MessagesContainer />
         </div>
       ) : (
         <ChatLoginForm handleLogin={handleLogin} />
       )}
-    </div>
+    </>
   );
 };
 

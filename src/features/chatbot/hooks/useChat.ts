@@ -94,7 +94,7 @@ export const useChat = (token: string | null, room?: string) => {
       socket = new WebSocket(url);
       socketRef.current = socket;
     } catch (error) {
-      console.log("Failed to create WebSocket connection", error);
+      console.error("Failed to create WebSocket connection", error);
       return;
     }
 

@@ -16,7 +16,7 @@ const CareerDetail = async ({ params }: BlogDetailPageProps) => {
       </div>
     );
   } catch (e) {
-    console.log("Error fetching blog data:", e);
+    console.error("Error fetching blog data:", e);
   }
 };
 

@@ -31,6 +31,7 @@ interface Endpoints {
     subCategory: string;
     answers: string;
     childCategory: string;
+    uploadFile: string;
   };
   management_team: string;
   leader: string;
@@ -122,6 +123,7 @@ export const endpoints: Endpoints = {
     subCategory: "chat/subCategory/list/",
     childCategory: "chat/childCategory/list/",
     answers: "chat/question/list/",
+    uploadFile: "chat/upload-file",
   },
   management_team: "/team",
   leader: "/leader",

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, ChangeEvent } from "react";
 import { useSocket } from "./useSocket";
 import { usePostDataMutation } from "@/api/api";
+import { endpoints } from "@/api/endpoints";
 
 export interface ISocketMessage {
   senderId: string;
@@ -45,7 +46,7 @@ export const useSocketChat = () => {
     socket.on("chat history", handleChatHistory);
     socket.emit("request chat history", {
       userId: employeeId,
-      receiverId: "67ef74f75f96cfedbfa6420f",
+      receiverId: "67ecfbde77d055e8c834e47a",
     });
 
     return () => {
@@ -79,12 +80,9 @@ export const useSocketChat = () => {
   };
 
   const handleSendMessage = async (values: any, { resetForm }: any) => {
-    if (!socket?.connected) {
-      alert("not connected");
-      return;
-    }
-    const { message, image } = values;
+    if (!socket?.connected) return;
 
+    const { message, image } = values;
     if (image) {
       handleFileUpload("image", image);
     } else if (message) {
@@ -103,18 +101,18 @@ export const useSocketChat = () => {
   const handleFileUpload = async (type: string, file: File) => {
     try {
       const formData = new FormData();
-      formData.append("file", file);
+      formData.append("image", file);
 
       const response = await uploadFile({
-        url: "adasdf",
+        url: endpoints.chatbot.uploadFile,
         data: formData,
       });
 
       if (socket && response.data.status === "success") {
         socket.emit(`upload ${type}`, {
           senderId: employeeId,
-          receiverId: "67ef74f75f96cfedbfa6420f",
-          file: response.data.data.file_url,
+          receiverId: "67ecfbde77d055e8c834e47a",
+          file: response.data.data.url,
           filename: file.name,
           type: type,
         });
