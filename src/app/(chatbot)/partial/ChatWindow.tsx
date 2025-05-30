@@ -37,7 +37,6 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ isOpen, closePopup }) => {
       width: "390px",
       maxWidth: "90vw",
       height: "500px",
-      maxHeight: "70vh",
       borderRadius: "10px",
       padding: "0",
       border: "1px solid #ddd",
@@ -61,7 +60,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ isOpen, closePopup }) => {
         <Header isConnected={true} onClose={closePopup} />
         <Tabs
           defaultValue="chatBot"
-          className=" overflow-y-auto rounded-none  no-scrollbar h-full"
+          className=" overflow-y-auto rounded-none  no-scrollbar  h-full"
         >
           <TabsList className="w-full sticky -top-1 rounded-none bg-secondary-50  ">
             <TabsTrigger value="chatBot" className="">

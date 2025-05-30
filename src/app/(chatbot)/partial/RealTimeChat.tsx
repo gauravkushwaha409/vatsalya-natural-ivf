@@ -25,15 +25,15 @@ const RealTimeChat = () => {
   const userId = localStorage.getItem("userId");
 
   return (
-    <div className="flex flex-col h-full">
+    <>
       {userId ? (
-        <div className="flex flex-col h-full">
+        <div className="">
           <MessagesContainer />
         </div>
       ) : (
         <ChatLoginForm handleLogin={handleLogin} />
       )}
-    </div>
+    </>
   );
 };
 
