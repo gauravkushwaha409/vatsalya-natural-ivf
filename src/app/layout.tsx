@@ -104,12 +104,12 @@ export default async function RootLayout({
               className="right-6 bottom-24 z-50 fixed size-[4.5rem]"
             />
           </Link>
-          <Link
+          {/* <Link
             target="_blank"
             href={`https://api.whatsapp.com/send?phone=977${footerData?.data?.socialMedia?.whatsapp}`}
           >
             <IoLogoWhatsapp className="right-10 bottom-14 z-50 fixed size-[2.5rem] text-green-500" />
-          </Link>
+          </Link> */}
           <BotPopup />
         </Providers>
       </body>

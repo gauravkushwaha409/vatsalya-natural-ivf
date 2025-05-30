@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, ChangeEvent } from "react";
 import { useSocket } from "./useSocket";
 import { usePostDataMutation } from "@/api/api";
+import { endpoints } from "@/api/endpoints";
 
 export interface ISocketMessage {
   senderId: string;
@@ -45,7 +46,7 @@ export const useSocketChat = () => {
     socket.on("chat history", handleChatHistory);
     socket.emit("request chat history", {
       userId: employeeId,
-      receiverId: "67ef74f75f96cfedbfa6420f",
+      receiverId: "67ecfbde77d055e8c834e47a",
     });
 
     return () => {
@@ -84,7 +85,7 @@ export const useSocketChat = () => {
       return;
     }
     const { message, image } = values;
-
+    console.log(values);
     if (image) {
       handleFileUpload("image", image);
     } else if (message) {
@@ -106,14 +107,14 @@ export const useSocketChat = () => {
       formData.append("file", file);
 
       const response = await uploadFile({
-        url: "adasdf",
+        url: endpoints.chatbot.uploadFile,
         data: formData,
       });
 
       if (socket && response.data.status === "success") {
         socket.emit(`upload ${type}`, {
           senderId: employeeId,
-          receiverId: "67ef74f75f96cfedbfa6420f",
+          receiverId: "67ecfbde77d055e8c834e47a",
           file: response.data.data.file_url,
           filename: file.name,
           type: type,

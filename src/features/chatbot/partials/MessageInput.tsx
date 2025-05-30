@@ -21,7 +21,6 @@ const MessageInput: React.FC<{
       image: null as null | File,
     },
     onSubmit: async (values, actions) => {
-      console.log(values, "value");
       sendMessage(values, actions);
 
       if (imageInputRef.current) imageInputRef.current.value = "";
