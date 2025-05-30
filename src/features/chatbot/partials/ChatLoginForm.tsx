@@ -72,7 +72,7 @@ const ChatLoginForm: React.FC<{
             className="bg-secondary-50 p-3 border border-gray-400 rounded-xl outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.phone_no}
+            value={formik.values.phone}
             placeholder="Enter Your Phone"
           />
           {formik.touched.phone && formik.errors.phone && (
