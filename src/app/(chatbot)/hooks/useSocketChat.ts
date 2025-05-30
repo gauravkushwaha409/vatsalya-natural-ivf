@@ -79,7 +79,6 @@ export const useSocketChat = () => {
   };
 
   const handleSendMessage = async (values: any, { resetForm }: any) => {
-    console.log(socket, values, "socketvalue");
     if (!socket?.connected) {
       alert("not connected");
       return;
@@ -91,7 +90,7 @@ export const useSocketChat = () => {
     } else if (message) {
       socket.emit("chat message", {
         senderId: employeeId,
-        receiverId: "67ef74f75f96cfedbfa6420f",
+        receiverId: "67ecfbde77d055e8c834e47a",
         content: message,
         type: "text",
       });
