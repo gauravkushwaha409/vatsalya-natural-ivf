@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import { Message, ChatContextType } from "../types";
 import axios from "axios";
+import { BASE_API_URL } from "@/api/endpoints";
 
 const ChatContext = createContext<ChatContextType | undefined>(undefined);
 
@@ -18,7 +19,7 @@ export const ChatProvider: React.FC<ChatProviderProps> = ({ children }) => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "welcome",
-      text: "Welcome to Dome Infosys Chatbot! How can I assist you today?",
+      text: "Welcome to Vatsalya Chatbot! How can I assist you today?",
       sender: "bot",
       timestamp: new Date(),
     },
@@ -42,7 +43,7 @@ export const ChatProvider: React.FC<ChatProviderProps> = ({ children }) => {
 
     try {
       const response = await axios.post(
-        `http://192.168.1.165:8008/api/v1/chatbot/message`,
+        `${BASE_API_URL}/chatbot/message`,
         { message: text },
         {
           headers: {

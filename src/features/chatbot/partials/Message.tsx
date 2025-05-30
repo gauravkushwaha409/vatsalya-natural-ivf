@@ -2,12 +2,14 @@ import { ISocketMessage } from "@/app/(chatbot)/hooks/useSocketChat";
 import { Loader2 } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
 
 type MessageProps = {
   message: ISocketMessage;
 };
 
 const Message: React.FC<MessageProps> = ({ message }) => {
+  console.log(message, " messagee");
   return (
     <motion.div
       initial={{ opacity: 0, y: "100%" }}
@@ -15,7 +17,7 @@ const Message: React.FC<MessageProps> = ({ message }) => {
       transition={{ duration: 0.3, bounce: 0.1 }}
       className={`w-full flex justify-start gap-[0.88rem]  items-end 
 
-         mb-2`}
+         `}
     >
       <div className="relative">
         <Image
@@ -36,10 +38,10 @@ const Message: React.FC<MessageProps> = ({ message }) => {
              bg-secondary-50 text-text-400 rounded-bl-xs
         `}
       >
-        {/* {message.file && message.file_type == "image" && (
-          <Link href={message.file} target="_blank">
+        {/* {message?.image && (
+          <Link href={message?.image?.imageUrl} target="_blank">
             <Image
-              src={message.file}
+              src={message.image?.imageUrl}
               alt="file"
               width={100}
               height={100}
