@@ -6,13 +6,13 @@ import { useSocketChat } from "@/app/(chatbot)/hooks/useSocketChat";
 const MessagesContainer = () => {
   const { handleSendMessage, messages, chatContainerRef } = useSocketChat();
   return (
-    <div className="flex flex-col h-[460px]">
+    <div className="flex flex-col h-[400px]">
       <div className="flex-1 overflow-auto" ref={chatContainerRef}>
         {messages?.map((message, index) => (
           <Message key={index} message={message} />
         ))}
       </div>
-      <div className="flex-shrink-0">
+      <div className="shrink-0">
         <MessageInput sendMessage={handleSendMessage} />
       </div>
     </div>
