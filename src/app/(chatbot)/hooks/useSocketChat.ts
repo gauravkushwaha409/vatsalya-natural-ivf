@@ -80,12 +80,11 @@ export const useSocketChat = () => {
   };
 
   const handleSendMessage = async (values: any, { resetForm }: any) => {
-    if (!socket?.connected) {
-      alert("not connected");
-      return;
-    }
+    console.log(values), "values test";
+
+    if (!socket?.connected) return;
+
     const { message, image } = values;
-    console.log(values);
     if (image) {
       handleFileUpload("image", image);
     } else if (message) {
@@ -104,7 +103,7 @@ export const useSocketChat = () => {
   const handleFileUpload = async (type: string, file: File) => {
     try {
       const formData = new FormData();
-      formData.append("file", file);
+      formData.append("image", file);
 
       const response = await uploadFile({
         url: endpoints.chatbot.uploadFile,
@@ -115,7 +114,7 @@ export const useSocketChat = () => {
         socket.emit(`upload ${type}`, {
           senderId: employeeId,
           receiverId: "67ecfbde77d055e8c834e47a",
-          file: response.data.data.file_url,
+          file: response.data.data.url,
           filename: file.name,
           type: type,
         });

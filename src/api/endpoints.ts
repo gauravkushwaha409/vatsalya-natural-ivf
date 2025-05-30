@@ -123,7 +123,7 @@ export const endpoints: Endpoints = {
     subCategory: "chat/subCategory/list/",
     childCategory: "chat/childCategory/list/",
     answers: "chat/question/list/",
-    uploadFile: "chat/upload/file",
+    uploadFile: "chat/upload-file",
   },
   management_team: "/team",
   leader: "/leader",

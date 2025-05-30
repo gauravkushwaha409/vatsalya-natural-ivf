@@ -69,7 +69,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ isOpen, closePopup }) => {
             </TabsTrigger>
             <TabsTrigger value="RTC">Chat with experts</TabsTrigger>
           </TabsList>
-          <TabsContent value="chatBot" className="flex flex-col flex-1  ">
+          <TabsContent value="chatBot" className="flex flex-col flex-1 h-5 ">
             {/* Message area */}
             <div className="flex-1 overflow-y-auto px-2">
               {messages.map((message, index) => (
@@ -84,7 +84,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ isOpen, closePopup }) => {
               <MessageInput />
             </div>
           </TabsContent>
-          <TabsContent value="RTC" className="h-full">
+          <TabsContent value="RTC" className="">
             <RealTimeChat />
           </TabsContent>
         </Tabs>
