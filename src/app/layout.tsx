@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import { IoLogoWhatsapp } from "react-icons/io5";
-import BotPopup from "./(chatbot)/BotPopup";
+// import BotPopup from "./(chatbot)/BotPopup";
 import { getHomePageData } from "./(home)/hook/hook.hook";
 import "./globals.css";
 import Providers from "./providers";
@@ -112,7 +112,7 @@ export default async function RootLayout({
           >
             <IoLogoWhatsapp className="right-10 bottom-18 z-50 fixed size-[2.5rem] text-green-500" />
           </Link>
-          <BotPopup />
+          {/* <BotPopup /> */}
         </Providers>
       </body>
     </html>
