@@ -23,7 +23,6 @@ export async function GET() {
     getData<{ data: ICenterData }>(endpoints.center),
   ]);
 
-  // All Static URLs with consistent metadata
   const staticUrls = [
     { path: "", priority: 1.0, changefreq: "daily" }, // Homepage
     { path: "about", priority: 0.8, changefreq: "monthly" },
@@ -42,7 +41,6 @@ export async function GET() {
     { path: "ovulation-calculator", priority: 0.7, changefreq: "monthly" },
   ];
 
-  // Generate XML
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset 
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -50,7 +48,6 @@ export async function GET() {
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
       http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
       
-      <!-- Static URLs -->
       ${staticUrls
         .map(
           (url) => `
