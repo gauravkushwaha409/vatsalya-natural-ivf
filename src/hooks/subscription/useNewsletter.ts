@@ -37,7 +37,6 @@ export const useNewsletter = () => {
           resetForm();
         }
       } catch (error) {
-        console.log("Subscription error:", error);
         showErrorMessage("Failed to subscribe. Please try again.");
       }
     },

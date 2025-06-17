@@ -322,5 +322,3 @@ const StatsAnimation = () => {
     </motion.div>
   );
 };
-
-

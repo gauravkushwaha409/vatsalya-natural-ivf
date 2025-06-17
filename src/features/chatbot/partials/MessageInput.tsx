@@ -3,15 +3,14 @@ import { Image as ImageLogo, Loader2, Send, X } from "lucide-react";
 import Image from "next/image";
 import React, { useRef } from "react";
 import useFile from "../hooks/useFile";
-import { FileTypes } from "../interfaces/file.types";
 
 const MessageInput: React.FC<{
   sendMessage: (
-    message: string,
-    file?: { file: string; type: FileTypes }
+    values: { message: string },
+    actions: { resetForm: () => void }
   ) => void;
-  disabled: boolean;
-}> = ({ sendMessage, disabled }) => {
+  disabled?: boolean;
+}> = ({ sendMessage, disabled = false }) => {
   const { handleFileUpload, isUploading } = useFile();
   const [imageUrl, setImageUrl] = React.useState<string | null>(null);
   const imageInputRef = useRef<HTMLInputElement>(null);
@@ -21,19 +20,9 @@ const MessageInput: React.FC<{
       message: "",
       image: null as null | File,
     },
-    onSubmit: async (values) => {
-      if ((!values.message && !values.image) || disabled) return;
-      await new Promise<void>((resolve) =>
-        setTimeout(() => {
-          if (!isUploading) resolve();
-        }, 80)
-      );
-      if (imageUrl) {
-        sendMessage(values.message, { file: imageUrl, type: "image" });
-        setImageUrl(null);
-      } else sendMessage(values.message);
-      formik.setFieldValue("message", "");
-      formik.setFieldValue("image", null);
+    onSubmit: async (values, actions) => {
+      sendMessage(values, actions);
+
       if (imageInputRef.current) imageInputRef.current.value = "";
     },
   });
@@ -46,9 +35,9 @@ const MessageInput: React.FC<{
   };
 
   return (
-    <form onSubmit={formik.handleSubmit} className="px-5 pb-6">
-      <label className="flex items-center gap-2 bg-light-variant-100 pr-5 border-dark-variant-50 rounded-[1.75rem]">
-        <div className="w-full">
+    <form onSubmit={formik.handleSubmit} className="">
+      <label className="flex items-center gap-2 bg-light-variant-100 pr-5 border-dark-variant-50 ">
+        <div className="w-full p-2">
           {formik.values.image && (
             <div className="group relative mt-2 pl-3 w-max">
               <Image
@@ -82,7 +71,7 @@ const MessageInput: React.FC<{
             {...formik.getFieldProps("message")}
             onKeyDown={handleKeyDown}
             autoComplete="off"
-            className="flex-1 py-4 pl-5 rounded-full outline-0 focus:outline-none h-max"
+            className="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:border-transparent text-gray-700 placeholder-gray-400 disabled:bg-gray-100 disabled:text-gray-500 text-sm md:text-base bg-white"
           />
         </div>
         <label
@@ -107,7 +96,6 @@ const MessageInput: React.FC<{
           <ImageLogo className="text-primary-900" />
         </label>
         <button
-          disabled={disabled}
           type="submit"
           className="disabled:opacity-50 hover:brightness-110 cursor-pointer"
         >

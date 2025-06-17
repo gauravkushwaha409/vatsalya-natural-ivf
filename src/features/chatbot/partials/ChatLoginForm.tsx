@@ -8,46 +8,44 @@ const ChatLoginForm: React.FC<{
   const formik = useFormik({
     initialValues: {
       email: "",
-      phone_no: "",
-      firstname: "",
-      lastname: "",
+      phone: "",
+      name: "",
     },
     onSubmit: handleLogin,
     validationSchema: Yup.object({
       email: Yup.string()
         .email("Invalid email address")
         .required("Email is required"),
-      phone_no: Yup.string()
+      phone: Yup.string()
         .required("Phone number is required")
         .min(10, "Phone number must be at least 10 characters"),
-      firstname: Yup.string().required("First name is required"),
-      lastname: Yup.string().required("Last name is required"),
+      name: Yup.string().required("First name is required"),
     }),
   });
   return (
-    <div className="flex-1 px-6 py-[1.88rem] overflow-y-auto no-scrollbar">
-      <p className="pb-2 font-medium text-text-400 typography-paragraph-regular">
+    <div className="flex-1 px-6 pt-3 overflow-y-auto no-scrollbar">
+      {/* <p className="pb-2 font-medium text-text-400 typography-paragraph-regular">
         Please enter your name, email, and phone number to start the chat.
-      </p>
+      </p> */}
       <form onSubmit={formik.handleSubmit} className="space-y-2">
         <label className="flex flex-col gap-1">
           <span className="font-semibold text-text-500 typography-paragraph-regular">
-            First Name
+            Name
           </span>
           <input
             type="text"
-            name="firstname"
+            name="name"
             className="bg-secondary-50 p-3 border border-gray-400 rounded-xl outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.firstname}
-            placeholder="Enter Your First Name"
+            value={formik.values.name}
+            placeholder="Enter Your  Name"
           />
-          {formik.touched.firstname && formik.errors.firstname && (
-            <p className="text-red-500 text-sm">{formik.errors.firstname}</p>
+          {formik.touched.name && formik.errors.name && (
+            <p className="text-red-500 text-sm">{formik.errors.name}</p>
           )}
         </label>
-        <label className="flex flex-col gap-1">
+        {/* <label className="flex flex-col gap-1">
           <span className="font-semibold text-text-500 typography-paragraph-regular">
             Last Name
           </span>
@@ -63,22 +61,22 @@ const ChatLoginForm: React.FC<{
           {formik.touched.lastname && formik.errors.lastname && (
             <p className="text-red-500 text-sm">{formik.errors.lastname}</p>
           )}
-        </label>
+        </label> */}
         <label className="flex flex-col gap-1">
           <span className="font-semibold text-text-500 typography-paragraph-regular">
             Phone Number
           </span>
           <input
             type="text"
-            name="phone_no"
+            name="phone"
             className="bg-secondary-50 p-3 border border-gray-400 rounded-xl outline-none font-thinC font-medium text-text-400 text-sm typography-paragraph-small"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.phone_no}
+            value={formik.values.phone}
             placeholder="Enter Your Phone"
           />
-          {formik.touched.phone_no && formik.errors.phone_no && (
-            <p className="text-red-500 text-sm">{formik.errors.phone_no}</p>
+          {formik.touched.phone && formik.errors.phone && (
+            <p className="text-red-500 text-sm">{formik.errors.phone}</p>
           )}
         </label>
         <label className="flex flex-col gap-1">
@@ -101,7 +99,7 @@ const ChatLoginForm: React.FC<{
 
         <button
           type="submit"
-          className="bg-secondary-500 mt-4 p-3 border border-secondary-200 rounded-full w-full font-semibold text-white text-sm typography-paragraph-small"
+          className="bg-secondary-500 mt-4 p-3 border border-secondary-200 rounded-full w-full font-semibold text-white text-sm typography-paragraph-small cursor-pointer"
           style={{
             boxShadow: "0px 5.486px 12.343px 0px rgba(215, 101, 120, 0.33)",
           }}

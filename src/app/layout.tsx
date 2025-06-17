@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import { IoLogoWhatsapp } from "react-icons/io5";
+// import BotPopup from "./(chatbot)/BotPopup";
 import { getHomePageData } from "./(home)/hook/hook.hook";
 import "./globals.css";
 import Providers from "./providers";
@@ -85,9 +86,11 @@ export default async function RootLayout({
         />
       </head>
       <body
-        className={`${manRope.variable} ${roboto.variable} antialiased font-manrope bg-background-100 `}
+        className={`${manRope.variable} ${roboto.variable} antialiased font-manrope bg-background-100 relative`}
         // className={`${manRope.variable} ${inter.variable} ${plusJakarta.variable} ${roboto.variable} antialiased font-manrope bg-background-100 `}
       >
+        {/* this divs fills the white space when header is hidden */}
+        <div className="top-0 -z-20 absolute inset-x-0 bg-primary-50 h-[12rem]" />
         <Providers>
           <Header />
           <div className="">{children}</div>
@@ -100,14 +103,14 @@ export default async function RootLayout({
               height={50}
               priority
               unoptimized
-              className="right-6 bottom-24 z-50 fixed size-[4.5rem]"
+              className="right-6 bottom-28 z-50 fixed size-[4.5rem]"
             />
           </Link>
           <Link
             target="_blank"
-            href={`https://api.whatsapp.com/send?phone=${footerData?.data?.socialMedia?.whatsapp}`}
+            href={`https://api.whatsapp.com/send?phone=977${footerData?.data?.socialMedia?.whatsapp}`}
           >
-            <IoLogoWhatsapp className="right-10 bottom-14 z-50 fixed size-[2.5rem] text-green-500" />
+            <IoLogoWhatsapp className="right-10 bottom-18 z-50 fixed size-[2.5rem] text-green-500" />
           </Link>
           {/* <BotPopup /> */}
         </Providers>

@@ -34,6 +34,12 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
       {
+        protocol: "http",
+        hostname: "192.168.1.125",
+        pathname: "/**",
+        port: "8002",
+      },
+      {
         protocol: "https",
         hostname: "api.nipali.com",
         pathname: "/**",
