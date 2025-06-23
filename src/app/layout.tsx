@@ -66,6 +66,7 @@ export default async function RootLayout({
           href="/home/when-to-visit/three-lines.png"
         />
         <link rel="preload" as="image" href="/home/butterfly.gif" />
+        {/* Google Analytics & Google Ads Tracking */}
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-N3MFB9XL1Y"
@@ -75,15 +76,22 @@ export default async function RootLayout({
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-N3MFB9XL1Y', {
-                page_path: window.location.pathname,
-              });
-            `,
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      // Google Analytics
+      gtag('config', 'G-N3MFB9XL1Y', {
+        page_path: window.location.pathname,
+      });
+      
+      // Google Ads
+      gtag('config', 'AW-16992141641');
+    `,
           }}
         />
+
+        {/* Facebook Pixel  */}
         <Script
           id="facebook-pixel"
           strategy="afterInteractive"
