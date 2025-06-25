@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: `https://staging.vatsalaya.com/sitemap.xml`,
+    sitemap: `https://vatsalaya.com/sitemap.xml`,
   };
 }
