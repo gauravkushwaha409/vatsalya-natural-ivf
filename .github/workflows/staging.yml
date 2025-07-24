@@ -43,17 +43,17 @@ jobs:
             git pull 2>&1 | tee git_pull.log
             echo "Git pull complete."
 
-            # Build and run containers
-            echo "Building and starting containers..."
-            docker compose up --build -d 2>&1 | tee build_run.log
-            echo "Containers started."
+            # # Build and run containers
+            # echo "Building and starting containers..."
+            # docker compose up --build -d 2>&1 | tee build_run.log
+            # echo "Containers started."
 
-            # Prune unused Docker images
-            echo "Pruning unused Docker images..."
-            docker system prune -f 2>&1 | tee cleanup.log
-            echo "Unused Docker images pruned."
+            # # Prune unused Docker images
+            # echo "Pruning unused Docker images..."
+            # docker system prune -f 2>&1 | tee cleanup.log
+            # echo "Unused Docker images pruned."
 
-            echo "Deployment Successful"
+            # echo "Deployment Successful"
           EOF
 
           scp ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }}:/home/user/vatsalya/Vatsalya-Web-FE/git_pull.log ./git_pull.log
