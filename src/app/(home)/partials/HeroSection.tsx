@@ -108,9 +108,7 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
       <VideoModal
         isOpen={videoModalOpen}
         onClose={() => setVideoModalOpen(false)}
-        videoUrl={
-          "https://www.youtube.com/embed/sGAedr5C5FM?si=cibOMawH4JPqErOH"
-        }
+        videoUrl={data?.youTubeLink || ""}
       />
     </div>
   );
