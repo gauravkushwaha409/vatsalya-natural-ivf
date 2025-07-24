@@ -11,6 +11,7 @@ export interface IHomeData {
   title: string;
   subtitle: string;
   description: string;
+  youTubeLink: string;
   caroselImages: string[];
   Faq: IHomeFaq[];
   mission: IHomeMission[];
