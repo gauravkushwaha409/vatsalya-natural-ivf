@@ -10,11 +10,13 @@ import {
 } from "@/components/ui/dialog";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { INoticeRoot } from "../interface/notice.interface";
 
 const SESSION_KEY = "notices_shown";
 
 const Notice = () => {
+  const router = useRouter();
   const { data: noticeData } = useGetDataQuery<{ data: Partial<INoticeRoot> }>({
     url: endpoints.notice,
   });
@@ -58,6 +60,12 @@ const Notice = () => {
 
   const currentRecord = records[currentIndex];
 
+  const handleReadMore = () => {
+    if (currentRecord?.hasDetails && currentRecord?.slug) {
+      router.push(`/notice/${currentRecord.slug}`);
+    }
+  };
+
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogOverlay className="bg-black/55">
@@ -65,17 +73,31 @@ const Notice = () => {
           aria-describedby="notice"
           className="mx-auto px-0 border-8 border-secondary-300 max-w-2xl h-11/12"
         >
-          <DialogTitle className="hidden">NOtice</DialogTitle>
-          <div className="relative w-full h-full">
+          <DialogTitle className="hidden">Notice</DialogTitle>
+          <div className="relative w-full h-full flex flex-col items-center justify-center">
             {currentRecord?.image && (
-              <Image
-                alt={currentRecord?.title || "Notice"}
-                src={currentRecord.image}
-                height={6000}
-                width={3000}
-                className="w-full h-full object-contain"
-                priority
-              />
+              <div
+                className="cursor-pointer w-full h-full"
+                onClick={handleReadMore}
+              >
+                <Image
+                  alt={currentRecord?.title || "Notice"}
+                  src={currentRecord.image}
+                  height={6000}
+                  width={3000}
+                  className="w-full h-full object-contain"
+                  priority
+                />
+              </div>
+            )}
+
+            {currentRecord?.hasDetails && (
+              <div
+                onClick={handleReadMore}
+                className="typography-paragraph-regular cursor-pointer mt-4 text-blue-600 underline text-center"
+              >
+                Terms and Conditions
+              </div>
             )}
           </div>
         </DialogContent>
