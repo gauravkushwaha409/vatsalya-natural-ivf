@@ -2,6 +2,7 @@ import { getData } from "@/api/axios";
 import React from "react";
 import ErrorMessage from "@/components/ErrorMessage";
 import Image from "next/image";
+import HeroSection from "../partials/HeroSection";
 
 export interface NoticeData {
   object: string;
@@ -41,6 +42,11 @@ const NoticePage: React.FC<NoticePageProps> = async ({ params }) => {
 
     return (
       <div className="px-6 md:px-16 mt-10">
+        <HeroSection />
+        <div
+          className="mb-2 mt-4"
+          dangerouslySetInnerHTML={{ __html: notice?.description }}
+        />
         {notice.heroImage && (
           <Image
             src={notice?.heroImage}
@@ -50,10 +56,6 @@ const NoticePage: React.FC<NoticePageProps> = async ({ params }) => {
             className="mb-6 w-full rounded-lg"
           />
         )}
-        <div
-          className="mb-4"
-          dangerouslySetInnerHTML={{ __html: notice?.description }}
-        />
       </div>
     );
   } catch (error) {
