@@ -50,6 +50,7 @@ interface Endpoints {
 }
 export interface IBreadCrumb {
   about_us: string;
+  notice: string;
   service: string;
   our_expert: string;
   success_story: string;
@@ -152,6 +153,7 @@ export const endpoints: Endpoints = {
   },
   breadcrumb: {
     about_us: "/breadcrumb?filter=about-us",
+    notice: "/breadcrumb?filter=our-notice",
     service: "/breadcrumb?filter=service",
     our_expert: "/breadcrumb?filter=our-expert",
     success_story: "/breadcrumb?filter=success-story",
