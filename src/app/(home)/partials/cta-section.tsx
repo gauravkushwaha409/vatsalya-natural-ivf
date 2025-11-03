@@ -1,6 +1,5 @@
 "use client";
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -10,8 +9,8 @@ const CTA = () => {
     setOpenModal(true);
   };
   return (
-    <div className="py-9 lg:py-[72px] bg-[#ffd2ce] ">
-      <div className="max-w-[1440px] px-4 lg:px-0 mx-auto flex flex-col  gap-8 lg:gap-20 lg:flex-row lg:items-center justify-between ">
+    <div className="py-9 lg:py-[72px] bg-[#ffd2ce] padding ">
+      <div className="max-w-[1440px] mx-auto flex flex-col  gap-8 lg:gap-20 lg:flex-row lg:items-center justify-between ">
         <div className="w-full lg:w-[100%] ">
           <p className="text-gray-800 text-2xl lg:text-[36px] font-semibold mt-2 ">
             Connect With Us

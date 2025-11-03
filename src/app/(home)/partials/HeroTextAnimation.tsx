@@ -4,7 +4,7 @@ import Butterfly from "./Butterfly";
 const HeroTextAnimation: React.FC<{ text: string }> = ({ text }) => {
   const lines = text.split("/b");
   return (
-    <div className="relative w-max lg:max-w-1/2 font-bold lg:font-extrabold text-secondary-500 lg:text-[2.48813rem] leading-[130%] typography-h4">
+    <div className="relative w-max lg:max-w-[51%] font-bold lg:font-extrabold text-secondary-500 lg:text-[2.48813rem] leading-[130%] typography-h4 whitespace-nowrap">
       {lines.map((line, index) => (
         <div key={index} className="flex flex-wrap">
           {index > 0 && <br />}
