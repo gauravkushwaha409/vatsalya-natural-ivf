@@ -101,7 +101,6 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
           </HeroAnimationCarousel>
         )}
       </div>
-      
       <RequestAppoimentModal
         isOpen={openModal}
         onClose={() => setOpenModal(false)}
