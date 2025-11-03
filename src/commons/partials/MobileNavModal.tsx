@@ -1,6 +1,7 @@
 "use client";
 import NavBotton from "@/components/bottons/NavBotton";
 import { motion } from "framer-motion";
+import { Phone } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { createPortal } from "react-dom";
@@ -40,6 +41,19 @@ const MobileNavModal: React.FC<props> = ({ navlinks, isOpen, setIsOpen }) => {
                   </Link>
                 </ul>
               ))}{" "}
+            </div>
+
+            <div>
+              <button
+                onClick={() => (window.location.href = "tel:+977-9701021111")}
+                style={{
+                  boxShadow:
+                    "0px 5.486px 12.343px 0px rgba(215, 101, 120, 0.33)",
+                }}
+                className="absolute  left-20  bottom-14 flex items-center gap-3 bg-secondary-500 px-8 py-4 border border-secondary-200 rounded-full font-manrope font-extrabold text-white cursor-pointer typography-paragraph-regular"
+              >
+                <Phone size={20} /> Call Us
+              </button>
             </div>
           </motion.div>
         )}

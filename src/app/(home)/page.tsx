@@ -21,6 +21,7 @@ import WhatWeDo from "./partials/WhatWeDo";
 import WhatWeOffer from "./partials/WhatWeOffer";
 import WhenToVisit from "./partials/WhenToVisit";
 import WhoWeAre from "./partials/WhoWeAre";
+import CTA from "./partials/cta-section";
 const BrandsSlider = dynamic(() => import("./partials/BrandsSlider"));
 
 export async function generateMetadata() {
@@ -99,6 +100,7 @@ const HomePage = async () => {
             <Testimonial data={testimonialData?.data} />
           </div>
           <HomeFaq data={homedata?.data?.Faq} />
+          <CTA/>
           <Blogsection data={blogData?.data} />
           <Notice />
         </div>

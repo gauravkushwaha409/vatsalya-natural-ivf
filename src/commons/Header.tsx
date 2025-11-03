@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { Fragment, useEffect, useRef, useState } from "react";
 import MobileNav from "./partials/MobileNav";
 import NavCalculator from "./partials/NavCalculator";
+import { Phone } from "lucide-react";
 
 const Header = () => {
   const pathame = usePathname();
@@ -64,7 +65,20 @@ const Header = () => {
           />
         </Link>
 
+      <div className="flex gap-2">
         <NavCalculator />
+        <div className="relative hide-for-mobile">
+       <button
+        onClick={() => window.location.href = "tel:+977-9701021111"} 
+        style={{
+          boxShadow: "0px 5.486px 12.343px 0px rgba(215, 101, 120, 0.33)",
+        }}
+        className="flex items-center gap-3 bg-secondary-500 px-8 py-4 border border-secondary-200 rounded-full font-manrope font-extrabold text-white cursor-pointer typography-paragraph-regular"
+      >
+      <Phone  size={20}/> Call Us
+      </button>
+        </div>
+      </div>
         <MobileNav navlinks={[...navLinks, ...mobileNavLinks]} />
       </div>
       <nav className="my-2.5 w-auto hide-for-mobile">
