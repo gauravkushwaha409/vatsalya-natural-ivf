@@ -10,9 +10,8 @@ const CTA = () => {
             Connect With Us
           </p>
           <p className="my-2">
-            {" "}
-            Page layouts look better with something in each section. Web page
-            designers, content writers, and layout artists use lorem ipsum
+            Reach out today to share ideas, questions, or opportunities
+            together.
           </p>
 
           <div className="mt-8">
