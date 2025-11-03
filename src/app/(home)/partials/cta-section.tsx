@@ -1,6 +1,5 @@
 "use client";
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
