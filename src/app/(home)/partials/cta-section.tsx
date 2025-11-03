@@ -22,24 +22,26 @@ const CTA = () => {
           </p>
         </div>
         <div className="w-full lg:w-1/2 flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-start gap-4">
-          <Link href="/contact-us">
+          {/* Contact Us Button */}
+          <Link href="/contact-us" className="w-full lg:w-auto">
             <button
               style={{
                 boxShadow: "0px 5.486px 12.343px 0px rgba(215, 101, 120, 0.33)",
               }}
-              className="w-full lg:w-auto flex items-center justify-center gap-3 bg-secondary-500 px-8 py-4 border border-secondary-200 rounded-full font-manrope font-extrabold text-white cursor-pointer transition-all hover:scale-105 hover:shadow-lg"
+              className="w-full lg:w-auto flex items-center justify-center gap-3 bg-secondary-500 px-6 lg:px-8 py-3 lg:py-4 border border-secondary-200 rounded-full font-manrope font-extrabold text-white cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
               Contact Us
             </button>
           </Link>
 
+          {/* Book an Appointment Button */}
           <button
             onClick={handleAppointmentClick}
             style={{
               background: "linear-gradient(90deg, #A0385A 0%, #3A142C 100%)",
               boxShadow: "0px 8px 18px 0px rgba(211, 163, 193, 0.77)",
             }}
-            className="w-full lg:w-auto px-8 py-4 border-2 border-secondary-100 rounded-full font-manrope font-extrabold text-white cursor-pointer transition-all hover:scale-105 hover:shadow-lg"
+            className="w-full lg:w-auto flex items-center justify-center px-6 lg:px-8 py-3 lg:py-4 border-2 border-secondary-100 rounded-full font-manrope font-extrabold text-white cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg"
           >
             Book an Appointment
           </button>
