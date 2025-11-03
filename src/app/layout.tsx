@@ -128,7 +128,7 @@ export default async function RootLayout({
         <div className="top-0 -z-20 absolute inset-x-0 bg-primary-50 h-[12rem]" />
         <Providers>
           <Header />
-          <div className="">{children}</div>
+          <div>{children}</div>
           <Footer />
           <Link href={`tel:${footerData?.data?.phoneNumber?.[0]}`}>
             <Image
