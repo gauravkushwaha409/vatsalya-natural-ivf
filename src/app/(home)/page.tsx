@@ -52,7 +52,7 @@ const HomePage = async () => {
           <Showcase data={showcaseData?.data} />
 
           <HowWeWork data={howWeWorkData?.data} />
-          <WhatWeOffer data={whatweOfferData?.data} />
+          <WhatWeOffer data={whatweOfferData?.data?.records ?? {}} />
 
           {/* <MeetExperts data={expertsData?.data} /> */}
           {/* <Miracles data={homeGalleryData?.data} /> */}

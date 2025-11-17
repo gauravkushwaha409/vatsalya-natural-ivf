@@ -35,7 +35,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
   return (
     <div className="mb-10 md:mb-20 padding">
       {/* Header */}
-      <div className="flex justify-center items-center gap-3 md:gap-5 py-6">
+      <div className="flex justify-center items-center gap-3 md:gap-5 py-3">
         <span className="bg-primary-500 w-[4rem] md:w-[8.5rem] h-px" />
         <h2 className="font-bold text-primary-500 text-sm md:text-base uppercase tracking-[0.12rem] md:tracking-[0.18rem]">
           {data?.title}

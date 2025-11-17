@@ -8,6 +8,14 @@
   @apply box-border;
 }
 
+a,
+button,
+[role="button"],
+input[type="button"],
+input[type="submit"] {
+  cursor: pointer;
+}
+
 @theme inline {
   /* Primary colors */
   --color-primary-50: #fff1ef;
