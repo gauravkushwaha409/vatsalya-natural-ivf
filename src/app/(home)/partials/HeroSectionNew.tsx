@@ -24,7 +24,7 @@ const HeroSectionNew = () => {
       <div className="relative flex items-center h-[660px] bg-[#FFEDEC]">
         {/* Blur Overlay */}
 
-        <div className="absolute border h-10 w-full z-20 top-0 bg-[linear-gradient(180deg,_rgba(255,241,239,1)_80%,_rgba(255,255,255,1)_89%)] "></div>
+        <div className="absolute  h-10 w-full z-20 top-0 bg-[linear-gradient(180deg,_rgba(255,241,239,1)_80%,_rgba(255,255,255,1)_89%)] "></div>
 
         {/* <div className="absolute border h-10 w-full z-20 top-0 bg-[linear-gradient(166deg,_#FFF1EF_10.56%,_rgba(255,241,239,0)_90.62%)]"></div> */}
 

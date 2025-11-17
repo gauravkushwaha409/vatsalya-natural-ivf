@@ -129,7 +129,7 @@ const Header = () => {
     { name: "Services", link: PATHS.services },
     { name: "Our Team", link: PATHS.team },
     { name: "Success Stories", link: PATHS.successStory },
-    { name: "Urbanist", link: PATHS.blog },
+    { name: "Blogs", link: PATHS.blog },
     // { name: "International Patient", link: PATHS.international_Patient },
     { name: "Clinic", link: PATHS.clinic },
     { name: "Contact Us", link: PATHS.contact },

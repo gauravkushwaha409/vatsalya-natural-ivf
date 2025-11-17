@@ -46,28 +46,16 @@ const HomePage = async () => {
       <>
         <JsonLD />
 
-        <div className="space-y-20 w-full">
+        {/* <div className="space-y-20 w-full"> */}
+        <div className=" w-full">
           <HeroSectionNew />
+          <Showcase data={showcaseData?.data} />
 
-          {/* Main Slogan */}
-          <Slogan data={homedata?.data?.mission[0]} />
-          <div
-            style={{
-              background: "url(/home/who-we-are-bg.webp) repeat-y 0% / cover",
-              backgroundSize: "100% 50%",
-            }}
-            className="w-full overflow-hidden"
-          >
-            <WhoWeAre data={homedata?.data?.WhatWeDo[0]} />
-            <WhatWeDo data={homedata?.data?.WhatWeDo[1]} />
-          </div>
-          <WhatWeOffer data={whatweOfferData?.data?.records ?? {}} />
           <HowWeWork data={howWeWorkData?.data} />
           <WhenToVisit data={homedata?.data?.WhenVisit[0] ?? {}} />
 
           <BrandsSlider />
           <MeetExperts data={expertsData?.data} />
-          <Showcase data={showcaseData?.data} />
           <Miracles data={homeGalleryData?.data} />
           <div className="w-full">
             <Testimonial data={testimonialData?.data} />
