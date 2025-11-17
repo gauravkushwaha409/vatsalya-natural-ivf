@@ -33,7 +33,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
   const [activeStep, setActiveStep] = useState<number | null>(null);
 
   return (
-    <div className="pt-10 md:pt-20 padding">
+    <div className="mb-10 md:mb-20 padding">
       {/* Header */}
       <div className="flex justify-center items-center gap-3 md:gap-5 py-6">
         <span className="bg-primary-500 w-[4rem] md:w-[8.5rem] h-px" />
@@ -44,16 +44,16 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
       </div>
 
       {/* Subtitle */}
-      <p className="px-4 pb-8 md:pb-16 font-semibold text-text-500 text-center typography-h2">
+      <p className="px-4 pb-8 md:pb-16  text-text-500 font-bold text-center typography-h2">
         {data?.subtitle}
       </p>
 
       {/* Steps */}
-      <div className="flex items-center  gap-4 md:gap-8">
+      <div className="flex items-center gap-4 md:gap-8">
         {howWeWorkData.steps.map((step, index) => (
-          <div key={step.number} className="flex items-center gap-10">
+          <div key={step.number} className="flex items-center gap-4">
             {/* Step Circle */}
-            <div className="flex flex-col items-center text-center gap-4">
+            <div className="flex flex-col items-center  w-full min-w-[180px] gap-4">
               <button
                 onClick={() =>
                   setActiveStep(activeStep === step.number ? null : step.number)
@@ -104,26 +104,33 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
                 </span>
               </button>
 
-              <p className="text-[#3A3A3A] text-[20px] font-bold leading-[150%] tracking-[-3%]">
+              <p className="text-[#3A3A3A] text-[20px] font-bold text-left leading-[150%] tracking-[-3%]">
                 {step.title}
               </p>
             </div>
 
             {/* Connector */}
             {index < howWeWorkData.steps.length - 1 && (
-              <div className="hidden md:flex items-center  -mt-10 shrink-0">
+              <div className="hidden md:flex items-center  -mt-4 -ml-3 shrink-0">
                 <Image
                   src="/home/svg/connector.svg"
                   alt="connector line"
                   width={500}
                   height={500}
-                  className="object-cover w-10 "
+                  className="object-cover w-8 "
                 />
               </div>
             )}
           </div>
         ))}
       </div>
+
+      <button
+        type="submit"
+        className="flex items-center gap-3 bg-secondary-500 px-8 py-4 border border-secondary-200 rounded-full font-extrabold text-white cursor-pointer typography-paragraph-regular mx-auto mt-14"
+      >
+        Book your Appointment
+      </button>
     </div>
   );
 };
