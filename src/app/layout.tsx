@@ -1,7 +1,7 @@
 import Footer from "@/commons/Footer";
 import Header from "@/commons/Header";
 import type { Metadata } from "next";
-import { Manrope, Roboto } from "next/font/google";
+import { Urbanist } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
@@ -11,13 +11,8 @@ import { getHomePageData } from "./(home)/hook/hook.hook";
 import "./globals.css";
 import Providers from "./providers";
 
-const manRope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
-});
-const roboto = Roboto({
-  variable: "--font-roboto",
+const urbanist = Urbanist({
+  variable: "--font-urbanist",
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
@@ -121,11 +116,11 @@ export default async function RootLayout({
         </noscript>
       </head>
       <body
-        className={`${manRope.variable} ${roboto.variable} antialiased font-manrope bg-background-100 relative`}
+        className={`${urbanist.variable}  antialiased font-urbanist bg-background-100 relative`}
         // className={`${manRope.variable} ${inter.variable} ${plusJakarta.variable} ${roboto.variable} antialiased font-manrope bg-background-100 `}
       >
         {/* this divs fills the white space when header is hidden */}
-        <div className="top-0 -z-20 absolute inset-x-0 bg-primary-50 h-[12rem]" />
+        <div className="top-0 -z-20 absolute inset-x-0 bg-primary-50 " />
         <Providers>
           <Header />
           <div>{children}</div>

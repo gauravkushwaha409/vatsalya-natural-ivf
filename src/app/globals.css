@@ -93,10 +93,7 @@
   --color-text-800: #191919;
   --color-text-900: #131313;
   /* fonts */
-  --font-manrope: var(--font-manrope);
-  --font-inter: var(--font-inter);
-  --font-jakarta: var(--font-plus-jakarta-sans);
-  --font-roboto: var(--font-roboto);
+  --font-urbanist: var(--font-urbanist);
 
   /* shadcn */
   --color-background: var(--background);
@@ -207,7 +204,7 @@
   @apply font-normal text-[0.875rem] lg:text-[1.2rem] leading-[120%];
 }
 @utility typography-paragraph-regular {
-  @apply font-normal text-[0.75rem] lg:text-[1rem] leading-[120%];
+  @apply font-normal text-[0.75rem] lg:text-[0.875rem] leading-[120%];
 }
 @utility typography-paragraph-small {
   @apply font-normal text-[0.625rem] lg:text-[0.83313rem] leading-[120%];
@@ -232,6 +229,10 @@
 }
 @utility padding {
   @apply px-5 lg:px-20;
+}
+
+@utility padding-l {
+  @apply pl-5 lg:pl-24;
 }
 
 @utility no-scrollbar {
@@ -291,6 +292,7 @@
 .dot:nth-child(3) {
   animation-delay: -0.9s;
 }
+
 @keyframes wave {
   0%,
   60%,
