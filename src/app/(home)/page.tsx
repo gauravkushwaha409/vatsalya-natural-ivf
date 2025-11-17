@@ -52,11 +52,10 @@ const HomePage = async () => {
           <Showcase data={showcaseData?.data} />
 
           <HowWeWork data={howWeWorkData?.data} />
-          <WhenToVisit data={homedata?.data?.WhenVisit[0] ?? {}} />
+          <WhatWeOffer data={whatweOfferData?.data} />
 
-          <BrandsSlider />
-          <MeetExperts data={expertsData?.data} />
-          <Miracles data={homeGalleryData?.data} />
+          {/* <MeetExperts data={expertsData?.data} /> */}
+          {/* <Miracles data={homeGalleryData?.data} /> */}
           <div className="w-full">
             <Testimonial data={testimonialData?.data} />
           </div>
