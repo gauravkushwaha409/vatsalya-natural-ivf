@@ -56,9 +56,9 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
       {/* Steps */}
       <div className="flex items-center gap-4 md:gap-8">
         {howWeWorkData.steps.map((step, index) => (
-          <div key={step.number} className="flex items-center gap-4">
+          <div key={step.number} className="flex gap-4 ">
             {/* Step Circle */}
-            <div className="flex flex-col items-center  w-full min-w-[180px] gap-4">
+            <div className="flex flex-col w-full min-w-[180px] gap-4">
               <button
                 onClick={() =>
                   setActiveStep(activeStep === step.number ? null : step.number)

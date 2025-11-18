@@ -13,12 +13,28 @@ import { FiMapPin } from "react-icons/fi";
 import { IoBagOutline } from "react-icons/io5";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface MeetExpertsProps {
   data: IOurExpertsData;
 }
 
 const MeetOurExperts: React.FC<MeetExpertsProps> = ({ data }) => {
+  const filterOptions = [
+    { value: "all", label: "All" },
+    { value: "kathmandu", label: "Kathmandu" },
+    { value: "bhaktapur", label: "Bhaktapur" },
+  ];
+  const [filterValue, setFilterValue] = useState("all");
+  const onChange = (value: string) => {
+    setFilterValue(value);
+  };
   const [openModal, setOpenModal] = useState<boolean>(false);
   const handleAppointmentClick = () => {
     setOpenModal(true);
@@ -43,7 +59,39 @@ const MeetOurExperts: React.FC<MeetExpertsProps> = ({ data }) => {
         World-Class Doctors, Dedicated to Your Care
       </p>
 
-      <div className="">
+      <div className="flex flex-col justify-end w-full gap-3 mb-5 sm:w-full sm:flex-row sm:items-center">
+        <p className="font-normal text-[#929292] text-[13px]  leading-[120%] tracking-[-3%]">
+          Location:
+        </p>
+        <Select value={filterValue} onValueChange={onChange}>
+          <SelectTrigger className="data-[placeholder]:typography-paragraph-extra-small text-text-700 w-full cursor-pointer !h-11.5 border rounded-full !border-[#F3F3F3] bg-[#F8F8F8] shadow-none focus-visible:ring-0 sm:w-30">
+            <SelectValue placeholder="Country" />
+          </SelectTrigger>
+          <SelectContent>
+            {filterOptions.map((option) => (
+              <SelectItem
+                key={option.value}
+                value={option.value}
+                className="text-text-800 typography-paragraph-extra-small focus:bg-primary-50 focus:text-primary-500 cursor-pointer rounded-none px-[0.62rem] py-[0.5rem] text-wrap whitespace-normal"
+              >
+                {option.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div className="relative">
+        <div className="w-[200px] h-[200px] absolute -top-18 -left-38">
+          <Image
+            src="/svg/butterfly.svg"
+            alt="Butterfly"
+            width={100}
+            height={100}
+            className="object-cover w-full h-full"
+          />
+        </div>
+
         <style>{`
           .custom-swiper .swiper-pagination {
             position: relative !important;
@@ -71,6 +119,7 @@ const MeetOurExperts: React.FC<MeetExpertsProps> = ({ data }) => {
             border-radius: 50px !important;
           }
         `}</style>
+
         <Swiper
           ref={swiperRef}
           modules={[Pagination]}
@@ -195,6 +244,7 @@ const MeetOurExperts: React.FC<MeetExpertsProps> = ({ data }) => {
           Book your Appointment
         </button>
       </div>
+
       <RequestAppoimentModal
         isOpen={openModal}
         onClose={() => setOpenModal(false)}
