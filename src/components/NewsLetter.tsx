@@ -10,21 +10,21 @@ const NewsLetter = () => {
         <label
           htmlFor="email"
           aria-label="Email"
-          className="flex bg-white/[0.12] px-4 py-4 border border-[#E4E4E7] rounded-[0.75rem]"
+          className="flex bg-transparent px-4 py-4 border-[0.5px] border-[#D1D1D1] rounded-full"
         >
           <input
             id="email"
             name="email"
             type="email"
             placeholder="Enter your Email"
-            className="bg-transparent outline-0 ring-0 text-black placeholder:text-dark-variant-300 grow"
+            className="text-black bg-transparent outline-0 ring-0 placeholder:text-[#71717A] grow"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.email}
           />
         </label>
         {formik.touched.email && formik.errors.email && (
-          <p className="text-red-500 text-sm">{formik.errors.email}</p>
+          <p className="ml-4 text-sm text-red-500">{formik.errors.email}</p>
         )}
 
         <button

@@ -51,21 +51,21 @@ const Footer = async () => {
   const { data } = await getData(endpoints.service + `?page=${1}&perPage=${5}`);
   return (
     <>
-      <FooterSeo />
-      <div className="bg-primary-100 backdrop-blur-[5.6px] pt-10 overflow-hidden text-text-400 padding">
-        <div className="gap-[2.56rem] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-          <div className="space-y-3 font-manrope text-text-400 typography-paragraph-regular">
-            <div className="-ml-5 h-20 aspect-auto">
-              <Link href="/">
-                <Image
-                  src={footerData?.data?.footerLogo}
-                  width={100}
-                  height={100}
-                  alt="logo"
-                  className="w-full h-full object-contain"
-                />
-              </Link>
-            </div>
+      {/* <FooterSeo /> */}
+      <div className="bg-white backdrop-blur-[5.6px] pt-10 overflow-hidden text-text-400 padding">
+        <div className="gap-[2rem] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+          {/* About Section */}
+          <div className="col-span-2 space-y-3 text-text-400 typography-paragraph-regular">
+            <Link href="/">
+              <Image
+                src={footerData?.data?.footerLogo}
+                width={100}
+                height={100}
+                alt="logo"
+                className="object-cover w-[146px] h-[60px]"
+              />
+            </Link>
+
             <p
               dangerouslySetInnerHTML={{
                 __html: footerData?.data?.footerDescription || "",
@@ -81,13 +81,13 @@ const Footer = async () => {
               {footerData?.data?.phoneNumber}
             </a>
 
-            <div className="flex flex-wrap items-center gap-4 mt-5">
+            <div className="flex flex-wrap items-center gap-2 mt-5">
               {socialLinks.map(
                 (item) =>
                   item.href && (
                     <a
                       key={item.name}
-                      className="hover:brightness-80 size-6 transition-all duration-300 shrink-0"
+                      className="transition-all duration-300 hover:brightness-80 size-6 shrink-0"
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -106,8 +106,8 @@ const Footer = async () => {
           </div>
 
           {/* Company Links */}
-          <div className="space-y-3 font-manrope text-text-400 typography-paragraph-regular">
-            <h3 className="font-bold text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.18rem] typography-paragraph-regular">
+          <div className="space-y-3 text-text-400 typography-paragraph-regular">
+            <h3 className="font-extrabold text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.18rem] typography-paragraph-regular">
               Company
             </h3>
             {companyLinks.map((link) => (
@@ -117,8 +117,8 @@ const Footer = async () => {
             ))}
           </div>
           {/* Company Links */}
-          <div className="space-y-3 font-manrope text-text-400 typography-paragraph-regular">
-            <h3 className="font-bold text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.18rem] typography-paragraph-regular">
+          <div className="space-y-3 text-text-400 typography-paragraph-regular">
+            <h3 className="font-extrabold text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.18rem] typography-paragraph-regular">
               Services
             </h3>
             {data?.records?.map((link: IserviceRecord, index: number) => (
@@ -128,8 +128,8 @@ const Footer = async () => {
             ))}
           </div>
           {/* Help Links */}
-          <div className="space-y-3 font-manrope text-text-400 typography-paragraph-regular">
-            <h3 className="font-[600] text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.1575rem]">
+          <div className="space-y-3 text-text-400 typography-paragraph-regular">
+            <h3 className="font-extrabold text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.1575rem]">
               Help
             </h3>
             {helpLinks.map((link) => (
@@ -141,15 +141,35 @@ const Footer = async () => {
           </div>
 
           {/* Newsletter */}
-          <div className="space-y-3 font-manrope text-text-400 typography-paragraph-regular">
-            <h3 className="font-[600] text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.1575rem]">
+          <div className="space-y-3 text-text-400 typography-paragraph-regular">
+            <h3 className="font-extrabold text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.1575rem]">
               Subscribe to Newsletter
             </h3>
             <NewsLetter />
+
+            <p className="font-extrabold text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.1575rem] mt-6">
+              Download app
+            </p>
+            <div className="flex gap-3.5 items-center">
+              <Image
+                src="apple.svg"
+                alt="apple-icon"
+                width={200}
+                height={200}
+                className="object-cover h-[30px] w-[30px]"
+              />
+              <Image
+                src="android.svg"
+                alt="android-icon"
+                width={200}
+                height={200}
+                className="object-cover h-[30px] w-[30px]"
+              />
+            </div>
           </div>
         </div>
         <hr className="bg-[#FFF1EF] my-5" />
-        <p className="pb-5 font-roboto text-text-400 text-xs text-center typography-paragraph-regular">
+        <p className="pb-5 text-xs text-center font-roboto text-text-400 typography-paragraph-regular">
           {footerData?.data?.copyRight}
         </p>
       </div>
