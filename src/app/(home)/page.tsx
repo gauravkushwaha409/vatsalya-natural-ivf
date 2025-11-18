@@ -7,17 +7,15 @@ import { ISeoRoot } from "@/interface/seo.interface";
 import dynamic from "next/dynamic";
 import { getHomePageData } from "./hook/hook.hook";
 import Blogsection from "./partials/Blogsection";
-import CTA from "./partials/cta-section";
 import FaqHome from "./partials/FaqHome";
-import HeroSectionNew from "./partials/HeroSectionNew";
+import GetStarted from "./partials/GetStarted";
+import HomeHero from "./partials/HomeHero";
 import HowWeWork from "./partials/HowWeWork";
 import JsonLD from "./partials/JsonLD";
 import Location from "./partials/Location";
 import MeetOurExperts from "./partials/MeetOurExperts";
-import Notice from "./partials/Notice";
 import Showcase from "./partials/Showcase";
 import WhatWeOffer from "./partials/WhatWeOffer";
-import GetStarted from "./partials/GetStarted";
 const BrandsSlider = dynamic(() => import("./partials/BrandsSlider"));
 
 export async function generateMetadata() {
@@ -46,7 +44,7 @@ const HomePage = async () => {
 
         {/* <div className="w-full space-y-20"> */}
         <div className="w-full ">
-          <HeroSectionNew />
+          <HomeHero />
           <Showcase data={showcaseData?.data} />
           <HowWeWork data={howWeWorkData?.data} />
           <WhatWeOffer data={whatweOfferData?.data?.records ?? {}} />

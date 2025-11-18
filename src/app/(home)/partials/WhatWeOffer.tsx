@@ -40,7 +40,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
         Comprehensive Fertility Care, Tailored for You
       </p>
 
-      <div className="pt-10 ">
+      <>
         <style>{`
           .custom-swiper .swiper-pagination {
             position: relative !important;
@@ -196,7 +196,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
           isOpen={openModal}
           onClose={() => setOpenModal(false)}
         />
-      </div>
+      </>
     </motion.div>
   );
 };

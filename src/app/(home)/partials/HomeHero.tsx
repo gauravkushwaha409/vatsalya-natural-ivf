@@ -1,6 +1,6 @@
 "use client ";
 
-const HeroSectionNew = () => {
+const HomeHero = () => {
   return (
     <div>
       {/* <div className="w-[245.19px] h-[243.08] -ml-22 -mt-14">
@@ -9,12 +9,12 @@ const HeroSectionNew = () => {
           alt="Butterfly"
           width={100}
           height={100}
-          className="w-full h-full object-cover"
+          className="object-cover w-full h-full"
         />
       </div> */}
 
       {/* <div
-        className="border h-10"
+        className="h-10 border"
         style={{
           background:
             "linear-gradient(166deg, #FFF1EF 10.56%, rgba(255, 241, 239, 0) 90.62%)",
@@ -54,7 +54,7 @@ const HeroSectionNew = () => {
             muted
             loop
             controls={false}
-            className="w-full h-full object-cover"
+            className="object-cover w-full h-full"
           />
         </div>
       </div>
@@ -62,4 +62,4 @@ const HeroSectionNew = () => {
   );
 };
 
-export default HeroSectionNew;
+export default HomeHero;
