@@ -13,7 +13,7 @@ interface IBlog {
 const BlogCard: React.FC<IBlog> = ({ data }) => {
   return (
     <>
-      <div className="h-full max-w-md overflow-hidden transition-all duration-300 ease-in-out bg-white shadow-[0px_0px_32px_0px_#FBCED140] rounded-[32px]">
+      <div className="max-w-md overflow-hidden transition-all duration-300 ease-in-out bg-white shadow-[0px_0px_32px_0px_#FBCED140] rounded-[32px] h-[412px]">
         <div className="aspect-[311/240] overflow-hidden">
           {/* Image */}
           <Link href={`/blog/${data?.slug}`}>
@@ -27,7 +27,7 @@ const BlogCard: React.FC<IBlog> = ({ data }) => {
           </Link>
         </div>
 
-        <div className="p-5">
+        <div className="p-5 ">
           <p className="font-medium text-secondary-500 text-[13px] leading-[120%] tracking-[-2%]">
             {formatDate(data?.created_date)}
           </p>
