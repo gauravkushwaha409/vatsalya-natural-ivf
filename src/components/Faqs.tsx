@@ -9,45 +9,37 @@ export interface FAQOptions {
 }
 
 const Faq: React.FC<{ faq: FAQOptions[] }> = ({ faq }) => {
-  const [openFaq, setOpenFaq] = useState<number[]>([]);
-
-  useEffect(() => {
-    if (faq?.length > 0) {
-      setOpenFaq(faq.map((_, index) => index));
-    }
-  }, [faq]);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFaq = (index: number) => {
-    setOpenFaq((prev) =>
-      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
-    );
+    setOpenIndex((prev) => (prev === index ? null : index));
   };
 
   return (
     <div className="space-y-2">
       {faq?.map((faqItem, index) => {
-        const isOpen = openFaq.includes(index);
+        const isOpen = openIndex === index;
 
         return (
           <div
             key={index}
             role="button"
             tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                toggleFaq(index);
-              }
-            }}
+            onKeyDown={(e) => e.key === "Enter" && toggleFaq(index)}
             aria-label={`Toggle FAQ ${index}`}
-            className="flex pb-1 border-gray-300 border-b overflow-hidden transition-all cursor-pointer select-none"
+            className="flex pb-1 overflow-hidden transition-all border-b border-gray-300 cursor-pointer select-none"
             onClick={() => toggleFaq(index)}
           >
-            <div className="bg-secondary-500 rounded-r-xl w-1 transition-all duration-300" />
+            <div
+              className={`rounded-r-xl w-1 transition-all duration-300 ${
+                isOpen ? "bg-secondary-500" : "bg-gray-300"
+              }`}
+            />
 
             <div className="w-full">
-              <div className="flex justify-between items-center p-3">
+              <div className="flex items-center justify-between p-3">
                 <p
-                  className={`font-bold text-base ${
+                  className={`font-bold text-base transition-colors duration-300 ${
                     isOpen ? "text-secondary-500" : ""
                   }`}
                 >
@@ -55,23 +47,24 @@ const Faq: React.FC<{ faq: FAQOptions[] }> = ({ faq }) => {
                 </p>
 
                 <span
-                  className="ml-4 focus:outline-none text-2xl cursor-pointer"
+                  className="ml-4 text-2xl cursor-pointer select-none"
                   aria-label={`Toggle FAQ ${index}`}
                 >
                   {isOpen ? "−" : "+"}
                 </span>
               </div>
 
+              {/* Answer Section */}
               <div
-                className={`text-sm overflow-hidden transition-all duration-300 pl-3 pr-4`}
+                className="pl-3 pr-4 overflow-hidden text-sm transition-all duration-300"
                 style={{
-                  maxHeight: isOpen ? "200px" : "0px",
+                  maxHeight: isOpen ? "300px" : "0px",
                   opacity: isOpen ? 1 : 0,
                 }}
               >
                 {faqItem.answer && (
                   <p
-                    className="mt-2 pb-2 text-text-400 transition-all duration-300"
+                    className="pb-2 transition-all duration-300 text-text-400"
                     dangerouslySetInnerHTML={{ __html: faqItem.answer }}
                   />
                 )}

@@ -12,9 +12,9 @@ interface IBlog {
 
 const BlogCard: React.FC<IBlog> = ({ data }) => {
   return (
-    <div>
-      <div className="bg-white hover:shadow-lg rounded-3xl max-w-md h-full overflow-hidden transition-all duration-300 ease-in-out">
-        <div className="aspect-[400/240] overflow-hidden">
+    <>
+      <div className="h-full max-w-md overflow-hidden transition-all duration-300 ease-in-out bg-white shadow-[0px_0px_32px_0px_#FBCED140] rounded-[32px]">
+        <div className="aspect-[311/240] overflow-hidden">
           {/* Image */}
           <Link href={`/blog/${data?.slug}`}>
             <Image
@@ -22,29 +22,27 @@ const BlogCard: React.FC<IBlog> = ({ data }) => {
               alt={`Video testimonial by ${data?.title}`}
               width={400}
               height={240}
-              className="w-full h-full object-cover"
+              className="object-cover w-full h-full"
             />
           </Link>
         </div>
 
-        <div className="p-6">
-          <p className="font-bold text-secondary-500 typography-paragraph-regular">
+        <div className="p-5">
+          <p className="font-medium text-secondary-500 text-[13px] leading-[120%] tracking-[-2%]">
             {formatDate(data?.created_date)}
           </p>
-          <Link
-            className="flex justify-between items-center w-full cursor-pointer"
-            href={`/blog/${data?.slug}`}
-          >
-            <p className="my-4 font-semibold text-[#1A1A1A] line-clamp-1 leading-[150%] typography-h3">
+          <div className="flex justify-between my-2.5 items-center">
+            <p className=" w-[80%] font-bold text-[#1A1A1A] line-clamp-1  leading-[120%] tracking-[-2%] text-[20px]">
               {data?.title}
             </p>
-            <div>
+
+            <Link href={`/blog/${data?.slug}`}>
               <IoArrowForwardOutline
                 size={24}
-                className="text-primary-500 -rotate-40"
+                className=" w-fit text-primary-500 -rotate-40"
               />
-            </div>
-          </Link>
+            </Link>
+          </div>
           <p
             className="font-medium text-[#667085] line-clamp-2 typography-paragraph-regular"
             dangerouslySetInnerHTML={{ __html: data?.description }}
@@ -65,7 +63,7 @@ const BlogCard: React.FC<IBlog> = ({ data }) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

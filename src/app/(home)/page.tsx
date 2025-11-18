@@ -8,7 +8,7 @@ import dynamic from "next/dynamic";
 import { getHomePageData } from "./hook/hook.hook";
 import Blogsection from "./partials/Blogsection";
 import CTA from "./partials/cta-section";
-import HomeFaq from "./partials/Faq";
+import FaqHome from "./partials/FaqHome";
 import HeroSectionNew from "./partials/HeroSectionNew";
 import HowWeWork from "./partials/HowWeWork";
 import JsonLD from "./partials/JsonLD";
@@ -51,11 +51,9 @@ const HomePage = async () => {
           <WhatWeOffer data={whatweOfferData?.data?.records ?? {}} />
           <MeetOurExperts data={expertsData?.data} />
           <TestimonialSlider data={testimonialData?.data} />
-
           <Location data={locationData?.data?.records} />
+          <FaqHome data={homedata?.data?.Faq} />
 
-          <HomeFaq data={homedata?.data?.Faq} />
-          <CTA />
           <Blogsection data={blogData?.data} />
           <Notice />
         </div>
