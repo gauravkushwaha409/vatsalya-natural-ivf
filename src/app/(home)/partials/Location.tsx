@@ -1,26 +1,17 @@
 "use client";
 
-import React, { useState } from "react";
 import { useSlider } from "@/components/hooks/useSlider";
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
-import { Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { ICenter } from "@/interface/center";
+import PATHS from "@/utils/path";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { ICenter, ICenterRoot } from "@/interface/center";
 import Image from "next/image";
 import Link from "next/link";
-import { ImQuotesLeft } from "react-icons/im";
-import { IoArrowForwardOutline } from "react-icons/io5";
+import { useState } from "react";
 import { FiMail, FiMapPin, FiPhone } from "react-icons/fi";
-import PATHS from "@/utils/path";
-
-interface IsuccessStoriesRecord {
-  // define the fields you actually have
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-}
+import { IoArrowForwardOutline } from "react-icons/io5";
+import { Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 interface LocationProps {
   data: ICenter[];
