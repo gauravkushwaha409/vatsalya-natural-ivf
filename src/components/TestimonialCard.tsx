@@ -49,7 +49,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         </div>
 
         <div className="relative p-6 pb-4">
-          <div className="-top-6 left-6 absolute flex justify-center items-center bg-[#FF6F61] rounded-full w-[50px] h-[50px]">
+          <div className="-top-6 left-2 absolute flex justify-center items-center bg-[#FF6F61] rounded-full w-[50px] h-[50px]">
             <ImQuotesLeft className="text-white w-[24px] h-[16px]" />
           </div>
 

@@ -34,7 +34,7 @@ const Testimonial: React.FC<Props> = ({ data }) => {
   return (
     <div className="pb-6 sm:pb-10 ">
       <div
-        className="relative padding py-10  w-full max-h-[853px]"
+        className="relative padding py-10 overflow-hidden w-full max-h-[853px]"
         style={{
           background:
             "linear-gradient(270deg, rgba(255, 210, 206, 0.3) 0%, rgba(235, 192, 219, 0.3) 100%)",
@@ -81,7 +81,7 @@ const Testimonial: React.FC<Props> = ({ data }) => {
               }}
               loop={false}
               freeMode={false}
-              spaceBetween={16}
+              spaceBetween={10}
               breakpoints={{
                 320: {
                   slidesPerView: 1,
@@ -132,6 +132,7 @@ const Testimonial: React.FC<Props> = ({ data }) => {
           ))}
         </div>
 
+        {/* navigation buttons */}
         <div className="flex items-center gap-3 justify-end w-fit absolute right-4 md:right-20 -mt-6">
           <button
             type="button"
@@ -163,7 +164,7 @@ const Testimonial: React.FC<Props> = ({ data }) => {
 
         <button
           type="submit"
-          className="flex items-center gap-3 bg-secondary-500 px-8 py-4 border border-secondary-200 rounded-full font-extrabold text-white cursor-pointer typography-paragraph-regular mx-auto mt-14"
+          className="flex items-center gap-3 bg-secondary-500 px-8 py-4 border border-secondary-200 rounded-full font-extrabold text-white cursor-pointer typography-paragraph-regular mx-auto mt-10"
         >
           Book your Appointment
         </button>
