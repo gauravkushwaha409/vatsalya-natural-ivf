@@ -27,7 +27,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
       onViewportEnter={() => setIsInView(true)}
       onViewportLeave={() => setIsInView(false)}
       viewport={{ amount: 0.4 }}
-      className="mb-10 md:mb-20 padding"
+      className="mb-10 md:mb-12 padding"
     >
       <div className="flex items-center justify-center gap-3 py-3 sm:gap-5">
         <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
@@ -40,7 +40,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
         Comprehensive Fertility Care, Tailored for You
       </p>
 
-      <div className="">
+      <div className="pt-10 ">
         <style>{`
           .custom-swiper .swiper-pagination {
             position: relative !important;
@@ -66,6 +66,10 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
             background: #ff6f61 !important;
             width: 24px !important;
             border-radius: 50px !important;
+          }
+
+          .swiper-slide {
+            padding-top: 8px;
           }
         `}</style>
         <Swiper
@@ -106,21 +110,16 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
               spaceBetween: 24,
             },
           }}
-          className="w-full custom-swiper"
+          className="w-full h-full custom-swiper"
         >
           {data?.map((item) => (
             <SwiperSlide key={item.id}>
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="w-full h-full"
-              >
+              <div>
                 <Link
                   href={`/services/${item?.slug}`}
                   className="flex items-center justify-between h-full"
                 >
-                  <div className="group relative flex flex-col justify-center bg-primary-50 hover:bg-primary-100 p-7 rounded-tl-[50px] rounded-br-[50px] w-full overflow-hidden transition-colors duration-300">
+                  <div className="group relative flex flex-col justify-center bg-primary-50 z-10 p-7 rounded-tl-[80px] rounded-br-[80px] w-full  transition-all duration-300 transform hover:-translate-y-2 ease-in-out">
                     <div className="size-[7.25rem]">
                       <Image
                         src={item?.icon}
@@ -152,7 +151,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
                     </div>
                   </div>
                 </Link>
-              </motion.div>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
