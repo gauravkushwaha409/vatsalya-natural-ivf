@@ -107,7 +107,7 @@ const Blogsection: React.FC<BlogCardProps> = ({ data }) => {
         </Swiper>
 
         {/* Navigation Buttons */}
-        <div className="flex items-center justify-end gap-3 ml-auto -mt-7 w-fit">
+        <div className="absolute z-10 flex items-center justify-end gap-3 -mt-6 w-fit right-4 md:right-20">
           <button
             type="button"
             onClick={goPrev}
@@ -121,7 +121,6 @@ const Blogsection: React.FC<BlogCardProps> = ({ data }) => {
           >
             <ArrowLeft size={16} />
           </button>
-
           <button
             type="button"
             onClick={goNext}

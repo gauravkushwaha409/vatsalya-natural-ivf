@@ -158,7 +158,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
         </Swiper>
 
         {/* navigation buttons */}
-        <div className="absolute flex items-center justify-end gap-3 -mt-6 w-fit right-4 md:right-20">
+        <div className="absolute z-10 flex items-center justify-end gap-3 -mt-6 w-fit right-4 md:right-20">
           <button
             type="button"
             onClick={goPrev}

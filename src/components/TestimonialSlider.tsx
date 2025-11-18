@@ -147,7 +147,7 @@ const TestimonialSlider: React.FC<Props> = ({ data }) => {
         )}
 
         {/* navigation buttons */}
-        <div className="absolute flex items-center justify-end gap-3 -mt-6 w-fit right-4 md:right-20">
+        <div className="absolute z-10 flex items-center justify-end gap-3 -mt-6 w-fit right-4 md:right-20">
           <button
             type="button"
             onClick={goPrev}
@@ -184,12 +184,12 @@ const TestimonialSlider: React.FC<Props> = ({ data }) => {
           Book your Appointment
         </button>
       </div>
-      
+
       <RequestAppoimentModal
         isOpen={openModal}
         onClose={() => setOpenModal(false)}
       />
-      
+
       <VideoModal
         isOpen={isOpenModal}
         onClose={() => setIsOpenModal(false)}
