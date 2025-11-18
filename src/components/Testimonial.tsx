@@ -1,46 +1,179 @@
-import { IsuccessStoriesData } from "@/app/success-story/interface/successStories.interface";
-import quoteIcon from "@/assests/about/quoteIcon.png";
+"use client";
+
+import {
+  IsuccessStoriesData,
+  IsuccessStoriesRecord,
+} from "@/app/success-story/interface/successStories.interface";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { FreeMode } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { useSlider } from "./hooks/useSlider";
+import TestimonialCard from "./TestimonialCard";
+import VideoModal from "./modals/VideoModal";
 import Image from "next/image";
-import TestimonialSwiper from "./TestimonialSwiper";
-// import CustomCarousel from "./Carousel";
 
 type Props = {
   data: IsuccessStoriesData;
 };
 const Testimonial: React.FC<Props> = ({ data }) => {
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+  const [videoUrl, setVideoUrl] = useState<string>("");
+
+  const {
+    swiperRef,
+    activeIndex,
+    goToSlide,
+    handleSlideChange,
+    goPrev,
+    goNext,
+  } = useSlider();
+
   return (
-    <div className="pb-6 sm:pb-10 md:pl-20">
-      <div className="relative bg-gradient-to-l from-primary-100 to-[#EBC0DB] p-4 md:p-10 rounded-tl-[20px] rounded-bl-[20px] w-full max-h-[774px]">
-        {/* quoteIcon */}
-        <div className="-top-6 md:-top-15 md:-left-10 z-10 absolute flex justify-center items-center bg-background-100 rounded-full w-20 md:w-36 h-20 md:h-36">
+    <div className="pb-6 sm:pb-10 ">
+      <div
+        className="relative padding py-10  w-full max-h-[853px]"
+        style={{
+          background:
+            "linear-gradient(270deg, rgba(255, 210, 206, 0.3) 0%, rgba(235, 192, 219, 0.3) 100%)",
+        }}
+      >
+        <div className="w-[200px] h-[200px] absolute bottom-10 -right-20">
           <Image
-            src={quoteIcon}
-            alt="quoteIcon"
+            src="/svg/butterfly.svg"
+            alt="Butterfly"
             width={100}
             height={100}
-            className="w-10 md:w-[100px] h-10 md:h-[100px] object-contain"
+            className="w-full h-full object-cover"
           />
         </div>
-        <div className="flex lg:flex-row flex-col lg:justify-between">
-          {/* Text Section  */}
-          <div className="space-y-4 pt-20 lg:pt-16 pb-10 lg:pb-0 lg:w-[30%]">
-            <div className="flex items-center gap-4 w-full">
-              <h2 className="font-bold text-primary-500 text-base uppercase leading-[150%] tracking-widest">
-                Testimonial
-              </h2>
-              <div className="flex-1 bg-primary-500 max-w-[148px] h-px"></div>
-            </div>
 
-            <p className="font-semibold text-text-500 typography-h2">
-              Voices of Our Valued Patients
-            </p>
-          </div>
-          {/* Carousel Section  */}
-          <div className="lg:w-[70%]">
-            <TestimonialSwiper data={data} />
-          </div>
+        {/* Text Section  */}
+        <div className="flex justify-center items-center gap-3 sm:gap-5 py-3">
+          <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
+          <h2 className="font-bold text-primary-500 text-sm md:text-base uppercase tracking-[0.12rem] md:tracking-[0.18rem]">
+            TESTIMONIALS
+          </h2>
+          <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
         </div>
+        <p className="px-4 pb-8 md:pb-16 text-text-500 font-bold text-center typography-h2">
+          Success Stories
+        </p>
+
+        {/* Carousel Section  */}
+
+        {data && data?.records?.length > 0 && (
+          <div className="w-full overflow-hidden">
+            <Swiper
+              ref={swiperRef}
+              modules={[FreeMode]}
+              slidesPerView={1}
+              onSlideChange={(swiper) => {
+                handleSlideChange();
+                setIsBeginning(swiper.isBeginning);
+                setIsEnd(swiper.isEnd);
+              }}
+              onSwiper={(swiper) => {
+                setIsBeginning(swiper.isBeginning);
+                setIsEnd(swiper.isEnd);
+              }}
+              loop={false}
+              freeMode={false}
+              spaceBetween={16}
+              breakpoints={{
+                320: {
+                  slidesPerView: 1,
+                  spaceBetween: 16,
+                },
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 24,
+                },
+                1024: {
+                  slidesPerView: 4,
+                  spaceBetween: 24,
+                },
+              }}
+              className="w-full testimonial-swiper"
+            >
+              {data?.records?.map(
+                (testimonial: IsuccessStoriesRecord, index: number) => (
+                  <SwiperSlide className=" flex-shrink-0 w-full" key={index}>
+                    <TestimonialCard
+                      key={index}
+                      data={testimonial}
+                      setIsOpenModal={setIsOpenModal}
+                      setVideoUrl={setVideoUrl}
+                    />
+                  </SwiperSlide>
+                )
+              )}
+            </Swiper>
+          </div>
+        )}
+
+        {/* Custom Pagination Dots for Mobile */}
+        <div className="mt-10 flex justify-center gap-2  w-fit mx-auto">
+          {data?.records?.map((_, index) => (
+            <button
+              key={`dot-${index}`}
+              type="button"
+              onClick={() => goToSlide(index)}
+              className={`h-2 w-2 cursor-pointer rounded-full transition-all duration-300 ${
+                activeIndex === index ? "bg-primary-500 w-6" : "bg-[#FFFFFF80]"
+              }`}
+            />
+          ))}
+        </div>
+
+        <div className="flex items-center gap-3 justify-end w-fit absolute right-4 md:right-20 -mt-6">
+          <button
+            type="button"
+            onClick={goPrev}
+            disabled={isBeginning}
+            className={`border w-[35px] h-[35px] rounded-full flex items-center justify-center p-2 transition-all duration-200 ${
+              isBeginning
+                ? "border-[#DEDEDE] text-[#DEDEDE] cursor-not-allowed opacity-50"
+                : "border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white cursor-pointer"
+            }`}
+            aria-label="Previous slide"
+          >
+            <ArrowLeft size={16} />
+          </button>
+          <button
+            type="button"
+            onClick={goNext}
+            disabled={isEnd}
+            className={`border w-[35px] h-[35px] rounded-full flex items-center justify-center p-2 transition-all duration-200 ${
+              isEnd
+                ? "border-[#DEDEDE] text-[#DEDEDE] cursor-not-allowed opacity-50"
+                : "border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white cursor-pointer"
+            }`}
+            aria-label="Next slide"
+          >
+            <ArrowRight size={16} />
+          </button>
+        </div>
+
+        <button
+          type="submit"
+          className="flex items-center gap-3 bg-secondary-500 px-8 py-4 border border-secondary-200 rounded-full font-extrabold text-white cursor-pointer typography-paragraph-regular mx-auto mt-14"
+        >
+          Book your Appointment
+        </button>
       </div>
+
+      <VideoModal
+        isOpen={isOpenModal}
+        onClose={() => setIsOpenModal(false)}
+        videoUrl={videoUrl}
+      />
     </div>
   );
 };
