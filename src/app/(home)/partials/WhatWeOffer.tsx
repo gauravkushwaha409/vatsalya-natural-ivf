@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { IoArrowForwardOutline } from "react-icons/io5";
+import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { WhatWeOfferProps } from "../interface/whatWeOffer.interface";
 
@@ -42,8 +43,36 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
       </p>
 
       <div className="">
+        <style>{`
+          .custom-swiper .swiper-pagination {
+            position: relative !important;
+            bottom: auto !important;
+            margin-top: 2.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+          }
+
+          .custom-pagination-bullet {
+            width: 8px !important;
+            height: 8px !important;
+            border-radius: 50% !important;
+            background: #DEDEDE80 !important;
+            opacity: 1 !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            margin: 0 !important;
+          }
+
+          .custom-pagination-bullet-active {
+            background: #ff6f61 !important;
+            width: 24px !important;
+            border-radius: 50px !important;
+          }
+        `}</style>
         <Swiper
           ref={swiperRef}
+          modules={[Pagination]}
           onSlideChange={(swiper) => {
             handleSlideChange();
             setIsBeginning(swiper.isBeginning);
@@ -55,6 +84,12 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
           }}
           spaceBetween={16}
           loop={false}
+          pagination={{
+            clickable: true,
+            bulletClass: "custom-pagination-bullet",
+            bulletActiveClass: "custom-pagination-bullet-active",
+            modifierClass: "custom-pagination-",
+          }}
           breakpoints={{
             320: {
               slidesPerView: 1,
@@ -73,7 +108,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
               spaceBetween: 24,
             },
           }}
-          className="w-full"
+          className="w-full custom-swiper"
         >
           {data?.map((item) => (
             <SwiperSlide key={item.id}>
@@ -124,20 +159,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
           ))}
         </Swiper>
 
-        {/* Custom Pagination Dots for Mobile */}
-        <div className="mt-10 flex justify-center gap-2  w-fit mx-auto">
-          {data?.map((_, index: number) => (
-            <button
-              key={`dot-${index}`}
-              type="button"
-              onClick={() => goToSlide(index)}
-              className={`h-2 w-2 cursor-pointer rounded-full transition-all duration-300 ${
-                activeIndex === index ? "bg-primary-500 w-6" : "bg-gray-300"
-              }`}
-            />
-          ))}
-        </div>
-
+        {/* navigation buttons */}
         <div className="flex items-center gap-3 justify-end w-fit absolute right-4 md:right-20 -mt-6">
           <button
             type="button"
@@ -166,7 +188,6 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
             <ArrowRight size={16} />
           </button>
         </div>
-
         <button
           type="submit"
           className="flex items-center gap-3 bg-secondary-500 px-8 py-4 border border-secondary-200 rounded-full font-extrabold text-white cursor-pointer typography-paragraph-regular mx-auto mt-14"

@@ -27,7 +27,7 @@ const TestimonialSlider: React.FC<Props> = ({ data }) => {
   return (
     <div className="pb-6 sm:pb-10 ">
       <style jsx global>{`
-        .testimonial-swiper .swiper-pagination {
+        .custom-swiper .swiper-pagination {
           position: relative !important;
           bottom: auto !important;
           margin-top: 2.5rem;
@@ -36,7 +36,7 @@ const TestimonialSlider: React.FC<Props> = ({ data }) => {
           gap: 0.5rem;
         }
 
-        .testimonial-pagination-bullet {
+        .custom-pagination-bullet {
           width: 8px !important;
           height: 8px !important;
           border-radius: 50% !important;
@@ -47,7 +47,7 @@ const TestimonialSlider: React.FC<Props> = ({ data }) => {
           margin: 0 !important;
         }
 
-        .testimonial-pagination-bullet-active {
+        .custom-pagination-bullet-active {
           background: #ff6f61 !important;
           width: 24px !important;
           border-radius: 50px !important;
@@ -103,9 +103,9 @@ const TestimonialSlider: React.FC<Props> = ({ data }) => {
               spaceBetween={10}
               pagination={{
                 clickable: true,
-                bulletClass: "testimonial-pagination-bullet",
-                bulletActiveClass: "testimonial-pagination-bullet-active",
-                modifierClass: "testimonial-pagination-",
+                bulletClass: "custom-pagination-bullet",
+                bulletActiveClass: "custom-pagination-bullet-active",
+                modifierClass: "custom-pagination-",
               }}
               breakpoints={{
                 320: {
@@ -125,7 +125,7 @@ const TestimonialSlider: React.FC<Props> = ({ data }) => {
                   spaceBetween: 24,
                 },
               }}
-              className="w-full testimonial-swiper"
+              className="w-full custom-swiper"
             >
               {data?.records?.map(
                 (testimonial: IsuccessStoriesRecord, index: number) => (
