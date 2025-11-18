@@ -58,7 +58,7 @@ const Blogsection: React.FC<BlogCardProps> = ({ data }) => {
               <div className="border border-t border-primary-400 w-21"></div>
             </div>
 
-            <h2 className="pb-7.5 font-semibold typography-h2">
+            <h2 className="pb-4 font-semibold typography-h2">
               Latest News & Articles
             </h2>
           </div>
@@ -97,7 +97,7 @@ const Blogsection: React.FC<BlogCardProps> = ({ data }) => {
             768: { slidesPerView: 3, spaceBetween: 24 },
             1024: { slidesPerView: 4, spaceBetween: 24 },
           }}
-          className="w-full custom-swiper"
+          className="w-full !pt-4  custom-swiper"
         >
           {data?.records?.map((item) => (
             <SwiperSlide key={item?.id}>

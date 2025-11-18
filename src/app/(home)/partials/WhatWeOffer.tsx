@@ -110,7 +110,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
               spaceBetween: 24,
             },
           }}
-          className="w-full h-full custom-swiper"
+          className="w-full h-full !pt-4  custom-swiper"
         >
           {data?.map((item) => (
             <SwiperSlide key={item.id}>
@@ -119,7 +119,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
                   href={`/services/${item?.slug}`}
                   className="flex items-center justify-between h-full"
                 >
-                  <div className="group relative flex flex-col justify-center bg-primary-50 z-10 p-7 rounded-tl-[80px] rounded-br-[80px] w-full  transition-all duration-300 transform hover:-translate-y-2 ease-in-out">
+                  <div className="group relative flex flex-col justify-center bg-primary-50 z-10 p-7 rounded-tl-[80px] rounded-br-[80px] w-full  transition-all duration-600 transform hover:-translate-y-5 ease-in-out">
                     <div className="size-[7.25rem]">
                       <Image
                         src={item?.icon}
