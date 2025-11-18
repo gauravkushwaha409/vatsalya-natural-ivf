@@ -19,7 +19,6 @@ interface MeetExpertsProps {
 }
 
 const MeetOurExperts: React.FC<MeetExpertsProps> = ({ data }) => {
-  console.log(data, "datadatadata");
   const [openModal, setOpenModal] = useState<boolean>(false);
   const handleAppointmentClick = () => {
     setOpenModal(true);

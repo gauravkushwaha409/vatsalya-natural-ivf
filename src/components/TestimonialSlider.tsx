@@ -87,7 +87,6 @@ const TestimonialSlider: React.FC<Props> = ({ data }) => {
         </p>
 
         {/* Carousel Section  */}
-
         {data && data?.records?.length > 0 && (
           <div className="w-full overflow-hidden">
             <Swiper
@@ -185,10 +184,12 @@ const TestimonialSlider: React.FC<Props> = ({ data }) => {
           Book your Appointment
         </button>
       </div>
+      
       <RequestAppoimentModal
         isOpen={openModal}
         onClose={() => setOpenModal(false)}
       />
+      
       <VideoModal
         isOpen={isOpenModal}
         onClose={() => setIsOpenModal(false)}

@@ -1,0 +1,187 @@
+"use client";
+
+import React, { useState } from "react";
+import { useSlider } from "@/components/hooks/useSlider";
+import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
+import { Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ICenter, ICenterRoot } from "@/interface/center";
+import Image from "next/image";
+import Link from "next/link";
+import { ImQuotesLeft } from "react-icons/im";
+import { IoArrowForwardOutline } from "react-icons/io5";
+import { FiMail, FiMapPin, FiPhone } from "react-icons/fi";
+import PATHS from "@/utils/path";
+
+interface IsuccessStoriesRecord {
+  // define the fields you actually have
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+}
+
+interface LocationProps {
+  data: ICenter[];
+}
+
+const Location = ({ data }: LocationProps) => {
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const handleAppointmentClick = () => {
+    setOpenModal(true);
+  };
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
+
+  const { swiperRef, handleSlideChange, goPrev, goNext } = useSlider();
+
+  return (
+    <div className="mb-10 md:mb-20 padding">
+      {/* Text Section  */}
+      <div className="flex items-center justify-center gap-3 py-3 sm:gap-5">
+        <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
+        <h2 className="font-bold text-primary-500 text-sm md:text-base uppercase tracking-[0.12rem] md:tracking-[0.18rem]">
+          LOCATIONS
+        </h2>
+        <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
+      </div>
+      <p className="px-4 pb-8 font-bold text-center md:pb-16 text-text-500 typography-h2">
+        Our Clinics
+      </p>
+
+      <div className="relative w-full ">
+        {/* Carousel Section */}
+        {data?.length > 0 && (
+          <div className="w-full overflow-hidden">
+            <Swiper
+              ref={swiperRef}
+              modules={[Pagination]}
+              slidesPerView={1}
+              onSlideChange={(swiper) => {
+                handleSlideChange();
+                setIsBeginning(swiper.isBeginning);
+                setIsEnd(swiper.isEnd);
+              }}
+              onSwiper={(swiper) => {
+                setIsBeginning(swiper.isBeginning);
+                setIsEnd(swiper.isEnd);
+              }}
+              loop={false}
+              spaceBetween={10}
+              pagination={{
+                clickable: true,
+                bulletClass: "custom-pagination-bullet",
+                bulletActiveClass: "custom-pagination-bullet-active",
+                modifierClass: "custom-pagination-",
+              }}
+              breakpoints={{
+                320: { slidesPerView: 1, spaceBetween: 16 },
+                640: { slidesPerView: 2, spaceBetween: 20 },
+                768: { slidesPerView: 3, spaceBetween: 24 },
+                1024: { slidesPerView: 4, spaceBetween: 24 },
+              }}
+              className="w-full custom-swiper"
+            >
+              {data.map((location, index) => (
+                <SwiperSlide key={index} className="flex-shrink-0 w-full">
+                  <div className="pb-5 bg-white shadow-[0px_0px_32px_0px_#FBCED140] rounded-[42px]">
+                    <div className="w-[311px] h-[190px] rounded-[32px] mb-4.5">
+                      <Image
+                        src={location?.icon}
+                        alt={location?.name}
+                        width={800}
+                        height={800}
+                        className="object-cover w-full h-full rounded-[32px]"
+                      />
+                    </div>
+
+                    <div className="px-5 ">
+                      <div className="flex justify-between">
+                        <p className="font-bold leading-[120%] tracking-[-2%] text-[18px] text-[#1A1A1A] mb-3.5">
+                          {location?.name}
+                        </p>
+
+                        <Link
+                          href={`${PATHS.clinic}/${location?.slug}`}
+                          className="inline-flex  gap-2 font-medium text-[12px] leading-[120%] tracking-[-2%] text-primary-500"
+                        >
+                          View Map
+                          <IoArrowForwardOutline
+                            size={24}
+                            className="size-4 -rotate-40"
+                          />
+                        </Link>
+                      </div>
+
+                      <div className="flex flex-col space-y-2">
+                        <p className="font-normal inline-flex gap-1.5 items-center text-[13px] leading-[21px] text-[#565656]">
+                          <FiMapPin />
+                          {location?.location}
+                        </p>
+                        <p className="font-normal inline-flex gap-1.5 items-center text-[13px] leading-[21px] text-[#565656]">
+                          <FiMail />
+                          {location?.email}
+                        </p>
+                        <p className="font-normal inline-flex gap-1.5 items-center text-[13px] leading-[21px] text-[#565656]">
+                          <FiPhone />
+                          {location?.phone}
+                        </p>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => handleAppointmentClick()}
+                        className=" gap-3 px-8 py-4  mt-6 font-medium  border-[0.5px] rounded-full w-full text-secondary-500 border-secondary-500 typography-paragraph-regular  tracking-[-2%]"
+                      >
+                        Book your Appointment
+                      </button>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        )}
+
+        {/* Navigation Buttons */}
+        <div className="absolute flex items-center justify-end gap-3 -mt-6 w-fit right-4 md:right-20">
+          <button
+            type="button"
+            onClick={goPrev}
+            disabled={isBeginning}
+            aria-label="Previous slide"
+            className={`border w-[35px] h-[35px] rounded-full flex items-center justify-center p-2 transition-all duration-200 ${
+              isBeginning
+                ? "border-[#DEDEDE] text-[#DEDEDE] cursor-not-allowed opacity-50"
+                : "border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white cursor-pointer"
+            }`}
+          >
+            <ArrowLeft size={16} />
+          </button>
+
+          <button
+            type="button"
+            onClick={goNext}
+            disabled={isEnd}
+            aria-label="Next slide"
+            className={`border w-[35px] h-[35px] rounded-full flex items-center justify-center p-2 transition-all duration-200 ${
+              isEnd
+                ? "border-[#DEDEDE] text-[#DEDEDE] cursor-not-allowed opacity-50"
+                : "border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white cursor-pointer"
+            }`}
+          >
+            <ArrowRight size={16} />
+          </button>
+        </div>
+      </div>
+
+      <RequestAppoimentModal
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
+      />
+    </div>
+  );
+};
+
+export default Location;

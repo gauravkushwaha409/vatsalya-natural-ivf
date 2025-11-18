@@ -12,10 +12,11 @@ import HomeFaq from "./partials/Faq";
 import HeroSectionNew from "./partials/HeroSectionNew";
 import HowWeWork from "./partials/HowWeWork";
 import JsonLD from "./partials/JsonLD";
+import Location from "./partials/Location";
+import MeetOurExperts from "./partials/MeetOurExperts";
 import Notice from "./partials/Notice";
 import Showcase from "./partials/Showcase";
 import WhatWeOffer from "./partials/WhatWeOffer";
-import MeetOurExperts from "./partials/MeetOurExperts";
 const BrandsSlider = dynamic(() => import("./partials/BrandsSlider"));
 
 export async function generateMetadata() {
@@ -35,25 +36,23 @@ const HomePage = async () => {
       showcaseData,
       testimonialData,
       homeGalleryData,
+      locationData,
     } = await getHomePageData();
 
     return (
       <>
         <JsonLD />
 
-        {/* <div className="space-y-20 w-full"> */}
-        <div className=" w-full">
+        {/* <div className="w-full space-y-20"> */}
+        <div className="w-full ">
           <HeroSectionNew />
           <Showcase data={showcaseData?.data} />
-
           <HowWeWork data={howWeWorkData?.data} />
           <WhatWeOffer data={whatweOfferData?.data?.records ?? {}} />
-
           <MeetOurExperts data={expertsData?.data} />
-
-          {/* <Miracles data={homeGalleryData?.data} /> */}
-
           <TestimonialSlider data={testimonialData?.data} />
+
+          <Location data={locationData?.data?.records} />
 
           <HomeFaq data={homedata?.data?.Faq} />
           <CTA />
