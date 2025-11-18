@@ -88,7 +88,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
                       transition: "stroke-dashoffset 1.4s ease-in-out",
                       opacity: activeStep === step.number ? 1 : 0,
                       transformOrigin: "40px 40px",
-                      transform: "rotate(-90deg)",
+                      transform: `rotate(${(step.number - 1) * 60 - 90}deg)`,
                     }}
                   />
                   {(() => {
