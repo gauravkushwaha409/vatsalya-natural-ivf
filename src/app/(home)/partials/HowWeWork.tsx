@@ -71,7 +71,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
 
                 {/* Animated Circle & Dot */}
                 <svg
-                  className="absolute inset-0 w-full h-full"
+                  className="absolute inset-0 w-full h-full "
                   viewBox="0 0 80 80"
                 >
                   <circle
@@ -91,16 +91,26 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
                       transform: "rotate(-90deg)",
                     }}
                   />
-                  <circle
-                    cx="40"
-                    cy="12"
-                    r="4"
-                    fill="#FF6F61"
-                    style={{
-                      opacity: activeStep === step.number ? 0 : 1,
-                      transition: "opacity 0.3s ease-in-out",
-                    }}
-                  />
+                  {(() => {
+                    // Calculate dot position based on step number
+                    const angle = (step.number - 1) * 60 - 90; // 60 degrees apart, starting from top
+                    const radian = (angle * Math.PI) / 180;
+                    const dotX = 40 + 28 * Math.cos(radian);
+                    const dotY = 40 + 28 * Math.sin(radian);
+
+                    return (
+                      <circle
+                        cx={dotX}
+                        cy={dotY}
+                        r="4"
+                        fill="#FF6F61"
+                        style={{
+                          opacity: activeStep === step.number ? 0 : 1,
+                          transition: "opacity 0.3s ease-in-out",
+                        }}
+                      />
+                    );
+                  })()}
                 </svg>
 
                 {/* Step Number */}
