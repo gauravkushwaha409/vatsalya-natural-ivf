@@ -6,7 +6,7 @@ import {
 } from "@/app/success-story/interface/successStories.interface";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useState } from "react";
-import { FreeMode } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSlider } from "./hooks/useSlider";
 import TestimonialCard from "./TestimonialCard";
@@ -16,23 +16,43 @@ import Image from "next/image";
 type Props = {
   data: IsuccessStoriesData;
 };
-const Testimonial: React.FC<Props> = ({ data }) => {
+const TestimonialSlider: React.FC<Props> = ({ data }) => {
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const [videoUrl, setVideoUrl] = useState<string>("");
 
-  const {
-    swiperRef,
-    activeIndex,
-    goToSlide,
-    handleSlideChange,
-    goPrev,
-    goNext,
-  } = useSlider();
+  const { swiperRef, handleSlideChange, goPrev, goNext } = useSlider();
 
   return (
     <div className="pb-6 sm:pb-10 ">
+      <style jsx global>{`
+        .testimonial-swiper .swiper-pagination {
+          position: relative !important;
+          bottom: auto !important;
+          margin-top: 2.5rem;
+          display: flex;
+          justify-content: center;
+          gap: 0.5rem;
+        }
+
+        .testimonial-pagination-bullet {
+          width: 8px !important;
+          height: 8px !important;
+          border-radius: 50% !important;
+          background: rgba(255, 255, 255, 0.5) !important;
+          opacity: 1 !important;
+          cursor: pointer !important;
+          transition: all 0.3s ease !important;
+          margin: 0 !important;
+        }
+
+        .testimonial-pagination-bullet-active {
+          background: #ff6f61 !important;
+          width: 24px !important;
+          border-radius: 50px !important;
+        }
+      `}</style>
       <div
         className="relative padding py-10 overflow-hidden w-full max-h-[853px]"
         style={{
@@ -68,7 +88,7 @@ const Testimonial: React.FC<Props> = ({ data }) => {
           <div className="w-full overflow-hidden">
             <Swiper
               ref={swiperRef}
-              modules={[FreeMode]}
+              modules={[Pagination]}
               slidesPerView={1}
               onSlideChange={(swiper) => {
                 handleSlideChange();
@@ -80,8 +100,13 @@ const Testimonial: React.FC<Props> = ({ data }) => {
                 setIsEnd(swiper.isEnd);
               }}
               loop={false}
-              freeMode={false}
               spaceBetween={10}
+              pagination={{
+                clickable: true,
+                bulletClass: "testimonial-pagination-bullet",
+                bulletActiveClass: "testimonial-pagination-bullet-active",
+                modifierClass: "testimonial-pagination-",
+              }}
               breakpoints={{
                 320: {
                   slidesPerView: 1,
@@ -117,20 +142,6 @@ const Testimonial: React.FC<Props> = ({ data }) => {
             </Swiper>
           </div>
         )}
-
-        {/* Custom Pagination Dots for Mobile */}
-        <div className="mt-10 flex justify-center gap-2  w-fit mx-auto">
-          {data?.records?.map((_, index) => (
-            <button
-              key={`dot-${index}`}
-              type="button"
-              onClick={() => goToSlide(index)}
-              className={`h-2 w-2 cursor-pointer rounded-full transition-all duration-300 ${
-                activeIndex === index ? "bg-primary-500 w-6" : "bg-[#FFFFFF80]"
-              }`}
-            />
-          ))}
-        </div>
 
         {/* navigation buttons */}
         <div className="flex items-center gap-3 justify-end w-fit absolute right-4 md:right-20 -mt-6">
@@ -179,4 +190,4 @@ const Testimonial: React.FC<Props> = ({ data }) => {
   );
 };
 
-export default Testimonial;
+export default TestimonialSlider;

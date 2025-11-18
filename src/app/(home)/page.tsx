@@ -1,7 +1,7 @@
 import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
 import ErrorMessage from "@/components/ErrorMessage";
-import Testimonial from "@/components/Testimonial";
+import TestimonialSlider from "@/components/TestimonialSlider";
 import { createMetadata } from "@/hooks/generateMetaData";
 import { ISeoRoot } from "@/interface/seo.interface";
 import dynamic from "next/dynamic";
@@ -12,15 +12,9 @@ import HomeFaq from "./partials/Faq";
 import HeroSectionNew from "./partials/HeroSectionNew";
 import HowWeWork from "./partials/HowWeWork";
 import JsonLD from "./partials/JsonLD";
-import MeetExperts from "./partials/MeetExperts";
-import Miracles from "./partials/Miracles";
 import Notice from "./partials/Notice";
 import Showcase from "./partials/Showcase";
-import Slogan from "./partials/Slogan";
-import WhatWeDo from "./partials/WhatWeDo";
 import WhatWeOffer from "./partials/WhatWeOffer";
-import WhenToVisit from "./partials/WhenToVisit";
-import WhoWeAre from "./partials/WhoWeAre";
 const BrandsSlider = dynamic(() => import("./partials/BrandsSlider"));
 
 export async function generateMetadata() {
@@ -57,7 +51,7 @@ const HomePage = async () => {
           {/* <MeetExperts data={expertsData?.data} /> */}
           {/* <Miracles data={homeGalleryData?.data} /> */}
           <div className="w-full">
-            <Testimonial data={testimonialData?.data} />
+            <TestimonialSlider data={testimonialData?.data} />
           </div>
           <HomeFaq data={homedata?.data?.Faq} />
           <CTA />

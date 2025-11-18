@@ -1,7 +1,7 @@
 import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
 import ErrorMessage from "@/components/ErrorMessage";
-import Testimonial from "@/components/Testimonial";
+import Testimonial from "@/components/TestimonialSlider";
 import { createMetadata } from "@/hooks/generateMetaData";
 import { ISeoRoot } from "@/interface/seo.interface";
 import { fetchAboutPageData } from "./hooks/fetchAboutUsData";
