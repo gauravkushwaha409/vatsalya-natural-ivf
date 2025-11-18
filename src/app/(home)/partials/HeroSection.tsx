@@ -28,11 +28,12 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
   const handleAppointmentClick = () => {
     setOpenModal(true);
   };
+  
   const [activeIndex, setActiveIndex] = useState(0);
   return (
     <div className="relative flex justify-center h-full min-h-[45rem] 2xl:min-h-[max(86vh,45rem)] overflow-y-hidden padding">
       <div className="flex flex-col justify-center mt-16 lg:mt-[8.72rem] w-full h-full text-left">
-        <p className="relative font-bold text-primary-500 uppercase tracking-widest typography-paragraph-large">
+        <p className="relative font-bold tracking-widest uppercase text-primary-500 typography-paragraph-large">
           {data?.title}{" "}
         </p>
         <div className="pt-5">
@@ -69,7 +70,7 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
           </button>
         </div>
       </div>
-      <div className="-bottom-10 lg:-bottom-36 z-10 absolute inset-x-0">
+      <div className="absolute inset-x-0 z-10 -bottom-10 lg:-bottom-36">
         <div className="relative w-full h-full overflow-x-hidden">
           <AnimatingLines />
           <Image
@@ -81,7 +82,7 @@ const HeroSection: React.FC<HomeProps> = ({ data }) => {
           />
         </div>
       </div>
-      <div className="right-0 left-0 lg:left-1/2 absolute inset-y-0">
+      <div className="absolute inset-y-0 left-0 right-0 lg:left-1/2">
         {data?.caroselImages && (
           <HeroAnimationCarousel
             onActiveIndexChange={(index) => setActiveIndex(index)}

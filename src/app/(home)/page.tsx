@@ -15,6 +15,7 @@ import JsonLD from "./partials/JsonLD";
 import Notice from "./partials/Notice";
 import Showcase from "./partials/Showcase";
 import WhatWeOffer from "./partials/WhatWeOffer";
+import MeetOurExperts from "./partials/MeetOurExperts";
 const BrandsSlider = dynamic(() => import("./partials/BrandsSlider"));
 
 export async function generateMetadata() {
@@ -48,11 +49,12 @@ const HomePage = async () => {
           <HowWeWork data={howWeWorkData?.data} />
           <WhatWeOffer data={whatweOfferData?.data?.records ?? {}} />
 
-          {/* <MeetExperts data={expertsData?.data} /> */}
+          <MeetOurExperts data={expertsData?.data} />
+
           {/* <Miracles data={homeGalleryData?.data} /> */}
-          <div className="w-full">
-            <TestimonialSlider data={testimonialData?.data} />
-          </div>
+
+          <TestimonialSlider data={testimonialData?.data} />
+
           <HomeFaq data={homedata?.data?.Faq} />
           <CTA />
           <Blogsection data={blogData?.data} />

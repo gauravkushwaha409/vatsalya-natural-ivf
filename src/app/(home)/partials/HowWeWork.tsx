@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 
 interface IHowWeWorkStep {
   number: number;
@@ -31,11 +32,15 @@ const howWeWorkData = {
 
 const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
   const [activeStep, setActiveStep] = useState<number | null>(null);
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const handleAppointmentClick = () => {
+    setOpenModal(true);
+  };
 
   return (
     <div className="mb-10 md:mb-20 padding">
       {/* Header */}
-      <div className="flex justify-center items-center gap-3 md:gap-5 py-3">
+      <div className="flex items-center justify-center gap-3 py-3 md:gap-5">
         <span className="bg-primary-500 w-[4rem] md:w-[8.5rem] h-px" />
         <h2 className="font-bold text-primary-500 text-sm md:text-base uppercase tracking-[0.12rem] md:tracking-[0.18rem]">
           {data?.title}
@@ -44,7 +49,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
       </div>
 
       {/* Subtitle */}
-      <p className="px-4 pb-8 md:pb-16  text-text-500 font-bold text-center typography-h2">
+      <p className="px-4 pb-8 font-bold text-center md:pb-16 text-text-500 typography-h2">
         {data?.subtitle}
       </p>
 
@@ -62,7 +67,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
               >
                 {/* Background */}
                 <div className="absolute inset-0 rounded-full bg-[#FF6F6114]" />
-                <div className="absolute inset-3 rounded-full border-8 border-white" />
+                <div className="absolute border-8 border-white rounded-full inset-3" />
 
                 {/* Animated Circle & Dot */}
                 <svg
@@ -111,7 +116,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
 
             {/* Connector */}
             {index < howWeWorkData.steps.length - 1 && (
-              <div className="hidden md:flex items-center  -mt-4 -ml-3 shrink-0">
+              <div className="items-center hidden -mt-4 -ml-3 md:flex shrink-0">
                 <Image
                   src="/home/svg/connector.svg"
                   alt="connector line"
@@ -127,10 +132,16 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
 
       <button
         type="submit"
-        className="flex items-center gap-3 bg-secondary-500 px-8 py-4 border border-secondary-200 rounded-full font-extrabold text-white cursor-pointer typography-paragraph-regular mx-auto mt-14"
+        onClick={() => handleAppointmentClick()}
+        className="flex items-center gap-3 px-8 py-4 mx-auto font-extrabold text-white border rounded-full cursor-pointer bg-secondary-500 border-secondary-200 typography-paragraph-regular mt-14"
       >
         Book your Appointment
       </button>
+
+      <RequestAppoimentModal
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
+      />
     </div>
   );
 };

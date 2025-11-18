@@ -1,43 +1,47 @@
 "use client";
 
+import { IOurExpertsData } from "@/app/our-team/interface/ourExperts.interface";
 import { useSlider } from "@/components/hooks/useSlider";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import { motion } from "motion/react";
+import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
+import { Button } from "@/components/ui/button";
+import PATHS from "@/utils/path";
+import { ArrowLeft, ArrowRight, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { IoArrowForwardOutline } from "react-icons/io5";
+import { FiMapPin } from "react-icons/fi";
+import { IoBagOutline } from "react-icons/io5";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { WhatWeOfferProps } from "../interface/whatWeOffer.interface";
-import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 
-const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
+interface MeetExpertsProps {
+  data: IOurExpertsData;
+}
+
+const MeetOurExperts: React.FC<MeetExpertsProps> = ({ data }) => {
+  console.log(data, "datadatadata");
   const [openModal, setOpenModal] = useState<boolean>(false);
   const handleAppointmentClick = () => {
     setOpenModal(true);
   };
-  const [isInView, setIsInView] = useState<boolean>(false);
   const [isBeginning, setIsBeginning] = useState<boolean>(true);
   const [isEnd, setIsEnd] = useState<boolean>(false);
   const { swiperRef, handleSlideChange, goPrev, goNext } = useSlider();
 
   return (
-    <motion.div
-      onViewportEnter={() => setIsInView(true)}
-      onViewportLeave={() => setIsInView(false)}
-      viewport={{ amount: 0.4 }}
-      className="mb-10 md:mb-20 padding"
-    >
-      <div className="flex items-center justify-center gap-3 py-3 sm:gap-5">
-        <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
+    <div className="mb-10 md:mb-20 padding">
+      {/* Header */}
+      <div className="flex items-center justify-center gap-3 py-3 md:gap-5">
+        <span className="bg-primary-500 w-[4rem] md:w-[8.5rem] h-px" />
         <h2 className="font-bold text-primary-500 text-sm md:text-base uppercase tracking-[0.12rem] md:tracking-[0.18rem]">
-          What we Offer
+          MEET OUR EXPERTS
         </h2>
-        <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
+        <span className="bg-primary-500 w-[4rem] md:w-[8.5rem] h-px" />
       </div>
+
+      {/* Subtitle */}
       <p className="px-4 pb-8 font-bold text-center md:pb-16 text-text-500 typography-h2">
-        Comprehensive Fertility Care, Tailored for You
+        World-Class Doctors, Dedicated to Your Care
       </p>
 
       <div className="">
@@ -108,51 +112,49 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
           }}
           className="w-full custom-swiper"
         >
-          {data?.map((item) => (
-            <SwiperSlide key={item.id}>
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="w-full h-full"
-              >
-                <Link
-                  href={`/services/${item?.slug}`}
-                  className="flex items-center justify-between h-full"
-                >
-                  <div className="group relative flex flex-col justify-center bg-primary-50 hover:bg-primary-100 p-7 rounded-tl-[50px] rounded-br-[50px] w-full overflow-hidden transition-colors duration-300">
-                    <div className="size-[7.25rem]">
-                      <Image
-                        src={item?.icon}
-                        alt={item?.name || "Service icon"}
-                        width={400}
-                        height={400}
-                        className="object-contain w-full h-full"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-2 pt-4">
-                      <div className="flex justify-between w-full">
-                        <h3 className="font-bold text-[22px] leading-[120%] tracking-[-2%] text-[#1A1A1A]">
-                          {item?.name}
-                        </h3>
-                        <button
-                          aria-label={`Go to ${item?.name}`}
-                          className="cursor-pointer"
-                        >
-                          <IoArrowForwardOutline
-                            size={24}
-                            className="text-primary-500 -rotate-40"
-                          />
-                        </button>
-                      </div>
-                      <p
-                        className="pt-1.5 font-medium text-[#667085] line-clamp-2 leading-[160%] tracking-[-1%] text-[12px] prose"
-                        dangerouslySetInnerHTML={{ __html: item?.description }}
-                      />
-                    </div>
+          {data?.records?.map((team) => (
+            <SwiperSlide key={team.id}>
+              <div className="bg-[#FFD2CE38] rounded-[42px] py-5 px-8 flex flex-col items-center">
+                <div className="w-[214px] h-[250px] mb-6">
+                  <Image
+                    src={team.image}
+                    alt={team.name}
+                    width={800}
+                    height={800}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <p className="text-[#1E1E1E] font-semibold text-[21px] leading-[150%] tracking-[-3%]">
+                  {team?.name}
+                </p>
+                <p className="text-[#646464] font-normal text-[11px] leading-[100%] mb-3.5">
+                  {team?.position}
+                </p>
+
+                <div className="flex items-center ">
+                  <div className="text-[#333333] text-[13px] leading-[20px] font-normal flex items-center gap-2 border-r-[0.5px] border-r-[#D4D4D4] pr-2">
+                    <IoBagOutline />
+                    <p>{team?.experience}+ Years</p>
                   </div>
+
+                  <div className="pl-2 text-[#333333] text-[13px] leading-[20px] font-normal flex items-center gap-2 ">
+                    <FiMapPin />
+                    <p>{team?.center?.name}</p>
+                  </div>
+                </div>
+
+                <p className="mt-2 text-[#333333] font-medium text-[12px] leading-[100%] border-b-[0.35px] border-b-[#C8C8C8] pb-4 w-full text-center">
+                  IVF | IUI | ICSI
+                </p>
+
+                <Link
+                  href={`${PATHS.teamDetails}/${team?.slug}`}
+                  className="hover:bg-transparent text-primary-500 inline-flex items-center gap-1 hover:text-primary-600 mt-3 text-[13px]  leading-[120%] tracking-[-2%] "
+                >
+                  View Profile
+                  <ChevronRight className="size-[16px]" />
                 </Link>
-              </motion.div>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -193,13 +195,13 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
         >
           Book your Appointment
         </button>
-        <RequestAppoimentModal
-          isOpen={openModal}
-          onClose={() => setOpenModal(false)}
-        />
       </div>
-    </motion.div>
+      <RequestAppoimentModal
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
+      />
+    </div>
   );
 };
 
-export default WhatWeOffer;
+export default MeetOurExperts;

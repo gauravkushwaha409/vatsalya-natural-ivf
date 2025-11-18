@@ -12,6 +12,7 @@ import { useSlider } from "./hooks/useSlider";
 import TestimonialCard from "./TestimonialCard";
 import VideoModal from "./modals/VideoModal";
 import Image from "next/image";
+import RequestAppoimentModal from "./modals/RequestAppoimentModal";
 
 type Props = {
   data: IsuccessStoriesData;
@@ -21,7 +22,10 @@ const TestimonialSlider: React.FC<Props> = ({ data }) => {
   const [isEnd, setIsEnd] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const [videoUrl, setVideoUrl] = useState<string>("");
-
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const handleAppointmentClick = () => {
+    setOpenModal(true);
+  };
   const { swiperRef, handleSlideChange, goPrev, goNext } = useSlider();
 
   return (
@@ -66,19 +70,19 @@ const TestimonialSlider: React.FC<Props> = ({ data }) => {
             alt="Butterfly"
             width={100}
             height={100}
-            className="w-full h-full object-cover"
+            className="object-cover w-full h-full"
           />
         </div>
 
         {/* Text Section  */}
-        <div className="flex justify-center items-center gap-3 sm:gap-5 py-3">
+        <div className="flex items-center justify-center gap-3 py-3 sm:gap-5">
           <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
           <h2 className="font-bold text-primary-500 text-sm md:text-base uppercase tracking-[0.12rem] md:tracking-[0.18rem]">
             TESTIMONIALS
           </h2>
           <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
         </div>
-        <p className="px-4 pb-8 md:pb-16 text-text-500 font-bold text-center typography-h2">
+        <p className="px-4 pb-8 font-bold text-center md:pb-16 text-text-500 typography-h2">
           Success Stories
         </p>
 
@@ -129,7 +133,7 @@ const TestimonialSlider: React.FC<Props> = ({ data }) => {
             >
               {data?.records?.map(
                 (testimonial: IsuccessStoriesRecord, index: number) => (
-                  <SwiperSlide className=" flex-shrink-0 w-full" key={index}>
+                  <SwiperSlide className="flex-shrink-0 w-full " key={index}>
                     <TestimonialCard
                       key={index}
                       data={testimonial}
@@ -144,7 +148,7 @@ const TestimonialSlider: React.FC<Props> = ({ data }) => {
         )}
 
         {/* navigation buttons */}
-        <div className="flex items-center gap-3 justify-end w-fit absolute right-4 md:right-20 -mt-6">
+        <div className="absolute flex items-center justify-end gap-3 -mt-6 w-fit right-4 md:right-20">
           <button
             type="button"
             onClick={goPrev}
@@ -174,13 +178,17 @@ const TestimonialSlider: React.FC<Props> = ({ data }) => {
         </div>
 
         <button
-          type="submit"
-          className="flex items-center gap-3 bg-secondary-500 px-8 py-4 border border-secondary-200 rounded-full font-extrabold text-white cursor-pointer typography-paragraph-regular mx-auto mt-10"
+          type="button"
+          onClick={() => handleAppointmentClick()}
+          className="flex items-center gap-3 px-8 py-4 mx-auto mt-10 font-extrabold text-white border rounded-full cursor-pointer bg-secondary-500 border-secondary-200 typography-paragraph-regular"
         >
           Book your Appointment
         </button>
       </div>
-
+      <RequestAppoimentModal
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
+      />
       <VideoModal
         isOpen={isOpenModal}
         onClose={() => setIsOpenModal(false)}
