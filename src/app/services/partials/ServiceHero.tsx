@@ -1,11 +1,18 @@
+"use client";
+
 import CustomBreadcrumb from "@/components/CustomBreadcrumb";
+import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 const ServiceHero = () => {
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const handleAppointmentClick = () => {
+    setOpenModal(true);
+  };
   return (
     <div>
-      <div className="padding-l  bg-primary-50 flex lg:flex-row flex-col justify-between items-center gap-10 lg:gap-0">
+      <div className="padding-l pt-6 lg:pt-0 bg-primary-50 flex lg:flex-row flex-col justify-between items-center gap-10 lg:gap-0">
         <div className="w-full max-w-[711px] ">
           <CustomBreadcrumb
             items={[
@@ -25,12 +32,15 @@ const ServiceHero = () => {
             parenthood.
           </p>
 
-          <button className="bg-gradient-to-r from-[#A0385A] to-[#3A142C] shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] px-8 md:px-10 lg:px-11 py-3 md:py-4 lg:py-4.5 border-[0.4px] border-secondary-100 rounded-full font-semibold transition-all duration-300 text-white cursor-pointer text-sm md:text-base typography-paragraph-regular hover:shadow-[0px_12px_24px_0px_rgba(101,53,83,0.8)] mb-12 lg:mb-0">
+          <button
+            onClick={() => handleAppointmentClick()}
+            className="bg-gradient-to-r from-[#A0385A] to-[#3A142C] shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] px-8 md:px-10 lg:px-11 py-3 md:py-4 lg:py-4.5 border-[0.4px] border-secondary-100 rounded-full font-semibold transition-all duration-300 text-white cursor-pointer text-sm md:text-base typography-paragraph-regular hover:shadow-[0px_12px_24px_0px_rgba(101,53,83,0.8)] mb-12 lg:mb-0"
+          >
             Book Your Appointment
           </button>
         </div>
 
-        <div className="w-[454px] h-[500px]">
+        <div className="lg:w-[454px] lg:h-[500px]">
           <Image
             src="/service/servicehero.svg"
             alt="hero-service"
@@ -42,7 +52,7 @@ const ServiceHero = () => {
       </div>
 
       <div
-        className="padding py-18 flex flex-col lg:flex-row justify-between"
+        className="padding py-18 flex flex-col lg:flex-row justify-between gap-4 lg:gap-0"
         style={{
           background:
             "linear-gradient(270deg, rgba(255, 210, 206, 0.2) 0%, rgba(235, 192, 219, 0.2) 100%)",
@@ -59,6 +69,11 @@ const ServiceHero = () => {
           even when engaging in regular unprotected intercourse.{" "}
         </p>
       </div>
+
+      <RequestAppoimentModal
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
+      />
     </div>
   );
 };

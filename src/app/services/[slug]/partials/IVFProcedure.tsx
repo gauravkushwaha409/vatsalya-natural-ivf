@@ -60,16 +60,16 @@ const IVFProcedure = () => {
         {steps.map((step, index) => (
           <motion.div
             initial={{
-              y: 80,
+              y: 60,
               opacity: 0,
             }}
             whileInView={{
               y: 0,
               opacity: 1,
               transition: {
-                duration: 0.7,
+                duration: 0.5,
                 stiffness: 10,
-                delay: index * 0.7,
+                delay: index * 0.3,
               },
             }}
             key={step.id}

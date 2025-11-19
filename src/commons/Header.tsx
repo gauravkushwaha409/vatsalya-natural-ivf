@@ -141,7 +141,7 @@ const Header = () => {
   ];
 
   return (
-    <motion.header className="top-0 z-50  sticky bg-primary-50 backdrop-blur-[5.6px] py-0 lg:py-4 text-white padding">
+    <motion.header className="top-0 z-50  sticky bg-primary-50 backdrop-blur-[5.6px] py-2.5 lg:py-6 text-white padding">
       <div className="flex justify-between items-center">
         <Link href="/">
           <Image

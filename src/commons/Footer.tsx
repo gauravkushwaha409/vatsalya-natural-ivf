@@ -9,6 +9,7 @@ import PATHS from "@/utils/path";
 import Image from "next/image";
 import Link from "next/link";
 import FooterSeo from "./partials/FooterSEO";
+import GetStarted from "./partials/GetStarted";
 
 const Footer = async () => {
   const { footerData } = await getHomePageData();
@@ -51,6 +52,7 @@ const Footer = async () => {
   const { data } = await getData(endpoints.service + `?page=${1}&perPage=${5}`);
   return (
     <>
+      <GetStarted />
       {/* <FooterSeo /> */}
       <div className="bg-white backdrop-blur-[5.6px] pt-10 overflow-hidden text-text-400 padding">
         <div className="gap-[2rem] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">

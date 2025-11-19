@@ -7,7 +7,7 @@ import { motion } from "motion/react";
 const FertilityTreatmentSolutions = () => {
   return (
     <div>
-      <div className="text-center max-w-[1126px] mx-auto ">
+      <div className="text-center max-w-[1126px] mx-auto padding">
         <p className="text-text-500 text-[33px] leading-[140%] tracking-[-2%] font-bold">
           Fertility Treatment Solutions
         </p>
@@ -26,9 +26,9 @@ const FertilityTreatmentSolutions = () => {
         </div>
       </div>
 
-      <div className="flex items-center mt-18 justify-between">
+      <div className="flex items-center mt-18 overflow-hidden flex-col lg:flex-row justify-between">
         <motion.div
-          className="w-[600px] h-[493px]"
+          className="w-full lg:w-[600px] h-full lg:h-[493px] mb-10 lg:mb-0"
           initial={{ x: -150, opacity: 0 }}
           whileInView={{
             x: 0,
@@ -48,7 +48,7 @@ const FertilityTreatmentSolutions = () => {
           />
         </motion.div>
 
-        <div className="padding-r max-w-[652px] w-full">
+        <div className="padding-l lg:pl-0 padding-r max-w-[652px] w-full">
           <p className="text-[#090909] text-[27px] leading-[150%] font-bold mb-4">
             TESA-MESA Treatment
           </p>
@@ -79,8 +79,9 @@ const FertilityTreatmentSolutions = () => {
           </motion.p>
         </div>
       </div>
-      <div className="flex items-center mt-18 justify-between">
-        <div className="padding-l max-w-[652px] w-full">
+
+      <div className="flex items-center mt-18 overflow-hidden flex-col lg:flex-row justify-between">
+        <div className="padding-r pr-0 padding-l max-w-[652px] w-full">
           <p className="text-[#090909] text-[27px] leading-[150%] font-bold mb-4">
             TESA-MESA Treatment
           </p>
@@ -112,7 +113,7 @@ const FertilityTreatmentSolutions = () => {
         </div>
 
         <motion.div
-          className="w-[600px] h-[493px]"
+          className="w-full lg:w-[600px] h-full lg:h-[493px] mt-10 lg:mt-0"
           initial={{ x: 150, opacity: 0 }}
           whileInView={{
             x: 0,
@@ -133,9 +134,9 @@ const FertilityTreatmentSolutions = () => {
         </motion.div>
       </div>
 
-      <div className="flex items-center mt-18 justify-between">
+      <div className="flex items-center mt-18 overflow-hidden flex-col lg:flex-row justify-between">
         <motion.div
-          className="w-[600px] h-[493px]"
+          className="w-full lg:w-[600px] h-full lg:h-[493px] mb-10 lg:mb-0"
           initial={{ x: -150, opacity: 0 }}
           whileInView={{
             x: 0,
@@ -155,7 +156,7 @@ const FertilityTreatmentSolutions = () => {
           />
         </motion.div>
 
-        <div className="padding-r max-w-[652px] w-full">
+        <div className="padding-l lg:pl-0 padding-r max-w-[652px] w-full">
           <p className="text-[#090909] text-[27px] leading-[150%] font-bold mb-4">
             TESA-MESA Treatment
           </p>
@@ -186,8 +187,9 @@ const FertilityTreatmentSolutions = () => {
           </motion.p>
         </div>
       </div>
-      <div className="flex items-center mt-18 justify-between lg:mb-40">
-        <div className="padding-l max-w-[652px] w-full">
+
+      <div className="flex items-center mt-18 overflow-hidden flex-col lg:flex-row justify-between lg:mb-40">
+        <div className="padding-r pr-0 padding-l max-w-[652px] w-full">
           <p className="text-[#090909] text-[27px] leading-[150%] font-bold mb-4">
             TESA-MESA Treatment
           </p>
@@ -219,7 +221,7 @@ const FertilityTreatmentSolutions = () => {
         </div>
 
         <motion.div
-          className="w-[600px] h-[493px]"
+          className="w-full lg:w-[600px] h-full lg:h-[493px] mt-10 lg:mt-0"
           initial={{ x: 150, opacity: 0 }}
           whileInView={{
             x: 0,

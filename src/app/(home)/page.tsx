@@ -7,7 +7,6 @@ import { ISeoRoot } from "@/interface/seo.interface";
 import { getHomePageData } from "./hook/hook.hook";
 import Blogsection from "./partials/Blogsection";
 import FaqHome from "./partials/FaqHome";
-import GetStarted from "./partials/GetStarted";
 import HomeHero from "./partials/HomeHero";
 import HowWeWork from "./partials/HowWeWork";
 import JsonLD from "./partials/JsonLD";
@@ -50,8 +49,6 @@ const HomePage = async () => {
           <Location data={locationData?.data?.records} />
           <FaqHome data={homedata?.data?.Faq} />
           <Blogsection data={blogData?.data} />
-
-          <GetStarted />
         </div>
       </>
     );

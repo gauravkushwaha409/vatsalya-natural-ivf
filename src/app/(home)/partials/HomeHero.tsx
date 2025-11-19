@@ -1,6 +1,14 @@
+"use client";
+
+import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import Image from "next/image";
+import { useState } from "react";
 
 const HomeHero = () => {
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const handleAppointmentClick = () => {
+    setOpenModal(true);
+  };
   return (
     <>
       <div className="relative flex flex-col lg:flex-row items-center min-h-[500px] md:min-h-[600px] lg:h-[660px] overflow-hidden">
@@ -15,7 +23,10 @@ const HomeHero = () => {
             parenthood.
           </p>
 
-          <button className="bg-gradient-to-r from-[#A0385A] to-[#3A142C] shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] px-8 md:px-10 lg:px-11 py-3 md:py-4 lg:py-4.5 border-[0.4px] border-secondary-100 rounded-full font-semibold transition-all duration-300 text-white cursor-pointer text-sm md:text-base typography-paragraph-regular hover:shadow-[0px_12px_24px_0px_rgba(101,53,83,0.8)] mb-12 lg:mb-0">
+          <button
+            onClick={() => handleAppointmentClick()}
+            className="bg-gradient-to-r from-[#A0385A] to-[#3A142C] shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] px-8 md:px-10 lg:px-11 py-3 md:py-4 lg:py-4.5 border-[0.4px] border-secondary-100 rounded-full font-semibold transition-all duration-300 text-white cursor-pointer text-sm md:text-base typography-paragraph-regular hover:shadow-[0px_12px_24px_0px_rgba(101,53,83,0.8)] mb-12 lg:mb-0"
+          >
             Book Your Appointment
           </button>
         </div>
@@ -73,6 +84,11 @@ const HomeHero = () => {
         {/* Enhanced Gradient Overlay for Video Blending */}
         <div className="absolute top-0 left-0 right-0 bottom-0 lg:left-0 lg:inset-y-0 w-full lg:w-auto bg-gradient-to-t md:bg-gradient-to-r from-[#FFEDEC]/50 md:from-[#FFEDEC] via-[#FFE8E7]/30 md:via-[#FFE8E7]/40 to-transparent lg:to-transparent z-15 lg:z-20"></div>
       </div>
+
+      <RequestAppoimentModal
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
+      />
     </>
   );
 };
