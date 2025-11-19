@@ -7,7 +7,7 @@ type ShowCaseItemProps = {
 const Stats: React.FC<ShowCaseItemProps> = ({ data }) => {
   return (
     <div>
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+      <div className="grid grid-cols-2 gap-4  md:grid-cols-4">
         <ShowCaseItem
           title={<>{data?.caringforFamilies}+</>}
           subtitle="Years of Excellence"
@@ -37,7 +37,7 @@ const ShowCaseItem: React.FC<{
 }> = ({ title, subtitle, border = true }) => {
   return (
     <div
-      className={`flex flex-col items-center gap-[1.42rem] px-4 sm:px-6 md:px-10 lg:px-10 border-primary-500  ${
+      className={`flex flex-col items-center gap-[1.42rem] px-6 md:px-10 lg:px-10 border-primary-500  ${
         border ? "border-r-[0.5px] " : ""
       }`}
     >
