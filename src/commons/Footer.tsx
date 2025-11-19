@@ -73,37 +73,41 @@ const Footer = async () => {
                 __html: footerData?.data?.footerDescription || "",
               }}
             />
-            <p className="flex items-center gap-[0.63rem]">
-              <a href={`mailto:${footerData?.data?.email}`}>
-                {footerData?.data?.email}
-              </a>
-              <CopyButton text={footerData?.data?.email} />
-            </p>
-            <a href={`tel:${footerData?.data?.phoneNumber}`}>
-              {footerData?.data?.phoneNumber}
-            </a>
 
-            <div className="flex flex-wrap items-center gap-2 mt-5">
-              {socialLinks.map(
-                (item) =>
-                  item.href && (
-                    <a
-                      key={item.name}
-                      className="transition-all duration-300 hover:brightness-80 size-6 shrink-0"
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Image
-                        src={item.icon}
-                        width={20}
-                        height={20}
-                        className=""
-                        alt={item.name}
-                      />
-                    </a>
-                  )
-              )}
+            <div className="hidden lg:block">
+              <p className="flex items-center gap-[0.63rem]">
+                <a href={`mailto:${footerData?.data?.email}`}>
+                  {footerData?.data?.email}
+                </a>
+                <CopyButton text={footerData?.data?.email} />
+              </p>
+
+              <a href={`tel:${footerData?.data?.phoneNumber}`}>
+                {footerData?.data?.phoneNumber}
+              </a>
+
+              <div className="flex flex-wrap items-center gap-2 mt-5">
+                {socialLinks.map(
+                  (item) =>
+                    item.href && (
+                      <a
+                        key={item.name}
+                        className="transition-all duration-300 hover:brightness-80 size-6 shrink-0"
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Image
+                          src={item.icon}
+                          width={20}
+                          height={20}
+                          className=""
+                          alt={item.name}
+                        />
+                      </a>
+                    )
+                )}
+              </div>
             </div>
           </div>
 
@@ -170,9 +174,18 @@ const Footer = async () => {
             </div>
           </div>
         </div>
+
         <hr className="bg-[#FFF1EF] my-5" />
         <p className="pb-5 text-xs text-center font-roboto text-text-400 typography-paragraph-regular">
           {footerData?.data?.copyRight}
+        </p>
+        <p className="text-text-400 typography-caption font-normal text-center pb-8">
+          Disclaimer : Vatsalya strictly complies with the PCPNDT Act, 2020 and
+          the ART (Regulation) Act, 2021, which prohibit sex selection and
+          gender determination, both being criminal offenses. We do not support
+          or engage in any such practices. All fertility services are provided
+          solely at our registered clinics by licensed medical professionals, in
+          full accordance with applicable laws and regulations.
         </p>
       </div>
     </>
