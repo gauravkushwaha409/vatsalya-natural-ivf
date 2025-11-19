@@ -64,8 +64,8 @@ const MeetOurExperts: React.FC<MeetExpertsProps> = ({ data }) => {
           Location:
         </p>
         <Select value={filterValue} onValueChange={onChange}>
-          <SelectTrigger className="data-[placeholder]:typography-paragraph-extra-small text-text-700 w-full cursor-pointer !h-11.5 border rounded-full !border-[#F3F3F3] bg-[#F8F8F8] shadow-none focus-visible:ring-0 sm:w-30">
-            <SelectValue placeholder="Country" />
+          <SelectTrigger className="data-[placeholder]:typography-paragraph-extra-small text-text-700 w-full cursor-pointer !h-11.5 border rounded-full bg-transparent !border-[#F3F3F3]  shadow-none focus-visible:ring-0 sm:w-30">
+            <SelectValue placeholder="Location" />
           </SelectTrigger>
           <SelectContent>
             {filterOptions.map((option) => (

@@ -4,7 +4,6 @@ import ErrorMessage from "@/components/ErrorMessage";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import { createMetadata } from "@/hooks/generateMetaData";
 import { ISeoRoot } from "@/interface/seo.interface";
-import dynamic from "next/dynamic";
 import { getHomePageData } from "./hook/hook.hook";
 import Blogsection from "./partials/Blogsection";
 import FaqHome from "./partials/FaqHome";
@@ -16,7 +15,6 @@ import Location from "./partials/Location";
 import MeetOurExperts from "./partials/MeetOurExperts";
 import Showcase from "./partials/Showcase";
 import WhatWeOffer from "./partials/WhatWeOffer";
-const BrandsSlider = dynamic(() => import("./partials/BrandsSlider"));
 
 export async function generateMetadata() {
   const { data } = await getData<ISeoRoot>(endpoints.seo.home);
@@ -42,7 +40,6 @@ const HomePage = async () => {
       <>
         <JsonLD />
 
-        {/* <div className="w-full space-y-20"> */}
         <div className="w-full ">
           <HomeHero />
           <Showcase data={showcaseData?.data} />
@@ -55,7 +52,6 @@ const HomePage = async () => {
           <Blogsection data={blogData?.data} />
 
           <GetStarted />
-          {/* <Notice /> */}
         </div>
       </>
     );
