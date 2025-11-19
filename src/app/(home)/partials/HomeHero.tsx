@@ -1,19 +1,43 @@
 "use client ";
 
+import Image from "next/image";
+
 const HomeHero = () => {
   return (
-    <div>
-      {/* <div className="w-[245.19px] h-[243.08] -ml-22 -mt-14">
-        <Image
-          src="/svg/butterfly.svg"
-          alt="Butterfly"
-          width={100}
-          height={100}
-          className="object-cover w-full h-full"
-        />
-      </div> */}
-
+    <>
       <div className="relative flex items-center h-[660px] overflow-hidden ">
+        {/* Top Gradient Overlay */}
+        <div className="absolute top-0 left-0 right-0 h-[32px] z-20">
+          <Image
+            src="topgradient.svg"
+            alt="gradient"
+            width={400}
+            height={400}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Bottom Gradient Overlay */}
+        <div className="absolute bottom-0 left-0 right-0 h-[85px] z-20">
+          <Image
+            src="bottomgradient.svg"
+            alt="bottomgradient"
+            width={400}
+            height={400}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        <div className="w-[245px] h-[243px] absolute -top-10 -left-26 z-21">
+          <Image
+            src="/svg/butterfly.svg"
+            alt="Butterfly"
+            width={100}
+            height={100}
+            className="object-cover w-full h-full"
+          />
+        </div>
+
         {/* Background Gradient Layer */}
         <div className="absolute inset-0  !w-[58%] bg-gradient-to-r from-[#FFEDEC] via-[#FFE8E7] to-transparent z-10"></div>
 
@@ -51,7 +75,7 @@ const HomeHero = () => {
           <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[#FFEDEC]/40"></div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
