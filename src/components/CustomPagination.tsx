@@ -30,39 +30,37 @@ const CustomPagination = ({
   };
 
   return (
-    <div className="w-full">
-      <div className="flex md:flex-row flex-col justify-center items-center gap-4 my-4">
-        <div className="flex items-center gap-1">
-          <button
-            onClick={() => onPageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-            className="disabled:opacity-50 p-2 rounded-lg text-text-100 disabled:cursor-not-allowed"
-          >
-            <MdKeyboardArrowLeft className="w-5 h-5" />
-          </button>
+    <div className="flex md:flex-row flex-col justify-end items-center gap-4 my-4">
+      <div className="flex items-center gap-1">
+        <button
+          onClick={() => onPageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+          className="disabled:opacity-50 p-2 rounded-lg text-text-100 disabled:cursor-not-allowed"
+        >
+          <MdKeyboardArrowLeft className="w-5 h-5" />
+        </button>
 
-          {generatePageNumbers().map((pageNum) => (
-            <button
-              key={pageNum}
-              onClick={() => onPageChange(pageNum)}
-              className={`w-7 h-7 rounded-full text-sm ${
-                currentPage === pageNum
-                  ? "bg-primary-200 text-white"
-                  : "hover:bg-primary-200/80 text-gray-700 hover:text-white cursor-pointer"
-              }`}
-            >
-              {pageNum}
-            </button>
-          ))}
-
+        {generatePageNumbers().map((pageNum) => (
           <button
-            onClick={() => onPageChange(currentPage + 1)}
-            disabled={currentPage === pageCount}
-            className="disabled:opacity-50 p-2 rounded-lg text-text-100 disabled:cursor-not-allowed"
+            key={pageNum}
+            onClick={() => onPageChange(pageNum)}
+            className={`w-7 h-7 rounded-full text-sm ${
+              currentPage === pageNum
+                ? "bg-primary-400 text-white"
+                : "hover:bg-primary-200 text-gray-700 hover:text-white cursor-pointer"
+            }`}
           >
-            <MdKeyboardArrowRight className="w-5 h-5" />
+            {pageNum}
           </button>
-        </div>
+        ))}
+
+        <button
+          onClick={() => onPageChange(currentPage + 1)}
+          disabled={currentPage === pageCount}
+          className="disabled:opacity-50 p-2 rounded-lg text-text-100 disabled:cursor-not-allowed"
+        >
+          <MdKeyboardArrowRight className="w-5 h-5" />
+        </button>
       </div>
     </div>
   );

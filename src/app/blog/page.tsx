@@ -31,7 +31,7 @@ const BlogPage = async ({ searchParams }: BlogProps) => {
     if (data?.data?.records?.length === 0) throw new Error("no_data");
 
     return (
-      <div className="">
+      <div className="lg:mb-20">
         <HeroBlog data={FeatureData} />
         <BlogsCard data={blogData} page={page} />
       </div>
