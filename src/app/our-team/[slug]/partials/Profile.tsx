@@ -24,7 +24,7 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
   const [openCallModal, setOpenCallModal] = useState<boolean>(false);
   return (
     <section className="bg-background-100 py-5 padding">
-      <div className="flex lg:flex-row flex-col gap-10 lg:justify-between">
+      <div className="flex lg:flex-row flex-col gap-10  ">
         {/* image section  */}
         <div className="flex justify-center items-end rounded-[58px] w-full bg-[#FFD2CE38] lg:h-[604px] max-w-[412px] ">
           <Image
@@ -52,13 +52,14 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
           <h1 className="font-bold text-secondary-500 text-[33px] leading-[150%]">
             {data?.name}
           </h1>
-
-          <p
-            className="text-text-500 text-[16px] leading-[160%] font-normal mb-3"
-            dangerouslySetInnerHTML={{
-              __html: data?.description,
-            }}
-          />
+          {data?.description && (
+            <p
+              className="text-text-500 text-[16px] leading-[160%] font-normal mb-3"
+              dangerouslySetInnerHTML={{
+                __html: data?.description,
+              }}
+            />
+          )}
 
           <div className="flex items-center gap-3">
             <div>
@@ -107,7 +108,7 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
 
                         <Link
                           href={"#"}
-                          className="mt-1 text-[#1E1E1E] inline-flex items-center gap-4 text-[16px] leading-[31px] hover:text-secondary-500 duration-300 transition-colors tracking-[-2%] font-medium"
+                          className="mt-1 text-[#1E1E1E] inline-flex items-center gap-4 text-[16px] leading-[31px] hover:text-primary-500 hover:underline duration-300 transition-colors tracking-[-2%] font-medium"
                         >
                           {service?.name}
 

@@ -12,18 +12,15 @@ const ServiceHeader: React.FC<Props> = ({ data }) => {
         <div className="flex-1 bg-primary-400 max-w-[148px] h-px"></div>
 
         <h2 className="font-bold text-primary-500 text-sm md:text-base uppercase leading-[24px] tracking-widest">
-          {`Our Services`}
+          WHAT WE OFFER
         </h2>
+
         {/* line  */}
         <div className="flex-1 bg-primary-400 max-w-[148px] h-px"></div>
       </div>
       <p className="pt-4 font-semibold text-text-500 typography-h3">
         {data?.title}
       </p>
-      <p
-        className="mx-auto pt-4 max-w-[95.5%] text-text-400 text-center leading-[150%] typography-paragraph-regular"
-        dangerouslySetInnerHTML={{ __html: data?.description || "" }}
-      />
     </div>
   );
 };
