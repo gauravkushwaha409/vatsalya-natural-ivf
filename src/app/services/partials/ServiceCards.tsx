@@ -16,28 +16,15 @@ const ServiceCards: React.FC<IServiceCards> = ({ data }) => {
 
   return (
     <section className="padding">
-      <div className="gap-10 grid grid-cols-1 lg:grid-cols-3 xl:grid-col-4 py-10 pb-20">
+      <div className="gap-10 grid grid-cols-1 lg:grid-cols-4 xl:grid-col-4 py-10 pb-20">
         {data?.records?.map((item: IserviceRecord, index: number) => (
-          <motion.div
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-              transition: {
-                duration: 0.5,
-                ease: "easeInOut",
-              },
-            }}
-            viewport={{ once: true, amount: 0.4 }}
-            key={index}
-            className="w-full h-full"
-          >
+          <div key={index} className="w-full h-full">
             <Link
               href={`/services/${item?.slug}`}
               className="flex justify-between items-center h-full"
             >
               <div
-                className="group relative flex flex-col justify-center bg-primary-50 hover:bg-primary-100 p-7 lg:p-10 rounded-tl-[50px] rounded-br-[50px] w-full overflow-hidden transition-colors duration-300"
+                className="relative flex flex-col justify-center bg-primary-50 z-10 p-7 rounded-tl-[80px] rounded-br-[80px] w-full  transition-all duration-600 transform hover:-translate-y-5 ease-in-out"
                 key={index}
               >
                 <div className="size-[7.25rem]">
@@ -51,10 +38,9 @@ const ServiceCards: React.FC<IServiceCards> = ({ data }) => {
                 </div>
                 <div className="flex flex-col gap-2 pt-4">
                   <div className="flex justify-between w-full">
-                    {" "}
-                    <h3 className="font-bold typography-h3">
-                      {item?.name}{" "}
-                    </h3>{" "}
+                    <h3 className="font-bold text-[22px] leading-[120%] tracking-[-2%] text-[#1A1A1A]">
+                      {item?.name}
+                    </h3>
                     <button
                       aria-label={`Go to ${item?.name}`}
                       className="cursor-pointer"
@@ -66,15 +52,16 @@ const ServiceCards: React.FC<IServiceCards> = ({ data }) => {
                     </button>
                   </div>
                   <p
-                    className="pt-1.5 font-medium text-text-400 line-clamp-4 leading-normal typography-paragraph-regular prose"
+                    className="font-medium text-[#667085] line-clamp-4 text-[13px] leading-[160%] tracking-[-1%] prose"
                     dangerouslySetInnerHTML={{ __html: item?.description }}
                   />
                 </div>
               </div>
             </Link>
-          </motion.div>
+          </div>
         ))}
       </div>
+
       {data?.totalPages > 1 && (
         <CustomPagination
           currentPage={currentPage}

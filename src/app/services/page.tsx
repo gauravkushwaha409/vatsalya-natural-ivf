@@ -9,6 +9,8 @@ import { IStageRoot } from "./interfaces/stage.interface";
 import { ISeoRoot } from "@/interface/seo.interface";
 import { createMetadata } from "@/hooks/generateMetaData";
 import { IBreadCrumbRoot } from "@/interface/breadcrumb.interface";
+import ServiceHero from "./partials/ServiceHero";
+import DetailedServices from "./partials/DetailedServices";
 export const dynamic = "force-dynamic";
 export async function generateMetadata() {
   const { data } = await getData<ISeoRoot>(endpoints.seo.service);
@@ -25,8 +27,10 @@ const ServicePage = async () => {
   try {
     return (
       <section>
-        <Herosection data={heroData} />
+        <ServiceHero />
+        {/* <Herosection data={heroData} /> */}
         <Services />
+        {/* <DetailedServices /> */}
         <Tests />
         <FertilityStageSelection data={fertilityData} />
         {/* <CallToActions /> */}

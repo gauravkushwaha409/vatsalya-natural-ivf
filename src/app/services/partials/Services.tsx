@@ -5,6 +5,7 @@ import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
 import { IServiceHeadingRoot } from "../interfaces/serviceHeading.interface";
 import ServiceHeader from "./ServiceHeader";
+import DetailedServices from "./DetailedServices";
 
 const Services = async () => {
   const page = 1;
@@ -22,7 +23,9 @@ const Services = async () => {
       <section className="pt-20 ">
         <ServiceHeader data={serviceHeading} />
         <ServiceCards data={serviceData} />
-        <FertilityCare data={FertilityCaredata?.data} />
+        {/* <FertilityCare data={FertilityCaredata?.data} /> */}
+
+        <DetailedServices data={FertilityCaredata?.data} />
       </section>
     );
   } catch (error) {
