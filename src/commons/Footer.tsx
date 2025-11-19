@@ -4,6 +4,7 @@ import { getHomePageData } from "@/app/(home)/hook/hook.hook";
 import { IserviceRecord } from "@/app/services/interfaces/services.interface";
 import NewsLetter from "@/components/NewsLetter";
 import CopyButton from "@/components/ui/CopyButton";
+import Accordion from "@/components/ui/accordion";
 import { companyLinks, helpLinks } from "@/data/footerData";
 import PATHS from "@/utils/path";
 import Image from "next/image";
@@ -111,8 +112,40 @@ const Footer = async () => {
             </div>
           </div>
 
-          {/* Company Links */}
-          <div className="space-y-3 text-text-400 typography-paragraph-regular">
+          {/* Mobile Accordions - Company, Services, Help */}
+          <div className="block md:hidden mt-8 col-span-2">
+            <Accordion title="Company">
+              {companyLinks.map((link) => (
+                <p key={link.href}>
+                  <Link href={link.href}>{link.label}</Link>
+                </p>
+              ))}
+            </Accordion>
+
+            <Accordion title="Services">
+              {data?.records?.map((link: IserviceRecord, index: number) => (
+                <p key={index}>
+                  <Link href={`${PATHS.services}/${link.slug}`}>
+                    {link.name}
+                  </Link>
+                </p>
+              ))}
+            </Accordion>
+
+            <Accordion title="Help">
+              {helpLinks.map((link) => (
+                <p key={link.href}>
+                  <Link href={link.href}>{link.label}</Link>
+                </p>
+              ))}
+              <p>
+                <Link href="/sitemap-page">SiteMap</Link>
+              </p>
+            </Accordion>
+          </div>
+
+          {/* Company Links - Desktop */}
+          <div className="hidden md:block space-y-3 text-text-400 typography-paragraph-regular">
             <h3 className="font-extrabold text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.18rem] typography-paragraph-regular">
               Company
             </h3>
@@ -122,8 +155,8 @@ const Footer = async () => {
               </p>
             ))}
           </div>
-          {/* Company Links */}
-          <div className="space-y-3 text-text-400 typography-paragraph-regular">
+          {/* Service Links - Desktop */}
+          <div className="hidden md:block space-y-3 text-text-400 typography-paragraph-regular">
             <h3 className="font-extrabold text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.18rem] typography-paragraph-regular">
               Services
             </h3>
@@ -133,8 +166,8 @@ const Footer = async () => {
               </p>
             ))}
           </div>
-          {/* Help Links */}
-          <div className="space-y-3 text-text-400 typography-paragraph-regular">
+          {/* Help Links - Desktop */}
+          <div className="hidden md:block space-y-3 text-text-400 typography-paragraph-regular">
             <h3 className="font-extrabold text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.1575rem]">
               Help
             </h3>
@@ -143,11 +176,13 @@ const Footer = async () => {
                 <Link href={link.href}>{link.label}</Link>
               </p>
             ))}
-            <Link href="/sitemap-page">SiteMap</Link>
+            <p>
+              <Link href="/sitemap-page">SiteMap</Link>
+            </p>
           </div>
 
           {/* Newsletter */}
-          <div className="space-y-3 text-text-400 typography-paragraph-regular">
+          <div className="space-y-3 col-span-2 lg:col-span-1 text-text-400 typography-paragraph-regular">
             <h3 className="font-extrabold text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.1575rem]">
               Subscribe to Newsletter
             </h3>
