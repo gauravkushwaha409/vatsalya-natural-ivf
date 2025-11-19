@@ -35,7 +35,7 @@ const YoutubeEmbed: React.FC<YoutubeEmbedProps> = ({ url }) => {
       frameBorder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowFullScreen={true}
-      className="h-52 lg:h-[588px] aspect-video"
+      className="h-52 lg:h-[507px] aspect-video rounded-[60px]"
     ></iframe>
   );
 };

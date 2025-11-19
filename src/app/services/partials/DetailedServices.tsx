@@ -13,7 +13,7 @@ interface IFertilityCare {
 const DetailedServices: React.FC<IFertilityCare> = ({ data }) => {
   return (
     <section>
-      <div className="bg-[#FDF7F7] px-5 lg:px-10 py-20 overflow-hidden">
+      <div className="bg-[#FDF7F7] padding  pt-20 overflow-hidden">
         <motion.div
           whileInView={{ opacity: 1 }}
           initial={{ opacity: 0 }}
@@ -32,7 +32,7 @@ const DetailedServices: React.FC<IFertilityCare> = ({ data }) => {
           </h2>
         </motion.div>
 
-        <div className="flex lg:flex-row flex-col gap-10 p-2 lg:p-10">
+        <div className="flex lg:flex-row items-start flex-col gap-10 ">
           <div className="flex flex-col gap-5 w-full lg:w-1/2 overflow-hidden">
             {data?.whenToSeeListItemService?.map(
               (item: IFertilityCareWhenToSeeListItemService, index: number) => (
@@ -84,7 +84,7 @@ const DetailedServices: React.FC<IFertilityCare> = ({ data }) => {
           </div>
           <div className="flex justify-end w-full lg:w-1/2">
             <motion.div
-              className="w-auto h-auto"
+              className="w-auto h-[34rem] -mt-10 "
               initial={{ x: 150, opacity: 0 }}
               whileInView={{
                 x: 0,
@@ -96,7 +96,7 @@ const DetailedServices: React.FC<IFertilityCare> = ({ data }) => {
               }}
             >
               <Image
-                src="treatment.svg"
+                src="/service/treatment.svg"
                 alt={`fertility`}
                 width={400}
                 height={400}

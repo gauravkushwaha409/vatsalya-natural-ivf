@@ -79,7 +79,6 @@ const FertilityTreatmentSolutions = () => {
           </motion.p>
         </div>
       </div>
-
       <div className="flex items-center mt-18 justify-between">
         <div className="padding-l max-w-[652px] w-full">
           <p className="text-[#090909] text-[27px] leading-[150%] font-bold mb-4">
@@ -133,6 +132,7 @@ const FertilityTreatmentSolutions = () => {
           />
         </motion.div>
       </div>
+
       <div className="flex items-center mt-18 justify-between">
         <motion.div
           className="w-[600px] h-[493px]"
@@ -186,8 +186,7 @@ const FertilityTreatmentSolutions = () => {
           </motion.p>
         </div>
       </div>
-
-      <div className="flex items-center mt-18 justify-between">
+      <div className="flex items-center mt-18 justify-between lg:mb-40">
         <div className="padding-l max-w-[652px] w-full">
           <p className="text-[#090909] text-[27px] leading-[150%] font-bold mb-4">
             TESA-MESA Treatment

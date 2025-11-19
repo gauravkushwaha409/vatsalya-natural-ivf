@@ -7,6 +7,7 @@ import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
 import { IServiceDetailsRoot } from "../interfaces/serviceDetails.interface";
 import { createMetadata } from "@/hooks/generateMetaData";
+import ServiceHero from "../partials/ServiceHero";
 
 interface ServiceDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -27,7 +28,8 @@ const page = async ({ params }: ServiceDetailPageProps) => {
     const data = await getData(endpoints.service + `/${slug?.slug}`);
     return (
       <section>
-        <Headings data={data?.data} />
+        <ServiceHero />
+        {/* <Headings data={data?.data} /> */}
         <ServiceDetails data={data?.data} />
         <ServiceFaq data={data?.data} />
       </section>
