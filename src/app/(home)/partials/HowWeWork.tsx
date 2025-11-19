@@ -52,7 +52,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
       </div>
 
       {/* Subtitle */}
-      <p className="px-2 pb-6 md:px-4 md:pb-8 lg:pb-16 font-bold text-center text-text-500 text-lg md:text-2xl lg:typography-h2">
+      <p className="px-2 pb-2 md:px-4 md:pb-8 lg:pb-16 font-bold text-center text-text-500 text-lg md:text-2xl lg:typography-h2">
         {data?.subtitle}
       </p>
 
@@ -147,7 +147,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
       <button
         type="submit"
         onClick={() => handleAppointmentClick()}
-        className="flex items-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 mx-auto font-extrabold text-white border rounded-full cursor-pointer bg-secondary-500 border-secondary-200 text-sm md:text-base lg:typography-paragraph-regular mt-8 md:mt-12 lg:mt-14"
+        className="flex items-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 mx-auto font-extrabold text-white border rounded-full cursor-pointer bg-secondary-500 border-secondary-200 text-sm md:text-base lg:typography-paragraph-regular mt-2 md:mt-12 lg:mt-14"
       >
         Book your Appointment
       </button>
@@ -249,7 +249,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
                   </span>
                 </button>
 
-                <p className="text-[#3A3A3A] text-sm md:text-base font-bold text-center leading-[150%] tracking-[-1%] mb-10 md:mb-0">
+                <p className="text-[#3A3A3A] text-sm md:text-base font-bold text-center leading-[150%] tracking-[-1%] mb-6 md:mb-0">
                   {step.title}
                 </p>
               </div>

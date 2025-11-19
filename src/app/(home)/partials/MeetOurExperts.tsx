@@ -55,7 +55,7 @@ const MeetOurExperts: React.FC<MeetExpertsProps> = ({ data }) => {
       </div>
 
       {/* Subtitle */}
-      <p className="px-4 pb-8 font-bold text-center md:pb-16 text-text-500 typography-h2">
+      <p className="px-4 pb-2 lg:pb-8 font-bold text-center md:pb-16 text-text-500 typography-h2">
         World-Class Doctors, Dedicated to Your Care
       </p>
 
@@ -208,7 +208,7 @@ const MeetOurExperts: React.FC<MeetExpertsProps> = ({ data }) => {
         </Swiper>
 
         {/* navigation buttons */}
-        <div className="absolute z-10 flex items-center justify-end gap-3 -mt-6 w-fit right-4 md:right-20">
+        <div className="absolute z-10 flex items-center justify-end gap-3 mt-2 lg:-mt-6 w-fit right-4 md:right-20">
           <button
             type="button"
             onClick={goPrev}

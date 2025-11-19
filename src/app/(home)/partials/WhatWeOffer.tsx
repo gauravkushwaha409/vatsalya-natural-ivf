@@ -36,7 +36,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
         </h2>
         <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
       </div>
-      <p className="px-4 pb-8 font-bold text-center md:pb-16 text-text-500 typography-h2">
+      <p className="px-4 pb-2 lg:pb-8 font-bold text-center md:pb-16 text-text-500 typography-h2">
         Comprehensive Fertility Care, Tailored for You
       </p>
 
@@ -185,13 +185,15 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
             <ArrowRight size={16} />
           </button>
         </div>
+
         <button
-          type="button"
+          type="submit"
           onClick={() => handleAppointmentClick()}
-          className="flex items-center gap-3 px-8 py-4 mx-auto font-extrabold text-white border rounded-full cursor-pointer bg-secondary-500 border-secondary-200 typography-paragraph-regular mt-14"
+          className="flex items-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 mx-auto font-extrabold text-white border rounded-full cursor-pointer bg-secondary-500 border-secondary-200 text-sm md:text-base lg:typography-paragraph-regular mt-6 md:mt-12 lg:mt-14"
         >
           Book your Appointment
         </button>
+
         <RequestAppoimentModal
           isOpen={openModal}
           onClose={() => setOpenModal(false)}

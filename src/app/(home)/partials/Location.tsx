@@ -37,7 +37,7 @@ const Location = ({ data }: LocationProps) => {
         </h2>
         <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
       </div>
-      <p className="px-4 pb-8 font-bold text-center md:pb-16 text-text-500 typography-h2">
+      <p className="px-4 pb-2 lg:pb-8 font-bold text-center md:pb-16 text-text-500 typography-h2">
         Our Clinics
       </p>
 
