@@ -8,6 +8,8 @@ import { endpoints } from "@/api/endpoints";
 import { IServiceDetailsRoot } from "../interfaces/serviceDetails.interface";
 import { createMetadata } from "@/hooks/generateMetaData";
 import ServiceHero from "../partials/ServiceHero";
+import IVFProcedure from "./partials/IVFProcedure";
+import TestFlow from "./partials/TestFlow";
 
 interface ServiceDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -31,6 +33,8 @@ const page = async ({ params }: ServiceDetailPageProps) => {
         <ServiceHero />
         {/* <Headings data={data?.data} /> */}
         <ServiceDetails data={data?.data} />
+        <IVFProcedure />
+        <TestFlow/>
         <ServiceFaq data={data?.data} />
       </section>
     );

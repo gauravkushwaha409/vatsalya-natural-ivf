@@ -16,15 +16,10 @@ const ServiceDetails: React.FC<IServiceDetails> = ({ data }) => {
   return (
     <section className="relative bg-background-100 mt-10 padding ">
       {/* <div className="flex lg:flex-row flex-col gap-10 padding"> */}
-      <motion.div
-        initial={{ x: isSmall ? "0%" : "20%" }}
-        animate={{ x: "0%" }}
-        transition={{ duration: 1.3, delay: 2 }}
-        className="w-full rounded-[60px]"
-      >
+      <div className="w-full rounded-[60px]">
         <YoutubeEmbed url={data?.service?.videoUrl} />
         <ServiceDescription data={data?.service} />
-      </motion.div>
+      </div>
       {/* <motion.div
           initial={{ opacity: 0, x: isSmall ? "0%" : "50%" }}
           animate={{ opacity: 1, x: "0%" }}
