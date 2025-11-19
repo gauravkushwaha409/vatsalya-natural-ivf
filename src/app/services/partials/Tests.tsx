@@ -11,17 +11,14 @@ const Tests = async () => {
     endpoints.service_test + "?testFor=women"
   );
   return (
-    <div className="gap-5 lg:gap-0 grid grid-cols-1 lg:grid-cols-2 my-10 lg:my-20 divide-x-0 lg:divide-x padding">
+    <div className="gap-5 lg:gap-0 grid grid-cols-1  lg:grid-cols-2 my-10 lg:my-20 divide-x-0 lg:divide-x padding">
       <div>
-        <h3 className="pb-4 font-bold text-primary-500 typography-h4">
+        <h3 className="mb-5 font-bold text-primary-500 typography-h4">
           Tests for men
         </h3>
-        <ul className="space-y-[0.66rem] *:bg-gradient-to-r *:from-[#EBC0DB] *:to-[#FFD2CE] pr-0 lg:pr-5 text-text-400 list-disc typography-paragraph-regular">
+        <ul className="space-y-1 pr-0 lg:pr-5 text-text-400 list-disc typography-paragraph-regular">
           {MenTest?.records?.map((test, index) => (
-            <li
-              key={index}
-              className="flex items-center gap-3 p-1 border rounded-md"
-            >
+            <li key={index} className="flex items-center gap-3 p-1 ">
               <div className="bg-[#FFD2EE] p-1 rounded-full size-8 shrink-0">
                 <Image
                   src={test.icon}
@@ -39,16 +36,13 @@ const Tests = async () => {
           ))}
         </ul>
       </div>
-      <div className="pl-0 lg:pl-10">
-        <h3 className="pb-4 font-bold text-primary-500 typography-h4">
+      <div className="pl-0 lg:pl-30">
+        <h3 className="mb-5 font-bold text-primary-500 typography-h4">
           Tests for women
         </h3>
-        <ul className="space-y-[0.66rem] *:bg-gradient-to-r *:from-[#EBC0DB] *:to-[#FFD2CE] pr-0 lg:pr-5 text-text-400 list-disc typography-paragraph-regular">
+        <ul className="space-y-1 pr-0 lg:pr-5 text-text-400 list-disc typography-paragraph-regular">
           {WomenTest?.records?.map((test, index) => (
-            <li
-              key={index}
-              className="flex items-center gap-3 p-1 border rounded-md"
-            >
+            <li key={index} className="flex items-center gap-3 p-1 ">
               <div className="bg-[#FFD2EE] p-1 rounded-full size-8 shrink-0">
                 <Image
                   src={test.icon}

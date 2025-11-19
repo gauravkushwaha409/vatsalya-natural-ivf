@@ -1,16 +1,14 @@
-import ErrorMessage from "@/components/ErrorMessage";
-import FertilityStageSelection from "./partials/FertilityStageSelection";
-import Herosection from "./partials/Herosection";
-import Services from "./partials/Services";
-import Tests from "./partials/Tests";
 import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
-import { IStageRoot } from "./interfaces/stage.interface";
-import { ISeoRoot } from "@/interface/seo.interface";
+import ErrorMessage from "@/components/ErrorMessage";
 import { createMetadata } from "@/hooks/generateMetaData";
 import { IBreadCrumbRoot } from "@/interface/breadcrumb.interface";
+import { ISeoRoot } from "@/interface/seo.interface";
+import { IStageRoot } from "./interfaces/stage.interface";
+import FertilityStageSelection from "./partials/FertilityStageSelection";
 import ServiceHero from "./partials/ServiceHero";
-import DetailedServices from "./partials/DetailedServices";
+import Services from "./partials/Services";
+import Tests from "./partials/Tests";
 export const dynamic = "force-dynamic";
 export async function generateMetadata() {
   const { data } = await getData<ISeoRoot>(endpoints.seo.service);
@@ -30,7 +28,6 @@ const ServicePage = async () => {
         <ServiceHero />
         {/* <Herosection data={heroData} /> */}
         <Services />
-        {/* <DetailedServices /> */}
         <Tests />
         <FertilityStageSelection data={fertilityData} />
         {/* <CallToActions /> */}

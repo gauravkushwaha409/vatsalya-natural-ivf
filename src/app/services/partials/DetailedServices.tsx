@@ -39,19 +39,18 @@ const DetailedServices: React.FC<IFertilityCare> = ({ data }) => {
               (item: IFertilityCareWhenToSeeListItemService, index: number) => (
                 <motion.div
                   initial={{
-                    x: index % 2 === 0 ? -100 : 100,
+                    y: 80,
                     opacity: 0,
                   }}
                   whileInView={{
-                    x: 0,
+                    y: 0,
                     opacity: 1,
                     transition: {
-                      duration: 0.5,
+                      duration: 0.9,
                       stiffness: 10,
-                      delay: index * 0.1,
+                      delay: index * 0.3,
                     },
                   }}
-                  viewport={{ once: true }}
                   className="flex items-center gap-5"
                   key={index}
                 >
@@ -85,7 +84,18 @@ const DetailedServices: React.FC<IFertilityCare> = ({ data }) => {
             )}
           </div>
           <div className="flex justify-end w-full lg:w-1/2">
-            <div className="w-auto h-auto">
+            <motion.div
+              className="w-auto h-auto"
+              initial={{ x: 150, opacity: 0 }}
+              whileInView={{
+                x: 0,
+                opacity: 1,
+                transition: {
+                  duration: 2,
+                  ease: "easeOut",
+                },
+              }}
+            >
               <Image
                 src={fertility}
                 alt={`fertility`}
@@ -93,7 +103,7 @@ const DetailedServices: React.FC<IFertilityCare> = ({ data }) => {
                 height={400}
                 className="w-full h-full object-cover"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
