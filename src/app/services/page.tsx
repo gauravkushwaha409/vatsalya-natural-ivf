@@ -9,6 +9,7 @@ import FertilityStageSelection from "./partials/FertilityStageSelection";
 import ServiceHero from "./partials/ServiceHero";
 import Services from "./partials/Services";
 import Tests from "./partials/Tests";
+import FertilityTreatmentSolutions from "./partials/FertilityTreatmentSolutions";
 export const dynamic = "force-dynamic";
 export async function generateMetadata() {
   const { data } = await getData<ISeoRoot>(endpoints.seo.service);
@@ -29,7 +30,9 @@ const ServicePage = async () => {
         {/* <Herosection data={heroData} /> */}
         <Services />
         <Tests />
-        <FertilityStageSelection data={fertilityData} />
+        <FertilityTreatmentSolutions />
+
+        {/* <FertilityStageSelection data={fertilityData} /> */}
         {/* <CallToActions /> */}
       </section>
     );

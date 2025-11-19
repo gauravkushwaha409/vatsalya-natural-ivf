@@ -244,6 +244,10 @@ input[type="submit"] {
   @apply pl-5 lg:pl-24;
 }
 
+@utility padding-r {
+  @apply pr-5 lg:pr-24;
+}
+
 @utility no-scrollbar {
   ::-webkit-scrollbar {
     display: none;

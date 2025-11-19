@@ -1,5 +1,4 @@
 "use client";
-import fertility from "@/assests/icons/services/fertilityCare.svg";
 import { motion } from "motion/react";
 import Image from "next/image";
 import React from "react";
@@ -97,7 +96,7 @@ const DetailedServices: React.FC<IFertilityCare> = ({ data }) => {
               }}
             >
               <Image
-                src={fertility}
+                src="treatment.svg"
                 alt={`fertility`}
                 width={400}
                 height={400}
