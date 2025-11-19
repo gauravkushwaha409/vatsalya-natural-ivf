@@ -26,7 +26,7 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
     <section className="bg-background-100 py-5 padding">
       <div className="flex lg:flex-row flex-col gap-10 lg:justify-between">
         {/* image section  */}
-        <div className="flex justify-center items-end rounded-[58px] w-full bg-[#FFD2CE38] h-[604px] max-w-[412px] ">
+        <div className="flex justify-center items-end rounded-[58px] w-full bg-[#FFD2CE38] lg:h-[604px] max-w-[412px] ">
           <Image
             src={data?.image}
             alt="heropic"
@@ -92,7 +92,7 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
               <h2 className="text-text-500 text-[20px] leading-[150%] tracking-[-2%] font-semibold mb-3">
                 Services Offered
               </h2>
-              <div className="flex flex-wrap items-center gap-5">
+              <div className="flex flex-wrap  items-center gap-5">
                 {data?.service.map(
                   (service: IProfileService, index: number) => (
                     <React.Fragment key={index}>

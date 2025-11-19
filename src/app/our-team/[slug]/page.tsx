@@ -25,7 +25,7 @@ const ProfilePage = async ({ params }: ProfilePageProps) => {
   const slug = await params;
   const { data } = await getData(endpoints.experts + `/${slug?.slug}`);
   return (
-    <section className="mb-16">
+    <section className="mb-10 lg:mb-40">
       <Headings />
       <Profile data={data} />
     </section>
