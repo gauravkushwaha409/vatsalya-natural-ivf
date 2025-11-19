@@ -13,18 +13,15 @@ const HomeHero = () => {
         />
       </div> */}
 
-      <div className="relative flex items-center h-[660px] overflow-hidden">
+      <div className="relative flex items-center h-[660px] overflow-hidden ">
         {/* Background Gradient Layer */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FFEDEC] via-[#FFE8E7]/80 to-transparent z-10"></div>
-
-        {/* Top Blur Overlay */}
-        {/* <div className="absolute h-10 w-full z-30 top-0 bg-[linear-gradient(180deg,_rgba(255,241,239,1)_80%,_rgba(255,255,255,1)_89%)]"></div> */}
+        <div className="absolute inset-0  !w-[58%] bg-gradient-to-r from-[#FFEDEC] via-[#FFE8E7] to-transparent z-10"></div>
 
         {/* Enhanced Gradient Overlay for Video Blending */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FFEDEC] via-[#FFE8E7]/40 to-transparent z-20"></div>
+        <div className="absolute left-0 bg-gradient-to-r from-[#FFEDEC] via-[#FFE8E7]/40 to-transparent z-20"></div>
 
         {/* Text Section */}
-        <div className="padding-l w-[45%] shrink-0 z-30 relative">
+        <div className="padding-l w-[45%] shrink-0 z-30 relative ">
           <h1 className="text-[52px] leading-[114.999%] font-extrabold mb-4 text-[#A0377B] max-w-xl w-full ">
             We transform hope within you into life
           </h1>
@@ -40,7 +37,7 @@ const HomeHero = () => {
         </div>
 
         {/* Video Section with Gradient Mask */}
-        <div className="absolute  translate-x-[20%] inset-0 w-full h-[660px] z-0 ">
+        <div className="absolute  translate-x-[12%] inset-0 w-full h-[660px] z-0 ">
           <video
             src="/home/video.mp4"
             autoPlay
