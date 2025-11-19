@@ -1,15 +1,16 @@
-import React from "react";
-import ServiceDetails from "./partials/ServiceDetails";
-import Headings from "./partials/Headings";
-import ServiceFaq from "./partials/ServiceFaq";
-import ErrorMessage from "@/components/ErrorMessage";
 import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
-import { IServiceDetailsRoot } from "../interfaces/serviceDetails.interface";
+import ErrorMessage from "@/components/ErrorMessage";
+import TestimonialSlider from "@/components/TestimonialSlider";
 import { createMetadata } from "@/hooks/generateMetaData";
+import { IServiceDetailsRoot } from "../interfaces/serviceDetails.interface";
 import ServiceHero from "../partials/ServiceHero";
 import IVFProcedure from "./partials/IVFProcedure";
+import ServiceDetails from "./partials/ServiceDetails";
+import ServiceFaq from "./partials/ServiceFaq";
 import TestFlow from "./partials/TestFlow";
+import { getHomePageData } from "@/app/(home)/hook/hook.hook";
+import KnowBenefit from "./partials/KnowBenefit";
 
 interface ServiceDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -28,13 +29,17 @@ const page = async ({ params }: ServiceDetailPageProps) => {
   try {
     const slug = await params;
     const data = await getData(endpoints.service + `/${slug?.slug}`);
+
+    const { testimonialData } = await getHomePageData();
     return (
       <section>
         <ServiceHero />
         {/* <Headings data={data?.data} /> */}
         <ServiceDetails data={data?.data} />
         <IVFProcedure />
-        <TestFlow/>
+        <TestFlow />
+        <TestimonialSlider data={testimonialData?.data} />
+        <KnowBenefit />
         <ServiceFaq data={data?.data} />
       </section>
     );

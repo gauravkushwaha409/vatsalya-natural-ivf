@@ -10,7 +10,6 @@ interface IServiceFaqProps {
 const ServiceFaq: React.FC<IServiceFaqProps> = ({ data }) => {
   return (
     <section>
-
       {data?.service?.faq?.length > 0 && (
         <div className="flex gap-10 px-5 md:px-20 py-20">
           <div className="hidden md:flex justify-start items-center w-full md:w-1/2">
