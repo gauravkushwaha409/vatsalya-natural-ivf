@@ -19,7 +19,7 @@ const BlogsCard: React.FC<BlogsCardProps> = ({ data }) => {
         <h1 className="font-semibold text-text-500 typography-h3">
           Latest Blogs
         </h1>
-        <div className="gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-10">
+        <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-10 ">
           {data?.records?.map((blog: IBlogRecord, index) => (
             <BlogCard key={index} data={blog} />
           ))}
