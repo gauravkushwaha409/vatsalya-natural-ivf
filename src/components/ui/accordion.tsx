@@ -21,9 +21,9 @@ const Accordion: React.FC<AccordionProps> = ({
   };
 
   return (
-    <div className="border-b border-gray-200">
+    <div className="border-b-[0.35px] border-[#E2BBD4] ">
       <button
-        className="w-full py-3 flex items-center justify-between text-left focus:outline-none"
+        className="w-full py-6 flex items-center justify-between text-left focus:outline-none"
         onClick={toggleAccordion}
         aria-expanded={isOpen}
       >
@@ -42,7 +42,7 @@ const Accordion: React.FC<AccordionProps> = ({
           isOpen ? "max-h-96 pb-3" : "max-h-0"
         }`}
       >
-        <div className="space-y-3 text-text-400 typography-paragraph-regular">
+        <div className="space-y-3  text-text-400 typography-paragraph-large">
           {children}
         </div>
       </div>

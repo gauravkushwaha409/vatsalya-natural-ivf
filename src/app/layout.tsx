@@ -10,6 +10,7 @@ import { IoLogoWhatsapp } from "react-icons/io5";
 import { getHomePageData } from "./(home)/hook/hook.hook";
 import "./globals.css";
 import Providers from "./providers";
+import FooterMenu from "@/commons/partials/FooterMenu";
 
 const urbanist = Urbanist({
   variable: "--font-urbanist",
@@ -125,7 +126,12 @@ export default async function RootLayout({
           <Header />
           <div>{children}</div>
           <Footer />
-          <Link href={`tel:${footerData?.data?.phoneNumber?.[0]}`}>
+          <FooterMenu />
+
+          <Link
+            className="hidden md:block"
+            href={`tel:${footerData?.data?.phoneNumber?.[0]}`}
+          >
             <Image
               src="/phone.png"
               alt="phone"
@@ -137,6 +143,7 @@ export default async function RootLayout({
             />
           </Link>
           <Link
+            className="hidden md:block"
             target="_blank"
             href={`https://api.whatsapp.com/send?phone=977${footerData?.data?.socialMedia?.whatsapp}`}
           >

@@ -5,8 +5,11 @@ const NewsLetter = () => {
   const { formik, isLoading } = useNewsletter();
 
   return (
-    <div>
-      <form onSubmit={formik.handleSubmit} className="space-y-3">
+    <>
+      <form
+        onSubmit={formik.handleSubmit}
+        className="flex flex-row lg:flex-col gap-4 lg:gap-2"
+      >
         <label
           htmlFor="email"
           aria-label="Email"
@@ -30,12 +33,12 @@ const NewsLetter = () => {
         <button
           type="submit"
           disabled={isLoading}
-          className="bg-secondary-500 disabled:opacity-50 px-[1.88rem] py-2.5 rounded-[6.25rem] font-manrope font-bold text-white cursor-pointer typography-paragraph-regular"
+          className="bg-secondary-500 disabled:opacity-50 px-[1.88rem] py-2.5 rounded-[6.25rem] w-fit font-manrope font-bold text-white cursor-pointer typography-paragraph-regular"
         >
           {isLoading ? "Subscribing..." : "Subscribe"}
         </button>
       </form>
-    </div>
+    </>
   );
 };
 

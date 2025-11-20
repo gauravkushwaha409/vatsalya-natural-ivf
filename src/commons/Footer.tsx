@@ -9,7 +9,6 @@ import { companyLinks, helpLinks } from "@/data/footerData";
 import PATHS from "@/utils/path";
 import Image from "next/image";
 import Link from "next/link";
-import FooterSeo from "./partials/FooterSEO";
 import GetStarted from "./partials/GetStarted";
 
 const Footer = async () => {
@@ -56,9 +55,9 @@ const Footer = async () => {
       <GetStarted />
       {/* <FooterSeo /> */}
       <div className="bg-white backdrop-blur-[5.6px] pt-10 overflow-hidden text-text-400 padding">
-        <div className="gap-[2rem] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+        <div className=" gap-4 lg:gap-[2rem] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {/* About Section */}
-          <div className="col-span-2 space-y-3 text-text-400 typography-paragraph-regular">
+          <div className="col-span-2 lg:space-y-3 text-text-400 typography-paragraph-regular">
             <Link href="/">
               <Image
                 src={footerData?.data?.footerLogo}
@@ -113,7 +112,7 @@ const Footer = async () => {
           </div>
 
           {/* Mobile Accordions - Company, Services, Help */}
-          <div className="block md:hidden mt-8 col-span-2">
+          <div className="block md:hidden  col-span-2">
             <Accordion title="Company">
               {companyLinks.map((link) => (
                 <p key={link.href}>
@@ -182,7 +181,7 @@ const Footer = async () => {
           </div>
 
           {/* Newsletter */}
-          <div className="space-y-3 col-span-2 lg:col-span-1 text-text-400 typography-paragraph-regular">
+          <div className="space-y-3 mt-4 lg:mt-0 col-span-2 lg:col-span-1 text-text-400 typography-paragraph-regular">
             <h3 className="font-extrabold text-secondary-500 text-sm uppercase leading-[150%] tracking-[0.1575rem]">
               Subscribe to Newsletter
             </h3>
@@ -214,7 +213,7 @@ const Footer = async () => {
         <p className="pb-5 text-xs text-center font-roboto text-text-400 typography-paragraph-regular">
           {footerData?.data?.copyRight}
         </p>
-        <p className="text-text-400 typography-caption font-normal text-center pb-8">
+        <p className="text-text-400 typography-caption font-normal text-center pb-30 sm:pb-8">
           Disclaimer : Vatsalya strictly complies with the PCPNDT Act, 2020 and
           the ART (Regulation) Act, 2021, which prohibit sex selection and
           gender determination, both being criminal offenses. We do not support
