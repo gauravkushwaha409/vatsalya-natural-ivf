@@ -3,34 +3,12 @@
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import Image from "next/image";
 import { useState } from "react";
-import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-interface IHowWeWorkStep {
-  number: number;
-  title: string;
-}
-
-interface IHowWeWorkData {
-  title: string;
-  subtitle: string;
-  steps: IHowWeWorkStep[];
-}
+import { IHowWeWorkData } from "../interface/howWeWork.interface";
 
 type HowWeWorkProps = {
   data: IHowWeWorkData;
-};
-
-const howWeWorkData = {
-  steps: [
-    { number: 1, title: "Consultation" },
-    { number: 2, title: "Tests" },
-    { number: 3, title: "Personalized Plan" },
-    { number: 4, title: "Procedure" },
-    { number: 5, title: "Pregnancy Test" },
-    { number: 6, title: "Follow-up Care" },
-  ],
 };
 
 const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
@@ -56,17 +34,15 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
         {data?.subtitle}
       </p>
 
-      {/* Steps */}
-
       {/* Desktop Layout */}
       <div className="hidden lg:flex items-center gap-4 lg:gap-8">
-        {howWeWorkData.steps.map((step, index) => (
-          <div key={step.number} className="flex gap-4">
+        {data?.HowWorksDetails?.map((step, index) => (
+          <div key={step?.id} className="flex gap-4">
             {/* Step Circle */}
             <div className="flex flex-col w-full min-w-[180px] gap-4">
               <button
                 onClick={() =>
-                  setActiveStep(activeStep === step.number ? null : step.number)
+                  setActiveStep(activeStep === index ? null : index)
                 }
                 className="relative w-[120px] h-[120px] flex items-center justify-center cursor-pointer"
               >
@@ -89,15 +65,15 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
                     strokeLinecap="round"
                     style={{
                       strokeDasharray: 176,
-                      strokeDashoffset: activeStep === step.number ? 0 : 176,
+                      strokeDashoffset: activeStep === index ? 0 : 176,
                       transition: "stroke-dashoffset 1.4s ease-in-out",
-                      opacity: activeStep === step.number ? 1 : 0,
+                      opacity: activeStep === index ? 1 : 0,
                       transformOrigin: "40px 40px",
-                      transform: `rotate(${(step.number - 1) * 60 - 90}deg)`,
+                      transform: `rotate(${(index - 1) * 60 - 90}deg)`,
                     }}
                   />
                   {(() => {
-                    const angle = (step.number - 1) * 60 - 90;
+                    const angle = (index - 1) * 60 - 90;
                     const radian = (angle * Math.PI) / 180;
                     const dotX = 40 + 28 * Math.cos(radian);
                     const dotY = 40 + 28 * Math.sin(radian);
@@ -109,7 +85,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
                         r="4"
                         fill="#FF6F61"
                         style={{
-                          opacity: activeStep === step.number ? 0 : 1,
+                          opacity: activeStep === index ? 0 : 1,
                           transition: "opacity 0.3s ease-in-out",
                         }}
                       />
@@ -119,17 +95,17 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
 
                 {/* Step Number */}
                 <span className="absolute text-[32px] font-extrabold text-[#FF6F61]">
-                  {step.number}
+                  {index + 1}
                 </span>
               </button>
 
               <p className="text-[#3A3A3A] text-[20px] font-bold text-left leading-[150%] tracking-[-3%]">
-                {step.title}
+                {step?.title || "Step Title"}
               </p>
             </div>
 
             {/* Connector */}
-            {index < howWeWorkData.steps.length - 1 && (
+            {index < data?.HowWorksDetails?.length - 1 && (
               <div className="items-center flex -mt-4 -ml-3 shrink-0">
                 <Image
                   src="/home/svg/connector.svg"
@@ -185,14 +161,12 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
           }}
           className="pb-12"
         >
-          {howWeWorkData.steps.map((step) => (
-            <SwiperSlide key={step.number}>
+          {data?.HowWorksDetails?.map((step, index) => (
+            <SwiperSlide key={step?.id}>
               <div className="flex flex-col items-center gap-3 p-4">
                 <button
                   onClick={() =>
-                    setActiveStep(
-                      activeStep === step.number ? null : step.number
-                    )
+                    setActiveStep(activeStep === index ? null : index)
                   }
                   className="relative w-24 h-24 md:w-28 md:h-28 flex items-center justify-center cursor-pointer"
                 >
@@ -215,15 +189,15 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
                       strokeLinecap="round"
                       style={{
                         strokeDasharray: 176,
-                        strokeDashoffset: activeStep === step.number ? 0 : 176,
+                        strokeDashoffset: activeStep === index ? 0 : 176,
                         transition: "stroke-dashoffset 1.4s ease-in-out",
-                        opacity: activeStep === step.number ? 1 : 0,
+                        opacity: activeStep === index ? 1 : 0,
                         transformOrigin: "40px 40px",
-                        transform: `rotate(${(step.number - 1) * 60 - 90}deg)`,
+                        transform: `rotate(${(index - 1) * 60 - 90}deg)`,
                       }}
                     />
                     {(() => {
-                      const angle = (step.number - 1) * 60 - 90;
+                      const angle = (index - 1) * 60 - 90;
                       const radian = (angle * Math.PI) / 180;
                       const dotX = 40 + 28 * Math.cos(radian);
                       const dotY = 40 + 28 * Math.sin(radian);
@@ -235,7 +209,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
                           r="4"
                           fill="#FF6F61"
                           style={{
-                            opacity: activeStep === step.number ? 0 : 1,
+                            opacity: activeStep === index ? 0 : 1,
                             transition: "opacity 0.3s ease-in-out",
                           }}
                         />
@@ -245,12 +219,12 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
 
                   {/* Step Number */}
                   <span className="absolute text-xl md:text-2xl font-extrabold text-[#FF6F61]">
-                    {step.number}
+                    {index + 1}
                   </span>
                 </button>
 
                 <p className="text-[#3A3A3A] text-sm md:text-base font-bold text-center leading-[150%] tracking-[-1%] mb-6 md:mb-0">
-                  {step.title}
+                  {step?.title}
                 </p>
               </div>
             </SwiperSlide>

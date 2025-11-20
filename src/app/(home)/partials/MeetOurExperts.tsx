@@ -3,7 +3,13 @@
 import { IOurExpertsData } from "@/app/our-team/interface/ourExperts.interface";
 import { useSlider } from "@/components/hooks/useSlider";
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
-import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import PATHS from "@/utils/path";
 import { ArrowLeft, ArrowRight, ChevronRight } from "lucide-react";
 import Image from "next/image";
@@ -13,13 +19,6 @@ import { FiMapPin } from "react-icons/fi";
 import { IoBagOutline } from "react-icons/io5";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 interface MeetExpertsProps {
   data: IOurExpertsData;
@@ -82,7 +81,7 @@ const MeetOurExperts: React.FC<MeetExpertsProps> = ({ data }) => {
       </div>
 
       <div className="relative">
-        <div className="w-[200px] h-[200px] absolute -top-18 -left-38">
+        <div className="w-42 h-42 lg:w-[200px] lg:h-[200px] absolute -top-3 -left-18 lg:-top-18 lg:-left-38">
           <Image
             src="/svg/butterfly.svg"
             alt="Butterfly"

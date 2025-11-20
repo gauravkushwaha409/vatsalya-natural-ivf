@@ -3,8 +3,13 @@
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import Image from "next/image";
 import { useState } from "react";
+import { IHomeData } from "../interface/home.interface";
 
-const HomeHero = () => {
+type HomeProps = {
+  data?: IHomeData;
+};
+
+const HomeHero: React.FC<HomeProps> = ({ data }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const handleAppointmentClick = () => {
     setOpenModal(true);
@@ -15,17 +20,18 @@ const HomeHero = () => {
         {/* Text Section */}
         <div className="padding-l lg:w-[45%] shrink-0 z-30 relative pt-8 md:pt-12 lg:pt-0 px-4  order-2 lg:order-none">
           <h1 className="text-2xl md:text-4xl lg:text-[52px] leading-tight lg:leading-[114.999%] font-extrabold mb-4 md:mb-6 lg:mb-4 text-[#A0377B] max-w-xl w-full">
-            We transform hope within you into life
+            {data?.subtitle}
           </h1>
-          <p className="text-[#787878] text-sm md:text-base lg:text-[15px] leading-relaxed lg:leading-[180%] font-medium mb-6 md:mb-8 max-w-xl w-full">
-            Nepal's No. 1 IVF center, providing advanced infertility treatments
-            with over 15 years of expertise to guide you on your journey to
-            parenthood.
-          </p>
+          <p
+            className="text-[#787878] text-sm md:text-base lg:text-[15px] leading-relaxed lg:leading-[180%] font-medium  max-w-xl w-full"
+            dangerouslySetInnerHTML={{
+              __html: data?.description || "",
+            }}
+          />
 
           <button
             onClick={() => handleAppointmentClick()}
-            className="bg-gradient-to-r from-[#A0385A] to-[#3A142C] shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] px-8 md:px-10 lg:px-11 py-3 md:py-4 lg:py-4.5 border-[0.4px] border-secondary-100 rounded-full font-semibold transition-all duration-300 text-white cursor-pointer text-sm md:text-base typography-paragraph-regular hover:shadow-[0px_12px_24px_0px_rgba(101,53,83,0.8)] mb-12 lg:mb-0"
+            className="bg-gradient-to-r from-[#A0385A] to-[#3A142C] shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] px-8 md:px-10 lg:px-11 py-3 md:py-4 lg:py-4.5 border-[0.4px] border-secondary-100 rounded-full font-semibold transition-all duration-300 text-white cursor-pointer text-sm md:text-base typography-paragraph-regular hover:shadow-[0px_12px_24px_0px_rgba(101,53,83,0.8)] mt-6 md:mt-8 mb-12 lg:mb-0"
           >
             Book Your Appointment
           </button>
@@ -58,7 +64,7 @@ const HomeHero = () => {
         </div>
 
         {/* Bottom Gradient Overlay */}
-        <div className="absolute bottom-0 left-0 right-0 h-12 md:h-16 lg:h-[85px] z-20">
+        <div className="hidden absolute bottom-0 left-0 right-0 h-12 md:h-16 lg:h-[85px] z-20">
           <Image
             src="bottomgradient.svg"
             alt="bottomgradient"
@@ -68,7 +74,7 @@ const HomeHero = () => {
           />
         </div>
 
-        <div className="w-24 h-24 md:w-32 md:h-32 lg:w-[245px] lg:h-[243px] absolute -top-4 -left-4 md:-top-6 md:-left-8 lg:-top-10 lg:-left-26 z-21">
+        <div className="hidden lg:block w-24 h-24 md:w-32 md:h-32 lg:w-[245px] lg:h-[243px] absolute -top-4 -left-4 md:-top-6 md:-left-8 lg:-top-10 lg:-left-26 z-21">
           <Image
             src="/svg/butterfly.svg"
             alt="Butterfly"

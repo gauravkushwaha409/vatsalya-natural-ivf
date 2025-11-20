@@ -40,7 +40,7 @@ const HomePage = async () => {
         <JsonLD />
 
         <div className="w-full ">
-          <HomeHero />
+          <HomeHero data={homedata?.data}/>
           <Showcase data={showcaseData?.data} />
           <HowWeWork data={howWeWorkData?.data} />
           <WhatWeOffer data={whatweOfferData?.data?.records ?? {}} />
