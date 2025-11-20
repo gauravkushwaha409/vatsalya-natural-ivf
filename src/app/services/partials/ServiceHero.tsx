@@ -13,7 +13,6 @@ interface Props {
 }
 
 const ServiceHero: React.FC<Props> = ({ data, headingData }) => {
-  console.log(headingData, "headingData");
   const [openModal, setOpenModal] = useState<boolean>(false);
   const handleAppointmentClick = () => {
     setOpenModal(true);

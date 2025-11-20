@@ -107,7 +107,7 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
                         />
 
                         <Link
-                          href={"#"}
+                          href={`/services/${service?.slug}`}
                           className="mt-1 text-[#1E1E1E] inline-flex items-center gap-4 text-[16px] leading-[31px] hover:text-primary-500 hover:underline duration-300 transition-colors tracking-[-2%] font-medium"
                         >
                           {service?.name}
@@ -136,13 +136,13 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
                 setSelectedDoctor(data?.id);
                 setSelectedCenter(data?.center?.id);
               }}
-              className="bg-secondary-500 hover:bg-secondary-600 px-6 py-3 rounded-full font-semibold text-white transition-colors typography-paragraph-regular w-full max-w-[238px]"
+              className="bg-secondary-500 hover:bg-secondary-600 px-6 py-3 rounded-full font-semibold text-white transition-colors typography-paragraph-regular w-full lg:w-[238px]"
             >
               Consult Now
             </button>
             <button
               onClick={() => setOpenCallModal(true)}
-              className="px-6 py-3 border border-secondary-200 rounded-full font-medium text-secondary-500  typography-paragraph-regular w-full max-w-[238px] hover:bg-secondary-50 transition-colors"
+              className="px-6 py-3 border border-secondary-200 rounded-full font-medium text-secondary-500  typography-paragraph-regular w-full lg:w-[238px] hover:bg-secondary-50 transition-colors"
             >
               Call Back Request
             </button>

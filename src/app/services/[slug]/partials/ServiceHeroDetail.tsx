@@ -29,18 +29,19 @@ const ServiceHeroDetail: React.FC<IServiceDetails> = ({ data }) => {
           />
 
           <h1 className="text-secondary-500 typography-h1 font-extrabold mb-3">
-            Services
+            {data?.service?.name}
           </h1>
 
-          <p className="text-text-500 text-[16px] leading-[160%] font-normal mb-5">
-            Bringing hope to families with expert fertility care and
-            cutting-edge treatments, ensuring a personalized journey to
-            parenthood.
-          </p>
+          <p
+            className="text-text-500 text-[16px] leading-[160%] font-normal "
+            dangerouslySetInnerHTML={{
+              __html: data?.service?.description || "",
+            }}
+          />
 
           <button
             onClick={() => handleAppointmentClick()}
-            className="bg-gradient-to-r from-[#A0385A] to-[#3A142C] shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] px-8 md:px-10 lg:px-11 py-3 md:py-4 lg:py-4.5 border-[0.4px] border-secondary-100 rounded-full font-semibold transition-all duration-300 text-white cursor-pointer text-sm md:text-base typography-paragraph-regular hover:shadow-[0px_12px_24px_0px_rgba(101,53,83,0.8)] mb-12 lg:mb-0"
+            className="bg-gradient-to-r from-[#A0385A] to-[#3A142C] shadow-[0px_8px_18px_0px_rgba(101,53,83,0.62)] px-8 md:px-10 lg:px-11 py-3 md:py-4 lg:py-4.5 border-[0.4px] border-secondary-100 rounded-full font-semibold transition-all duration-300 text-white cursor-pointer text-sm md:text-base typography-paragraph-regular hover:shadow-[0px_12px_24px_0px_rgba(101,53,83,0.8)] mt-5 mb-12 lg:mb-0"
           >
             Book Your Appointment
           </button>
@@ -57,7 +58,7 @@ const ServiceHeroDetail: React.FC<IServiceDetails> = ({ data }) => {
         </div>
       </div>
 
-      <div
+      {/* <div
         className="padding py-18 flex flex-col lg:flex-row justify-between gap-4 lg:gap-0"
         style={{
           background:
@@ -65,7 +66,7 @@ const ServiceHeroDetail: React.FC<IServiceDetails> = ({ data }) => {
         }}
       >
         <p className="typography-h1 font-extrabold text-secondary-500 w-full max-w-[418px] shrink-0">
-          Discover Parenthood with IVF
+          {data?.service?.name}
         </p>
         <p className="text-[16px] leading-[160%] text-text-500 font-normal w-full max-w-[701px]">
           Discovering Parenthood with IVF at Vatsalya Natural IVF in Nepal,
@@ -74,7 +75,7 @@ const ServiceHeroDetail: React.FC<IServiceDetails> = ({ data }) => {
           in uncovering the underlying reasons for challenges in conception,
           even when engaging in regular unprotected intercourse.{" "}
         </p>
-      </div>
+      </div> */}
 
       <RequestAppoimentModal
         isOpen={openModal}
