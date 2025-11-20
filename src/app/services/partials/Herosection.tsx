@@ -5,6 +5,7 @@ import { IBreadCrumbData } from "@/interface/breadcrumb.interface";
 interface Props {
   data: IBreadCrumbData;
 }
+
 const Herosection: React.FC<Props> = ({ data }) => {
   const heroData = {
     ...data?.records[0],

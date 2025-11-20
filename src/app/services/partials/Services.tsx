@@ -1,11 +1,9 @@
-import React from "react";
-import ServiceCards from "./ServiceCards";
-import FertilityCare from "./FertilityCare";
 import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
 import { IServiceHeadingRoot } from "../interfaces/serviceHeading.interface";
-import ServiceHeader from "./ServiceHeader";
 import DetailedServices from "./DetailedServices";
+import ServiceCards from "./ServiceCards";
+import ServiceHeader from "./ServiceHeader";
 
 const Services = async () => {
   const page = 1;

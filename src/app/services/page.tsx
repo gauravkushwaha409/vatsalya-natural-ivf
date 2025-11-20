@@ -10,6 +10,7 @@ import ServiceHero from "./partials/ServiceHero";
 import Services from "./partials/Services";
 import Tests from "./partials/Tests";
 import FertilityTreatmentSolutions from "./partials/FertilityTreatmentSolutions";
+import { IServiceHeadingRoot } from "./interfaces/serviceHeading.interface";
 export const dynamic = "force-dynamic";
 export async function generateMetadata() {
   const { data } = await getData<ISeoRoot>(endpoints.seo.service);
@@ -23,14 +24,18 @@ const ServicePage = async () => {
   const { data: heroData } = await getData<IBreadCrumbRoot>(
     endpoints.breadcrumb.service
   );
+  const { data: serviceHeading } = await getData<IServiceHeadingRoot>(
+    endpoints.service_header
+  );
+
   try {
     return (
       <section>
-        <ServiceHero />
+        <ServiceHero data={heroData} headingData={serviceHeading} />
         {/* <Herosection data={heroData} /> */}
         <Services />
         <Tests />
-        <FertilityTreatmentSolutions />
+        <FertilityTreatmentSolutions data={fertilityData} />
 
         {/* <FertilityStageSelection data={fertilityData} /> */}
         {/* <CallToActions /> */}

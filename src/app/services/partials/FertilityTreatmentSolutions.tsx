@@ -3,8 +3,11 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from "motion/react";
+import { IStageData } from "../interfaces/stage.interface";
 
-const FertilityTreatmentSolutions = () => {
+const FertilityTreatmentSolutions: React.FC<{ data: IStageData }> = ({
+  data,
+}) => {
   return (
     <div>
       <div className="text-center max-w-[1126px] mx-auto padding">
