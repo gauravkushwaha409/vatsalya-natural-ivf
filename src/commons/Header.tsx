@@ -5,7 +5,6 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Fragment } from "react";
 import MobileNav from "./partials/MobileNav";
 import NavCalculator from "./partials/NavCalculator";
 
