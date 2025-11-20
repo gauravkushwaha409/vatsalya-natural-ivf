@@ -15,8 +15,9 @@ const ServiceHeroDetail: React.FC<IServiceDetails> = ({ data }) => {
   const handleAppointmentClick = () => {
     setOpenModal(true);
   };
+
   return (
-    <div>
+    <>
       <div className="padding-l pt-6 lg:pt-0 bg-primary-50 flex lg:flex-row flex-col justify-between items-center gap-10 lg:gap-0">
         <div className="w-full max-w-[711px] ">
           <CustomBreadcrumb
@@ -79,7 +80,7 @@ const ServiceHeroDetail: React.FC<IServiceDetails> = ({ data }) => {
         isOpen={openModal}
         onClose={() => setOpenModal(false)}
       />
-    </div>
+    </>
   );
 };
 

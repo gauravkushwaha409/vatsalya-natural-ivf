@@ -15,21 +15,10 @@ const ServiceDetails: React.FC<IServiceDetails> = ({ data }) => {
   const isSmall = useIsSmall();
   return (
     <section className="relative bg-background-100 mt-10 padding ">
-      {/* <div className="flex lg:flex-row flex-col gap-10 padding"> */}
       <div className="w-full rounded-[60px]">
         <YoutubeEmbed url={data?.service?.videoUrl} />
         <ServiceDescription data={data?.service} />
       </div>
-      {/* <motion.div
-          initial={{ opacity: 0, x: isSmall ? "0%" : "50%" }}
-          animate={{ opacity: 1, x: "0%" }}
-          transition={{ duration: 1.5, delay: 2 }}
-          className="top-4 sticky my-4 w-full lg:w-1/3 h-max"
-        >
-          <ServiceForm />
-          <InfertilityTreatment data={data?.service} />
-        </motion.div> */}
-      {/* </div> */}
     </section>
   );
 };

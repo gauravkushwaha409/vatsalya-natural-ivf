@@ -6,16 +6,16 @@ import Image from "next/image";
 
 const TestFlow = () => {
   return (
-    <div>
+    <>
       <div className="flex items-center mt-38 overflow-hidden flex-col lg:flex-row justify-between">
         <motion.div
           className="w-full lg:w-[600px] h-full lg:h-[493px] mb-10 lg:mb-0"
-          initial={{ x: -150, opacity: 0 }}
+          initial={{ x: -200, opacity: 0 }}
           whileInView={{
             x: 0,
             opacity: 1,
             transition: {
-              duration: 0.8,
+              duration: 1,
               ease: "easeOut",
             },
           }}
@@ -37,7 +37,7 @@ const TestFlow = () => {
           <motion.p
             className="text-[16px] leading-[190%] tracking-[-1%] text-text-500"
             initial={{
-              y: 80,
+              y: 60,
               opacity: 0,
             }}
             whileInView={{
@@ -70,14 +70,14 @@ const TestFlow = () => {
           <motion.p
             className="text-[16px] leading-[190%] tracking-[-1%] text-text-500"
             initial={{
-              y: 80,
+              y: 60,
               opacity: 0,
             }}
             whileInView={{
               y: 0,
               opacity: 1,
               transition: {
-                duration: 0.8,
+                duration: 1,
                 stiffness: 10,
                 delay: 0.2,
               },
@@ -95,12 +95,12 @@ const TestFlow = () => {
 
         <motion.div
           className="w-full lg:w-[600px] h-full lg:h-[493px] mt-10 lg:mt-0"
-          initial={{ x: 150, opacity: 0 }}
+          initial={{ x: 200, opacity: 0 }}
           whileInView={{
             x: 0,
             opacity: 1,
             transition: {
-              duration: 0.8,
+              duration: 1,
               ease: "easeOut",
             },
           }}
@@ -115,15 +115,15 @@ const TestFlow = () => {
         </motion.div>
       </div>
 
-      <div className="flex items-center mt-18 overflow-hidden flex-col lg:flex-row justify-between">
+      <div className="flex items-center my-18 overflow-hidden flex-col lg:flex-row justify-between">
         <motion.div
           className="w-full lg:w-[600px] h-full lg:h-[493px] mb-10 lg:mb-0"
-          initial={{ x: -150, opacity: 0 }}
+          initial={{ x: -200, opacity: 0 }}
           whileInView={{
             x: 0,
             opacity: 1,
             transition: {
-              duration: 0.8,
+              duration: 1,
               ease: "easeOut",
             },
           }}
@@ -145,14 +145,14 @@ const TestFlow = () => {
           <motion.p
             className="text-[16px] leading-[190%] tracking-[-1%] text-text-500"
             initial={{
-              y: 80,
+              y: 60,
               opacity: 0,
             }}
             whileInView={{
               y: 0,
               opacity: 1,
               transition: {
-                duration: 0.8,
+                duration: 1,
                 stiffness: 10,
                 delay: 0.2,
               },
@@ -168,7 +168,7 @@ const TestFlow = () => {
           </motion.p>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

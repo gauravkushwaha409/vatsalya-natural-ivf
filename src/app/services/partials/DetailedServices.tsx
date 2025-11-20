@@ -38,14 +38,14 @@ const DetailedServices: React.FC<IFertilityCare> = ({ data }) => {
               (item: IFertilityCareWhenToSeeListItemService, index: number) => (
                 <motion.div
                   initial={{
-                    y: 80,
+                    y: 40,
                     opacity: 0,
                   }}
                   whileInView={{
                     y: 0,
                     opacity: 1,
                     transition: {
-                      duration: 0.9,
+                      duration: 0.6,
                       stiffness: 10,
                       delay: index * 0.3,
                     },
@@ -85,12 +85,12 @@ const DetailedServices: React.FC<IFertilityCare> = ({ data }) => {
           <div className="flex justify-end w-full lg:w-1/2 ">
             <motion.div
               className="w-auto h-[34rem] -mt-10 "
-              initial={{ x: 150, opacity: 0 }}
+              initial={{ x: 300, opacity: 0 }}
               whileInView={{
                 x: 0,
                 opacity: 1,
                 transition: {
-                  duration: 2,
+                  duration: 2.8,
                   ease: "easeOut",
                 },
               }}

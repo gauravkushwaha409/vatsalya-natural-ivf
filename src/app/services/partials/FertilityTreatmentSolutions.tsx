@@ -29,12 +29,12 @@ const FertilityTreatmentSolutions = () => {
       <div className="flex items-center mt-18 overflow-hidden flex-col lg:flex-row justify-between">
         <motion.div
           className="w-full lg:w-[600px] h-full lg:h-[493px] mb-10 lg:mb-0"
-          initial={{ x: -150, opacity: 0 }}
+          initial={{ x: -200, opacity: 0 }}
           whileInView={{
             x: 0,
             opacity: 1,
             transition: {
-              duration: 0.8,
+              duration: 1,
               ease: "easeOut",
             },
           }}
@@ -49,21 +49,21 @@ const FertilityTreatmentSolutions = () => {
         </motion.div>
 
         <div className="padding-l lg:pl-0 padding-r max-w-[652px] w-full">
-          <p className="text-[#090909] text-[27px] leading-[150%] font-bold mb-4">
+          <p className="text-[#090909] text-[27px] leading-[200%] font-bold mb-4">
             TESA-MESA Treatment
           </p>
 
           <motion.p
             className="text-[16px] leading-[190%] tracking-[-1%] text-text-500"
             initial={{
-              y: 80,
+              y: 60,
               opacity: 0,
             }}
             whileInView={{
               y: 0,
               opacity: 1,
               transition: {
-                duration: 0.8,
+                duration: 1,
                 stiffness: 10,
                 delay: 0.2,
               },
@@ -82,21 +82,21 @@ const FertilityTreatmentSolutions = () => {
 
       <div className="flex items-center mt-18 overflow-hidden flex-col lg:flex-row justify-between">
         <div className="padding-r pr-0 padding-l max-w-[652px] w-full">
-          <p className="text-[#090909] text-[27px] leading-[150%] font-bold mb-4">
+          <p className="text-[#090909] text-[27px] leading-[200%] font-bold mb-4">
             TESA-MESA Treatment
           </p>
 
           <motion.p
             className="text-[16px] leading-[190%] tracking-[-1%] text-text-500"
             initial={{
-              y: 80,
+              y: 60,
               opacity: 0,
             }}
             whileInView={{
               y: 0,
               opacity: 1,
               transition: {
-                duration: 0.8,
+                duration: 1,
                 stiffness: 10,
                 delay: 0.2,
               },
@@ -114,12 +114,12 @@ const FertilityTreatmentSolutions = () => {
 
         <motion.div
           className="w-full lg:w-[600px] h-full lg:h-[493px] mt-10 lg:mt-0"
-          initial={{ x: 150, opacity: 0 }}
+          initial={{ x: 200, opacity: 0 }}
           whileInView={{
             x: 0,
             opacity: 1,
             transition: {
-              duration: 0.8,
+              duration: 1,
               ease: "easeOut",
             },
           }}
@@ -137,12 +137,12 @@ const FertilityTreatmentSolutions = () => {
       <div className="flex items-center mt-18 overflow-hidden flex-col lg:flex-row justify-between">
         <motion.div
           className="w-full lg:w-[600px] h-full lg:h-[493px] mb-10 lg:mb-0"
-          initial={{ x: -150, opacity: 0 }}
+          initial={{ x: -200, opacity: 0 }}
           whileInView={{
             x: 0,
             opacity: 1,
             transition: {
-              duration: 0.8,
+              duration: 1,
               ease: "easeOut",
             },
           }}
@@ -157,21 +157,21 @@ const FertilityTreatmentSolutions = () => {
         </motion.div>
 
         <div className="padding-l lg:pl-0 padding-r max-w-[652px] w-full">
-          <p className="text-[#090909] text-[27px] leading-[150%] font-bold mb-4">
+          <p className="text-[#090909] text-[27px] leading-[200%] font-bold mb-4">
             TESA-MESA Treatment
           </p>
 
           <motion.p
             className="text-[16px] leading-[190%] tracking-[-1%] text-text-500"
             initial={{
-              y: 80,
+              y: 60,
               opacity: 0,
             }}
             whileInView={{
               y: 0,
               opacity: 1,
               transition: {
-                duration: 0.8,
+                duration: 1,
                 stiffness: 10,
                 delay: 0.2,
               },
@@ -190,21 +190,21 @@ const FertilityTreatmentSolutions = () => {
 
       <div className="flex items-center mt-18 overflow-hidden flex-col lg:flex-row justify-between lg:mb-40">
         <div className="padding-r pr-0 padding-l max-w-[652px] w-full">
-          <p className="text-[#090909] text-[27px] leading-[150%] font-bold mb-4">
+          <p className="text-[#090909] text-[27px] leading-[200%] font-bold mb-4">
             TESA-MESA Treatment
           </p>
 
           <motion.p
             className="text-[16px] leading-[190%] tracking-[-1%] text-text-500"
             initial={{
-              y: 80,
+              y: 60,
               opacity: 0,
             }}
             whileInView={{
               y: 0,
               opacity: 1,
               transition: {
-                duration: 0.8,
+                duration: 1,
                 stiffness: 10,
                 delay: 0.2,
               },
@@ -222,12 +222,12 @@ const FertilityTreatmentSolutions = () => {
 
         <motion.div
           className="w-full lg:w-[600px] h-full lg:h-[493px] mt-10 lg:mt-0"
-          initial={{ x: 150, opacity: 0 }}
+          initial={{ x: 200, opacity: 0 }}
           whileInView={{
             x: 0,
             opacity: 1,
             transition: {
-              duration: 0.8,
+              duration: 1,
               ease: "easeOut",
             },
           }}
