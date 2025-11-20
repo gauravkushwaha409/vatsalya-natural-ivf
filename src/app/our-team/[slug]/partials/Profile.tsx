@@ -1,18 +1,17 @@
 "use client";
-import buterflysvg from "@/assests/icons/butterflyExpertise.svg";
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import RequestCallModal from "@/components/modals/RequestCallModal";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 import { FaGraduationCap } from "react-icons/fa";
 import { IoMdBriefcase } from "react-icons/io";
+import { IoArrowForwardOutline } from "react-icons/io5";
 import { MdLocationPin } from "react-icons/md";
 import {
   IProfileData,
   IProfileService,
 } from "../../interface/profile.interface";
-import { IoArrowForwardOutline } from "react-icons/io5";
-import Link from "next/link";
 
 interface ProfileProps {
   data: IProfileData;

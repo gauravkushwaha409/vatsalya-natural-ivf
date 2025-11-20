@@ -35,16 +35,16 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
       </p>
 
       {/* Desktop Layout */}
-      <div className="hidden lg:flex items-center gap-4 lg:gap-8">
+      <div className="hidden lg:flex items-center gap-4 lg:gap-8 flex-wrap">
         {data?.HowWorksDetails?.map((step, index) => (
-          <div key={step?.id} className="flex gap-4">
+          <div key={step?.id} className="flex gap-4 overflow-hidden">
             {/* Step Circle */}
-            <div className="flex flex-col w-full min-w-[180px] gap-4">
+            <div className="flex flex-col w-full max-w-[280px] h-52 gap-4 ">
               <button
                 onClick={() =>
                   setActiveStep(activeStep === index ? null : index)
                 }
-                className="relative w-[120px] h-[120px] flex items-center justify-center cursor-pointer"
+                className="relative shrink-0 w-[120px] h-[120px] flex items-center justify-center cursor-pointer"
               >
                 {/* Background */}
                 <div className="absolute inset-0 rounded-full bg-[#FF6F6114]" />
@@ -106,13 +106,13 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
 
             {/* Connector */}
             {index < data?.HowWorksDetails?.length - 1 && (
-              <div className="items-center flex -mt-4 -ml-3 shrink-0">
+              <div className="items-center flex -mt-20 shrink-0">
                 <Image
                   src="/home/svg/connector.svg"
                   alt="connector line"
                   width={500}
                   height={500}
-                  className="object-cover w-8"
+                  className="object-cover w-8 "
                 />
               </div>
             )}
