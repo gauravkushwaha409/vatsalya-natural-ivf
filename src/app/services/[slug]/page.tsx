@@ -11,6 +11,7 @@ import ServiceFaq from "./partials/ServiceFaq";
 import TestFlow from "./partials/TestFlow";
 import { getHomePageData } from "@/app/(home)/hook/hook.hook";
 import KnowBenefit from "./partials/KnowBenefit";
+import ServiceHeroDetail from "./partials/ServiceHeroDetail";
 
 interface ServiceDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -33,7 +34,7 @@ const page = async ({ params }: ServiceDetailPageProps) => {
     const { testimonialData } = await getHomePageData();
     return (
       <section>
-        <ServiceHero />
+        <ServiceHeroDetail data={data?.data} />
         {/* <Headings data={data?.data} /> */}
         <ServiceDetails data={data?.data} />
         <IVFProcedure />

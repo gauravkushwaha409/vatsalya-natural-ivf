@@ -4,8 +4,13 @@ import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import Image from "next/image";
 import React, { useState } from "react";
+import { IServiceDetailsData } from "../../interfaces/serviceDetails.interface";
 
-const ServiceHero = () => {
+interface IServiceDetails {
+  data: IServiceDetailsData;
+}
+
+const ServiceHeroDetail: React.FC<IServiceDetails> = ({ data }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const handleAppointmentClick = () => {
     setOpenModal(true);
@@ -15,7 +20,11 @@ const ServiceHero = () => {
       <div className="padding-l pt-6 lg:pt-0 bg-primary-50 flex lg:flex-row flex-col justify-between items-center gap-10 lg:gap-0">
         <div className="w-full max-w-[711px] ">
           <CustomBreadcrumb
-            items={[{ name: "Home", link: "/" }, { name: "Service" }]}
+            items={[
+              { name: "Home", link: "/" },
+              { name: "Service", link: "/services" },
+              { name: `${data?.service?.name}` },
+            ]}
           />
 
           <h1 className="text-secondary-500 typography-h1 font-extrabold mb-3">
@@ -74,4 +83,4 @@ const ServiceHero = () => {
   );
 };
 
-export default ServiceHero;
+export default ServiceHeroDetail;
