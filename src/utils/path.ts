@@ -14,6 +14,11 @@ const PATHS = {
   ivfDueCalculatotr: "/ivf-calculator",
   international_Patient: "/international-patients",
   ovulationCalculator: "/ovulation-calculator",
+
+  antenatalCheckup: "/services/antenatal-checkup",
+  fertilityPreservation: "/services/fertility-preservation",
+  infertilityTreatment: "/services/infertility-treatment",
+  infertilityDiagnosis: "/services/infertility-diagnosis",
 };
 
 export default PATHS;
