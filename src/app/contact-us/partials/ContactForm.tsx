@@ -5,12 +5,13 @@ import pic1 from "./../../../assests/contact/pic1.png";
 import pic2 from "./../../../assests/contact/pic2.png";
 import { useContactForm } from "@/hooks/contact/useContact";
 import { ICenter } from "@/interface/center";
+import Contacts from "./Contacts";
 
 const ContactForm = () => {
   const { formik, isLoading, centerData } = useContactForm();
 
   return (
-    <div className="flex lg:flex-row flex-col justify-center items-center gap-20 py-20">
+    <div className="flex lg:flex-row flex-col justify-center items-center gap-20 lg:py-20">
       <div className="flex flex-col gap-5 w-full md:w-1/2">
         <div className="flex items-center gap-3">
           <span className="font-bold text-primary-500 uppercase tracking-widest typography-paragraph-regular">
@@ -147,6 +148,10 @@ const ContactForm = () => {
             </button>
           </div>
         </form>
+      </div>
+
+      <div className="block lg:hidden">
+        <Contacts />
       </div>
       <div className="flex justify-center items-center w-full md:w-1/2">
         <div className="relative -mt-10 rounded-lg w-10/12 aspect-[16/16]">

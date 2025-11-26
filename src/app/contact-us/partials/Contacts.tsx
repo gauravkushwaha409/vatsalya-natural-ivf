@@ -46,31 +46,56 @@ const Contacts = () => {
   ];
   return (
     <section className="justify-start gap-10 lg:gap-2 grid grid-cols-2 lg:grid-cols-4 pb-10">
-      {contactData?.map(({ id, icon, label, value, link }) => (
-        <div
-          key={id}
-          className="flex flex-col justify-center items-center gap-1"
-        >
-          <div className="flex justify-center items-center bg-secondary-200/40 rounded-full w-12 h-12">
-            {icon}
-          </div>
-          <span className="mt-2 font-semibold text-secondary-600">{label}</span>
-          {link ? (
-            <Link
-              href={link}
-              target="_blank"
-              className="text-text-400 typography-paragraph-regular"
-            >
-              {value}
-            </Link>
-          ) : (
+      {contactData?.map(({ id, icon, label, value, link }) => {
+        const content = (
+          <div className="flex flex-col justify-center items-center gap-1">
+            <div className="flex justify-center items-center bg-secondary-200/40 rounded-full w-12 h-12">
+              {icon}
+            </div>
+            <span className="mt-2 font-semibold text-secondary-600">
+              {label}
+            </span>
             <span className="text-text-400 typography-paragraph-regular">
               {value}
             </span>
-          )}
-        </div>
-      ))}
+          </div>
+        );
+
+        return link ? (
+          <Link key={id} href={link} target="_blank">
+            {content}
+          </Link>
+        ) : (
+          <div key={id}>{content}</div>
+        );
+      })}
     </section>
+    // <section className="justify-start gap-10 lg:gap-2 grid grid-cols-2 lg:grid-cols-4 pb-10">
+    //   {contactData?.map(({ id, icon, label, value, link }) => (
+    //     <div
+    //       key={id}
+    //       className="flex flex-col justify-center items-center gap-1"
+    //     >
+    //       <div className="flex justify-center items-center bg-secondary-200/40 rounded-full w-12 h-12">
+    //         {icon}
+    //       </div>
+    //       <span className="mt-2 font-semibold text-secondary-600">{label}</span>
+    //       {link ? (
+    //         <Link
+    //           href={link}
+    //           target="_blank"
+    //           className="text-text-400 typography-paragraph-regular"
+    //         >
+    //           {value}
+    //         </Link>
+    //       ) : (
+    //         <span className="text-text-400 typography-paragraph-regular">
+    //           {value}
+    //         </span>
+    //       )}
+    //     </div>
+    //   ))}
+    // </section>
   );
 };
 
