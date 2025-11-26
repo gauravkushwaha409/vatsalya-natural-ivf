@@ -17,7 +17,9 @@ const page = () => {
   return (
     <section className="padding bg-gradient-to-b from-primary-50 to-background-10 ">
       <Headings />
-      <Contacts />
+      <div className="hidden lg:block">
+        <Contacts />
+      </div>
       <ContactForm />
       <DynamicMap />
       <ContactFaqs />
