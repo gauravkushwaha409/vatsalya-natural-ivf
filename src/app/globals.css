@@ -223,6 +223,14 @@ input[type="submit"] {
   @apply font-normal text-[0.69438rem] leading-[120%];
 }
 
+/* New Re-Design Typography */
+@utility typo-lg-bd-reg {
+  @apply font-urbanist text-[1rem] font-normal leading-6;
+}
+@utility typo-mid-bd-reg {
+  @apply font-urbanist text-sm font-normal leading-5.5;
+}
+
 @utility hide-for-mobile {
   @apply hidden lg:block;
 }
