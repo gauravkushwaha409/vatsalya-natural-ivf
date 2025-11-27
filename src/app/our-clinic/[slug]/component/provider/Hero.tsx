@@ -108,7 +108,9 @@ const ContentWrapper = ({
   className?: string;
 }) => {
   return (
-    <div className={cn(`py-22 grid grid-cols-2 gap-x-6`, className)}>
+    <div
+      className={cn(`py-22 grid grid-cols-1 md:grid-cols-2 gap-6`, className)}
+    >
       {children}
     </div>
   );
@@ -132,8 +134,8 @@ const Content = () => {
   ];
   return (
     <div className="space-y-8">
-      <div className="pr-16 flex flex-col items-start gap-y-6">
-        <div className="flex flex-col gap-y-4">
+      <div className="md:pr-16 flex flex-col items-start gap-y-6">
+        <div className="w-full flex flex-col items-center md:items-start gap-y-4">
           <div className="py-1.5 px-6 w-fit flex items-center gap-x-2.5 shrink-0 rounded-full border border-primary-500">
             <span className="bg-primary-500 size-2 inline-block rounded-full" />
             <span className="typo-lg-bd-reg text-[#4A5565]">{`${data?.city} Clinic`}</span>
@@ -142,29 +144,33 @@ const Content = () => {
             {data?.clinic_name}
           </span>
         </div>
-        <p className="mt-6 typo-lg-bd-reg text-secondary-500">
+        <p className="mt-6 typo-lg-bd-reg text-center md:text-left text-secondary-500">
           {data?.clinic_description}
         </p>
       </div>
 
       <div className="space-y-6">
-        <div className="flex items-center gap-x-3">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-y-4 gap-x-3"> */}
+        <div className="flex flex-wrap items-stretch justify-stretch gap-y-4 gap-x-3">
           {data.features.map((item) => (
-            <span className="inline-block px-6 py-1.5 text-[#4A5565] typo-lg-bd-reg rounded-full border border-primary-100">
+            <span className="grow-1 px-6 py-1.5 text-[#4A5565] typo-lg-bd-reg rounded-full border border-primary-100 text-center text-nowrap shrink-0">
               {item}
             </span>
           ))}
         </div>
 
-        <div className="flex items-center gap-x-4.5">
+        <div className="flex items-center justify-center md:justify-start flex-wrap gap-4.5">
           {location_working_hours.map((item) => (
-            <div className="flex items-center gap-x-3">
-              <span className="w-fit p-2.5 rounded-full flex items-center justify-center bg-white">
-                <item.icon size={20} color="#222326" />
+            <div className="flex items-center gap-x-3 grow-1 md:grow-0 shrink-0">
+              <span className="w-fit p-1.5 md:p-2.5 rounded-full flex  items-center justify-center bg-[#FFF5F4]">
+                <item.icon
+                  color="#222326"
+                  className="size-3.5 md:size-5 font-normal"
+                />
               </span>
 
               <p className="flex flex-col">
-                <span className="typo-mid-bd-reg text-[#6A6F77]">
+                <span className="typo-mid-bd-reg text-[#6A6F77] hidden md:inline">
                   {item.label}
                 </span>
                 <span className="typo-lg-bd-reg text-[#101828]">
@@ -175,8 +181,9 @@ const Content = () => {
           ))}
         </div>
       </div>
-
-      <button className="px-14 py-5 text-white text-[1rem] leading-[120%] font-semibold bg-secondary-500 rounded-full">{`Book at ${data.city} Clinic`}</button>
+      <div className="flex justify-center md:justify-start">
+        <button className="px-14 py-5 text-white text-[1rem] leading-[120%] font-semibold bg-secondary-500 rounded-full">{`Book at ${data.city} Clinic`}</button>
+      </div>
     </div>
   );
 };
