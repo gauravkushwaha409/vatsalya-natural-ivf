@@ -22,12 +22,15 @@ const HomeHero: React.FC<HomeProps> = ({ data }) => {
           <h1 className="text-2xl md:text-4xl lg:text-[52px] leading-tight lg:leading-[114.999%] font-extrabold mb-4 md:mb-6 lg:mb-4 text-[#A0377B] max-w-xl w-full">
             {data?.subtitle}
           </h1>
-          <p
-            className="text-[#787878] text-sm md:text-base lg:text-[15px] leading-relaxed lg:leading-[180%] font-medium  max-w-xl w-full"
-            dangerouslySetInnerHTML={{
-              __html: data?.description || "",
-            }}
-          />
+
+          {/* {data?.description && (
+            <p
+              className="text-[#787878] text-sm md:text-base lg:text-[15px] leading-relaxed lg:leading-[180%] font-medium  max-w-xl w-full"
+              dangerouslySetInnerHTML={{
+                __html: data?.description,
+              }}
+            />
+          )} */}
 
           <button
             onClick={() => handleAppointmentClick()}

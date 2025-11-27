@@ -43,7 +43,7 @@ const BlogCard: React.FC<IBlog> = ({ data }) => {
               />
             </Link>
           </div>
-          <p
+          <div
             className="font-medium text-[#667085] line-clamp-2 typography-paragraph-regular"
             dangerouslySetInnerHTML={{ __html: data?.description }}
           />

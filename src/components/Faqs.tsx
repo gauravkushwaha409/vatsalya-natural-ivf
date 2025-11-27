@@ -63,7 +63,7 @@ const Faq: React.FC<{ faq: FAQOptions[] }> = ({ faq }) => {
                 }}
               >
                 {faqItem.answer && (
-                  <p
+                  <div
                     className="pb-2 transition-all duration-300 text-text-400"
                     dangerouslySetInnerHTML={{ __html: faqItem.answer }}
                   />

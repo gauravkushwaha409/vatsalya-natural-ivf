@@ -54,7 +54,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           </div>
 
           <div className="pt-2">
-            <p
+            <div
               className="text-text-400 line-clamp-3 text-[13px] leading-[170%] tracking-[-1%] prose"
               dangerouslySetInnerHTML={{ __html: data?.storyContent || "" }}
             />

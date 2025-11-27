@@ -144,7 +144,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
                           />
                         </button>
                       </div>
-                      <p
+                      <div
                         className="pt-1.5 font-medium text-[#667085] line-clamp-2 leading-[160%] tracking-[-1%] text-[12px] prose"
                         dangerouslySetInnerHTML={{ __html: item?.description }}
                       />

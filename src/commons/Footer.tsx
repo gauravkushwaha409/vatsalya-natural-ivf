@@ -68,19 +68,19 @@ const Footer = async () => {
               />
             </Link>
 
-            <p
+            <div
               dangerouslySetInnerHTML={{
-                __html: footerData?.data?.footerDescription || "",
+                __html: footerData?.data?.footerDescription,
               }}
             />
 
             <div className="hidden lg:block">
-              <p className="flex items-center gap-[0.63rem]">
+              <div className="flex items-center gap-[0.63rem]">
                 <a href={`mailto:${footerData?.data?.email}`}>
                   {footerData?.data?.email}
                 </a>
                 <CopyButton text={footerData?.data?.email} />
-              </p>
+              </div>
 
               <a href={`tel:${footerData?.data?.phoneNumber}`}>
                 {footerData?.data?.phoneNumber}
