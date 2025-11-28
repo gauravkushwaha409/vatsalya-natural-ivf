@@ -28,7 +28,7 @@ const Location = ({ children }: { children: React.ReactNode }) => {
     saturday_working_hour: "Saturday: 9:00 AM - 1:00 PM",
     email: "biratnagar@vatsalyaivf.com",
     phone: "+977 021-123456",
-    map: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.3998869053817!2d85.37393427616713!3d27.674032926958663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1b4570b34f7f%3A0x659fca01a17185a2!2sVatsalya%20Natural%20IVF%20-%20Bhaktapur!5e0!3m2!1sen!2snp!4v1764243128232!5m2!1sen!2snp" width="1080" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
+    map: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.3998869053817!2d85.37393427616713!3d27.674032926958663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1b4570b34f7f%3A0x659fca01a17185a2!2sVatsalya%20Natural%20IVF%20-%20Bhaktapur!5e0!3m2!1sen!2snp!4v1764243128232!5m2!1sen!2snp" width="1080" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
   };
   return (
     <LocationContext.Provider value={defaultValues}>

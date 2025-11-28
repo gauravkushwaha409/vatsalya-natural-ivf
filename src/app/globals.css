@@ -363,3 +363,8 @@ input[type="submit"] {
     transform: translateY(-4px);
   }
 }
+
+/* Remove Icon of Calender of input type date  */
+.no-calendar::-webkit-calendar-picker-indicator {
+  display: none;
+}
