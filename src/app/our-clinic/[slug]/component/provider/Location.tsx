@@ -70,7 +70,7 @@ const Content = () => {
 
       <div className="py-8 px-6 bg-[#FCE1E3] rounded-[1.5rem]">
         {content.map((item) => (
-          <p className="py-2 flex flex-col gap-y-2">
+          <p key={item.first_key} className="py-2 flex flex-col gap-y-2">
             <span className="typo-mid-bd-reg text-[#6A7282]">{item.label}</span>
             <span className="typo-lg-bd-reg text-[#101828]">
               {data[item.first_key]}
@@ -102,7 +102,6 @@ const MapLocation = () => {
   );
 };
 
-Location.ContextWrapper = Location;
 Location.Wrapper = LocationWrapper;
 Location.Content = Content;
 Location.Map = MapLocation;

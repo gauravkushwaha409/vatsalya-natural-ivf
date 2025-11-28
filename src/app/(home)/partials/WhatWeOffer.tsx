@@ -11,8 +11,12 @@ import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { WhatWeOfferProps } from "../interface/whatWeOffer.interface";
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
+import { cn } from "@/utils/cn";
 
-const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
+const WhatWeOffer: React.FC<WhatWeOfferProps> = ({
+  data,
+  mainWrapperClassName,
+}) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const handleAppointmentClick = () => {
     setOpenModal(true);
@@ -27,7 +31,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({ data }) => {
       onViewportEnter={() => setIsInView(true)}
       onViewportLeave={() => setIsInView(false)}
       viewport={{ amount: 0.4 }}
-      className="mb-10 md:mb-12 padding"
+      className={cn(`pb-10 md:pb-12 padding`, mainWrapperClassName)}
     >
       <div className="flex items-center justify-center gap-3 py-3 sm:gap-5">
         <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
