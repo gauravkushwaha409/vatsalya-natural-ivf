@@ -245,6 +245,9 @@ input[type="submit"] {
 @utility typo-sub-h3-reg {
   @apply font-urbanist text-[1.25rem] font-normal leading-7;
 }
+@utility typo-sub-h3-bold {
+  @apply font-urbanist text-[1.25rem] font-bold leading-7;
+}
 
 @utility hide-for-mobile {
   @apply hidden lg:block;
@@ -362,4 +365,9 @@ input[type="submit"] {
   30% {
     transform: translateY(-4px);
   }
+}
+
+/* Remove Icon of Calender of input type date  */
+.no-calendar::-webkit-calendar-picker-indicator {
+  display: none;
 }
