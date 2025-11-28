@@ -233,11 +233,17 @@ input[type="submit"] {
 @utility typo-mid-bd-reg {
   @apply font-urbanist text-sm font-normal leading-5.5;
 }
+@utility typo-mid-bd-md {
+  @apply font-urbanist text-sm font-medium leading-5.5;
+}
 @utility typo-xl-bd-md {
   @apply font-urbanist text-lg leading-6.5 font-medium;
 }
 @utility typo-xl-bd-reg {
   @apply font-urbanist text-lg leading-6.5 font-normal;
+}
+@utility typo-sub-h3-reg {
+  @apply font-urbanist text-[1.25rem] font-normal leading-7;
 }
 
 @utility hide-for-mobile {
@@ -273,6 +279,12 @@ input[type="submit"] {
 
 @utility u-padding-b {
   @apply pb-2 sm:pb-4 md:pb-8 lg:pb-12 xl:pb-16 2xl:pb-20;
+}
+@utility u-gap-x {
+  @apply gap-x-2 sm:gap-x-4 md:gap-x-8 lg:gap-x-12 xl:gap-x-16 2xl:gap-x-20;
+}
+@utility u-gap-x {
+  @apply gap-y-2 sm:gap-y-4 md:gap-y-8 lg:gap-y-12 xl:gap-y-16 2xl:gap-y-20;
 }
 
 @utility u-padding-l {
