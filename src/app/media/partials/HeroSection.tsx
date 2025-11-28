@@ -10,9 +10,9 @@ const HeroSection = () => {
     <div className="bg-primary-50 u-padding-x">
       <BreadCrumb />
       <SearchBox />
-      <div className="relative mt-20 h-20">
+      <div className="relative mt-20 h-30">
         <DatePicker className="absolute right-0" />
-        <div className="absolute bottom-2 w-full h-[1px] bg-[#CECECE]" />
+        <div className="absolute bottom-12 w-full h-[1px] bg-[#CECECE]" />
       </div>
     </div>
   );
