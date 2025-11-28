@@ -8,6 +8,7 @@ import HeroSection from "./component/HeroSection";
 import WhatWeOffer from "@/app/(home)/partials/WhatWeOffer";
 import MeetOurExperts from "@/app/(home)/partials/MeetOurExperts";
 import Location from "./component/LocationSection";
+import SuccessStories from "./component/provider/SuccessStories";
 // import AboutClinic from "./partials/AboutClinic";
 // import ClinicServices from "./partials/ClinicServices";
 // import ContactUs from "./partials/ContactUs";
@@ -44,6 +45,7 @@ const ClinicDetailPage: React.FC<Props> = async ({ params }) => {
         <WhatWeOffer data={service?.data?.records} />
         <MeetOurExperts data={expertData} />
         <Location />
+        <SuccessStories />
       </section>
     );
   } catch (error) {
