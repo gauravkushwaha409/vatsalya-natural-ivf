@@ -5,6 +5,9 @@ import { createMetadata } from "@/hooks/generateMetaData";
 import React from "react";
 import { IClinicDetailsRoot } from "./interface/clinicDetails.interface";
 import HeroSection from "./component/HeroSection";
+import WhatWeOffer from "@/app/(home)/partials/WhatWeOffer";
+import MeetOurExperts from "@/app/(home)/partials/MeetOurExperts";
+import Location from "./component/LocationSection";
 // import AboutClinic from "./partials/AboutClinic";
 // import ClinicServices from "./partials/ClinicServices";
 // import ContactUs from "./partials/ContactUs";
@@ -31,26 +34,16 @@ const ClinicDetailPage: React.FC<Props> = async ({ params }) => {
     const { data } = await getData<IClinicDetailsRoot>(
       endpoints.center + `/get/${slugs}`
     );
-
-    const { data: services } = await getData(endpoints.service);
+    const { data: service } = await getData(endpoints.service);
     const expertData = {
       records: data?.expert,
     } as unknown as IOurExpertsData;
-    console.log(services);
-    console.log(data);
-
     return (
       <section>
-        {/* 
-        // Old Design
-        <HeroSection slug={slugs} />
-        <AboutClinic data={data} />
-        <ClinicServices data={services} location={data.location} />
-        <Specialists data={expertData} />
-        <WhyChooseUs />
-        <ContactUs data={data} />
-        */}
         <HeroSection />
+        <WhatWeOffer data={service?.data?.records} />
+        <MeetOurExperts data={expertData} />
+        <Location />
       </section>
     );
   } catch (error) {
