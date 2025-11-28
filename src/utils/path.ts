@@ -14,6 +14,8 @@ const PATHS = {
   ivfDueCalculatotr: "/ivf-calculator",
   international_Patient: "/international-patients",
   ovulationCalculator: "/ovulation-calculator",
+  event: "/event",
+  eventDetails: "/event/:id",
 
   antenatalCheckup: "/services/antenatal-checkup",
   fertilityPreservation: "/services/fertility-preservation",
