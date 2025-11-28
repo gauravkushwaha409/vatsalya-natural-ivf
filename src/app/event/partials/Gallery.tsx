@@ -1,4 +1,6 @@
+import PATHS from "@/utils/path";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Gallery = () => {
@@ -26,9 +28,12 @@ const ImageSection = ({ alt, src }: { src: string; alt: string }) => {
         </span>
         <p className="typo-sub-h3-bold">Event Name</p>
         <div className="w-full flex items-center justify-between">
-          <span className="flex items-center gap-x-1">
+          <Link
+            href={PATHS.eventDetails.replace(":id", "event123")}
+            className="flex items-center gap-x-1"
+          >
             View All <ArrowRight />
-          </span>
+          </Link>
           <span className="typo-sm-bd-reg flex items-center gap-x-1">
             <PhotoIcon />
             254

@@ -24,11 +24,11 @@ const BreadCrumb = () => {
       <CustomBreadcrumb
         items={[
           { name: "Home", isHome: true, link: PATHS.home },
-          { name: "Media" },
+          { name: "Event" },
         ]}
       />
       <p className="mt-2.5 text-secondary-500 text-center font-urbanist text-[2.5rem] font-extrabold leading-[150%] tracking-[-0.78px]">
-        Media
+        Event
       </p>
       <p className="w-2xl mx-auto text-[#828282] text-center font-urbanist font-medium leading-[150%] tracking-[-0.28px]">
         Browse and manage photos from company events, conferences, and team
