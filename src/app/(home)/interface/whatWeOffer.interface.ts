@@ -7,6 +7,7 @@ export interface LayoutProps {
 
 export interface WhatWeOfferProps {
   data: IserviceRecord[];
+  mainWrapperClassName?: string;
 }
 export interface MobileLayoutProps {
   OFFER_CARDS: OfferCard[];

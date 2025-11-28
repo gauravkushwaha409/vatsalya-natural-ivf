@@ -153,7 +153,10 @@ const Content = () => {
         {/* <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-y-4 gap-x-3"> */}
         <div className="flex flex-wrap items-stretch justify-stretch gap-y-4 gap-x-3">
           {data.features.map((item) => (
-            <span className="grow-1 px-6 py-1.5 text-[#4A5565] typo-lg-bd-reg rounded-full border border-primary-100 text-center text-nowrap shrink-0">
+            <span
+              key={item}
+              className="grow-1 px-6 py-1.5 text-[#4A5565] typo-lg-bd-reg rounded-full border border-primary-100 text-center text-nowrap shrink-0"
+            >
               {item}
             </span>
           ))}
@@ -161,7 +164,10 @@ const Content = () => {
 
         <div className="flex items-center justify-center md:justify-start flex-wrap gap-4.5">
           {location_working_hours.map((item) => (
-            <div className="flex items-center gap-x-3 grow-1 md:grow-0 shrink-0">
+            <div
+              key={item.accessorKey}
+              className="flex items-center gap-x-3 grow-1 md:grow-0 shrink-0"
+            >
               <span className="w-fit p-1.5 md:p-2.5 rounded-full flex  items-center justify-center bg-[#FFF5F4]">
                 <item.icon
                   color="#222326"

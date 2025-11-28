@@ -224,6 +224,9 @@ input[type="submit"] {
 }
 
 /* New Re-Design Typography */
+@utility typo-sm-bd-reg {
+  @apply font-urbanist text-[0.75rem] font-normal leading-[150%] tracking-[0.24px];
+}
 @utility typo-lg-bd-reg {
   @apply font-urbanist text-[1rem] font-normal leading-6;
 }
@@ -232,6 +235,9 @@ input[type="submit"] {
 }
 @utility typo-xl-bd-md {
   @apply font-urbanist text-lg leading-6.5 font-medium;
+}
+@utility typo-xl-bd-reg {
+  @apply font-urbanist text-lg leading-6.5 font-normal;
 }
 
 @utility hide-for-mobile {

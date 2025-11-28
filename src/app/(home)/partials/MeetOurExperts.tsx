@@ -43,7 +43,7 @@ const MeetOurExperts: React.FC<MeetExpertsProps> = ({ data }) => {
   const { swiperRef, handleSlideChange, goPrev, goNext } = useSlider();
 
   return (
-    <div className="mb-10 md:mb-20 padding">
+    <div className="pb-10 md:pb-20 padding bg-primary-50">
       {/* Header */}
       <div className="flex items-center justify-center gap-3 py-3 md:gap-5">
         <span className="bg-primary-500 w-[4rem] md:w-[8.5rem] h-px" />
