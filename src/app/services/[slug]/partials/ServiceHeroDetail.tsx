@@ -18,7 +18,7 @@ const ServiceHeroDetail: React.FC<IServiceDetails> = ({ data }) => {
 
   return (
     <>
-      <div className="padding-l pt-6 lg:pt-0 bg-primary-50 flex lg:flex-row flex-col justify-between items-center gap-10 lg:gap-0">
+      <div className="u-padding-l pt-6 lg:pt-0 bg-primary-50 flex lg:flex-row flex-col justify-between items-center gap-10 lg:gap-0">
         <div className="w-full max-w-[711px] ">
           <CustomBreadcrumb
             items={[

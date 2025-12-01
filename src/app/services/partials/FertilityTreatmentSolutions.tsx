@@ -51,7 +51,7 @@ const FertilityTreatmentSolutions: React.FC<{ data: IStageData }> = ({
           />
         </motion.div>
 
-        <div className="padding-l lg:pl-0 padding-r max-w-[652px] w-full">
+        <div className="u-padding-l lg:pl-0 padding-r max-w-[652px] w-full">
           <p className="text-[#090909] text-[27px] leading-[200%] font-bold mb-4">
             TESA-MESA Treatment
           </p>
@@ -84,7 +84,7 @@ const FertilityTreatmentSolutions: React.FC<{ data: IStageData }> = ({
       </div>
 
       <div className="flex items-center mt-18 overflow-hidden flex-col lg:flex-row justify-between">
-        <div className="padding-r pr-0 padding-l max-w-[652px] w-full">
+        <div className="padding-r pr-0 u-padding-l max-w-[652px] w-full">
           <p className="text-[#090909] text-[27px] leading-[200%] font-bold mb-4">
             TESA-MESA Treatment
           </p>
@@ -159,7 +159,7 @@ const FertilityTreatmentSolutions: React.FC<{ data: IStageData }> = ({
           />
         </motion.div>
 
-        <div className="padding-l lg:pl-0 padding-r max-w-[652px] w-full">
+        <div className="u-padding-l lg:pl-0 padding-r max-w-[652px] w-full">
           <p className="text-[#090909] text-[27px] leading-[200%] font-bold mb-4">
             TESA-MESA Treatment
           </p>
@@ -192,7 +192,7 @@ const FertilityTreatmentSolutions: React.FC<{ data: IStageData }> = ({
       </div>
 
       <div className="flex items-center mt-18 overflow-hidden flex-col lg:flex-row justify-between lg:mb-40">
-        <div className="padding-r pr-0 padding-l max-w-[652px] w-full">
+        <div className="padding-r pr-0 u-padding-l max-w-[652px] w-full">
           <p className="text-[#090909] text-[27px] leading-[200%] font-bold mb-4">
             TESA-MESA Treatment
           </p>
