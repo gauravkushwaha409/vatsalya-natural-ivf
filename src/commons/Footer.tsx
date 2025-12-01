@@ -49,6 +49,7 @@ const Footer = async () => {
       icon: "/svg/tiktok.svg",
     },
   ];
+
   const { data } = await getData(endpoints.service + `?page=${1}&perPage=${5}`);
   return (
     <>
