@@ -17,7 +17,7 @@ const GetStarted = () => {
           "linear-gradient(270deg, rgba(255, 210, 206, 0.3) 0%, rgba(235, 192, 219, 0.3) 100%)",
       }}
     >
-      <div className="w-full lg:w-1/2 py-6 lg:py-18 padding-l shrink-0">
+      <div className="w-full lg:w-1/2 py-6 lg:py-18 u-padding-l shrink-0">
         <span className="text-secondary-500 text-[12px] leading-[24px] font-medium mb-5">
           Get Started
         </span>

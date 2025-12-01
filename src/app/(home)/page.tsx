@@ -31,14 +31,12 @@ const HomePage = async () => {
       blogData,
       showcaseData,
       testimonialData,
-      homeGalleryData,
       locationData,
     } = await getHomePageData();
 
     return (
       <>
         <JsonLD />
-
         <div className="w-full ">
           <HomeHero data={homedata?.data} />
           <Showcase data={showcaseData?.data} />
@@ -53,7 +51,7 @@ const HomePage = async () => {
       </>
     );
   } catch (error) {
-    console.error("Error fetching blog data:", error);
+    console.error("Error fetching home data:", error);
     return <ErrorMessage />;
   }
 };

@@ -11,7 +11,7 @@ const KnowBenefit = () => {
     setOpenModal(true);
   };
   return (
-    <div className="mt-10 mb-20 padding-l">
+    <div className="mt-10 mb-20 u-padding-l">
       {/* Text Section  */}
       <div className="flex items-center justify-center gap-3 py-3 sm:gap-5">
         <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
