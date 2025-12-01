@@ -32,6 +32,7 @@ const HomeHero: React.FC<HomeProps> = ({ data }) => {
 
         {/* Video Section with Gradient Mask */}
         <BackgroundVideoSection />
+        <VideoBlendGradient />
 
         <Butterfly />
 
@@ -125,6 +126,12 @@ const BackgroundVideoSection = () => {
 const GradientLayer = () => {
   return (
     <div className="absolute z-20 h-340 left-0 w-1/2 bg-background-100 blur-[100px] border border-red-600" />
+  );
+};
+
+const VideoBlendGradient = () => {
+  return (
+    <div className="absolute top-0 left-0 right-0 bottom-0 lg:left-0 lg:inset-y-0 w-full lg:w-auto bg-gradient-to-t md:bg-gradient-to-r from-[#FFEDEC]/50 md:from-[#FFEDEC] via-[#FFE8E7]/30 md:via-[#FFE8E7]/40 to-transparent lg:to-transparent z-15 lg:z-20" />
   );
 };
 

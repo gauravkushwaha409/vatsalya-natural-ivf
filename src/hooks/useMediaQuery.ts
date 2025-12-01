@@ -2,10 +2,7 @@
 import { useEffect, useState } from "react";
 
 export function useMediaQuery(query: string): boolean {
-  const isSmall =
-    typeof window !== "undefined" ? window.matchMedia(query).matches : false;
-
-  const [matches, setMatches] = useState<boolean>(isSmall);
+  const [matches, setMatches] = useState<boolean>(false);
 
   useEffect(() => {
     const media = window.matchMedia(query);

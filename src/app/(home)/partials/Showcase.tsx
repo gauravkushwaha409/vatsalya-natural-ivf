@@ -8,13 +8,13 @@ type ShowCaseItemProps = {
 
 const Showcase: React.FC<ShowCaseItemProps> = ({ data }) => {
   return (
-    <div className="max-w-app py-7 flex bg-background-100 lg:flex-row flex-col justify-between items-center gap-8 lg:gap-20 padding mb-20">
+    <div className="max-w-app py-7 flex bg-background-100 lg:flex-row flex-col justify-between items-center gap-8 lg:gap-20 padding">
       <Image
         src={data?.statsImage}
         alt="Showcase"
         width={1200}
         height={800}
-        className="w-[160.99px] h-auto lg:h-[171px] object-contain "
+        className="w-40 h-auto lg:h-44 object-contain "
       />
 
       <Stats data={data} />
