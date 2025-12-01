@@ -8,7 +8,7 @@ type ShowCaseItemProps = {
 
 const Showcase: React.FC<ShowCaseItemProps> = ({ data }) => {
   return (
-    <div className="flex bg-[linear-gradient(180deg,_#FFE8E7_0%,_rgba(253,252,251,0)_100%)] lg:flex-row flex-col justify-between items-center gap-8 lg:gap-20 padding py-4 mb-20">
+    <div className="max-w-app py-7 flex bg-background-100 lg:flex-row flex-col justify-between items-center gap-8 lg:gap-20 padding mb-20">
       <Image
         src={data?.statsImage}
         alt="Showcase"

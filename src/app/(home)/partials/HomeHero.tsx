@@ -16,7 +16,7 @@ const HomeHero: React.FC<HomeProps> = ({ data }) => {
   };
   return (
     <>
-      <div className="relative flex flex-col lg:flex-row items-center min-h-[500px] md:min-h-[600px] lg:h-[660px] overflow-hidden">
+      <div className="max-w-app relative flex flex-col lg:flex-row items-center min-h-[500px] md:min-h-[600px] lg:h-[660px] overflow-hidden">
         {/* Top Overlay Gradient */}
         <GradientOverlay position="top" />
 
@@ -38,9 +38,6 @@ const HomeHero: React.FC<HomeProps> = ({ data }) => {
         {/* Background Gradient Layer */}
         <GradientLayer />
 
-        {/* Enhanced Gradient Overlay for Video Blending */}
-        <VideoBlendGradient />
-
         {/* Bottom Overlay Gradient */}
         <GradientOverlay position="bottom" />
       </div>
@@ -58,8 +55,8 @@ const GradientOverlay = ({ position }: { position: "top" | "bottom" }) => {
     <div
       className={`absolute z-10 h-27 inset-x-0 ${
         position === "top"
-          ? "top-0 bg-linear-to-b from-[#FFE8E7] to-transparent"
-          : "bottom-0 bg-linear-to-t from-[#FFE8E7] to-transparent"
+          ? "z-30 top-0 bg-linear-to-b from-background-100 to-transparent"
+          : "z-30 bottom-0 bg-linear-to-t from-background-100 to-transparent"
       }`}
     />
   );
@@ -112,7 +109,7 @@ const BookAppointment = ({
 
 const BackgroundVideoSection = () => {
   return (
-    <div className="relative lg:absolute lg:translate-x-[12%] lg:inset-0 w-full h-80 md:h-96 lg:h-[660px] z-10 lg:z-0 order-1 lg:order-none">
+    <div className="absolute inset-y-0 lg:translate-x-[25%] lg:inset-0 w-full z-10 lg:z-0 order-1 lg:order-none">
       <video
         src="/home/video.mp4"
         autoPlay
@@ -121,16 +118,13 @@ const BackgroundVideoSection = () => {
         controls={false}
         className="object-cover w-full h-full"
       />
-      {/* Video Gradient Mask for Better Blending */}
-      <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#FFEDEC]/40 md:from-[#FFEDEC]/70 via-transparent to-transparent mix-blend-overlay"></div>
-      <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-l from-[#FFEDEC]/30 md:from-transparent via-[#FFEDEC]/20 md:via-transparent to-transparent md:to-[#FFEDEC]/40"></div>
     </div>
   );
 };
 
 const GradientLayer = () => {
   return (
-    <div className="absolute inset-0 w-full lg:!w-[58%] bg-gradient-to-b md:bg-gradient-to-r from-[#FFEDEC]/80 md:from-[#FFEDEC] via-[#FFE8E7]/60 md:via-[#FFE8E7] to-transparent z-5 lg:z-10" />
+    <div className="absolute z-20 h-340 left-0 w-1/2 bg-background-100 blur-[100px] border border-red-600" />
   );
 };
 
@@ -145,12 +139,6 @@ const Butterfly = () => {
         className="object-cover w-full h-full"
       />
     </div>
-  );
-};
-
-const VideoBlendGradient = () => {
-  return (
-    <div className="absolute top-0 left-0 right-0 bottom-0 lg:left-0 lg:inset-y-0 w-full lg:w-auto bg-gradient-to-t md:bg-gradient-to-r from-[#FFEDEC]/50 md:from-[#FFEDEC] via-[#FFE8E7]/30 md:via-[#FFE8E7]/40 to-transparent lg:to-transparent z-15 lg:z-20" />
   );
 };
 
