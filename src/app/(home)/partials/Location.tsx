@@ -97,7 +97,7 @@ const Location = ({ data }: LocationProps) => {
                           href={`${PATHS.clinic}/${location?.slug}`}
                           className="inline-flex  gap-2 font-medium text-[12px] leading-[120%] tracking-[-2%] text-primary-500"
                         >
-                          View Map
+                          View
                           <IoArrowForwardOutline
                             size={24}
                             className="size-4 -rotate-40"

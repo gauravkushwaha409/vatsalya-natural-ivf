@@ -42,8 +42,8 @@ const HomePage = async () => {
           <Showcase data={showcaseData?.data} />
           <HowWeWork data={howWeWorkData?.data} />
           <WhatWeOffer data={whatweOfferData?.data?.records ?? {}} />
-          <MeetOurExperts data={expertsData?.data} />
           <TestimonialSlider data={testimonialData?.data} />
+          <MeetOurExperts data={expertsData?.data} />
           <Location data={locationData?.data?.records} />
           <FaqHome data={homedata?.data?.Faq} />
           <Blogsection data={blogData?.data} />

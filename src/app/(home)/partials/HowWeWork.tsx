@@ -17,7 +17,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
   };
 
   return (
-    <div className="max-w-app u-padding-x py-6 bg-background-100 bg-linear-to-l from-[#FFD2CE] to-[#EBC0DB]">
+    <div className="max-w-app u-padding-x py-6 bg-white bg-linear-to-l from-[#FFD2CE]/70 to-[#EBC0DB]/70">
       {/* Header */}
       <Heading title={data.title} subTitle={data.subtitle} />
 
@@ -56,11 +56,11 @@ const Heading = ({ title, subTitle }: { title: string; subTitle: string }) => {
   return (
     <div>
       <div className="flex items-center justify-center gap-2 py-3 md:gap-3 lg:gap-5">
-        <span className="bg-primary-500 w-8 md:w-[4rem] lg:w-[8.5rem] h-px" />
+        <span className="bg-linear-to-r from-[#EBC0DB] to-[#FFD2CE] w-8 md:w-[4rem] lg:w-[8.5rem] h-0.5" />
         <h2 className="font-bold text-primary-500 text-xs md:text-sm lg:text-base uppercase tracking-wide md:tracking-[0.12rem] lg:tracking-[0.18rem] text-center px-2">
           {title}
         </h2>
-        <span className="bg-primary-500 w-8 md:w-[4rem] lg:w-[8.5rem] h-px" />
+        <span className="bg-linear-to-l from-[#EBC0DB] to-[#FFD2CE] w-8 md:w-[4rem] lg:w-[8.5rem] h-0.5" />
       </div>
 
       {/* Subtitle */}
