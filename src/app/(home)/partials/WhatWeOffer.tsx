@@ -31,11 +31,11 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({
       onViewportEnter={() => setIsInView(true)}
       onViewportLeave={() => setIsInView(false)}
       viewport={{ amount: 0.4 }}
-      className={cn(`pb-10 md:pb-12 padding`, mainWrapperClassName)}
+      className={cn(`mt-10 pb-10 md:pb-12 padding`, mainWrapperClassName)}
     >
       <div className="flex items-center justify-center gap-3 py-3 sm:gap-5">
         <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
-        <h2 className="font-bold text-primary-500 text-sm md:text-base uppercase tracking-[0.12rem] md:tracking-[0.18rem]">
+        <h2 className="font-bold text-primary-500 typography-h3">
           What we Offer
         </h2>
         <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
