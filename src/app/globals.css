@@ -230,6 +230,9 @@ input[type="submit"] {
 @utility typo-lg-bd-reg {
   @apply font-urbanist text-[1rem] font-normal leading-6;
 }
+@utility typo-lg-bd-semi-bold {
+  @apply font-urbanist text-[1rem] font-semibold leading-6;
+}
 @utility typo-mid-bd-reg {
   @apply font-urbanist text-sm font-normal leading-5.5;
 }
@@ -286,7 +289,7 @@ input[type="submit"] {
 @utility u-gap-x {
   @apply gap-x-2 sm:gap-x-4 md:gap-x-8 lg:gap-x-12 xl:gap-x-16 2xl:gap-x-20;
 }
-@utility u-gap-x {
+@utility u-gap-y {
   @apply gap-y-2 sm:gap-y-4 md:gap-y-8 lg:gap-y-12 xl:gap-y-16 2xl:gap-y-20;
 }
 
