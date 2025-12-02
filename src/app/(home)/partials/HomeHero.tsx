@@ -16,7 +16,7 @@ const HomeHero: React.FC<HomeProps> = ({ data }) => {
   };
   return (
     <>
-      <div className="max-w-app relative flex flex-col lg:flex-row items-center min-h-[500px] md:min-h-[600px] lg:h-[660px] overflow-hidden">
+      <div className=" relative flex flex-col lg:flex-row items-center min-h-[500px] md:min-h-[600px] lg:h-[660px] overflow-hidden">
         {/* Top Overlay Gradient */}
         <GradientOverlay position="top" />
 

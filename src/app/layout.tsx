@@ -124,7 +124,7 @@ export default async function RootLayout({
         <div className="top-0 -z-20 absolute inset-x-0 bg-primary-50 " />
         <Providers>
           <Header />
-          <div>{children}</div>
+          <div className="max-w-app">{children}</div>
           <Footer />
           <FooterMenu />
 

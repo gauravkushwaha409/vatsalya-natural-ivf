@@ -269,7 +269,7 @@ input[type="submit"] {
 @utility padding {
   @apply px-5 lg:px-20;
 }
-@utility max-w-app {
+@utility {
   @apply max-w-480 mx-auto;
 }
 @utility u-padding-x {

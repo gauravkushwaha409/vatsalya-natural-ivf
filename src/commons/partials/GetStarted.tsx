@@ -10,7 +10,7 @@ const GetStarted = () => {
     setOpenModal(true);
   };
   return (
-    <div className="max-w-app relative u-padding-x u-padding-y">
+    <div className="relative max-w-app u-padding-x u-padding-y">
       <ClinicList />
       <ContentWrapper handleAppointmentClick={handleAppointmentClick} />
       <RequestAppoimentModal

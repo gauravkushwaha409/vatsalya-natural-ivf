@@ -55,7 +55,7 @@ const Footer = async () => {
     <>
       <GetStarted />
       {/* <FooterSeo /> */}
-      <div className="bg-white backdrop-blur-[5.6px] pt-10 overflow-hidden text-text-400 padding">
+      <div className="max-w-app bg-background-100 backdrop-blur-[5.6px] pt-10 overflow-hidden text-text-400 padding">
         <div className=" gap-4 lg:gap-[2rem] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {/* About Section */}
           <div className="col-span-2 lg:space-y-3 text-text-400 typography-paragraph-regular">

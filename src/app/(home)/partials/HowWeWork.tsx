@@ -17,7 +17,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
   };
 
   return (
-    <div className="max-w-app u-padding-x py-6 bg-white bg-linear-to-l from-[#FFD2CE]/70 to-[#EBC0DB]/70">
+    <div className=" u-padding-x py-6 bg-white bg-linear-to-l from-[#FFD2CE]/70 to-[#EBC0DB]/70">
       {/* Header */}
       <Heading title={data.title} subTitle={data.subtitle} />
 
