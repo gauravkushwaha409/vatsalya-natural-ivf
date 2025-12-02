@@ -64,7 +64,7 @@ const BlogDescription: React.FC<BlogDescriptionProps> = ({ data }) => {
   return (
     <div>
       <div className="mb-10">
-        <p
+        <div
           className="max-w-none text-text-500 text-justify leading-[150%] typography-paragraph-large prose"
           dangerouslySetInnerHTML={{ __html: data?.description }}
         />

@@ -1,15 +1,7 @@
 "use client";
-
 import { IOurExpertsData } from "@/app/our-team/interface/ourExperts.interface";
 import { useSlider } from "@/components/hooks/useSlider";
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import PATHS from "@/utils/path";
 import { ArrowLeft, ArrowRight, ChevronRight } from "lucide-react";
 import Image from "next/image";
