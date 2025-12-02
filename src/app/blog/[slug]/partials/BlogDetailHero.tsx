@@ -37,17 +37,15 @@ const BlogDetailHero: React.FC<BlogDetailHeroProps> = ({ data }) => {
             {data?.readTime} to read
           </p>
           {data?.tags?.map((tag, index) => (
-            <>
-              <div className="bg-primary-50 rounded-2xl" key={index}>
-                <p
-                  className={` ${
-                    index % 2 == 0 ? "text-primary-400" : "text-secondary-500"
-                  } typography-paragraph-small font-medium px-2.5 py-0.5`}
-                >
-                  {tag}
-                </p>
-              </div>
-            </>
+            <div className="bg-primary-50 rounded-2xl" key={index}>
+              <p
+                className={` ${
+                  index % 2 == 0 ? "text-primary-400" : "text-secondary-500"
+                } typography-paragraph-small font-medium px-2.5 py-0.5`}
+              >
+                {tag}
+              </p>
+            </div>
           ))}
         </div>
       </div>

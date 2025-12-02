@@ -10,7 +10,7 @@ const FooterMenu = () => {
     setOpenModal(true);
   };
   return (
-    <div className="flex items-center fixed bottom-0 left-0 right-0 justify-between z-50 md:hidden">
+    <div className="flex items-center fixed bottom-0 inset-x-0 justify-between z-50 md:hidden">
       <button
         onClick={() => handleAppointmentClick()}
         className="bg-secondary-500 w-full text-center text-white font-semibold  typography-paragraph-regular leading-[120%] p-8 "
