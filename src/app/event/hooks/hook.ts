@@ -28,3 +28,21 @@ export const getEventPageData = async (search: string, filter: string) => {
     eventHeaderData,
   };
 };
+
+export const getEventDetailsData = async (slug: string) => {
+  const safeFetch = async (endpoint: string, slug: string) => {
+    try {
+      const data = await getData(`${endpoint}/slug/${slug}`);
+      return data;
+    } catch (error) {
+      console.error(`Failed to fetch data from ${endpoint}:`, error);
+      return null;
+    }
+  };
+
+  const eventDetailsData = await safeFetch(endpoints.events.eventDetails, slug);
+
+  return {
+    eventDetailsData,
+  };
+};

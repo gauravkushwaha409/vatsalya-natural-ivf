@@ -1,8 +1,10 @@
 import { cn } from "@/utils/cn";
 import Image from "next/image";
 import React from "react";
+import { IEventDetailsType } from "../../interface/event.interface";
 
-const Gallery = () => {
+const Gallery = ({ data }: { data: IEventDetailsType }) => {
+  console.log("data", data);
   const image = [
     "/event/image-1.jpg",
     "/event/image-1.jpg",
@@ -41,7 +43,7 @@ const ImageSection = ({
   className: string;
 }) => {
   return (
-    <div className={cn(`relative w-80`, className)}>
+    <div className={cn(`relative w-80 mt-8`, className)}>
       <Image alt="" fill src={src} className="object-cover rounded-3xl" />
     </div>
   );

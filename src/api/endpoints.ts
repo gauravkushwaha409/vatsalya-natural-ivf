@@ -49,6 +49,7 @@ interface Endpoints {
   privacy: string;
   events: {
     eventsHeader: string;
+    eventDetails: string;
   };
 }
 export interface IBreadCrumb {
@@ -173,6 +174,7 @@ export const endpoints: Endpoints = {
 
   events: {
     eventsHeader: "/event-header",
+    eventDetails: "/event-details",
   },
 
   terms: "/term",

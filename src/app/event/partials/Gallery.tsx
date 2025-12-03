@@ -24,6 +24,7 @@ const Gallery = ({ data }: { data: IEventHeaderType }) => {
           src={item.image}
           title={item.title}
           date={item.date}
+          slug={item.slug}
         />
       ))}
     </div>
@@ -35,14 +36,16 @@ const ImageSection = ({
   src,
   title,
   date,
+  slug,
 }: {
   src: string;
   alt: string;
   title: string;
   date: string;
+  slug: string;
 }) => {
   return (
-    <div className="relative w-full h-[248px] rounded-3xl overflow-hidden">
+    <div className="relative w-full h-[248px] rounded-3xl overflow-hidden cursor-pointer">
       <Image alt={alt} src={src} fill className="object-cover h-full w-full" />
 
       <div className="w-full absolute bottom-0 p-3 text-white flex flex-col gap-y-2 bg-linear-to-t from-black to-transparent">
@@ -52,7 +55,7 @@ const ImageSection = ({
         <p className="typo-sub-h3-bold capitalize">{title}</p>
         <div className="w-full flex items-center justify-between">
           <Link
-            href={PATHS.eventDetails.replace(":id", "event123")}
+            href={PATHS.eventDetails.replace(":id", slug)}
             className="flex items-center gap-x-1"
           >
             View All <ArrowRight />
