@@ -9,10 +9,16 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
       {
+        protocol: "http",
+        hostname: "192.168.1.121",
+        pathname: "/**",
+      },
+      {
         protocol: "https",
         hostname: "pokharauae.s3.ap-southeast-1.amazonaws.com",
         pathname: "/**",
       },
+
       {
         protocol: "https",
         hostname: "api.vatsalya.com.np",

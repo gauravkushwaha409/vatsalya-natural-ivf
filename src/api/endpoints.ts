@@ -47,6 +47,9 @@ interface Endpoints {
   breadcrumb: IBreadCrumb;
   terms: string;
   privacy: string;
+  events: {
+    eventsHeader: string;
+  };
 }
 export interface IBreadCrumb {
   about_us: string;
@@ -68,6 +71,7 @@ export interface ISeo {
   service: string;
   blog: string;
   contact_us: string;
+  event: string;
   home: string;
   success_stories: string;
   our_team: string;
@@ -139,6 +143,7 @@ export const endpoints: Endpoints = {
   seo: {
     home: "/seo/static/home",
     about_us: "/seo/static/about-us",
+    event: "/seo/statuc/event",
     service: "/seo/static/service",
     blog: "/seo/static/blog",
     contact_us: "/seo/static/contact-us",
@@ -164,6 +169,10 @@ export const endpoints: Endpoints = {
     InternationalPatient: "/breadcrumb?filter=international-patient",
     FertilityCalculator: "/breadcrumb?filter=fertility-calculator",
     OvulationCalculator: "/breadcrumb?filter=ovulation-calculator",
+  },
+
+  events: {
+    eventsHeader: "/event-header",
   },
 
   terms: "/term",

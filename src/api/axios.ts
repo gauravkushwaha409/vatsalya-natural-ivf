@@ -16,7 +16,6 @@ export const getData = async <T = any>(
   }, timeout);
 
   try {
-    // Convert params to query string
     const queryString = params
       ? "?" +
         new URLSearchParams(
@@ -53,8 +52,10 @@ export const getData = async <T = any>(
     }
 
     const data: T = await response.json();
+
     return data;
   } catch (error: any) {
+    console.log("inside catch--->");
     if (error.name === "AbortError") {
       console.error(`Request to ${url} timed out after ${timeout}ms`);
     } else {

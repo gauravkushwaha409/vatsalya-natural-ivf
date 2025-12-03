@@ -2,31 +2,54 @@ import PATHS from "@/utils/path";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { IEventHeaderType } from "../interface/event.interface";
 
-const Gallery = () => {
+function timeAgo(dateString: string | Date): string {
+  const date = new Date(dateString);
+  const now = new Date();
+
+  const diffMs = now.getTime() - date.getTime();
+  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+  return `${diffDays} days ago`;
+}
+
+const Gallery = ({ data }: { data: IEventHeaderType }) => {
   return (
-    <div className="bg-primary-50 u-padding-x h-fit flex flex-wrap gap-6">
-      {Array.from({ length: 10 }).map((item, index) => (
+    <div className="bg-primary-50 u-padding-x h-fit  grid grid-cols-1 lg:grid-cols-3 gap-6">
+      {data.events.map((item, index) => (
         <ImageSection
           key={"gallery" + index}
-          alt=""
-          src="/home/when-to-visit/card-image-1.jpeg"
+          alt={item.title}
+          src={item.image}
+          title={item.title}
+          date={item.date}
         />
       ))}
     </div>
   );
 };
 
-const ImageSection = ({ alt, src }: { src: string; alt: string }) => {
+const ImageSection = ({
+  alt,
+  src,
+  title,
+  date,
+}: {
+  src: string;
+  alt: string;
+  title: string;
+  date: string;
+}) => {
   return (
-    <div className="relative w-103 h-62 rounded-3xl overflow-hidden">
-      <Image alt={alt} src={src} fill className="object-cover" />
+    <div className="relative w-full h-[248px] rounded-3xl overflow-hidden">
+      <Image alt={alt} src={src} fill className="object-cover h-full w-full" />
 
       <div className="w-full absolute bottom-0 p-3 text-white flex flex-col gap-y-2 bg-linear-to-t from-black to-transparent">
         <span className="typo-mid-bd-md flex items-center gap-x-1">
-          <CallenderIcon /> 18 days ago
+          <CallenderIcon /> {timeAgo(date)}
         </span>
-        <p className="typo-sub-h3-bold">Event Name</p>
+        <p className="typo-sub-h3-bold capitalize">{title}</p>
         <div className="w-full flex items-center justify-between">
           <Link
             href={PATHS.eventDetails.replace(":id", "event123")}
