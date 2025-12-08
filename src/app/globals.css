@@ -239,6 +239,9 @@ input[type="submit"] {
 @utility typo-mid-bd-md {
   @apply font-urbanist text-sm font-medium leading-5.5;
 }
+@utility typo-mid-bd-semi-bold {
+  @apply font-urbanist text-sm font-medium leading-5.5;
+}
 @utility typo-xl-bd-md {
   @apply font-urbanist text-lg leading-6.5 font-medium;
 }
