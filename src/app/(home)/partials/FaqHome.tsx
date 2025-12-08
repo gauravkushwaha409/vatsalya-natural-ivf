@@ -51,6 +51,7 @@ const FaqHome: React.FC<HomeFaqProps> = ({ data }) => {
           <h2 className="pb-4 font-semibold typography-h2">
             Answers to Your Fertility Questions
           </h2>
+          <FaqCategory />
           <Faq faq={data} />
         </div>
       </div>
@@ -69,4 +70,50 @@ const FaqHome: React.FC<HomeFaqProps> = ({ data }) => {
   );
 };
 
+const FaqCategory = () => {
+  const [selectedCategory, setSelectedCategory] = useState("during-treatment");
+  const category = [
+    {
+      lebel: "During Treatment",
+      value: "during-treatment",
+    },
+    {
+      lebel: "Test & Diagnosis",
+      value: "test-diagnosis",
+    },
+    {
+      lebel: "Appointment & Costs",
+      value: "appointment-cost",
+    },
+    {
+      lebel: "After Treatment",
+      value: "after-treatment",
+    },
+  ];
+  return (
+    <div
+      style={{
+        scrollbarWidth: "none",
+      }}
+      className="px-3 py-2 flex items-center gap-x-6 overflow-x-auto"
+    >
+      {category.map((item, index) => (
+        <button
+          key={item.value + index}
+          onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+            e.preventDefault();
+            setSelectedCategory(item.value);
+          }}
+          className={`typo-mid-bd-semi-bold rounded-3xl px-4 py-1.5 min-w-fit ${
+            selectedCategory === item.value
+              ? "bg-primary-500 text-white"
+              : "text-[#A03879] border border-[#A03879]"
+          }`}
+        >
+          {item.lebel}
+        </button>
+      ))}
+    </div>
+  );
+};
 export default FaqHome;
