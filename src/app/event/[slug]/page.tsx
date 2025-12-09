@@ -3,7 +3,7 @@ import HeroSection from "./partials/HeroSection";
 import Gallery from "./partials/Gallery";
 import JsonLD from "@/app/(home)/partials/JsonLD";
 import ErrorMessage from "@/components/ErrorMessage";
-import { getEventDetailsData } from "../hooks/hook";
+import { getEventDetailsData } from "../lib/getEvent";
 
 interface props {
   params: {

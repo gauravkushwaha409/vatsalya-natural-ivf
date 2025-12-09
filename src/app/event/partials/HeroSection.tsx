@@ -6,6 +6,7 @@ import { ChevronDown, Search } from "lucide-react";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { IEventHeaderType } from "../interface/event.interface";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useDebounce } from "@/hooks/useDebounce";
 
 const HeroSection = ({ data }: { data: IEventHeaderType }) => {
   return (
@@ -40,47 +41,47 @@ const BreadCrumb = ({ data }: { data: IEventHeaderType }) => {
 };
 
 const SearchBox = ({ data }: { data: IEventHeaderType }) => {
-  return (
-    <div className="mt-6 p-2 w-2xl mx-auto flex items-center justify-between rounded-full bg-[#f7e1e0]">
-      <InputSearch />
-      {/* <div className="w-1/2">
-        <SearchSelect
-          onChange={() => {}}
-          options={[{ label: "hello", value: "hello" }]}
-        />
-      </div> */}
-    </div>
-  );
-};
-
-const InputSearch = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
 
+  // 1. Local state for input
+  const [input, setInput] = useState(searchParams.get("search") ?? "");
+
+  // 2. Debounce value
+  const debouncedSearch = useDebounce(input, 500);
+
+  // 3. Update URL when debounced value changes
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams.toString());
+
+    if (debouncedSearch.length >= 2) {
+      params.set("search", debouncedSearch);
+    } else if (debouncedSearch.length === 0) {
+      params.delete("search");
+    }
+
+    router.replace(`${pathname}?${params.toString()}`);
+  }, [debouncedSearch, router, searchParams, pathname]);
+
+  // 4. Handle input
   const handleInputChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      const value = e.target.value;
-      const params = new URLSearchParams(searchParams.toString());
-      if (value.length >= 2) {
-        params.set("search", value);
-      } else if (value.length === 0) {
-        params.delete("search");
-      }
-
-      router.replace(`${pathname}?${params.toString()}`);
+      setInput(e.target.value);
     },
-    [router, searchParams, pathname]
+    []
   );
 
   return (
-    <input
-      placeholder="What are you looking for?"
-      type="text"
-      className="p-2.5 text-[#5c5c5c] border-none outline-none font-urbanist text-sm font-normal leading-5.5"
-      onChange={handleInputChange}
-      defaultValue={searchParams.get("search") ?? ""}
-    />
+    <div className="mt-6 p-2 w-2xl mx-auto flex items-center justify-between rounded-full bg-[#f7e1e0]">
+      <input
+        placeholder="What are you looking for?"
+        type="text"
+        className="w-full p-2.5 text-[#5c5c5c] border-none outline-none font-urbanist text-sm font-normal leading-5.5"
+        onChange={handleInputChange}
+        value={input}
+      />
+    </div>
   );
 };
 
