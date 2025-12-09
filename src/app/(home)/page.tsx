@@ -53,7 +53,7 @@ const HomePage = async ({
             center={centerData}
             data={expertsData?.data}
           />
-          {/* <Location data={locationData?.data?.records} /> */}
+          {/* <Location data={locationData?.data?.records} />*/}
           <FaqHome data={homedata?.data?.Faq} />
           <Blogsection data={blogData?.data} />
         </div>

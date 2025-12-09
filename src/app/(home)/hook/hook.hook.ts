@@ -2,7 +2,7 @@ import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
 
 interface IProps {
-  center: string | undefined | null;
+  center?: string | undefined | null;
 }
 
 export const getHomePageData = async ({ center }: IProps) => {
@@ -28,7 +28,7 @@ export const getHomePageData = async ({ center }: IProps) => {
   // const showcaseData = await safeFetch(endpoints.stats);
   // const testimonialData = await safeFetch(endpoints.sucessStory);
   // const homeGalleryData = await safeFetch(endpoints.homeGallery);
-  // const footerData = await safeFetch(endpoints.setting);
+  const footerData = await safeFetch(endpoints.setting);
   // const locationData = await safeFetch(endpoints.center);
 
   return {
@@ -41,7 +41,7 @@ export const getHomePageData = async ({ center }: IProps) => {
     // showcaseData,
     // testimonialData,
     // homeGalleryData,
-    // footerData,
+    footerData,
     // locationData
   };
 };

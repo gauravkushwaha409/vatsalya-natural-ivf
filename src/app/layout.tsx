@@ -125,9 +125,9 @@ export default async function RootLayout({
         <Providers>
           {/* <Header /> */}
           <div className="max-w-app">{children}</div>
-          {/* <Footer /> */}
+          <Footer />
           {/* <FooterMenu /> */}
-{/* 
+          {/* 
           <Link
             className="hidden md:block"
             href={`tel:${footerData?.data?.phoneNumber?.[0]}`}

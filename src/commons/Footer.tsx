@@ -12,7 +12,7 @@ import Link from "next/link";
 import GetStarted from "./partials/GetStarted";
 
 const Footer = async () => {
-  const { footerData } = await getHomePageData();
+  const { footerData, centerData } = await getHomePageData({});
 
   const socialMedia = footerData?.data?.socialMedia;
 
@@ -53,7 +53,7 @@ const Footer = async () => {
   const { data } = await getData(endpoints.service + `?page=${1}&perPage=${5}`);
   return (
     <>
-      <GetStarted />
+      <GetStarted centerData={centerData} />
       {/* <FooterSeo /> */}
       <div className="max-w-app bg-background-100 backdrop-blur-[5.6px] pt-10 overflow-hidden text-text-400 padding">
         <div className=" gap-4 lg:gap-[2rem] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
