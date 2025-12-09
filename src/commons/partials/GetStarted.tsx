@@ -63,16 +63,16 @@ const ClinicList = () => {
       </p>
       <div>
         {clinicList.map((item, index) => (
-          <span
+          <button
             key={item.label + index}
             className={`typo-lg-bd-semi-bold text-text-400 pr-2.5 border-r-[#929292] ${
               index != 0 ? "pl-2.5" : ""
             }
-            ${index < clinicList.length - 1 ? "border" : ""}
+            ${index < clinicList.length - 1 ? "border-r" : ""}
             `}
           >
             {item.label}
-          </span>
+          </button>
         ))}
       </div>
     </div>

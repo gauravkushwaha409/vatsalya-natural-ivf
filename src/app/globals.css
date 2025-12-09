@@ -231,6 +231,9 @@ input[type="submit"] {
 @utility typo-lg-bd-reg {
   @apply font-urbanist text-[1rem] font-normal leading-6;
 }
+@utility typo-lg-bd-bold {
+  @apply font-urbanist text-[1rem] font-bold leading-6;
+}
 @utility typo-lg-bd-semi-bold {
   @apply font-urbanist text-[1rem] font-semibold leading-6;
 }
@@ -238,6 +241,9 @@ input[type="submit"] {
   @apply font-urbanist text-sm font-normal leading-5.5;
 }
 @utility typo-mid-bd-md {
+  @apply font-urbanist text-sm font-medium leading-5.5;
+}
+@utility typo-mid-bd-semi-bold {
   @apply font-urbanist text-sm font-medium leading-5.5;
 }
 @utility typo-xl-bd-md {
@@ -270,9 +276,6 @@ input[type="submit"] {
 @utility padding {
   @apply px-5 lg:px-20;
 }
-/* @utility {
-  @apply max-w-480 mx-auto;
-} */
 @utility u-padding-x {
   @apply px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20;
 }
