@@ -230,6 +230,9 @@ input[type="submit"] {
 @utility typo-lg-bd-reg {
   @apply font-urbanist text-[1rem] font-normal leading-6;
 }
+@utility typo-lg-bd-bold {
+  @apply font-urbanist text-[1rem] font-bold leading-6;
+}
 @utility typo-lg-bd-semi-bold {
   @apply font-urbanist text-[1rem] font-semibold leading-6;
 }
