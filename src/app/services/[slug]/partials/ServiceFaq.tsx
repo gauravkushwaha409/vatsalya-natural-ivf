@@ -1,6 +1,7 @@
+"use client";
 import Faq from "@/components/Faqs";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import pic1 from "@/assests/contact/pic3.png";
 import pic2 from "@/assests/contact/pic4.png";
 import { IServiceDetailsData } from "../../interfaces/serviceDetails.interface";
@@ -8,6 +9,10 @@ interface IServiceFaqProps {
   data: IServiceDetailsData;
 }
 const ServiceFaq: React.FC<IServiceFaqProps> = ({ data }) => {
+  const [selectedFaq, setSelectedFaq] = useState<string>("All");
+  const category: string[] = Array.from(
+    new Set(data?.service?.faq?.map((item) => item?.category))
+  );
   return (
     <section>
       {data?.service?.faq?.length > 0 && (
@@ -44,7 +49,41 @@ const ServiceFaq: React.FC<IServiceFaqProps> = ({ data }) => {
             <h2 className="pb-4 font-semibold typography-h2">
               Answers to Your Fertility Questions
             </h2>
-            <Faq faq={data?.service?.faq} />
+
+            {/* FAQ Category */}
+            <div
+              style={{
+                scrollbarWidth: "none",
+              }}
+              className="px-3 py-2 flex items-center gap-x-6 overflow-x-auto"
+            >
+              {["All", ...category]?.map((item, index) => (
+                <button
+                  key={item + index}
+                  onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                    e.preventDefault();
+                    setSelectedFaq(item);
+                  }}
+                  className={`typo-mid-bd-semi-bold rounded-3xl px-4 py-1.5 min-w-fit ${
+                    selectedFaq === item
+                      ? "bg-primary-500 text-white"
+                      : "text-[#A03879] border border-[#A03879]"
+                  }`}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+
+            <Faq
+              faq={
+                selectedFaq === "All"
+                  ? data?.service?.faq
+                  : data?.service?.faq?.filter(
+                      (item) => item.category === selectedFaq
+                    )
+              }
+            />
           </div>
         </div>
       )}

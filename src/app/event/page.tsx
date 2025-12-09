@@ -6,7 +6,7 @@ import Gallery from "./partials/Gallery";
 // import { endpoints } from "@/api/endpoints";
 // import { createMetadata } from "@/hooks/generateMetaData";
 import JsonLD from "../(home)/partials/JsonLD";
-import { getEventPageData } from "./hooks/hook";
+import { getEventPageData } from "./lib/getEvent";
 import ErrorMessage from "@/components/ErrorMessage";
 
 // export async function generateMetadata() {
@@ -15,14 +15,18 @@ import ErrorMessage from "@/components/ErrorMessage";
 //   return meta;
 // }
 
-interface Props {
+interface ISearchParams {
   search: string;
   filter: string;
 }
 
-const page = async ({ searchParams }: { searchParams: Props }) => {
-  const search = searchParams.search;
-  const filter = searchParams.filter;
+const page = async ({
+  searchParams,
+}: {
+  searchParams: Promise<ISearchParams>;
+}) => {
+  const search = (await searchParams).search;
+  const filter = (await searchParams).filter;
   try {
     const { eventHeaderData } = await getEventPageData(search, filter);
 

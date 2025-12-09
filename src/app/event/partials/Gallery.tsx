@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { IEventHeaderType } from "../interface/event.interface";
+import { CalendarX } from "lucide-react";
 
 function timeAgo(dateString: string | Date): string {
   const date = new Date(dateString);
@@ -15,19 +16,21 @@ function timeAgo(dateString: string | Date): string {
 }
 
 const Gallery = ({ data }: { data: IEventHeaderType }) => {
-  return (
+  return data?.events?.length > 0 ? (
     <div className="bg-primary-50 u-padding-x h-fit  grid grid-cols-1 lg:grid-cols-3 gap-6">
-      {data.events.map((item, index) => (
+      {data?.events?.map((item, index) => (
         <ImageSection
           key={"gallery" + index}
-          alt={item.title}
-          src={item.image}
-          title={item.title}
-          date={item.date}
-          slug={item.slug}
+          alt={item?.title}
+          src={item?.image}
+          title={item?.title}
+          date={item?.date}
+          slug={item?.slug}
         />
       ))}
     </div>
+  ) : (
+    <NoEvents />
   );
 };
 
@@ -164,6 +167,23 @@ const CallenderIcon = () => {
         strokeLinejoin="round"
       />
     </svg>
+  );
+};
+
+const NoEvents = () => {
+  return (
+    <div className="flex flex-col items-center justify-center mt-16 p-6 bg-white rounded-2xl shadow-md w-full max-w-md mx-auto">
+      <div className="p-4 bg-[#ffe6e6] rounded-full mb-4">
+        <CalendarX className="text-[#ff4d4f] w-12 h-12" />
+      </div>
+      <h2 className="text-xl font-semibold text-gray-800 mb-2">
+        No Events Here
+      </h2>
+      <p className="text-gray-500 text-center mb-4">
+        You currently have no events scheduled. Check back later or create a new
+        event to get started.
+      </p>
+    </div>
   );
 };
 export default Gallery;

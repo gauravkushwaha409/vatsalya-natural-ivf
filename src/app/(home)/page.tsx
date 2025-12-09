@@ -15,25 +15,30 @@ import MeetOurExperts from "./partials/MeetOurExperts";
 import Showcase from "./partials/Showcase";
 import WhatWeOffer from "./partials/WhatWeOffer";
 
-export async function generateMetadata() {
-  const { data } = await getData<ISeoRoot>(endpoints.seo.home);
-  const meta = createMetadata(data);
-  return meta;
-}
+// export async function generateMetadata() {
+//   const { data } = await getData<ISeoRoot>(endpoints.seo.home);
+//   const meta = createMetadata(data);
+//   return meta;
+// }
 
-const HomePage = async () => {
+const HomePage = async ({
+  searchParams,
+}: {
+  searchParams: Promise<{ center: string | null }>;
+}) => {
+  const centerParams = (await searchParams).center;
   try {
     const {
       homedata,
       whatweOfferData,
       howWeWorkData,
       expertsData,
+      centerData,
       blogData,
       showcaseData,
       testimonialData,
       locationData,
-    } = await getHomePageData();
-
+    } = await getHomePageData({ center: centerParams });
     return (
       <>
         <JsonLD />
@@ -43,7 +48,11 @@ const HomePage = async () => {
           <HowWeWork data={howWeWorkData?.data} />
           <WhatWeOffer data={whatweOfferData?.data?.records ?? {}} />
           <TestimonialSlider data={testimonialData?.data} />
-          <MeetOurExperts data={expertsData?.data} />
+          <MeetOurExperts
+            centerParams={centerParams}
+            center={centerData}
+            data={expertsData?.data}
+          />
           <Location data={locationData?.data?.records} />
           <FaqHome data={homedata?.data?.Faq} />
           <Blogsection data={blogData?.data} />

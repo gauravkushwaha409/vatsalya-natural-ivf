@@ -2,6 +2,8 @@
 import { IOurExpertsData } from "@/app/our-team/interface/ourExperts.interface";
 import { useSlider } from "@/components/hooks/useSlider";
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
+import useUpdateQuery from "@/hooks/useUpdateQuerry";
+import { ICenterRoot } from "@/interface/center";
 import PATHS from "@/utils/path";
 import { ArrowLeft, ArrowRight, ChevronRight } from "lucide-react";
 import Image from "next/image";
@@ -14,9 +16,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 interface MeetExpertsProps {
   data: IOurExpertsData;
+  center: ICenterRoot;
+  centerParams: string | null;
 }
 
-const MeetOurExperts: React.FC<MeetExpertsProps> = ({ data }) => {
+const MeetOurExperts: React.FC<MeetExpertsProps> = ({
+  data,
+  center,
+  centerParams,
+}) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [selectedDoctor, setSelectedDoctor] = useState<string>("");
   const [selectedCenter, setSelectedCenter] = useState<string>("");
@@ -30,7 +38,7 @@ const MeetOurExperts: React.FC<MeetExpertsProps> = ({ data }) => {
   return (
     <div className="pb-10 md:pb-20 padding bg-background-100">
       <Heading />
-      <ExpertLocations />
+      <ExpertLocations data={center} centerParams={centerParams} />
 
       <div className="relative">
         <ButterflyImage />
@@ -92,11 +100,11 @@ const MeetOurExperts: React.FC<MeetExpertsProps> = ({ data }) => {
               slidesPerView: 2,
               spaceBetween: 20,
             },
-            768: {
+            1024: {
               slidesPerView: 3,
               spaceBetween: 24,
             },
-            1024: {
+            1280: {
               slidesPerView: 4,
               spaceBetween: 24,
             },
@@ -166,35 +174,44 @@ const Heading = () => {
   );
 };
 
-const ExpertLocations = () => {
-  const [filterValue, setFilterValue] = useState("all");
-  const filterOptions = [
-    { value: "all", label: "All" },
-    { value: "kathmandu", label: "Kathmandu" },
-    { value: "bhaktapur", label: "Bhaktapur" },
-    { value: "lalitpur", label: "Lalitpur" },
-    { value: "biratnagar", label: "Biratnagar" },
-    { value: "nepalgunj", label: "Nepalgunj" },
-    { value: "pokhara", label: "Pokhara" },
-    { value: "chitwan", label: "Chitwan" },
-    { value: "butwal", label: "Butwal" },
-  ];
+const ExpertLocations = ({
+  data,
+  centerParams,
+}: {
+  data: ICenterRoot;
+  centerParams: string | null;
+}) => {
+  const [filterValue, setFilterValue] = useState(centerParams ?? "all");
+  const updateQuerry = useUpdateQuery();
   const handleClickLocation = (value: string) => {
+    if (!value) return;
+    updateQuerry("center", value);
     setFilterValue(value);
   };
   return (
     <div className="flex flex-col justify-end w-full gap-3 mb-5 sm:w-full sm:flex-row sm:items-center">
-      {filterOptions.map((item) => (
+      <button
+        onClick={() => {
+          handleClickLocation("all");
+        }}
+        className={`typo-mid-bd-md ${
+          filterValue === "all" ? "text-primary-500" : "text-text-200"
+        }`}
+      >
+        All
+      </button>
+
+      {data?.data?.records?.map((item) => (
         <button
-          key={item.label}
+          key={item.id}
           onClick={() => {
-            handleClickLocation(item.value);
+            handleClickLocation(item.id);
           }}
           className={`typo-mid-bd-md ${
-            filterValue === item.value ? "text-primary-500" : "text-text-200"
+            filterValue === item.id ? "text-primary-500" : "text-text-200"
           }`}
         >
-          {item.label}
+          {item.name}
         </button>
       ))}
     </div>

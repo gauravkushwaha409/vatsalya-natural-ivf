@@ -123,11 +123,11 @@ export default async function RootLayout({
         {/* this divs fills the white space when header is hidden */}
         <div className="top-0 -z-20 absolute inset-x-0 bg-primary-50 " />
         <Providers>
-          {/* <Header /> */}
+          <Header />
           <div className="max-w-app">{children}</div>
-          {/* <Footer /> */}
-          {/* <FooterMenu /> */}
-{/* 
+          <Footer />
+          <FooterMenu />
+          {/* 
           <Link
             className="hidden md:block"
             href={`tel:${footerData?.data?.phoneNumber?.[0]}`}

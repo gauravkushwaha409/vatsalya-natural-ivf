@@ -6,7 +6,7 @@ import pic1 from "./../../../assests/contact/pic3.png";
 import pic2 from "./../../../assests/contact/pic4.png";
 import { IHomeFaq } from "../interface/home.interface";
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
-import { useState } from "react";
+import React, { useState } from "react";
 
 type HomeFaqProps = {
   data: IHomeFaq[];
@@ -16,6 +16,7 @@ const FaqHome: React.FC<HomeFaqProps> = ({ data }) => {
   const handleAppointmentClick = () => {
     setOpenModal(true);
   };
+
   return (
     <section>
       <div className="flex gap-10 px-5 pb-6 md:px-20 sm:pb-10">
@@ -51,8 +52,7 @@ const FaqHome: React.FC<HomeFaqProps> = ({ data }) => {
           <h2 className="pb-4 font-semibold typography-h2">
             Answers to Your Fertility Questions
           </h2>
-          <FaqCategory />
-          <Faq faq={data} />
+          <FaqWrapper data={data} />
         </div>
       </div>
       <button
@@ -70,26 +70,39 @@ const FaqHome: React.FC<HomeFaqProps> = ({ data }) => {
   );
 };
 
-const FaqCategory = () => {
-  const [selectedCategory, setSelectedCategory] = useState("during-treatment");
-  const category = [
-    {
-      lebel: "During Treatment",
-      value: "during-treatment",
-    },
-    {
-      lebel: "Test & Diagnosis",
-      value: "test-diagnosis",
-    },
-    {
-      lebel: "Appointment & Costs",
-      value: "appointment-cost",
-    },
-    {
-      lebel: "After Treatment",
-      value: "after-treatment",
-    },
-  ];
+const FaqWrapper = ({ data }: { data: IHomeFaq[] }) => {
+  const [selectedFaq, setSelectedFaq] = useState<string>("All");
+  return (
+    <React.Fragment>
+      <FaqCategory
+        selectedFaq={selectedFaq}
+        setSelectedFaq={setSelectedFaq}
+        data={data}
+      />
+      <Faq
+        faq={
+          selectedFaq === "All"
+            ? data
+            : data?.filter((item) => item.category === selectedFaq)
+        }
+      />
+    </React.Fragment>
+  );
+};
+
+const FaqCategory = ({
+  data,
+  selectedFaq,
+  setSelectedFaq,
+}: {
+  data: IHomeFaq[];
+  selectedFaq: string;
+  setSelectedFaq: React.Dispatch<React.SetStateAction<string>>;
+}) => {
+  const category: string[] = Array.from(
+    new Set(data?.map((item) => item?.category))
+  );
+
   return (
     <div
       style={{
@@ -97,20 +110,20 @@ const FaqCategory = () => {
       }}
       className="px-3 py-2 flex items-center gap-x-6 overflow-x-auto"
     >
-      {category.map((item, index) => (
+      {["All", ...category]?.map((item, index) => (
         <button
-          key={item.value + index}
+          key={item + index}
           onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
             e.preventDefault();
-            setSelectedCategory(item.value);
+            setSelectedFaq(item);
           }}
           className={`typo-mid-bd-semi-bold rounded-3xl px-4 py-1.5 min-w-fit ${
-            selectedCategory === item.value
+            selectedFaq === item
               ? "bg-primary-500 text-white"
               : "text-[#A03879] border border-[#A03879]"
           }`}
         >
-          {item.lebel}
+          {item}
         </button>
       ))}
     </div>

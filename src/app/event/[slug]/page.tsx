@@ -3,7 +3,7 @@ import HeroSection from "./partials/HeroSection";
 import Gallery from "./partials/Gallery";
 import JsonLD from "@/app/(home)/partials/JsonLD";
 import ErrorMessage from "@/components/ErrorMessage";
-import { getEventDetailsData } from "../hooks/hook";
+import { getEventDetailsData } from "../lib/getEvent";
 
 interface props {
   params: {
@@ -15,11 +15,9 @@ const page = async ({ params }: props) => {
   const slug = (await params.slug) as string;
   try {
     const { eventDetailsData } = await getEventDetailsData(slug);
-
     return (
       <>
         <JsonLD />
-
         <div className="bg-primary-50">
           <HeroSection data={eventDetailsData?.data} />
           <Gallery data={eventDetailsData?.data} />{" "}

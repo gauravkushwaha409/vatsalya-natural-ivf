@@ -31,7 +31,7 @@ const page = async ({ params }: ServiceDetailPageProps) => {
     const slug = await params;
     const data = await getData(endpoints.service + `/${slug?.slug}`);
 
-    const { testimonialData } = await getHomePageData();
+    const { testimonialData } = await getHomePageData({});
     return (
       <section>
         <ServiceHeroDetail data={data?.data} />

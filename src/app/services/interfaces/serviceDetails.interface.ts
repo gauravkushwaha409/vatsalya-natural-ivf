@@ -90,6 +90,7 @@ export interface IServiceDetailsFaq {
   question: string;
   answer: string;
   service: string;
+  category: string;
   created_data: string;
   updated_data: string;
 }

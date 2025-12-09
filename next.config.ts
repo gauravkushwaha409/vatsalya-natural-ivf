@@ -50,6 +50,11 @@ const nextConfig: NextConfig = {
         hostname: "api.nipali.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "plus.unsplash.com",
+        pathname: "/**",
+      },
     ],
   },
 };

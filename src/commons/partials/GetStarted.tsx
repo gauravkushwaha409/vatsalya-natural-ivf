@@ -1,17 +1,23 @@
 "use client";
 
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
+import { ICenterRoot } from "@/interface/center";
+import PATHS from "@/utils/path";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+interface IProps {
+  centerData: ICenterRoot;
+}
 
-const GetStarted = () => {
+const GetStarted = ({ centerData }: IProps) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const handleAppointmentClick = () => {
     setOpenModal(true);
   };
   return (
     <div className="relative max-w-app u-padding-x u-padding-y">
-      <ClinicList />
+      <ClinicList centerData={centerData} />
       <ContentWrapper handleAppointmentClick={handleAppointmentClick} />
       <RequestAppoimentModal
         isOpen={openModal}
@@ -21,57 +27,27 @@ const GetStarted = () => {
   );
 };
 
-const ClinicList = () => {
-  const clinicList = [
-    {
-      label: "Biratnagar",
-      value: "biratnagar",
-    },
-    {
-      label: "Kathmandu",
-      value: "kathmandu",
-    },
-    {
-      label: "Nepalgunj",
-      value: "nepalgunj",
-    },
-    {
-      label: "Bhaktapur",
-      value: "bhaktapur",
-    },
-    {
-      label: "Pokhara",
-      value: "pokhara",
-    },
-    {
-      label: "Chitwan",
-      value: "chitwan",
-    },
-    {
-      label: "Lalitpur",
-      value: "lalitpur",
-    },
-    {
-      label: "Butwal",
-      value: "butwal",
-    },
-  ];
+const ClinicList = ({ centerData }: { centerData: ICenterRoot }) => {
+  const router = useRouter();
   return (
     <div className="space-y-3">
       <p className="font-bold text-primary-500 text-sm md:text-base uppercase tracking-[0.12rem] md:tracking-[0.18rem]">
         Clinic
       </p>
       <div>
-        {clinicList.map((item, index) => (
+        {centerData?.data?.records?.map((item, index) => (
           <button
-            key={item.label + index}
+            key={item?.id + index}
+            onClick={(e) => {
+              e.preventDefault();
+              router.push(`${PATHS.clinic}/${item.slug}`);
+            }}
             className={`typo-lg-bd-semi-bold text-text-400 pr-2.5 border-r-[#929292] ${
               index != 0 ? "pl-2.5" : ""
             }
-            ${index < clinicList.length - 1 ? "border-r" : ""}
-            `}
+            ${index < centerData?.data?.records?.length - 1 ? "border-r" : ""}`}
           >
-            {item.label}
+            {item?.name}
           </button>
         ))}
       </div>
