@@ -36,7 +36,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { footerData } = await getHomePageData();
+  // const { footerData } = await getHomePageData();
 
   return (
     <html lang="en">
@@ -123,11 +123,11 @@ export default async function RootLayout({
         {/* this divs fills the white space when header is hidden */}
         <div className="top-0 -z-20 absolute inset-x-0 bg-primary-50 " />
         <Providers>
-          <Header />
+          {/* <Header /> */}
           <div className="max-w-app">{children}</div>
-          <Footer />
-          <FooterMenu />
-
+          {/* <Footer /> */}
+          {/* <FooterMenu /> */}
+{/* 
           <Link
             className="hidden md:block"
             href={`tel:${footerData?.data?.phoneNumber?.[0]}`}
@@ -148,7 +148,7 @@ export default async function RootLayout({
             href={`https://api.whatsapp.com/send?phone=977${footerData?.data?.socialMedia?.whatsapp}`}
           >
             <IoLogoWhatsapp className="right-10 bottom-18 z-50 fixed size-[2.5rem] text-green-500" />
-          </Link>
+          </Link> */}
           {/* <BotPopup /> */}
         </Providers>
       </body>

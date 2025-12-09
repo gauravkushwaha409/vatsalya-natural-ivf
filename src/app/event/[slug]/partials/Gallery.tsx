@@ -4,9 +4,11 @@ import { Download } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { IEventDetailsType } from "../../interface/event.interface";
 
-const Gallery = () => {
-    const image = [
+const Gallery = ({ data }: { data: IEventDetailsType }) => {
+    console.log("data", data);
+  const image = [
         "/event/image-1.jpg",
         "/event/image-1.jpg",
         "/event/image-2.jpg",

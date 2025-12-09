@@ -3,13 +3,15 @@ import CustomBreadcrumb from "@/components/CustomBreadcrumb";
 import { cn } from "@/utils/cn";
 import PATHS from "@/utils/path";
 import { ChevronDown, Search } from "lucide-react";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { IEventHeaderType } from "../interface/event.interface";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-const HeroSection = () => {
+const HeroSection = ({ data }: { data: IEventHeaderType }) => {
   return (
     <div className="bg-primary-50 u-padding-x">
-      <BreadCrumb />
-      <SearchBox />
+      <BreadCrumb data={data} />
+      <SearchBox data={data} />
       <div className="relative mt-20 h-30">
         <DatePicker className="absolute right-0" />
         <div className="absolute bottom-12 w-full h-[1px] bg-[#CECECE]" />
@@ -18,7 +20,7 @@ const HeroSection = () => {
   );
 };
 
-const BreadCrumb = () => {
+const BreadCrumb = ({ data }: { data: IEventHeaderType }) => {
   return (
     <div className="pt-5 flex flex-col items-center justify-center">
       <CustomBreadcrumb
@@ -28,40 +30,60 @@ const BreadCrumb = () => {
         ]}
       />
       <p className="mt-2.5 text-secondary-500 text-center font-urbanist text-[2.5rem] font-extrabold leading-[150%] tracking-[-0.78px]">
-        Event
+        {data.title}
       </p>
       <p className="w-2xl mx-auto text-[#828282] text-center font-urbanist font-medium leading-[150%] tracking-[-0.28px]">
-        Browse and manage photos from company events, conferences, and team
-        activities. View albums, download media, and share moments .
+        {data.subtitle}
       </p>
     </div>
   );
 };
 
-const SearchBox = () => {
+const SearchBox = ({ data }: { data: IEventHeaderType }) => {
   return (
     <div className="mt-6 p-2 w-2xl mx-auto flex items-center justify-between rounded-full bg-[#f7e1e0]">
       <InputSearch />
-      <div className="w-1/2">
+      {/* <div className="w-1/2">
         <SearchSelect
           onChange={() => {}}
           options={[{ label: "hello", value: "hello" }]}
         />
-      </div>
+      </div> */}
     </div>
   );
 };
 
 const InputSearch = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+
+  const handleInputChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value = e.target.value;
+      const params = new URLSearchParams(searchParams.toString());
+      if (value.length >= 2) {
+        params.set("search", value);
+      } else if (value.length === 0) {
+        params.delete("search");
+      }
+
+      router.replace(`${pathname}?${params.toString()}`);
+    },
+    [router, searchParams, pathname]
+  );
+
   return (
     <input
+      placeholder="What are you looking for?"
       type="text"
       className="p-2.5 text-[#5c5c5c] border-none outline-none font-urbanist text-sm font-normal leading-5.5"
+      onChange={handleInputChange}
+      defaultValue={searchParams.get("search") ?? ""}
     />
   );
 };
 
-// Search Select
 interface Option {
   label: string;
   value: string;
@@ -182,6 +204,20 @@ const SearchSelect: React.FC<Props> = ({ options, placeholder, onChange }) => {
 
 // Date Picker
 const DatePicker = ({ className }: { className?: string }) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+
+  const handleDateChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value = e.target.value;
+      const params = new URLSearchParams(searchParams.toString());
+      params.set("filter", value);
+
+      router.replace(`${pathname}?${params.toString()}`);
+    },
+    [router, searchParams, pathname]
+  );
   return (
     <div
       className={cn(
@@ -193,6 +229,8 @@ const DatePicker = ({ className }: { className?: string }) => {
         placeholder="Date"
         type="date"
         className="border-none outline-none no-calendar bg-transparent text-black font-urbanist text-[1.25rem] font-normal leading-6"
+        onChange={handleDateChange}
+        defaultValue={searchParams.get("filter") ?? ""}
       />
       <button>
         <ChevronDown className="size-6 text-text-400" />
