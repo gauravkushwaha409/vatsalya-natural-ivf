@@ -15,11 +15,9 @@ const page = async ({ params }: props) => {
   const slug = (await params.slug) as string;
   try {
     const { eventDetailsData } = await getEventDetailsData(slug);
-
     return (
       <>
         <JsonLD />
-
         <div className="bg-primary-50">
           <HeroSection data={eventDetailsData?.data} />
           <Gallery data={eventDetailsData?.data} />{" "}

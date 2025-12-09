@@ -5,140 +5,248 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { IEventDetailsType } from "../../interface/event.interface";
+import { downloadFile } from "@/utils/download";
 
 const Gallery = ({ data }: { data: IEventDetailsType }) => {
-    console.log("data", data);
-  const image = [
-        "/event/image-1.jpg",
-        "/event/image-1.jpg",
-        "/event/image-2.jpg",
-        "/event/image-3.jpg",
-        "/event/image-4.jpg",
-        "/event/image-4.jpg",
-        "/event/image-4.jpg",
-        "/event/image-4.jpg",
-        "/event/image-5.jpg",
-        "/event/image-4.jpg",
-        "/event/image-4.jpg",
-        "/event/image-5.jpg",
-        "/event/image-6.jpg",
-        "/event/image-6.jpg",
-        "/event/image-6.jpg",
-    ];
-    return (
-        <div className="pt-4 u-padding-x grid grid-cols-4 gap-6">
-            {image.map((item, index) => (
-                <ImageSection
-                    key={item + index}
-                    src={item}
-                    className={index % 2 === 0 ? "row-span-2 h-102" : "h-52"}
-                />
-            ))}
-        </div>
-    );
+  console.log(data?.eventGallery);
+  return (
+    // <div className="pt-4 u-padding-x grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="pt-4 u-padding-x gap-6 flex flex-wrap items-center justify-between">
+      {data?.eventGallery?.videos?.map((item, index) => (
+        <VideoSection
+          key={item + index}
+          eventName={data?.title}
+          eventDate={data?.date?.split("T")[0]}
+          src={item}
+          className={`h-52`}
+        />
+      ))}
+      {data?.eventGallery.eventImages?.map((item, index) => (
+        <ImageSection
+          key={item + index}
+          eventName={data?.title}
+          eventDate={data?.date?.split("T")[0]}
+          src={item}
+          className={`h-52`}
+        />
+      ))}
+    </div>
+  );
 };
 export default Gallery;
 
 const ImageSection = ({
-    src,
-    className,
+  src,
+  className,
+  eventName,
+  eventDate,
 }: {
-    src: string;
-    className: string;
+  src: string;
+  className: string;
+  eventName: string;
+  eventDate: string;
 }) => {
-    const [isHover, setIsHover] = useState<boolean>(false);
+  const [isHover, setIsHover] = useState<boolean>(false);
 
-    // Animation variants for better organization
-    const containerVariants = {
-        hover: { scale: 1.02 },
-        initial: { scale: 1 },
-    };
+  // Animation variants for better organization
+  const containerVariants = {
+    hover: { scale: 1.02 },
+    initial: { scale: 1 },
+  };
 
-    const slideVariants = {
-        hiddenTop: { y: "-100%", opacity: 0 },
-        hiddenBottom: { y: "100%", opacity: 0 },
-        visible: { y: 0, opacity: 1 },
-    };
+  const slideVariants = {
+    hiddenTop: { y: "-100%", opacity: 0 },
+    hiddenBottom: { y: "100%", opacity: 0 },
+    visible: { y: 0, opacity: 1 },
+  };
 
-    const transitionConfig = {
-        type: "spring" as const,
-        stiffness: 300,
-        damping: 25,
-        mass: 0.5,
-    };
+  const transitionConfig = {
+    type: "spring" as const,
+    stiffness: 300,
+    damping: 25,
+    mass: 0.5,
+  };
 
-    return (
-        <motion.div
-            onMouseEnter={() => setIsHover(true)}
-            onMouseLeave={() => setIsHover(false)}
-            className={cn(
-                `relative w-80 rounded-3xl overflow-hidden`,
-                className
-            )}
-            variants={containerVariants}
-            animate={isHover ? "hover" : "initial"}
-            transition={{ duration: 0.3 }}
-            layout // Enables layout animations
+  return (
+    <motion.div
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+      className={cn(`relative w-80 rounded-3xl overflow-hidden`, className)}
+      variants={containerVariants}
+      animate={isHover ? "hover" : "initial"}
+      transition={{ duration: 0.3 }}
+      layout // Enables layout animations
+    >
+      {/* Top Date Section */}
+      <motion.div
+        className="absolute z-10 top-0 inset-x-0 p-3 bg-gradient-to-t from-transparent to-[#202020]/30"
+        variants={slideVariants}
+        initial="hiddenTop"
+        animate={isHover ? "visible" : "hiddenTop"}
+        transition={transitionConfig}
+      >
+        <motion.span
+          className="typo-mid-bd-reg text-white"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isHover ? 1 : 0 }}
+          transition={{ delay: 0.1 }}
         >
-            {/* Top Date Section */}
-            <motion.div
-                className="absolute z-10 top-0 inset-x-0 p-3 bg-gradient-to-t from-transparent to-[#202020]/30"
-                variants={slideVariants}
-                initial="hiddenTop"
-                animate={isHover ? "visible" : "hiddenTop"}
-                transition={transitionConfig}
-            >
-                <motion.span
-                    className="typo-mid-bd-reg text-white"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: isHover ? 1 : 0 }}
-                    transition={{ delay: 0.1 }}
-                >
-                    Event Date: 2024/jan/14
-                </motion.span>
-            </motion.div>
+          Event Date: {eventDate}
+        </motion.span>
+      </motion.div>
 
-            {/* Main Image with Overlay */}
-            <div className="relative h-full min-h-[300px]">
-                <Image
-                    alt=""
-                    fill
-                    src={src}
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 320px"
-                />
-                {/* <motion.div
-                    className="absolute inset-0 bg-black/30 rounded-3xl"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: isHover ? 1 : 0 }}
-                    transition={{ duration: 0.2 }}
-                /> */}
-            </div>
+      {/* Main Image with Overlay */}
+      <div className="relative h-full min-h-[300px]">
+        <Image
+          alt=""
+          fill
+          src={src}
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 320px"
+        />
+      </div>
 
-            {/* Bottom Info Section */}
-            <motion.div
-                className="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-b from-transparent to-[#202020]/30"
-                variants={slideVariants}
-                initial="hiddenBottom"
-                animate={isHover ? "visible" : "hiddenBottom"}
-                transition={transitionConfig}
-            >
-                <div className="flex items-center justify-between">
-                    <motion.span
-                        className="typo-lg-bd-bold text-white"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: isHover ? 1 : 0 }}
-                        transition={{ delay: 0.1 }}
-                    >
-                        Event Name
-                    </motion.span>
+      {/* Bottom Info Section */}
+      <motion.div
+        className="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-b from-transparent to-[#202020]/30"
+        variants={slideVariants}
+        initial="hiddenBottom"
+        animate={isHover ? "visible" : "hiddenBottom"}
+        transition={transitionConfig}
+      >
+        <div className="flex items-center justify-between">
+          <motion.span
+            className="typo-lg-bd-bold text-white"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isHover ? 1 : 0 }}
+            transition={{ delay: 0.1 }}
+          >
+            {eventName}
+          </motion.span>
 
-                    <button className="typo-mid-bd-semi-bold text-white p-3 rounded-full flex items-center gap-x-2 border border-white hover:backdrop-blur-xl hover:bg-white/10 transition-all duration-300 ease-in-out">
-                        <Download size={18} />
-                        Download
-                    </button>
-                </div>
-            </motion.div>
-        </motion.div>
-    );
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              downloadFile(src);
+            }}
+            className="typo-mid-bd-semi-bold text-white p-3 rounded-full flex items-center gap-x-2 border border-white hover:backdrop-blur-xl hover:bg-white/10 transition-all duration-300 ease-in-out"
+          >
+            <Download size={18} />
+            Download
+          </button>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+interface VideoSectionProps {
+  src: string;
+  className?: string;
+  eventName: string;
+  eventDate: string;
+}
+
+export const VideoSection = ({
+  src,
+  className = "",
+  eventName,
+  eventDate,
+}: VideoSectionProps) => {
+  const [isHover, setIsHover] = useState(false);
+  console.log("video render");
+  // Container animation
+  const containerVariants = {
+    hover: { scale: 1.02 },
+    initial: { scale: 1 },
+  };
+
+  // Slide animations (same as images)
+  const slideVariants = {
+    hiddenTop: { y: "-100%", opacity: 0 },
+    hiddenBottom: { y: "100%", opacity: 0 },
+    visible: { y: 0, opacity: 1 },
+  };
+
+  const transitionConfig = {
+    type: "spring" as const,
+    stiffness: 300,
+    damping: 25,
+    mass: 0.5,
+  };
+
+  return (
+    <motion.div
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+      className={cn(
+        `relative w-80 rounded-3xl overflow-hidden bg-black`,
+        className
+      )}
+      variants={containerVariants}
+      animate={isHover ? "hover" : "initial"}
+      transition={{ duration: 0.3 }}
+      layout
+    >
+      {/* Top Date Section */}
+      <motion.div
+        className="absolute z-10 top-0 inset-x-0 p-3 bg-gradient-to-t from-transparent to-[#202020]/30"
+        variants={slideVariants}
+        initial="hiddenTop"
+        animate={isHover ? "visible" : "hiddenTop"}
+        transition={transitionConfig}
+      >
+        <motion.span
+          className="typo-mid-bd-reg text-white"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isHover ? 1 : 0 }}
+          transition={{ delay: 0.1 }}
+        >
+          Event Date: {eventDate}
+        </motion.span>
+      </motion.div>
+
+      {/* Main Video */}
+      <div className="relative h-full min-h-[300px]">
+        <video
+          className="object-cover w-full h-full"
+          src={src}
+          controls={false}
+          muted
+          autoPlay={false}
+        />
+      </div>
+
+      {/* Bottom Info Section */}
+      <motion.div
+        className="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-b from-transparent to-[#202020]/30"
+        variants={slideVariants}
+        initial="hiddenBottom"
+        animate={isHover ? "visible" : "hiddenBottom"}
+        transition={transitionConfig}
+      >
+        <div className="flex items-center justify-between">
+          <motion.span
+            className="typo-lg-bd-bold text-white"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isHover ? 1 : 0 }}
+            transition={{ delay: 0.1 }}
+          >
+            {eventName}
+          </motion.span>
+
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              downloadFile(src);
+            }}
+            className="typo-mid-bd-semi-bold text-white p-3 rounded-full flex items-center gap-x-2 border border-white hover:backdrop-blur-xl hover:bg-white/10 transition-all duration-300 ease-in-out"
+          >
+            <Download size={18} />
+            Download
+          </button>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
 };
