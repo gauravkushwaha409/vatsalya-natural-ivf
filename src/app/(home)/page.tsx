@@ -43,17 +43,17 @@ const HomePage = async ({
       <>
         <JsonLD />
         <div className="w-full ">
-          {/* <HomeHero data={homedata?.data} />
+          <HomeHero data={homedata?.data} />
           <Showcase data={showcaseData?.data} />
           <HowWeWork data={howWeWorkData?.data} />
           <WhatWeOffer data={whatweOfferData?.data?.records ?? {}} />
-          <TestimonialSlider data={testimonialData?.data} /> */}
+          <TestimonialSlider data={testimonialData?.data} />
           <MeetOurExperts
             centerParams={centerParams}
             center={centerData}
             data={expertsData?.data}
           />
-          {/* <Location data={locationData?.data?.records} />*/}
+          <Location data={locationData?.data?.records} />
           <FaqHome data={homedata?.data?.Faq} />
           <Blogsection data={blogData?.data} />
         </div>

@@ -15,33 +15,33 @@ export const getHomePageData = async ({ center }: IProps) => {
     }
   };
 
-  // const homedata = await safeFetch(endpoints.home);
-  // const whatweOfferData = await safeFetch(endpoints.service);
-  // const howWeWorkData = await safeFetch(endpoints.howWorks);
+  const homedata = await safeFetch(endpoints.home);
+  const whatweOfferData = await safeFetch(endpoints.service);
+  const howWeWorkData = await safeFetch(endpoints.howWorks);
   const expertsData = await safeFetch(
     `${endpoints.experts}${
       center && center !== "all" ? `?center=${center}` : ""
     }`
   );
   const centerData = await safeFetch(`${endpoints.center}`);
-  // const blogData = await safeFetch(endpoints.blog);
-  // const showcaseData = await safeFetch(endpoints.stats);
-  // const testimonialData = await safeFetch(endpoints.sucessStory);
-  // const homeGalleryData = await safeFetch(endpoints.homeGallery);
+  const blogData = await safeFetch(endpoints.blog);
+  const showcaseData = await safeFetch(endpoints.stats);
+  const testimonialData = await safeFetch(endpoints.sucessStory);
+  const homeGalleryData = await safeFetch(endpoints.homeGallery);
   const footerData = await safeFetch(endpoints.setting);
-  // const locationData = await safeFetch(endpoints.center);
+  const locationData = await safeFetch(endpoints.center);
 
   return {
-    // homedata,
-    // whatweOfferData,
-    // howWeWorkData,
+    homedata,
+    whatweOfferData,
+    howWeWorkData,
     expertsData,
     centerData,
-    // blogData,
-    // showcaseData,
-    // testimonialData,
-    // homeGalleryData,
+    blogData,
+    showcaseData,
+    testimonialData,
+    homeGalleryData,
     footerData,
-    // locationData
+    locationData,
   };
 };

@@ -28,6 +28,7 @@ export interface IHomeFaq {
   question: string;
   answer?: string;
   home: string;
+  category: string;
   created_date: string;
   updated_date: string;
 }
