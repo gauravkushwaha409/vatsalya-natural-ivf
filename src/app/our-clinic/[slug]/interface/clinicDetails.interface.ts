@@ -19,11 +19,22 @@ export interface IClinicDetailsData {
   description: string;
   images: string[];
   timings: string[];
+  patientStory: IClinicDetailPatientStory[];
   contactUsTitle: string;
   expert: IClinicDetailsExpert[];
   seo: IClinicDetailsSeo2;
   created_date: string;
   updated_date: string;
+}
+
+export interface IClinicDetailPatientStory {
+  object: "patientStory";
+  id: string;
+  title: string;
+  description: string;
+  location: string;
+  created_data: string;
+  updated_data: string;
 }
 
 export interface IClinicDetailsExpert {

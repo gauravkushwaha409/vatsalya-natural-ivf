@@ -70,7 +70,13 @@ const ClinicDetailPage: React.FC<Props> = async ({ params }) => {
           phone={clinicDetails?.phone}
           working_days={clinicDetails?.timings}
         />
-        <SuccessStories />
+        <SuccessStories
+          data={clinicDetails?.patientStory?.map((item) => ({
+            author: item?.location,
+            description: item?.description,
+            title: item?.title,
+          }))}
+        />
         <InsideClinic />
         <RequestCallback />
       </section>

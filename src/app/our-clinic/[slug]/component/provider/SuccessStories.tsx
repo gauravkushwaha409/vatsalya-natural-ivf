@@ -8,10 +8,10 @@ import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 interface ISuccessStories {
   description: string;
   author: string;
-  type: string;
+  title: string;
 }
 
-const SuccessStories = () => {
+const SuccessStories = ({ data }: { data: ISuccessStories[] }) => {
   const {
     activeIndex,
     goNext,
@@ -27,6 +27,7 @@ const SuccessStories = () => {
     <div className="u-padding-x u-padding-y bg-primary-50">
       <Heading />
       <StoriesSwapper
+        data={data}
         handleSlideChange={handleSlideChange}
         swiperRef={swiperRef}
         setIsBeginning={setIsBeginning}
@@ -47,48 +48,20 @@ const StoriesSwapper = ({
   handleSlideChange,
   setIsBeginning,
   setIsEnd,
+  data,
 }: {
+  data: ISuccessStories[];
   swiperRef: React.RefObject<SwiperRef | null>;
   handleSlideChange: () => void;
   setIsBeginning: React.Dispatch<React.SetStateAction<boolean>>;
   setIsEnd: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const defaultStories: ISuccessStories[] = [
+  const defaultStories: ISuccessStories[] = data ?? [
     {
+      title: "IUI Journey",
       description:
         "The team at Biratnagar made our journey so much easier. Their compassion and expertise gave us hope when we needed it most. We are forever grateful for their support.",
       author: "M.K., Biratnagar",
-      type: "IUI Journey",
-    },
-    {
-      author: "S.R. & A.R.",
-      description:
-        "Professional, caring, and always available to answer our questions. The facility is modern and comfortable. We felt truly cared for throughout our IVF treatment.",
-      type: "IVF Journey",
-    },
-    {
-      description:
-        "The team at Biratnagar made our journey so much easier. Their compassion and expertise gave us hope when we needed it most. We are forever grateful for their support.",
-      author: "M.K., Biratnagar",
-      type: "IUI Journey",
-    },
-    {
-      author: "S.R. & A.R.",
-      description:
-        "Professional, caring, and always available to answer our questions. The facility is modern and comfortable. We felt truly cared for throughout our IVF treatment.",
-      type: "IVF Journey",
-    },
-    {
-      description:
-        "The team at Biratnagar made our journey so much easier. Their compassion and expertise gave us hope when we needed it most. We are forever grateful for their support.",
-      author: "M.K., Biratnagar",
-      type: "IUI Journey",
-    },
-    {
-      author: "S.R. & A.R.",
-      description:
-        "Professional, caring, and always available to answer our questions. The facility is modern and comfortable. We felt truly cared for throughout our IVF treatment.",
-      type: "IVF Journey",
     },
   ];
   return (
@@ -165,7 +138,7 @@ const StoriesSwapper = ({
             <StoriesCard
               author={team.author}
               description={team.description}
-              type={team.type}
+              title={team.title}
             />
           </SwiperSlide>
         ))}
@@ -192,13 +165,13 @@ const Heading = () => {
   );
 };
 
-const StoriesCard = ({ author, description, type }: ISuccessStories) => {
+const StoriesCard = ({ author, description, title }: ISuccessStories) => {
   return (
     <div className="w-full border border-primary-400 rounded-[28px] p-8 space-y-8">
       <p className="typo-xl-bd-reg text-[#364153]">{description}</p>
       <div className="flex items-center justify-between">
         <span className="typo-lg-bd-reg text-[#101828]">{author}</span>
-        <span className="typo-sm-bd-reg text-[#4A5565]">{type}</span>
+        <span className="typo-sm-bd-reg text-[#4A5565]">{title}</span>
       </div>
     </div>
   );
