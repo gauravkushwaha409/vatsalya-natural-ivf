@@ -11,6 +11,9 @@ import Location from "./component/LocationSection";
 import SuccessStories from "./component/provider/SuccessStories";
 import InsideClinic from "./component/InsideClinic";
 import RequestCallback from "./component/RequestCallback";
+import { getExpertData } from "@/app/(home)/hook/getExpertData";
+import { getCenterData } from "@/app/(home)/hook/getCenterData";
+import ClinicExpert from "./partials/ClinicExpert";
 // import AboutClinic from "./partials/AboutClinic";
 // import ClinicServices from "./partials/ClinicServices";
 // import ContactUs from "./partials/ContactUs";
@@ -20,7 +23,7 @@ import RequestCallback from "./component/RequestCallback";
 
 interface Props {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{}>
+  searchParams: Promise<{}>;
 }
 
 export async function generateMetadata({ params }: Props) {
@@ -39,9 +42,6 @@ const ClinicDetailPage: React.FC<Props> = async ({ params }) => {
       endpoints.center + `/get/${slugs}`
     );
     const { data: service } = await getData(endpoints.service);
-    const expertData = {
-      records: data?.expert,
-    } as unknown as IOurExpertsData;
     return (
       <section>
         <HeroSection />
@@ -49,7 +49,7 @@ const ClinicDetailPage: React.FC<Props> = async ({ params }) => {
           mainWrapperClassName="bg-primary-50"
           data={service?.data?.records}
         />
-        <MeetOurExperts center={} centerParams={} data={expertData} />
+        <ClinicExpert location={data?.slug} expertRecord={data?.expert} />
         <Location />
         <SuccessStories />
         <InsideClinic />

@@ -20,7 +20,7 @@ const FaqHome: React.FC<HomeFaqProps> = ({ data }) => {
   return (
     <section>
       <div className="flex gap-10 px-5 pb-6 md:px-20 sm:pb-10">
-        <div className="items-center justify-start hidden w-full md:flex md:w-1/2">
+        <div className="items-start justify-start hidden w-full md:flex md:w-1/2">
           <div className="relative rounded-lg w-10/12 aspect-[16/16]">
             <Image
               src={pic1}
@@ -100,7 +100,11 @@ const FaqCategory = ({
   setSelectedFaq: React.Dispatch<React.SetStateAction<string>>;
 }) => {
   const category: string[] = Array.from(
-    new Set(data?.map((item) => item?.category))
+    new Set(
+      data
+        ?.map((item) => item?.category)
+        .filter((category): category is string => Boolean(category))
+    )
   );
 
   return (
