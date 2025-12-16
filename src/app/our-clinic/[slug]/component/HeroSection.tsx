@@ -1,6 +1,6 @@
 "use client";
 import useDisclosure from "@/components/hooks/useDisclousre";
-import React, { createContext, useContext } from "react";
+import React from "react";
 import Hero from "./provider/Hero";
 
 // Props for the Hero Section
@@ -11,12 +11,32 @@ interface IHeroSectionProps {
   slug: string;
   features: string[];
   address: string;
-  working_days: string;
+  working_days: string[];
   image: string;
 }
-const HeroSection = () => {
+const HeroSection = ({
+  address,
+  city,
+  clinic_description,
+  clinic_name,
+  features,
+  image,
+  slug,
+  working_days,
+}: IHeroSectionProps) => {
   return (
-    <Hero>
+    <Hero
+      data={{
+        address,
+        city,
+        clinic_description,
+        clinic_name,
+        features,
+        image,
+        slug,
+        working_days,
+      }}
+    >
       <Hero.Container className="">
         <Hero.BreadCrumb />
         <Hero.ContentWrapper>

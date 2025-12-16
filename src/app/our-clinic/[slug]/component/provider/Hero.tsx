@@ -16,7 +16,7 @@ interface IHeroSectionProps {
   slug: string;
   features: string[];
   address: string;
-  working_days: string;
+  working_days: string[];
   image: string;
 }
 
@@ -38,22 +38,29 @@ const useHero = () => {
 };
 
 // Contenxt Provider
-const Hero = ({ children }: { children: React.ReactNode }) => {
+const Hero = ({
+  children,
+  data,
+}: {
+  children: React.ReactNode;
+  data: IHeroSectionProps;
+}) => {
   const modal = useDisclosure();
   const defaultHeroData: IHeroSectionProps = {
-    city: "Biratnagar",
-    clinic_name: "Vatsalya Natural IVF - Biratnagar",
+    city: data?.city || "Biratnagar",
+    clinic_name: data?.clinic_name || "Vatsalya Natural IVF - Biratnagar",
     clinic_description:
+      data?.clinic_description ||
       "Our Biratnagar clinic offers comprehensive fertility care in a modern, comfortable setting. We provide personalized treatment plans with the latest reproductive technologies and compassionate support. Our Biratnagar clinic offers comprehensive fertility care in a modern, comfortable setting. We provide personalized treatment plans with the latest reproductive technologies and compassionate support.",
-    slug: "Biratnagar",
-    features: [
+    slug: data?.slug || "Biratnagar",
+    features: data?.features || [
       "15+ years of Experience",
       "State-of-the-art Lab",
       "Weekend Availability",
     ],
-    address: "Main Road, Biratnagar",
-    working_days: "Sun-Fri, 9 AM - 6 PM",
-    image: "/clinic-detail/hero-image.jpg",
+    address: data?.address || "Main Road, Biratnagar",
+    working_days: data?.working_days || ["Sun-Fri, 9 AM - 6 PM"],
+    image: data?.image || "/clinic-detail/hero-image.jpg",
   };
   return (
     <HeroContext.Provider
@@ -152,9 +159,9 @@ const Content = () => {
       <div className="space-y-6">
         {/* <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-y-4 gap-x-3"> */}
         <div className="flex flex-wrap items-stretch justify-stretch gap-y-4 gap-x-3">
-          {data.features.map((item) => (
+          {data.features.map((item, index) => (
             <span
-              key={item}
+              key={item + index}
               className="grow-1 px-6 py-1.5 text-[#4A5565] typo-lg-bd-reg rounded-full border border-primary-100 text-center text-nowrap shrink-0"
             >
               {item}
@@ -180,7 +187,7 @@ const Content = () => {
                   {item.label}
                 </span>
                 <span className="typo-lg-bd-reg text-[#101828]">
-                  {data[item.accessorKey]}
+                  {data[item.accessorKey][0]}
                 </span>
               </p>
             </div>

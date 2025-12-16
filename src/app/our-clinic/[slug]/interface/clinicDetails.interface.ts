@@ -13,10 +13,12 @@ export interface IClinicDetailsData {
   icon: string;
   location: string;
   phone: string;
+  listItems: string[];
   mapUrl: string;
   email: string;
   description: string;
   images: string[];
+  timings: string[];
   contactUsTitle: string;
   expert: IClinicDetailsExpert[];
   seo: IClinicDetailsSeo2;

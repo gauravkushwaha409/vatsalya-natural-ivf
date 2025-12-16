@@ -38,18 +38,30 @@ export async function generateMetadata({ params }: Props) {
 const ClinicDetailPage: React.FC<Props> = async ({ params }) => {
   try {
     const slugs = (await params).slug;
-    const { data } = await getData<IClinicDetailsRoot>(
+    const { data: clinicDetails } = await getData<IClinicDetailsRoot>(
       endpoints.center + `/get/${slugs}`
     );
     const { data: service } = await getData(endpoints.service);
     return (
       <section>
-        <HeroSection />
+        <HeroSection
+          city={clinicDetails?.name}
+          address={clinicDetails?.location}
+          clinic_description={clinicDetails?.description}
+          clinic_name={clinicDetails?.name}
+          features={clinicDetails?.listItems}
+          image={clinicDetails?.icon}
+          slug={clinicDetails?.slug}
+          working_days={clinicDetails?.timings}
+        />
         <WhatWeOffer
           mainWrapperClassName="bg-primary-50"
           data={service?.data?.records}
         />
-        <ClinicExpert location={data?.slug} expertRecord={data?.expert} />
+        <ClinicExpert
+          location={clinicDetails?.slug}
+          expertRecord={clinicDetails?.expert}
+        />
         <Location />
         <SuccessStories />
         <InsideClinic />
