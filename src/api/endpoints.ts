@@ -51,6 +51,7 @@ interface Endpoints {
     eventsHeader: string;
     eventDetails: string;
   };
+  requestCall: string;
 }
 export interface IBreadCrumb {
   about_us: string;
@@ -179,6 +180,7 @@ export const endpoints: Endpoints = {
 
   terms: "/term",
   privacy: "/privacy",
+  requestCall: "request-call",
 };
 
 export const BASE_API_URL = process.env.NEXT_PUBLIC_API_URL;

@@ -1,5 +1,8 @@
 "use client";
+import { getData } from "@/api/axios";
+import { BASE_API_URL, endpoints } from "@/api/endpoints";
 import FormInputText from "@/components/form/FormInputText";
+import { showSuccessMessage } from "@/utils/toast";
 import { FormikContext, useFormik, useFormikContext } from "formik";
 import { Phone } from "lucide-react";
 
@@ -39,15 +42,36 @@ const Content = () => {
 };
 const CallBack = () => {
   const formik = useFormik({
-    initialValues: {},
-    onSubmit: () => {},
+    initialValues: {
+      name: "",
+      phone: "",
+      city: "",
+      preferedTime: "",
+    },
+    onSubmit: async (values) => {
+      const promise = await fetch(BASE_API_URL + endpoints.requestCall, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (!promise.ok) {
+        const error = await promise.text();
+        throw new Error(error || "Failed to create patient story");
+      }
+      const response = await promise.json();
+      showSuccessMessage(response?.message);
+      formik.resetForm();
+    },
   });
   return (
     <div className="p-8 rounded-[1.75rem] bg-[#FCE1E3]">
       <FormikContext value={formik}>
         <div className=" grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-4">
           <FormInputText
-            name="first_name"
+            name="name"
             label="Full Name"
             placeholder="Enter Full Name..."
             required
@@ -65,13 +89,19 @@ const CallBack = () => {
             required
           />
           <FormInputText
-            name="phone"
+            name="preferedTime"
             label="Preferred Time"
-            placeholder="Eg. Morning / Afternoon"
+            placeholder="Eg. Morning / Afternoon / Evening"
             required
           />
         </div>
-        <button className="w-full mt-6 flex items-center justify-center self-end col-span-2 bg-secondary-500 px-6 py-3 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular">
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            formik.handleSubmit();
+          }}
+          className="w-full mt-6 flex items-center justify-center self-end col-span-2 bg-secondary-500 px-6 py-3 rounded-[6.25rem] font-manrope font-bold text-white typography-paragraph-regular"
+        >
           Request a Callback
         </button>
         <p className="mt-4 typo-mid-bd-reg text-text-400 text-center">
