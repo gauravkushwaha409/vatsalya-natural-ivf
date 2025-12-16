@@ -20,6 +20,7 @@ import RequestCallback from "./component/RequestCallback";
 
 interface Props {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{}>
 }
 
 export async function generateMetadata({ params }: Props) {
@@ -48,7 +49,7 @@ const ClinicDetailPage: React.FC<Props> = async ({ params }) => {
           mainWrapperClassName="bg-primary-50"
           data={service?.data?.records}
         />
-        <MeetOurExperts data={expertData} />
+        <MeetOurExperts center={} centerParams={} data={expertData} />
         <Location />
         <SuccessStories />
         <InsideClinic />
