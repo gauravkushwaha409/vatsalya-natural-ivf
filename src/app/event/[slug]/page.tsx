@@ -5,14 +5,8 @@ import JsonLD from "@/app/(home)/partials/JsonLD";
 import ErrorMessage from "@/components/ErrorMessage";
 import { getEventDetailsData } from "../lib/getEvent";
 
-interface props {
-  params: {
-    slug: Promise<string>;
-  };
-}
-
-const page = async ({ params }: props) => {
-  const slug = (await params.slug) as string;
+const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const { slug } = await params;
   try {
     const { eventDetailsData } = await getEventDetailsData(slug);
     return (
