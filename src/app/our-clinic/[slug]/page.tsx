@@ -62,7 +62,14 @@ const ClinicDetailPage: React.FC<Props> = async ({ params }) => {
           location={clinicDetails?.slug}
           expertRecord={clinicDetails?.expert}
         />
-        <Location />
+        <Location
+          address={clinicDetails?.location}
+          email={clinicDetails?.email}
+          map={clinicDetails?.mapUrl}
+          name={clinicDetails?.name}
+          phone={clinicDetails?.phone}
+          working_days={clinicDetails?.timings}
+        />
         <SuccessStories />
         <InsideClinic />
         <RequestCallback />
