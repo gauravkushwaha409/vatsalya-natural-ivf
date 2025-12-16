@@ -19,6 +19,7 @@ export interface IClinicDetailsData {
   description: string;
   images: string[];
   timings: string[];
+  gallery: IGallery;
   patientStory: IClinicDetailPatientStory[];
   contactUsTitle: string;
   expert: IClinicDetailsExpert[];
@@ -27,6 +28,10 @@ export interface IClinicDetailsData {
   updated_date: string;
 }
 
+export interface IGallery {
+  title: string;
+  image: string[];
+}
 export interface IClinicDetailPatientStory {
   object: "patientStory";
   id: string;

@@ -77,7 +77,12 @@ const ClinicDetailPage: React.FC<Props> = async ({ params }) => {
             title: item?.title,
           }))}
         />
-        <InsideClinic />
+        <InsideClinic
+          title={clinicDetails?.gallery?.title}
+          image1={clinicDetails?.gallery?.image?.[0]}
+          image2={clinicDetails?.gallery?.image?.[1]}
+          image3={clinicDetails?.gallery?.image?.[2]}
+        />
         <RequestCallback />
       </section>
     );
