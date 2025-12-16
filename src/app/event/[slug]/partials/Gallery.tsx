@@ -10,8 +10,7 @@ import { downloadFile } from "@/utils/download";
 const Gallery = ({ data }: { data: IEventDetailsType }) => {
   console.log(data?.eventGallery);
   return (
-    // <div className="pt-4 u-padding-x grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div className="pt-4 u-padding-x gap-6 flex flex-wrap items-center justify-between">
+    <div className="py-4 u-padding-x gap-6 flex flex-wrap items-center justify-between">
       {data?.eventGallery?.videos?.map((item, index) => (
         <VideoSection
           key={item + index}
@@ -154,7 +153,6 @@ export const VideoSection = ({
   eventDate,
 }: VideoSectionProps) => {
   const [isHover, setIsHover] = useState(false);
-  console.log("video render");
   // Container animation
   const containerVariants = {
     hover: { scale: 1.02 },
@@ -210,10 +208,11 @@ export const VideoSection = ({
       <div className="relative h-full min-h-[300px]">
         <video
           className="object-cover w-full h-full"
-          src={src}
-          controls={false}
+          src={"/video.mp4"}
           muted
-          autoPlay={false}
+          autoPlay
+          loop
+          playsInline
         />
       </div>
 

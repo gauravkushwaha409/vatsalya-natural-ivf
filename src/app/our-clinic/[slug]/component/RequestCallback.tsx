@@ -8,7 +8,7 @@ import { Phone } from "lucide-react";
 
 const RequestCallback = () => {
   return (
-    <div className="u-padding-x u-padding-b bg-primary-50 grid grid-cols-1 md:grid-cols-2  u-gap-x">
+    <div className="u-padding-x u-padding-b bg-primary-50 grid grid-cols-1 md:grid-cols-2 u-gap-x u-gap-y">
       <Content />
       <CallBack />
     </div>
@@ -27,7 +27,7 @@ const Content = () => {
         discuss your needs and answer any questions.
       </p>
 
-      <div className="mt-8 flex flex-col gap-y-4 sm:flex-row items-center justify-between">
+      <div className="mt-8 flex flex-col gap-y-4 lg:flex-row items-center justify-between">
         <button className="px-14 py-3.5 typo-xl-bd-reg flex items-center justify-center gap-x-2 border border-primary-500 rounded-full">
           <Phone className="text-secondary-500 size-6" />
           +977 021-123456

@@ -40,6 +40,7 @@ const Header = () => {
     { name: "Blogs", link: PATHS.blog },
     // { name: "International Patient", link: PATHS.international_Patient },
     { name: "Clinic", link: PATHS.clinic },
+    { name: "Event", link: PATHS.event },
     { name: "Contact Us", link: PATHS.contact },
   ];
 

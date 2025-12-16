@@ -126,19 +126,6 @@ const ContentWrapper = ({
 // Content Section
 const Content = () => {
   const { data } = useHero();
-
-  const location_working_hours = [
-    {
-      accessorKey: "address" as keyof IHeroSectionProps,
-      icon: MapPin,
-      label: "Location",
-    },
-    {
-      accessorKey: "working_days" as keyof IHeroSectionProps,
-      icon: Clock,
-      label: "Hours",
-    },
-  ];
   return (
     <div className="space-y-8">
       <div className="md:pr-16 flex flex-col items-start gap-y-6">
@@ -170,28 +157,42 @@ const Content = () => {
         </div>
 
         <div className="flex items-center justify-center md:justify-start flex-wrap gap-4.5">
-          {location_working_hours.map((item) => (
-            <div
-              key={item.accessorKey}
-              className="flex items-center gap-x-3 grow-1 md:grow-0 shrink-0"
-            >
-              <span className="w-fit p-1.5 md:p-2.5 rounded-full flex  items-center justify-center bg-[#FFF5F4]">
-                <item.icon
-                  color="#222326"
-                  className="size-3.5 md:size-5 font-normal"
-                />
-              </span>
+          {/* Location */}
+          <div className="flex items-center gap-x-3 grow-1 md:grow-0 shrink-0">
+            <span className="w-fit p-1.5 md:p-2.5 rounded-full flex  items-center justify-center bg-[#FFF5F4]">
+              <MapPin
+                color="#222326"
+                className="size-3.5 md:size-5 font-normal"
+              />
+            </span>
 
-              <p className="flex flex-col">
-                <span className="typo-mid-bd-reg text-[#6A6F77] hidden md:inline">
-                  {item.label}
-                </span>
-                <span className="typo-lg-bd-reg text-[#101828]">
-                  {data[item.accessorKey][0]}
-                </span>
-              </p>
-            </div>
-          ))}
+            <p className="flex flex-col">
+              <span className="typo-mid-bd-reg text-[#6A6F77] hidden md:inline">
+                Location
+              </span>
+              <span className="typo-lg-bd-reg text-[#101828]">
+                {data?.address}
+              </span>
+            </p>
+          </div>
+          {/* Working Hours */}
+          <div className="flex items-center gap-x-3 grow-1 md:grow-0 shrink-0">
+            <span className="w-fit p-1.5 md:p-2.5 rounded-full flex  items-center justify-center bg-[#FFF5F4]">
+              <Clock
+                color="#222326"
+                className="size-3.5 md:size-5 font-normal"
+              />
+            </span>
+
+            <p className="flex flex-col">
+              <span className="typo-mid-bd-reg text-[#6A6F77] hidden md:inline">
+                Working Hours
+              </span>
+              <span className="typo-lg-bd-reg text-[#101828]">
+                {data?.working_days[0]}
+              </span>
+            </p>
+          </div>
         </div>
       </div>
       <div className="flex justify-center md:justify-start">

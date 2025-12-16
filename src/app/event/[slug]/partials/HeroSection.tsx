@@ -20,20 +20,22 @@ const BreadCrumb = ({ data }: { data: IEventDetailsType }) => {
       <CustomBreadcrumb
         items={[
           { name: "Home", isHome: true, link: PATHS.home },
-          { name: "Event" },
+          { name: "Event", link: PATHS.event },
         ]}
       />
-      <p className="capitalize mt-2.5 text-secondary-500 text-center font-urbanist text-[2.5rem] font-extrabold leading-[150%] tracking-[-0.78px]">
-        {data.title}
-      </p>
-      <p className="w-2xl mx-auto text-[#828282] text-center font-urbanist font-medium leading-[150%] tracking-[-0.28px]">
-        {data.description}
-      </p>
       <div className="w-full">
-        <p className=" capitalize mt-10 text-left text-text-500 font-urbanist text-[1.25rem] font-semibold leading-7.5">
+        <p className="capitalize mt-2.5 text-secondary-500 text-center font-urbanist text-[2.5rem] font-extrabold leading-[150%] tracking-[-0.78px]">
           {data.title}
         </p>
-        <div className="h-[1px] w-full bg-[#cecece]" />
+        <p className="mx-auto text-[#828282] text-center font-urbanist font-medium leading-[150%] tracking-[-0.28px]">
+          {data.description}
+        </p>
+        <div className="w-full">
+          <p className=" capitalize mt-10 text-left text-text-500 font-urbanist text-[1.25rem] font-semibold leading-7.5">
+            {data.title}
+          </p>
+          <div className="h-[1px] w-full bg-[#cecece]" />
+        </div>
       </div>
     </div>
   );

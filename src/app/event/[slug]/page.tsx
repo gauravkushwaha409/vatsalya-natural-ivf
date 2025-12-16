@@ -20,7 +20,7 @@ const page = async ({ params }: props) => {
         <JsonLD />
         <div className="bg-primary-50">
           <HeroSection data={eventDetailsData?.data} />
-          <Gallery data={eventDetailsData?.data} />{" "}
+          <Gallery data={eventDetailsData?.data} />
         </div>
       </>
     );

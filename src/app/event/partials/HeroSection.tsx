@@ -33,7 +33,7 @@ const BreadCrumb = ({ data }: { data: IEventHeaderType }) => {
       <p className="mt-2.5 text-secondary-500 text-center font-urbanist text-[2.5rem] font-extrabold leading-[150%] tracking-[-0.78px]">
         {data.title}
       </p>
-      <p className="w-2xl mx-auto text-[#828282] text-center font-urbanist font-medium leading-[150%] tracking-[-0.28px]">
+      <p className="mx-auto text-[#828282] text-center font-urbanist font-medium leading-[150%] tracking-[-0.28px]">
         {data.subtitle}
       </p>
     </div>
@@ -73,7 +73,7 @@ const SearchBox = ({ data }: { data: IEventHeaderType }) => {
   );
 
   return (
-    <div className="mt-6 p-2 w-2xl mx-auto flex items-center justify-between rounded-full bg-[#f7e1e0]">
+    <div className="mt-6 p-2 max-w-2xl mx-auto flex items-center justify-between rounded-full bg-[#f7e1e0]">
       <input
         placeholder="What are you looking for?"
         type="text"
