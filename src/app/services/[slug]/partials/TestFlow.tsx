@@ -7,7 +7,7 @@ import Image from "next/image";
 const TestFlow = () => {
   return (
     <>
-      <div className="flex items-center mt-38 overflow-hidden flex-col lg:flex-row justify-between">
+      <div className="flex items-center mt-38 overflow-hidden flex-col lg:flex-row justify-between u-padding-r u-gap-x">
         <motion.div
           className="w-full lg:w-[600px] h-full lg:h-[493px] mb-10 lg:mb-0"
           initial={{ x: -200, opacity: 0 }}
@@ -61,7 +61,7 @@ const TestFlow = () => {
         </div>
       </div>
 
-      <div className="flex items-center mt-18 overflow-hidden flex-col lg:flex-row justify-between">
+      <div className="flex items-center mt-18 overflow-hidden flex-col lg:flex-row u-gap-x justify-between">
         <div className="padding-r pr-0 u-padding-l max-w-[652px] w-full">
           <p className="text-[#090909] text-[27px] leading-[150%] font-bold mb-4">
             TESA-MESA Treatment
@@ -115,7 +115,7 @@ const TestFlow = () => {
         </motion.div>
       </div>
 
-      <div className="flex items-center my-18 overflow-hidden flex-col lg:flex-row justify-between">
+      <div className="flex items-center my-18 overflow-hidden flex-col lg:flex-row justify-between u-gap-x u-padding-r">
         <motion.div
           className="w-full lg:w-[600px] h-full lg:h-[493px] mb-10 lg:mb-0"
           initial={{ x: -200, opacity: 0 }}

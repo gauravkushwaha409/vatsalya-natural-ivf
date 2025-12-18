@@ -53,7 +53,7 @@ const ServiceHero: React.FC<Props> = ({ data, headingData }) => {
       </div>
 
       <div
-        className="padding py-18 flex flex-col lg:flex-row justify-between gap-4 lg:gap-0"
+        className="u-padding-x py-18 flex flex-col lg:flex-row justify-between gap-4 lg:gap-0"
         style={{
           background:
             "linear-gradient(270deg, rgba(255, 210, 206, 0.2) 0%, rgba(235, 192, 219, 0.2) 100%)",

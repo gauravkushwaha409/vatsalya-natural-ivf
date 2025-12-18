@@ -6,7 +6,7 @@ interface Props {
 }
 const ServiceHeader: React.FC<Props> = ({ data }) => {
   return (
-    <div className="flex flex-col items-center mb-4 padding">
+    <div className="flex flex-col items-center mb-4 u-padding-x">
       <div className="flex justify-center items-center gap-4 w-full">
         {/* line  */}
         <div className="flex-1 bg-primary-400 max-w-[148px] h-px"></div>

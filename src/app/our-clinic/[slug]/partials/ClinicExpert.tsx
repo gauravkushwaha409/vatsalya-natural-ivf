@@ -101,7 +101,7 @@ const ClinicExpert: React.FC<MeetExpertsProps> = ({
               slidesPerView: 3,
               spaceBetween: 24,
             },
-            1280: {
+            1440: {
               slidesPerView: 4,
               spaceBetween: 24,
             },
