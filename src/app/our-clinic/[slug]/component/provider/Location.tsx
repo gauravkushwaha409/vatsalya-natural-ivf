@@ -39,7 +39,7 @@ const Location = ({
   };
   return (
     <LocationContext.Provider value={defaultValues}>
-      <div className="u-padding-x u-padding-y bg-primary-50">{children}</div>
+      <div className="u-padding-x u-padding-y">{children}</div>
     </LocationContext.Provider>
   );
 };

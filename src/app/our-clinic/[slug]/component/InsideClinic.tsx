@@ -11,7 +11,7 @@ interface IProps {
 
 const InsideClinic = ({ title, image1, image2, image3 }: IProps) => {
   return (
-    <div className="u-padding-x u-padding-y space-y-11 bg-primary-50">
+    <div className="u-padding-x u-padding-y space-y-11">
       <Heading title={title} />
       <Gallery image1={image1} image2={image2} image3={image3} />
     </div>
@@ -36,9 +36,19 @@ const Gallery = ({
   image3: string;
 }) => {
   return (
-    <div className="h-100 w-full grid grid-cols-2 gap-x-6">
-      <ImageSection className="w-full" src={image1} />
-      <div className="grid grid-rows-2 gap-y-6">
+    <div>
+      {/* For Desktop */}
+      <div className="hidden h-100 w-full sm:grid grid-cols-2 gap-x-6">
+        <ImageSection className="w-full" src={image1} />
+        <div className="grid grid-rows-2 gap-y-6">
+          <ImageSection className="" src={image2} />
+          <ImageSection className="" src={image3} />
+        </div>
+      </div>
+
+      {/* For Phone */}
+      <div className="sm:hidden h-150 w-full grid grid-rows-3 gap-x-6">
+        <ImageSection className="w-full" src={image1} />
         <ImageSection className="" src={image2} />
         <ImageSection className="" src={image3} />
       </div>

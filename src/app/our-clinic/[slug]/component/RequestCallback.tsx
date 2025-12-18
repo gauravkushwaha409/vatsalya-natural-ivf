@@ -5,17 +5,30 @@ import FormInputText from "@/components/form/FormInputText";
 import { showSuccessMessage } from "@/utils/toast";
 import { FormikContext, useFormik, useFormikContext } from "formik";
 import { Phone } from "lucide-react";
+import React from "react";
 
-const RequestCallback = () => {
+interface IProps {
+  phone: string | null;
+}
+
+const RequestCallback = ({ phone }: IProps) => {
   return (
-    <div className="u-padding-x u-padding-b bg-primary-50 grid grid-cols-1 md:grid-cols-2 u-gap-x u-gap-y">
-      <Content />
+    <div className="u-padding-x u-padding-b grid grid-cols-1 md:grid-cols-2 u-gap-x u-gap-y">
+      <Content phone={phone} />
       <CallBack />
     </div>
   );
 };
 
-const Content = () => {
+const Content = ({ phone }: IProps) => {
+  const handleClickPhone = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    window.location.href = `tel:${phone}`;
+  };
+  const handleClickWhatsapp = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    window.open(`https://wa.me/${phone}`, "_blank");
+  };
   return (
     <div>
       <p className="typo-sub-h3-reg text-text-500">
@@ -28,11 +41,17 @@ const Content = () => {
       </p>
 
       <div className="mt-8 flex flex-col gap-y-4 lg:flex-row items-center justify-between">
-        <button className="px-14 py-3.5 typo-xl-bd-reg flex items-center justify-center gap-x-2 border border-primary-500 rounded-full">
+        <button
+          onClick={handleClickPhone}
+          className="px-14 py-3.5 typo-xl-bd-reg flex items-center justify-center gap-x-2 border border-primary-500 rounded-full"
+        >
           <Phone className="text-secondary-500 size-6" />
           +977 021-123456
         </button>
-        <button className="px-14 py-3.5 typo-xl-bd-reg flex items-center justify-center gap-x-2 border border-primary-500 rounded-full">
+        <button
+          onClick={handleClickWhatsapp}
+          className="px-14 py-3.5 typo-xl-bd-reg flex items-center justify-center gap-x-2 border border-primary-500 rounded-full"
+        >
           <WhatsApp />
           +977 021-123456
         </button>

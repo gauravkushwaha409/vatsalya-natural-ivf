@@ -70,7 +70,7 @@ const Hero = ({
         setOpenModal: modal.set,
       }}
     >
-      <div className="padding bg-primary-50">{children}</div>
+      <div className="padding">{children}</div>
       <RequestAppoimentModal isOpen={modal.isOpen} onClose={modal.close} />
     </HeroContext.Provider>
   );
@@ -138,9 +138,10 @@ const Content = () => {
             {data?.clinic_name}
           </span>
         </div>
-        <p className="mt-6 typo-lg-bd-reg text-center md:text-left text-secondary-500">
-          {data?.clinic_description}
-        </p>
+        <div
+          className="mt-6 typo-lg-bd-reg text-center md:text-left text-secondary-500"
+          dangerouslySetInnerHTML={{ __html: data?.clinic_description }}
+        />
       </div>
 
       <div className="space-y-6">

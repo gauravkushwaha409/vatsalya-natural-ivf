@@ -24,7 +24,7 @@ const SuccessStories = ({ data }: { data: ISuccessStories[] }) => {
   const [isBeginning, setIsBeginning] = useState<boolean>(true);
   const [isEnd, setIsEnd] = useState<boolean>(false);
   return (
-    <div className="u-padding-x u-padding-y bg-primary-50">
+    <div className="u-padding-x u-padding-y">
       <Heading />
       <StoriesSwapper
         data={data}

@@ -34,7 +34,7 @@ const ClinicExpert: React.FC<MeetExpertsProps> = ({
   const { swiperRef, handleSlideChange, goPrev, goNext } = useSlider();
 
   return (
-    <div className="pb-10 md:pb-20 padding bg-background-100">
+    <div className="pb-10 md:pb-20 padding">
       <Heading />
 
       <div className="relative">

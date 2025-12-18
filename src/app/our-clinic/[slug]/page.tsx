@@ -54,10 +54,7 @@ const ClinicDetailPage: React.FC<Props> = async ({ params }) => {
           slug={clinicDetails?.slug}
           working_days={clinicDetails?.timings}
         />
-        <WhatWeOffer
-          mainWrapperClassName="bg-primary-50"
-          data={service?.data?.records}
-        />
+        <WhatWeOffer data={service?.data?.records} />
         <ClinicExpert
           location={clinicDetails?.slug}
           expertRecord={clinicDetails?.expert}
@@ -83,7 +80,7 @@ const ClinicDetailPage: React.FC<Props> = async ({ params }) => {
           image2={clinicDetails?.gallery?.image?.[1]}
           image3={clinicDetails?.gallery?.image?.[2]}
         />
-        <RequestCallback />
+        <RequestCallback phone={clinicDetails?.phone} />
       </section>
     );
   } catch (error) {
