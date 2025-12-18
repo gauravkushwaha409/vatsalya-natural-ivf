@@ -9,7 +9,7 @@ const Milestone: React.FC<Props> = ({ data }) => {
   return (
     <div className="pb-16 md:pb-24 ">
       <div className="w-full bg-primary-50 py-16 padding ">
-        <div className=" flex flex-col md:flex-row items-center gap-10">
+        <div className="grid grid-cols-1 2xl:grid-cols-2 items-center gap-10">
           {/* Left Section */}
           <div className="flex items-center gap-4 space-y-5">
             <div className="space-y-4 w-full lg:w-lg">

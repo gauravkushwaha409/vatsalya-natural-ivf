@@ -104,12 +104,12 @@ const MeetOurExperts: React.FC<MeetExpertsProps> = ({
               slidesPerView: 3,
               spaceBetween: 24,
             },
-            1280: {
+            1440: {
               slidesPerView: 4,
               spaceBetween: 24,
             },
           }}
-          className="w-full custom-swiper"
+          className="w-full custom-swipe"
         >
           {data?.records?.map((team) => (
             <SwiperSlide key={team.id}>
@@ -231,7 +231,7 @@ const NavigationButton = ({
   isEnd: boolean;
 }) => {
   return (
-    <div className="absolute z-10 flex items-center justify-end gap-3 mt-2 lg:-mt-6 w-fit right-4 md:right-20">
+    <div className="absolute z-10 flex items-center justify-end gap-3 mt-2 w-fit right-4 md:right-20">
       <button
         type="button"
         onClick={goPrev}

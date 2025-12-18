@@ -105,9 +105,10 @@ const NavCalculator = () => {
         style={{
           boxShadow: "0px 5.486px 12.343px 0px rgba(215, 101, 120, 0.33)",
         }}
-        className="flex items-center gap-3 bg-secondary-500 px-8 py-4 border border-secondary-200 rounded-full  font-extrabold text-white cursor-pointer typography-paragraph-regular"
+        className="flex items-center gap-3 bg-secondary-500 px-4 py-2 border border-secondary-200 rounded-full  font-extrabold text-white cursor-pointer typography-paragraph-regular"
       >
-        <PiCalculatorBold /> Calculator <MdOutlineArrowDropDown size={20} />
+        <PiCalculatorBold size={16} /> Fertility Tool{" "}
+        <MdOutlineArrowDropDown size={16} />
       </button>
       {isMounted && (
         <DropdownPortal isOpen={dropdownOpen} onSelect={handleSelect} />

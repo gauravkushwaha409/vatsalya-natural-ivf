@@ -29,7 +29,7 @@ const Family: React.FC<Props> = ({ data }) => {
           dangerouslySetInnerHTML={{ __html: data?.description || "" }}
         />
 
-        <div className="w-full h-96 mt-4">
+        <div className="w-full h-110 mt-4">
           <Image
             src={data?.image}
             alt="Family Photo"

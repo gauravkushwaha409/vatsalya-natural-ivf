@@ -56,7 +56,7 @@ const Culture: React.FC<Props> = ({ data }) => {
     },
   ];
   return (
-    <div>
+    <div className="overflow-hidden">
       <div className="pb-16 md:pb-24 padding">
         <div className="flex flex-col items-center text-center space-y-4">
           <div className="flex items-center w-full justify-center gap-4 max-w-3xl">

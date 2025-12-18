@@ -71,7 +71,7 @@ const FaqHome: React.FC<HomeFaqProps> = ({ data }) => {
 };
 
 const FaqWrapper = ({ data }: { data: IHomeFaq[] }) => {
-  const [selectedFaq, setSelectedFaq] = useState<string>("All");
+  const [selectedFaq, setSelectedFaq] = useState<string | null>(null);
   return (
     <React.Fragment>
       <FaqCategory
@@ -96,8 +96,8 @@ const FaqCategory = ({
   setSelectedFaq,
 }: {
   data: IHomeFaq[];
-  selectedFaq: string;
-  setSelectedFaq: React.Dispatch<React.SetStateAction<string>>;
+  selectedFaq: string | null;
+  setSelectedFaq: React.Dispatch<React.SetStateAction<string | null>>;
 }) => {
   const category: string[] = Array.from(
     new Set(
@@ -114,7 +114,7 @@ const FaqCategory = ({
       }}
       className="px-3 py-2 flex items-center gap-x-6 overflow-x-auto"
     >
-      {["All", ...category]?.map((item, index) => (
+      {category?.map((item, index) => (
         <button
           key={item + index}
           onClick={(e: React.MouseEvent<HTMLButtonElement>) => {

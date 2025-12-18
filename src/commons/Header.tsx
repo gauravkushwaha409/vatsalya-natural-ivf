@@ -50,7 +50,7 @@ const Header = () => {
   ];
 
   return (
-    <motion.header className="top-0 z-50 sticky bg-background-100 py-2.5 lg:py-6 text-white padding">
+    <motion.header className="top-0 z-50 sticky bg-background-100 py-2.5 lg:py-6 text-white u-padding-x">
       <div className="flex justify-between items-center">
         <Link href="/">
           <Image
@@ -64,7 +64,7 @@ const Header = () => {
         </Link>
 
         <nav className="my-2.5 w-auto hide-for-mobile">
-          <ul className="flex justify-between items-center gap-6">
+          <ul className="flex justify-between items-center gap-4">
             {navLinks.map((item, index) => {
               const isActive = pathname === item.link;
               const hasChildren = item.children && item.children.length > 0;
@@ -117,9 +117,9 @@ const Header = () => {
               style={{
                 boxShadow: "0px 5.486px 12.343px 0px rgba(215, 101, 120, 0.33)",
               }}
-              className="flex items-center gap-3 bg-secondary-500 px-8 py-4 border border-secondary-200 rounded-full font-extrabold text-white cursor-pointer typography-paragraph-regular"
+              className="flex items-center gap-3 bg-secondary-500 px-4 py-2 border border-secondary-200 rounded-full font-extrabold text-white cursor-pointer typography-paragraph-regular"
             >
-              <PhoneCall size={20} />
+              <PhoneCall size={16} />
               +977-1-5970611
             </button>
           </div>
