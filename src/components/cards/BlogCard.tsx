@@ -14,7 +14,7 @@ const BlogCard: React.FC<IBlog> = ({ data }) => {
   return (
     <>
       <div className="max-w-md  overflow-hidden bg-white shadow-[0px_0px_32px_0px_#FBCED140] rounded-[32px] h-[412px] transition-all duration-600 transform hover:-translate-y-5 ease-in-out">
-        <div className="w-full lg:max-w-[311px] h-[240px]">
+        <div className="w-full h-[240px]">
           {/* Image */}
           <Link href={`/blog/${data?.slug}`}>
             <Image

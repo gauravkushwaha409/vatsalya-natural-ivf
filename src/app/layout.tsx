@@ -11,6 +11,7 @@ import { getHomePageData } from "./(home)/hook/hook.hook";
 import "./globals.css";
 import Providers from "./providers";
 import FooterMenu from "@/commons/partials/FooterMenu";
+import LenishProvider from "@/components/LenishWrapper";
 
 const urbanist = Urbanist({
   variable: "--font-urbanist",
@@ -124,7 +125,9 @@ export default async function RootLayout({
         <div className="top-0 -z-20 absolute inset-x-0 bg-primary-50 " />
         <Providers>
           <Header />
-          <div className="max-w-app">{children}</div>
+          <LenishProvider>
+            <div className="max-w-app">{children}</div>
+          </LenishProvider>
           <Footer />
           <FooterMenu />
           {/* 
