@@ -135,7 +135,7 @@ const MissionVision: React.FC<Props> = ({ data }) => {
                 {data?.subtitle}{" "}
               </h2>
               <p
-                className="text-text-400 text-justify typography-paragraph-large font-medium leading-relaxed"
+                className="text-text-400 text-justify typography-paragraph-regular text-[16px] font-medium leading-relaxed"
                 dangerouslySetInnerHTML={{ __html: data?.description || "" }}
               />
             </div>

@@ -45,14 +45,14 @@ const Leader: React.FC<Props> = ({ data }) => {
               </div> */}
         </div>
         <div className="space-y-[0.88rem]">
-          <h2 className="font-bold leading-[150%] typography-h2">
+          <h2 className="font-bold leading-[150%] typography-h3">
             {data?.leaderName}
           </h2>
-          <p className="font-semibold text-text-500 typography-h4">
+          <p className="-mt-4 font-semibold text-text-500 typography-h5">
             {data?.leaderPosition}
           </p>
           <p
-            className="text-text-400 leading-[150%] typography-paragraph-large porse"
+            className="text-text-400 leading-[150%] typography-paragraph-regular text-[16px] porse"
             dangerouslySetInnerHTML={{
               __html: data?.leaderMessage || "",
             }}

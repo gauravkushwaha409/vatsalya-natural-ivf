@@ -22,6 +22,7 @@ const Location = ({ data }: LocationProps) => {
   const handleAppointmentClick = () => {
     setOpenModal(true);
   };
+  console.log("location data----------->", data);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
@@ -77,9 +78,9 @@ const Location = ({ data }: LocationProps) => {
               {data.map((location, index) => (
                 <SwiperSlide key={index} className="flex-shrink-0 w-full">
                   <div className="pb-5 bg-white shadow-[0px_0px_32px_0px_#FBCED140] rounded-[42px]">
-                    <div className="w-[311px] h-[190px] rounded-[32px] mb-4.5">
+                    <div className="w-full h-[190px] rounded-[32px] mb-4.5">
                       <Image
-                        src={location?.icon}
+                        src={location?.images[0] || location?.icon}
                         alt={location?.name}
                         width={800}
                         height={800}

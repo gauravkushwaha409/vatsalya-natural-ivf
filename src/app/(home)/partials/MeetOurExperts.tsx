@@ -360,7 +360,7 @@ const ExpertCard = ({
           View Profile
           <ChevronRight className="size-[16px]" />
         </Link>
-        {/* <button
+        <button
           onClick={(e) => {
             e.preventDefault();
             setOpenModal(true);
@@ -370,7 +370,7 @@ const ExpertCard = ({
           className="px-4 py-1.5 text-primary-500 rounded-full border border-primary-500 text-[13px] leading-[120%] tracking-[-2%]"
         >
           Book Appointment
-        </button> */}
+        </button>
       </div>
     </div>
   );

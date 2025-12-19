@@ -22,7 +22,7 @@ const OurStory: React.FC<Props> = ({ data }) => {
               {data?.subtitle}{" "}
             </h2>
 
-            <div className="space-y-4 text-text-400 text-justify typography-paragraph-large font-medium">
+            <div className="space-y-4 text-text-400 text-justify typography-paragraph-regular text-[16px] font-medium">
               <p
                 className="leading-relaxed "
                 dangerouslySetInnerHTML={{ __html: data?.description || "" }}

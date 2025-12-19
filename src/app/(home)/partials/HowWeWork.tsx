@@ -86,11 +86,14 @@ const StepCard = ({
     <div className="w-xl min-h-max overflow-hidden">
       <div className="mx-auto w-fit flex gap-4">
         {/* Step Circle */}
-        <div className="flex flex-col items-center w-full max-w-[280px] h-52 gap-4 ">
-          <button
-            onClick={() => setActiveStep(activeStep === index ? null : index)}
-            className="relative shrink-0 w-[120px] h-[120px] flex items-center justify-center cursor-pointer"
-          >
+        <div
+          onMouseEnter={(e: React.MouseEvent<HTMLDivElement>) => {
+            e.preventDefault();
+            setActiveStep(activeStep === index ? null : index);
+          }}
+          className="flex flex-col items-center w-full max-w-[280px] h-52 gap-4"
+        >
+          <button className="relative shrink-0 w-[120px] h-[120px] flex items-center justify-center cursor-pointer">
             {/* Background */}
             <div className="absolute inset-0 rounded-full bg-[#FF6F6114]" />
             <div className="absolute border-8 border-white rounded-full inset-3" />
@@ -141,7 +144,7 @@ const StepCard = ({
             </span>
           </button>
 
-          <p className="text-[#3A3A3A] text-[20px] text-center leading-[150%] tracking-[-3%]">
+          <p className="text-[#3A3A3A] text-[18px] text-center leading-[150%] tracking-[-3%]">
             {stepTitle || "Step Title"}
           </p>
         </div>

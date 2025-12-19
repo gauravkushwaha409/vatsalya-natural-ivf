@@ -24,6 +24,7 @@ export interface ICenter {
   icon: string;
   location: string;
   phone: string[];
+  images: string[];
   created_date: string;
   updated_date: string;
   mapUrl: string;

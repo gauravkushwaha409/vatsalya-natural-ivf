@@ -25,7 +25,7 @@ const Family: React.FC<Props> = ({ data }) => {
         </h2>
 
         <p
-          className="text-text-400 typography-paragraph-large leading-[150%] font-medium max-w-7xl"
+          className="text-text-400 typography-paragraph-regular text-[16px] leading-[150%] font-medium max-w-7xl"
           dangerouslySetInnerHTML={{ __html: data?.description || "" }}
         />
 
