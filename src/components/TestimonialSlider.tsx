@@ -58,7 +58,7 @@ const TestimonialSlider: React.FC<Props> = ({ data }) => {
         }
       `}</style>
       <div
-        className="relative padding py-10 overflow-hidden w-full max-h-[853px]"
+        className="relative u-padding-x py-10 overflow-hidden w-full max-h-[853px]"
         style={{
           background:
             "linear-gradient(270deg, rgba(255, 210, 206, 0.3) 0%, rgba(235, 192, 219, 0.3) 100%)",
@@ -176,19 +176,19 @@ const TestimonialSlider: React.FC<Props> = ({ data }) => {
           </button>
         </div>
 
-        <button
+        {/* <button
           type="button"
           onClick={() => handleAppointmentClick()}
           className="flex items-center gap-3 px-8 py-4 mx-auto mt-10 font-extrabold text-white border rounded-full cursor-pointer bg-secondary-500 border-secondary-200 typography-paragraph-regular"
         >
           Book your Appointment
-        </button>
+        </button> */}
       </div>
 
-      <RequestAppoimentModal
+      {/* <RequestAppoimentModal
         isOpen={openModal}
         onClose={() => setOpenModal(false)}
-      />
+      /> */}
 
       <VideoModal
         isOpen={isOpenModal}

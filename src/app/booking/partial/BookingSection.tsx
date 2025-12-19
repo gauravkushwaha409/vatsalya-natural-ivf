@@ -5,7 +5,7 @@ import BookingForm from "./BookingForm";
 
 const BookingSection = () => {
   return (
-    <div className="padding py-10">
+    <div className="u-padding-x py-10">
       <div className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-20 items-center ">
         {/* Image Section */}
         <div className="w-full max-w-[459px]">

@@ -13,7 +13,7 @@ interface IFertilityCare {
 const DetailedServices: React.FC<IFertilityCare> = ({ data }) => {
   return (
     <section>
-      <div className="bg-[#FDF7F7] padding pt-10 lg:pt-20 overflow-hidden">
+      <div className="bg-[#FDF7F7] u-padding-x pt-10 lg:pt-20 overflow-hidden">
         <motion.div
           whileInView={{ opacity: 1 }}
           initial={{ opacity: 0 }}

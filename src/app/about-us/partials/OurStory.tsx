@@ -9,7 +9,7 @@ type Props = {
 const OurStory: React.FC<Props> = ({ data }) => {
   return (
     <div>
-      <section className="padding py-16 md:py-24">
+      <section className="u-padding-x py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-18 items-center">
           <div className="space-y-6 ">
             <div className="flex items-center w-full  gap-4 ">

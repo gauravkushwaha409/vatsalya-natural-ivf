@@ -55,7 +55,7 @@ const Footer = async () => {
     <>
       <GetStarted centerData={centerData} />
       {/* <FooterSeo /> */}
-      <div className="max-w-app bg-background-100 backdrop-blur-[5.6px] pt-10 overflow-hidden text-text-400 padding">
+      <div className="max-w-app bg-[#FFE8E7] backdrop-blur-[5.6px] pt-10 overflow-hidden text-text-400 padding">
         <div className=" gap-4 lg:gap-[2rem] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {/* About Section */}
           <div className="col-span-2 lg:space-y-3 text-text-400 typography-paragraph-regular">
@@ -215,12 +215,20 @@ const Footer = async () => {
           {footerData?.data?.copyRight}
         </p>
         <p className="text-text-400 typography-caption font-normal text-center pb-30 sm:pb-8">
-          Disclaimer : Vatsalya strictly complies with the PCPNDT Act, 2020 and
-          the ART (Regulation) Act, 2021, which prohibit sex selection and
-          gender determination, both being criminal offenses. We do not support
-          or engage in any such practices. All fertility services are provided
-          solely at our registered clinics by licensed medical professionals, in
-          full accordance with applicable laws and regulations.
+          Disclaimer : Vatsalya strictly complies with all applicable laws of
+          Nepal, including the National Safe Motherhood and Reproductive Health
+          Rights Act, 2018, the Muluki Criminal Code, 2017 (2074 B.S.), and
+          other prevailing regulations that prohibit sex selection and prenatal
+          gender determination, which are criminal offenses under Nepalese
+          law.We do not support, promote, or engage in any form of gender
+          determination or sex selection before or after conception. All
+          fertility and reproductive health services are provided only at our
+          registered and authorized clinics by licensed and qualified medical
+          professionals, in full compliance with the laws, ethical guidelines,
+          and medical standards prescribed by the Government of Nepal.Vatsalya
+          is committed to ethical medical practice, patient safety, and the
+          promotion of reproductive health rights in accordance with Nepalese
+          legal and regulatory frameworks.
         </p>
       </div>
     </>

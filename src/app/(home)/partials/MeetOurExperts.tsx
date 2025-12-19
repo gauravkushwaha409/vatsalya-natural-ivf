@@ -36,7 +36,7 @@ const MeetOurExperts: React.FC<MeetExpertsProps> = ({
   const { swiperRef, handleSlideChange, goPrev, goNext } = useSlider();
 
   return (
-    <div className="pb-10 md:pb-20 padding bg-background-100">
+    <div className="pb-10 md:pb-20 u-padding-x bg-background-100">
       <Heading />
       <ExpertLocations data={center} centerParams={centerParams} />
 
@@ -140,7 +140,7 @@ const MeetOurExperts: React.FC<MeetExpertsProps> = ({
         />
 
         {/* Book Appointment Button */}
-        <BookAppointment handleAppointmentClick={handleAppointmentClick} />
+        {/* <BookAppointment handleAppointmentClick={handleAppointmentClick} /> */}
       </div>
       {/* Appointment Modal */}
       <RequestAppoimentModal
@@ -360,7 +360,7 @@ const ExpertCard = ({
           View Profile
           <ChevronRight className="size-[16px]" />
         </Link>
-        <button
+        {/* <button
           onClick={(e) => {
             e.preventDefault();
             setOpenModal(true);
@@ -370,7 +370,7 @@ const ExpertCard = ({
           className="px-4 py-1.5 text-primary-500 rounded-full border border-primary-500 text-[13px] leading-[120%] tracking-[-2%]"
         >
           Book Appointment
-        </button>
+        </button> */}
       </div>
     </div>
   );

@@ -17,12 +17,12 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
   };
 
   return (
-    <div className=" u-padding-x py-6 bg-white bg-linear-to-l from-[#FFD2CE]/70 to-[#EBC0DB]/70">
+    <div className=" u-padding-x py-6 no-scrollbar bg-white bg-linear-to-l from-[#FFD2CE]/70 to-[#EBC0DB]/70">
       {/* Header */}
       <Heading title={data.title} subTitle={data.subtitle} />
 
       {/* Desktop Layout */}
-      <div className="hidden lg:grid grid-cols-3">
+      <div className="flex 2xl:justify-between overflow-x-auto">
         {data?.HowWorksDetails?.map((step, index) => (
           <StepCard
             activeStep={activeStep}
@@ -37,11 +37,11 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ data }) => {
       <StartJourneyButton handleAppointmentClick={handleAppointmentClick} />
 
       {/* Mobile Swiper Layout */}
-      <MobileSwiper
+      {/* <MobileSwiper
         activeStep={activeStep}
         data={data}
         setActiveStep={setActiveStep}
-      />
+      /> */}
 
       <RequestAppoimentModal
         isOpen={openModal}
@@ -83,7 +83,7 @@ const StepCard = ({
   setActiveStep: React.Dispatch<React.SetStateAction<number | null>>;
 }) => {
   return (
-    <div className="w-full overflow-hidden">
+    <div className="w-xl min-h-max overflow-hidden">
       <div className="mx-auto w-fit flex gap-4">
         {/* Step Circle */}
         <div className="flex flex-col items-center w-full max-w-[280px] h-52 gap-4 ">
@@ -141,7 +141,7 @@ const StepCard = ({
             </span>
           </button>
 
-          <p className="text-[#3A3A3A] text-[20px] font-bold text-center leading-[150%] tracking-[-3%]">
+          <p className="text-[#3A3A3A] text-[20px] text-center leading-[150%] tracking-[-3%]">
             {stepTitle || "Step Title"}
           </p>
         </div>

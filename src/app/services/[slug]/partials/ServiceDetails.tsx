@@ -14,7 +14,7 @@ interface IServiceDetails {
 const ServiceDetails: React.FC<IServiceDetails> = ({ data }) => {
   const isSmall = useIsSmall();
   return (
-    <section className="relative bg-background-100 mt-10 padding ">
+    <section className="relative bg-background-100 mt-10 u-padding-x ">
       <div className="w-full rounded-[60px]">
         <YoutubeEmbed url={data?.service?.videoUrl} />
         <ServiceDescription data={data?.service} />

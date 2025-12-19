@@ -190,7 +190,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({
           </button>
         </div>
 
-        <button
+        {/* <button
           type="submit"
           onClick={() => handleAppointmentClick()}
           className="flex items-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 mx-auto font-extrabold text-white border rounded-full cursor-pointer bg-secondary-500 border-secondary-200 text-sm md:text-base lg:typography-paragraph-regular mt-6 md:mt-12 lg:mt-14"
@@ -201,7 +201,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({
         <RequestAppoimentModal
           isOpen={openModal}
           onClose={() => setOpenModal(false)}
-        />
+        /> */}
       </>
     </motion.div>
   );

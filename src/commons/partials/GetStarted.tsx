@@ -16,7 +16,7 @@ const GetStarted = ({ centerData }: IProps) => {
     setOpenModal(true);
   };
   return (
-    <div className="relative max-w-app u-padding-x u-padding-y">
+    <div className="relative max-w-app u-padding-l u-padding-y bg-linear-to-r from-[#FFD2CE] to-[#EBC0DB] ">
       <ClinicList centerData={centerData} />
       <ContentWrapper handleAppointmentClick={handleAppointmentClick} />
       <RequestAppoimentModal

@@ -15,7 +15,7 @@ export async function generateMetadata() {
 }
 const page = () => {
   return (
-    <section className="padding bg-gradient-to-b from-primary-50 to-background-10 ">
+    <section className="u-padding-x bg-gradient-to-b from-primary-50 to-background-10 ">
       <Headings />
       <div className="hidden lg:block">
         <Contacts />

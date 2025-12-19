@@ -9,7 +9,7 @@ const WhyChooseUs = async () => {
   try {
     const { data } = await getData<IWhyChooseUsRoot>(endpoints.why_choose_us);
     return (
-      <section className="padding py-10">
+      <section className="u-padding-x py-10">
         <SectionHeading>
           <SectionHeading.Title>Why Choose Us</SectionHeading.Title>
           <SectionHeading.Subtitle>{data?.title}</SectionHeading.Subtitle>

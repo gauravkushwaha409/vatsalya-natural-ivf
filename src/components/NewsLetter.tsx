@@ -8,7 +8,7 @@ const NewsLetter = () => {
     <>
       <form
         onSubmit={formik.handleSubmit}
-        className="flex flex-row lg:flex-col gap-4 lg:gap-2 border border-red-400"
+        className="flex flex-row lg:flex-col gap-4 lg:gap-2"
       >
         <label
           htmlFor="email"

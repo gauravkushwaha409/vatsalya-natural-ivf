@@ -8,7 +8,7 @@ interface SpecialistsProps {
 }
 const Specialists: React.FC<SpecialistsProps> = ({ data }) => {
   return (
-    <section className="padding py-10">
+    <section className="u-padding-x py-10">
       <SectionHeading>
         <SectionHeading.Title>Meet Our Specialists</SectionHeading.Title>
         <SectionHeading.Subtitle>

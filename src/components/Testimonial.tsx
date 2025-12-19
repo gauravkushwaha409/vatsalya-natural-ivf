@@ -62,7 +62,7 @@ const Testimonial: React.FC<Props> = ({ data }) => {
       `}</style>
       <div className="pb-6 sm:pb-10 ">
         <div
-          className="relative padding py-10 overflow-hidden w-full max-h-[853px]"
+          className="relative u-padding-x py-10 overflow-hidden w-full max-h-[853px]"
           style={{
             background:
               "linear-gradient(270deg, rgba(255, 210, 206, 0.3) 0%, rgba(235, 192, 219, 0.3) 100%)",

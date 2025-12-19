@@ -27,7 +27,7 @@ const ArticlePage: React.FC<ArticlePageProps> = async ({ params }) => {
     return (
       <div className="relative">
         <ArticleDetailHero data={data?.data} />
-        <div className=" padding w-full flex lg:flex-row flex-col gap-10">
+        <div className=" u-padding-x w-full flex lg:flex-row flex-col gap-10">
           <div className="w-full lg:w-2/3">
             <ArticleDescription data={data?.data} />
           </div>

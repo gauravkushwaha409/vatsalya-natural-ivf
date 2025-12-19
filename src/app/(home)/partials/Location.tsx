@@ -28,7 +28,7 @@ const Location = ({ data }: LocationProps) => {
   const { swiperRef, handleSlideChange, goPrev, goNext } = useSlider();
 
   return (
-    <div className="mb-10 md:mb-20 padding">
+    <div className="mb-10 md:mb-20 u-padding-x">
       {/* Text Section  */}
       <div className="flex items-center justify-center gap-3 py-3 sm:gap-5">
         <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />

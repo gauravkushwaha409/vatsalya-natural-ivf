@@ -7,7 +7,7 @@ interface ICareerTextContentProps {
 const CareerTextContent: React.FC<ICareerTextContentProps> = ({ data }) => {
   return (
     <div>
-      <div className="padding pb-10">
+      <div className="u-padding-x pb-10">
         <p dangerouslySetInnerHTML={{ __html: data?.description }} />
       </div>
     </div>
