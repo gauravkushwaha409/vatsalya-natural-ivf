@@ -13,33 +13,33 @@ interface IBlog {
 const BlogCard: React.FC<IBlog> = ({ data }) => {
   return (
     <>
-      <div className="max-w-md  overflow-hidden bg-white shadow-[0px_0px_32px_0px_#FBCED140] rounded-[32px] h-[412px] transition-all duration-600 transform hover:-translate-y-5 ease-in-out">
-        <div className="w-full h-[240px]">
+      <div className="bg-white shadow-[0px_0px_32px_0px_#FBCED140] rounded-[32px] max-w-md h-[380px] overflow-hidden transition-all hover:-translate-y-5 duration-600 ease-in-out transform">
+        <div className="w-full h-[200px]">
           {/* Image */}
           <Link href={`/blog/${data?.slug}`}>
             <Image
               src={data?.image}
               alt={`Video testimonial by ${data?.title}`}
               width={400}
-              height={240}
-              className="object-cover w-full h-full"
+              height={200}
+              className="w-full h-full object-fit"
             />
           </Link>
         </div>
 
-        <div className="p-5 ">
-          <p className="font-medium text-secondary-500 text-[13px] leading-[120%] tracking-[-2%]">
+        <div className="p-5">
+          <p className="font-medium text-[13px] text-secondary-500 leading-[120%] tracking-[-2%]">
             {formatDate(data?.created_date)}
           </p>
-          <div className="flex justify-between my-2.5 items-center">
-            <p className=" w-[80%] font-bold text-[#1A1A1A] line-clamp-1  leading-[120%] tracking-[-2%] text-[20px]">
+          <div className="flex justify-between items-center my-2.5">
+            <p className="w-[80%] font-bold text-[#1A1A1A] text-[20px] line-clamp-1 leading-[120%] tracking-[-2%]">
               {data?.title}
             </p>
 
             <Link href={`/blog/${data?.slug}`}>
               <IoArrowForwardOutline
                 size={24}
-                className=" w-fit text-primary-500 -rotate-40"
+                className="w-fit text-primary-500 -rotate-40"
               />
             </Link>
           </div>

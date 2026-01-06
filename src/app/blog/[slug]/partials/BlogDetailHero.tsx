@@ -12,7 +12,7 @@ interface BlogDetailHeroProps {
 const BlogDetailHero: React.FC<BlogDetailHeroProps> = ({ data }) => {
   return (
     <div className="bg-gradient-to-b from-primary-50 to-background-100 py-5 lg:py-10 padding">
-      <div className="flex flex-col ">
+      <div className="flex flex-col">
         {/* breadcrumb  */}
         <CustomBreadcrumb
           items={[
@@ -22,7 +22,7 @@ const BlogDetailHero: React.FC<BlogDetailHeroProps> = ({ data }) => {
           ]}
         />
 
-        <h1 className=" pt-3 font-extrabold text-secondary-500 leading-[150%] typography-h1">
+        <h1 className="pt-3 font-extrabold text-secondary-500 leading-[150%] typography-h1">
           {data?.title}
         </h1>
 
@@ -49,13 +49,13 @@ const BlogDetailHero: React.FC<BlogDetailHeroProps> = ({ data }) => {
           ))}
         </div>
       </div>
-      <div className="lg:py-10 mt-5 aspect-[1071/428] rounded-[100px]">
+      <div className="mt-5 px-26 lg:py-10 rounded-[10px] aspect-[1071/428]">
         <Image
           src={data?.image}
           alt="hero blog detail"
           width={400}
           height={400}
-          className="w-full h-full object-fill rounded-[100px]"
+          className="rounded-[10px] w-full h-full object-fill"
         />
       </div>
     </div>
