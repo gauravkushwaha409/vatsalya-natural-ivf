@@ -1,4 +1,3 @@
-import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
 import { safeFetch } from "@/api/safeFetch";
 
