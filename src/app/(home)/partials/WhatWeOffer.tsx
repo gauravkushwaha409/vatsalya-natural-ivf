@@ -7,21 +7,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { IoArrowForwardOutline } from "react-icons/io5";
-import { Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { WhatWeOfferProps } from "../interface/whatWeOffer.interface";
-import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import { cn } from "@/utils/cn";
 
 const WhatWeOffer: React.FC<WhatWeOfferProps> = ({
   data,
   mainWrapperClassName,
 }) => {
-  const [openModal, setOpenModal] = useState<boolean>(false);
-  const handleAppointmentClick = () => {
-    setOpenModal(true);
-  };
-  const [isInView, setIsInView] = useState<boolean>(false);
+  const [_isInView, setIsInView] = useState<boolean>(false);
   const [isBeginning, setIsBeginning] = useState<boolean>(true);
   const [isEnd, setIsEnd] = useState<boolean>(false);
   const { swiperRef, handleSlideChange, goPrev, goNext } = useSlider();
@@ -33,14 +28,14 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({
       viewport={{ amount: 0.4 }}
       className={cn(`mt-10 pb-10 md:pb-12 padding`, mainWrapperClassName)}
     >
-      <div className="flex items-center justify-center gap-3 py-3 sm:gap-5">
+      <div className="flex justify-center items-center gap-3 sm:gap-5 py-3">
         <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
         <h2 className="font-bold text-primary-500 typography-h3">
           What we Offer
         </h2>
         <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
       </div>
-      <p className="px-4 pb-2 lg:pb-8 font-bold text-center md:pb-16 text-text-500 typography-h2">
+      <p className="px-4 pb-2 md:pb-16 lg:pb-8 font-bold text-text-500 text-center typography-h2">
         Comprehensive Fertility Care, Tailored for You
       </p>
 
@@ -58,6 +53,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({
           .custom-pagination-bullet {
             width: 8px !important;
             height: 8px !important;
+            border:1px solid #ff6f61 !important;
             border-radius: 50% !important;
             background: #DEDEDE80 !important;
             opacity: 1 !important;
@@ -78,7 +74,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({
         `}</style>
         <Swiper
           ref={swiperRef}
-          modules={[Pagination]}
+          modules={[Pagination, Autoplay]}
           onSlideChange={(swiper) => {
             handleSlideChange();
             setIsBeginning(swiper.isBeginning);
@@ -88,6 +84,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({
             setIsBeginning(swiper.isBeginning);
             setIsEnd(swiper.isEnd);
           }}
+          autoplay={{ delay: 5000 }}
           spaceBetween={16}
           loop={false}
           pagination={{
@@ -114,28 +111,28 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({
               spaceBetween: 24,
             },
           }}
-          className="w-full h-full !pt-4  custom-swiper"
+          className="!pt-4 w-full h-full custom-swiper"
         >
           {data?.map((item) => (
             <SwiperSlide key={item.id}>
               <div>
                 <Link
                   href={`/services/${item?.slug}`}
-                  className="flex items-center justify-between h-full"
+                  className="flex justify-between items-center h-full"
                 >
-                  <div className="relative flex flex-col justify-center bg-primary-50 z-10 p-7 rounded-tl-[80px] rounded-br-[80px] w-full  transition-all duration-600 transform hover:-translate-y-5 ease-in-out">
+                  <div className="z-10 relative flex flex-col justify-center bg-primary-50 p-7 rounded-tl-[80px] rounded-br-[80px] w-full transition-all hover:-translate-y-5 duration-600 ease-in-out transform">
                     <div className="size-[7.25rem]">
                       <Image
                         src={item?.icon}
                         alt={item?.name || "Service icon"}
                         width={400}
                         height={400}
-                        className="object-contain w-full h-full"
+                        className="w-full h-full object-contain"
                       />
                     </div>
                     <div className="flex flex-col gap-2 pt-4">
                       <div className="flex justify-between w-full">
-                        <h3 className="font-bold text-[22px] leading-[120%] tracking-[-2%] text-[#1A1A1A]">
+                        <h3 className="font-bold text-[#1A1A1A] text-[22px] leading-[120%] tracking-[-2%]">
                           {item?.name}
                         </h3>
                         <button
@@ -149,7 +146,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({
                         </button>
                       </div>
                       <div
-                        className="pt-1.5 font-medium text-[#667085] line-clamp-2 leading-[160%] tracking-[-1%] text-[12px] prose"
+                        className="pt-1.5 font-medium text-[#667085] text-[12px] line-clamp-2 leading-[160%] tracking-[-1%] prose"
                         dangerouslySetInnerHTML={{ __html: item?.description }}
                       />
                     </div>
@@ -161,7 +158,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({
         </Swiper>
 
         {/* navigation buttons */}
-        <div className="absolute z-10 flex items-center justify-end gap-3 -mt-6 w-fit right-4 md:right-20">
+        <div className="right-4 md:right-20 z-10 absolute flex justify-end items-center gap-3 -mt-6 w-fit">
           <button
             type="button"
             onClick={goPrev}
@@ -193,7 +190,7 @@ const WhatWeOffer: React.FC<WhatWeOfferProps> = ({
         {/* <button
           type="submit"
           onClick={() => handleAppointmentClick()}
-          className="flex items-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 mx-auto font-extrabold text-white border rounded-full cursor-pointer bg-secondary-500 border-secondary-200 text-sm md:text-base lg:typography-paragraph-regular mt-6 md:mt-12 lg:mt-14"
+          className="flex items-center gap-2 md:gap-3 bg-secondary-500 mx-auto mt-6 md:mt-12 lg:mt-14 px-6 md:px-8 py-3 md:py-4 border border-secondary-200 rounded-full font-extrabold text-white text-sm md:text-base cursor-pointer lg:typography-paragraph-regular"
         >
           Book your Appointment
         </button>
