@@ -22,7 +22,6 @@ const Location = ({ data }: LocationProps) => {
   const handleAppointmentClick = () => {
     setOpenModal(true);
   };
-  console.log("location data----------->", data);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
@@ -31,18 +30,18 @@ const Location = ({ data }: LocationProps) => {
   return (
     <div className="mb-10 md:mb-20 u-padding-x">
       {/* Text Section  */}
-      <div className="flex items-center justify-center gap-3 py-3 sm:gap-5">
+      <div className="flex justify-center items-center gap-3 sm:gap-5 py-3">
         <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
         <h2 className="font-bold text-primary-500 text-sm md:text-base uppercase tracking-[0.12rem] md:tracking-[0.18rem]">
           LOCATIONS
         </h2>
         <span className="bg-primary-500 w-[4rem] sm:w-[8.5rem] h-px" />
       </div>
-      <p className="px-4 pb-2 lg:pb-8 font-bold text-center md:pb-16 text-text-500 typography-h2">
+      <p className="px-4 pb-2 md:pb-16 lg:pb-8 font-bold text-text-500 text-center typography-h2">
         Our Clinics
       </p>
 
-      <div className="relative w-full ">
+      <div className="relative w-full">
         {/* Carousel Section */}
         {data?.length > 0 && (
           <div className="w-full overflow-hidden">
@@ -77,26 +76,26 @@ const Location = ({ data }: LocationProps) => {
             >
               {data.map((location, index) => (
                 <SwiperSlide key={index} className="flex-shrink-0 w-full">
-                  <div className="pb-5 bg-white shadow-[0px_0px_32px_0px_#FBCED140] rounded-[42px]">
-                    <div className="w-full h-[190px] rounded-[32px] mb-4.5">
+                  <div className="bg-white shadow-[0px_0px_32px_0px_#FBCED140] pb-5 rounded-[42px]">
+                    <div className="mb-4.5 rounded-[32px] w-full h-[190px]">
                       <Image
                         src={location?.images[0] || location?.icon}
                         alt={location?.name}
                         width={800}
                         height={800}
-                        className="object-cover w-full h-full rounded-[32px]"
+                        className="rounded-[32px] w-full h-full object-cover"
                       />
                     </div>
 
-                    <div className="px-5 ">
+                    <div className="px-5">
                       <div className="flex justify-between">
-                        <p className="font-bold leading-[120%] tracking-[-2%] text-[18px] text-[#1A1A1A] mb-3.5">
+                        <p className="mb-3.5 font-bold text-[#1A1A1A] text-[18px] leading-[120%] tracking-[-2%]">
                           {location?.name}
                         </p>
 
                         <Link
                           href={`${PATHS.clinic}/${location?.slug}`}
-                          className="inline-flex  gap-2 font-medium text-[12px] leading-[120%] tracking-[-2%] text-primary-500"
+                          className="inline-flex gap-2 font-medium text-[12px] text-primary-500 leading-[120%] tracking-[-2%]"
                         >
                           View
                           <IoArrowForwardOutline
@@ -107,15 +106,15 @@ const Location = ({ data }: LocationProps) => {
                       </div>
 
                       <div className="flex flex-col space-y-2">
-                        <p className="font-normal inline-flex gap-1.5 items-center text-[13px] leading-[21px] text-[#565656]">
+                        <p className="inline-flex items-center gap-1.5 font-normal text-[#565656] text-[13px] leading-[21px]">
                           <FiMapPin />
                           {location?.location}
                         </p>
-                        <p className="font-normal inline-flex gap-1.5 items-center text-[13px] leading-[21px] text-[#565656]">
+                        <p className="inline-flex items-center gap-1.5 font-normal text-[#565656] text-[13px] leading-[21px]">
                           <FiMail />
                           {location?.email}
                         </p>
-                        <p className="font-normal inline-flex gap-1.5 items-center text-[13px] leading-[21px] text-[#565656]">
+                        <p className="inline-flex items-center gap-1.5 font-normal text-[#565656] text-[13px] leading-[21px]">
                           <FiPhone />
                           {location?.phone}
                         </p>
@@ -124,7 +123,7 @@ const Location = ({ data }: LocationProps) => {
                       <button
                         type="button"
                         onClick={() => handleAppointmentClick()}
-                        className=" gap-3 px-8 py-4  mt-6 font-medium  border-[0.5px] rounded-full w-full text-secondary-500 border-secondary-500 typography-paragraph-regular  tracking-[-2%]"
+                        className="gap-3 mt-6 px-8 py-4 border-[0.5px] border-secondary-500 rounded-full w-full font-medium text-secondary-500 tracking-[-2%] typography-paragraph-regular"
                       >
                         Book your Appointment
                       </button>
@@ -137,7 +136,7 @@ const Location = ({ data }: LocationProps) => {
         )}
 
         {/* Navigation Buttons */}
-        <div className="absolute z-10 flex items-center justify-end gap-3 -mt-6 w-fit right-4 md:right-20">
+        <div className="right-4 md:right-20 z-10 absolute flex justify-end items-center gap-3 -mt-6 w-fit">
           <button
             type="button"
             onClick={goPrev}

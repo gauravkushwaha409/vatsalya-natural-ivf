@@ -28,15 +28,12 @@ const MeetOurExperts: React.FC<MeetExpertsProps> = ({
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [selectedDoctor, setSelectedDoctor] = useState<string>("");
   const [selectedCenter, setSelectedCenter] = useState<string>("");
-  const handleAppointmentClick = () => {
-    setOpenModal(true);
-  };
   const [isBeginning, setIsBeginning] = useState<boolean>(true);
   const [isEnd, setIsEnd] = useState<boolean>(false);
   const { swiperRef, handleSlideChange, goPrev, goNext } = useSlider();
 
   return (
-    <div className="pb-10 md:pb-20 u-padding-x bg-background-100">
+    <div className="bg-background-100 pb-10 md:pb-20 u-padding-x">
       <Heading />
       <ExpertLocations data={center} centerParams={centerParams} />
 
@@ -158,7 +155,7 @@ export default MeetOurExperts;
 const Heading = () => {
   return (
     <React.Fragment>
-      <div className="flex items-center justify-center gap-3 py-3 md:gap-5">
+      <div className="flex justify-center items-center gap-3 md:gap-5 py-3">
         <span className="bg-primary-500 w-[4rem] md:w-[8.5rem] h-px" />
         <h2 className="font-bold text-primary-500 text-sm md:text-base uppercase tracking-[0.12rem] md:tracking-[0.18rem]">
           MEET OUR EXPERTS
@@ -167,7 +164,7 @@ const Heading = () => {
       </div>
 
       {/* Subtitle */}
-      <p className="px-4 pb-2 lg:pb-8 font-bold text-center md:pb-16 text-text-500 typography-h2">
+      <p className="px-4 pb-2 md:pb-16 lg:pb-8 font-bold text-text-500 text-center typography-h2">
         World-Class Doctors, Dedicated to Your Care
       </p>
     </React.Fragment>
@@ -189,13 +186,13 @@ const ExpertLocations = ({
     setFilterValue(value);
   };
   return (
-    <div className="flex flex-col justify-end w-full gap-3 mb-5 sm:w-full sm:flex-row sm:items-center">
+    <div className="flex sm:flex-row flex-col flex-wrap justify-end sm:items-center gap-2 mb-5 w-full">
       <button
-        onClick={() => {
-          handleClickLocation("all");
-        }}
-        className={`typo-mid-bd-md ${
-          filterValue === "all" ? "text-primary-500" : "text-text-200"
+        onClick={() => handleClickLocation("all")}
+        className={`typo-sm-bd-reg px-2 py-1 rounded-md border transition-all duration-200 ease-in-out active:scale-95 min-w-16 ${
+          filterValue === "all"
+            ? "lg:border-primary-500 text-primary-500 bg-primary-50/30"
+            : " border-none lg:border-transparent text-text-200 hover:border-gray-200 hover:text-text-500"
         }`}
       >
         All
@@ -204,11 +201,11 @@ const ExpertLocations = ({
       {data?.data?.records?.map((item) => (
         <button
           key={item.id}
-          onClick={() => {
-            handleClickLocation(item.id);
-          }}
-          className={`typo-mid-bd-md ${
-            filterValue === item.id ? "text-primary-500" : "text-text-200"
+          onClick={() => handleClickLocation(item.id)}
+          className={`typo-sm-bd-reg px-2 py-1 rounded-md border transition-all duration-200 ease-in-out active:scale-95 min-w-16 ${
+            filterValue === item.id
+              ? "lg:border-primary-500 text-primary-500 bg-primary-50/30"
+              : "border-none lg:border-transparent text-text-200 hover:border-gray-200 hover:text-text-500"
           }`}
         >
           {item.name}
@@ -231,7 +228,7 @@ const NavigationButton = ({
   isEnd: boolean;
 }) => {
   return (
-    <div className="absolute z-10 flex items-center justify-end gap-3 mt-2 w-fit right-4 md:right-20">
+    <div className="right-4 md:right-20 z-10 absolute flex justify-end items-center gap-3 mt-2 w-fit">
       <button
         type="button"
         onClick={goPrev}
@@ -271,7 +268,7 @@ const BookAppointment = ({
     <button
       type="button"
       onClick={handleAppointmentClick}
-      className="flex items-center gap-3 px-8 py-4 mx-auto font-extrabold text-white border rounded-full cursor-pointer bg-secondary-500 border-secondary-200 typography-paragraph-regular mt-14"
+      className="flex items-center gap-3 bg-secondary-500 mx-auto mt-14 px-8 py-4 border border-secondary-200 rounded-full font-extrabold text-white cursor-pointer typography-paragraph-regular"
     >
       Book your Appointment
     </button>
@@ -280,13 +277,13 @@ const BookAppointment = ({
 
 const ButterflyImage = () => {
   return (
-    <div className="w-42 h-42 lg:w-[200px] lg:h-[200px] absolute -top-3 -left-18 lg:-top-18 lg:-left-38">
+    <div className="-top-3 lg:-top-18 -left-18 lg:-left-38 absolute w-42 lg:w-[200px] h-42 lg:h-[200px]">
       <Image
         src="/svg/butterfly.svg"
         alt="Butterfly"
         width={100}
         height={100}
-        className="object-cover w-full h-full"
+        className="w-full h-full object-cover"
       />
     </div>
   );
@@ -320,42 +317,42 @@ const ExpertCard = ({
   selectedCenter: string;
 }) => {
   return (
-    <div className="bg-[#FFD2CE38] rounded-[42px] py-5 px-8 flex flex-col items-center">
-      <div className="w-[214px] h-[250px] mb-6">
+    <div className="flex flex-col items-center bg-[#FFD2CE38] px-8 py-5 rounded-[42px]">
+      <div className="mb-6 w-[214px] h-[250px]">
         <Image
           src={image}
           alt={name}
           width={800}
           height={800}
-          className="object-cover w-full h-full"
+          className="w-full h-full object-cover"
         />
       </div>
-      <p className="text-[#1E1E1E] font-semibold text-[21px] leading-[150%] tracking-[-3%]">
+      <p className="font-semibold text-[#1E1E1E] text-[21px] leading-[150%] tracking-[-3%]">
         {name}
       </p>
-      <p className="text-[#646464] font-normal text-[11px] leading-[100%] mb-3.5">
+      <p className="mb-3.5 font-normal text-[#646464] text-[11px] leading-[100%]">
         {position}
       </p>
 
-      <div className="flex items-center ">
-        <div className="text-[#333333] text-[13px] leading-[20px] font-normal flex items-center gap-2 border-r-[0.5px] border-r-[#D4D4D4] pr-2">
+      <div className="flex items-center">
+        <div className="flex items-center gap-2 pr-2 border-r-[#D4D4D4] border-r-[0.5px] font-normal text-[#333333] text-[13px] leading-[20px]">
           <IoBagOutline />
           <p>{experience}+ Years</p>
         </div>
 
-        <div className="pl-2 text-[#333333] text-[13px] leading-[20px] font-normal flex items-center gap-2 ">
+        <div className="flex items-center gap-2 pl-2 font-normal text-[#333333] text-[13px] leading-[20px]">
           <FiMapPin />
           <p>{center}</p>
         </div>
       </div>
 
-      <p className="mt-2 w-full text-[#333333] font-medium text-[12px] leading-[100%] text-center">
+      <p className="mt-2 w-full font-medium text-[#333333] text-[12px] text-center leading-[100%]">
         IVF | IUI | ICSI
       </p>
-      <div className="w-full mt-4 flex items-center justify-between">
+      <div className="flex justify-between items-center mt-4 w-full">
         <Link
           href={`${PATHS.teamDetails}/${slug}`}
-          className="hover:bg-transparent text-primary-500 inline-flex items-center gap-1 hover:text-primary-600 text-[13px] leading-[120%] tracking-[-2%] "
+          className="inline-flex items-center gap-1 hover:bg-transparent text-[13px] text-primary-500 hover:text-primary-600 leading-[120%] tracking-[-2%]"
         >
           View Profile
           <ChevronRight className="size-[16px]" />
@@ -367,7 +364,7 @@ const ExpertCard = ({
             setSelectedDoctor(selectedDoctor);
             setSelectedCenter(selectedCenter);
           }}
-          className="px-4 py-1.5 text-primary-500 rounded-full border border-primary-500 text-[13px] leading-[120%] tracking-[-2%]"
+          className="px-4 py-1.5 border border-primary-500 rounded-full text-[13px] text-primary-500 leading-[120%] tracking-[-2%]"
         >
           Book Appointment
         </button>
