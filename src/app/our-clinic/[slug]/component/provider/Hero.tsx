@@ -91,7 +91,7 @@ const HeroContainer = ({
 const BreadCrumb = () => {
   const { data } = useHero();
   return (
-    <div className="w-fit pt-5 mx-auto flex flex-col items-center gap-y-2.5">
+    <div className="flex flex-col items-center gap-y-2.5 mx-auto pt-5 w-fit">
       <CustomBreadcrumb
         items={[
           { name: "Home", isHome: true, link: PATHS.home },
@@ -99,7 +99,7 @@ const BreadCrumb = () => {
           { name: data.slug, isHome: false },
         ]}
       />
-      <span className="font-urbanist text-[2.5rem] font-extrabold leading-[150%] tracking-[-0.78px] text-secondary-500">
+      <span className="font-urbanist font-extrabold text-[2.5rem] text-secondary-500 leading-[150%] tracking-[-0.78px]">
         {data.city}
       </span>
     </div>
@@ -116,7 +116,7 @@ const ContentWrapper = ({
 }) => {
   return (
     <div
-      className={cn(`py-22 grid grid-cols-1 md:grid-cols-2 gap-6`, className)}
+      className={cn(`gap-6 grid grid-cols-1 md:grid-cols-2 py-22`, className)}
     >
       {children}
     </div>
@@ -128,39 +128,36 @@ const Content = () => {
   const { data } = useHero();
   return (
     <div className="space-y-8">
-      <div className="md:pr-16 flex flex-col items-start gap-y-6">
-        <div className="w-full flex flex-col items-center md:items-start gap-y-4">
-          <div className="py-1.5 px-6 w-fit flex items-center gap-x-2.5 shrink-0 rounded-full border border-primary-500">
-            <span className="bg-primary-500 size-2 inline-block rounded-full" />
-            <span className="typo-lg-bd-reg text-[#4A5565]">{`${data?.city} Clinic`}</span>
+      <div className="flex flex-col items-start gap-y-6 md:pr-16">
+        <div className="flex flex-col items-center md:items-start gap-y-4 w-full">
+          <div className="flex items-center gap-x-2.5 px-6 py-1.5 border border-primary-500 rounded-full w-fit shrink-0">
+            <span className="inline-block bg-primary-500 rounded-full size-2" />
+            <span className="text-[#4A5565] typo-lg-bd-reg">{`${data?.city} Clinic`}</span>
           </div>
-          <span className="text-[#101828] typo-lg-bd-reg">
-            {data?.clinic_name}
-          </span>
         </div>
         <div
-          className="mt-6 typo-lg-bd-reg text-center md:text-left text-secondary-500"
+          className="text-secondary-500 md:text-left text-center typo-lg-bd-reg"
           dangerouslySetInnerHTML={{ __html: data?.clinic_description }}
         />
       </div>
 
       <div className="space-y-6">
-        {/* <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-y-4 gap-x-3"> */}
-        <div className="flex flex-wrap items-stretch justify-stretch gap-y-4 gap-x-3">
+        {/* <div className="gap-x-3 gap-y-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"> */}
+        <div className="flex flex-wrap justify-stretch items-stretch gap-x-3 gap-y-4">
           {data.features.map((item, index) => (
             <span
               key={item + index}
-              className="grow-1 px-6 py-1.5 text-[#4A5565] typo-lg-bd-reg rounded-full border border-primary-100 text-center text-nowrap shrink-0"
+              className="px-6 py-1.5 border border-primary-100 rounded-full text-[#4A5565] text-center text-nowrap grow-1 typo-lg-bd-reg shrink-0"
             >
               {item}
             </span>
           ))}
         </div>
 
-        <div className="flex items-center justify-center md:justify-start flex-wrap gap-4.5">
+        <div className="flex flex-wrap justify-center md:justify-start items-center gap-4.5">
           {/* Location */}
           <div className="flex items-center gap-x-3 grow-1 md:grow-0 shrink-0">
-            <span className="w-fit p-1.5 md:p-2.5 rounded-full flex  items-center justify-center bg-[#FFF5F4]">
+            <span className="flex justify-center items-center bg-[#FFF5F4] p-1.5 md:p-2.5 rounded-full w-fit">
               <MapPin
                 color="#222326"
                 className="size-3.5 md:size-5 font-normal"
@@ -168,17 +165,17 @@ const Content = () => {
             </span>
 
             <p className="flex flex-col">
-              <span className="typo-mid-bd-reg text-[#6A6F77] hidden md:inline">
+              <span className="hidden md:inline text-[#6A6F77] typo-mid-bd-reg">
                 Location
               </span>
-              <span className="typo-lg-bd-reg text-[#101828]">
+              <span className="text-[#101828] typo-lg-bd-reg">
                 {data?.address}
               </span>
             </p>
           </div>
           {/* Working Hours */}
           <div className="flex items-center gap-x-3 grow-1 md:grow-0 shrink-0">
-            <span className="w-fit p-1.5 md:p-2.5 rounded-full flex  items-center justify-center bg-[#FFF5F4]">
+            <span className="flex justify-center items-center bg-[#FFF5F4] p-1.5 md:p-2.5 rounded-full w-fit">
               <Clock
                 color="#222326"
                 className="size-3.5 md:size-5 font-normal"
@@ -186,10 +183,10 @@ const Content = () => {
             </span>
 
             <p className="flex flex-col">
-              <span className="typo-mid-bd-reg text-[#6A6F77] hidden md:inline">
+              <span className="hidden md:inline text-[#6A6F77] typo-mid-bd-reg">
                 Working Hours
               </span>
-              <span className="typo-lg-bd-reg text-[#101828]">
+              <span className="text-[#101828] typo-lg-bd-reg">
                 {data?.working_days[0]}
               </span>
             </p>
@@ -197,7 +194,7 @@ const Content = () => {
         </div>
       </div>
       <div className="flex justify-center md:justify-start">
-        <button className="px-14 py-5 text-white text-[1rem] leading-[120%] font-semibold bg-secondary-500 rounded-full">{`Book at ${data.city} Clinic`}</button>
+        <button className="bg-secondary-500 px-14 py-5 rounded-full font-semibold text-[1rem] text-white leading-[120%]">{`Book at ${data.city} Clinic`}</button>
       </div>
     </div>
   );
@@ -207,7 +204,7 @@ const Content = () => {
 const HeroImage = () => {
   const { data } = useHero();
   return (
-    <div className="h-138 rounded-[3.75rem] overflow-hidden relative">
+    <div className="relative rounded-[3.75rem] h-138 overflow-hidden">
       <Image src={data.image} alt="" fill className="object-cover" />
     </div>
   );

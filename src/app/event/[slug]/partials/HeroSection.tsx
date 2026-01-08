@@ -1,9 +1,6 @@
 "use client";
 import CustomBreadcrumb from "@/components/CustomBreadcrumb";
-import { cn } from "@/utils/cn";
 import PATHS from "@/utils/path";
-import { ChevronDown, Search } from "lucide-react";
-import React, { useEffect, useRef, useState } from "react";
 import { IEventDetailsType } from "../../interface/event.interface";
 
 const HeroSection = ({ data }: { data: IEventDetailsType }) => {
@@ -16,7 +13,7 @@ const HeroSection = ({ data }: { data: IEventDetailsType }) => {
 
 const BreadCrumb = ({ data }: { data: IEventDetailsType }) => {
   return (
-    <div className="pt-5 flex flex-col items-center justify-center">
+    <div className="flex flex-col justify-center items-center pt-5">
       <CustomBreadcrumb
         items={[
           { name: "Home", isHome: true, link: PATHS.home },
@@ -24,17 +21,18 @@ const BreadCrumb = ({ data }: { data: IEventDetailsType }) => {
         ]}
       />
       <div className="w-full">
-        <p className="capitalize mt-2.5 text-secondary-500 text-center font-urbanist text-[2.5rem] font-extrabold leading-[150%] tracking-[-0.78px]">
+        <p className="mt-2.5 font-urbanist font-extrabold text-[2.5rem] text-secondary-500 text-center capitalize leading-[150%] tracking-[-0.78px]">
           {data.title}
         </p>
-        <p className="mx-auto text-[#828282] text-center font-urbanist font-medium leading-[150%] tracking-[-0.28px]">
-          {data.description}
-        </p>
+        <div
+          className="mx-auto font-urbanist font-medium text-[#828282] text-center leading-[150%] tracking-[-0.28px]"
+          dangerouslySetInnerHTML={{ __html: data?.description || " " }}
+        />
         <div className="w-full">
-          <p className=" capitalize mt-10 text-left text-text-500 font-urbanist text-[1.25rem] font-semibold leading-7.5">
+          <p className="mt-10 font-urbanist font-semibold text-[1.25rem] text-text-500 text-left capitalize leading-7.5">
             {data.title}
           </p>
-          <div className="h-[1px] w-full bg-[#cecece]" />
+          <div className="bg-[#cecece] w-full h-[1px]" />
         </div>
       </div>
     </div>

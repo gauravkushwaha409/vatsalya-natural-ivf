@@ -46,7 +46,7 @@ const Location = ({
 
 const LocationWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {children}
     </div>
   );
@@ -56,30 +56,30 @@ const Content = () => {
   const data = useLocationContext();
   return (
     <div className="space-y-4.5">
-      <p className="typo-xl-bd-md text-[#101828]">Clinic Details</p>
+      <p className="text-[#101828] typo-xl-bd-md">Clinic Details</p>
 
-      <div className="py-8 px-6 bg-[#FCE1E3] rounded-[1.5rem]">
+      <div className="bg-[#FCE1E3] px-6 py-8 rounded-[1.5rem]">
         {/* Address */}
-        <p className="py-2 flex flex-col gap-y-2">
-          <span className="typo-mid-bd-reg text-[#6A7282]">Address</span>
-          <span className="typo-lg-bd-reg text-[#101828]">{data?.address}</span>
+        <p className="flex flex-col gap-y-2 py-2">
+          <span className="text-[#6A7282] typo-mid-bd-reg">Address</span>
+          <span className="text-[#101828] typo-lg-bd-reg">{data?.address}</span>
         </p>
         {/* Timings */}
-        <p className="py-2 flex flex-col gap-y-2">
-          <span className="typo-mid-bd-reg text-[#6A7282]">Timings</span>
+        <p className="flex flex-col gap-y-2 py-2">
+          <span className="text-[#6A7282] typo-mid-bd-reg">Timings</span>
           {data?.timings?.map((item) => (
-            <span key={item} className="typo-lg-bd-reg text-[#101828]">
+            <span key={item} className="text-[#101828] typo-lg-bd-reg">
               {item}
             </span>
           ))}
         </p>
         {/* Contact */}
-        <p className="py-2 flex flex-col gap-y-2">
-          <span className="typo-mid-bd-reg text-[#6A7282]">Contact</span>
-          <span className="typo-lg-bd-reg text-[#101828]">
+        <p className="flex flex-col gap-y-2 py-2">
+          <span className="text-[#6A7282] typo-mid-bd-reg">Contact</span>
+          <span className="text-[#101828] typo-lg-bd-reg">
             Phone: {data?.phone}
           </span>
-          <span className="typo-lg-bd-reg text-[#101828]">
+          <span className="text-[#101828] typo-lg-bd-reg">
             Email: {data?.email}
           </span>
         </p>
@@ -92,13 +92,15 @@ const MapLocation = () => {
   const { map, name } = useLocationContext();
   return (
     <div className="space-y-4 lg:col-span-2">
-      <p className="typo-xl-bd-md text-[#101828]">
+      <p className="text-[#101828] typo-xl-bd-md">
         Find us easily in central {name}
       </p>
-      <div className="  ">
-        <div
-          className="w-full mx-auto shrink-0 border border-[#99A1AF] rounded-2xl overflow-hidden"
-          dangerouslySetInnerHTML={{ __html: map }}
+      <div className="mx-auto border border-[#99A1AF] rounded-2xl w-full overflow-hidden shrink-0">
+        <iframe
+          src={map}
+          className="border rounded-2xl w-full h-[450px]"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
         />
       </div>
     </div>

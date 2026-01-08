@@ -1,4 +1,3 @@
-import React from "react";
 import HeroSection from "./partials/HeroSection";
 import Gallery from "./partials/Gallery";
 import JsonLD from "@/app/(home)/partials/JsonLD";
