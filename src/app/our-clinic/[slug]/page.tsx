@@ -1,18 +1,18 @@
 import { getData } from "@/api/axios";
 import { endpoints } from "@/api/endpoints";
-import { IOurExpertsData } from "@/app/our-team/interface/ourExperts.interface";
+// import { IOurExpertsData } from "@/app/our-team/interface/ourExperts.interface";
 import { createMetadata } from "@/hooks/generateMetaData";
 import React from "react";
 import { IClinicDetailsRoot } from "./interface/clinicDetails.interface";
 import HeroSection from "./component/HeroSection";
 import WhatWeOffer from "@/app/(home)/partials/WhatWeOffer";
-import MeetOurExperts from "@/app/(home)/partials/MeetOurExperts";
+// import MeetOurExperts from "@/app/(home)/partials/MeetOurExperts";
 import Location from "./component/LocationSection";
 import SuccessStories from "./component/provider/SuccessStories";
 import InsideClinic from "./component/InsideClinic";
 import RequestCallback from "./component/RequestCallback";
-import { getExpertData } from "@/app/(home)/hook/getExpertData";
-import { getCenterData } from "@/app/(home)/hook/getCenterData";
+// import { getExpertData } from "@/app/(home)/hook/getExpertData";
+// import { getCenterData } from "@/app/(home)/hook/getCenterData";
 import ClinicExpert from "./partials/ClinicExpert";
 // import AboutClinic from "./partials/AboutClinic";
 // import ClinicServices from "./partials/ClinicServices";
@@ -42,6 +42,7 @@ const ClinicDetailPage: React.FC<Props> = async ({ params }) => {
       endpoints.center + `/get/${slugs}`
     );
     const { data: service } = await getData(endpoints.service);
+    console.log(clinicDetails, "Clinic Details");
     return (
       <section>
         <HeroSection
@@ -54,7 +55,7 @@ const ClinicDetailPage: React.FC<Props> = async ({ params }) => {
           slug={clinicDetails?.slug}
           working_days={clinicDetails?.timings}
         />
-        <WhatWeOffer data={service?.data?.records} />
+        <WhatWeOffer data={service?.records} />
         <ClinicExpert
           location={clinicDetails?.slug}
           expertRecord={clinicDetails?.expert}
@@ -73,6 +74,7 @@ const ClinicDetailPage: React.FC<Props> = async ({ params }) => {
             description: item?.description,
             title: item?.title,
           }))}
+          center={clinicDetails?.location}
         />
         <InsideClinic
           title={clinicDetails?.gallery?.title}

@@ -29,7 +29,7 @@ const page = async ({
   const filter = (await searchParams).filter;
   try {
     const { eventHeaderData } = await getEventPageData(search, filter);
-
+    console.log(eventHeaderData, "Events");
     return (
       <>
         <JsonLD />

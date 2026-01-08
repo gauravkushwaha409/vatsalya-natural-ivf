@@ -11,7 +11,13 @@ interface ISuccessStories {
   title: string;
 }
 
-const SuccessStories = ({ data }: { data: ISuccessStories[] }) => {
+const SuccessStories = ({
+  data,
+  center,
+}: {
+  data: ISuccessStories[];
+  center: string;
+}) => {
   const {
     activeIndex,
     goNext,
@@ -25,7 +31,7 @@ const SuccessStories = ({ data }: { data: ISuccessStories[] }) => {
   const [isEnd, setIsEnd] = useState<boolean>(false);
   return (
     <div className="u-padding-x u-padding-y">
-      <Heading />
+      <Heading center={center} />
       <StoriesSwapper
         data={data}
         handleSlideChange={handleSlideChange}
@@ -147,19 +153,19 @@ const StoriesSwapper = ({
   );
 };
 
-const Heading = () => {
+const Heading = ({ center }: { center: string }) => {
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-x-4">
-        <span className="h-[1px] block flex-1 bg-linear-to-r from-[#EBC0DB] to-[#FFD2CE]" />
-        <p className="font-urbanist text-[1rem] font-semibold leading-[150%] tracking-[20%]">
+        <span className="block flex-1 bg-linear-to-r from-[#EBC0DB] to-[#FFD2CE] h-[1px]" />
+        <p className="font-urbanist font-semibold text-[1rem] leading-[150%] tracking-[20%]">
           Patient Stories
         </p>
-        <span className="h-[1px] block flex-1 bg-linear-to-l from-[#EBC0DB] to-[#FFD2CE]" />
+        <span className="block flex-1 bg-linear-to-l from-[#EBC0DB] to-[#FFD2CE] h-[1px]" />
       </div>
 
-      <p className="font-urbanist font-bold text-[33px] leading-[150%] text-[#2E2E2E] text-center">
-        Stories From Biratnagar
+      <p className="font-urbanist font-bold text-[#2E2E2E] text-[33px] text-center leading-[150%]">
+        Stories From {`${center}`}
       </p>
     </div>
   );
@@ -167,11 +173,11 @@ const Heading = () => {
 
 const StoriesCard = ({ author, description, title }: ISuccessStories) => {
   return (
-    <div className="w-full border border-primary-400 rounded-[28px] p-8 space-y-8">
-      <p className="typo-xl-bd-reg text-[#364153]">{description}</p>
-      <div className="flex items-center justify-between">
-        <span className="typo-lg-bd-reg text-[#101828]">{author}</span>
-        <span className="typo-sm-bd-reg text-[#4A5565]">{title}</span>
+    <div className="space-y-8 p-8 border border-primary-400 rounded-[28px] w-full">
+      <p className="text-[#364153] typo-xl-bd-reg">{description}</p>
+      <div className="flex justify-between items-center">
+        <span className="text-[#101828] typo-lg-bd-reg">{author}</span>
+        <span className="text-[#4A5565] typo-sm-bd-reg">{title}</span>
       </div>
     </div>
   );
@@ -189,7 +195,7 @@ const NavigationButton = ({
   isEnd: boolean;
 }) => {
   return (
-    <div className="absolute z-10 flex items-center justify-end gap-3 mt-2 lg:-mt-6 w-fit right-4 md:right-20">
+    <div className="right-4 md:right-20 z-10 absolute flex justify-end items-center gap-3 mt-2 lg:-mt-6 w-fit">
       <button
         type="button"
         onClick={goPrev}

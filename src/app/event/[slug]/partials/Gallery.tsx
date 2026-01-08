@@ -8,9 +8,8 @@ import { IEventDetailsType } from "../../interface/event.interface";
 import { downloadFile } from "@/utils/download";
 
 const Gallery = ({ data }: { data: IEventDetailsType }) => {
-  console.log(data?.eventGallery);
   return (
-    <div className="py-4 u-padding-x gap-6 flex flex-wrap items-center justify-between">
+    <div className="flex flex-wrap justify-between items-center gap-6 py-4 u-padding-x">
       {data?.eventGallery?.videos?.map((item, index) => (
         <VideoSection
           key={item + index}
@@ -20,7 +19,7 @@ const Gallery = ({ data }: { data: IEventDetailsType }) => {
           className={`h-52`}
         />
       ))}
-      {data?.eventGallery.eventImages?.map((item, index) => (
+      {data?.eventGallery?.eventImages?.map((item, index) => (
         <ImageSection
           key={item + index}
           eventName={data?.title}
@@ -70,7 +69,7 @@ const ImageSection = ({
     <motion.div
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
-      className={cn(`relative w-80 rounded-3xl overflow-hidden`, className)}
+      className={cn(`relative rounded-3xl w-80 overflow-hidden`, className)}
       variants={containerVariants}
       animate={isHover ? "hover" : "initial"}
       transition={{ duration: 0.3 }}
@@ -78,14 +77,14 @@ const ImageSection = ({
     >
       {/* Top Date Section */}
       <motion.div
-        className="absolute z-10 top-0 inset-x-0 p-3 bg-gradient-to-t from-transparent to-[#202020]/30"
+        className="top-0 z-10 absolute inset-x-0 bg-gradient-to-t from-transparent to-[#202020]/30 p-3"
         variants={slideVariants}
         initial="hiddenTop"
         animate={isHover ? "visible" : "hiddenTop"}
         transition={transitionConfig}
       >
         <motion.span
-          className="typo-mid-bd-reg text-white"
+          className="text-white typo-mid-bd-reg"
           initial={{ opacity: 0 }}
           animate={{ opacity: isHover ? 1 : 0 }}
           transition={{ delay: 0.1 }}
@@ -107,15 +106,15 @@ const ImageSection = ({
 
       {/* Bottom Info Section */}
       <motion.div
-        className="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-b from-transparent to-[#202020]/30"
+        className="bottom-0 absolute inset-x-0 bg-gradient-to-b from-transparent to-[#202020]/30 p-3"
         variants={slideVariants}
         initial="hiddenBottom"
         animate={isHover ? "visible" : "hiddenBottom"}
         transition={transitionConfig}
       >
-        <div className="flex items-center justify-between">
+        <div className="flex justify-between items-center">
           <motion.span
-            className="typo-lg-bd-bold text-white"
+            className="text-white typo-lg-bd-bold"
             initial={{ opacity: 0 }}
             animate={{ opacity: isHover ? 1 : 0 }}
             transition={{ delay: 0.1 }}
@@ -128,7 +127,7 @@ const ImageSection = ({
               e.preventDefault();
               downloadFile(src);
             }}
-            className="typo-mid-bd-semi-bold text-white p-3 rounded-full flex items-center gap-x-2 border border-white hover:backdrop-blur-xl hover:bg-white/10 transition-all duration-300 ease-in-out"
+            className="flex items-center gap-x-2 hover:bg-white/10 hover:backdrop-blur-xl p-3 border border-white rounded-full text-white transition-all duration-300 ease-in-out typo-mid-bd-semi-bold"
           >
             <Download size={18} />
             Download
@@ -178,7 +177,7 @@ export const VideoSection = ({
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       className={cn(
-        `relative w-80 rounded-3xl overflow-hidden bg-black`,
+        `relative bg-black rounded-3xl w-80 overflow-hidden`,
         className
       )}
       variants={containerVariants}
@@ -188,14 +187,14 @@ export const VideoSection = ({
     >
       {/* Top Date Section */}
       <motion.div
-        className="absolute z-10 top-0 inset-x-0 p-3 bg-gradient-to-t from-transparent to-[#202020]/30"
+        className="top-0 z-10 absolute inset-x-0 bg-gradient-to-t from-transparent to-[#202020]/30 p-3"
         variants={slideVariants}
         initial="hiddenTop"
         animate={isHover ? "visible" : "hiddenTop"}
         transition={transitionConfig}
       >
         <motion.span
-          className="typo-mid-bd-reg text-white"
+          className="text-white typo-mid-bd-reg"
           initial={{ opacity: 0 }}
           animate={{ opacity: isHover ? 1 : 0 }}
           transition={{ delay: 0.1 }}
@@ -207,26 +206,27 @@ export const VideoSection = ({
       {/* Main Video */}
       <div className="relative h-full min-h-[300px]">
         <video
-          className="object-cover w-full h-full"
+          className="w-full h-full object-cover"
           src={"/video.mp4"}
           muted
           autoPlay
           loop
           playsInline
+          controls
         />
       </div>
 
       {/* Bottom Info Section */}
       <motion.div
-        className="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-b from-transparent to-[#202020]/30"
+        className="bottom-0 absolute inset-x-0 bg-gradient-to-b from-transparent to-[#202020]/30 p-3"
         variants={slideVariants}
         initial="hiddenBottom"
         animate={isHover ? "visible" : "hiddenBottom"}
         transition={transitionConfig}
       >
-        <div className="flex items-center justify-between">
+        <div className="flex justify-between items-center">
           <motion.span
-            className="typo-lg-bd-bold text-white"
+            className="text-white typo-lg-bd-bold"
             initial={{ opacity: 0 }}
             animate={{ opacity: isHover ? 1 : 0 }}
             transition={{ delay: 0.1 }}
@@ -239,7 +239,7 @@ export const VideoSection = ({
               e.preventDefault();
               downloadFile(src);
             }}
-            className="typo-mid-bd-semi-bold text-white p-3 rounded-full flex items-center gap-x-2 border border-white hover:backdrop-blur-xl hover:bg-white/10 transition-all duration-300 ease-in-out"
+            className="flex items-center gap-x-2 hover:bg-white/10 hover:backdrop-blur-xl p-3 border border-white rounded-full text-white transition-all duration-300 ease-in-out typo-mid-bd-semi-bold"
           >
             <Download size={18} />
             Download

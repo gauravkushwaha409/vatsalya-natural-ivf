@@ -18,10 +18,14 @@ const nextConfig: NextConfig = {
         hostname: "pokharauae.s3.ap-southeast-1.amazonaws.com",
         pathname: "/**",
       },
-
       {
         protocol: "https",
         hostname: "api.vatsalya.com.np",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "sapi.vatsalya.com.np",
         pathname: "/**",
       },
       {

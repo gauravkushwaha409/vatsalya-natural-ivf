@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import Location from "./provider/Location";
 
 interface IProps {

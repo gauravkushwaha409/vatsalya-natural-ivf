@@ -20,6 +20,7 @@ export interface ICenterData {
 export interface ICenter {
   object: string;
   id: string;
+  mainImage: string;
   name: string;
   icon: string;
   location: string;

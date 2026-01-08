@@ -27,6 +27,7 @@ const Location = ({ data }: LocationProps) => {
 
   const { swiperRef, handleSlideChange, goPrev, goNext } = useSlider();
 
+  console.log(data?.[0]?.mainImage, "Location Data");
   return (
     <div className="mb-10 md:mb-20 u-padding-x">
       {/* Text Section  */}
@@ -79,7 +80,11 @@ const Location = ({ data }: LocationProps) => {
                   <div className="bg-white shadow-[0px_0px_32px_0px_#FBCED140] pb-5 rounded-[42px]">
                     <div className="mb-4.5 rounded-[32px] w-full h-[190px]">
                       <Image
-                        src={location?.images[0] || location?.icon}
+                        src={
+                          location?.images?.[0] ||
+                          location?.icon ||
+                          location?.mainImage
+                        }
                         alt={location?.name}
                         width={800}
                         height={800}

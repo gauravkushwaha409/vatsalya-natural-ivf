@@ -17,7 +17,7 @@ function timeAgo(dateString: string | Date): string {
 
 const Gallery = ({ data }: { data: IEventHeaderType }) => {
   return data?.events?.length > 0 ? (
-    <div className="bg-primary-50 u-padding-x h-fit  grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div className="gap-6 grid grid-cols-1 lg:grid-cols-3 bg-primary-50 pb-4 h-fit u-padding-x">
       {data?.events?.map((item, index) => (
         <ImageSection
           key={"gallery" + index}
@@ -26,6 +26,7 @@ const Gallery = ({ data }: { data: IEventHeaderType }) => {
           title={item?.title}
           date={item?.date}
           slug={item?.slug}
+          dataLength={data?.events?.length}
         />
       ))}
     </div>
@@ -40,32 +41,34 @@ const ImageSection = ({
   title,
   date,
   slug,
+  dataLength,
 }: {
   src: string;
   alt: string;
   title: string;
   date: string;
   slug: string;
+  dataLength: number;
 }) => {
   return (
-    <div className="relative w-full h-[248px] rounded-3xl overflow-hidden cursor-pointer">
-      <Image alt={alt} src={src} fill className="object-cover h-full w-full" />
+    <div className="relative rounded-3xl w-full h-[248px] overflow-hidden cursor-pointer">
+      <Image alt={alt} src={src} fill className="w-full h-full object-cover" />
 
-      <div className="w-full absolute bottom-0 p-3 text-white flex flex-col gap-y-2 bg-linear-to-t from-black to-transparent">
-        <span className="typo-mid-bd-md flex items-center gap-x-1">
+      <div className="bottom-0 absolute flex flex-col gap-y-2 bg-linear-to-t from-black to-transparent p-3 w-full text-white">
+        <span className="flex items-center gap-x-1 typo-mid-bd-md">
           <CallenderIcon /> {timeAgo(date)}
         </span>
-        <p className="typo-sub-h3-bold capitalize">{title}</p>
-        <div className="w-full flex items-center justify-between">
+        <p className="capitalize typo-sub-h3-bold">{title}</p>
+        <div className="flex justify-between items-center w-full">
           <Link
             href={PATHS.eventDetails.replace(":id", slug)}
             className="flex items-center gap-x-1"
           >
             View All <ArrowRight />
           </Link>
-          <span className="typo-sm-bd-reg flex items-center gap-x-1">
+          <span className="flex items-center gap-x-1 typo-sm-bd-reg">
             <PhotoIcon />
-            254
+            {dataLength}
           </span>
         </div>
       </div>
@@ -172,14 +175,14 @@ const CallenderIcon = () => {
 
 const NoEvents = () => {
   return (
-    <div className="flex flex-col items-center justify-center mt-16 p-6 bg-white rounded-2xl shadow-md w-full max-w-md mx-auto">
-      <div className="p-4 bg-[#ffe6e6] rounded-full mb-4">
-        <CalendarX className="text-[#ff4d4f] w-12 h-12" />
+    <div className="flex flex-col justify-center items-center bg-white shadow-md mx-auto mt-16 p-6 rounded-2xl w-full max-w-md">
+      <div className="bg-[#ffe6e6] mb-4 p-4 rounded-full">
+        <CalendarX className="w-12 h-12 text-[#ff4d4f]" />
       </div>
-      <h2 className="text-xl font-semibold text-gray-800 mb-2">
+      <h2 className="mb-2 font-semibold text-gray-800 text-xl">
         No Events Here
       </h2>
-      <p className="text-gray-500 text-center mb-4">
+      <p className="mb-4 text-gray-500 text-center">
         You currently have no events scheduled. Check back later or create a new
         event to get started.
       </p>
