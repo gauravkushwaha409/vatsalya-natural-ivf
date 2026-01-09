@@ -2,7 +2,7 @@
 import { cn } from "@/utils/cn";
 import { Download } from "lucide-react";
 import Image from "next/image";
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { IEventDetailsType } from "../../interface/event.interface";
 import { downloadFile } from "@/utils/download";
@@ -151,6 +151,7 @@ export const VideoSection = ({
   eventName,
   eventDate,
 }: VideoSectionProps) => {
+  console.log(src, "Source");
   const [isHover, setIsHover] = useState(false);
   // Container animation
   const containerVariants = {
@@ -207,7 +208,7 @@ export const VideoSection = ({
       <div className="relative h-full min-h-[300px]">
         <video
           className="w-full h-full object-cover"
-          src={"/video.mp4"}
+          src={encodeURI(src)}
           muted
           autoPlay
           loop

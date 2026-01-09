@@ -26,12 +26,13 @@ const Gallery = ({ data }: { data: IEventHeaderType }) => {
           title={item?.title}
           date={item?.date}
           slug={item?.slug}
-          dataLength={data?.events?.length}
         />
       ))}
     </div>
   ) : (
-    <NoEvents />
+    <div className="py-8">
+      <NoEvents />
+    </div>
   );
 };
 
@@ -41,14 +42,12 @@ const ImageSection = ({
   title,
   date,
   slug,
-  dataLength,
 }: {
   src: string;
   alt: string;
   title: string;
   date: string;
   slug: string;
-  dataLength: number;
 }) => {
   return (
     <div className="relative rounded-3xl w-full h-[248px] overflow-hidden cursor-pointer">
@@ -66,10 +65,6 @@ const ImageSection = ({
           >
             View All <ArrowRight />
           </Link>
-          <span className="flex items-center gap-x-1 typo-sm-bd-reg">
-            <PhotoIcon />
-            {dataLength}
-          </span>
         </div>
       </div>
     </div>
@@ -175,7 +170,7 @@ const CallenderIcon = () => {
 
 const NoEvents = () => {
   return (
-    <div className="flex flex-col justify-center items-center bg-white shadow-md mx-auto mt-16 p-6 rounded-2xl w-full max-w-md">
+    <div className="flex flex-col justify-center items-center bg-white shadow-md mx-auto p-6 rounded-2xl w-full max-w-md">
       <div className="bg-[#ffe6e6] mb-4 p-4 rounded-full">
         <CalendarX className="w-12 h-12 text-[#ff4d4f]" />
       </div>
