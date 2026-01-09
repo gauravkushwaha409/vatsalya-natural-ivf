@@ -151,7 +151,6 @@ export const VideoSection = ({
   eventName,
   eventDate,
 }: VideoSectionProps) => {
-  console.log(src, "Source");
   const [isHover, setIsHover] = useState(false);
   // Container animation
   const containerVariants = {

@@ -39,10 +39,11 @@ const HomePage = async ({
       testimonialData,
       locationData,
     } = await getHomePageData({ center: centerParams });
+    console.log(homedata?.data?.Faq, "homedata");
     return (
       <>
         <JsonLD />
-        <div className="w-full ">
+        <div className="w-full">
           <HomeHero data={homedata?.data} />
           <Showcase data={showcaseData?.data} />
           <HowWeWork data={howWeWorkData?.data} />

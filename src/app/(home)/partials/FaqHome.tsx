@@ -4,7 +4,7 @@ import Image from "next/image";
 import Faq from "../../../components/Faqs";
 import pic1 from "./../../../assests/contact/pic3.png";
 import pic2 from "./../../../assests/contact/pic4.png";
-import { IHomeFaq } from "../interface/home.interface";
+import { IFAQCategory, IHomeFaq } from "../interface/home.interface";
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
 import React, { useState } from "react";
 
@@ -19,8 +19,8 @@ const FaqHome: React.FC<HomeFaqProps> = ({ data }) => {
 
   return (
     <section>
-      <div className="flex gap-10 px-5 pb-6 md:px-20 sm:pb-10">
-        <div className="items-start justify-start hidden w-full md:flex md:w-1/2">
+      <div className="flex gap-10 px-5 md:px-20 pb-6 sm:pb-10">
+        <div className="hidden md:flex justify-start items-start w-full md:w-1/2">
           <div className="relative rounded-lg w-10/12 aspect-[16/16]">
             <Image
               src={pic1}
@@ -30,7 +30,7 @@ const FaqHome: React.FC<HomeFaqProps> = ({ data }) => {
               className="w-full h-full"
             />
             <div className="-right-10 -bottom-10 absolute bg-white pt-[0.1rem] pl-[0.1rem] rounded-t-none rounded-l-3xl w-[50%] aspect-[271/252]">
-              <div className="flex flex-col items-center justify-center w-full h-full rounded-xl">
+              <div className="flex flex-col justify-center items-center rounded-xl w-full h-full">
                 <Image
                   src={pic2}
                   alt="approval"
@@ -44,10 +44,10 @@ const FaqHome: React.FC<HomeFaqProps> = ({ data }) => {
         </div>
         <div className="w-full md:w-1/2">
           <div className="flex items-center gap-3 py-5">
-            <span className="font-bold tracking-widest uppercase text-primary-500 typography-paragraph-regular">
+            <span className="font-bold text-primary-500 uppercase tracking-widest typography-paragraph-regular">
               FAQs
             </span>
-            <div className="border border-t border-primary-400 w-21"></div>
+            <div className="border border-primary-400 border-t w-21"></div>
           </div>
           <h2 className="pb-4 font-semibold typography-h2">
             Answers to Your Fertility Questions
@@ -58,7 +58,7 @@ const FaqHome: React.FC<HomeFaqProps> = ({ data }) => {
       <button
         type="button"
         onClick={() => handleAppointmentClick()}
-        className="flex items-center gap-3 px-8 py-4 mx-auto font-extrabold text-white border rounded-full cursor-pointer bg-secondary-500 border-secondary-200 typography-paragraph-regular my-14"
+        className="flex items-center gap-3 bg-secondary-500 mx-auto my-14 px-8 py-4 border border-secondary-200 rounded-full font-extrabold text-white cursor-pointer typography-paragraph-regular"
       >
         Book your Appointment
       </button>
@@ -71,63 +71,75 @@ const FaqHome: React.FC<HomeFaqProps> = ({ data }) => {
 };
 
 const FaqWrapper = ({ data }: { data: IHomeFaq[] }) => {
-  const [selectedFaq, setSelectedFaq] = useState<string | null>(null);
+  const [selectedFaq, setSelectedFaq] = useState<string>("All"); // store category id or "All"
+
   return (
-    <React.Fragment>
+    <>
       <FaqCategory
+        data={data}
         selectedFaq={selectedFaq}
         setSelectedFaq={setSelectedFaq}
-        data={data}
       />
       <Faq
         faq={
           selectedFaq === "All"
             ? data
-            : data?.filter((item) => item.category === selectedFaq)
+            : data.filter((item) => item.category?.id === selectedFaq)
         }
       />
-    </React.Fragment>
+    </>
   );
 };
 
+// FaqCategory
 const FaqCategory = ({
   data,
   selectedFaq,
   setSelectedFaq,
 }: {
   data: IHomeFaq[];
-  selectedFaq: string | null;
-  setSelectedFaq: React.Dispatch<React.SetStateAction<string | null>>;
+  selectedFaq: string;
+  setSelectedFaq: React.Dispatch<React.SetStateAction<string>>;
 }) => {
-  const category: string[] = Array.from(
-    new Set(
-      data
-        ?.map((item) => item?.category)
-        .filter((category): category is string => Boolean(category))
-    )
+  const categories: IFAQCategory[] = Object.values(
+    data
+      .map((item) => item.category)
+      .filter((cat): cat is IFAQCategory => !!cat)
+      .reduce((acc, cat) => {
+        if (!acc[cat.id] || (cat.name && !acc[cat.id].name)) {
+          acc[cat.id] = cat;
+        }
+        return acc;
+      }, {} as Record<string, IFAQCategory>)
   );
-
+  console.log(categories, "Categories");
   return (
     <div
-      style={{
-        scrollbarWidth: "none",
-      }}
-      className="px-3 py-2 flex items-center gap-x-6 overflow-x-auto"
+      className="flex items-center gap-x-6 px-3 py-2 overflow-x-auto"
+      style={{ scrollbarWidth: "none" }}
     >
-      {category?.map((item, index) => (
+      <button
+        onClick={() => setSelectedFaq("All")}
+        className={`typo-mid-bd-semi-bold rounded-3xl px-4 py-1.5 min-w-fit ${
+          selectedFaq === "All"
+            ? "bg-primary-500 text-white"
+            : "text-[#A03879] border border-[#A03879]"
+        }`}
+      >
+        All
+      </button>
+
+      {categories.map((cat) => (
         <button
-          key={item + index}
-          onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-            e.preventDefault();
-            setSelectedFaq(item);
-          }}
+          key={cat.id}
+          onClick={() => setSelectedFaq(cat.id)}
           className={`typo-mid-bd-semi-bold rounded-3xl px-4 py-1.5 min-w-fit ${
-            selectedFaq === item
+            selectedFaq === cat.id
               ? "bg-primary-500 text-white"
               : "text-[#A03879] border border-[#A03879]"
           }`}
         >
-          {item}
+          {cat.name}
         </button>
       ))}
     </div>

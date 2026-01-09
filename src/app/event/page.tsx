@@ -1,4 +1,3 @@
-import React from "react";
 import HeroSection from "./partials/HeroSection";
 import Gallery from "./partials/Gallery";
 // import { getData } from "@/api/axios";
@@ -29,7 +28,6 @@ const page = async ({
   const filter = (await searchParams).filter;
   try {
     const { eventHeaderData } = await getEventPageData(search, filter);
-    console.log(eventHeaderData, "Events");
     return (
       <>
         <JsonLD />

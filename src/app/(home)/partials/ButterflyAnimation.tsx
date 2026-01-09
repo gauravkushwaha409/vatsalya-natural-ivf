@@ -31,7 +31,7 @@ export function generateAnimationPoints(
   return points;
 }
 
-const ButterflyAnimation = () => {
+const Butterfly = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [scope, animate] = useAnimate();
 
@@ -48,13 +48,23 @@ const ButterflyAnimation = () => {
       const animateButterfly = async () => {
         animate(
           scope.current!,
-          { x: initialX, y: initialY, rotate: initialRotate, opacity: 1 },
+          {
+            x: initialX,
+            y: initialY,
+            rotate: initialRotate,
+            opacity: 1,
+          },
           { duration: 0 }
         );
 
-        const keyFrames: KeyframePoint[] = [
+        const points = generateAnimationPoints(
           { x: initialX, y: initialY, rotate: initialRotate },
           { x: -10, y: 180, rotate: 90 },
+          10
+        );
+
+        const animations = [
+          ...points,
           { x: 0, y: 180, rotate: 90 },
           { x: 10, y: 180, rotate: 90 },
           { x: 20, y: 170, rotate: 80 },
@@ -76,37 +86,12 @@ const ButterflyAnimation = () => {
           { x: 20, y: 10, rotate: -44 },
           { x: 10, y: 0, rotate: -45 },
           { x: 0, y: 0, rotate: -45 },
-          { x: -10, y: -10, rotate: -45 },
-          { x: -20, y: -20, rotate: -45 },
-          { x: -30, y: -30, rotate: -45 },
-          { x: -40, y: -40, rotate: -45 },
-          { x: -50, y: -50, rotate: -45 },
-          { x: -60, y: -60, rotate: -45 },
-          { x: -70, y: -70, rotate: -45 },
-          { x: -80, y: -80, rotate: -45 },
-          { x: -90, y: -90, rotate: -45 },
-          { x: -80, y: -95, rotate: 20 },
-          { x: -80, y: -100, rotate: 20 },
-          { x: -80, y: -105, rotate: 20 },
-          { x: -80, y: -110, rotate: 20 },
         ];
-
-        const smoothAnimations: KeyframePoint[] = [];
-
-        for (let i = 0; i < keyFrames.length - 1; i++) {
-          const segmentPoints = generateAnimationPoints(
-            keyFrames[i],
-            keyFrames[i + 1],
-            8
-          );
-          smoothAnimations.push(...segmentPoints.slice(0, -1));
-        }
-        smoothAnimations.push(keyFrames[keyFrames.length - 1]);
 
         (scope.current as HTMLDivElement).style.willChange = "transform";
 
-        for (let i = 0; i < smoothAnimations.length; i++) {
-          await animate(scope.current!, smoothAnimations[i], {
+        for (let i = 0; i < animations.length; i++) {
+          await animate(scope.current!, animations[i], {
             duration: 0.02,
             ease: "linear",
           });
@@ -135,4 +120,4 @@ const ButterflyAnimation = () => {
     </div>
   );
 };
-export default ButterflyAnimation;
+export default Butterfly;
