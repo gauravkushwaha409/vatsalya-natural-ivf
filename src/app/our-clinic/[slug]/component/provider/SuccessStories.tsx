@@ -174,7 +174,10 @@ const Heading = ({ center }: { center: string }) => {
 const StoriesCard = ({ author, description, title }: ISuccessStories) => {
   return (
     <div className="space-y-8 p-8 border border-primary-400 rounded-[28px] w-full">
-      <p className="text-[#364153] typo-xl-bd-reg">{description}</p>
+      <p
+        className="text-[#364153] typo-xl-bd-reg"
+        dangerouslySetInnerHTML={{ __html: description }}
+      />
       <div className="flex justify-between items-center">
         <span className="text-[#101828] typo-lg-bd-reg">{author}</span>
         <span className="text-[#4A5565] typo-sm-bd-reg">{title}</span>
