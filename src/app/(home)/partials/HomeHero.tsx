@@ -1,7 +1,7 @@
 "use client";
 
 import RequestAppoimentModal from "@/components/modals/RequestAppoimentModal";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { IHomeData } from "../interface/home.interface";
 import ButterflyAnimation from "./ButterflyAnimation";
 
@@ -14,6 +14,7 @@ const HomeHero: React.FC<HomeProps> = ({ data }) => {
   const handleAppointmentClick = () => {
     setOpenModal(true);
   };
+  const textContentRef = useRef<HTMLDivElement>(null);
   return (
     <>
       <div className="relative flex lg:flex-row flex-col items-center lg:h-[660px] min-h-[500px] md:min-h-[600px] overflow-hidden">
@@ -37,10 +38,6 @@ const HomeHero: React.FC<HomeProps> = ({ data }) => {
 
         {/* Bottom Overlay Gradient */}
         <GradientOverlay position="bottom" />
-
-        <div className="z-30 relative pointer-events-none">
-          <ButterflyAnimation />
-        </div>
       </div>
 
       <RequestAppoimentModal
@@ -73,7 +70,7 @@ const TextContent = ({
   description: string;
 }) => {
   return (
-    <div className="z-30 relative order-2 lg:order-none px-4 pt-8 md:pt-12 lg:pt-0 lg:w-[45%] u-padding-l shrink-0">
+    <div className="z-30 relative order-2 lg:order-none px-4 pt-8 md:pt-12 lg:pt-0 lg:w-[45%] realtive u-padding-l shrink-0">
       <h1 className="mb-4 w-full max-w-xl font-extrabold text-[#A0377B] lg:text-[44px] xl:text-[52px] text-2xl md:text-3xl leading-snug md:leading-tight lg:leading-[114.999%] /">
         {title}
       </h1>
@@ -86,7 +83,9 @@ const TextContent = ({
           }}
         />
       )}
-
+      <div className="top-8 right-24 md:right-8 absolute -translate-y-1/2 md:translate-x-1/2">
+        <ButterflyAnimation />
+      </div>
       {/* Book Appointment Button */}
       <BookAppointment handleAppointmentClick={handleAppointmentClick} />
     </div>

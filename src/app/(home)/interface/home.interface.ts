@@ -28,7 +28,7 @@ export interface IHomeFaq {
   question: string;
   answer?: string;
   home: string;
-  category: string;
+  category: IFAQCategory;
   created_date: string;
   updated_date: string;
 }
@@ -72,4 +72,9 @@ export interface IHomeSeo {
   ogTitle: string;
   ogDescription: string;
   canonicalUrl: string;
+}
+
+export interface IFAQCategory {
+  id: string;
+  name: string;
 }

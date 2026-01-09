@@ -21,7 +21,7 @@ export const getHomePageData = async ({ center }: IProps) => {
   const homeGalleryData = await safeFetch(endpoints.homeGallery);
   const footerData = await safeFetch(endpoints.setting);
   const locationData = await safeFetch(endpoints.center);
-
+  console.log(homedata, "Home Data");
   return {
     homedata,
     whatweOfferData,

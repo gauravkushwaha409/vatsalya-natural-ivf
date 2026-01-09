@@ -42,7 +42,6 @@ const ClinicDetailPage: React.FC<Props> = async ({ params }) => {
       endpoints.center + `/get/${slugs}`
     );
     const { data: service } = await getData(endpoints.service);
-    console.log(clinicDetails, "Clinic Details");
     return (
       <section>
         <HeroSection

@@ -34,17 +34,16 @@ const NoticePage: React.FC<NoticePageProps> = async ({ params }) => {
     const { slug } = await params;
     const response = await getData<INoticeRoot>(`/notice/slug/${slug}`);
     const notice = response?.data;
-    console.log(notice);
 
     if (!notice) {
       return <div className="p-6">Notice not found</div>;
     }
 
     return (
-      <div className="px-6 md:px-16 mt-10">
+      <div className="mt-10 px-6 md:px-16">
         <HeroSection />
         <div
-          className="mb-2 mt-4"
+          className="mt-4 mb-2"
           dangerouslySetInnerHTML={{ __html: notice?.description }}
         />
         {notice.heroImage && (
@@ -53,7 +52,7 @@ const NoticePage: React.FC<NoticePageProps> = async ({ params }) => {
             alt={notice?.title}
             width={800}
             height={400}
-            className="mb-6 w-full rounded-lg"
+            className="mb-6 rounded-lg w-full"
           />
         )}
       </div>

@@ -1,7 +1,6 @@
 import PATHS from "@/utils/path";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import { IEventHeaderType } from "../interface/event.interface";
 import { CalendarX } from "lucide-react";
 
@@ -68,37 +67,6 @@ const ImageSection = ({
         </div>
       </div>
     </div>
-  );
-};
-
-const PhotoIcon = () => {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 14 14"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M11.0833 1.75H2.91667C2.27233 1.75 1.75 2.27233 1.75 2.91667V11.0833C1.75 11.7277 2.27233 12.25 2.91667 12.25H11.0833C11.7277 12.25 12.25 11.7277 12.25 11.0833V2.91667C12.25 2.27233 11.7277 1.75 11.0833 1.75Z"
-        stroke="white"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M4.95801 5.83337C5.44126 5.83337 5.83301 5.44162 5.83301 4.95837C5.83301 4.47512 5.44126 4.08337 4.95801 4.08337C4.47476 4.08337 4.08301 4.47512 4.08301 4.95837C4.08301 5.44162 4.47476 5.83337 4.95801 5.83337Z"
-        stroke="white"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M12.2503 8.75004L9.33366 5.83337L2.91699 12.25"
-        stroke="white"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 };
 
